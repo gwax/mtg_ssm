@@ -1,0 +1,32 @@
+[REPORTS]
+# Set the output format. Available formats are text, parseable, colorized, msvs
+# (visual studio) and html. You can also give a reporter class, eg
+# mypackage.mymodule.MyReporterClass.
+output-format=colorized
+
+# Tells whether to display a full report or only the messages
+reports=no
+
+[BASIC]
+# Minimum line length for functions/classes that require docstrings, shorter
+# ones are exempt.
+docstring-min-length=6
+
+# Include a hint for the correct naming format with invalid-name
+include-naming-hint=yes
+
+# Regular expression matching correct method names
+method-rgx=[a-z_][a-z0-9_]{2,30}$|assert[A-Z][a-zA-Z0-9]{2,30}$|test_[a-z_][a-z0-9_]{2,50}$
+
+[FORMAT]
+# Expected format of line ending, e.g. empty (any line ending), LF or CRLF.
+expected-line-ending-format=LF
+
+[VARIABLES]
+# A regular expression matching the name of dummy variables (i.e. expectedly
+# not used).
+dummy-variables-rgx=_|_.*|unused|unused_.*
+
+[DESIGN]
+# Argument names that match this expression will be ignored.
+ignored-argument-names=_|_.*|unused|unused_.*
