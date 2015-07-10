@@ -67,6 +67,11 @@ class Card(Base):
     printings = sqlo.relationship('CardPrinting')
 
 
+class Artist(Tag):
+    """Model for card printing artists."""
+    __tablename__ = 'artists'
+
+
 class CardPrinting(Base):
     """Model for card printing, relating a card to a set."""
     __tablename__ = 'card_printings'
@@ -75,10 +80,16 @@ class CardPrinting(Base):
     _card_id = sqla.Column(
         'card_id', sqla.Integer, sqla.ForeignKey('cards.id'))
     _set_id = sqla.Column('set_id', sqla.Integer, sqla.ForeignKey('sets.id'))
+    _artist_id = sqla.Column(
+        'artist_id', sqla.Integer, sqla.ForeignKey('artists.id'))
+
+    number = sqla.Column(sqla.Unicode(15))
+    multiverse_id = sqla.Column(sqla.Integer)
 
     # Relationships
     card = sqlo.relationship('Card')
     set = sqlo.relationship('CardSet')
+    artist = sqlo.relationship('Artist')
 
 
 class CardBlock(Tag):
@@ -96,7 +107,7 @@ class CardSet(Base):
 
     code = sqla.Column(sqla.Unicode(15), unique=True, nullable=False)
     name = sqla.Column(sqla.Unicode(255), unique=True, nullable=False)
-    release = sqla.Column(sqla.Date)
+    release_date = sqla.Column(sqla.Date)
     type = sqla.Column(sqla.Unicode(255))
     online_only = sqla.Column(sqla.Boolean, default=False)
 
