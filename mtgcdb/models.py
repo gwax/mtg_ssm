@@ -9,25 +9,11 @@ class Base(sqld.declarative_base()):
     __abstract__ = True
 
 
-class Tag(Base):
-    """Abstract class for tag-like data objects."""
-    __abstract__ = True
-
-    id = sqla.Column(sqla.Integer, primary_key=True)
-    name = sqla.Column(sqla.Unicode(255), unique=True, nullable=False)
-
-    @classmethod
-    def find_or_create(cls, session, name):
-        tag = session.query(cls).filter_by(name=name).first()
-        if tag is None:
-            tag = cls(name=name)
-            session.add(tag)
-        return tag
-
-
-class CardType(Tag):
+class CardType(Base):
     """Model for card types."""
     __tablename__ = 'card_types'
+    id = sqla.Column(sqla.Integer, primary_key=True)
+    name = sqla.Column(sqla.Unicode(255), unique=True, nullable=False)
 
 
 CARD_TYPE_ASSOCIATION = sqla.Table(
@@ -38,9 +24,11 @@ CARD_TYPE_ASSOCIATION = sqla.Table(
                 primary_key=True))
 
 
-class CardSupertype(Tag):
+class CardSupertype(Base):
     """Model for card super types."""
     __tablename__ = 'card_supertypes'
+    id = sqla.Column(sqla.Integer, primary_key=True)
+    name = sqla.Column(sqla.Unicode(255), unique=True, nullable=False)
 
 
 CARD_SUPERTYPE_ASSOCIATION = sqla.Table(
@@ -56,7 +44,6 @@ class Card(Base):
     __tablename__ = 'cards'
 
     id = sqla.Column(sqla.Integer, primary_key=True)
-
     name = sqla.Column(sqla.Unicode(255), unique=True, nullable=False)
 
     # Relationships
@@ -67,9 +54,11 @@ class Card(Base):
     printings = sqlo.relationship('CardPrinting')
 
 
-class Artist(Tag):
+class Artist(Base):
     """Model for card printing artists."""
     __tablename__ = 'artists'
+    id = sqla.Column(sqla.Integer, primary_key=True)
+    name = sqla.Column(sqla.Unicode(255), unique=True, nullable=False)
 
 
 class CardPrinting(Base):
@@ -83,8 +72,8 @@ class CardPrinting(Base):
     _artist_id = sqla.Column(
         'artist_id', sqla.Integer, sqla.ForeignKey('artists.id'))
 
-    number = sqla.Column(sqla.Unicode(15))
-    multiverse_id = sqla.Column(sqla.Integer)
+    set_number = sqla.Column(sqla.Unicode(15))
+    multiverseid = sqla.Column(sqla.Integer)
 
     # Relationships
     card = sqlo.relationship('Card')
@@ -92,9 +81,11 @@ class CardPrinting(Base):
     artist = sqlo.relationship('Artist')
 
 
-class CardBlock(Tag):
+class CardBlock(Base):
     """Model for a block of sets."""
     __tablename__ = 'blocks'
+    id = sqla.Column(sqla.Integer, primary_key=True)
+    name = sqla.Column(sqla.Unicode(255), unique=True, nullable=False)
 
 
 class CardSet(Base):
