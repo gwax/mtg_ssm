@@ -288,6 +288,40 @@
       }
     ]
   },
+  "S00": {
+    "name": "Starter 2000",
+    "code": "S00",
+    "gathererCode": "P4",
+    "magicCardsInfoCode": "st2k",
+    "releaseDate": "2000-04-01",
+    "border": "white",
+    "type": "starter",
+    "cards": [
+      {
+        "layout": "normal",
+        "type": "Creature — Rhino Beast",
+        "types": [
+          "Creature"
+        ],
+        "colors": [
+          "Green"
+        ],
+        "name": "Rhox",
+        "subtypes": [
+          "Rhino",
+          "Beast"
+        ],
+        "cmc": 6,
+        "rarity": "Rare",
+        "artist": "Mark Zug",
+        "power": "5",
+        "toughness": "5",
+        "manaCost": "{4}{G}{G}",
+        "text": "You may have Rhox assign its combat damage as though it weren't blocked.\n{2}{G}: Regenerate Rhox. (The next time this creature would be destroyed this turn, it isn't. Instead tap it, remove all damage from it, and remove it from combat.)",
+        "imageName": "rhox"
+      }
+    ]
+  },
   "pMGD": {
     "name": "Magic Game Day",
     "code": "pMGD",

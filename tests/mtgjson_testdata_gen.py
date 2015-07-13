@@ -12,6 +12,7 @@ TARGET_MTGJSON_FILE = os.path.join(
 
 INCLUDED = {
     'LEA': {'Air Elemental', 'Forest'},
+    'S00': {'Rhox'},
     'ICE': {'Forest', 'Snow-Covered Forest'},
     'VMA': {'Academy Elite'},
     'pMGD': {'Black Sun\'s Zenith'},
