@@ -51,6 +51,9 @@ def update_set(session, set_data):
 def update_card(session, card_data):
     """Update a card from mtgjson data."""
     card = find_or_create(session, models.Card, name=card_data['name'])
+    card.types = set(
+        find_or_create(session, models.CardType, name=card_type)
+        for card_type in card_data.get('types', []))
     card.supertypes = set(
         find_or_create(session, models.CardSupertype, name=card_supertype)
         for card_supertype in card_data.get('supertypes', []))

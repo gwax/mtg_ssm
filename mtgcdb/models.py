@@ -9,6 +9,21 @@ class Base(sqld.declarative_base()):
     __abstract__ = True
 
 
+class CardType(Base):
+    """Model for card types."""
+    __tablename__ = 'card_types'
+    id = sqla.Column(sqla.Integer, primary_key=True)
+    name = sqla.Column(sqla.Unicode(255), unique=True, nullable=False)
+
+
+CARD_TYPE_ASSOCIATION = sqla.Table(
+    'cards_card_types', Base.metadata,
+    sqla.Column('card_id', sqla.Integer, sqla.ForeignKey('cards.id'),
+                primary_key=True),
+    sqla.Column('card_type_id', sqla.Integer, sqla.ForeignKey('card_types.id'),
+                primary_key=True))
+
+
 class CardSupertype(Base):
     """Model for card super types."""
     __tablename__ = 'card_supertypes'
@@ -32,6 +47,8 @@ class Card(Base):
     name = sqla.Column(sqla.Unicode(255), unique=True, nullable=False)
 
     # Relationships
+    types = sqlo.relationship(
+        'CardType', secondary='cards_card_types', collection_class=set)
     supertypes = sqlo.relationship(
         'CardSupertype', secondary='card_card_supertypes', collection_class=set)
     printings = sqlo.relationship('CardPrinting')
