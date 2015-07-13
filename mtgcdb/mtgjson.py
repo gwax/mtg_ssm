@@ -25,7 +25,6 @@ def update_models(session, mtg_data):
         card_set = update_set(session, set_data)
         for card_data in set_data['cards']:
             card = update_card(session, card_data)
-            session.flush()  # Ensure that card and card_set have ids
             update_printing(session, card_data, card, card_set)
 
 
