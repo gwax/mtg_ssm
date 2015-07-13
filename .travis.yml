@@ -18,5 +18,5 @@ before_install:
 
 script:
   - py.test tests/
-  - pylint --rcfile=pylintrc mtgspreadsheet/
+  - pylint --rcfile=pylintrc mtgcdb/
   - pylint --rcfile=pylintrc --errors-only tests/
