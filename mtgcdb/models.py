@@ -88,7 +88,7 @@ class CollectionCount(Base):
 
     print_id = sqla.Column(sqla.ForeignKey('printings.id'), primary_key=True)
     type = sqla.Column(util.SqlEnumType(CountTypes), primary_key=True)
-    count = sqla.Column(sqla.Integer, nullable=True)
+    count = sqla.Column(sqla.Integer, nullable=False)
 
     @property
     def key(self):

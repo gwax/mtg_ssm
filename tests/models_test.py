@@ -1,6 +1,7 @@
 """Tests for mtgcdb.models"""
 
 import sqlalchemy as sqla
+import sqlalchemy.exc as sqlx
 
 from mtgcdb import models
 
@@ -59,6 +60,8 @@ class MtgjsonTest(sqlite_testcase.SqliteTestCase):
         # Verify
         self.assertEqual(5, printing._counts['copies'].count)
         self.assertEqual(5, printing.counts['copies'])
+        with self.assertRaises(KeyError):
+            _ = printing.counts['foils']
 
     def test_counts_write(self):
         # Setup
@@ -67,18 +70,24 @@ class MtgjsonTest(sqlite_testcase.SqliteTestCase):
         printing = models.CardPrinting(
             id=1, card_id=1, set_id=1, set_number='123abc', multiverseid=27,
             artist='Quux')
+        count = models.CollectionCount(
+            print_id=1, type=models.CountTypes.copies, count=5)
         self.session.add_all([card_set, card, printing])
         self.session.commit()
 
         # Execute
+        printing.counts['copies'] = 2
         printing.counts['foils'] = 7
         self.session.commit()
 
         # Verify
-        [count] = self.session.query(models.CollectionCount).all()
-        self.assertEqual(1, count.print_id)
-        self.assertEqual(models.CountTypes.foils, count.type)
-        self.assertEqual(7, count.count)
+        counts = self.session.query(models.CollectionCount).all()
+        print_type_count = [(c.print_id, c.type, c.count) for c in counts]
+        expected = [
+            (1, models.CountTypes.copies, 2),
+            (1, models.CountTypes.foils, 7),
+        ]
+        self.assertCountEqual(expected, print_type_count)
 
     def test_invalid_counts_key(self):
         # Setup
@@ -93,3 +102,39 @@ class MtgjsonTest(sqlite_testcase.SqliteTestCase):
         # Execute
         with self.assertRaises(ValueError):
             printing.counts['invalid'] = 12
+
+    def test_invalid_counts_value(self):
+        # Setup
+        card_set = models.CardSet(id=1, code='F', name='Foo')
+        card = models.Card(id=1, name='Bar')
+        printing = models.CardPrinting(
+            id=1, card_id=1, set_id=1, set_number='123abc', multiverseid=27,
+            artist='Quux')
+        self.session.add_all([card_set, card, printing])
+        self.session.commit()
+
+        # Execute
+        with self.assertRaises(sqlx.IntegrityError):
+            printing.counts['copies'] = None
+            self.session.commit()
+        self.session.rollback()
+
+    def test_counts_delete(self):
+        # Setup
+        card_set = models.CardSet(id=1, code='F', name='Foo')
+        card = models.Card(id=1, name='Bar')
+        printing = models.CardPrinting(
+            id=1, card_id=1, set_id=1, set_number='123abc', multiverseid=27,
+            artist='Quux')
+        count = models.CollectionCount(
+            print_id=1, type=models.CountTypes.copies, count=5)
+        self.session.add_all([card_set, card, printing, count])
+        self.session.commit()
+
+        # Execute
+        del printing.counts['copies']
+
+        # Verify
+        with self.assertRaises(KeyError):
+            _ = printing.counts['copies']
+        self.session.rollback()
