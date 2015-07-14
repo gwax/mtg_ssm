@@ -31,6 +31,9 @@ method-rgx=([a-z_][a-z0-9_]{2,30}|test_[a-z_][a-z0-9_]{2,50})$
 class-attribute-rgx=([A-Za-z_][A-Za-z0-9_]{2,30}|(__.*__)|id)$
 
 [FORMAT]
+# Maximum number of characters on a single line.
+max-line-length=80
+
 # Expected format of line ending, e.g. empty (any line ending), LF or CRLF.
 expected-line-ending-format=LF
 
