@@ -1,5 +1,7 @@
 """SQLAlchemy models for managing data."""
 
+import string
+
 import sqlalchemy as sqla
 import sqlalchemy.ext.declarative as sqld
 import sqlalchemy.orm as sqlo
@@ -22,6 +24,13 @@ class Card(Base):
 
     artist = sqla.Column(sqla.Unicode(255), nullable=False)
 
+    # Properties
+    set_integer = sqlo.column_property(sqla.cast(
+        sqla.func.trim(set_number, string.ascii_lowercase),
+        sqla.Integer))
+    set_variant = sqlo.column_property(
+        sqla.func.trim(set_number, string.digits))
+
     # Relationships
     set = sqlo.relationship('CardSet')
 
@@ -38,4 +47,5 @@ class CardSet(Base):
     online_only = sqla.Column(sqla.Boolean, default=False)
 
     # Relationships
-    cards = sqlo.relationship('Card')  # TODO(george): order_by
+    cards = sqlo.relationship('Card', order_by=(
+        Card.set_integer, Card.set_variant, Card.multiverseid, Card.name))

@@ -106,6 +106,36 @@ class MtgjsonTest(
         self.assertEqual(222911, card.multiverseid)
         self.assertEqual('Volkan Baga', card.artist)
 
+    def test_card_properties(self):
+        # Setup
+        set_data = self.mtg_data['ISD']
+        card_data = set_data['cards'][1]
+        mtgjson.update_set(self.session, set_data)
+        mtgjson.update_card(self.session, card_data, 'ISD')
+        self.session.commit()
+
+        # Verify
+        [card] = self.session.query(models.Card).all()
+        self.assertEqual('Delver of Secrets', card.name)
+        self.assertEqual('51a', card.set_number)
+        self.assertEqual(51, card.set_integer)
+        self.assertEqual('a', card.set_variant)
+
+    def test_card_properties_null(self):
+        # Setup
+        set_data = self.mtg_data['S00']
+        card_data = set_data['cards'][0]
+        mtgjson.update_set(self.session, set_data)
+        mtgjson.update_card(self.session, card_data, 'S00')
+        self.session.commit()
+
+        # Verify
+        [card] = self.session.query(models.Card).all()
+        self.assertEqual('Rhox', card.name)
+        self.assertEqual(None, card.set_number)
+        self.assertEqual(None, card.set_integer)
+        self.assertEqual(None, card.set_variant)
+
     def test_update_models(self):
         # Execute
         mtgjson.update_models(self.session, self.mtg_data)
