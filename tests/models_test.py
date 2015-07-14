@@ -15,15 +15,31 @@ class MtgjsonTest(sqlite_testcase.SqliteTestCase):
         connection.close()
 
     def test_set_integer_variant(self):
-        card_set = models.CardSet(code='A', name='A')
-        self.session.add(card_set)
-        self.session.flush()
-        card = models.Card(
-            set_id=card_set.id, name='Foo', set_number='123abc', artist='Me')
-        self.session.add(card)
+        # Setup
+        card_set = models.CardSet(id=1, code='F', name='Foo')
+        card = models.Card(id=1, name='Bar')
+        printing = models.CardPrinting(
+            id=1, card_id=1, set_id=1, set_number='123abc', multiverseid=27,
+            artist='Quux')
+        self.session.add_all([card_set, card, printing])
         self.session.commit()
 
-        [card] = self.session.query(models.Card).all()
-        self.assertEqual('123abc', card.set_number)
-        self.assertEqual(123, card.set_integer)
-        self.assertEqual('abc', card.set_variant)
+        # Verify
+        self.assertEqual('123abc', printing.set_number)
+        self.assertEqual(123, printing.set_integer)
+        self.assertEqual('abc', printing.set_variant)
+
+    def test_set_integer_variant_null(self):
+        # Setup
+        card_set = models.CardSet(id=1, code='F', name='Foo')
+        card = models.Card(id=1, name='Bar')
+        printing = models.CardPrinting(
+            id=2, card_id=1, set_id=1, set_number=None, multiverseid=None,
+            artist='Mux')
+        self.session.add_all([card_set, card, printing])
+        self.session.commit()
+
+        # Verify
+        self.assertEqual(None, printing.set_number)
+        self.assertEqual(None, printing.set_integer)
+        self.assertEqual(None, printing.set_variant)

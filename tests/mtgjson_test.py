@@ -36,7 +36,7 @@ class MtgjsonTest(
         self.assertEqual('expansion', card_set.type)
         self.assertFalse(card_set.online_only)
         self.assertEqual('Innistrad', card_set.block)
-        self.assertEqual([], card_set.cards)
+        self.assertEqual([], card_set.printings)
 
     def test_update_set(self):
         # Setup
@@ -59,7 +59,7 @@ class MtgjsonTest(
         self.assertEqual('expansion', card_set.type)
         self.assertFalse(card_set.online_only)
         self.assertEqual('Innistrad', card_set.block)
-        self.assertEqual([], card_set.cards)
+        self.assertEqual([], card_set.printings)
 
     def test_online_only(self):
         # Execute
@@ -72,12 +72,10 @@ class MtgjsonTest(
 
     def test_create_card(self):
         # Setup
-        card_set = models.CardSet(id=2, code='ISD', name='Innistrad')
-        self.session.add(card_set)
         card_data = self.mtg_data['ISD']['cards'][0]
 
         # Execute
-        ret_card = mtgjson.update_card(self.session, card_data, 2)
+        ret_card = mtgjson.update_card(self.session, card_data)
         self.session.commit()
 
         # Verify
@@ -85,24 +83,16 @@ class MtgjsonTest(
         [card] = self.session.query(models.Card).all()
         self.assertIs(ret_card, card)
         self.assertEqual('Abattoir Ghoul', card.name)
-        self.assertEqual('ISD', card.set.code)
-        self.assertEqual('85', card.set_number)
-        self.assertEqual(222911, card.multiverseid)
-        self.assertEqual('Volkan Baga', card.artist)
 
     def test_update_card(self):
         # Setup
-        card_set = models.CardSet(id=2, code='ISD', name='Innistrad')
-        setup_card = models.Card(
-            id=12, name='Abattoir Ghoul', set_id=2, set_number='85',
-            multiverseid=222911, artist='Hokum')
-        self.session.add(card_set)
+        setup_card = models.Card(id=12, name='Abattoir Ghoul')
         self.session.add(setup_card)
         self.session.commit()
         card_data = self.mtg_data['ISD']['cards'][0]
 
         # Execute
-        mtgjson.update_card(self.session, card_data, 2)
+        mtgjson.update_card(self.session, card_data)
         self.session.commit()
 
         # Verify
@@ -110,42 +100,55 @@ class MtgjsonTest(
         self.assertIs(setup_card, card)
         self.assertEqual(12, card.id)
         self.assertEqual('Abattoir Ghoul', card.name)
-        self.assertEqual('ISD', card.set.code)
-        self.assertEqual('85', card.set_number)
-        self.assertEqual(222911, card.multiverseid)
-        self.assertEqual('Volkan Baga', card.artist)
 
-    def test_card_properties(self):
+    def test_create_printing(self):
         # Setup
         card_set = models.CardSet(id=2, code='ISD', name='Innistrad')
-        card = models.Card(
-            id=5, name='Delver of Secrets', set_id=2, set_number='51a',
-            multiverseid=226749, artist='Nils Hamm')
+        card = models.Card(id=5, name='Abattoir Ghoul')
         self.session.add(card_set)
         self.session.add(card)
+        card_data = self.mtg_data['ISD']['cards'][0]
+
+        # Execute
+        ret_printing = mtgjson.update_printing(self.session, card_data, 5, 2)
         self.session.commit()
 
         # Verify
-        self.assertEqual('Delver of Secrets', card.name)
-        self.assertEqual('51a', card.set_number)
-        self.assertEqual(51, card.set_integer)
-        self.assertEqual('a', card.set_variant)
+        self.assertIsNotNone(ret_printing.id)
+        [printing] = self.session.query(models.CardPrinting).all()
+        self.assertIs(ret_printing, printing)
+        self.assertEqual('Abattoir Ghoul', printing.card.name)
+        self.assertEqual('ISD', printing.set.code)
+        self.assertEqual('85', printing.set_number)
+        self.assertEqual(222911, printing.multiverseid)
+        self.assertEqual('Volkan Baga', printing.artist)
 
-    def test_card_properties_null(self):
+    def test_update_printing(self):
         # Setup
-        card_set = models.CardSet(id=4, code='S00', name='Starter 2000')
-        card = models.Card(
-            id=9, name='Rhox', set_id=4, set_number=None, multiverseid=None,
-            artist='Mark Zug')
+        card_set = models.CardSet(id=2, code='ISD', name='Innistrad')
+        card = models.Card(id=5, name='Abattoir Ghoul')
+        setup_printing = models.CardPrinting(
+            id=19, card_id=5, set_id=2, set_number='85', multiverseid=222911,
+            artist='Hokum')
         self.session.add(card_set)
         self.session.add(card)
+        self.session.add(setup_printing)
+        self.session.commit()
+        card_data = self.mtg_data['ISD']['cards'][0]
+
+        # Execute
+        mtgjson.update_printing(self.session, card_data, 5, 2)
         self.session.commit()
 
         # Verify
-        self.assertEqual('Rhox', card.name)
-        self.assertEqual(None, card.set_number)
-        self.assertEqual(None, card.set_integer)
-        self.assertEqual(None, card.set_variant)
+        [printing] = self.session.query(models.CardPrinting).all()
+        self.assertIs(setup_printing, printing)
+        self.assertEqual(19, printing.id)
+        self.assertEqual('Abattoir Ghoul', printing.card.name)
+        self.assertEqual('ISD', printing.set.code)
+        self.assertEqual('85', printing.set_number)
+        self.assertEqual(222911, printing.multiverseid)
+        self.assertEqual('Volkan Baga', printing.artist)
 
     def test_update_models(self):
         # Execute
@@ -153,10 +156,10 @@ class MtgjsonTest(
         self.session.commit()
 
         # Verify
-        cards = self.session.query(models.Card).all()
+        printings = self.session.query(models.CardPrinting).all()
         set_card_mv_number = [
-            (c.set.code, c.name, c.multiverseid, c.set_number)
-            for c in cards]
+            (p.set.code, p.card.name, p.multiverseid, p.set_number)
+            for p in printings]
         expected = [
             ('LEA', 'Air Elemental', 94, None),
             ('LEA', 'Forest', 288, None),

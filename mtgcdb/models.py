@@ -14,15 +14,22 @@ class Base(sqld.declarative_base()):
 class Card(Base):
     """Model for storing card information."""
     __tablename__ = 'cards'
+    id = sqla.Column(sqla.Integer, primary_key=True)
+    name = sqla.Column(sqla.Unicode(255), unique=True, nullable=False)
+
+
+class CardPrinting(Base):
+    """Model for storing information about card printings."""
+    __tablename__ = 'printings'
     __table_args__ = (
         sqla.UniqueConstraint(
-            'set_id', 'name', 'set_number', 'multiverseid',
-            name='uix_card_printing_info'),
+            'card_id', 'set_id', 'set_number', 'multiverseid',
+            name='uix_card_set_number_mvid'),
         {})
 
     id = sqla.Column(sqla.Integer, primary_key=True)
-    set_id = sqla.Column('set_id', sqla.ForeignKey('sets.id'))
-    name = sqla.Column(sqla.Unicode(255), nullable=False)
+    card_id = sqla.Column(sqla.ForeignKey('cards.id'))
+    set_id = sqla.Column(sqla.ForeignKey('sets.id'))
     set_number = sqla.Column(sqla.Unicode(15), nullable=True)
     multiverseid = sqla.Column(sqla.Integer, nullable=True)
 
@@ -37,6 +44,7 @@ class Card(Base):
         sqla.func.trim(set_number, string.digits))
 
     # Relationships
+    card = sqlo.relationship('Card')
     set = sqlo.relationship('CardSet')
 
 class CardSet(Base):
@@ -52,5 +60,6 @@ class CardSet(Base):
     online_only = sqla.Column(sqla.Boolean, default=False)
 
     # Relationships
-    cards = sqlo.relationship('Card', order_by=(
-        Card.set_integer, Card.set_variant, Card.multiverseid, Card.name))
+    printings = sqlo.relationship('CardPrinting', order_by=(
+        CardPrinting.set_integer, CardPrinting.set_variant,
+        CardPrinting.multiverseid, CardPrinting.card_id))

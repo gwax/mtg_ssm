@@ -13,12 +13,14 @@ def header():
     ]
 
 def get_rows(session):
-    query = session.query(models.CardSet).options(sqlo.joinedload('cards'))
-    query = query.order_by(models.CardSet.release_date)
-    card_sets = query.all()
+    card_sets = session.query(models.CardSet) \
+        .options(sqlo.subqueryload('printings').joinedload('card')) \
+        .order_by(models.CardSet.release_date) \
+        .all()
     for card_set in card_sets:
-        for card in card_set.cards:
+        for printing in card_set.printings:
             yield {
-                'set': card.set.code, 'name': card.name,
-                'number': card.set_number, 'multiverseid': card.multiverseid,
+                'set': card_set.code, 'name': printing.card.name,
+                'number': printing.set_number,
+                'multiverseid': printing.multiverseid,
             }
