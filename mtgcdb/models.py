@@ -1,10 +1,15 @@
 """SQLAlchemy models for managing data."""
 
+import enum
 import string
 
 import sqlalchemy as sqla
+import sqlalchemy.ext.associationproxy as sqlpxy
 import sqlalchemy.ext.declarative as sqld
 import sqlalchemy.orm as sqlo
+import sqlalchemy.orm.collections as sqlc
+
+from mtgcdb import util
 
 
 class Base(sqld.declarative_base()):
@@ -46,6 +51,13 @@ class CardPrinting(Base):
     # Relationships
     card = sqlo.relationship('Card')
     set = sqlo.relationship('CardSet')
+    _counts = sqlo.relationship(
+        'CollectionCount',
+        collection_class=sqlc.attribute_mapped_collection('key'))
+    counts = sqlpxy.association_proxy(
+        '_counts', 'count',
+        creator=lambda k, v: CollectionCount(type=CountTypes(k), count=v))
+
 
 class CardSet(Base):
     """Model for storing card set information."""
@@ -63,3 +75,21 @@ class CardSet(Base):
     printings = sqlo.relationship('CardPrinting', order_by=(
         CardPrinting.set_integer, CardPrinting.set_variant,
         CardPrinting.multiverseid, CardPrinting.card_id))
+
+
+class CountTypes(enum.Enum):
+    copies = 'copies'
+    foils = 'foils'
+
+
+class CollectionCount(Base):
+    """Model for storing information about collected printings."""
+    __tablename__ = 'collection_counts'
+
+    print_id = sqla.Column(sqla.ForeignKey('printings.id'), primary_key=True)
+    type = sqla.Column(util.SqlEnumType(CountTypes), primary_key=True)
+    count = sqla.Column(sqla.Integer, nullable=True)
+
+    @property
+    def key(self):
+        return self.type.value
