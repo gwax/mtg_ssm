@@ -19,6 +19,6 @@ def get_rows(session):
     for card_set in card_sets:
         for card in card_set.cards:
             yield {
-                'set': card.set_code, 'name': card.name,
+                'set': card.set.code, 'name': card.name,
                 'number': card.set_number, 'multiverseid': card.multiverseid,
             }

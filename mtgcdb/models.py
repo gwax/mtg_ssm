@@ -14,32 +14,37 @@ class Base(sqld.declarative_base()):
 class Card(Base):
     """Model for storing card information."""
     __tablename__ = 'cards'
+    __table_args__ = (
+        sqla.UniqueConstraint(
+            'set_id', 'name', 'set_number', 'multiverseid',
+            name='uix_card_printing_info'),
+        {})
 
-    name = sqla.Column(sqla.Unicode(255), nullable=False, primary_key=True)
-    set_code = sqla.Column(
-        sqla.Unicode(15), sqla.ForeignKey('sets.code'), nullable=False,
-        primary_key=True)
-    set_number = sqla.Column(sqla.Unicode(15), nullable=True, primary_key=True)
-    multiverseid = sqla.Column(sqla.Integer, nullable=True, primary_key=True)
+    id = sqla.Column(sqla.Integer, primary_key=True)
+    set_id = sqla.Column('set_id', sqla.ForeignKey('sets.id'))
+    name = sqla.Column(sqla.Unicode(255), nullable=False)
+    set_number = sqla.Column(sqla.Unicode(15), nullable=True)
+    multiverseid = sqla.Column(sqla.Integer, nullable=True)
 
     artist = sqla.Column(sqla.Unicode(255), nullable=False)
 
     # Properties
-    set_integer = sqlo.column_property(sqla.cast(
-        sqla.func.trim(set_number, string.ascii_lowercase),
-        sqla.Integer))
+    set_integer = sqlo.column_property(
+        sqla.cast(
+            sqla.func.trim(set_number, string.ascii_lowercase),
+            sqla.Integer))
     set_variant = sqlo.column_property(
         sqla.func.trim(set_number, string.digits))
 
     # Relationships
     set = sqlo.relationship('CardSet')
 
-
 class CardSet(Base):
     """Model for storing card set information."""
     __tablename__ = 'sets'
 
-    code = sqla.Column(sqla.Unicode(15), nullable=False, primary_key=True)
+    id = sqla.Column(sqla.Integer, primary_key=True)
+    code = sqla.Column(sqla.Unicode(15), unique=True, nullable=False)
     name = sqla.Column(sqla.Unicode(255), unique=True, nullable=False)
     block = sqla.Column(sqla.Unicode(255))
     release_date = sqla.Column(sqla.Date)
