@@ -14,7 +14,7 @@ class SqlEnumType(sqlt.SchemaType, sqlt.TypeDecorator):
     def __init__(self, enum_cls):
         """Given an enum.Enum creat a sqlalchemy type to store it."""
         super().__init__()
-        values = [member.value for member in enum_cls.__members__.values()]
+        values = [member.name for member in enum_cls.__members__.values()]
         name = 'ck{}'.format(re.sub(
             '([A-Z])', lambda match: '_' + match.group(1).lower(),
             enum_cls.__name__))
@@ -31,7 +31,7 @@ class SqlEnumType(sqlt.SchemaType, sqlt.TypeDecorator):
         return value
 
     def process_bind_param(self, value, _dialect):
-        return None if value is None else value.value
+        return None if value is None else value.name
 
     def process_result_value(self, value, _dialect):
-        return None if value is None else self.enum(value)
+        return None if value is None else getattr(self.enum, value)

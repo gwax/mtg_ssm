@@ -10,9 +10,9 @@ from mtgcdb import util
 from tests import sqlite_testcase
 
 
-class MyEnum(enum.Enum):
-    one = 'one'
-    two = 'two'
+class MyEnum(enum.IntEnum):
+    one = 1
+    two = 2
 
 class TestModel(sqld.declarative_base()):
     __tablename__ = 'test'

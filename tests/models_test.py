@@ -100,7 +100,7 @@ class MtgjsonTest(sqlite_testcase.SqliteTestCase):
         self.session.commit()
 
         # Execute
-        with self.assertRaises(ValueError):
+        with self.assertRaises(AttributeError):
             printing.counts['invalid'] = 12
 
     def test_invalid_counts_value(self):
@@ -133,8 +133,10 @@ class MtgjsonTest(sqlite_testcase.SqliteTestCase):
 
         # Execute
         del printing.counts['copies']
+        self.session.commit()
 
         # Verify
+        self.assertEqual({}, printing.counts)
         with self.assertRaises(KeyError):
             _ = printing.counts['copies']
         self.session.rollback()

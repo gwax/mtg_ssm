@@ -53,10 +53,12 @@ class CardPrinting(Base):
     set = sqlo.relationship('CardSet')
     _counts = sqlo.relationship(
         'CollectionCount',
-        collection_class=sqlc.attribute_mapped_collection('key'))
+        collection_class=sqlc.attribute_mapped_collection('key'),
+        cascade='all, delete-orphan')
     counts = sqlpxy.association_proxy(
         '_counts', 'count',
-        creator=lambda k, v: CollectionCount(type=CountTypes(k), count=v))
+        creator=lambda k, v: CollectionCount(
+            type=getattr(CountTypes, k), count=v))
 
 
 class CardSet(Base):
@@ -77,9 +79,9 @@ class CardSet(Base):
         CardPrinting.multiverseid, CardPrinting.card_id))
 
 
-class CountTypes(enum.Enum):
-    copies = 'copies'
-    foils = 'foils'
+class CountTypes(enum.IntEnum):
+    copies = 1
+    foils = 2
 
 
 class CollectionCount(Base):
@@ -92,4 +94,4 @@ class CollectionCount(Base):
 
     @property
     def key(self):
-        return self.type.value
+        return self.type.name
