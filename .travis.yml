@@ -9,7 +9,6 @@ language: python
 cache: pip
 
 python:
-  - "2.7"
   - "3.4"
 
 before_install:
@@ -19,4 +18,5 @@ before_install:
 script:
   - py.test tests/
   - pylint --rcfile=pylintrc mtgcdb/
+  - pylint --rcfile=pylintrc --errors-only *.py
   - pylint --rcfile=pylintrc --errors-only tests/
