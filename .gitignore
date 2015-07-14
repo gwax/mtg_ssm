@@ -2,8 +2,9 @@
 /data
 
 # Database files
-*.sqlite
-*.sqlite-journal
+/*.csv
+/*.sqlite
+/*.sqlite-journal
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
