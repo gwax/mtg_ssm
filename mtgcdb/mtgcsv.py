@@ -4,6 +4,7 @@ import sqlalchemy.orm as sqlo
 
 from mtgcdb import models
 
+
 def header():
     """Get the header columns for an mtgcsv file."""
     headers = [
@@ -14,6 +15,7 @@ def header():
     ]
     headers.extend(models.CountTypes.__members__.keys())
     return headers
+
 
 def dump_rows(session):
     """Yield mtgcsv row dicts from the database."""
