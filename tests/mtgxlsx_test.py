@@ -108,3 +108,100 @@ class MtgXlsxTest(
             'VMA',
         ]
         self.assertEqual(expected, book.sheetnames)
+
+    def test_read_worksheet_counts(self):
+        # Setup
+        mtgjson.update_models(self.session, self.mtg_data)
+        self.session.commit()
+        forest1 = self.session.query(
+            models.CardPrinting).filter_by(multiverseid=2746).first()
+        forest2 = self.session.query(
+            models.CardPrinting).filter_by(multiverseid=2747).first()
+        forest3 = self.session.query(
+            models.CardPrinting).filter_by(multiverseid=2748).first()
+        forest4 = self.session.query(
+            models.CardPrinting).filter_by(multiverseid=2749).first()
+        forest4.counts['copies'] = 2
+        forest4.counts['foils'] = 3
+        self.session.commit()
+        book = openpyxl.Workbook()
+        sheet = book.create_sheet()
+        sheet.title = 'ICE'
+        sheet_data = [
+            ['name', 'multiverseid', 'number', 'artist', 'copies', 'foils'],
+            ['Forest', 2746, None, 'Pat Morrissey', 1, None],
+            ['Forest', 2747, None, 'Pat Morrissey', None, 2],
+            ['Forest', 2748, None, 'Pat Morrissey', 3, 4],
+            ['Snow-Covered Forest', 2749, None, 'Pat Morrissey', None, None],
+        ]
+        for row in sheet_data:
+            sheet.append(row)
+
+        # Execute
+        mtgxlsx.read_worksheet_counts(self.session, sheet)
+        self.session.commit()
+
+        # Verify
+        self.assertEqual({'copies': 1}, forest1.counts)
+        self.assertEqual({'foils': 2}, forest2.counts)
+        self.assertEqual({'copies': 3, 'foils': 4}, forest3.counts)
+        self.assertFalse(forest4.counts)
+
+    def test_read_worksheet_counts_skipping(self):
+        # Setup
+        # Setup
+        mtgjson.update_models(self.session, self.mtg_data)
+        self.session.commit()
+        book = openpyxl.Workbook()
+        sheet = book.create_sheet()
+        sheet.title = 'garbage'
+        sheet.append(['jabberwocky', 'gobbledy', 'goop'])
+
+        # Execute
+        mtgxlsx.read_worksheet_counts(self.session, sheet)
+
+        # Verify
+        counts = self.session.query(models.CollectionCount).all()
+        self.assertFalse(counts)
+
+    def test_read_workbook_counts(self):
+        # Setup
+        mtgjson.update_models(self.session, self.mtg_data)
+        self.session.commit()
+        forest1 = self.session.query(
+            models.CardPrinting).filter_by(multiverseid=2746).first()
+        forest2 = self.session.query(
+            models.CardPrinting).filter_by(multiverseid=2747).first()
+        forest3 = self.session.query(
+            models.CardPrinting).filter_by(multiverseid=2748).first()
+        forest4 = self.session.query(
+            models.CardPrinting).filter_by(multiverseid=2749).first()
+        forest4.counts['copies'] = 2
+        forest4.counts['foils'] = 3
+        self.session.commit()
+        book = openpyxl.Workbook()
+        sets_sheet = book.create_sheet()
+        sets_sheet.title = 'Sets'
+        sets_sheet.append(['jabberwocky', 'gobbledy', 'goop'])
+
+        cards_sheet = book.create_sheet()
+        cards_sheet.title = 'ICE'
+        sheet_data = [
+            ['name', 'multiverseid', 'number', 'artist', 'copies', 'foils'],
+            ['Forest', 2746, None, 'Pat Morrissey', 1, None],
+            ['Forest', 2747, None, 'Pat Morrissey', None, 2],
+            ['Forest', 2748, None, 'Pat Morrissey', 3, 4],
+            ['Snow-Covered Forest', 2749, None, 'Pat Morrissey', None, None],
+        ]
+        for row in sheet_data:
+            cards_sheet.append(row)
+
+        # Execute
+        mtgxlsx.read_workbook_counts(self.session, book)
+        self.session.commit()
+
+        # Verify
+        self.assertEqual({'copies': 1}, forest1.counts)
+        self.assertEqual({'foils': 2}, forest2.counts)
+        self.assertEqual({'copies': 3, 'foils': 4}, forest3.counts)
+        self.assertFalse(forest4.counts)

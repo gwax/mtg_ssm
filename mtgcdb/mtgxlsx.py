@@ -53,3 +53,38 @@ def create_cards_sheet(sheet, card_set):
         for key in models.CountTypes.__members__.keys():
             row.append(printing.counts.get(key))
         sheet.append(row)
+
+
+def read_workbook_counts(session, workbook):
+    """Read mtgxlsx workbook and load counts into the database."""
+    for worksheet in workbook.worksheets:
+        read_worksheet_counts(session, worksheet)
+
+def read_worksheet_counts(session, worksheet):
+    """Read mtgxlsx worksheet and load counts into database."""
+    card_set = session.query(models.CardSet) \
+        .filter_by(code=worksheet.title) \
+        .first()
+    if card_set is None:
+        return
+    row_iter = iter(worksheet.rows)
+
+    header = [c.value for c in next(row_iter)]
+    rows = ([c.value for c in row] for row in row_iter)
+    row_dicts = (dict(zip(header, row)) for row in rows)
+    for row_dict in row_dicts:
+        card = session.query(models.Card) \
+            .filter_by(name=row_dict['name']) \
+            .one()
+        printing = session.query(models.CardPrinting) \
+            .filter_by(
+                card_id=card.id, set_id=card_set.id,
+                set_number=row_dict['number'],
+                multiverseid=row_dict['multiverseid']) \
+            .one()
+        for key in models.CountTypes.__members__.keys():
+            count = row_dict[key]
+            if count is not None:
+                printing.counts[key] = count
+            elif key in printing.counts:
+                del printing.counts[key]
