@@ -5,7 +5,8 @@
 # W0232: Class has no __init__ method.
 # R0903: Too few public methods
 # I0011: Locally disable
-disable = W0232,R0903,I0011,
+# R0801: Similarity.
+disable = W0232,R0903,I0011,R0801,
 
 [REPORTS]
 # Set the output format. Available formats are text, parseable, colorized, msvs
