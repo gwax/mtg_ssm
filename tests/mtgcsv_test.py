@@ -9,7 +9,7 @@ from tests import sqlite_testcase
 
 
 class MtgCsvTest(
-    sqlite_testcase.SqliteTestCase, mtgjson_testcase.MtgJsonTestCase):
+        sqlite_testcase.SqliteTestCase, mtgjson_testcase.MtgJsonTestCase):
 
     def setUp(self):
         super().setUp()
