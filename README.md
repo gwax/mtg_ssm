@@ -1,6 +1,6 @@
 # mtgcdb - Magic: the Gathering Collection Database
 
-[!Build Status(https://travis-ci.org/gwax/mtgcdb.svg?branch=master)](https://travis-ci.org/gwax/mtgcdb)
+[![Build Status](https://travis-ci.org/gwax/mtgcdb.svg?branch=master)](https://travis-ci.org/gwax/mtgcdb)
 
 This is a set of libraries and command line tools for manipulating magic
 card collection information. At it's core, the data is stored in an
