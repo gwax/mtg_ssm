@@ -89,12 +89,14 @@ class MtgCsvTest(
         forest4.counts['copies'] = 2
         forest4.counts['foils'] = 3
         self.session.commit()
+        # pylint: disable=line-too-long
         rows = [
             {'set': 'ICE', 'name': 'Forest', 'multiverseid': '2746', 'number': '', 'copies': '1'},
             {'set': 'ICE', 'name': 'Forest', 'multiverseid': '2747', 'number': '', 'foils': '2'},
             {'set': 'ICE', 'name': 'Forest', 'multiverseid': '2748', 'number': '', 'copies': '3', 'foils': '4'},
             {'set': 'ICE', 'name': 'Snow-Covered Forest', 'multiverseid': '2749', 'number': '', 'copies': '', 'foils': ''},
         ]
+        # pylint: enable=line-too-long
 
         # Execute
         mtgcsv.read_row_counts(self.session, rows)
