@@ -18,11 +18,10 @@ def main():
     session_factory = sqlo.sessionmaker(engine)
     session = session_factory()
     try:
-        with open(CSV_FILE, 'w') as csvfile:
-            writer = csv.DictWriter(csvfile, mtgcsv.header())
-            writer.writeheader()
-            for row in mtgcsv.dump_rows(session):
-                writer.writerow(row)
+        with open(CSV_FILE, 'r') as csvfile:
+            reader = csv.DictReader(csvfile)
+            mtgcsv.read_row_counts(session, reader)
+        session.commit()
     except:
         session.rollback()
         raise

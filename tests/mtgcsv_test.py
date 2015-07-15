@@ -17,35 +17,48 @@ class MtgCsvTest(
         models.Base.metadata.create_all(connection)
         connection.close()
 
-        mtgjson.update_models(self.session, self.mtg_data)
-        self.session.commit()
-
     def test_get_header(self):
         # Execute
         header = mtgcsv.header()
 
         # Verify
-        self.assertEqual(['set', 'name', 'number', 'multiverseid'], header)
+        expected = ['set', 'name', 'number', 'multiverseid', 'copies', 'foils']
+        self.assertEqual(expected, header)
 
-    def test_get_rows(self):
+    def test_dump_rows(self):
+        # Setup
+        mtgjson.update_models(self.session, self.mtg_data)
+        self.session.commit()
+        forest1 = self.session.query(
+            models.CardPrinting).filter_by(multiverseid=2746).first()
+        forest2 = self.session.query(
+            models.CardPrinting).filter_by(multiverseid=2747).first()
+        forest3 = self.session.query(
+            models.CardPrinting).filter_by(multiverseid=2748).first()
+        forest1.counts['copies'] = 1
+        forest2.counts['foils'] = 2
+        forest3.counts['copies'] = 3
+        forest3.counts['foils'] = 4
+        self.session.commit()
+
         # Execute
-        rows = list(mtgcsv.get_rows(self.session))
+        rows = list(mtgcsv.dump_rows(self.session))
 
         # Verify
+        # pylint: disable=line-too-long
         expected = [
             {'set': 'LEA', 'name': 'Air Elemental', 'multiverseid': 94, 'number': None},
             {'set': 'LEA', 'name': 'Forest', 'multiverseid': 288, 'number': None},
             {'set': 'LEA', 'name': 'Forest', 'multiverseid': 289, 'number': None},
-            {'set': 'ICE', 'name': 'Forest', 'multiverseid': 2746, 'number': None},
-            {'set': 'ICE', 'name': 'Forest', 'multiverseid': 2747, 'number': None},
-            {'set': 'ICE', 'name': 'Forest', 'multiverseid': 2748, 'number': None},
+            {'set': 'ICE', 'name': 'Forest', 'multiverseid': 2746, 'number': None, 'copies': 1},
+            {'set': 'ICE', 'name': 'Forest', 'multiverseid': 2747, 'number': None, 'foils': 2},
+            {'set': 'ICE', 'name': 'Forest', 'multiverseid': 2748, 'number': None, 'copies': 3, 'foils': 4},
             {'set': 'ICE', 'name': 'Snow-Covered Forest', 'multiverseid': 2749, 'number': None},
             {'set': 'HML', 'name': 'Cemetery Gate', 'multiverseid': 2913, 'number': None},
             {'set': 'HML', 'name': 'Cemetery Gate', 'multiverseid': 2914, 'number': None},
             {'set': 'S00', 'name': 'Rhox', 'multiverseid': None, 'number': None},
             {'set': 'pMGD', 'name': 'Black Sun\'s Zenith', 'multiverseid': None, 'number': '7'},
-            {'set': 'HOP', 'name': 'Academy at Tolaria West', 'multiverseid': 198073,
-             'number': '1'},
+            {'set': 'HOP', 'name': 'Academy at Tolaria West', 'multiverseid': 198073, 'number': '1'},
             {'set': 'HOP', 'name': 'Akroma\'s Vengeance', 'multiverseid': 205366, 'number': '1'},
             {'set': 'ARC', 'name': 'All in Good Time', 'multiverseid': 212648, 'number': '1'},
             {'set': 'ARC', 'name': 'Leonin Abunas', 'multiverseid': 220527, 'number': '1'},
@@ -58,4 +71,37 @@ class MtgCsvTest(
             {'set': 'PC2', 'name': 'Akoum', 'multiverseid': 226512, 'number': '9'},
             {'set': 'VMA', 'name': 'Academy Elite', 'multiverseid': 382835, 'number': '55'},
         ]
+        # pylint: enable=line-too-long
         self.assertEqual(expected, rows)
+
+    def test_read_row_counts(self):
+        # Setup
+        mtgjson.update_models(self.session, self.mtg_data)
+        self.session.commit()
+        forest1 = self.session.query(
+            models.CardPrinting).filter_by(multiverseid=2746).first()
+        forest2 = self.session.query(
+            models.CardPrinting).filter_by(multiverseid=2747).first()
+        forest3 = self.session.query(
+            models.CardPrinting).filter_by(multiverseid=2748).first()
+        forest4 = self.session.query(
+            models.CardPrinting).filter_by(multiverseid=2749).first()
+        forest4.counts['copies'] = 2
+        forest4.counts['foils'] = 3
+        self.session.commit()
+        rows = [
+            {'set': 'ICE', 'name': 'Forest', 'multiverseid': '2746', 'number': '', 'copies': '1'},
+            {'set': 'ICE', 'name': 'Forest', 'multiverseid': '2747', 'number': '', 'foils': '2'},
+            {'set': 'ICE', 'name': 'Forest', 'multiverseid': '2748', 'number': '', 'copies': '3', 'foils': '4'},
+            {'set': 'ICE', 'name': 'Snow-Covered Forest', 'multiverseid': '2749', 'number': '', 'copies': '', 'foils': ''},
+        ]
+
+        # Execute
+        mtgcsv.read_row_counts(self.session, rows)
+        self.session.commit()
+
+        # Verify
+        self.assertEqual({'copies': 1}, forest1.counts)
+        self.assertEqual({'foils': 2}, forest2.counts)
+        self.assertEqual({'copies': 3, 'foils': 4}, forest3.counts)
+        self.assertFalse(forest4.counts)
