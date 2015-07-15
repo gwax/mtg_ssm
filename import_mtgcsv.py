@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export data to csv."""
+"""Import data from csv."""
 
 import csv
 
