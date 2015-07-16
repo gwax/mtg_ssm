@@ -55,7 +55,8 @@ def create_cards_sheet(sheet, card_set):
         range(len(base_header), len(header)))
     have_tmpl = '=' + '+'.join(c + '{0}' for c in count_cols)
     sheet.append(header)
-    for rownum, printing in enumerate(card_set.printings, 2):
+    for printing in card_set.printings:
+        rownum = card_set.printings.index(printing) + 2
         row = [
             have_tmpl.format(rownum),
             printing.card.name,
