@@ -37,17 +37,17 @@ class MtgXlsxTest(
         rows = [[cell.value for cell in row] for row in sheet.rows]
         # pylint: disable=line-too-long
         expected = [
-            ['code', 'name', 'release', 'block', 'type', 'cards'],
-            ['LEA', 'Limited Edition Alpha', datetime.datetime(1993, 8, 5), None, 'core', 3],
-            ['ICE', 'Ice Age', datetime.datetime(1995, 6, 1), 'Ice Age', 'expansion', 4],
-            ['HML', 'Homelands', datetime.datetime(1995, 10, 1), None, 'expansion', 2],
-            ['S00', 'Starter 2000', datetime.datetime(2000, 4, 1), None, 'starter', 1],
-            ['pMGD', 'Magic Game Day', datetime.datetime(2007, 7, 14), None, 'promo', 1],
-            ['HOP', 'Planechase', datetime.datetime(2009, 9, 4), None, 'planechase', 2],
-            ['ARC', 'Archenemy', datetime.datetime(2010, 6, 18), None, 'archenemy', 2],
-            ['ISD', 'Innistrad', datetime.datetime(2011, 9, 30), 'Innistrad', 'expansion', 3],
-            ['PC2', 'Planechase 2012 Edition', datetime.datetime(2012, 6, 1), None, 'planechase', 4],
-            ['VMA', 'Vintage Masters', datetime.datetime(2014, 6, 16), None, 'masters', 1],
+            ['code', 'name', 'release', 'block', 'type', 'cards', 'unique', 'playsets', 'count'],
+            ['LEA', 'Limited Edition Alpha', datetime.datetime(1993, 8, 5), None, 'core', 3, '=COUNTIF(\'LEA\'!A:A,">0")', '=COUNTIF(\'LEA\'!A:A,">=4")', "=SUM('LEA'!A:A)"],
+            ['ICE', 'Ice Age', datetime.datetime(1995, 6, 1), 'Ice Age', 'expansion', 4, '=COUNTIF(\'ICE\'!A:A,">0")', '=COUNTIF(\'ICE\'!A:A,">=4")', "=SUM('ICE'!A:A)"],
+            ['HML', 'Homelands', datetime.datetime(1995, 10, 1), None, 'expansion', 2, '=COUNTIF(\'HML\'!A:A,">0")', '=COUNTIF(\'HML\'!A:A,">=4")', "=SUM('HML'!A:A)"],
+            ['S00', 'Starter 2000', datetime.datetime(2000, 4, 1), None, 'starter', 1, '=COUNTIF(\'S00\'!A:A,">0")', '=COUNTIF(\'S00\'!A:A,">=4")', "=SUM('S00'!A:A)"],
+            ['pMGD', 'Magic Game Day', datetime.datetime(2007, 7, 14), None, 'promo', 1, '=COUNTIF(\'pMGD\'!A:A,">0")', '=COUNTIF(\'pMGD\'!A:A,">=4")', "=SUM('pMGD'!A:A)"],
+            ['HOP', 'Planechase', datetime.datetime(2009, 9, 4), None, 'planechase', 2, '=COUNTIF(\'HOP\'!A:A,">0")', '=COUNTIF(\'HOP\'!A:A,">=4")', "=SUM('HOP'!A:A)"],
+            ['ARC', 'Archenemy', datetime.datetime(2010, 6, 18), None, 'archenemy', 2, '=COUNTIF(\'ARC\'!A:A,">0")', '=COUNTIF(\'ARC\'!A:A,">=4")', "=SUM('ARC'!A:A)"],
+            ['ISD', 'Innistrad', datetime.datetime(2011, 9, 30), 'Innistrad', 'expansion', 3, '=COUNTIF(\'ISD\'!A:A,">0")', '=COUNTIF(\'ISD\'!A:A,">=4")', "=SUM('ISD'!A:A)"],
+            ['PC2', 'Planechase 2012 Edition', datetime.datetime(2012, 6, 1), None, 'planechase', 4, '=COUNTIF(\'PC2\'!A:A,">0")', '=COUNTIF(\'PC2\'!A:A,">=4")', "=SUM('PC2'!A:A)"],
+            ['VMA', 'Vintage Masters', datetime.datetime(2014, 6, 16), None, 'masters', 1, '=COUNTIF(\'VMA\'!A:A,">0")', '=COUNTIF(\'VMA\'!A:A,">=4")', "=SUM('VMA'!A:A)"],
         ]
         # pylint: enable=line-too-long
         self.assertEqual(expected, rows)
@@ -76,13 +76,15 @@ class MtgXlsxTest(
 
         # Verify
         rows = [[cell.value for cell in row] for row in sheet.rows]
+        # pylint: disable=line-too-long
         expected = [
-            ['name', 'multiverseid', 'number', 'artist', 'copies', 'foils'],
-            ['Forest', 2746, None, 'Pat Morrissey', 1, None],
-            ['Forest', 2747, None, 'Pat Morrissey', None, 2],
-            ['Forest', 2748, None, 'Pat Morrissey', 3, 4],
-            ['Snow-Covered Forest', 2749, None, 'Pat Morrissey', None, None],
+            ['have', 'name', 'multiverseid', 'number', 'artist', 'copies', 'foils'],
+            ['=F2+G2', 'Forest', 2746, None, 'Pat Morrissey', 1, None],
+            ['=F3+G3', 'Forest', 2747, None, 'Pat Morrissey', None, 2],
+            ['=F4+G4', 'Forest', 2748, None, 'Pat Morrissey', 3, 4],
+            ['=F5+G5', 'Snow-Covered Forest', 2749, None, 'Pat Morrissey', None, None],
         ]
+        # pylint: enable=line-too-long
         self.assertEqual(expected, rows)
 
     def test_dump_workbook(self):

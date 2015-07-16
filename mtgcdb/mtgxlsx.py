@@ -1,5 +1,7 @@
 """Code for handling data in xlsx files."""
 
+import string
+
 import openpyxl
 import sqlalchemy.orm as sqlo
 
@@ -25,7 +27,9 @@ def dump_workbook(session):
 def create_sets_sheet(sheet, card_sets):
     """Populate sheet with information about all card sets."""
     sheet.title = 'Sets'
-    header = ['code', 'name', 'release', 'block', 'type', 'cards']
+    header = [
+        'code', 'name', 'release', 'block', 'type', 'cards', 'unique',
+        'playsets', 'count']
     sheet.append(header)
     for card_set in card_sets:
         row = [
@@ -35,17 +39,25 @@ def create_sets_sheet(sheet, card_sets):
             card_set.block,
             card_set.type,
             len(card_set.printings),
+            '=COUNTIF(\'{}\'!A:A,">0")'.format(card_set.code),
+            '=COUNTIF(\'{}\'!A:A,">=4")'.format(card_set.code),
+            "=SUM('{}'!A:A)".format(card_set.code)
         ]
         sheet.append(row)
 
 def create_cards_sheet(sheet, card_set):
     """Populate sheet with card information from a given set."""
     sheet.title = card_set.code
-    header = ['name', 'multiverseid', 'number', 'artist']
-    header.extend(models.CountTypes.__members__.keys())
+    base_header = ['have', 'name', 'multiverseid', 'number', 'artist']
+    header = base_header + list(models.CountTypes.__members__.keys())
+    count_cols = (
+        string.ascii_uppercase[i] for i in
+        range(len(base_header), len(header)))
+    have_tmpl = '=' + '+'.join(c + '{0}' for c in count_cols)
     sheet.append(header)
-    for printing in card_set.printings:
+    for rownum, printing in enumerate(card_set.printings, 2):
         row = [
+            have_tmpl.format(rownum),
             printing.card.name,
             printing.multiverseid,
             printing.set_number,
