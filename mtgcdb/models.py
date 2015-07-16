@@ -49,7 +49,7 @@ class CardPrinting(Base):
         sqla.func.trim(set_number, string.digits))
 
     # Relationships
-    card = sqlo.relationship('Card')
+    card = sqlo.relationship('Card', lazy='joined')
     set = sqlo.relationship('CardSet')
     _counts = sqlo.relationship(
         'CollectionCount',
@@ -74,9 +74,14 @@ class CardSet(Base):
     online_only = sqla.Column(sqla.Boolean, default=False)
 
     # Relationships
-    printings = sqlo.relationship('CardPrinting', order_by=(
-        CardPrinting.set_integer, CardPrinting.set_variant,
-        CardPrinting.multiverseid, CardPrinting.card_id))
+    printings = sqlo.relationship(
+        'CardPrinting', order_by=(
+            CardPrinting.set_integer, CardPrinting.set_variant,
+            CardPrinting.multiverseid, CardPrinting.card_id))
+
+    __mapper_args__ = {
+        'order_by': release_date,
+    }
 
 
 class CountTypes(enum.IntEnum):

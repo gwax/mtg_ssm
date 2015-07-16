@@ -4,6 +4,7 @@ import openpyxl
 import sqlalchemy.orm as sqlo
 
 from mtgcdb import models
+from mtgcdb import mtgdict
 
 
 def dump_workbook(session):
@@ -73,18 +74,5 @@ def read_worksheet_counts(session, worksheet):
     rows = ([c.value for c in row] for row in row_iter)
     row_dicts = (dict(zip(header, row)) for row in rows)
     for row_dict in row_dicts:
-        card = session.query(models.Card) \
-            .filter_by(name=row_dict['name']) \
-            .one()
-        printing = session.query(models.CardPrinting) \
-            .filter_by(
-                card_id=card.id, set_id=card_set.id,
-                set_number=row_dict['number'],
-                multiverseid=row_dict['multiverseid']) \
-            .one()
-        for key in models.CountTypes.__members__.keys():
-            count = row_dict[key]
-            if count is not None:
-                printing.counts[key] = count
-            elif key in printing.counts:
-                del printing.counts[key]
+        row_dict['set'] = card_set.code
+        mtgdict.load_counts(session, row_dict)

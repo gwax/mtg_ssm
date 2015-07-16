@@ -3,6 +3,7 @@
 import sqlalchemy.orm as sqlo
 
 from mtgcdb import models
+from mtgcdb import mtgdict
 
 
 def header():
@@ -37,21 +38,5 @@ def dump_rows(session):
 def read_row_counts(session, row_dicts):
     """Read mtgcsv row dicts and load counts into the database."""
     for row_dict in row_dicts:
-        card_set = session.query(models.CardSet) \
-            .filter_by(code=row_dict['set']) \
-            .one()
-        card = session.query(models.Card) \
-            .filter_by(name=row_dict['name']) \
-            .one()
-        printing = session.query(models.CardPrinting) \
-            .filter_by(
-                card_id=card.id, set_id=card_set.id,
-                set_number=row_dict['number'] or None,
-                multiverseid=row_dict['multiverseid'] or None) \
-            .one()
-        for key in models.CountTypes.__members__.keys():
-            count = row_dict.get(key)
-            if count:
-                printing.counts[key] = int(count)
-            elif key in printing.counts:
-                del printing.counts[key]
+        card_dict = {k: v or None for k, v in row_dict.items()}
+        mtgdict.load_counts(session, card_dict)
