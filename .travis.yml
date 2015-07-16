@@ -16,7 +16,7 @@ before_install:
   - pip install -r requirements.txt
 
 script:
-  - py.test tests/
+  - py.test --strict -r w tests/
   - pylint --rcfile=pylintrc mtgcdb/
   - pylint --rcfile=pylintrc --errors-only *.py
   - pylint --rcfile=pylintrc --errors-only tests/
