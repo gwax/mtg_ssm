@@ -42,8 +42,7 @@ class MtgCsvTest(
         # pylint: enable=line-too-long
 
         # Execute
-        for card_dict in card_dicts:
-            mtgdict.load_counts(self.session, card_dict)
+        mtgdict.load_counts(self.session, card_dicts)
         self.session.commit()
 
         # Verify

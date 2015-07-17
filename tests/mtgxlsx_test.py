@@ -130,21 +130,8 @@ class MtgXlsxTest(
         ]
         self.assertEqual(expected, book.sheetnames)
 
-    def test_read_worksheet_counts(self):
+    def test_worksheet_row_reader(self):
         # Setup
-        mtgjson.update_models(self.session, self.mtg_data)
-        self.session.commit()
-        forest1 = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=2746).first()
-        forest2 = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=2747).first()
-        forest3 = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=2748).first()
-        forest4 = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=2749).first()
-        forest4.counts['copies'] = 2
-        forest4.counts['foils'] = 3
-        self.session.commit()
         book = openpyxl.Workbook()
         sheet = book.create_sheet()
         sheet.title = 'ICE'
@@ -159,31 +146,62 @@ class MtgXlsxTest(
             sheet.append(row)
 
         # Execute
-        mtgxlsx.read_worksheet_counts(self.session, sheet)
-        self.session.commit()
+        row_dicts = mtgxlsx.worksheet_row_reader(sheet)
 
         # Verify
-        self.assertEqual({'copies': 1}, forest1.counts)
-        self.assertEqual({'foils': 2}, forest2.counts)
-        self.assertEqual({'copies': 3, 'foils': 4}, forest3.counts)
-        self.assertFalse(forest4.counts)
+        expected = [
+            # pylint: disable=line-too-long
+            {'name': 'Forest', 'artist': 'Pat Morrissey', 'multiverseid': 2746, 'number': None, 'copies': 1, 'foils': None},
+            {'name': 'Forest', 'artist': 'Pat Morrissey', 'multiverseid': 2747, 'number': None, 'copies': None, 'foils': 2},
+            {'name': 'Forest', 'artist': 'Pat Morrissey', 'multiverseid': 2748, 'number': None, 'copies': 3, 'foils': 4},
+            {'name': 'Snow-Covered Forest', 'artist': 'Pat Morrissey', 'multiverseid': 2749, 'number': None, 'copies': None, 'foils': None},
+            # pylint: enable=line-too-long
+        ]
+        self.assertEqual(expected, list(row_dicts))
 
-    def test_read_worksheet_counts_skipping(self):
+    def test_workbook_row_reader(self):
         # Setup
+        book = openpyxl.Workbook()
+        sheet = book.create_sheet()
+        sheet.title = 'ICE'
+        sheet_data = [
+            ['name', 'multiverseid', 'number', 'artist', 'copies', 'foils'],
+            ['Forest', 2746, None, 'Pat Morrissey', 1, None],
+            ['Forest', 2747, None, 'Pat Morrissey', None, 2],
+            ['Forest', 2748, None, 'Pat Morrissey', 3, 4],
+            ['Snow-Covered Forest', 2749, None, 'Pat Morrissey', None, None],
+        ]
+        for row in sheet_data:
+            sheet.append(row)
+        known_sets = {'ICE'}
+
+        # Execute
+        row_dicts = mtgxlsx.workbook_row_reader(book, known_sets)
+
+        # Verify
+        expected = [
+            # pylint: disable=line-too-long
+            {'set': 'ICE', 'name': 'Forest', 'artist': 'Pat Morrissey', 'multiverseid': 2746, 'number': None, 'copies': 1, 'foils': None},
+            {'set': 'ICE', 'name': 'Forest', 'artist': 'Pat Morrissey', 'multiverseid': 2747, 'number': None, 'copies': None, 'foils': 2},
+            {'set': 'ICE', 'name': 'Forest', 'artist': 'Pat Morrissey', 'multiverseid': 2748, 'number': None, 'copies': 3, 'foils': 4},
+            {'set': 'ICE', 'name': 'Snow-Covered Forest', 'artist': 'Pat Morrissey', 'multiverseid': 2749, 'number': None, 'copies': None, 'foils': None},
+            # pylint: enable=line-too-long
+        ]
+        self.assertEqual(expected, list(row_dicts))
+
+    def test_workbook_row_reader_invalid_set(self):
         # Setup
-        mtgjson.update_models(self.session, self.mtg_data)
-        self.session.commit()
         book = openpyxl.Workbook()
         sheet = book.create_sheet()
         sheet.title = 'garbage'
         sheet.append(['jabberwocky', 'gobbledy', 'goop'])
+        known_sets = {'ICE'}
 
         # Execute
-        mtgxlsx.read_worksheet_counts(self.session, sheet)
+        row_dicts = mtgxlsx.workbook_row_reader(book, known_sets)
 
         # Verify
-        counts = self.session.query(models.CollectionCount).all()
-        self.assertFalse(counts)
+        self.assertFalse(list(row_dicts))
 
     def test_read_workbook_counts(self):
         # Setup

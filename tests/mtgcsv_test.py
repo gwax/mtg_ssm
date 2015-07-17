@@ -77,6 +77,35 @@ class MtgCsvTest(
         # pylint: enable=line-too-long
         self.assertEqual(expected, rows)
 
+    def test_int_or_none(self):
+        self.assertEqual(None, mtgcsv.int_or_none(None))
+        self.assertEqual(None, mtgcsv.int_or_none(''))
+        self.assertEqual(1, mtgcsv.int_or_none('1'))
+        self.assertEqual(1, mtgcsv.int_or_none(1))
+        self.assertEqual(0, mtgcsv.int_or_none('0'))
+        self.assertEqual(0, mtgcsv.int_or_none(0))
+
+    def test_process_row_dict(self):
+        # Setup
+        # pylint: disable=line-too-long
+        rows = [
+            {'set': 'FOO', 'name': 'Thing', 'multiverseid': '27', 'number': '52a', 'copies': '1'},
+            {'set': 'BAR', 'name': 'Another Thing', 'multiverseid': '', 'number': '57', 'foils': '0', 'copies': ''},
+        ]
+        # pylint: enable=line-too-long
+
+        # Execute
+        card_dicts = [mtgcsv.process_row_dict(r) for r in rows]
+
+        # Verify
+        # pylint: disable=line-too-long
+        expected = [
+            {'set': 'FOO', 'name': 'Thing', 'multiverseid': 27, 'number': '52a', 'copies': 1},
+            {'set': 'BAR', 'name': 'Another Thing', 'multiverseid': None, 'number': '57', 'foils': 0, 'copies': None},
+        ]
+        # pylint: disable=line-too-long
+        self.assertEqual(expected, card_dicts)
+
     def test_read_row_counts(self):
         # Setup
         mtgjson.update_models(self.session, self.mtg_data)

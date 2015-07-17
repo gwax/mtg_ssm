@@ -7,7 +7,7 @@ from mtgcdb import models
 
 from tests import sqlite_testcase
 
-class MtgjsonTest(sqlite_testcase.SqliteTestCase):
+class ModelsTest(sqlite_testcase.SqliteTestCase):
 
     def setUp(self):
         super().setUp()
@@ -58,7 +58,7 @@ class MtgjsonTest(sqlite_testcase.SqliteTestCase):
         self.session.commit()
 
         # Verify
-        self.assertEqual(5, printing._counts['copies'].count)
+        self.assertEqual(5, printing.collection_counts['copies'].count)
         self.assertEqual(5, printing.counts['copies'])
         with self.assertRaises(KeyError):
             _ = printing.counts['foils']

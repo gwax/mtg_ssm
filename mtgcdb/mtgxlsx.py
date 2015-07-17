@@ -12,10 +12,7 @@ from mtgcdb import mtgdict
 
 def dump_workbook(session):
     """Return xlsx workbook from the database."""
-    card_sets = session.query(models.CardSet) \
-        .options(sqlo.subqueryload('printings').joinedload('card')) \
-        .order_by(models.CardSet.release_date) \
-        .all()
+    card_sets = session.query(models.CardSet)
     workbook = openpyxl.Workbook()
     sets_sheet = workbook['Sheet']
     create_sets_sheet(sets_sheet, card_sets)
@@ -109,21 +106,29 @@ def create_cards_sheet(sheet, card_set):
 
 def read_workbook_counts(session, workbook):
     """Read mtgxlsx workbook and load counts into the database."""
-    for worksheet in workbook.worksheets:
-        read_worksheet_counts(session, worksheet)
+    card_sets = session.query(models.CardSet)
+    set_codes = {s.code for s in card_sets}
+    card_dicts = workbook_row_reader(workbook, set_codes)
+    mtgdict.load_counts(session, card_dicts)
 
-def read_worksheet_counts(session, worksheet):
-    """Read mtgxlsx worksheet and load counts into database."""
-    card_set = session.query(models.CardSet) \
-        .filter_by(code=worksheet.title) \
-        .first()
-    if card_set is None:
-        return
+
+def workbook_row_reader(workbook, known_sets):
+    """Given a workbook, yield card_dicts suitable for mtgdict."""
+    for sheet in workbook.worksheets:
+        set_code = sheet.title
+        if set_code not in known_sets:
+            print('No known set with code "{}", skipping.'.format(set_code))
+            continue
+        for row_dict in worksheet_row_reader(sheet):
+            row_dict['set'] = set_code
+            yield row_dict
+
+
+def worksheet_row_reader(worksheet):
+    """Given a worksheet, yield card_dicts."""
     row_iter = iter(worksheet.rows)
-
-    header = [c.value for c in next(row_iter)]
-    rows = ([c.value for c in row] for row in row_iter)
-    row_dicts = (dict(zip(header, row)) for row in rows)
-    for row_dict in row_dicts:
-        row_dict['set'] = card_set.code
-        mtgdict.load_counts(session, row_dict)
+    header = [cell.value for cell in next(row_iter)]
+    for row in row_iter:
+        row_values = [cell.value for cell in row]
+        row_dict = dict(zip(header, row_values))
+        yield row_dict

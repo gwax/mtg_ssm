@@ -21,9 +21,7 @@ def header():
 def dump_rows(session):
     """Yield mtgcsv row dicts from the database."""
     card_sets = session.query(models.CardSet) \
-        .options(sqlo.subqueryload('printings').joinedload('card')) \
-        .order_by(models.CardSet.release_date) \
-        .all()
+        .options(sqlo.joinedload('printings'))
     for card_set in card_sets:
         for printing in card_set.printings:
             card_info = {
@@ -34,9 +32,31 @@ def dump_rows(session):
             card_info.update(printing.counts)
             yield card_info
 
+def int_or_none(value):
+    if value == 0:
+        return 0
+    elif value:
+        return int(value)
+    else:
+        return None
+
+
+def process_row_dict(row_dict):
+    """Given a row_dict, produce a card_dict suitable for mtgdict."""
+    card_dict = {
+        'set': row_dict['set'],
+        'name': row_dict['name'],
+        'number': row_dict['number'] or None,
+        'multiverseid': int_or_none(row_dict['multiverseid']),
+    }
+    for countype in models.CountTypes.__members__.keys():
+        if countype in row_dict:
+            card_dict[countype] = int_or_none(row_dict[countype])
+    return card_dict
+
+
 
 def read_row_counts(session, row_dicts):
     """Read mtgcsv row dicts and load counts into the database."""
-    for row_dict in row_dicts:
-        card_dict = {k: v or None for k, v in row_dict.items()}
-        mtgdict.load_counts(session, card_dict)
+    card_dicts = (process_row_dict(row_dict) for row_dict in row_dicts)
+    mtgdict.load_counts(session, card_dicts)

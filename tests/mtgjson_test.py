@@ -21,15 +21,17 @@ class MtgjsonTest(
     def test_create_set(self):
         # Setup
         set_data = self.mtg_data['ISD']
+        code_to_set = {}
 
         # Execute
-        ret_card_set = mtgjson.update_set(self.session, set_data)
+        ret_card_set = mtgjson.update_set(self.session, set_data, code_to_set)
         self.session.commit()
 
         # Verify
         self.assertIsNotNone(ret_card_set.id)
         [card_set] = self.session.query(models.CardSet).all()
         self.assertIs(ret_card_set, card_set)
+        self.assertEqual({'ISD': card_set}, code_to_set)
         self.assertEqual('ISD', card_set.code)
         self.assertEqual('Innistrad', card_set.name)
         self.assertEqual(datetime.date(2011, 9, 30), card_set.release_date)
@@ -44,15 +46,17 @@ class MtgjsonTest(
         self.session.add(setup_card_set)
         self.session.commit()
         set_data = self.mtg_data['ISD']
+        code_to_set = {'ISD': setup_card_set}
 
         # Execute
-        mtgjson.update_set(self.session, set_data)
+        mtgjson.update_set(self.session, set_data, code_to_set)
         self.session.commit()
 
         # Verify
         [card_set] = self.session.query(models.CardSet).all()
         self.assertIs(setup_card_set, card_set)
         self.assertEqual(7, card_set.id)
+        self.assertEqual({'ISD': card_set}, code_to_set)
         self.assertEqual('ISD', card_set.code)
         self.assertEqual('Innistrad', card_set.name)
         self.assertEqual(datetime.date(2011, 9, 30), card_set.release_date)
@@ -63,8 +67,8 @@ class MtgjsonTest(
 
     def test_online_only(self):
         # Execute
-        isd_set = mtgjson.update_set(self.session, self.mtg_data['ISD'])
-        vma_set = mtgjson.update_set(self.session, self.mtg_data['VMA'])
+        isd_set = mtgjson.update_set(self.session, self.mtg_data['ISD'], {})
+        vma_set = mtgjson.update_set(self.session, self.mtg_data['VMA'], {})
 
         # Verify
         self.assertTrue(vma_set.online_only)
@@ -73,15 +77,17 @@ class MtgjsonTest(
     def test_create_card(self):
         # Setup
         card_data = self.mtg_data['ISD']['cards'][0]
+        name_to_card = {}
 
         # Execute
-        ret_card = mtgjson.update_card(self.session, card_data)
+        ret_card = mtgjson.update_card(self.session, card_data, name_to_card)
         self.session.commit()
 
         # Verify
         self.assertIsNotNone(ret_card.id)
         [card] = self.session.query(models.Card).all()
         self.assertIs(ret_card, card)
+        self.assertEqual({'Abattoir Ghoul': card}, name_to_card)
         self.assertEqual('Abattoir Ghoul', card.name)
 
     def test_update_card(self):
@@ -90,15 +96,17 @@ class MtgjsonTest(
         self.session.add(setup_card)
         self.session.commit()
         card_data = self.mtg_data['ISD']['cards'][0]
+        name_to_card = {'Abattoir Ghoul': setup_card}
 
         # Execute
-        mtgjson.update_card(self.session, card_data)
+        mtgjson.update_card(self.session, card_data, name_to_card)
         self.session.commit()
 
         # Verify
         [card] = self.session.query(models.Card).all()
         self.assertIs(setup_card, card)
         self.assertEqual(12, card.id)
+        self.assertEqual({'Abattoir Ghoul': card}, name_to_card)
         self.assertEqual('Abattoir Ghoul', card.name)
 
     def test_create_printing(self):
@@ -107,16 +115,20 @@ class MtgjsonTest(
         card = models.Card(id=5, name='Abattoir Ghoul')
         self.session.add(card_set)
         self.session.add(card)
+        self.session.flush()
         card_data = self.mtg_data['ISD']['cards'][0]
+        scnm_to_p = {}
 
         # Execute
-        ret_printing = mtgjson.update_printing(self.session, card_data, 5, 2)
+        ret_printing = mtgjson.update_printing(
+            self.session, card_data, 5, 2, scnm_to_p)
         self.session.commit()
 
         # Verify
         self.assertIsNotNone(ret_printing.id)
         [printing] = self.session.query(models.CardPrinting).all()
         self.assertIs(ret_printing, printing)
+        self.assertEqual({(2, 5, '85', 222911): printing}, scnm_to_p)
         self.assertEqual('Abattoir Ghoul', printing.card.name)
         self.assertEqual('ISD', printing.set.code)
         self.assertEqual('85', printing.set_number)
@@ -135,15 +147,17 @@ class MtgjsonTest(
         self.session.add(setup_printing)
         self.session.commit()
         card_data = self.mtg_data['ISD']['cards'][0]
+        scnm_to_p = {(2, 5, '85', 222911): setup_printing}
 
         # Execute
-        mtgjson.update_printing(self.session, card_data, 5, 2)
+        mtgjson.update_printing(self.session, card_data, 5, 2, scnm_to_p)
         self.session.commit()
 
         # Verify
         [printing] = self.session.query(models.CardPrinting).all()
         self.assertIs(setup_printing, printing)
         self.assertEqual(19, printing.id)
+        self.assertEqual({(2, 5, '85', 222911): printing}, scnm_to_p)
         self.assertEqual('Abattoir Ghoul', printing.card.name)
         self.assertEqual('ISD', printing.set.code)
         self.assertEqual('85', printing.set_number)

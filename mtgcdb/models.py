@@ -53,13 +53,13 @@ class CardPrinting(Base):
 
     # Relationships
     card = sqlo.relationship('Card', lazy='joined')
-    set = sqlo.relationship('CardSet')
-    _counts = sqlo.relationship(
-        'CollectionCount',
+    set = sqlo.relationship('CardSet', lazy='subquery')
+    collection_counts = sqlo.relationship(
+        'CollectionCount', lazy='subquery',
         collection_class=sqlc.attribute_mapped_collection('key'),
         cascade='all, delete-orphan')
     counts = sqlpxy.association_proxy(
-        '_counts', 'count',
+        'collection_counts', 'count',
         creator=lambda k, v: CollectionCount(
             type=getattr(CountTypes, k), count=v))
 
