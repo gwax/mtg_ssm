@@ -1,6 +1,7 @@
 """Tests for mtgcdb.mtgxlsx"""
 
 import datetime
+from unittest import mock
 
 import openpyxl
 
@@ -45,12 +46,30 @@ class MtgXlsxTest(
             ['pMGD', 'Magic Game Day', datetime.datetime(2007, 7, 14), None, 'promo', 1, '=COUNTIF(\'pMGD\'!A:A,">0")', '=COUNTIF(\'pMGD\'!A:A,">=4")', "=SUM('pMGD'!A:A)"],
             ['HOP', 'Planechase', datetime.datetime(2009, 9, 4), None, 'planechase', 2, '=COUNTIF(\'HOP\'!A:A,">0")', '=COUNTIF(\'HOP\'!A:A,">=4")', "=SUM('HOP'!A:A)"],
             ['ARC', 'Archenemy', datetime.datetime(2010, 6, 18), None, 'archenemy', 2, '=COUNTIF(\'ARC\'!A:A,">0")', '=COUNTIF(\'ARC\'!A:A,">=4")', "=SUM('ARC'!A:A)"],
-            ['ISD', 'Innistrad', datetime.datetime(2011, 9, 30), 'Innistrad', 'expansion', 3, '=COUNTIF(\'ISD\'!A:A,">0")', '=COUNTIF(\'ISD\'!A:A,">=4")', "=SUM('ISD'!A:A)"],
+            ['ISD', 'Innistrad', datetime.datetime(2011, 9, 30), 'Innistrad', 'expansion', 6, '=COUNTIF(\'ISD\'!A:A,">0")', '=COUNTIF(\'ISD\'!A:A,">=4")', "=SUM('ISD'!A:A)"],
             ['PC2', 'Planechase 2012 Edition', datetime.datetime(2012, 6, 1), None, 'planechase', 4, '=COUNTIF(\'PC2\'!A:A,">0")', '=COUNTIF(\'PC2\'!A:A,">=4")', "=SUM('PC2'!A:A)"],
             ['VMA', 'Vintage Masters', datetime.datetime(2014, 6, 16), None, 'masters', 1, '=COUNTIF(\'VMA\'!A:A,">0")', '=COUNTIF(\'VMA\'!A:A,">=4")', "=SUM('VMA'!A:A)"],
         ]
         # pylint: enable=line-too-long
         self.assertEqual(expected, rows)
+
+    def test_get_other_print_references(self):
+        # Setup
+        mtgjson.update_models(self.session, self.mtg_data)
+        self.session.commit()
+        lea_forest = self.session.query(
+            models.CardPrinting).filter_by(multiverseid=288).first()
+
+        # Execute
+        print_refs = mtgxlsx.get_other_print_references(lea_forest)
+
+        # Verify
+        expected = (
+            '=IF(\'ICE\'!A2+\'ICE\'!A3+\'ICE\'!A4>0,'
+            '"ICE: "&\'ICE\'!A2+\'ICE\'!A3+\'ICE\'!A4&", ","")&'
+            'IF(\'ISD\'!A5+\'ISD\'!A6+\'ISD\'!A7>0,'
+            '"ISD: "&\'ISD\'!A5+\'ISD\'!A6+\'ISD\'!A7&", ","")')
+        self.assertEqual(expected, print_refs)
 
     def test_create_cards_sheet(self):
         # Setup
@@ -78,11 +97,11 @@ class MtgXlsxTest(
         rows = [[cell.value for cell in row] for row in sheet.rows]
         # pylint: disable=line-too-long
         expected = [
-            ['have', 'name', 'multiverseid', 'number', 'artist', 'copies', 'foils'],
-            ['=F2+G2', 'Forest', 2746, None, 'Pat Morrissey', 1, None],
-            ['=F3+G3', 'Forest', 2747, None, 'Pat Morrissey', None, 2],
-            ['=F4+G4', 'Forest', 2748, None, 'Pat Morrissey', 3, 4],
-            ['=F5+G5', 'Snow-Covered Forest', 2749, None, 'Pat Morrissey', None, None],
+            ['have', 'name', 'multiverseid', 'number', 'artist', 'copies', 'foils', 'others'],
+            ['=F2+G2', 'Forest', 2746, None, 'Pat Morrissey', 1, None, mock.ANY],
+            ['=F3+G3', 'Forest', 2747, None, 'Pat Morrissey', None, 2, mock.ANY],
+            ['=F4+G4', 'Forest', 2748, None, 'Pat Morrissey', 3, 4, mock.ANY],
+            ['=F5+G5', 'Snow-Covered Forest', 2749, None, 'Pat Morrissey', None, None, mock.ANY],
         ]
         # pylint: enable=line-too-long
         self.assertEqual(expected, rows)

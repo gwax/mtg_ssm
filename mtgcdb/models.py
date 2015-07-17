@@ -22,6 +22,9 @@ class Card(Base):
     id = sqla.Column(sqla.Integer, primary_key=True)
     name = sqla.Column(sqla.Unicode(255), unique=True, nullable=False)
 
+    # Relationships
+    printings = sqlo.relationship('CardPrinting')
+
 
 class CardPrinting(Base):
     """Model for storing information about card printings."""

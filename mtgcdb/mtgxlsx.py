@@ -1,5 +1,6 @@
 """Code for handling data in xlsx files."""
 
+import collections
 import string
 
 import openpyxl
@@ -15,8 +16,8 @@ def dump_workbook(session):
         .options(sqlo.subqueryload('printings').joinedload('card')) \
         .order_by(models.CardSet.release_date) \
         .all()
-    workbook = openpyxl.Workbook(write_only=True)
-    sets_sheet = workbook.create_sheet()
+    workbook = openpyxl.Workbook()
+    sets_sheet = workbook['Sheet']
     create_sets_sheet(sets_sheet, card_sets)
     for card_set in card_sets:
         cards_sheet = workbook.create_sheet()
@@ -44,15 +45,47 @@ def create_sets_sheet(sheet, card_sets):
             "=SUM('{}'!A:A)".format(card_set.code)
         ]
         sheet.append(row)
+    sheet.freeze_panes = sheet['C2']
+    widths = [10, 30, 12, 16, 12, 7, 7, 7, 7]
+    for width, cdim in zip(widths, sheet.column_dimensions.values()):
+        cdim.width = width
+
+
+def get_other_print_references(printing):
+    """Get an xlsx formula to list counts of a card from other sets."""
+    setcode_to_rownums = collections.defaultdict(list)
+    setcode_and_release = set()
+    for other in printing.card.printings:
+        if other.set_id == printing.set_id:
+            continue
+        other_set = other.set
+        setcode_and_release.add((other_set.code, other_set.release_date))
+        setcode_to_rownums[other_set.code].append(
+            other_set.printings.index(other) + 2)
+    if not setcode_to_rownums:
+        return None
+    setcode_and_release = sorted(setcode_and_release, key=lambda item: item[1])
+    set_to_havecellref = collections.OrderedDict()
+    for setcode, _ in setcode_and_release:
+        rownums = setcode_to_rownums[setcode]
+        haverefs = ["'{0}'!A{1}".format(setcode, rownum) for rownum in rownums]
+        havecellref = '+'.join(haverefs)
+        set_to_havecellref[setcode] = havecellref
+    other_print_references = '=' + '&'.join(
+        'IF({1}>0,"{0}: "&{1}&", ","")'.format(k, v)
+        for k, v in set_to_havecellref.items())
+    return other_print_references
+
 
 def create_cards_sheet(sheet, card_set):
     """Populate sheet with card information from a given set."""
     sheet.title = card_set.code
-    base_header = ['have', 'name', 'multiverseid', 'number', 'artist']
-    header = base_header + list(models.CountTypes.__members__.keys())
-    count_cols = (
-        string.ascii_uppercase[i] for i in
-        range(len(base_header), len(header)))
+    header = ['have', 'name', 'multiverseid', 'number', 'artist']
+    count_keys = list(models.CountTypes.__members__.keys())
+    header.extend(count_keys)
+    header.append('others')
+    count_cols = [
+        string.ascii_uppercase[header.index(key)] for key in count_keys]
     have_tmpl = '=' + '+'.join(c + '{0}' for c in count_cols)
     sheet.append(header)
     for printing in card_set.printings:
@@ -66,7 +99,12 @@ def create_cards_sheet(sheet, card_set):
         ]
         for key in models.CountTypes.__members__.keys():
             row.append(printing.counts.get(key))
+        row.append(get_other_print_references(printing))
         sheet.append(row)
+    sheet.freeze_panes = sheet['C2']
+    widths = [6, 25, 12, 8, 20, 6, 6, 10]
+    for width, cdim in zip(widths, sheet.column_dimensions.values()):
+        cdim.width = width
 
 
 def read_workbook_counts(session, workbook):

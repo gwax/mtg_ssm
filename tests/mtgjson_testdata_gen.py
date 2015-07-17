@@ -18,7 +18,9 @@ INCLUDED = {
     'VMA': {'Academy Elite'},
     'pMGD': {'Black Sun\'s Zenith'},
     'HML': {'Cemetery Gate'},
-    'ISD': {'Abattoir Ghoul', 'Delver of Secrets', 'Insectile Aberration'},
+    'ISD': {
+        'Abattoir Ghoul', 'Delver of Secrets', 'Insectile Aberration',
+        'Forest'},
     'ARC': {'All in Good Time', 'Leonin Abunas'},
     'HOP': {'Academy at Tolaria West', 'Akroma\'s Vengeance'},
     'PC2': {'Akoum', 'Armored Griffin', 'Chaotic Æther', 'Stairs to Infinity'},
