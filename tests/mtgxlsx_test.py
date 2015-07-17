@@ -1,5 +1,6 @@
 """Tests for mtgcdb.mtgxlsx"""
 
+import collections
 import datetime
 from unittest import mock
 
@@ -57,11 +58,15 @@ class MtgXlsxTest(
         # Setup
         mtgjson.update_models(self.session, self.mtg_data)
         self.session.commit()
+        forests = self.session.query(models.CardPrinting).filter(
+            models.CardPrinting.card.has(name='Forest')).all()
+        name_to_prints = {'Forest': forests}
         lea_forest = self.session.query(
             models.CardPrinting).filter_by(multiverseid=288).first()
 
         # Execute
-        print_refs = mtgxlsx.get_other_print_references(lea_forest)
+        print_refs = mtgxlsx.get_other_print_references(
+            lea_forest, name_to_prints)
 
         # Verify
         expected = (
@@ -86,12 +91,16 @@ class MtgXlsxTest(
         forest3.counts['copies'] = 3
         forest3.counts['foils'] = 4
         self.session.commit()
+        printings = self.session.query(models.CardPrinting)
+        name_to_prints = collections.defaultdict(list)
+        for printing in printings:
+            name_to_prints[printing.card.name].append(printing)
         ice_age = self.session.query(models.CardSet).filter_by(code='ICE').one()
         book = openpyxl.Workbook()
         sheet = book.create_sheet()
 
         # Execute
-        mtgxlsx.create_cards_sheet(sheet, ice_age)
+        mtgxlsx.create_cards_sheet(sheet, ice_age, name_to_prints)
 
         # Verify
         rows = [[cell.value for cell in row] for row in sheet.rows]

@@ -12,13 +12,20 @@ from mtgcdb import mtgdict
 
 def dump_workbook(session):
     """Return xlsx workbook from the database."""
-    card_sets = session.query(models.CardSet)
+    printings = session.query(models.CardPrinting).options(
+        sqlo.joinedload('card'), sqlo.joinedload('set'))
+    name_to_prints = collections.defaultdict(list)
+    for printing in printings:
+        name_to_prints[printing.card.name].append(printing)
+    card_sets = session.query(models.CardSet).options(
+        sqlo.joinedload('printings'))
+
     workbook = openpyxl.Workbook()
     sets_sheet = workbook['Sheet']
     create_sets_sheet(sets_sheet, card_sets)
     for card_set in card_sets:
         cards_sheet = workbook.create_sheet()
-        create_cards_sheet(cards_sheet, card_set)
+        create_cards_sheet(cards_sheet, card_set, name_to_prints)
     return workbook
 
 
@@ -48,13 +55,14 @@ def create_sets_sheet(sheet, card_sets):
         cdim.width = width
 
 
-def get_other_print_references(printing):
+def get_other_print_references(printing, name_to_prints):
     """Get an xlsx formula to list counts of a card from other sets."""
-    setcode_to_rownums = collections.defaultdict(list)
+    other_prints = (
+        p for p in name_to_prints[printing.card.name]
+        if p.set_id != printing.set_id)
     setcode_and_release = set()
-    for other in printing.card.printings:
-        if other.set_id == printing.set_id:
-            continue
+    setcode_to_rownums = collections.defaultdict(list)
+    for other in other_prints:
         other_set = other.set
         setcode_and_release.add((other_set.code, other_set.release_date))
         setcode_to_rownums[other_set.code].append(
@@ -64,7 +72,7 @@ def get_other_print_references(printing):
     setcode_and_release = sorted(setcode_and_release, key=lambda item: item[1])
     set_to_havecellref = collections.OrderedDict()
     for setcode, _ in setcode_and_release:
-        rownums = setcode_to_rownums[setcode]
+        rownums = sorted(setcode_to_rownums[setcode])
         haverefs = ["'{0}'!A{1}".format(setcode, rownum) for rownum in rownums]
         havecellref = '+'.join(haverefs)
         set_to_havecellref[setcode] = havecellref
@@ -74,9 +82,10 @@ def get_other_print_references(printing):
     return other_print_references
 
 
-def create_cards_sheet(sheet, card_set):
+def create_cards_sheet(sheet, card_set, name_to_prints):
     """Populate sheet with card information from a given set."""
-    sheet.title = card_set.code
+    set_code = card_set.code
+    sheet.title = set_code
     header = ['have', 'name', 'multiverseid', 'number', 'artist']
     count_keys = list(models.CountTypes.__members__.keys())
     header.extend(count_keys)
@@ -86,17 +95,18 @@ def create_cards_sheet(sheet, card_set):
     have_tmpl = '=' + '+'.join(c + '{0}' for c in count_cols)
     sheet.append(header)
     for printing in card_set.printings:
+        name = printing.card.name
         rownum = card_set.printings.index(printing) + 2
         row = [
             have_tmpl.format(rownum),
-            printing.card.name,
+            name,
             printing.multiverseid,
             printing.set_number,
             printing.artist,
         ]
         for key in models.CountTypes.__members__.keys():
             row.append(printing.counts.get(key))
-        row.append(get_other_print_references(printing))
+        row.append(get_other_print_references(printing, name_to_prints))
         sheet.append(row)
     sheet.freeze_panes = sheet['C2']
     widths = [6, 25, 12, 8, 20, 6, 6, 10]
