@@ -126,7 +126,8 @@ def workbook_row_reader(workbook, known_sets):
     for sheet in workbook.worksheets:
         set_code = sheet.title
         if set_code not in known_sets:
-            print('No known set with code "{}", skipping.'.format(set_code))
+            if set_code != 'Sets':
+                print('No known set with code "{}", skipping.'.format(set_code))
             continue
         for row_dict in worksheet_row_reader(sheet):
             row_dict['set'] = set_code
