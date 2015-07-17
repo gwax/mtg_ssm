@@ -84,12 +84,11 @@ def get_other_print_references(printing, name_to_prints):
 
 def create_cards_sheet(sheet, card_set, name_to_prints):
     """Populate sheet with card information from a given set."""
-    set_code = card_set.code
-    sheet.title = set_code
-    header = ['have', 'name', 'multiverseid', 'number', 'artist']
+    sheet.title = card_set.code
     count_keys = list(models.CountTypes.__members__.keys())
-    header.extend(count_keys)
-    header.append('others')
+    header = (
+        ['have', 'name', 'multiverseid', 'number', 'artist'] +
+        count_keys + ['others'])
     count_cols = [
         string.ascii_uppercase[header.index(key)] for key in count_keys]
     have_tmpl = '=' + '+'.join(c + '{0}' for c in count_cols)
