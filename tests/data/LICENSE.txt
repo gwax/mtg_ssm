@@ -1,0 +1,4 @@
+The data in this folder is generated using data from http://mtgjson.com
+
+The contents of this folder retains the underlying copyrights from
+mtgjson.com and Wizards of the Coast.

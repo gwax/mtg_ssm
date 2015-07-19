@@ -90,3 +90,12 @@ cleanup).
 # Contributions
 
 Pull requests are welcome and contributions are greatly appreciated.
+
+# Acknowledgments
+
+* [Wizards of the Coast](http://magic.wizards.com/): For making Magic: the
+Gathering and continuing to support it. Off and on, it's been my favorite
+hobby since the early '90s.
+* Robert at [MTG JSON](http://mtgjson.com): MTG JSON is an amazing resource
+for anyone looking to build tools around magic card data. Without MTG JSON
+this project would not have been possible.
