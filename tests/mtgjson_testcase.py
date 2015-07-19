@@ -1,5 +1,7 @@
 """Test helper providing access to test data."""
 
+from builtins import super
+
 import json
 import os
 import unittest

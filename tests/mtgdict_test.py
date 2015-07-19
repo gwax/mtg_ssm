@@ -1,6 +1,7 @@
 """Tests for mtgcdb.mtgcsv"""
 
 from __future__ import absolute_import
+from builtins import super
 
 from mtgcdb import models
 from mtgcdb import mtgdict

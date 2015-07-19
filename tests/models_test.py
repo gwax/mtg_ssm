@@ -1,6 +1,7 @@
 """Tests for mtgcdb.models"""
 
 from __future__ import absolute_import
+from builtins import super
 
 import six
 

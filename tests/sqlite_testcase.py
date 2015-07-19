@@ -1,5 +1,7 @@
 """Testcase for tests that require a sqlalchemy sqlite engine."""
 
+from builtins import super
+
 import unittest
 
 import sqlalchemy

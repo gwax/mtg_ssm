@@ -1,6 +1,7 @@
 """Tests for mtgcdb.util"""
 
 from __future__ import absolute_import
+from builtins import super
 
 import enum
 

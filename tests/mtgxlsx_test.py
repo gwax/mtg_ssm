@@ -1,6 +1,7 @@
 """Tests for mtgcdb.mtgxlsx"""
 
 from __future__ import absolute_import
+from builtins import super
 
 import collections
 import datetime
