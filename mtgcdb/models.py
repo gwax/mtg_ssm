@@ -1,5 +1,7 @@
 """SQLAlchemy models for managing data."""
 
+from __future__ import absolute_import
+
 import enum
 import string
 

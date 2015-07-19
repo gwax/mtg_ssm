@@ -7,7 +7,7 @@ import os
 
 
 SOURCE_MTGJSON_FILE = os.path.join(
-    os.path.dirname(__file__), '..', 'data', 'AllSets.json')
+    os.path.dirname(__file__), '..', 'AllSets.json')
 TARGET_MTGJSON_FILE = os.path.join(
     os.path.dirname(__file__), 'data', 'AllSets_testdata.json')
 

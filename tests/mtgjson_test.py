@@ -1,6 +1,10 @@
 """Tests for mtgcdb.mtgjson"""
 
+from __future__ import absolute_import
+
 import datetime
+
+import six
 
 from mtgcdb import models
 from mtgcdb import mtgjson
@@ -202,4 +206,4 @@ class MtgjsonTest(
             ('PC2', 'Stairs to Infinity', 226521, 'P1'),
             ('VMA', 'Academy Elite', 382835, '55'),
         ]
-        self.assertCountEqual(expected, set_card_mv_number)
+        six.assertCountEqual(self, expected, set_card_mv_number)

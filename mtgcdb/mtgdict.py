@@ -1,5 +1,7 @@
 """Methods for managing data in the form of dicts."""
 
+from __future__ import absolute_import
+
 from mtgcdb import models
 
 

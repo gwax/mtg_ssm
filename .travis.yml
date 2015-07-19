@@ -9,11 +9,16 @@ language: python
 cache: pip
 
 python:
-  - "3.4"
+  - 2.7
+  - 3.4
 
 before_install:
   - pip install --upgrade pip pylint
   - pip install -r requirements.txt
+  -
+    if [[ $TRAVIS_PYTHON_VERSION == 2.7 ]]; then
+      pip install -r requirements2.txt;
+    fi
 
 script:
   - py.test --strict -r w tests/

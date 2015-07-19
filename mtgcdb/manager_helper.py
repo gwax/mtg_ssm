@@ -1,5 +1,7 @@
 """Script for managing mtgcdb."""
 
+from __future__ import absolute_import, print_function
+
 import csv
 import datetime
 import os

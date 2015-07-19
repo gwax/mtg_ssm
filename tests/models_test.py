@@ -1,5 +1,9 @@
 """Tests for mtgcdb.models"""
 
+from __future__ import absolute_import
+
+import six
+
 import sqlalchemy as sqla
 import sqlalchemy.exc as sqlx
 
@@ -87,7 +91,7 @@ class ModelsTest(sqlite_testcase.SqliteTestCase):
             (1, models.CountTypes.copies, 2),
             (1, models.CountTypes.foils, 7),
         ]
-        self.assertCountEqual(expected, print_type_count)
+        six.assertCountEqual(self, expected, print_type_count)
 
     def test_invalid_counts_key(self):
         # Setup

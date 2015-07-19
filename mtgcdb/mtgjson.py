@@ -1,5 +1,7 @@
 """Code for handling data from mtgjson."""
 
+from __future__ import absolute_import
+
 import datetime
 
 from mtgcdb import models
