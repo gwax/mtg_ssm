@@ -2,28 +2,91 @@
 
 [![Build Status](https://travis-ci.org/gwax/mtgcdb.svg?branch=master)](https://travis-ci.org/gwax/mtgcdb)
 
-This is a set of libraries and command line tools for manipulating magic
-card collection information. At it's core, the data is stored in an
-sqlite database on your machine.
+This is a tool for creating/updating user-friendly Office Open XML (XLSX)
+spreadsheets with Magic: the Gathering collection information. It can also
+be used to create somewhat user-friendly CSV files with collection information.
 
-Card information can be imported from http://mtgjson.com datafiles.
+As a matter of convenience, you can store the created spreadsheet in
+Dropbox, Google Drive, or the like and access your collection from
+any device.
+
+## Note
+
+This tool is something that I am developing in my spare time, primarily for
+the purpose of tracking my own card collection so installation and ease of
+use may be a little tricky if you don't have an understanding of git and python.
+
+# Installation
+
+As of right now, there is no simple means of installation.
+
+You will need a working copy of python3 and pip3 on your system.
+
+Clone this repository, and then from the root of the repository run:
+
+```bash
+pip3 install -r requirements.txt
+```
+
+You should now be able to run mtgcdb_manager from the root of the repository:
+
+```bash
+./mtgcdb_manager --help
+```
+
+# Usage
+
+For first time use, you will want to start by updating your card database:
+
+```bash
+./mtgcdb_manager update_cards
+```
+
+Then you can create a new spreadsheet to store your collection:
+
+```bash
+./mtgcdb_manager write_xlsx collection.xlsx
+```
+
+In the future, when new sets are released, you can update your spreadsheet
+with new cards:
+
+```bash
+./mtgcdb_manager update_xlsx collection.xlsx
+```
+
+## Existing collections
+
+If you already have your cards in another collection store, you might want to
+import that collection into your card database.
+
+First create an example csv file:
+
+```bash
+./mtgcdb_manager write_csv collection.csv.example
+```
+
+Then create a matching csv and import into your database:
+
+```bash
+./mtgcdb_manager read_csv collection.csv
+```
+
+From here, you can write to xlsx (or csv) and set aside your csv import file:
+
+```bash
+./mtgcdb_manager write_xlsx collection.xlsx
+rm collection.csv
+```
 
 # In development
 
-Collection counts can be imported from csv or Google sheets.
-
-Collection can be exported to csv or Google sheets.
-
-# Warning
-
-**This set of tools is not for the faint of heart.**
-
-You will need some understanding of Python to make use of these tools. This is
-how I manage my collection, and I thought it might be worth putting out there
-for others to use. If there is time, I may make this more friendly in the
-future.
+This tool is a work in progress. It is fully working now and I use it for
+tracking my own, personal collection, but it is somewhat tailored to my
+needs. There are, also, quite a few features that I would like to add and
+bits of code to cleanup (of course, every project always needs some code
+cleanup).
 
 # Contributions
 
-Pull requests are welcome and contributions are greatly appreciated but please
-include tests.
+Pull requests are welcome and contributions are greatly appreciated.
