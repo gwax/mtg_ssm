@@ -1,6 +1,7 @@
 """Download required remote files."""
 
 import codecs
+import collections
 import json
 import os
 import zipfile
@@ -57,5 +58,6 @@ def read_mtgjson(data_folder):
         [datafilename] = allsets_zipfile.namelist()
         datafile = allsets_zipfile.open(datafilename)
         reader = codecs.getreader('utf-8')
-        mtgdata = json.load(reader(datafile))
+        mtgdata = json.load(
+            reader(datafile), object_pairs_hook=collections.OrderedDict)
     return mtgdata

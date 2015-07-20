@@ -5,11 +5,12 @@ import collections
 import json
 import os
 
+from mtgcdb import downloader
 
-SOURCE_MTGJSON_FILE = os.path.join(
-    os.path.dirname(__file__), '..', 'data', 'AllSets.json')
+DATA_DIR = os.path.join(
+    os.path.dirname(__file__), 'tests', 'data', 'source_data')
 TARGET_MTGJSON_FILE = os.path.join(
-    os.path.dirname(__file__), 'data', 'AllSets_testdata.json')
+    os.path.dirname(__file__), 'tests', 'data', 'AllSets_testdata.json')
 
 INCLUDED = {
     'LEA': {'Air Elemental', 'Dark Ritual', 'Forest'},
@@ -24,15 +25,13 @@ INCLUDED = {
     'ARC': {'All in Good Time', 'Leonin Abunas'},
     'HOP': {'Academy at Tolaria West', 'Akroma\'s Vengeance', 'Dark Ritual'},
     'PC2': {'Akoum', 'Armored Griffin', 'Chaotic Æther', 'Stairs to Infinity'},
-
 }
 
 
 def main():
     """Filter source mtgjson data and dump testdata."""
-    with open(SOURCE_MTGJSON_FILE, 'r') as mtgjson_file:
-        mtg_data = json.load(
-            mtgjson_file, object_pairs_hook=collections.OrderedDict)
+    downloader.fetch_mtgjson(DATA_DIR)
+    mtg_data = downloader.read_mtgjson(DATA_DIR)
 
     testdata = collections.OrderedDict()
     for setcode, setdata in mtg_data.items():
