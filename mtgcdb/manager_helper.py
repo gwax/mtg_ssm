@@ -23,6 +23,12 @@ def backup_file(filename):
         shutil.copyfile(filename, backup_filename)
         print('Backup written to {0}'.format(backup_filename))
 
+def clear_database(db_session):
+    """Drop all of the database tables so we have a clean slate for import."""
+    print('Dropping existing database tables.')
+    connection = db_session.connection()
+    models.Base.metadata.drop_all(connection)
+
 
 def read_mtgjson(db_session, data_path, include_online_only):
     """Read card data from mtgjson to database."""

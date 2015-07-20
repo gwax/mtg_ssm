@@ -104,6 +104,9 @@ def get_parser():
 def run_commands(session_factory, args):
     session = session_factory()
     try:
+        if args.command in {'update_csv', 'update_xlsx'}:
+            manager_helper.clear_database(session)
+
         if args.command in {'update_cards', 'update_csv', 'update_xlsx'}:
             manager_helper.read_mtgjson(
                 session, args.data_path, args.include_online_only)
