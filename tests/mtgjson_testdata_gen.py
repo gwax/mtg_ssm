@@ -12,9 +12,9 @@ TARGET_MTGJSON_FILE = os.path.join(
     os.path.dirname(__file__), 'data', 'AllSets_testdata.json')
 
 INCLUDED = {
-    'LEA': {'Air Elemental', 'Forest'},
+    'LEA': {'Air Elemental', 'Dark Ritual', 'Forest'},
     'S00': {'Rhox'},
-    'ICE': {'Forest', 'Snow-Covered Forest'},
+    'ICE': {'Dark Ritual', 'Forest', 'Snow-Covered Forest'},
     'VMA': {'Academy Elite'},
     'pMGD': {'Black Sun\'s Zenith'},
     'HML': {'Cemetery Gate'},
@@ -22,7 +22,7 @@ INCLUDED = {
         'Abattoir Ghoul', 'Delver of Secrets', 'Insectile Aberration',
         'Forest'},
     'ARC': {'All in Good Time', 'Leonin Abunas'},
-    'HOP': {'Academy at Tolaria West', 'Akroma\'s Vengeance'},
+    'HOP': {'Academy at Tolaria West', 'Akroma\'s Vengeance', 'Dark Ritual'},
     'PC2': {'Akoum', 'Armored Griffin', 'Chaotic Æther', 'Stairs to Infinity'},
 
 }

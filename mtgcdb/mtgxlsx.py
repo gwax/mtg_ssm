@@ -12,13 +12,12 @@ from mtgcdb import mtgdict
 
 def dump_workbook(session):
     """Return xlsx workbook from the database."""
-    printings = session.query(models.CardPrinting).options(
-        sqlo.joinedload('card'), sqlo.joinedload('set'))
-    name_to_prints = collections.defaultdict(list)
-    for printing in printings:
-        name_to_prints[printing.card.name].append(printing)
     card_sets = session.query(models.CardSet).options(
-        sqlo.joinedload('printings'))
+        sqlo.joinedload('printings').joinedload('card'))
+    name_to_prints = collections.defaultdict(list)
+    for card_set in card_sets:
+        for printing in card_set.printings:
+            name_to_prints[printing.card.name].append(printing)
 
     workbook = openpyxl.Workbook()
     sets_sheet = workbook['Sheet']
@@ -57,6 +56,8 @@ def create_sets_sheet(sheet, card_sets):
 
 def get_other_print_references(printing, name_to_prints):
     """Get an xlsx formula to list counts of a card from other sets."""
+    if printing.card.strict_basic:
+        return None  # Basics are so prolific, they tend to bog things down
     other_prints = (
         p for p in name_to_prints[printing.card.name]
         if p.set_id != printing.set_id)

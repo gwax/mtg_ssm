@@ -51,6 +51,24 @@
       },
       {
         "layout": "normal",
+        "type": "Instant",
+        "types": [
+          "Instant"
+        ],
+        "colors": [
+          "Black"
+        ],
+        "multiverseid": 54,
+        "name": "Dark Ritual",
+        "cmc": 1,
+        "rarity": "Common",
+        "artist": "Sandra Everingham",
+        "manaCost": "{B}",
+        "text": "Add {B}{B}{B} to your mana pool.",
+        "imageName": "dark ritual"
+      },
+      {
+        "layout": "normal",
         "supertypes": [
           "Basic"
         ],
@@ -120,6 +138,25 @@
       "common"
     ],
     "cards": [
+      {
+        "layout": "normal",
+        "type": "Instant",
+        "types": [
+          "Instant"
+        ],
+        "colors": [
+          "Black"
+        ],
+        "multiverseid": 2444,
+        "name": "Dark Ritual",
+        "cmc": 1,
+        "rarity": "Common",
+        "artist": "Justin Hampton",
+        "manaCost": "{B}",
+        "text": "Add {B}{B}{B} to your mana pool.",
+        "flavor": "\"Leshrac, my liege, grant me the power I am due.\"\n—Lim-Dûl, the Necromancer",
+        "imageName": "dark ritual"
+      },
       {
         "layout": "normal",
         "supertypes": [
@@ -381,7 +418,7 @@
         ],
         "rarity": "Common",
         "artist": "James Paick",
-        "text": "At the beginning of your end step, if you have no cards in hand, draw seven cards.\nWhenever you roll {C}, discard your hand.",
+        "text": "At the beginning of your end step, if you have no cards in hand, draw seven cards.\nWhenever you roll CHAOS, discard your hand.",
         "number": "1",
         "imageName": "academy at tolaria west"
       },
@@ -404,6 +441,26 @@
         "flavor": "Ixidor had only to imagine their ruin and Akroma made it so.",
         "number": "1",
         "imageName": "akroma's vengeance"
+      },
+      {
+        "layout": "normal",
+        "type": "Instant",
+        "types": [
+          "Instant"
+        ],
+        "colors": [
+          "Black"
+        ],
+        "multiverseid": 205422,
+        "name": "Dark Ritual",
+        "cmc": 1,
+        "rarity": "Common",
+        "artist": "Clint Langley",
+        "manaCost": "{B}",
+        "text": "Add {B}{B}{B} to your mana pool.",
+        "flavor": "\"If there is such a thing as too much power, I have not discovered it.\"\n—Volrath",
+        "number": "24",
+        "imageName": "dark ritual"
       }
     ]
   },
@@ -690,7 +747,7 @@
         ],
         "rarity": "Common",
         "artist": "Rob Alexander",
-        "text": "Players may cast enchantment cards as though they had flash.\nWhenever you roll {C}, destroy target creature that isn't enchanted.",
+        "text": "Players may cast enchantment cards as though they had flash.\nWhenever you roll CHAOS, destroy target creature that isn't enchanted.",
         "number": "9",
         "imageName": "akoum"
       },
@@ -729,7 +786,7 @@
         "name": "Chaotic Æther",
         "rarity": "Common",
         "artist": "Dan Scott",
-        "text": "When you encounter Chaotic Æther, each blank roll of the planar die is a {C} roll until a player planeswalks away from a plane. (Then planeswalk away from this phenomenon.)",
+        "text": "When you encounter Chaotic Æther, each blank roll of the planar die is a CHAOS roll until a player planeswalks away from a plane. (Then planeswalk away from this phenomenon.)",
         "number": "1",
         "imageName": "chaotic aether"
       },
@@ -746,7 +803,7 @@
         ],
         "rarity": "Rare",
         "artist": "Steven Belledin",
-        "text": "Players have no maximum hand size.\nWhenever you roll the planar die, draw a card.\nWhenever you roll {C}, reveal the top card of your planar deck. You may put it on the bottom of your planar deck.",
+        "text": "Players have no maximum hand size.\nWhenever you roll the planar die, draw a card.\nWhenever you roll CHAOS, reveal the top card of your planar deck. You may put it on the bottom of your planar deck.",
         "number": "P1",
         "imageName": "stairs to infinity"
       }

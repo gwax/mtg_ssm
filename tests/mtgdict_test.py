@@ -19,7 +19,7 @@ class MtgCsvTest(
 
     def test_load_counts(self):
         # Setup
-        mtgjson.update_models(self.session, self.mtg_data)
+        mtgjson.update_models(self.session, self.mtg_data, False)
         self.session.commit()
         forest1 = self.session.query(
             models.CardPrinting).filter_by(multiverseid=2746).first()

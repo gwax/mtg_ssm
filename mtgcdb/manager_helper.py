@@ -24,7 +24,7 @@ def backup_file(filename):
         print('Backup written to {0}'.format(backup_filename))
 
 
-def read_mtgjson(db_session, data_path):
+def read_mtgjson(db_session, data_path, include_online_only):
     """Read card data from mtgjson to database."""
     print('Attempting to fetch latest mtgjson.')
     new_version = downloader.fetch_mtgjson(data_path)
@@ -37,7 +37,7 @@ def read_mtgjson(db_session, data_path):
     print('Updating card information in database.')
     connection = db_session.connection()
     models.Base.metadata.create_all(connection)
-    mtgjson.update_models(db_session, mtgdata)
+    mtgjson.update_models(db_session, mtgdata, include_online_only)
     print('Done updating cards in database.')
 
 

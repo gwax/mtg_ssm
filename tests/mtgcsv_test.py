@@ -27,7 +27,7 @@ class MtgCsvTest(
 
     def test_dump_rows(self):
         # Setup
-        mtgjson.update_models(self.session, self.mtg_data)
+        mtgjson.update_models(self.session, self.mtg_data, True)
         self.session.commit()
         forest1 = self.session.query(
             models.CardPrinting).filter_by(multiverseid=2746).first()
@@ -47,9 +47,11 @@ class MtgCsvTest(
         # Verify
         # pylint: disable=line-too-long
         expected = [
+            {'set': 'LEA', 'name': 'Dark Ritual', 'multiverseid': 54, 'number': None},
             {'set': 'LEA', 'name': 'Air Elemental', 'multiverseid': 94, 'number': None},
             {'set': 'LEA', 'name': 'Forest', 'multiverseid': 288, 'number': None},
             {'set': 'LEA', 'name': 'Forest', 'multiverseid': 289, 'number': None},
+            {'set': 'ICE', 'name': 'Dark Ritual', 'multiverseid': 2444, 'number': None},
             {'set': 'ICE', 'name': 'Forest', 'multiverseid': 2746, 'number': None, 'copies': 1},
             {'set': 'ICE', 'name': 'Forest', 'multiverseid': 2747, 'number': None, 'foils': 2},
             {'set': 'ICE', 'name': 'Forest', 'multiverseid': 2748, 'number': None, 'copies': 3, 'foils': 4},
@@ -60,6 +62,7 @@ class MtgCsvTest(
             {'set': 'pMGD', 'name': 'Black Sun\'s Zenith', 'multiverseid': None, 'number': '7'},
             {'set': 'HOP', 'name': 'Academy at Tolaria West', 'multiverseid': 198073, 'number': '1'},
             {'set': 'HOP', 'name': 'Akroma\'s Vengeance', 'multiverseid': 205366, 'number': '1'},
+            {'set': 'HOP', 'name': 'Dark Ritual', 'multiverseid': 205422, 'number': '24'},
             {'set': 'ARC', 'name': 'All in Good Time', 'multiverseid': 212648, 'number': '1'},
             {'set': 'ARC', 'name': 'Leonin Abunas', 'multiverseid': 220527, 'number': '1'},
             {'set': 'ISD', 'name': 'Delver of Secrets', 'multiverseid': 226749, 'number': '51a'},
@@ -108,7 +111,7 @@ class MtgCsvTest(
 
     def test_read_row_counts(self):
         # Setup
-        mtgjson.update_models(self.session, self.mtg_data)
+        mtgjson.update_models(self.session, self.mtg_data, True)
         self.session.commit()
         forest1 = self.session.query(
             models.CardPrinting).filter_by(multiverseid=2746).first()

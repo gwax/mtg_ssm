@@ -21,6 +21,7 @@ class Card(Base):
     __tablename__ = 'cards'
     id = sqla.Column(sqla.Integer, primary_key=True)
     name = sqla.Column(sqla.Unicode(255), unique=True, nullable=False)
+    strict_basic = sqla.Column(sqla.Boolean, default=False)
 
     # Relationships
     printings = sqlo.relationship('CardPrinting')

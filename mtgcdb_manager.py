@@ -36,10 +36,13 @@ def get_parser():
         'The collection operation to perform.'))
     cmd_subparser.required = True
 
-    cmd_subparser.add_parser('update_cards', help=(
+    uc_parser = cmd_subparser.add_parser('update_cards', help=(
         'Check for and download a new version of mtgjson and then update '
         'cards and sets in the database. All card counts in the database '
         'will be preserved.'))
+    uc_parser.add_argument(
+        '--include_online_only', default=False, action='store_true', help=(
+            'Include online only sets (e.g. Masters sets) in the database.'))
 
     wcsv_parser = cmd_subparser.add_parser('write_csv', help=(
         'Write all cards from the database to a CSV file. If a file already '
@@ -61,6 +64,9 @@ def get_parser():
         'updated cards back to CSV file. The original CSV file will be backed '
         'up. NOTE: Database counts are NOT backed up and will be overwritten '
         'by CSV contents.'))
+    ucsv_parser.add_argument(
+        '--include_online_only', default=False, action='store_true', help=(
+            'Include online only sets (e.g. Masters sets) in the database.'))
     ucsv_parser.add_argument('csv_filename', help=(
         'The path and filename for the target CSV file.'))
 
@@ -85,6 +91,9 @@ def get_parser():
         'spreadsheet, and write updated cards back to XLSX file. The original '
         'XLSX file will be backed up. NOTE: Database counts are not backed up '
         'and will be overwritten by XLSX contents.'))
+    uxlsx_parser.add_argument(
+        '--include_online_only', default=False, action='store_true', help=(
+            'Include online only sets (e.g. Masters sets) in the database.'))
     uxlsx_parser.add_argument('xlsx_filename', help=(
         'The path and filename for the target XLSX file.'))
 
@@ -96,7 +105,8 @@ def run_commands(session_factory, args):
     session = session_factory()
     try:
         if args.command in {'update_cards', 'update_csv', 'update_xlsx'}:
-            manager_helper.read_mtgjson(session, args.data_path)
+            manager_helper.read_mtgjson(
+                session, args.data_path, args.include_online_only)
 
         if args.command in {'read_csv', 'update_csv'}:
             manager_helper.read_csv(session, args.csv_filename)

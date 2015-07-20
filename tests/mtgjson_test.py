@@ -164,9 +164,9 @@ class MtgjsonTest(
         self.assertEqual(222911, printing.multiverseid)
         self.assertEqual('Volkan Baga', printing.artist)
 
-    def test_update_models(self):
+    def test_update_models_with_online_only(self):
         # Execute
-        mtgjson.update_models(self.session, self.mtg_data)
+        mtgjson.update_models(self.session, self.mtg_data, True)
         self.session.commit()
 
         # Verify
@@ -175,9 +175,11 @@ class MtgjsonTest(
             (p.set.code, p.card.name, p.multiverseid, p.set_number)
             for p in printings]
         expected = [
+            ('LEA', 'Dark Ritual', 54, None),
             ('LEA', 'Air Elemental', 94, None),
             ('LEA', 'Forest', 288, None),
             ('LEA', 'Forest', 289, None),
+            ('ICE', 'Dark Ritual', 2444, None),
             ('ICE', 'Forest', 2746, None),
             ('ICE', 'Forest', 2747, None),
             ('ICE', 'Forest', 2748, None),
@@ -188,6 +190,7 @@ class MtgjsonTest(
             ('pMGD', 'Black Sun\'s Zenith', None, '7'),
             ('HOP', 'Academy at Tolaria West', 198073, '1'),
             ('HOP', 'Akroma\'s Vengeance', 205366, '1'),
+            ('HOP', 'Dark Ritual', 205422, '24'),
             ('ARC', 'All in Good Time', 212648, '1'),
             ('ARC', 'Leonin Abunas', 220527, '1'),
             ('ISD', 'Abattoir Ghoul', 222911, '85'),
@@ -201,5 +204,48 @@ class MtgjsonTest(
             ('PC2', 'Chaotic Æther', 226509, '1'),
             ('PC2', 'Stairs to Infinity', 226521, 'P1'),
             ('VMA', 'Academy Elite', 382835, '55'),
+        ]
+        self.assertCountEqual(expected, set_card_mv_number)
+
+
+    def test_update_models_without_online_only(self):
+        # Execute
+        mtgjson.update_models(self.session, self.mtg_data, False)
+        self.session.commit()
+
+        # Verify
+        printings = self.session.query(models.CardPrinting).all()
+        set_card_mv_number = [
+            (p.set.code, p.card.name, p.multiverseid, p.set_number)
+            for p in printings]
+        expected = [
+            ('LEA', 'Dark Ritual', 54, None),
+            ('LEA', 'Air Elemental', 94, None),
+            ('LEA', 'Forest', 288, None),
+            ('LEA', 'Forest', 289, None),
+            ('ICE', 'Dark Ritual', 2444, None),
+            ('ICE', 'Forest', 2746, None),
+            ('ICE', 'Forest', 2747, None),
+            ('ICE', 'Forest', 2748, None),
+            ('ICE', 'Snow-Covered Forest', 2749, None),
+            ('HML', 'Cemetery Gate', 2913, None),
+            ('HML', 'Cemetery Gate', 2914, None),
+            ('S00', 'Rhox', None, None),
+            ('pMGD', 'Black Sun\'s Zenith', None, '7'),
+            ('HOP', 'Academy at Tolaria West', 198073, '1'),
+            ('HOP', 'Akroma\'s Vengeance', 205366, '1'),
+            ('HOP', 'Dark Ritual', 205422, '24'),
+            ('ARC', 'All in Good Time', 212648, '1'),
+            ('ARC', 'Leonin Abunas', 220527, '1'),
+            ('ISD', 'Abattoir Ghoul', 222911, '85'),
+            ('ISD', 'Delver of Secrets', 226749, '51a'),
+            ('ISD', 'Insectile Aberration', 226755, '51b'),
+            ('ISD', 'Forest', 245247, '262'),
+            ('ISD', 'Forest', 245248, '263'),
+            ('ISD', 'Forest', 245246, '264'),
+            ('PC2', 'Akoum', 226512, '9'),
+            ('PC2', 'Armored Griffin', 271234, '1'),
+            ('PC2', 'Chaotic Æther', 226509, '1'),
+            ('PC2', 'Stairs to Infinity', 226521, 'P1'),
         ]
         self.assertCountEqual(expected, set_card_mv_number)

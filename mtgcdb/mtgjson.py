@@ -5,16 +5,19 @@ import datetime
 from mtgcdb import models
 
 
-def update_models(session, mtg_data):
+def update_models(session, mtg_data, include_online_only):
     """Update database with data from mtgjson (assumes models exist).
 
     Arguments:
         session: Session, sqlalchemy session to read/write database.
         mtg_data: dict, data from json.load(s) on mtgjson data.
+        include_online_only: process online_only sets? if False, skip.
     """
     setcode_to_set = {s.code: s for s in session.query(models.CardSet)}
     cardname_to_card = {c.name: c for c in session.query(models.Card)}
     for set_data in mtg_data.values():
+        if not include_online_only and set_data.get('onlineOnly', False):
+            continue
         update_set(session, set_data, setcode_to_set)
         for card_data in set_data['cards']:
             update_card(session, card_data, cardname_to_card)
@@ -24,6 +27,8 @@ def update_models(session, mtg_data):
         (p.set_id, p.card_id, p.set_number, p.multiverseid): p
         for p in session.query(models.CardPrinting)}
     for set_data in mtg_data.values():
+        if not include_online_only and set_data.get('onlineOnly', False):
+            continue
         set_id = setcode_to_set[set_data['code']].id
         for card_data in set_data['cards']:
             card_id = cardname_to_card[card_data['name']].id
@@ -59,6 +64,7 @@ def update_card(session, card_data, name_to_card):
         card = models.Card(name=name)
         name_to_card[name] = card
         session.add(card)
+    card.strict_basic = (card_data.get('supertypes') == ['Basic'])
     return card
 
 
