@@ -49,7 +49,7 @@ def create_sets_sheet(sheet, card_sets):
         ]
         sheet.append(row)
     sheet.freeze_panes = sheet['C2']
-    widths = [10, 30, 12, 16, 12, 7, 7, 7, 7]
+    widths = [6, 24, 12, 16, 12, 7, 7, 7, 7]
     for width, cdim in zip(widths, sheet.column_dimensions.values()):
         cdim.width = width
 
@@ -109,7 +109,7 @@ def create_cards_sheet(sheet, card_set, name_to_prints):
         row.append(get_other_print_references(printing, name_to_prints))
         sheet.append(row)
     sheet.freeze_panes = sheet['C2']
-    widths = [6, 25, 12, 8, 20, 6, 6, 10]
+    widths = [5, 18, 12, 8, 20, 6, 6, 10]
     for width, cdim in zip(widths, sheet.column_dimensions.values()):
         cdim.width = width
 
