@@ -111,6 +111,139 @@
       }
     ]
   },
+  "FEM": {
+    "name": "Fallen Empires",
+    "code": "FEM",
+    "gathererCode": "FE",
+    "magicCardsInfoCode": "fe",
+    "releaseDate": "1994-11-01",
+    "border": "black",
+    "type": "expansion",
+    "booster": [
+      "uncommon",
+      "uncommon",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common"
+    ],
+    "cards": [
+      {
+        "layout": "normal",
+        "type": "Creature — Fungus",
+        "types": [
+          "Creature"
+        ],
+        "colors": [
+          "Green"
+        ],
+        "multiverseid": 1924,
+        "name": "Thallid",
+        "subtypes": [
+          "Fungus"
+        ],
+        "cmc": 1,
+        "rarity": "Common",
+        "artist": "Edward P. Beard, Jr.",
+        "power": "1",
+        "toughness": "1",
+        "manaCost": "{G}",
+        "text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Put a 1/1 green Saproling creature token onto the battlefield.",
+        "variations": [
+          1927,
+          1925,
+          1926
+        ],
+        "imageName": "thallid1"
+      },
+      {
+        "layout": "normal",
+        "type": "Creature — Fungus",
+        "types": [
+          "Creature"
+        ],
+        "colors": [
+          "Green"
+        ],
+        "multiverseid": 1926,
+        "name": "Thallid",
+        "subtypes": [
+          "Fungus"
+        ],
+        "cmc": 1,
+        "rarity": "Common",
+        "artist": "Jesper Myrfors",
+        "power": "1",
+        "toughness": "1",
+        "manaCost": "{G}",
+        "text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Put a 1/1 green Saproling creature token onto the battlefield.",
+        "variations": [
+          1927,
+          1925,
+          1924
+        ],
+        "imageName": "thallid2"
+      },
+      {
+        "layout": "normal",
+        "type": "Creature — Fungus",
+        "types": [
+          "Creature"
+        ],
+        "colors": [
+          "Green"
+        ],
+        "multiverseid": 1927,
+        "name": "Thallid",
+        "subtypes": [
+          "Fungus"
+        ],
+        "cmc": 1,
+        "rarity": "Common",
+        "artist": "Ron Spencer",
+        "power": "1",
+        "toughness": "1",
+        "manaCost": "{G}",
+        "text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Put a 1/1 green Saproling creature token onto the battlefield.",
+        "variations": [
+          1925,
+          1924,
+          1926
+        ],
+        "imageName": "thallid3"
+      },
+      {
+        "layout": "normal",
+        "type": "Creature — Fungus",
+        "types": [
+          "Creature"
+        ],
+        "colors": [
+          "Green"
+        ],
+        "multiverseid": 1925,
+        "name": "Thallid",
+        "subtypes": [
+          "Fungus"
+        ],
+        "cmc": 1,
+        "rarity": "Common",
+        "artist": "Daniel Gelon",
+        "power": "1",
+        "toughness": "1",
+        "manaCost": "{G}",
+        "text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Put a 1/1 green Saproling creature token onto the battlefield.",
+        "variations": [
+          1927,
+          1924,
+          1926
+        ],
+        "imageName": "thallid4"
+      }
+    ]
+  },
   "ICE": {
     "name": "Ice Age",
     "code": "ICE",
@@ -806,6 +939,65 @@
         "text": "Players have no maximum hand size.\nWhenever you roll the planar die, draw a card.\nWhenever you roll CHAOS, reveal the top card of your planar deck. You may put it on the bottom of your planar deck.",
         "number": "P1",
         "imageName": "stairs to infinity"
+      }
+    ]
+  },
+  "MMA": {
+    "name": "Modern Masters",
+    "code": "MMA",
+    "magicCardsInfoCode": "mma",
+    "releaseDate": "2013-06-07",
+    "border": "black",
+    "type": "reprint",
+    "booster": [
+      [
+        "rare",
+        "mythic rare"
+      ],
+      "uncommon",
+      "uncommon",
+      "uncommon",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      [
+        "foil mythic rare",
+        "foil rare",
+        "foil uncommon",
+        "foil common"
+      ]
+    ],
+    "cards": [
+      {
+        "layout": "normal",
+        "type": "Creature — Fungus",
+        "types": [
+          "Creature"
+        ],
+        "colors": [
+          "Green"
+        ],
+        "multiverseid": 370352,
+        "name": "Thallid",
+        "subtypes": [
+          "Fungus"
+        ],
+        "cmc": 1,
+        "rarity": "Common",
+        "artist": "Trevor Claxton",
+        "power": "1",
+        "toughness": "1",
+        "manaCost": "{G}",
+        "text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Put a 1/1 green Saproling creature token onto the battlefield.",
+        "number": "167",
+        "imageName": "thallid"
       }
     ]
   },

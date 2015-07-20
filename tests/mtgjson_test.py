@@ -179,6 +179,10 @@ class MtgjsonTest(
             ('LEA', 'Air Elemental', 94, None),
             ('LEA', 'Forest', 288, None),
             ('LEA', 'Forest', 289, None),
+            ('FEM', 'Thallid', 1924, None),
+            ('FEM', 'Thallid', 1926, None),
+            ('FEM', 'Thallid', 1927, None),
+            ('FEM', 'Thallid', 1925, None),
             ('ICE', 'Dark Ritual', 2444, None),
             ('ICE', 'Forest', 2746, None),
             ('ICE', 'Forest', 2747, None),
@@ -203,6 +207,7 @@ class MtgjsonTest(
             ('PC2', 'Armored Griffin', 271234, '1'),
             ('PC2', 'Chaotic Æther', 226509, '1'),
             ('PC2', 'Stairs to Infinity', 226521, 'P1'),
+            ('MMA', 'Thallid', 370352, '167'),
             ('VMA', 'Academy Elite', 382835, '55'),
         ]
         self.assertCountEqual(expected, set_card_mv_number)
@@ -223,6 +228,10 @@ class MtgjsonTest(
             ('LEA', 'Air Elemental', 94, None),
             ('LEA', 'Forest', 288, None),
             ('LEA', 'Forest', 289, None),
+            ('FEM', 'Thallid', 1924, None),
+            ('FEM', 'Thallid', 1926, None),
+            ('FEM', 'Thallid', 1927, None),
+            ('FEM', 'Thallid', 1925, None),
             ('ICE', 'Dark Ritual', 2444, None),
             ('ICE', 'Forest', 2746, None),
             ('ICE', 'Forest', 2747, None),
@@ -247,5 +256,6 @@ class MtgjsonTest(
             ('PC2', 'Armored Griffin', 271234, '1'),
             ('PC2', 'Chaotic Æther', 226509, '1'),
             ('PC2', 'Stairs to Infinity', 226521, 'P1'),
+            ('MMA', 'Thallid', 370352, '167'),
         ]
         self.assertCountEqual(expected, set_card_mv_number)

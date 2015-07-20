@@ -14,6 +14,7 @@ TARGET_MTGJSON_FILE = os.path.join(
 
 INCLUDED = {
     'LEA': {'Air Elemental', 'Dark Ritual', 'Forest'},
+    'FEM': {'Thallid'},
     'S00': {'Rhox'},
     'ICE': {'Dark Ritual', 'Forest', 'Snow-Covered Forest'},
     'VMA': {'Academy Elite'},
@@ -25,6 +26,7 @@ INCLUDED = {
     'ARC': {'All in Good Time', 'Leonin Abunas'},
     'HOP': {'Academy at Tolaria West', 'Akroma\'s Vengeance', 'Dark Ritual'},
     'PC2': {'Akoum', 'Armored Griffin', 'Chaotic Æther', 'Stairs to Infinity'},
+    'MMA': {'Thallid'},
 }
 
 

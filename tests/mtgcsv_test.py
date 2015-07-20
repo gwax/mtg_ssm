@@ -51,6 +51,10 @@ class MtgCsvTest(
             {'set': 'LEA', 'name': 'Air Elemental', 'multiverseid': 94, 'number': None},
             {'set': 'LEA', 'name': 'Forest', 'multiverseid': 288, 'number': None},
             {'set': 'LEA', 'name': 'Forest', 'multiverseid': 289, 'number': None},
+            {'set': 'FEM', 'name': 'Thallid', 'multiverseid': 1924, 'number': None},
+            {'set': 'FEM', 'name': 'Thallid', 'multiverseid': 1925, 'number': None},
+            {'set': 'FEM', 'name': 'Thallid', 'multiverseid': 1926, 'number': None},
+            {'set': 'FEM', 'name': 'Thallid', 'multiverseid': 1927, 'number': None},
             {'set': 'ICE', 'name': 'Dark Ritual', 'multiverseid': 2444, 'number': None},
             {'set': 'ICE', 'name': 'Forest', 'multiverseid': 2746, 'number': None, 'copies': 1},
             {'set': 'ICE', 'name': 'Forest', 'multiverseid': 2747, 'number': None, 'foils': 2},
@@ -75,6 +79,7 @@ class MtgCsvTest(
             {'set': 'PC2', 'name': 'Chaotic Æther', 'multiverseid': 226509, 'number': '1'},
             {'set': 'PC2', 'name': 'Armored Griffin', 'multiverseid': 271234, 'number': '1'},
             {'set': 'PC2', 'name': 'Akoum', 'multiverseid': 226512, 'number': '9'},
+            {'set': 'MMA', 'name': 'Thallid', 'multiverseid': 370352, 'number': '167'},
             {'set': 'VMA', 'name': 'Academy Elite', 'multiverseid': 382835, 'number': '55'},
         ]
         # pylint: enable=line-too-long

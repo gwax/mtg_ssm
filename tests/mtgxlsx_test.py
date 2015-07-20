@@ -41,6 +41,7 @@ class MtgXlsxTest(
         expected = [
             ['code', 'name', 'release', 'block', 'type', 'cards', 'unique', 'playsets', 'count'],
             ['LEA', 'Limited Edition Alpha', datetime.datetime(1993, 8, 5), None, 'core', 4, '=COUNTIF(\'LEA\'!A:A,">0")', '=COUNTIF(\'LEA\'!A:A,">=4")', "=SUM('LEA'!A:A)"],
+            ['FEM', 'Fallen Empires', datetime.datetime(1994, 11, 1), None, 'expansion', 4, '=COUNTIF(\'FEM\'!A:A,">0")', '=COUNTIF(\'FEM\'!A:A,">=4")', "=SUM('FEM'!A:A)"],
             ['ICE', 'Ice Age', datetime.datetime(1995, 6, 1), 'Ice Age', 'expansion', 5, '=COUNTIF(\'ICE\'!A:A,">0")', '=COUNTIF(\'ICE\'!A:A,">=4")', "=SUM('ICE'!A:A)"],
             ['HML', 'Homelands', datetime.datetime(1995, 10, 1), None, 'expansion', 2, '=COUNTIF(\'HML\'!A:A,">0")', '=COUNTIF(\'HML\'!A:A,">=4")', "=SUM('HML'!A:A)"],
             ['S00', 'Starter 2000', datetime.datetime(2000, 4, 1), None, 'starter', 1, '=COUNTIF(\'S00\'!A:A,">0")', '=COUNTIF(\'S00\'!A:A,">=4")', "=SUM('S00'!A:A)"],
@@ -49,12 +50,49 @@ class MtgXlsxTest(
             ['ARC', 'Archenemy', datetime.datetime(2010, 6, 18), None, 'archenemy', 2, '=COUNTIF(\'ARC\'!A:A,">0")', '=COUNTIF(\'ARC\'!A:A,">=4")', "=SUM('ARC'!A:A)"],
             ['ISD', 'Innistrad', datetime.datetime(2011, 9, 30), 'Innistrad', 'expansion', 6, '=COUNTIF(\'ISD\'!A:A,">0")', '=COUNTIF(\'ISD\'!A:A,">=4")', "=SUM('ISD'!A:A)"],
             ['PC2', 'Planechase 2012 Edition', datetime.datetime(2012, 6, 1), None, 'planechase', 4, '=COUNTIF(\'PC2\'!A:A,">0")', '=COUNTIF(\'PC2\'!A:A,">=4")', "=SUM('PC2'!A:A)"],
+            ['MMA', 'Modern Masters', datetime.datetime(2013, 6, 7, 0, 0), None, 'reprint', 1, '=COUNTIF(\'MMA\'!A:A,">0")', '=COUNTIF(\'MMA\'!A:A,">=4")', "=SUM('MMA'!A:A)"],
             ['VMA', 'Vintage Masters', datetime.datetime(2014, 6, 16), None, 'masters', 1, '=COUNTIF(\'VMA\'!A:A,">0")', '=COUNTIF(\'VMA\'!A:A,">=4")', "=SUM('VMA'!A:A)"],
         ]
         # pylint: enable=line-too-long
         self.assertEqual(expected, rows)
 
-    def test_get_other_print_references(self):
+    def test_split_into_consecutives(self):
+        inlist = []
+        expected = []
+        self.assertEqual(expected, mtgxlsx.split_into_consecutives(inlist))
+
+        inlist = [1]
+        expected = [[1]]
+        self.assertEqual(expected, mtgxlsx.split_into_consecutives(inlist))
+
+        inlist = [1, 2, 3]
+        expected = [[1, 2, 3]]
+        self.assertEqual(expected, mtgxlsx.split_into_consecutives(inlist))
+
+        inlist = [1, 2, 3, 5, 6, 8, 9, 10, 11]
+        expected = [[1, 2, 3], [5, 6], [8, 9, 10, 11]]
+        self.assertEqual(expected, mtgxlsx.split_into_consecutives(inlist))
+
+        inlist = [4, 3, 7, 1]
+        expected = [[1], [3, 4], [7]]
+        self.assertEqual(expected, mtgxlsx.split_into_consecutives(inlist))
+
+    def test_create_haveref_sum(self):
+        setcode = 'ABC'
+
+        rownums = [1]
+        expected = "'ABC'!A1"
+        self.assertEqual(expected, mtgxlsx.create_haveref_sum(setcode, rownums))
+
+        rownums = [3, 4, 5, 6]
+        expected = "SUM('ABC'!A3:A6)"
+        self.assertEqual(expected, mtgxlsx.create_haveref_sum(setcode, rownums))
+
+        rownums = [3, 4, 5, 8, 10]
+        expected = "SUM('ABC'!A3:A5)+'ABC'!A8+'ABC'!A10"
+        self.assertEqual(expected, mtgxlsx.create_haveref_sum(setcode, rownums))
+
+    def test_get_other_print_refs_multiple_sets(self):
         # Setup
         mtgjson.update_models(self.session, self.mtg_data, True)
         self.session.commit()
@@ -72,6 +110,25 @@ class MtgXlsxTest(
         expected = (
             '=IF(\'ICE\'!A2>0,"ICE: "&\'ICE\'!A2&", ","")'
             '&IF(\'HOP\'!A4>0,"HOP: "&\'HOP\'!A4&", ","")')
+        self.assertEqual(expected, print_refs)
+
+    def test_get_other_print_refs_multiple_variants(self):
+        # Setup
+        mtgjson.update_models(self.session, self.mtg_data, True)
+        self.session.commit()
+        thallids = self.session.query(models.CardPrinting).filter(
+            models.CardPrinting.card.has(name='Thallid')).all()
+        name_to_prints = {'Thallid': thallids}
+        mma_thallid = self.session.query(
+            models.CardPrinting).filter_by(multiverseid=370352).first()
+
+        # Execute
+        print_refs = mtgxlsx.get_other_print_references(
+            mma_thallid, name_to_prints)
+
+        # Verify
+        expected = (
+            '=IF(SUM(\'FEM\'!A2:A5)>0,"FEM: "&SUM(\'FEM\'!A2:A5)&", ","")')
         self.assertEqual(expected, print_refs)
 
     def test_get_other_print_references_basic_land(self):
@@ -143,6 +200,7 @@ class MtgXlsxTest(
         expected = [
             'Sets',
             'LEA',
+            'FEM',
             'ICE',
             'HML',
             'S00',
@@ -151,6 +209,7 @@ class MtgXlsxTest(
             'ARC',
             'ISD',
             'PC2',
+            'MMA',
             'VMA',
         ]
         self.assertEqual(expected, book.sheetnames)

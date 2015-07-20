@@ -54,6 +54,37 @@ def create_sets_sheet(sheet, card_sets):
         cdim.width = width
 
 
+def split_into_consecutives(numlist):
+    """Split a list of numbers into lists of consecutive groups."""
+    if not numlist:
+        return []
+    numlist.sort()
+    retlist = [[]]
+    current_group = retlist[0]
+    previous = numlist[0] - 1
+    for val in numlist:
+        if previous + 1 == val:
+            current_group.append(val)
+        else:
+            current_group = [val]
+            retlist.append(current_group)
+        previous = val
+    return retlist
+
+
+def create_haveref_sum(setcode, rownums):
+    """Given a setcode and list of rownumbers, create a sum of have cells."""
+    haverefs = []
+    for sequence in split_into_consecutives(rownums):
+        if len(sequence) == 1:
+            haverefs.append("'{0}'!A{1}".format(setcode, sequence[0]))
+        else:
+            haverefs.append(
+                "SUM('{0}'!A{1}:A{2})".format(
+                    setcode, sequence[0], sequence[-1]))
+    return '+'.join(haverefs)
+
+
 def get_other_print_references(printing, name_to_prints):
     """Get an xlsx formula to list counts of a card from other sets."""
     if printing.card.strict_basic:
@@ -73,10 +104,8 @@ def get_other_print_references(printing, name_to_prints):
     setcode_and_release = sorted(setcode_and_release, key=lambda item: item[1])
     set_to_havecellref = collections.OrderedDict()
     for setcode, _ in setcode_and_release:
-        rownums = sorted(setcode_to_rownums[setcode])
-        haverefs = ["'{0}'!A{1}".format(setcode, rownum) for rownum in rownums]
-        havecellref = '+'.join(haverefs)
-        set_to_havecellref[setcode] = havecellref
+        rownums = setcode_to_rownums[setcode]
+        set_to_havecellref[setcode] = create_haveref_sum(setcode, rownums)
     other_print_references = '=' + '&'.join(
         'IF({1}>0,"{0}: "&{1}&", ","")'.format(k, v)
         for k, v in set_to_havecellref.items())
