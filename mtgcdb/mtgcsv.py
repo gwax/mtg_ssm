@@ -32,6 +32,7 @@ def dump_rows(session):
             card_info.update(printing.counts)
             yield card_info
 
+
 def int_or_none(value):
     if value == 0:
         return 0
@@ -53,7 +54,6 @@ def process_row_dict(row_dict):
         if countype in row_dict:
             card_dict[countype] = int_or_none(row_dict[countype])
     return card_dict
-
 
 
 def read_row_counts(session, row_dicts):

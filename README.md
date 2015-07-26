@@ -2,9 +2,9 @@
 
 [![Build Status](https://travis-ci.org/gwax/mtgcdb.svg?branch=master)](https://travis-ci.org/gwax/mtgcdb)
 
-This is a tool for creating/updating user-friendly Office Open XML (XLSX)
-spreadsheets with Magic: the Gathering collection information. It can also
-be used to create somewhat user-friendly CSV files with collection information.
+This is a tool for creating/updating user-friendly spreadsheets with
+Magic: the Gathering collection information. The tool can also import/export
+data to/from these spreadsheets to other formats, such as CSV files.
 
 As a matter of convenience, you can store the created spreadsheet in
 Dropbox, Google Drive, or the like and access your collection from
@@ -28,31 +28,24 @@ Clone this repository, and then from the root of the repository run:
 pip3 install -r requirements.txt
 ```
 
-You should now be able to run mtgcdb_manager from the root of the repository:
+You should now be able to run mtgss_manager from the root of the repository:
 
 ```bash
-./mtgcdb_manager --help
+./mtgss_manager.py --help
 ```
 
 # Usage
 
-For first time use, you will want to start by updating your card database:
+For first time use, you will want to create an empty spreadsheet with card data:
 
 ```bash
-./mtgcdb_manager update_cards
+./mtgss_manager.py collection.xlsx create
 ```
-
-Then you can create a new spreadsheet to store your collection:
-
-```bash
-./mtgcdb_manager write_xlsx collection.xlsx
-```
-
 In the future, when new sets are released, you can update your spreadsheet
 with new cards:
 
 ```bash
-./mtgcdb_manager update_xlsx collection.xlsx
+./mtgss_manager.py collection.xlsx update
 ```
 
 ## Existing collections
@@ -63,20 +56,14 @@ import that collection into your card database.
 First create an example csv file:
 
 ```bash
-./mtgcdb_manager write_csv collection.csv.example
+./mtgss_manager.py collection.xlsx create
+./mtgss_manager.py collection.xlsx export collection.csv.example
 ```
 
 Then create a matching csv and import into your database:
 
 ```bash
-./mtgcdb_manager read_csv collection.csv
-```
-
-From here, you can write to xlsx (or csv) and set aside your csv import file:
-
-```bash
-./mtgcdb_manager write_xlsx collection.xlsx
-rm collection.csv
+./mtgss_manager.py collection.xlsx import collection.csv
 ```
 
 # In development

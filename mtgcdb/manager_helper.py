@@ -18,7 +18,7 @@ def backup_file(filename):
     """Given a filename, backup the file if it exists."""
     if os.path.exists(filename):
         print('Target already exists, making backup.')
-        backup_filename = '{0}.bak-{1:%Y-%m-%d_%H-%M}'.format(
+        backup_filename = '{0}.bak-{1:%Y-%m-%d_%H-%M-%S}'.format(
             filename, datetime.datetime.now())
         shutil.copyfile(filename, backup_filename)
         print('Backup written to {0}'.format(backup_filename))
