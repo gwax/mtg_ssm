@@ -12,7 +12,7 @@ class SqlEnumType(sqlt.SchemaType, sqlt.TypeDecorator):
     """
 
     def __init__(self, enum_cls):
-        """Given an enum.Enum creat a sqlalchemy type to store it."""
+        """Given an enum.IntEnum create a sqlalchemy type to store it."""
         super().__init__()
         values = [member.name for member in enum_cls.__members__.values()]
         name = 'ck{}'.format(re.sub(
