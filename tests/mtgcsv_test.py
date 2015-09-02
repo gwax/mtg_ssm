@@ -55,6 +55,7 @@ class MtgCsvTest(
             {'set': 'FEM', 'name': 'Thallid', 'multiverseid': 1925, 'number': None},
             {'set': 'FEM', 'name': 'Thallid', 'multiverseid': 1926, 'number': None},
             {'set': 'FEM', 'name': 'Thallid', 'multiverseid': 1927, 'number': None},
+            {'set': 'pMEI', 'name': 'Arena', 'multiverseid': 97042, 'number': '1'},
             {'set': 'ICE', 'name': 'Dark Ritual', 'multiverseid': 2444, 'number': None},
             {'set': 'ICE', 'name': 'Forest', 'multiverseid': 2746, 'number': None, 'copies': 1},
             {'set': 'ICE', 'name': 'Forest', 'multiverseid': 2747, 'number': None, 'foils': 2},

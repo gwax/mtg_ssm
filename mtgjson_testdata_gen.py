@@ -27,6 +27,7 @@ INCLUDED = {
     'HOP': {'Academy at Tolaria West', 'Akroma\'s Vengeance', 'Dark Ritual'},
     'PC2': {'Akoum', 'Armored Griffin', 'Chaotic Æther', 'Stairs to Infinity'},
     'MMA': {'Thallid'},
+    'pMEI': {'Arena'},
 }
 
 
