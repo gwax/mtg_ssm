@@ -44,10 +44,24 @@ def create_sets_sheet(sheet, card_sets):
             "=SUM('{}'!A:A)".format(card_set.code)
         ]
         sheet.append(row)
+
+    # Styling
     sheet.freeze_panes = sheet['C2']
-    widths = [6, 24, 12, 16, 12, 7, 7, 7, 7]
-    for width, cdim in zip(widths, sheet.column_dimensions.values()):
+    col_width_hidden = [
+        ('A', 6, False),
+        ('B', 24, False),
+        ('C', 12, True),
+        ('D', 16, True),
+        ('E', 12, True),
+        ('F', 6, False),
+        ('G', 7, False),
+        ('H', 8, False),
+        ('I', 7, False),
+    ]
+    for col, width, hidden in col_width_hidden:
+        cdim = sheet.column_dimensions[col]
         cdim.width = width
+        cdim.hidden = hidden
 
 
 def split_into_consecutives(numlist):
@@ -120,11 +134,10 @@ def create_cards_sheet(sheet, card_set):
     have_tmpl = '=' + '+'.join(c + '{0}' for c in count_cols)
     sheet.append(header)
     for printing in card_set.printings:
-        name = printing.card.name
         rownum = card_set.printings.index(printing) + 2
         row = [
             have_tmpl.format(rownum),
-            name,
+            printing.card.name,
             printing.id,
             printing.multiverseid,
             printing.set_number,
@@ -134,10 +147,24 @@ def create_cards_sheet(sheet, card_set):
             row.append(printing.counts.get(key))
         row.append(get_other_print_references(printing))
         sheet.append(row)
+
+    # Styling
     sheet.freeze_panes = sheet['C2']
-    widths = [5, 18, 12, 8, 20, 6, 6, 10]
-    for width, cdim in zip(widths, sheet.column_dimensions.values()):
+    col_width_hidden = [
+        ('A', 5, False),
+        ('B', 18, False),
+        ('C', 5, True),
+        ('D', 12, True),
+        ('E', 8, True),
+        ('F', 20, True),
+        ('G', 6, False),
+        ('H', 6, False),
+        ('I', 10, False),
+    ]
+    for col, width, hidden in col_width_hidden:
+        cdim = sheet.column_dimensions[col]
         cdim.width = width
+        cdim.hidden = hidden
 
 
 def read_workbook_counts(session, workbook):
