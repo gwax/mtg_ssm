@@ -2,10 +2,7 @@
 # See:
 #   http://docs.pylint.org/features.html
 #
-# W0232: Class has no __init__ method.
-# R0903: Too few public methods
-# I0011: Locally disable
-disable = W0232,R0903,I0011,
+disable=no-init,too-few-public-methods,locally-disabled,locally-enabled
 
 [REPORTS]
 # Set the output format. Available formats are text, parseable, colorized, msvs
@@ -17,6 +14,10 @@ output-format=colorized
 reports=no
 
 [BASIC]
+# Regular expression which should only match function or class names that do
+# not require a docstring.
+no-docstring-rgx=__.*__|test_.*|.*Test|setUp.*|tearDown.*
+
 # Minimum line length for functions/classes that require docstrings, shorter
 # ones are exempt.
 docstring-min-length=6

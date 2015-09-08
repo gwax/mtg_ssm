@@ -25,7 +25,6 @@ class SqliteTestCase(unittest.TestCase):
         self.session = self.__session = self.sessionmaker()
 
     def tearDown(self):
-        self.__session.commit()
         self.__session.close()
         self.engine.dispose()
         super().tearDown()

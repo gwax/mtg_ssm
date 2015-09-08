@@ -29,6 +29,9 @@ def get_parser():
         '--debug_stats', default=False, action='store_true',
         help='Output additional debugging statistics.')
     parser.add_argument(
+        '--db_echo', default=False, action='store_true',
+        help='Output sql queries issued against db engine for debugging.')
+    parser.add_argument(
         'spreadsheet_file', help='Spreadsheet (xlsx) filename to work with.')
 
     cmd_subparser = parser.add_subparsers(
@@ -70,7 +73,7 @@ def get_parser():
 
 def run_commands(args):
     """Run the requested operations."""
-    engine = sqla.create_engine('sqlite://')
+    engine = sqla.create_engine('sqlite://', echo=args.db_echo)
     session_factory = sqlo.sessionmaker(engine)
     session = session_factory()
     try:

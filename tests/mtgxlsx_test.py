@@ -46,6 +46,7 @@ class MtgXlsxTest(
             ['ICE', 'Ice Age', datetime.datetime(1995, 6, 1), 'Ice Age', 'expansion', 5, '=COUNTIF(\'ICE\'!A:A,">0")', '=COUNTIF(\'ICE\'!A:A,">=4")', "=SUM('ICE'!A:A)"],
             ['HML', 'Homelands', datetime.datetime(1995, 10, 1), None, 'expansion', 2, '=COUNTIF(\'HML\'!A:A,">0")', '=COUNTIF(\'HML\'!A:A,">=4")', "=SUM('HML'!A:A)"],
             ['S00', 'Starter 2000', datetime.datetime(2000, 4, 1), None, 'starter', 1, '=COUNTIF(\'S00\'!A:A,">0")', '=COUNTIF(\'S00\'!A:A,">=4")', "=SUM('S00'!A:A)"],
+            ['PLS', 'Planeshift', datetime.datetime(2001, 2, 5), 'Invasion', 'expansion', 2, '=COUNTIF(\'PLS\'!A:A,">0")', '=COUNTIF(\'PLS\'!A:A,">=4")', "=SUM('PLS'!A:A)"],
             ['pMGD', 'Magic Game Day', datetime.datetime(2007, 7, 14), None, 'promo', 1, '=COUNTIF(\'pMGD\'!A:A,">0")', '=COUNTIF(\'pMGD\'!A:A,">=4")', "=SUM('pMGD'!A:A)"],
             ['HOP', 'Planechase', datetime.datetime(2009, 9, 4), None, 'planechase', 3, '=COUNTIF(\'HOP\'!A:A,">0")', '=COUNTIF(\'HOP\'!A:A,">=4")', "=SUM('HOP'!A:A)"],
             ['ARC', 'Archenemy', datetime.datetime(2010, 6, 18), None, 'archenemy', 2, '=COUNTIF(\'ARC\'!A:A,">0")', '=COUNTIF(\'ARC\'!A:A,">=4")', "=SUM('ARC'!A:A)"],
@@ -179,12 +180,12 @@ class MtgXlsxTest(
         rows = [[cell.value for cell in row] for row in sheet.rows]
         # pylint: disable=line-too-long
         expected = [
-            ['have', 'name', 'multiverseid', 'number', 'artist', 'copies', 'foils', 'others'],
-            ['=F2+G2', 'Dark Ritual', 2444, None, 'Justin Hampton', None, None, mock.ANY],
-            ['=F3+G3', 'Forest', 2746, None, 'Pat Morrissey', 1, None, mock.ANY],
-            ['=F4+G4', 'Forest', 2747, None, 'Pat Morrissey', None, 2, mock.ANY],
-            ['=F5+G5', 'Forest', 2748, None, 'Pat Morrissey', 3, 4, mock.ANY],
-            ['=F6+G6', 'Snow-Covered Forest', 2749, None, 'Pat Morrissey', None, None, mock.ANY],
+            ['have', 'name', 'id', 'multiverseid', 'number', 'artist', 'copies', 'foils', 'others'],
+            ['=G2+H2', 'Dark Ritual', '2fab0ea29e3bbe8bfbc981a4c8163f3e7d267853', 2444, None, 'Justin Hampton', None, None, mock.ANY],
+            ['=G3+H3', 'Forest', '676a1f5b64dc03bbb3876840c3ff2ba2c16f99cb', 2746, None, 'Pat Morrissey', 1, None, mock.ANY],
+            ['=G4+H4', 'Forest', 'd0a4414893bc2f9bd3beea2f8f2693635ef926a4', 2747, None, 'Pat Morrissey', None, 2, mock.ANY],
+            ['=G5+H5', 'Forest', 'c78d2da78c68c558b1adc734b3f164e885407ffc', 2748, None, 'Pat Morrissey', 3, 4, mock.ANY],
+            ['=G6+H6', 'Snow-Covered Forest', '5e9f08498a9343b1954103e493da2586be0fe394', 2749, None, 'Pat Morrissey', None, None, mock.ANY],
         ]
         # pylint: enable=line-too-long
         self.assertEqual(expected, rows)
@@ -206,6 +207,7 @@ class MtgXlsxTest(
             'ICE',
             'HML',
             'S00',
+            'PLS',
             'pMGD',
             'HOP',
             'ARC',
