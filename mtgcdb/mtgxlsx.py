@@ -27,13 +27,15 @@ def dump_workbook(session):
     return workbook
 
 
+SETS_SHEET_HEADER = [
+    'code', 'name', 'release', 'block', 'type', 'cards', 'unique', 'playsets',
+    'count']
+
+
 def create_sets_sheet(sheet, card_sets):
     """Populate sheet with information about all card sets."""
     sheet.title = 'Sets'
-    header = [
-        'code', 'name', 'release', 'block', 'type', 'cards', 'unique',
-        'playsets', 'count']
-    sheet.append(header)
+    sheet.append(SETS_SHEET_HEADER)
     for card_set in card_sets:
         row = [
             card_set.code,
@@ -125,28 +127,31 @@ def get_other_print_references(printing, name_to_prints):
     return other_print_references
 
 
+COUNT_KEYS = list(models.CountTypes.__members__.keys())
+CARDS_SHEET_HEADER = (
+    ['have', 'name', 'id', 'multiverseid', 'number', 'artist'] +
+    COUNT_KEYS + ['others'])
+COUNT_COLS = [
+    string.ascii_uppercase[CARDS_SHEET_HEADER.index(key)] for key in COUNT_KEYS]
+HAVE_TMPL = '=' + '+'.join(c + '{0}' for c in COUNT_COLS)
+ROW_OFFSET = 2
+
+
 def create_cards_sheet(sheet, card_set, name_to_prints):
     """Populate sheet with card information from a given set."""
     sheet.title = card_set.code
-    count_keys = list(models.CountTypes.__members__.keys())
-    header = (
-        ['have', 'name', 'id', 'multiverseid', 'number', 'artist'] +
-        count_keys + ['others'])
-    count_cols = [
-        string.ascii_uppercase[header.index(key)] for key in count_keys]
-    have_tmpl = '=' + '+'.join(c + '{0}' for c in count_cols)
-    sheet.append(header)
+    sheet.append(CARDS_SHEET_HEADER)
     for printing in card_set.printings:
-        rownum = card_set.printings.index(printing) + 2
+        rownum = card_set.printings.index(printing) + ROW_OFFSET
         row = [
-            have_tmpl.format(rownum),
+            HAVE_TMPL.format(rownum),
             printing.card.name,
             printing.id,
             printing.multiverseid,
             printing.set_number,
             printing.artist,
         ]
-        for key in models.CountTypes.__members__.keys():
+        for key in COUNT_KEYS:
             row.append(printing.counts.get(key))
         row.append(get_other_print_references(printing, name_to_prints))
         sheet.append(row)
