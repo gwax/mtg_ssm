@@ -1,7 +1,7 @@
 """Tests for mtgcdb.util"""
 
 from __future__ import absolute_import
-from builtins import super
+from builtins import super  # pylint: disable=redefined-builtin
 
 import enum
 

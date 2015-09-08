@@ -1,7 +1,7 @@
 """Tests for mtgcdb.mtgcsv"""
 
 from __future__ import absolute_import
-from builtins import super
+from builtins import super  # pylint: disable=redefined-builtin
 
 from mtgcdb import models
 from mtgcdb import mtgcsv

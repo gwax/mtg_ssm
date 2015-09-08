@@ -1,6 +1,6 @@
 """General helper methods and classes."""
 
-from builtins import super
+from builtins import super  # pylint: disable=redefined-builtin
 
 import re
 

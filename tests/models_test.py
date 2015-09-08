@@ -2,7 +2,7 @@
 """Tests for mtgcdb.models"""
 
 from __future__ import absolute_import, unicode_literals
-from builtins import super
+from builtins import super  # pylint: disable=redefined-builtin
 
 import six
 

@@ -1,6 +1,6 @@
 """Testcase for tests that require a sqlalchemy sqlite engine."""
 
-from builtins import super
+from builtins import super  # pylint: disable=redefined-builtin
 
 import unittest
 
