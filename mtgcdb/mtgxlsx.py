@@ -4,7 +4,6 @@ import collections
 import string
 
 import openpyxl
-import sqlalchemy.orm as sqlo
 
 from mtgcdb import models
 from mtgcdb import mtgdict
@@ -12,15 +11,19 @@ from mtgcdb import mtgdict
 
 def dump_workbook(session):
     """Return xlsx workbook from the database."""
-    card_sets = session.query(models.CardSet).options(
-        sqlo.joinedload('printings').joinedload('card'))
-
     workbook = openpyxl.Workbook()
+
+    name_to_prints = collections.defaultdict(list)
+    printings = session.query(models.CardPrinting)
+    for printing in printings:
+        name_to_prints[printing.card_name].append(printing)
+
+    card_sets = session.query(models.CardSet)
     sets_sheet = workbook['Sheet']
     create_sets_sheet(sets_sheet, card_sets)
     for card_set in card_sets:
         cards_sheet = workbook.create_sheet()
-        create_cards_sheet(cards_sheet, card_set)
+        create_cards_sheet(cards_sheet, card_set, name_to_prints)
     return workbook
 
 
@@ -95,12 +98,12 @@ def create_haveref_sum(setcode, rownums):
     return '+'.join(haverefs)
 
 
-def get_other_print_references(printing):
+def get_other_print_references(printing, name_to_prints):
     """Get an xlsx formula to list counts of a card from other sets."""
     if printing.card.strict_basic:
         return None  # Basics are so prolific, they tend to bog things down
     other_prints = (
-        p for p in printing.card.printings
+        p for p in name_to_prints[printing.card_name]
         if p.set_code != printing.set_code)
     setcode_and_release = set()
     setcode_to_rownums = collections.defaultdict(list)
@@ -122,7 +125,7 @@ def get_other_print_references(printing):
     return other_print_references
 
 
-def create_cards_sheet(sheet, card_set):
+def create_cards_sheet(sheet, card_set, name_to_prints):
     """Populate sheet with card information from a given set."""
     sheet.title = card_set.code
     count_keys = list(models.CountTypes.__members__.keys())
@@ -145,7 +148,7 @@ def create_cards_sheet(sheet, card_set):
         ]
         for key in models.CountTypes.__members__.keys():
             row.append(printing.counts.get(key))
-        row.append(get_other_print_references(printing))
+        row.append(get_other_print_references(printing, name_to_prints))
         sheet.append(row)
 
     # Styling
