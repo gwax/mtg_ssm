@@ -47,7 +47,27 @@
         "manaCost": "{3}{U}{U}",
         "text": "Flying",
         "flavor": "These spirits of the air are winsome and wild, and cannot be truly contained. Only marginally intelligent, they often substitute whimsy for strategy, delighting in mischief and mayhem.",
-        "imageName": "air elemental"
+        "imageName": "air elemental",
+        "id": "926234c2fe8863f49220a878346c4c5ca79b6046"
+      },
+      {
+        "layout": "normal",
+        "type": "Instant",
+        "types": [
+          "Instant"
+        ],
+        "colors": [
+          "Black"
+        ],
+        "multiverseid": 54,
+        "name": "Dark Ritual",
+        "cmc": 1,
+        "rarity": "Common",
+        "artist": "Sandra Everingham",
+        "manaCost": "{B}",
+        "text": "Add {B}{B}{B} to your mana pool.",
+        "imageName": "dark ritual",
+        "id": "fff0b8e8fea06ee1ac5c35f048a0a459b1222673"
       },
       {
         "layout": "normal",
@@ -68,7 +88,8 @@
         "variations": [
           288
         ],
-        "imageName": "forest1"
+        "imageName": "forest1",
+        "id": "970af6b2a9a1db5d3956172791717b2afab3e03f"
       },
       {
         "layout": "normal",
@@ -89,7 +110,194 @@
         "variations": [
           289
         ],
-        "imageName": "forest2"
+        "imageName": "forest2",
+        "id": "5ede9781b0c5d157c28a15c3153a455d7d6180fa"
+      }
+    ]
+  },
+  "pMEI": {
+    "name": "Media Inserts",
+    "code": "pMEI",
+    "magicCardsInfoCode": "mbp",
+    "magicRaritiesCodes": [
+      "189-rarities-agent-of-artifice-novel-promo-insert",
+      "109-rarities-harperprism-book-inserts",
+      "20-rarities-armada-comics-book-promos",
+      "175-rarities-coro-coro-comic-book-inserts",
+      "296-rarities-dengeki-maoh-magazine-inserts",
+      "81-rarities-gotta-magazine-cards",
+      "196-rarities-hachette-french-magic-encyclopedia-inserts",
+      "197-rarities-hachette-italian-magic-encyclopedia-inserts",
+      "765-rarities-idw-comics-book-inserts",
+      "16-rarities-kartefakt-magazine-promo",
+      "121-rarities-players-guide-inserts",
+      "228-rarities-rpg-magazine-inserts",
+      "135-rarities-salvat-magic-encyclopedia-cards",
+      "134-rarities-the-cardz-magazine-inserts",
+      "22-rarities-the-duelist-cards",
+      "18-rarities-topdeck-cards",
+      "258-rarities-buy-a-box-promos",
+      "787-rarities-holiday-gift-box",
+      "224-rarities-duels-of-the-planeswalkers-software-promos",
+      "160-rarities-resale-promos",
+      "686-rarities-convention-and-various-promos"
+    ],
+    "releaseDate": "1995-01-01",
+    "border": "black",
+    "type": "promo",
+    "cards": [
+      {
+        "layout": "normal",
+        "type": "Land",
+        "types": [
+          "Land"
+        ],
+        "name": "Arena",
+        "rarity": "Special",
+        "text": "{3}, {T}: Tap target creature you control and target creature of an opponent's choice he or she controls. Those creatures fight each other. (Each deals damage equal to its power to the other.)",
+        "artist": "Rob Alexander",
+        "number": "1",
+        "imageName": "arena",
+        "releaseDate": "1994-09",
+        "multiverseid": 97042,
+        "id": "741b2637bc11ba8687f50f1d18b5f447f8056d73"
+      }
+    ]
+  },
+  "FEM": {
+    "name": "Fallen Empires",
+    "code": "FEM",
+    "gathererCode": "FE",
+    "magicCardsInfoCode": "fe",
+    "releaseDate": "1994-11-01",
+    "border": "black",
+    "type": "expansion",
+    "booster": [
+      "uncommon",
+      "uncommon",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common"
+    ],
+    "cards": [
+      {
+        "layout": "normal",
+        "type": "Creature — Fungus",
+        "types": [
+          "Creature"
+        ],
+        "colors": [
+          "Green"
+        ],
+        "multiverseid": 1924,
+        "name": "Thallid",
+        "subtypes": [
+          "Fungus"
+        ],
+        "cmc": 1,
+        "rarity": "Common",
+        "artist": "Edward P. Beard, Jr.",
+        "power": "1",
+        "toughness": "1",
+        "manaCost": "{G}",
+        "text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Put a 1/1 green Saproling creature token onto the battlefield.",
+        "variations": [
+          1927,
+          1925,
+          1926
+        ],
+        "imageName": "thallid1",
+        "id": "3deebffcf4f5152f4a5cc270cfac746a3bd2089d"
+      },
+      {
+        "layout": "normal",
+        "type": "Creature — Fungus",
+        "types": [
+          "Creature"
+        ],
+        "colors": [
+          "Green"
+        ],
+        "multiverseid": 1926,
+        "name": "Thallid",
+        "subtypes": [
+          "Fungus"
+        ],
+        "cmc": 1,
+        "rarity": "Common",
+        "artist": "Jesper Myrfors",
+        "power": "1",
+        "toughness": "1",
+        "manaCost": "{G}",
+        "text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Put a 1/1 green Saproling creature token onto the battlefield.",
+        "variations": [
+          1927,
+          1925,
+          1924
+        ],
+        "imageName": "thallid2",
+        "id": "f68597b2ddfbd715c5c51b94e3a39e0a307e3f40"
+      },
+      {
+        "layout": "normal",
+        "type": "Creature — Fungus",
+        "types": [
+          "Creature"
+        ],
+        "colors": [
+          "Green"
+        ],
+        "multiverseid": 1927,
+        "name": "Thallid",
+        "subtypes": [
+          "Fungus"
+        ],
+        "cmc": 1,
+        "rarity": "Common",
+        "artist": "Ron Spencer",
+        "power": "1",
+        "toughness": "1",
+        "manaCost": "{G}",
+        "text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Put a 1/1 green Saproling creature token onto the battlefield.",
+        "variations": [
+          1925,
+          1924,
+          1926
+        ],
+        "imageName": "thallid3",
+        "id": "378e47697b1b74df8c901cac23f7402b01da31b2"
+      },
+      {
+        "layout": "normal",
+        "type": "Creature — Fungus",
+        "types": [
+          "Creature"
+        ],
+        "colors": [
+          "Green"
+        ],
+        "multiverseid": 1925,
+        "name": "Thallid",
+        "subtypes": [
+          "Fungus"
+        ],
+        "cmc": 1,
+        "rarity": "Common",
+        "artist": "Daniel Gelon",
+        "power": "1",
+        "toughness": "1",
+        "manaCost": "{G}",
+        "text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Put a 1/1 green Saproling creature token onto the battlefield.",
+        "variations": [
+          1927,
+          1924,
+          1926
+        ],
+        "imageName": "thallid4",
+        "id": "bd676ca33f673a6769312e8e9b12e1cf40ae2c84"
       }
     ]
   },
@@ -122,6 +330,26 @@
     "cards": [
       {
         "layout": "normal",
+        "type": "Instant",
+        "types": [
+          "Instant"
+        ],
+        "colors": [
+          "Black"
+        ],
+        "multiverseid": 2444,
+        "name": "Dark Ritual",
+        "cmc": 1,
+        "rarity": "Common",
+        "artist": "Justin Hampton",
+        "manaCost": "{B}",
+        "text": "Add {B}{B}{B} to your mana pool.",
+        "flavor": "\"Leshrac, my liege, grant me the power I am due.\"\n—Lim-Dûl, the Necromancer",
+        "imageName": "dark ritual",
+        "id": "2fab0ea29e3bbe8bfbc981a4c8163f3e7d267853"
+      },
+      {
+        "layout": "normal",
         "supertypes": [
           "Basic"
         ],
@@ -140,7 +368,8 @@
           2747,
           2746
         ],
-        "imageName": "forest1"
+        "imageName": "forest1",
+        "id": "c78d2da78c68c558b1adc734b3f164e885407ffc"
       },
       {
         "layout": "normal",
@@ -162,7 +391,8 @@
           2747,
           2748
         ],
-        "imageName": "forest2"
+        "imageName": "forest2",
+        "id": "676a1f5b64dc03bbb3876840c3ff2ba2c16f99cb"
       },
       {
         "layout": "normal",
@@ -184,7 +414,8 @@
           2748,
           2746
         ],
-        "imageName": "forest3"
+        "imageName": "forest3",
+        "id": "d0a4414893bc2f9bd3beea2f8f2693635ef926a4"
       },
       {
         "layout": "normal",
@@ -203,7 +434,8 @@
         ],
         "rarity": "Basic Land",
         "artist": "Pat Morrissey",
-        "imageName": "snow-covered forest"
+        "imageName": "snow-covered forest",
+        "id": "5e9f08498a9343b1954103e493da2586be0fe394"
       }
     ]
   },
@@ -257,7 +489,8 @@
         "variations": [
           2914
         ],
-        "imageName": "cemetery gate1"
+        "imageName": "cemetery gate1",
+        "id": "f7a1292dac99aa861d3f501653969595ed12038c"
       },
       {
         "layout": "normal",
@@ -284,7 +517,8 @@
         "variations": [
           2913
         ],
-        "imageName": "cemetery gate2"
+        "imageName": "cemetery gate2",
+        "id": "960dd99077c44e66e4d7c76e2d52689b92010275"
       }
     ]
   },
@@ -318,7 +552,107 @@
         "toughness": "5",
         "manaCost": "{4}{G}{G}",
         "text": "You may have Rhox assign its combat damage as though it weren't blocked.\n{2}{G}: Regenerate Rhox. (The next time this creature would be destroyed this turn, it isn't. Instead tap it, remove all damage from it, and remove it from combat.)",
-        "imageName": "rhox"
+        "imageName": "rhox",
+        "id": "536d407161fa03eddee7da0e823c2042a8fa0262"
+      }
+    ]
+  },
+  "PLS": {
+    "name": "Planeshift",
+    "code": "PLS",
+    "gathererCode": "PS",
+    "magicCardsInfoCode": "ps",
+    "releaseDate": "2001-02-05",
+    "border": "black",
+    "type": "expansion",
+    "block": "Invasion",
+    "booster": [
+      "rare",
+      "uncommon",
+      "uncommon",
+      "uncommon",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common"
+    ],
+    "cards": [
+      {
+        "layout": "normal",
+        "supertypes": [
+          "Legendary"
+        ],
+        "type": "Legendary Creature — Human Wizard",
+        "types": [
+          "Creature"
+        ],
+        "colors": [
+          "White",
+          "Blue",
+          "Black"
+        ],
+        "multiverseid": 25614,
+        "name": "Ertai, the Corrupted",
+        "subtypes": [
+          "Human",
+          "Wizard"
+        ],
+        "cmc": 5,
+        "rarity": "Rare",
+        "artist": "Mark Tedin",
+        "power": "3",
+        "toughness": "4",
+        "manaCost": "{2}{W}{U}{B}",
+        "text": "{U}, {T}, Sacrifice a creature or enchantment: Counter target spell.",
+        "flavor": "Altered by Phyrexian science, corrupted by black mana, and twisted by rage, Ertai still looked in the mirror and saw only glory.",
+        "number": "107",
+        "variations": [
+          29292
+        ],
+        "imageName": "ertai, the corrupted1",
+        "id": "08fcfee6a7c4eddcd44e43e918cbf9d479492fe7"
+      },
+      {
+        "layout": "normal",
+        "supertypes": [
+          "Legendary"
+        ],
+        "type": "Legendary Creature — Human Wizard",
+        "types": [
+          "Creature"
+        ],
+        "colors": [
+          "White",
+          "Blue",
+          "Black"
+        ],
+        "multiverseid": 29292,
+        "name": "Ertai, the Corrupted",
+        "subtypes": [
+          "Human",
+          "Wizard"
+        ],
+        "cmc": 5,
+        "rarity": "Rare",
+        "artist": "Kev Walker",
+        "power": "3",
+        "toughness": "4",
+        "manaCost": "{2}{W}{U}{B}",
+        "text": "{U}, {T}, Sacrifice a creature or enchantment: Counter target spell.",
+        "flavor": "Altered by Phyrexian science, corrupted by black mana, and twisted by rage, Ertai still looked in the mirror and saw only glory.",
+        "number": "★107",
+        "variations": [
+          25614
+        ],
+        "imageName": "ertai, the corrupted2",
+        "id": "62ff415cafefac84a5bb7174cb7ef175c14625de"
       }
     ]
   },
@@ -326,7 +660,9 @@
     "name": "Magic Game Day",
     "code": "pMGD",
     "magicCardsInfoCode": "mgdc",
-    "magicRaritiesCodes": "119-rarities-magic-game-day-cards",
+    "magicRaritiesCodes": [
+      "119-rarities-magic-game-day-cards"
+    ],
     "releaseDate": "2007-07-14",
     "border": "black",
     "type": "promo",
@@ -348,7 +684,8 @@
         "artist": "James Paick",
         "number": "7",
         "imageName": "black sun's zenith",
-        "releaseDate": "2011-03-05"
+        "releaseDate": "2011-03-05",
+        "id": "6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc"
       }
     ]
   },
@@ -360,13 +697,6 @@
     "releaseDate": "2009-09-04",
     "border": "black",
     "type": "planechase",
-    "languagesPrinted": [
-      "French",
-      "German",
-      "Italian",
-      "Japanese",
-      "Spanish"
-    ],
     "cards": [
       {
         "layout": "plane",
@@ -381,9 +711,10 @@
         ],
         "rarity": "Common",
         "artist": "James Paick",
-        "text": "At the beginning of your end step, if you have no cards in hand, draw seven cards.\nWhenever you roll {C}, discard your hand.",
+        "text": "At the beginning of your end step, if you have no cards in hand, draw seven cards.\nWhenever you roll CHAOS, discard your hand.",
         "number": "1",
-        "imageName": "academy at tolaria west"
+        "imageName": "academy at tolaria west",
+        "id": "e5e0a663b682507c2f0c057ceb60f623337d8633"
       },
       {
         "layout": "normal",
@@ -403,7 +734,29 @@
         "text": "Destroy all artifacts, creatures, and enchantments.\nCycling {3} ({3}, Discard this card: Draw a card.)",
         "flavor": "Ixidor had only to imagine their ruin and Akroma made it so.",
         "number": "1",
-        "imageName": "akroma's vengeance"
+        "imageName": "akroma's vengeance",
+        "id": "e0f9ef8a8c40d81268545f1a7a89652994d57592"
+      },
+      {
+        "layout": "normal",
+        "type": "Instant",
+        "types": [
+          "Instant"
+        ],
+        "colors": [
+          "Black"
+        ],
+        "multiverseid": 205422,
+        "name": "Dark Ritual",
+        "cmc": 1,
+        "rarity": "Common",
+        "artist": "Clint Langley",
+        "manaCost": "{B}",
+        "text": "Add {B}{B}{B} to your mana pool.",
+        "flavor": "\"If there is such a thing as too much power, I have not discovered it.\"\n—Volrath",
+        "number": "24",
+        "imageName": "dark ritual",
+        "id": "19c38ff78c0e98b38f3bd8184478e22152d9a624"
       }
     ]
   },
@@ -414,13 +767,6 @@
     "releaseDate": "2010-06-18",
     "border": "black",
     "type": "archenemy",
-    "languagesPrinted": [
-      "French",
-      "German",
-      "Italian",
-      "Japanese",
-      "Spanish"
-    ],
     "cards": [
       {
         "layout": "scheme",
@@ -435,7 +781,8 @@
         "text": "When you set this scheme in motion, take an extra turn after this one. Schemes can't be set in motion that turn.",
         "flavor": "\"Take a moment. Ponder the depths of your insignificance.\"",
         "number": "1",
-        "imageName": "all in good time"
+        "imageName": "all in good time",
+        "id": "0ac51bc6b0c720032a90016360e404b30705f47e"
       },
       {
         "layout": "normal",
@@ -461,7 +808,8 @@
         "text": "Artifacts you control have hexproof. (They can't be the targets of spells or abilities your opponents control.)",
         "flavor": "Only leonin clerics who can survive the Razor Fields for one turning of the suns can stand in the Cave of Light.",
         "number": "1",
-        "imageName": "leonin abunas"
+        "imageName": "leonin abunas",
+        "id": "983e8f0c10c56bbac44b860e1fb90e7683e03aa6"
       }
     ]
   },
@@ -497,17 +845,6 @@
       "marketing",
       "double faced"
     ],
-    "languagesPrinted": [
-      "Chinese Simplified",
-      "Chinese Traditional",
-      "French",
-      "German",
-      "Italian",
-      "Japanese",
-      "Portuguese (Brazil)",
-      "Russian",
-      "Spanish"
-    ],
     "cards": [
       {
         "layout": "normal",
@@ -532,7 +869,8 @@
         "text": "First strike\nWhenever a creature dealt damage by Abattoir Ghoul this turn dies, you gain life equal to that creature's toughness.",
         "flavor": "Death took his humanity but not his skill with the knife.",
         "number": "85",
-        "imageName": "abattoir ghoul"
+        "imageName": "abattoir ghoul",
+        "id": "958ae1416f8f6287115ccd7c5c61f2415a313546"
       },
       {
         "layout": "double-faced",
@@ -561,7 +899,8 @@
         "manaCost": "{U}",
         "text": "At the beginning of your upkeep, look at the top card of your library. You may reveal that card. If an instant or sorcery card is revealed this way, transform Delver of Secrets.",
         "number": "51a",
-        "imageName": "delver of secrets"
+        "imageName": "delver of secrets",
+        "id": "0b06d8d9e7662ada82bd29e1138d959978ba2280"
       },
       {
         "layout": "normal",
@@ -584,7 +923,8 @@
           245248,
           245246
         ],
-        "imageName": "forest1"
+        "imageName": "forest1",
+        "id": "e9abef8533c9ce6549147232c5fceff75ffb460a"
       },
       {
         "layout": "normal",
@@ -607,7 +947,8 @@
           245247,
           245246
         ],
-        "imageName": "forest2"
+        "imageName": "forest2",
+        "id": "3c509643d7f7827b2debf968c05cb800cb772360"
       },
       {
         "layout": "normal",
@@ -630,7 +971,8 @@
           245247,
           245248
         ],
-        "imageName": "forest3"
+        "imageName": "forest3",
+        "id": "d5dbd9b201a515d119b424b3d7b06dcf30a5c675"
       },
       {
         "layout": "double-faced",
@@ -658,7 +1000,8 @@
         "text": "Flying",
         "flavor": "\"Unfortunately, all my test animals have died or escaped, so I shall be the final subject. I feel no fear. This is a momentous night.\"\n—Laboratory notes, final entry",
         "number": "51b",
-        "imageName": "insectile aberration"
+        "imageName": "insectile aberration",
+        "id": "e5c4aa9a443c346ccbf8d99c9320138827065e05"
       }
     ]
   },
@@ -669,13 +1012,6 @@
     "releaseDate": "2012-06-01",
     "border": "black",
     "type": "planechase",
-    "languagesPrinted": [
-      "French",
-      "German",
-      "Italian",
-      "Japanese",
-      "Spanish"
-    ],
     "cards": [
       {
         "layout": "plane",
@@ -690,9 +1026,10 @@
         ],
         "rarity": "Common",
         "artist": "Rob Alexander",
-        "text": "Players may cast enchantment cards as though they had flash.\nWhenever you roll {C}, destroy target creature that isn't enchanted.",
+        "text": "Players may cast enchantment cards as though they had flash.\nWhenever you roll CHAOS, destroy target creature that isn't enchanted.",
         "number": "9",
-        "imageName": "akoum"
+        "imageName": "akoum",
+        "id": "987af3f421ec11e042ff1722e56a8d71b120feb9"
       },
       {
         "layout": "normal",
@@ -717,7 +1054,8 @@
         "text": "Flying, vigilance",
         "flavor": "When an order for griffin barding comes in, blacksmiths prepare their forges for months of exacting work. They know griffins always detect imperfections and never haggle.",
         "number": "1",
-        "imageName": "armored griffin"
+        "imageName": "armored griffin",
+        "id": "149b5dbcdc895e66c8530a6adc0e16b9f3210ec6"
       },
       {
         "layout": "phenomenon",
@@ -729,9 +1067,10 @@
         "name": "Chaotic Æther",
         "rarity": "Common",
         "artist": "Dan Scott",
-        "text": "When you encounter Chaotic Æther, each blank roll of the planar die is a {C} roll until a player planeswalks away from a plane. (Then planeswalk away from this phenomenon.)",
+        "text": "When you encounter Chaotic Æther, each blank roll of the planar die is a CHAOS roll until a player planeswalks away from a plane. (Then planeswalk away from this phenomenon.)",
         "number": "1",
-        "imageName": "chaotic aether"
+        "imageName": "chaotic aether",
+        "id": "5669523e75ffdb436b768d4dd37cb95b82919d51"
       },
       {
         "layout": "plane",
@@ -746,9 +1085,70 @@
         ],
         "rarity": "Rare",
         "artist": "Steven Belledin",
-        "text": "Players have no maximum hand size.\nWhenever you roll the planar die, draw a card.\nWhenever you roll {C}, reveal the top card of your planar deck. You may put it on the bottom of your planar deck.",
+        "text": "Players have no maximum hand size.\nWhenever you roll the planar die, draw a card.\nWhenever you roll CHAOS, reveal the top card of your planar deck. You may put it on the bottom of your planar deck.",
         "number": "P1",
-        "imageName": "stairs to infinity"
+        "imageName": "stairs to infinity",
+        "id": "72f22a825c3764f7131d7c255a8db6214c852ba9"
+      }
+    ]
+  },
+  "MMA": {
+    "name": "Modern Masters",
+    "code": "MMA",
+    "magicCardsInfoCode": "mma",
+    "releaseDate": "2013-06-07",
+    "border": "black",
+    "type": "reprint",
+    "booster": [
+      [
+        "rare",
+        "mythic rare"
+      ],
+      "uncommon",
+      "uncommon",
+      "uncommon",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      [
+        "foil mythic rare",
+        "foil rare",
+        "foil uncommon",
+        "foil common"
+      ]
+    ],
+    "cards": [
+      {
+        "layout": "normal",
+        "type": "Creature — Fungus",
+        "types": [
+          "Creature"
+        ],
+        "colors": [
+          "Green"
+        ],
+        "multiverseid": 370352,
+        "name": "Thallid",
+        "subtypes": [
+          "Fungus"
+        ],
+        "cmc": 1,
+        "rarity": "Common",
+        "artist": "Trevor Claxton",
+        "power": "1",
+        "toughness": "1",
+        "manaCost": "{G}",
+        "text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Put a 1/1 green Saproling creature token onto the battlefield.",
+        "number": "167",
+        "imageName": "thallid",
+        "id": "fc46a4b72d216117a352f59217a84d0baeaaacb7"
       }
     ]
   },
@@ -807,7 +1207,8 @@
         "manaCost": "{3}{U}",
         "text": "Academy Elite enters the battlefield with X +1/+1 counters on it, where X is the number of instant and sorcery cards in all graveyards.\n{2}{U}, Remove a +1/+1 counter from Academy Elite: Draw a card, then discard a card.",
         "number": "55",
-        "imageName": "academy elite"
+        "imageName": "academy elite",
+        "id": "190abc553c4704e867f4331bfd47a6ba628f5b1e"
       }
     ]
   }

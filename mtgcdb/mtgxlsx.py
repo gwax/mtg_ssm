@@ -6,7 +6,6 @@ import collections
 import string
 
 import openpyxl
-import sqlalchemy.orm as sqlo
 
 from mtgcdb import models
 from mtgcdb import mtgdict
@@ -14,15 +13,14 @@ from mtgcdb import mtgdict
 
 def dump_workbook(session):
     """Return xlsx workbook from the database."""
-    printings = session.query(models.CardPrinting).options(
-        sqlo.joinedload('card'), sqlo.joinedload('set'))
-    name_to_prints = collections.defaultdict(list)
-    for printing in printings:
-        name_to_prints[printing.card.name].append(printing)
-    card_sets = session.query(models.CardSet).options(
-        sqlo.joinedload('printings'))
-
     workbook = openpyxl.Workbook()
+
+    name_to_prints = collections.defaultdict(list)
+    printings = session.query(models.CardPrinting)
+    for printing in printings:
+        name_to_prints[printing.card_name].append(printing)
+
+    card_sets = session.query(models.CardSet)
     sets_sheet = workbook['Sheet']
     create_sets_sheet(sets_sheet, card_sets)
     for card_set in card_sets:
@@ -31,13 +29,15 @@ def dump_workbook(session):
     return workbook
 
 
+SETS_SHEET_HEADER = [
+    'code', 'name', 'release', 'block', 'type', 'cards', 'unique', 'playsets',
+    'count']
+
+
 def create_sets_sheet(sheet, card_sets):
     """Populate sheet with information about all card sets."""
     sheet.title = 'Sets'
-    header = [
-        'code', 'name', 'release', 'block', 'type', 'cards', 'unique',
-        'playsets', 'count']
-    sheet.append(header)
+    sheet.append(SETS_SHEET_HEADER)
     for card_set in card_sets:
         row = [
             card_set.code,
@@ -51,17 +51,64 @@ def create_sets_sheet(sheet, card_sets):
             "=SUM('{}'!A:A)".format(card_set.code)
         ]
         sheet.append(row)
+
+    # Styling
     sheet.freeze_panes = sheet['C2']
-    widths = [10, 30, 12, 16, 12, 7, 7, 7, 7]
-    for width, cdim in zip(widths, sheet.column_dimensions.values()):
+    col_width_hidden = [
+        ('A', 6, False),
+        ('B', 24, False),
+        ('C', 12, True),
+        ('D', 16, True),
+        ('E', 12, True),
+        ('F', 6, False),
+        ('G', 7, False),
+        ('H', 8, False),
+        ('I', 7, False),
+    ]
+    for col, width, hidden in col_width_hidden:
+        cdim = sheet.column_dimensions[col]
         cdim.width = width
+        cdim.hidden = hidden
+
+
+def split_into_consecutives(numlist):
+    """Split a list of numbers into lists of consecutive groups."""
+    if not numlist:
+        return []
+    numlist.sort()
+    retlist = [[]]
+    current_group = retlist[0]
+    previous = numlist[0] - 1
+    for val in numlist:
+        if previous + 1 == val:
+            current_group.append(val)
+        else:
+            current_group = [val]
+            retlist.append(current_group)
+        previous = val
+    return retlist
+
+
+def create_haveref_sum(setcode, rownums):
+    """Given a setcode and list of rownumbers, create a sum of have cells."""
+    haverefs = []
+    for sequence in split_into_consecutives(rownums):
+        if len(sequence) == 1:
+            haverefs.append("'{0}'!A{1}".format(setcode, sequence[0]))
+        else:
+            haverefs.append(
+                "SUM('{0}'!A{1}:A{2})".format(
+                    setcode, sequence[0], sequence[-1]))
+    return '+'.join(haverefs)
 
 
 def get_other_print_references(printing, name_to_prints):
     """Get an xlsx formula to list counts of a card from other sets."""
+    if printing.card.strict_basic:
+        return None  # Basics are so prolific, they tend to bog things down
     other_prints = (
-        p for p in name_to_prints[printing.card.name]
-        if p.set_id != printing.set_id)
+        p for p in name_to_prints[printing.card_name]
+        if p.set_code != printing.set_code)
     setcode_and_release = set()
     setcode_to_rownums = collections.defaultdict(list)
     for other in other_prints:
@@ -74,45 +121,60 @@ def get_other_print_references(printing, name_to_prints):
     setcode_and_release = sorted(setcode_and_release, key=lambda item: item[1])
     set_to_havecellref = collections.OrderedDict()
     for setcode, _ in setcode_and_release:
-        rownums = sorted(setcode_to_rownums[setcode])
-        haverefs = ["'{0}'!A{1}".format(setcode, rownum) for rownum in rownums]
-        havecellref = '+'.join(haverefs)
-        set_to_havecellref[setcode] = havecellref
+        rownums = setcode_to_rownums[setcode]
+        set_to_havecellref[setcode] = create_haveref_sum(setcode, rownums)
     other_print_references = '=' + '&'.join(
         'IF({1}>0,"{0}: "&{1}&", ","")'.format(k, v)
         for k, v in set_to_havecellref.items())
     return other_print_references
 
 
+COUNT_KEYS = list(models.CountTypes.__members__.keys())
+CARDS_SHEET_HEADER = (
+    ['have', 'name', 'id', 'multiverseid', 'number', 'artist'] +
+    COUNT_KEYS + ['others'])
+COUNT_COLS = [
+    string.ascii_uppercase[CARDS_SHEET_HEADER.index(key)] for key in COUNT_KEYS]
+HAVE_TMPL = '=' + '+'.join(c + '{0}' for c in COUNT_COLS)
+ROW_OFFSET = 2
+
+
 def create_cards_sheet(sheet, card_set, name_to_prints):
     """Populate sheet with card information from a given set."""
     sheet.title = card_set.code
-    count_keys = list(models.CountTypes.__members__.keys())
-    header = (
-        ['have', 'name', 'multiverseid', 'number', 'artist'] +
-        count_keys + ['others'])
-    count_cols = [
-        string.ascii_uppercase[header.index(key)] for key in count_keys]
-    have_tmpl = '=' + '+'.join(c + '{0}' for c in count_cols)
-    sheet.append(header)
+    sheet.append(CARDS_SHEET_HEADER)
     for printing in card_set.printings:
-        name = printing.card.name
-        rownum = card_set.printings.index(printing) + 2
+        rownum = card_set.printings.index(printing) + ROW_OFFSET
         row = [
-            have_tmpl.format(rownum),
-            name,
+            HAVE_TMPL.format(rownum),
+            printing.card.name,
+            printing.id,
             printing.multiverseid,
             printing.set_number,
             printing.artist,
         ]
-        for key in models.CountTypes.__members__.keys():
+        for key in COUNT_KEYS:
             row.append(printing.counts.get(key))
         row.append(get_other_print_references(printing, name_to_prints))
         sheet.append(row)
+
+    # Styling
     sheet.freeze_panes = sheet['C2']
-    widths = [6, 25, 12, 8, 20, 6, 6, 10]
-    for width, cdim in zip(widths, sheet.column_dimensions.values()):
+    col_width_hidden = [
+        ('A', 5, False),
+        ('B', 18, False),
+        ('C', 5, True),
+        ('D', 12, True),
+        ('E', 8, True),
+        ('F', 20, True),
+        ('G', 6, False),
+        ('H', 6, False),
+        ('I', 10, False),
+    ]
+    for col, width, hidden in col_width_hidden:
+        cdim = sheet.column_dimensions[col]
         cdim.width = width
+        cdim.hidden = hidden
 
 
 def read_workbook_counts(session, workbook):

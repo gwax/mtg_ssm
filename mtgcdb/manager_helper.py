@@ -20,13 +20,13 @@ def backup_file(filename):
     """Given a filename, backup the file if it exists."""
     if os.path.exists(filename):
         print('Target already exists, making backup.')
-        backup_filename = '{0}.bak-{1:%Y-%m-%d_%H-%M}'.format(
+        backup_filename = '{0}.bak-{1:%Y-%m-%d_%H-%M-%S}'.format(
             filename, datetime.datetime.now())
         shutil.copyfile(filename, backup_filename)
         print('Backup written to {0}'.format(backup_filename))
 
 
-def read_mtgjson(db_session, data_path):
+def read_mtgjson(db_session, data_path, include_online_only):
     """Read card data from mtgjson to database."""
     print('Attempting to fetch latest mtgjson.')
     new_version = downloader.fetch_mtgjson(data_path)
@@ -39,7 +39,7 @@ def read_mtgjson(db_session, data_path):
     print('Updating card information in database.')
     connection = db_session.connection()
     models.Base.metadata.create_all(connection)
-    mtgjson.update_models(db_session, mtgdata)
+    mtgjson.update_models(db_session, mtgdata, include_online_only)
     print('Done updating cards in database.')
 
 

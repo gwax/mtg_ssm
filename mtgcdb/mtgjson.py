@@ -7,42 +7,43 @@ import datetime
 from mtgcdb import models
 
 
-def update_models(session, mtg_data):
+def update_models(session, mtg_data, include_online_only):
     """Update database with data from mtgjson (assumes models exist).
 
     Arguments:
         session: Session, sqlalchemy session to read/write database.
         mtg_data: dict, data from json.load(s) on mtgjson data.
+        include_online_only: process online_only sets? if False, skip.
     """
-    setcode_to_set = {s.code: s for s in session.query(models.CardSet)}
-    cardname_to_card = {c.name: c for c in session.query(models.Card)}
+    seen_set_codes = set()
+    seen_card_names = set()
+    seen_printing_ids = set()
     for set_data in mtg_data.values():
-        update_set(session, set_data, setcode_to_set)
-        for card_data in set_data['cards']:
-            update_card(session, card_data, cardname_to_card)
+        if not include_online_only and set_data.get('onlineOnly', False):
+            continue
 
-    session.flush()
-    set_card_num_mv_to_printing = {
-        (p.set_id, p.card_id, p.set_number, p.multiverseid): p
-        for p in session.query(models.CardPrinting)}
-    for set_data in mtg_data.values():
-        set_id = setcode_to_set[set_data['code']].id
-        for card_data in set_data['cards']:
-            card_id = cardname_to_card[card_data['name']].id
-            update_printing(
-                session, card_data, card_id, set_id,
-                set_card_num_mv_to_printing)
+        if set_data['code'] in seen_set_codes:
+            continue
 
-
-def update_set(session, set_data, code_to_set):
-    """Update sets in database from mtgjson set data."""
-    code = set_data['code']
-    if code in code_to_set:
-        card_set = code_to_set[code]
-    else:
-        card_set = models.CardSet(code=code)
-        code_to_set[code] = card_set
+        card_set = create_set(set_data)
         session.add(card_set)
+        seen_set_codes.add(card_set.code)
+
+        for card_data in set_data['cards']:
+            if card_data['name'] not in seen_card_names:
+                card = create_card(card_data)
+                session.add(card)
+                seen_card_names.add(card.name)
+
+            if card_data['id'] not in seen_printing_ids:
+                printing = create_printing(card_data, set_data['code'])
+                session.add(printing)
+                seen_printing_ids.add(printing.id)
+
+
+def create_set(set_data):
+    """Given set data, create a CardSet."""
+    card_set = models.CardSet(code=set_data['code'])
     card_set.name = set_data['name']
     card_set.block = set_data.get('block')
     card_set.release_date = datetime.datetime.strptime(
@@ -52,30 +53,19 @@ def update_set(session, set_data, code_to_set):
     return card_set
 
 
-def update_card(session, card_data, name_to_card):
-    """Update a card from mtgjson data."""
-    name = card_data['name']
-    if name in name_to_card:
-        card = name_to_card[name]
-    else:
-        card = models.Card(name=name)
-        name_to_card[name] = card
-        session.add(card)
+def create_card(card_data):
+    """Given card data, create a Card."""
+    card = models.Card(name=card_data['name'])
+    card.strict_basic = (card_data.get('supertypes') == ['Basic'])
     return card
 
 
-def update_printing(session, card_data, card_id, set_id, scnm_to_print):
-    """Update a card printing from mtgjson data."""
-    setnum = card_data.get('number')
-    mvid = card_data.get('multiverseid')
-    scnm_key = (set_id, card_id, setnum, mvid)
-    if scnm_key in scnm_to_print:
-        printing = scnm_to_print[scnm_key]
-    else:
-        printing = models.CardPrinting(
-            card_id=card_id, set_id=set_id, set_number=setnum,
-            multiverseid=mvid)
-        scnm_to_print[scnm_key] = printing
-        session.add(printing)
+def create_printing(card_data, set_code):
+    """Given card data, create a CardPrinting."""
+    printing = models.CardPrinting(id=card_data['id'])
+    printing.card_name = card_data['name']
+    printing.set_code = set_code
+    printing.set_number = card_data.get('number')
+    printing.multiverseid = card_data.get('multiverseid')
     printing.artist = card_data['artist']
     return printing

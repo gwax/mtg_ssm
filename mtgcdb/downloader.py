@@ -1,6 +1,7 @@
 """Download required remote files."""
 
 import codecs
+import collections
 import json
 import os
 import zipfile
@@ -13,8 +14,15 @@ VERSION_FILENAME = 'version-full.json'
 ALLSETS_FILENAME = 'AllSets.json.zip'
 
 
+MAX_VERSION = (3, 2, 2)
+
+
 class DownloadError(Exception):
     """Raised if the downloader fails to fetch a file."""
+
+
+class VersionError(Exception):
+    """Raised if the remote version is newer than the max supported version."""
 
 
 def fetch_mtgjson(data_folder):
@@ -35,6 +43,10 @@ def fetch_mtgjson(data_folder):
     remote_version_data = ver_req.json()
     remote_version = tuple(
         int(v) for v in remote_version_data['version'].split('.'))
+
+    if remote_version > MAX_VERSION:
+        raise VersionError('Remote version {} is not supported.'.format(
+            '.'.join(str(v) for v in remote_version)))
 
     if local_version >= remote_version:
         return False
@@ -57,5 +69,6 @@ def read_mtgjson(data_folder):
         [datafilename] = allsets_zipfile.namelist()
         datafile = allsets_zipfile.open(datafilename)
         reader = codecs.getreader('utf-8')
-        mtgdata = json.load(reader(datafile))
+        mtgdata = json.load(
+            reader(datafile), object_pairs_hook=collections.OrderedDict)
     return mtgdata
