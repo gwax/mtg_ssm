@@ -6,7 +6,7 @@ from builtins import super
 import collections
 import datetime
 try:
-    from unittest import mock
+    from unittest import mock  # pylint: disable=no-name-in-module
 except ImportError:
     import mock
 

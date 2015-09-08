@@ -2,7 +2,7 @@
 # See:
 #   http://docs.pylint.org/features.html
 #
-disable=no-init,too-few-public-methods,locally-disabled,locally-enabled
+disable=no-init,too-few-public-methods,locally-disabled,locally-enabled,missing-super-argument
 
 [REPORTS]
 # Set the output format. Available formats are text, parseable, colorized, msvs
