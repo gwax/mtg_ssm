@@ -14,7 +14,7 @@ VERSION_FILENAME = 'version-full.json'
 ALLSETS_FILENAME = 'AllSets.json.zip'
 
 
-MAX_VERSION = (3, 2, 1)
+MAX_VERSION = (3, 2, 2)
 
 
 class DownloadError(Exception):
@@ -46,7 +46,7 @@ def fetch_mtgjson(data_folder):
 
     if remote_version > MAX_VERSION:
         raise VersionError('Remote version {} is not supported.'.format(
-            '.'.join(remote_version)))
+            '.'.join(str(v) for v in remote_version)))
 
     if local_version >= remote_version:
         return False

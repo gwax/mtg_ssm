@@ -11,6 +11,10 @@ import sqlalchemy.orm.collections as sqlc
 
 from mtgcdb import util
 
+VARIANT_CHARS = (
+    string.ascii_lowercase +
+    '★')
+
 
 class Base(sqld.declarative_base()):
     __abstract__ = True
@@ -47,7 +51,7 @@ class CardPrinting(Base):
     # Properties
     set_integer = sqlo.column_property(
         sqla.cast(
-            sqla.func.trim(set_number, string.ascii_lowercase),
+            sqla.func.trim(set_number, VARIANT_CHARS),
             sqla.Integer))
     set_variant = sqlo.column_property(
         sqla.func.trim(set_number, string.digits))

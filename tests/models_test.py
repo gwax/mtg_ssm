@@ -45,6 +45,21 @@ class ModelsTest(sqlite_testcase.SqliteTestCase):
         self.assertEqual(None, printing.set_integer)
         self.assertEqual(None, printing.set_variant)
 
+    def test_set_integer_variant_nonascii_prefix(self):
+        # Setup
+        card_set = models.CardSet(code='F', name='Foo')
+        card = models.Card(name='Bar')
+        printing = models.CardPrinting(
+            id='A', card_name='Bar', set_code='F', set_number='★107',
+            multiverseid=27, artist='Quux')
+        self.session.add_all([card_set, card, printing])
+        self.session.commit()
+
+        # Verify
+        self.assertEqual('★107', printing.set_number)
+        self.assertEqual(107, printing.set_integer)
+        self.assertEqual('★', printing.set_variant)
+
     def test_counts_read(self):
         # Setup
         card_set = models.CardSet(code='F', name='Foo')
