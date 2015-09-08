@@ -19,8 +19,7 @@ class Base(sqld.declarative_base()):
 class Card(Base):
     """Model for storing card information."""
     __tablename__ = 'cards'
-    id = sqla.Column(sqla.Integer, primary_key=True)
-    name = sqla.Column(sqla.Unicode(255), unique=True, nullable=False)
+    name = sqla.Column(sqla.Unicode(255), primary_key=True)
     strict_basic = sqla.Column(sqla.Boolean, default=False)
 
     # Relationships
@@ -32,13 +31,14 @@ class CardPrinting(Base):
     __tablename__ = 'printings'
     __table_args__ = (
         sqla.UniqueConstraint(
-            'card_id', 'set_id', 'set_number', 'multiverseid',
+            'card_name', 'set_code', 'set_number', 'multiverseid',
             name='uix_card_set_number_mvid'),
         {})
 
-    id = sqla.Column(sqla.Integer, primary_key=True)
-    card_id = sqla.Column(sqla.ForeignKey('cards.id'))
-    set_id = sqla.Column(sqla.ForeignKey('sets.id'))
+    id = sqla.Column(sqla.String(40), primary_key=True)
+    card_name = sqla.Column(sqla.ForeignKey('cards.name'))
+    set_code = sqla.Column(sqla.ForeignKey('sets.code'))
+
     set_number = sqla.Column(sqla.Unicode(15), nullable=True)
     multiverseid = sqla.Column(sqla.Integer, nullable=True)
 
@@ -69,8 +69,7 @@ class CardSet(Base):
     """Model for storing card set information."""
     __tablename__ = 'sets'
 
-    id = sqla.Column(sqla.Integer, primary_key=True)
-    code = sqla.Column(sqla.Unicode(15), unique=True, nullable=False)
+    code = sqla.Column(sqla.Unicode(15), primary_key=True)
     name = sqla.Column(sqla.Unicode(255), unique=True, nullable=False)
     block = sqla.Column(sqla.Unicode(255))
     release_date = sqla.Column(sqla.Date)
@@ -81,7 +80,7 @@ class CardSet(Base):
     printings = sqlo.relationship(
         'CardPrinting', order_by=(
             CardPrinting.set_integer, CardPrinting.set_variant,
-            CardPrinting.multiverseid, CardPrinting.card_id))
+            CardPrinting.multiverseid, CardPrinting.card_name))
 
     __mapper_args__ = {
         'order_by': release_date,

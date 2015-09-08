@@ -19,4 +19,4 @@ script:
   - py.test --strict -r w tests/
   - pylint --rcfile=pylintrc mtgcdb/
   - pylint --rcfile=pylintrc *.py
-  - pylint --rcfile=pylintrc --errors-only tests/
+  - pylint --rcfile=pylintrc --disable=similarities tests/

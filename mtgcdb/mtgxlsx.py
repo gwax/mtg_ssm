@@ -14,17 +14,13 @@ def dump_workbook(session):
     """Return xlsx workbook from the database."""
     card_sets = session.query(models.CardSet).options(
         sqlo.joinedload('printings').joinedload('card'))
-    name_to_prints = collections.defaultdict(list)
-    for card_set in card_sets:
-        for printing in card_set.printings:
-            name_to_prints[printing.card.name].append(printing)
 
     workbook = openpyxl.Workbook()
     sets_sheet = workbook['Sheet']
     create_sets_sheet(sets_sheet, card_sets)
     for card_set in card_sets:
         cards_sheet = workbook.create_sheet()
-        create_cards_sheet(cards_sheet, card_set, name_to_prints)
+        create_cards_sheet(cards_sheet, card_set)
     return workbook
 
 
@@ -85,13 +81,13 @@ def create_haveref_sum(setcode, rownums):
     return '+'.join(haverefs)
 
 
-def get_other_print_references(printing, name_to_prints):
+def get_other_print_references(printing):
     """Get an xlsx formula to list counts of a card from other sets."""
     if printing.card.strict_basic:
         return None  # Basics are so prolific, they tend to bog things down
     other_prints = (
-        p for p in name_to_prints[printing.card.name]
-        if p.set_id != printing.set_id)
+        p for p in printing.card.printings
+        if p.set_code != printing.set_code)
     setcode_and_release = set()
     setcode_to_rownums = collections.defaultdict(list)
     for other in other_prints:
@@ -112,12 +108,12 @@ def get_other_print_references(printing, name_to_prints):
     return other_print_references
 
 
-def create_cards_sheet(sheet, card_set, name_to_prints):
+def create_cards_sheet(sheet, card_set):
     """Populate sheet with card information from a given set."""
     sheet.title = card_set.code
     count_keys = list(models.CountTypes.__members__.keys())
     header = (
-        ['have', 'name', 'multiverseid', 'number', 'artist'] +
+        ['have', 'name', 'id', 'multiverseid', 'number', 'artist'] +
         count_keys + ['others'])
     count_cols = [
         string.ascii_uppercase[header.index(key)] for key in count_keys]
@@ -129,13 +125,14 @@ def create_cards_sheet(sheet, card_set, name_to_prints):
         row = [
             have_tmpl.format(rownum),
             name,
+            printing.id,
             printing.multiverseid,
             printing.set_number,
             printing.artist,
         ]
         for key in models.CountTypes.__members__.keys():
             row.append(printing.counts.get(key))
-        row.append(get_other_print_references(printing, name_to_prints))
+        row.append(get_other_print_references(printing))
         sheet.append(row)
     sheet.freeze_panes = sheet['C2']
     widths = [5, 18, 12, 8, 20, 6, 6, 10]

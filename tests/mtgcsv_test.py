@@ -22,12 +22,17 @@ class MtgCsvTest(
         header = mtgcsv.header()
 
         # Verify
-        expected = ['set', 'name', 'number', 'multiverseid', 'copies', 'foils']
+        expected = [
+            'set', 'name', 'number', 'multiverseid', 'mtgjid', 'copies',
+            'foils']
         self.assertEqual(expected, header)
 
     def test_dump_rows(self):
         # Setup
-        mtgjson.update_models(self.session, self.mtg_data, True)
+        mtg_data = {
+            k: v for k, v in self.mtg_data.items()
+            if k in ['ICE', 'S00', 'MMA']}
+        mtgjson.update_models(self.session, mtg_data, False)
         self.session.commit()
         forest1 = self.session.query(
             models.CardPrinting).filter_by(multiverseid=2746).first()
@@ -47,41 +52,13 @@ class MtgCsvTest(
         # Verify
         # pylint: disable=line-too-long
         expected = [
-            {'set': 'LEA', 'name': 'Dark Ritual', 'multiverseid': 54, 'number': None},
-            {'set': 'LEA', 'name': 'Air Elemental', 'multiverseid': 94, 'number': None},
-            {'set': 'LEA', 'name': 'Forest', 'multiverseid': 288, 'number': None},
-            {'set': 'LEA', 'name': 'Forest', 'multiverseid': 289, 'number': None},
-            {'set': 'FEM', 'name': 'Thallid', 'multiverseid': 1924, 'number': None},
-            {'set': 'FEM', 'name': 'Thallid', 'multiverseid': 1925, 'number': None},
-            {'set': 'FEM', 'name': 'Thallid', 'multiverseid': 1926, 'number': None},
-            {'set': 'FEM', 'name': 'Thallid', 'multiverseid': 1927, 'number': None},
-            {'set': 'pMEI', 'name': 'Arena', 'multiverseid': 97042, 'number': '1'},
-            {'set': 'ICE', 'name': 'Dark Ritual', 'multiverseid': 2444, 'number': None},
-            {'set': 'ICE', 'name': 'Forest', 'multiverseid': 2746, 'number': None, 'copies': 1},
-            {'set': 'ICE', 'name': 'Forest', 'multiverseid': 2747, 'number': None, 'foils': 2},
-            {'set': 'ICE', 'name': 'Forest', 'multiverseid': 2748, 'number': None, 'copies': 3, 'foils': 4},
-            {'set': 'ICE', 'name': 'Snow-Covered Forest', 'multiverseid': 2749, 'number': None},
-            {'set': 'HML', 'name': 'Cemetery Gate', 'multiverseid': 2913, 'number': None},
-            {'set': 'HML', 'name': 'Cemetery Gate', 'multiverseid': 2914, 'number': None},
-            {'set': 'S00', 'name': 'Rhox', 'multiverseid': None, 'number': None},
-            {'set': 'pMGD', 'name': 'Black Sun\'s Zenith', 'multiverseid': None, 'number': '7'},
-            {'set': 'HOP', 'name': 'Academy at Tolaria West', 'multiverseid': 198073, 'number': '1'},
-            {'set': 'HOP', 'name': 'Akroma\'s Vengeance', 'multiverseid': 205366, 'number': '1'},
-            {'set': 'HOP', 'name': 'Dark Ritual', 'multiverseid': 205422, 'number': '24'},
-            {'set': 'ARC', 'name': 'All in Good Time', 'multiverseid': 212648, 'number': '1'},
-            {'set': 'ARC', 'name': 'Leonin Abunas', 'multiverseid': 220527, 'number': '1'},
-            {'set': 'ISD', 'name': 'Delver of Secrets', 'multiverseid': 226749, 'number': '51a'},
-            {'set': 'ISD', 'name': 'Insectile Aberration', 'multiverseid': 226755, 'number': '51b'},
-            {'set': 'ISD', 'name': 'Abattoir Ghoul', 'multiverseid': 222911, 'number': '85'},
-            {'set': 'ISD', 'name': 'Forest', 'multiverseid': 245247, 'number': '262'},
-            {'set': 'ISD', 'name': 'Forest', 'multiverseid': 245248, 'number': '263'},
-            {'set': 'ISD', 'name': 'Forest', 'multiverseid': 245246, 'number': '264'},
-            {'set': 'PC2', 'name': 'Stairs to Infinity', 'multiverseid': 226521, 'number': 'P1'},
-            {'set': 'PC2', 'name': 'Chaotic Æther', 'multiverseid': 226509, 'number': '1'},
-            {'set': 'PC2', 'name': 'Armored Griffin', 'multiverseid': 271234, 'number': '1'},
-            {'set': 'PC2', 'name': 'Akoum', 'multiverseid': 226512, 'number': '9'},
-            {'set': 'MMA', 'name': 'Thallid', 'multiverseid': 370352, 'number': '167'},
-            {'set': 'VMA', 'name': 'Academy Elite', 'multiverseid': 382835, 'number': '55'},
+            {'set': 'ICE', 'name': 'Dark Ritual', 'multiverseid': 2444, 'mtgjid': '2fab0ea29e3bbe8bfbc981a4c8163f3e7d267853', 'number': None},
+            {'set': 'ICE', 'name': 'Forest', 'multiverseid': 2746, 'mtgjid': '676a1f5b64dc03bbb3876840c3ff2ba2c16f99cb', 'number': None, 'copies': 1},
+            {'set': 'ICE', 'name': 'Forest', 'multiverseid': 2747, 'mtgjid': 'd0a4414893bc2f9bd3beea2f8f2693635ef926a4', 'number': None, 'foils': 2},
+            {'set': 'ICE', 'name': 'Forest', 'multiverseid': 2748, 'mtgjid': 'c78d2da78c68c558b1adc734b3f164e885407ffc', 'number': None, 'copies': 3, 'foils': 4},
+            {'set': 'ICE', 'name': 'Snow-Covered Forest', 'multiverseid': 2749, 'mtgjid': '5e9f08498a9343b1954103e493da2586be0fe394', 'number': None},
+            {'set': 'S00', 'name': 'Rhox', 'multiverseid': None, 'mtgjid': '536d407161fa03eddee7da0e823c2042a8fa0262', 'number': None},
+            {'set': 'MMA', 'name': 'Thallid', 'multiverseid': 370352, 'mtgjid': 'fc46a4b72d216117a352f59217a84d0baeaaacb7', 'number': '167'},
         ]
         # pylint: enable=line-too-long
         self.assertEqual(expected, rows)
@@ -98,8 +75,8 @@ class MtgCsvTest(
         # Setup
         # pylint: disable=line-too-long
         rows = [
-            {'set': 'FOO', 'name': 'Thing', 'multiverseid': '27', 'number': '52a', 'copies': '1'},
-            {'set': 'BAR', 'name': 'Another Thing', 'multiverseid': '', 'number': '57', 'foils': '0', 'copies': ''},
+            {'set': 'FOO', 'name': 'Thing', 'multiverseid': '27', 'number': '52a', 'copies': '1', 'mtgjid': 'ABC'},
+            {'set': 'BAR', 'name': 'Another Thing', 'multiverseid': '', 'number': '57', 'foils': '0', 'copies': '', 'mtgjid': 'DEF'},
         ]
         # pylint: enable=line-too-long
 
@@ -109,15 +86,15 @@ class MtgCsvTest(
         # Verify
         # pylint: disable=line-too-long
         expected = [
-            {'set': 'FOO', 'name': 'Thing', 'multiverseid': 27, 'number': '52a', 'copies': 1},
-            {'set': 'BAR', 'name': 'Another Thing', 'multiverseid': None, 'number': '57', 'foils': 0, 'copies': None},
+            {'set': 'FOO', 'name': 'Thing', 'multiverseid': 27, 'number': '52a', 'id': 'ABC', 'copies': 1},
+            {'set': 'BAR', 'name': 'Another Thing', 'multiverseid': None, 'number': '57', 'id': 'DEF', 'foils': 0, 'copies': None},
         ]
         # pylint: disable=line-too-long
         self.assertEqual(expected, card_dicts)
 
     def test_read_row_counts(self):
         # Setup
-        mtgjson.update_models(self.session, self.mtg_data, True)
+        mtgjson.update_models(self.session, self.mtg_data, False)
         self.session.commit()
         forest1 = self.session.query(
             models.CardPrinting).filter_by(multiverseid=2746).first()
@@ -132,10 +109,10 @@ class MtgCsvTest(
         self.session.commit()
         # pylint: disable=line-too-long
         rows = [
-            {'set': 'ICE', 'name': 'Forest', 'multiverseid': '2746', 'number': '', 'copies': '1'},
-            {'set': 'ICE', 'name': 'Forest', 'multiverseid': '2747', 'number': '', 'foils': '2'},
-            {'set': 'ICE', 'name': 'Forest', 'multiverseid': '2748', 'number': '', 'copies': '3', 'foils': '4'},
-            {'set': 'ICE', 'name': 'Snow-Covered Forest', 'multiverseid': '2749', 'number': '', 'copies': '', 'foils': ''},
+            {'set': 'ICE', 'name': 'Forest', 'multiverseid': '2746', 'mtgjid': '676a1f5b64dc03bbb3876840c3ff2ba2c16f99cb', 'number': '', 'copies': '1'},
+            {'set': 'ICE', 'name': 'Forest', 'multiverseid': '2747', 'mtgjid': 'd0a4414893bc2f9bd3beea2f8f2693635ef926a4', 'number': '', 'foils': '2'},
+            {'set': 'ICE', 'name': 'Forest', 'multiverseid': '2748', 'mtgjid': 'c78d2da78c68c558b1adc734b3f164e885407ffc', 'number': '', 'copies': '3', 'foils': '4'},
+            {'set': 'ICE', 'name': 'Snow-Covered Forest', 'multiverseid': '2749', 'mtgjid': '5e9f08498a9343b1954103e493da2586be0fe394', 'number': '', 'copies': '', 'foils': ''},
         ]
         # pylint: enable=line-too-long
 

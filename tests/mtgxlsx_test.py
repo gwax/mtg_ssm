@@ -1,6 +1,5 @@
 """Tests for mtgcdb.mtgxlsx"""
 
-import collections
 import datetime
 from unittest import mock
 
@@ -97,15 +96,11 @@ class MtgXlsxTest(
         # Setup
         mtgjson.update_models(self.session, self.mtg_data, True)
         self.session.commit()
-        dark_rits = self.session.query(models.CardPrinting).filter(
-            models.CardPrinting.card.has(name='Dark Ritual')).all()
-        name_to_prints = {'Dark Ritual': dark_rits}
         lea_dark_rit = self.session.query(
             models.CardPrinting).filter_by(multiverseid=54).first()
 
         # Execute
-        print_refs = mtgxlsx.get_other_print_references(
-            lea_dark_rit, name_to_prints)
+        print_refs = mtgxlsx.get_other_print_references(lea_dark_rit)
 
         # Verify
         expected = (
@@ -117,15 +112,11 @@ class MtgXlsxTest(
         # Setup
         mtgjson.update_models(self.session, self.mtg_data, True)
         self.session.commit()
-        thallids = self.session.query(models.CardPrinting).filter(
-            models.CardPrinting.card.has(name='Thallid')).all()
-        name_to_prints = {'Thallid': thallids}
         mma_thallid = self.session.query(
             models.CardPrinting).filter_by(multiverseid=370352).first()
 
         # Execute
-        print_refs = mtgxlsx.get_other_print_references(
-            mma_thallid, name_to_prints)
+        print_refs = mtgxlsx.get_other_print_references(mma_thallid)
 
         # Verify
         expected = (
@@ -136,15 +127,11 @@ class MtgXlsxTest(
         # Setup
         mtgjson.update_models(self.session, self.mtg_data, True)
         self.session.commit()
-        forests = self.session.query(models.CardPrinting).filter(
-            models.CardPrinting.card.has(name='Forest')).all()
-        name_to_prints = {'Forest': forests}
         lea_forest = self.session.query(
             models.CardPrinting).filter_by(multiverseid=288).first()
 
         # Execute
-        print_refs = mtgxlsx.get_other_print_references(
-            lea_forest, name_to_prints)
+        print_refs = mtgxlsx.get_other_print_references(lea_forest)
 
         # Verify
         self.assertIsNone(print_refs)
@@ -164,27 +151,23 @@ class MtgXlsxTest(
         forest3.counts['copies'] = 3
         forest3.counts['foils'] = 4
         self.session.commit()
-        printings = self.session.query(models.CardPrinting)
-        name_to_prints = collections.defaultdict(list)
-        for printing in printings:
-            name_to_prints[printing.card.name].append(printing)
         ice_age = self.session.query(models.CardSet).filter_by(code='ICE').one()
         book = openpyxl.Workbook()
         sheet = book.create_sheet()
 
         # Execute
-        mtgxlsx.create_cards_sheet(sheet, ice_age, name_to_prints)
+        mtgxlsx.create_cards_sheet(sheet, ice_age)
 
         # Verify
         rows = [[cell.value for cell in row] for row in sheet.rows]
         # pylint: disable=line-too-long
         expected = [
-            ['have', 'name', 'multiverseid', 'number', 'artist', 'copies', 'foils', 'others'],
-            ['=F2+G2', 'Dark Ritual', 2444, None, 'Justin Hampton', None, None, mock.ANY],
-            ['=F3+G3', 'Forest', 2746, None, 'Pat Morrissey', 1, None, mock.ANY],
-            ['=F4+G4', 'Forest', 2747, None, 'Pat Morrissey', None, 2, mock.ANY],
-            ['=F5+G5', 'Forest', 2748, None, 'Pat Morrissey', 3, 4, mock.ANY],
-            ['=F6+G6', 'Snow-Covered Forest', 2749, None, 'Pat Morrissey', None, None, mock.ANY],
+            ['have', 'name', 'id', 'multiverseid', 'number', 'artist', 'copies', 'foils', 'others'],
+            ['=G2+H2', 'Dark Ritual', '2fab0ea29e3bbe8bfbc981a4c8163f3e7d267853', 2444, None, 'Justin Hampton', None, None, mock.ANY],
+            ['=G3+H3', 'Forest', '676a1f5b64dc03bbb3876840c3ff2ba2c16f99cb', 2746, None, 'Pat Morrissey', 1, None, mock.ANY],
+            ['=G4+H4', 'Forest', 'd0a4414893bc2f9bd3beea2f8f2693635ef926a4', 2747, None, 'Pat Morrissey', None, 2, mock.ANY],
+            ['=G5+H5', 'Forest', 'c78d2da78c68c558b1adc734b3f164e885407ffc', 2748, None, 'Pat Morrissey', 3, 4, mock.ANY],
+            ['=G6+H6', 'Snow-Covered Forest', '5e9f08498a9343b1954103e493da2586be0fe394', 2749, None, 'Pat Morrissey', None, None, mock.ANY],
         ]
         # pylint: enable=line-too-long
         self.assertEqual(expected, rows)

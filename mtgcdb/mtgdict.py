@@ -3,35 +3,45 @@
 from mtgcdb import models
 
 
+def find_printing(session, card_dict):
+    """Given a card_dict, find the matching CardPrinting."""
+    mtgj_id = card_dict.get('id')
+    card_name = card_dict.get('name')
+    set_code = card_dict.get('set')
+    set_number = card_dict.get('number')
+    multiverseid = card_dict.get('multiverseid')
+
+    mquery = session.query(models.CardPrinting)
+
+    if mtgj_id is not None:
+        return mquery.get(mtgj_id)
+
+    if card_name is None or set_code is None:
+        return None
+    mquery = mquery.filter_by(card_name=card_name, set_code=set_code)
+
+    if set_number is not None:
+        mquery = mquery.filter_by(set_number=set_number)
+
+    if multiverseid is not None:
+        mquery = mquery.filter_by(multiverseid=multiverseid)
+
+    printings = mquery.all()
+    if not printings:
+        return None
+    elif len(printings) > 1:
+        print('Multiple matches found.')
+        return None
+    else:
+        return printings[0]
+
+
 def load_counts(session, card_dicts):
     """Load counts from dicts of card info/counts into the database."""
-    printings = session.query(models.CardPrinting)
-    set_name_num_mv_to_printing = {
-        (p.set.code, p.card.name, p.set_number, p.multiverseid): p
-        for p in printings}
-    set_name_num_to_printing = {
-        (p.set.code, p.card.name, p.set_number): p for p in printings}
-    set_name_mv_to_printing = {
-        (p.set.code, p.card.name, p.multiverseid): p for p in printings}
     for card_dict in card_dicts:
-        set_name_num_mv = tuple(
-            card_dict[k] for k in ['set', 'name', 'number', 'multiverseid'])
-
-        printing = set_name_num_mv_to_printing.get(set_name_num_mv)
-        if printing is None and card_dict['number'] is not None:
-            print('Count not find {} trying with set number'.format(
-                set_name_num_mv))
-            set_name_num = set_name_num_mv[:3]
-            printing = set_name_num_to_printing.get(set_name_num)
-
-        if printing is None and card_dict['multiverseid'] is not None:
-            print('Could not find {} trying with multiverseid'.format(
-                set_name_num_mv))
-            set_name_mv = set_name_num_mv[:2] + set_name_num_mv[3:]
-            printing = set_name_mv_to_printing.get(set_name_mv)
-
+        printing = find_printing(session, card_dict)
         if printing is None:
-            print('Warning: Could not find {}'.format(set_name_num_mv))
+            print('Warning: Could not find printing for {}'.format(card_dict))
 
         for key in models.CountTypes.__members__.keys():
             count = card_dict.get(key)
