@@ -1,6 +1,6 @@
 """Test for mtgjson_testcase."""
 
-from __future__ import absolute_import
+from __future__ import absolute_import, unicode_literals
 from builtins import super
 
 from tests import mtgjson_testcase

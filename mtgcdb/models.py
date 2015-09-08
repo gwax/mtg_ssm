@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
 """SQLAlchemy models for managing data."""
 
-from __future__ import absolute_import
+from __future__ import absolute_import, unicode_literals
 
 import enum
 import string
