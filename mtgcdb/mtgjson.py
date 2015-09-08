@@ -13,19 +13,30 @@ def update_models(session, mtg_data, include_online_only):
         mtg_data: dict, data from json.load(s) on mtgjson data.
         include_online_only: process online_only sets? if False, skip.
     """
+    seen_set_codes = set()
+    seen_card_names = set()
+    seen_printing_ids = set()
     for set_data in mtg_data.values():
         if not include_online_only and set_data.get('onlineOnly', False):
             continue
 
+        if set_data['code'] in seen_set_codes:
+            continue
+
         card_set = create_set(set_data)
-        session.merge(card_set)
+        session.add(card_set)
+        seen_set_codes.add(card_set.code)
 
         for card_data in set_data['cards']:
-            card = create_card(card_data)
-            session.merge(card)
+            if card_data['name'] not in seen_card_names:
+                card = create_card(card_data)
+                session.add(card)
+                seen_card_names.add(card.name)
 
-            printing = create_printing(card_data, set_data['code'])
-            session.merge(printing)
+            if card_data['id'] not in seen_printing_ids:
+                printing = create_printing(card_data, set_data['code'])
+                session.add(printing)
+                seen_printing_ids.add(printing.id)
 
 
 def create_set(set_data):
