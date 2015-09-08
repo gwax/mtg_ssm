@@ -557,6 +557,105 @@
       }
     ]
   },
+  "PLS": {
+    "name": "Planeshift",
+    "code": "PLS",
+    "gathererCode": "PS",
+    "magicCardsInfoCode": "ps",
+    "releaseDate": "2001-02-05",
+    "border": "black",
+    "type": "expansion",
+    "block": "Invasion",
+    "booster": [
+      "rare",
+      "uncommon",
+      "uncommon",
+      "uncommon",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common"
+    ],
+    "cards": [
+      {
+        "layout": "normal",
+        "supertypes": [
+          "Legendary"
+        ],
+        "type": "Legendary Creature — Human Wizard",
+        "types": [
+          "Creature"
+        ],
+        "colors": [
+          "White",
+          "Blue",
+          "Black"
+        ],
+        "multiverseid": 25614,
+        "name": "Ertai, the Corrupted",
+        "subtypes": [
+          "Human",
+          "Wizard"
+        ],
+        "cmc": 5,
+        "rarity": "Rare",
+        "artist": "Mark Tedin",
+        "power": "3",
+        "toughness": "4",
+        "manaCost": "{2}{W}{U}{B}",
+        "text": "{U}, {T}, Sacrifice a creature or enchantment: Counter target spell.",
+        "flavor": "Altered by Phyrexian science, corrupted by black mana, and twisted by rage, Ertai still looked in the mirror and saw only glory.",
+        "number": "107",
+        "variations": [
+          29292
+        ],
+        "imageName": "ertai, the corrupted1",
+        "id": "08fcfee6a7c4eddcd44e43e918cbf9d479492fe7"
+      },
+      {
+        "layout": "normal",
+        "supertypes": [
+          "Legendary"
+        ],
+        "type": "Legendary Creature — Human Wizard",
+        "types": [
+          "Creature"
+        ],
+        "colors": [
+          "White",
+          "Blue",
+          "Black"
+        ],
+        "multiverseid": 29292,
+        "name": "Ertai, the Corrupted",
+        "subtypes": [
+          "Human",
+          "Wizard"
+        ],
+        "cmc": 5,
+        "rarity": "Rare",
+        "artist": "Kev Walker",
+        "power": "3",
+        "toughness": "4",
+        "manaCost": "{2}{W}{U}{B}",
+        "text": "{U}, {T}, Sacrifice a creature or enchantment: Counter target spell.",
+        "flavor": "Altered by Phyrexian science, corrupted by black mana, and twisted by rage, Ertai still looked in the mirror and saw only glory.",
+        "number": "★107",
+        "variations": [
+          25614
+        ],
+        "imageName": "ertai, the corrupted2",
+        "id": "62ff415cafefac84a5bb7174cb7ef175c14625de"
+      }
+    ]
+  },
   "pMGD": {
     "name": "Magic Game Day",
     "code": "pMGD",

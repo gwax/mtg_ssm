@@ -28,6 +28,7 @@ INCLUDED = {
     'PC2': {'Akoum', 'Armored Griffin', 'Chaotic Æther', 'Stairs to Infinity'},
     'MMA': {'Thallid'},
     'pMEI': {'Arena'},
+    'PLS': {'Ertai, the Corrupted'},
 }
 
 
