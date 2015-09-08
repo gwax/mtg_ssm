@@ -17,75 +17,188 @@ class MtgDictTest(
         models.Base.metadata.create_all(connection)
         connection.close()
 
-        mtgjson.update_models(self.session, self.mtg_data, False)
-        self.session.commit()
+    def test_get_printing_not_found(self):
+        # Setup
+        id_to_print = {'ID': 'printing'}
+        set_name_num_mv_to_prints = {('SET', 'NAME', 'NUM', 'MV'): ['printing']}
+        set_name_mv_to_prints = {('SET', 'NAME', 'MV'): ['printing']}
+        set_name_num_to_prints = {('SET', 'NAME', 'NUM'): ['printing']}
 
-    def test_find_printings_by_id(self):
+        card_dict = {}
+
         # Execute
-        printing = mtgdict.find_printing(
-            self.session, {
-                'id': 'e9abef8533c9ce6549147232c5fceff75ffb460a',
-            })
-
-        # Verify
-        self.assertEqual('ISD', printing.set.code)
-        self.assertEqual('Forest', printing.card.name)
-        self.assertEqual('James Paick', printing.artist)
-
-    def test_find_printing_by_set_and_name(self):
-        # Execute
-        printing = mtgdict.find_printing(
-            self.session, {
-                'name': 'Abattoir Ghoul',
-                'set': 'ISD',
-            })
-
-        # Verify
-        self.assertEqual('ISD', printing.set.code)
-        self.assertEqual('Abattoir Ghoul', printing.card.name)
-        self.assertEqual('Volkan Baga', printing.artist)
-
-    def test_find_printing_multiple_set_and_name(self):
-        # Execute
-        printing = mtgdict.find_printing(
-            self.session, {
-                'name': 'Forest',
-                'set': 'ISD',
-            })
+        printing = mtgdict.get_printing(
+            card_dict, id_to_print, set_name_num_mv_to_prints,
+            set_name_mv_to_prints, set_name_num_to_prints)
 
         # Verify
         self.assertIsNone(printing)
 
-    def test_find_printing_set_name_number(self):
+    def test_get_printing_set_name_num(self):
+        # Setup
+        id_to_print = {'ID': 'printing'}
+        set_name_num_mv_to_prints = {('SET', 'NAME', 'NUM', 'MV'): ['printing']}
+        set_name_mv_to_prints = {('SET', 'NAME', 'MV'): ['printing']}
+        set_name_num_to_prints = {('SET', 'NAME', 'NUM'): ['printing']}
+
+        card_dict = {'set': 'SET', 'name': 'NAME', 'number': 'NUM'}
+
         # Execute
-        printing = mtgdict.find_printing(
-            self.session, {
-                'name': 'Forest',
-                'set': 'ISD',
-                'number': '262',
-            })
+        printing = mtgdict.get_printing(
+            card_dict, id_to_print, set_name_num_mv_to_prints,
+            set_name_mv_to_prints, set_name_num_to_prints)
 
         # Verify
-        self.assertEqual('ISD', printing.set.code)
-        self.assertEqual('Forest', printing.card.name)
-        self.assertEqual('James Paick', printing.artist)
+        self.assertEqual('printing', printing)
 
-    def test_find_printing_set_name_mvid(self):
+    def test_get_printing_set_name_num_duplicate(self):
+        # Setup
+        id_to_print = {'ID': 'printing'}
+        set_name_num_mv_to_prints = {('SET', 'NAME', 'NUM', 'MV'): ['printing']}
+        set_name_mv_to_prints = {('SET', 'NAME', 'MV'): ['printing']}
+        set_name_num_to_prints = {('SET', 'NAME', 'NUM'): ['printing', 'p2']}
+
+        card_dict = {'set': 'SET', 'name': 'NAME', 'number': 'NUM'}
+
         # Execute
-        printing = mtgdict.find_printing(
-            self.session, {
-                'name': 'Forest',
-                'set': 'ISD',
-                'multiverseid': 245247
-            })
+        printing = mtgdict.get_printing(
+            card_dict, id_to_print, set_name_num_mv_to_prints,
+            set_name_mv_to_prints, set_name_num_to_prints)
 
         # Verify
-        self.assertEqual('ISD', printing.set.code)
-        self.assertEqual('Forest', printing.card.name)
-        self.assertEqual('James Paick', printing.artist)
+        self.assertIsNone(printing)
+
+    def test_get_printing_set_name_mv(self):
+        # Setup
+        id_to_print = {'ID': 'printing'}
+        set_name_num_mv_to_prints = {('SET', 'NAME', 'NUM', 'MV'): ['printing']}
+        set_name_mv_to_prints = {('SET', 'NAME', 'MV'): ['printing']}
+        set_name_num_to_prints = {('SET', 'NAME', 'NUM'): ['printing']}
+
+        card_dict = {'set': 'SET', 'name': 'NAME', 'multiverseid': 'MV'}
+
+        # Execute
+        printing = mtgdict.get_printing(
+            card_dict, id_to_print, set_name_num_mv_to_prints,
+            set_name_mv_to_prints, set_name_num_to_prints)
+
+        # Verify
+        self.assertEqual('printing', printing)
+
+    def test_get_printing_set_name_mv_duplicate(self):
+        # Setup
+        id_to_print = {'ID': 'printing'}
+        set_name_num_mv_to_prints = {('SET', 'NAME', 'NUM', 'MV'): ['printing']}
+        set_name_mv_to_prints = {('SET', 'NAME', 'MV'): ['printing', 'p2']}
+        set_name_num_to_prints = {('SET', 'NAME', 'NUM'): ['printing']}
+
+        card_dict = {'set': 'SET', 'name': 'NAME', 'multiverseid': 'MV'}
+
+        # Execute
+        printing = mtgdict.get_printing(
+            card_dict, id_to_print, set_name_num_mv_to_prints,
+            set_name_mv_to_prints, set_name_num_to_prints)
+
+        # Verify
+        self.assertIsNone(printing)
+
+    def test_get_printing_set_name_num_mv(self):
+        # Setup
+        id_to_print = {'ID': 'printing'}
+        set_name_num_mv_to_prints = {('SET', 'NAME', 'NUM', 'MV'): ['printing']}
+        set_name_mv_to_prints = {
+            ('SET', 'NAME', 'MV'): ['printing', 'p2', 'p3']}
+        set_name_num_to_prints = {
+            ('SET', 'NAME', 'NUM'): ['printing', 'p2', 'p3']}
+
+        card_dict = {
+            'set': 'SET', 'name': 'NAME', 'number': 'NUM', 'multiverseid': 'MV'}
+
+        # Execute
+        printing = mtgdict.get_printing(
+            card_dict, id_to_print, set_name_num_mv_to_prints,
+            set_name_mv_to_prints, set_name_num_to_prints)
+
+        # Verify
+        self.assertEqual('printing', printing)
+
+    def test_get_printing_set_name_num_mv_duplicate(self):
+        # Setup
+        id_to_print = {'ID': 'printing'}
+        set_name_num_mv_to_prints = {
+            ('SET', 'NAME', 'NUM', 'MV'): ['printing', 'p2']}
+        set_name_mv_to_prints = {
+            ('SET', 'NAME', 'MV'): ['printing', 'p2', 'p3']}
+        set_name_num_to_prints = {
+            ('SET', 'NAME', 'NUM'): ['printing', 'p2', 'p3']}
+
+        card_dict = {
+            'set': 'SET', 'name': 'NAME', 'number': 'NUM', 'multiverseid': 'MV'}
+
+        # Execute
+        printing = mtgdict.get_printing(
+            card_dict, id_to_print, set_name_num_mv_to_prints,
+            set_name_mv_to_prints, set_name_num_to_prints)
+
+        # Verify
+        self.assertIsNone(printing)
+
+    def test_get_printing_none_set(self):
+        # Setup
+        id_to_print = {'ID': 'printing'}
+        set_name_num_mv_to_prints = {(None, 'NAME', 'NUM', 'MV'): ['printing']}
+        set_name_mv_to_prints = {(None, 'NAME', 'MV'): ['printing']}
+        set_name_num_to_prints = {(None, 'NAME', 'NUM'): ['printing']}
+
+        card_dict = {'name': 'NAME', 'number': 'NUM', 'multiverseid': 'MV'}
+
+        # Execute
+        printing = mtgdict.get_printing(
+            card_dict, id_to_print, set_name_num_mv_to_prints,
+            set_name_mv_to_prints, set_name_num_to_prints)
+
+        # Verify
+        self.assertIsNone(printing)
+
+    def test_get_printing_none_name(self):
+        # Setup
+        id_to_print = {'ID': 'printing'}
+        set_name_num_mv_to_prints = {('SET', None, 'NUM', 'MV'): ['printing']}
+        set_name_mv_to_prints = {('SET', None, 'MV'): ['printing']}
+        set_name_num_to_prints = {('SET', None, 'NUM'): ['printing']}
+
+        card_dict = {'set': 'SET', 'number': 'NUM', 'multiverseid': 'MV'}
+
+        # Execute
+        printing = mtgdict.get_printing(
+            card_dict, id_to_print, set_name_num_mv_to_prints,
+            set_name_mv_to_prints, set_name_num_to_prints)
+
+        # Verify
+        self.assertIsNone(printing)
+
+    def test_get_printing_by_id(self):
+        # Setup
+        id_to_print = {'ID': 'printing'}
+        set_name_num_mv_to_prints = {('SET', 'NAME', 'NUM', 'MV'): ['printing']}
+        set_name_mv_to_prints = {('SET', 'NAME', 'MV'): ['printing']}
+        set_name_num_to_prints = {('SET', 'NAME', 'NUM'): ['printing']}
+
+        card_dict = {'id': 'ID'}
+
+        # Execute
+        printing = mtgdict.get_printing(
+            card_dict, id_to_print, set_name_num_mv_to_prints,
+            set_name_mv_to_prints, set_name_num_to_prints)
+
+        # Verify
+        self.assertEqual('printing', printing)
 
     def test_load_counts(self):
         # Setup
+        mtgjson.update_models(self.session, self.mtg_data, False)
+        self.session.commit()
+
         forest1 = self.session.query(
             models.CardPrinting).filter_by(multiverseid=2746).first()
         forest2 = self.session.query(

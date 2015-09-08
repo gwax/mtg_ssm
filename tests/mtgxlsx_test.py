@@ -1,5 +1,6 @@
 """Tests for mtgcdb.mtgxlsx"""
 
+import collections
 import datetime
 from unittest import mock
 
@@ -45,6 +46,7 @@ class MtgXlsxTest(
             ['ICE', 'Ice Age', datetime.datetime(1995, 6, 1), 'Ice Age', 'expansion', 5, '=COUNTIF(\'ICE\'!A:A,">0")', '=COUNTIF(\'ICE\'!A:A,">=4")', "=SUM('ICE'!A:A)"],
             ['HML', 'Homelands', datetime.datetime(1995, 10, 1), None, 'expansion', 2, '=COUNTIF(\'HML\'!A:A,">0")', '=COUNTIF(\'HML\'!A:A,">=4")', "=SUM('HML'!A:A)"],
             ['S00', 'Starter 2000', datetime.datetime(2000, 4, 1), None, 'starter', 1, '=COUNTIF(\'S00\'!A:A,">0")', '=COUNTIF(\'S00\'!A:A,">=4")', "=SUM('S00'!A:A)"],
+            ['PLS', 'Planeshift', datetime.datetime(2001, 2, 5), 'Invasion', 'expansion', 2, '=COUNTIF(\'PLS\'!A:A,">0")', '=COUNTIF(\'PLS\'!A:A,">=4")', "=SUM('PLS'!A:A)"],
             ['pMGD', 'Magic Game Day', datetime.datetime(2007, 7, 14), None, 'promo', 1, '=COUNTIF(\'pMGD\'!A:A,">0")', '=COUNTIF(\'pMGD\'!A:A,">=4")', "=SUM('pMGD'!A:A)"],
             ['HOP', 'Planechase', datetime.datetime(2009, 9, 4), None, 'planechase', 3, '=COUNTIF(\'HOP\'!A:A,">0")', '=COUNTIF(\'HOP\'!A:A,">=4")', "=SUM('HOP'!A:A)"],
             ['ARC', 'Archenemy', datetime.datetime(2010, 6, 18), None, 'archenemy', 2, '=COUNTIF(\'ARC\'!A:A,">0")', '=COUNTIF(\'ARC\'!A:A,">=4")', "=SUM('ARC'!A:A)"],
@@ -96,11 +98,15 @@ class MtgXlsxTest(
         # Setup
         mtgjson.update_models(self.session, self.mtg_data, True)
         self.session.commit()
+        dark_rits = self.session.query(models.CardPrinting).filter(
+            models.CardPrinting.card.has(name='Dark Ritual')).all()
+        name_to_prints = {'Dark Ritual': dark_rits}
         lea_dark_rit = self.session.query(
             models.CardPrinting).filter_by(multiverseid=54).first()
 
         # Execute
-        print_refs = mtgxlsx.get_other_print_references(lea_dark_rit)
+        print_refs = mtgxlsx.get_other_print_references(
+            lea_dark_rit, name_to_prints)
 
         # Verify
         expected = (
@@ -112,11 +118,15 @@ class MtgXlsxTest(
         # Setup
         mtgjson.update_models(self.session, self.mtg_data, True)
         self.session.commit()
+        thallids = self.session.query(models.CardPrinting).filter(
+            models.CardPrinting.card.has(name='Thallid')).all()
+        name_to_prints = {'Thallid': thallids}
         mma_thallid = self.session.query(
             models.CardPrinting).filter_by(multiverseid=370352).first()
 
         # Execute
-        print_refs = mtgxlsx.get_other_print_references(mma_thallid)
+        print_refs = mtgxlsx.get_other_print_references(
+            mma_thallid, name_to_prints)
 
         # Verify
         expected = (
@@ -127,11 +137,15 @@ class MtgXlsxTest(
         # Setup
         mtgjson.update_models(self.session, self.mtg_data, True)
         self.session.commit()
+        forests = self.session.query(models.CardPrinting).filter(
+            models.CardPrinting.card.has(name='Forest')).all()
+        name_to_prints = {'Forest': forests}
         lea_forest = self.session.query(
             models.CardPrinting).filter_by(multiverseid=288).first()
 
         # Execute
-        print_refs = mtgxlsx.get_other_print_references(lea_forest)
+        print_refs = mtgxlsx.get_other_print_references(
+            lea_forest, name_to_prints)
 
         # Verify
         self.assertIsNone(print_refs)
@@ -151,12 +165,16 @@ class MtgXlsxTest(
         forest3.counts['copies'] = 3
         forest3.counts['foils'] = 4
         self.session.commit()
+        printings = self.session.query(models.CardPrinting)
+        name_to_prints = collections.defaultdict(list)
+        for printing in printings:
+            name_to_prints[printing.card.name].append(printing)
         ice_age = self.session.query(models.CardSet).filter_by(code='ICE').one()
         book = openpyxl.Workbook()
         sheet = book.create_sheet()
 
         # Execute
-        mtgxlsx.create_cards_sheet(sheet, ice_age)
+        mtgxlsx.create_cards_sheet(sheet, ice_age, name_to_prints)
 
         # Verify
         rows = [[cell.value for cell in row] for row in sheet.rows]
@@ -189,6 +207,7 @@ class MtgXlsxTest(
             'ICE',
             'HML',
             'S00',
+            'PLS',
             'pMGD',
             'HOP',
             'ARC',
