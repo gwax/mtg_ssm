@@ -1,6 +1,8 @@
 """Test for mtgjson_testcase."""
 
-from . import mtgjson_testcase
+from __future__ import absolute_import, unicode_literals
+
+from tests import mtgjson_testcase
 
 
 class MtgJsonTestCaseTest(mtgjson_testcase.MtgJsonTestCase):

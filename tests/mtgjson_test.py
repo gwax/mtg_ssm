@@ -1,6 +1,12 @@
+# -*- coding: utf-8 -*-
 """Tests for mtgcdb.mtgjson"""
 
+from __future__ import absolute_import, unicode_literals
+from builtins import super  # pylint: disable=redefined-builtin
+
 import datetime
+
+import six
 
 from mtgcdb import models
 from mtgcdb import mtgjson
@@ -211,7 +217,7 @@ class MtgjsonTest(
             ('MMA', 'Thallid', 370352, '167'),
             ('VMA', 'Academy Elite', 382835, '55'),
         ]
-        self.assertCountEqual(expected, set_card_mv_number)
+        six.assertCountEqual(self, expected, set_card_mv_number)
 
     def test_update_models_without_online_only(self):
         # Execute
@@ -261,4 +267,4 @@ class MtgjsonTest(
             ('PC2', 'Stairs to Infinity', 226521, 'P1'),
             ('MMA', 'Thallid', 370352, '167'),
         ]
-        self.assertCountEqual(expected, set_card_mv_number)
+        six.assertCountEqual(self, expected, set_card_mv_number)

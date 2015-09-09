@@ -1,5 +1,7 @@
 """Test helper providing access to test data."""
 
+from builtins import super  # pylint: disable=redefined-builtin
+
 import json
 import os
 import unittest

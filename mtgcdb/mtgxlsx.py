@@ -1,5 +1,7 @@
 """Code for handling data in xlsx files."""
 
+from __future__ import absolute_import, print_function
+
 import collections
 import string
 
@@ -132,7 +134,7 @@ CARDS_SHEET_HEADER = (
     ['have', 'name', 'id', 'multiverseid', 'number', 'artist'] +
     COUNT_KEYS + ['others'])
 COUNT_COLS = [
-    string.ascii_uppercase[CARDS_SHEET_HEADER.index(key)] for key in COUNT_KEYS]
+    string.ascii_uppercase[CARDS_SHEET_HEADER.index(k)] for k in COUNT_KEYS]
 HAVE_TMPL = '=' + '+'.join(c + '{0}' for c in COUNT_COLS)
 ROW_OFFSET = 2
 
