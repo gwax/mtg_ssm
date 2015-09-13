@@ -9,11 +9,11 @@ import shutil
 
 import openpyxl
 
-from mtgcdb import downloader
 from mtgcdb import models
-from mtgcdb import mtgcsv
-from mtgcdb import mtgjson
-from mtgcdb import mtgxlsx
+from mtgcdb.mtgjson import downloader
+from mtgcdb.mtgjson import mtgjson
+from mtgcdb.serialization import mtgcsv
+from mtgcdb.serialization import mtgxlsx
 
 
 def backup_file(filename):

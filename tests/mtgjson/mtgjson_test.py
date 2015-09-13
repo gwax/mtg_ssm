@@ -9,9 +9,9 @@ import datetime
 import six
 
 from mtgcdb import models
-from mtgcdb import mtgjson
+from mtgcdb.mtgjson import mtgjson
 
-from tests import mtgjson_testcase
+from tests.mtgjson import mtgjson_testcase
 from tests import sqlite_testcase
 
 

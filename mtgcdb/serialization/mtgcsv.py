@@ -5,7 +5,7 @@ from __future__ import absolute_import
 import sqlalchemy.orm as sqlo
 
 from mtgcdb import models
-from mtgcdb import mtgdict
+from mtgcdb.serialization import mtgdict
 
 
 def header():

@@ -6,12 +6,12 @@ import collections
 import json
 import os
 
-from mtgcdb import downloader
+from mtgcdb.mtgjson import downloader
 
-DATA_DIR = os.path.join(
-    os.path.dirname(__file__), 'tests', 'data', 'source_data')
-TARGET_MTGJSON_FILE = os.path.join(
-    os.path.dirname(__file__), 'tests', 'data', 'AllSets_testdata.json')
+TEST_DATA_DIR = os.path.join(
+    os.path.dirname(__file__), 'tests', 'mtgjson', 'data')
+DATA_DIR = os.path.join(TEST_DATA_DIR, 'source_data')
+TARGET_MTGJSON_FILE = os.path.join(TEST_DATA_DIR, 'AllSets_testdata.json')
 
 INCLUDED = {
     'LEA': {'Air Elemental', 'Dark Ritual', 'Forest'},
