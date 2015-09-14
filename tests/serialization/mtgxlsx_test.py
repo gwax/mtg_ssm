@@ -12,12 +12,12 @@ except ImportError:
 
 import openpyxl
 
-from mtgcdb import models
+from mtgcdb.db import models
 from mtgcdb.mtgjson import mtgjson
 from mtgcdb.serialization import mtgxlsx
 
 from tests.mtgjson import mtgjson_testcase
-from tests import sqlite_testcase
+from tests.db import sqlite_testcase
 
 
 class MtgXlsxTest(

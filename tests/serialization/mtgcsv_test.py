@@ -3,12 +3,12 @@
 from __future__ import absolute_import
 from builtins import super  # pylint: disable=redefined-builtin
 
-from mtgcdb import models
+from mtgcdb.db import models
 from mtgcdb.mtgjson import mtgjson
 from mtgcdb.serialization import mtgcsv
 
 from tests.mtgjson import mtgjson_testcase
-from tests import sqlite_testcase
+from tests.db import sqlite_testcase
 
 
 class MtgCsvTest(

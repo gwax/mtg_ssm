@@ -8,9 +8,9 @@ import six
 
 import sqlalchemy.exc as sqlx
 
-from mtgcdb import models
+from mtgcdb.db import models
 
-from tests import sqlite_testcase
+from tests.db import sqlite_testcase
 
 
 class ModelsTest(sqlite_testcase.SqliteTestCase):

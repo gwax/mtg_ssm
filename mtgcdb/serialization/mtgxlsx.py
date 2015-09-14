@@ -7,7 +7,7 @@ import string
 
 import openpyxl
 
-from mtgcdb import models
+from mtgcdb.db import models
 from mtgcdb.serialization import mtgdict
 
 

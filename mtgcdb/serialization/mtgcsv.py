@@ -4,7 +4,7 @@ from __future__ import absolute_import
 
 import sqlalchemy.orm as sqlo
 
-from mtgcdb import models
+from mtgcdb.db import models
 from mtgcdb.serialization import mtgdict
 
 

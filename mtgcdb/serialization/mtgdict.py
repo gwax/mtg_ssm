@@ -4,7 +4,7 @@ from __future__ import absolute_import, print_function
 
 import collections
 
-from mtgcdb import models
+from mtgcdb.db import models
 
 
 def get_printing(

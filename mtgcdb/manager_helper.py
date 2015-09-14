@@ -9,7 +9,7 @@ import shutil
 
 import openpyxl
 
-from mtgcdb import models
+from mtgcdb.db import models
 from mtgcdb.mtgjson import downloader
 from mtgcdb.mtgjson import mtgjson
 from mtgcdb.serialization import mtgcsv

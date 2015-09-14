@@ -4,7 +4,7 @@ from __future__ import absolute_import
 
 import datetime
 
-from mtgcdb import models
+from mtgcdb.db import models
 
 
 def update_models(session, mtg_data, include_online_only):
