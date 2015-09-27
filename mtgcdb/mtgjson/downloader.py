@@ -14,7 +14,7 @@ VERSION_FILENAME = 'version-full.json'
 ALLSETS_FILENAME = 'AllSets.json.zip'
 
 
-MAX_VERSION = (3, 2, 3)
+MAX_VERSION = (3, 3, 1)
 
 
 class DownloadError(Exception):
