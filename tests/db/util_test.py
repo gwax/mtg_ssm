@@ -8,9 +8,9 @@ import enum
 import sqlalchemy as sqla
 import sqlalchemy.ext.declarative as sqld
 
-from mtgcdb import util
+from mtgcdb.db import util
 
-from tests import sqlite_testcase
+from tests.db import sqlite_testcase
 
 
 class MyEnum(enum.IntEnum):

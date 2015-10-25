@@ -2,7 +2,7 @@
 
 from __future__ import absolute_import, unicode_literals
 
-from tests import mtgjson_testcase
+from tests.mtgjson import mtgjson_testcase
 
 
 class MtgJsonTestCaseTest(mtgjson_testcase.MtgJsonTestCase):

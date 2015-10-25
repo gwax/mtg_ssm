@@ -12,11 +12,9 @@ import sqlalchemy.ext.declarative as sqld
 import sqlalchemy.orm as sqlo
 import sqlalchemy.orm.collections as sqlc
 
-from mtgcdb import util
+from mtgcdb.db import util
 
-VARIANT_CHARS = (
-    string.ascii_lowercase +
-    '★')
+VARIANT_CHARS = (string.ascii_lowercase + '★')
 
 
 class Base(sqld.declarative_base()):

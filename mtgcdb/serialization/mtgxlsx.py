@@ -7,8 +7,8 @@ import string
 
 import openpyxl
 
-from mtgcdb import models
-from mtgcdb import mtgdict
+from mtgcdb.db import models
+from mtgcdb.serialization import mtgdict
 
 
 def dump_workbook(session):
