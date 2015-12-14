@@ -76,7 +76,9 @@ class MtgjsonTest(
 
     def test_create_card(self):
         # Setup
-        card_data = self.mtg_data['ISD']['cards'][0]
+        [card_data] = [
+            c for c in self.mtg_data['ISD']['cards']
+            if c['id'] == '958ae1416f8f6287115ccd7c5c61f2415a313546']
 
         # Execute
         ret_card = mtgjson.create_card(card_data)
@@ -93,7 +95,9 @@ class MtgjsonTest(
         setup_card = models.Card(name='Abattoir Ghoul', strict_basic=True)
         self.session.add(setup_card)
         self.session.commit()
-        card_data = self.mtg_data['ISD']['cards'][0]
+        [card_data] = [
+            c for c in self.mtg_data['ISD']['cards']
+            if c['id'] == '958ae1416f8f6287115ccd7c5c61f2415a313546']
 
         # Execute
         ret_card = mtgjson.create_card(card_data)
@@ -107,8 +111,14 @@ class MtgjsonTest(
 
     def test_strict_basic(self):
         # Execute
-        ag_card = mtgjson.create_card(self.mtg_data['ISD']['cards'][0])
-        f_card = mtgjson.create_card(self.mtg_data['ICE']['cards'][1])
+        [ag_card_data] = [
+            c for c in self.mtg_data['ISD']['cards']
+            if c['id'] == '958ae1416f8f6287115ccd7c5c61f2415a313546']
+        [f_card_data] = [
+            c for c in self.mtg_data['ICE']['cards']
+            if c['id'] == '676a1f5b64dc03bbb3876840c3ff2ba2c16f99cb']
+        ag_card = mtgjson.create_card(ag_card_data)
+        f_card = mtgjson.create_card(f_card_data)
 
         # Verify
         self.assertEqual('Abattoir Ghoul', ag_card.name)
@@ -123,7 +133,9 @@ class MtgjsonTest(
         self.session.add(card_set)
         self.session.add(card)
         self.session.flush()
-        card_data = self.mtg_data['ISD']['cards'][0]
+        [card_data] = [
+            c for c in self.mtg_data['ISD']['cards']
+            if c['id'] == '958ae1416f8f6287115ccd7c5c61f2415a313546']
 
         # Execute
         ret_printing = mtgjson.create_printing(card_data, 'ISD')
@@ -151,7 +163,9 @@ class MtgjsonTest(
         self.session.add(card)
         self.session.add(setup_printing)
         self.session.commit()
-        card_data = self.mtg_data['ISD']['cards'][0]
+        [card_data] = [
+            c for c in self.mtg_data['ISD']['cards']
+            if c['id'] == '958ae1416f8f6287115ccd7c5c61f2415a313546']
 
         # Execute
         ret_printing = mtgjson.create_printing(card_data, 'ISD')
