@@ -17,7 +17,7 @@ MTGCDB_DATA_PATH = os.path.expanduser(os.path.join('~', '.mtgcdb'))
 def get_parser():
     """Create and return application argument parser."""
     parser = argparse.ArgumentParser(
-        description='Magice Collection Spreadsheet Manager')
+        description='Magic Collection Spreadsheet Manager')
     parser.add_argument(
         '--data_path', default=MTGCDB_DATA_PATH,
         help='Path to mtgcdb\'s data storage folder. Default={0}'.format(
