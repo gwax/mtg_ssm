@@ -2,7 +2,7 @@
 # See:
 #   http://docs.pylint.org/features.html
 #
-disable=no-init,too-few-public-methods,locally-disabled,locally-enabled,missing-super-argument
+disable=no-init,too-few-public-methods,locally-disabled,locally-enabled
 
 [REPORTS]
 # Set the output format. Available formats are text, parseable, colorized, msvs
@@ -18,15 +18,8 @@ reports=no
 # not require a docstring.
 no-docstring-rgx=__.*__|test_.*|.*Test|setUp.*|tearDown.*
 
-# Minimum line length for functions/classes that require docstrings, shorter
-# ones are exempt.
-docstring-min-length=6
-
-# Include a hint for the correct naming format with invalid-name
-include-naming-hint=yes
-
 # Regular expression matching correct method names
-method-rgx=([a-z_][a-z0-9_]{2,30}|test_[a-z_][a-z0-9_]{2,50})$
+method-rgx=([a-z_][a-z0-9_]{2,30}|assert[A-Z][a-zA-Z]{2,24}|test_[a-z_][a-z0-9_]{2,40})$
 
 # Regular expression matching correct class attribute names
 class-attribute-rgx=([A-Za-z_][A-Za-z0-9_]{2,30}|(__.*__)|id)$
@@ -34,9 +27,6 @@ class-attribute-rgx=([A-Za-z_][A-Za-z0-9_]{2,30}|(__.*__)|id)$
 [FORMAT]
 # Maximum number of characters on a single line.
 max-line-length=80
-
-# Expected format of line ending, e.g. empty (any line ending), LF or CRLF.
-expected-line-ending-format=LF
 
 [TYPECHECK]
 # List of members which are set dynamically and missed by pylint inference
@@ -47,8 +37,8 @@ generated-members=metadata,__table__,__members
 [VARIABLES]
 # A regular expression matching the name of dummy variables (i.e. expectedly
 # not used).
-dummy-variables-rgx=_|_.*|unused|unused_.*
+dummy-variables-rgx=(_|_[a-z][a-z0-9_]{2,30})$
 
 [DESIGN]
 # Argument names that match this expression will be ignored.
-ignored-argument-names=_|_.*|unused|unused_.*
+ignored-argument-names=(_|_[a-z][a-z0-9_]{2,30})$
