@@ -91,6 +91,7 @@ class CardSet(Base):
 
 
 class CountTypes(enum.IntEnum):
+    """Enum for holding card printing types (normal, foil)."""
     copies = 1
     foils = 2
 
@@ -105,4 +106,5 @@ class CollectionCount(Base):
 
     @property
     def key(self):
+        """Model key for use in associationproxy relationships."""
         return self.type.name

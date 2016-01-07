@@ -11,11 +11,13 @@ from tests.db import sqlite_testcase
 
 
 class MyEnum(enum.IntEnum):
+    """Simple enum to test SqlEnumType."""
     one = 1
     two = 2
 
 
 class Model(sqld.declarative_base()):
+    """Simple declarative model to test enum handling."""
     __tablename__ = 'test'
 
     id = sqla.Column(sqla.Integer, primary_key=True)
