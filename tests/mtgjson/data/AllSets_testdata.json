@@ -77,28 +77,9 @@
       },
       {
         "artist": "Christopher Rush",
-        "id": "970af6b2a9a1db5d3956172791717b2afab3e03f",
-        "imageName": "forest1",
-        "layout": "normal",
-        "multiverseid": 289,
-        "name": "Forest",
-        "rarity": "Basic Land",
-        "subtypes": [
-          "Forest"
+        "colorIdentity": [
+          "G"
         ],
-        "supertypes": [
-          "Basic"
-        ],
-        "type": "Basic Land — Forest",
-        "types": [
-          "Land"
-        ],
-        "variations": [
-          288
-        ]
-      },
-      {
-        "artist": "Christopher Rush",
         "id": "5ede9781b0c5d157c28a15c3153a455d7d6180fa",
         "imageName": "forest2",
         "layout": "normal",
@@ -117,6 +98,31 @@
         ],
         "variations": [
           289
+        ]
+      },
+      {
+        "artist": "Christopher Rush",
+        "colorIdentity": [
+          "G"
+        ],
+        "id": "970af6b2a9a1db5d3956172791717b2afab3e03f",
+        "imageName": "forest1",
+        "layout": "normal",
+        "multiverseid": 289,
+        "name": "Forest",
+        "rarity": "Basic Land",
+        "subtypes": [
+          "Forest"
+        ],
+        "supertypes": [
+          "Basic"
+        ],
+        "type": "Basic Land — Forest",
+        "types": [
+          "Land"
+        ],
+        "variations": [
+          288
         ]
       }
     ]
@@ -190,7 +196,7 @@
     ],
     "cards": [
       {
-        "artist": "Ron Spencer",
+        "artist": "Edward P. Beard, Jr.",
         "cmc": 1,
         "colorIdentity": [
           "G"
@@ -198,11 +204,11 @@
         "colors": [
           "Green"
         ],
-        "id": "378e47697b1b74df8c901cac23f7402b01da31b2",
-        "imageName": "thallid3",
+        "id": "3deebffcf4f5152f4a5cc270cfac746a3bd2089d",
+        "imageName": "thallid1",
         "layout": "normal",
         "manaCost": "{G}",
-        "multiverseid": 1927,
+        "multiverseid": 1924,
         "name": "Thallid",
         "power": "1",
         "rarity": "Common",
@@ -216,8 +222,8 @@
           "Creature"
         ],
         "variations": [
+          1927,
           1925,
-          1924,
           1926
         ]
       },
@@ -254,38 +260,6 @@
         ]
       },
       {
-        "artist": "Edward P. Beard, Jr.",
-        "cmc": 1,
-        "colorIdentity": [
-          "G"
-        ],
-        "colors": [
-          "Green"
-        ],
-        "id": "3deebffcf4f5152f4a5cc270cfac746a3bd2089d",
-        "imageName": "thallid1",
-        "layout": "normal",
-        "manaCost": "{G}",
-        "multiverseid": 1924,
-        "name": "Thallid",
-        "power": "1",
-        "rarity": "Common",
-        "subtypes": [
-          "Fungus"
-        ],
-        "text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Put a 1/1 green Saproling creature token onto the battlefield.",
-        "toughness": "1",
-        "type": "Creature — Fungus",
-        "types": [
-          "Creature"
-        ],
-        "variations": [
-          1927,
-          1925,
-          1926
-        ]
-      },
-      {
         "artist": "Jesper Myrfors",
         "cmc": 1,
         "colorIdentity": [
@@ -315,6 +289,38 @@
           1927,
           1925,
           1924
+        ]
+      },
+      {
+        "artist": "Ron Spencer",
+        "cmc": 1,
+        "colorIdentity": [
+          "G"
+        ],
+        "colors": [
+          "Green"
+        ],
+        "id": "378e47697b1b74df8c901cac23f7402b01da31b2",
+        "imageName": "thallid3",
+        "layout": "normal",
+        "manaCost": "{G}",
+        "multiverseid": 1927,
+        "name": "Thallid",
+        "power": "1",
+        "rarity": "Common",
+        "subtypes": [
+          "Fungus"
+        ],
+        "text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Put a 1/1 green Saproling creature token onto the battlefield.",
+        "toughness": "1",
+        "type": "Creature — Fungus",
+        "types": [
+          "Creature"
+        ],
+        "variations": [
+          1925,
+          1924,
+          1926
         ]
       }
     ]
@@ -371,6 +377,9 @@
       },
       {
         "artist": "Pat Morrissey",
+        "colorIdentity": [
+          "G"
+        ],
         "id": "676a1f5b64dc03bbb3876840c3ff2ba2c16f99cb",
         "imageName": "forest2",
         "layout": "normal",
@@ -394,29 +403,9 @@
       },
       {
         "artist": "Pat Morrissey",
-        "id": "c78d2da78c68c558b1adc734b3f164e885407ffc",
-        "imageName": "forest1",
-        "layout": "normal",
-        "multiverseid": 2748,
-        "name": "Forest",
-        "rarity": "Basic Land",
-        "subtypes": [
-          "Forest"
+        "colorIdentity": [
+          "G"
         ],
-        "supertypes": [
-          "Basic"
-        ],
-        "type": "Basic Land — Forest",
-        "types": [
-          "Land"
-        ],
-        "variations": [
-          2747,
-          2746
-        ]
-      },
-      {
-        "artist": "Pat Morrissey",
         "id": "d0a4414893bc2f9bd3beea2f8f2693635ef926a4",
         "imageName": "forest3",
         "layout": "normal",
@@ -440,6 +429,35 @@
       },
       {
         "artist": "Pat Morrissey",
+        "colorIdentity": [
+          "G"
+        ],
+        "id": "c78d2da78c68c558b1adc734b3f164e885407ffc",
+        "imageName": "forest1",
+        "layout": "normal",
+        "multiverseid": 2748,
+        "name": "Forest",
+        "rarity": "Basic Land",
+        "subtypes": [
+          "Forest"
+        ],
+        "supertypes": [
+          "Basic"
+        ],
+        "type": "Basic Land — Forest",
+        "types": [
+          "Land"
+        ],
+        "variations": [
+          2747,
+          2746
+        ]
+      },
+      {
+        "artist": "Pat Morrissey",
+        "colorIdentity": [
+          "G"
+        ],
         "id": "5e9f08498a9343b1954103e493da2586be0fe394",
         "imageName": "snow-covered forest",
         "layout": "normal",
@@ -994,6 +1012,9 @@
       },
       {
         "artist": "James Paick",
+        "colorIdentity": [
+          "G"
+        ],
         "id": "e9abef8533c9ce6549147232c5fceff75ffb460a",
         "imageName": "forest1",
         "layout": "normal",
@@ -1018,6 +1039,9 @@
       },
       {
         "artist": "Jung Park",
+        "colorIdentity": [
+          "G"
+        ],
         "id": "3c509643d7f7827b2debf968c05cb800cb772360",
         "imageName": "forest2",
         "layout": "normal",
@@ -1042,6 +1066,9 @@
       },
       {
         "artist": "Eytan Zana",
+        "colorIdentity": [
+          "G"
+        ],
         "id": "d5dbd9b201a515d119b424b3d7b06dcf30a5c675",
         "imageName": "forest3",
         "layout": "normal",
