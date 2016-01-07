@@ -1,7 +1,5 @@
 """General helper methods and classes."""
 
-from builtins import super  # pylint: disable=redefined-builtin
-
 import re
 
 import sqlalchemy.types as sqlt
@@ -12,8 +10,6 @@ class SqlEnumType(sqlt.SchemaType, sqlt.TypeDecorator):
 
     Derived from: http://techspot.zzzeek.org/2011/01/14/the-enum-recipe/
     """
-
-    impl = None  # Needed to work around an mro issue in super classes
 
     def __init__(self, enum_cls):
         """Given an enum.IntEnum create a sqlalchemy type to store it."""

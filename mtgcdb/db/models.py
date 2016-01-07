@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
 """SQLAlchemy models for managing data."""
-
-from __future__ import absolute_import, unicode_literals
 
 import enum
 import string
@@ -18,6 +15,7 @@ VARIANT_CHARS = (string.ascii_lowercase + '★')
 
 
 class Base(sqld.declarative_base()):
+    """Abstract base class for declarative models."""
     __abstract__ = True
 
 
@@ -93,6 +91,7 @@ class CardSet(Base):
 
 
 class CountTypes(enum.IntEnum):
+    """Enum for holding card printing types (normal, foil)."""
     copies = 1
     foils = 2
 
@@ -107,4 +106,5 @@ class CollectionCount(Base):
 
     @property
     def key(self):
+        """Model key for use in associationproxy relationships."""
         return self.type.name

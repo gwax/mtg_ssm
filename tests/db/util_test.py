@@ -1,8 +1,5 @@
 """Tests for mtgcdb.util"""
 
-from __future__ import absolute_import
-from builtins import super  # pylint: disable=redefined-builtin
-
 import enum
 
 import sqlalchemy as sqla
@@ -14,10 +11,13 @@ from tests.db import sqlite_testcase
 
 
 class MyEnum(enum.IntEnum):
+    """Simple enum to test SqlEnumType."""
     one = 1
     two = 2
 
+
 class Model(sqld.declarative_base()):
+    """Simple declarative model to test enum handling."""
     __tablename__ = 'test'
 
     id = sqla.Column(sqla.Integer, primary_key=True)

@@ -1,7 +1,5 @@
 """Methods for managing data in the form of dicts."""
 
-from __future__ import absolute_import, print_function
-
 import collections
 
 from mtgcdb.db import models
@@ -53,8 +51,6 @@ def get_printing(
 
     print('Warning: Could not find printing for {}'.format(card_dict))
     return None
-
-
 
 
 def load_counts(session, card_dicts):

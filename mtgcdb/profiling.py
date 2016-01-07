@@ -1,7 +1,5 @@
 """Profiling code."""
 
-from __future__ import print_function
-
 import cProfile
 import pstats
 import contextlib
@@ -28,6 +26,7 @@ def finish(profiler):
 
 @contextlib.contextmanager
 def profiled():
+    """Context manager to profile within a given context."""
     profiler = start()
     yield
     finish(profiler)

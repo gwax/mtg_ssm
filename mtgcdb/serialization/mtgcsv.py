@@ -1,7 +1,5 @@
 """Code for handling data from csv files."""
 
-from __future__ import absolute_import
-
 import sqlalchemy.orm as sqlo
 
 from mtgcdb.db import models
@@ -38,6 +36,7 @@ def dump_rows(session):
 
 
 def int_or_none(value):
+    """Returns an integer for 0 or non-false values, otherwise None."""
     if value == 0:
         return 0
     elif value:
