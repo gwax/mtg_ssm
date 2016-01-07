@@ -1,8 +1,4 @@
-# -*- coding: utf-8 -*-
 """Tests for mtgcdb.mtgjson"""
-
-from __future__ import absolute_import, unicode_literals
-from builtins import super  # pylint: disable=redefined-builtin
 
 import datetime
 

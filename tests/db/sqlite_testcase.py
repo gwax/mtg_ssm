@@ -1,7 +1,5 @@
 """Testcase for tests that require a sqlalchemy sqlite engine."""
 
-from builtins import super  # pylint: disable=redefined-builtin
-
 import unittest
 
 import sqlalchemy
@@ -10,6 +8,7 @@ import sqlalchemy.orm
 
 
 def set_sqlite_pragma(dbapi_connection, _connection_record):
+    """Listener handler to enable foreign key pragmas on connect."""
     cursor = dbapi_connection.cursor()
     cursor.execute('PRAGMA foreign_keys=ON')
     cursor.close()

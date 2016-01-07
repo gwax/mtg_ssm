@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
 """SQLAlchemy models for managing data."""
-
-from __future__ import absolute_import, unicode_literals
 
 import enum
 import string
@@ -18,6 +15,7 @@ VARIANT_CHARS = (string.ascii_lowercase + '★')
 
 
 class Base(sqld.declarative_base()):
+    """Abstract base class for declarative models."""
     __abstract__ = True
 
 

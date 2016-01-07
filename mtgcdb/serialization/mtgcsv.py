@@ -1,7 +1,5 @@
 """Code for handling data from csv files."""
 
-from __future__ import absolute_import
-
 import sqlalchemy.orm as sqlo
 
 from mtgcdb.db import models

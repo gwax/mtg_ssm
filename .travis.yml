@@ -6,23 +6,21 @@ sudo: false
 
 language: python
 
-cache: pip
+cache:
+  directories:
+    - $HOME/.cache/pip
 
 python:
-  - 2.7
   - 3.4
   - 3.5
 
 before_install:
-  - pip install --upgrade pip pylint
+  - pip install --upgrade pip
+  - pip install pylint flake8
   - pip install -r requirements.txt
-  -
-    if [[ $TRAVIS_PYTHON_VERSION == 2.7 ]]; then
-      pip install -I pylint==1.4.4;
-      pip install -r requirements2.txt;
-    fi
 
 script:
-  - py.test --strict -r w tests/
-  - pylint --rcfile=pylintrc *.py mtgcdb/
-  - pylint --rcfile=pylintrc --disable=similarities tests/
+  - py.test --strict -r w tests
+  - pylint --rcfile=pylintrc *.py mtgcdb
+  - pylint --rcfile=pylintrc --disable=similarities tests
+  - flake8 --ignore=E501,F401,F841 *.py mtgcdb tests

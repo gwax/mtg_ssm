@@ -32,7 +32,7 @@ max-line-length=80
 # List of members which are set dynamically and missed by pylint inference
 # system, and so shouldn't trigger E0201 when accessed. Python regular
 # expressions are accepted.
-generated-members=metadata,__table__,__members
+generated-members=metadata,__table__
 
 [VARIABLES]
 # A regular expression matching the name of dummy variables (i.e. expectedly
