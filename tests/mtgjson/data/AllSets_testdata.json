@@ -24,6 +24,8 @@
       "common",
       "common"
     ],
+    "mkm_name": "Alpha",
+    "mkm_id": 1,
     "cards": [
       {
         "artist": "Richard Thomas",
@@ -39,6 +41,7 @@
         "imageName": "air elemental",
         "layout": "normal",
         "manaCost": "{3}{U}{U}",
+        "mciNumber": "47",
         "multiverseid": 94,
         "name": "Air Elemental",
         "power": "4",
@@ -66,6 +69,7 @@
         "imageName": "dark ritual",
         "layout": "normal",
         "manaCost": "{B}",
+        "mciNumber": "7",
         "multiverseid": 54,
         "name": "Dark Ritual",
         "rarity": "Common",
@@ -502,6 +506,15 @@
       "common",
       "common"
     ],
+    "translations": {
+      "de": "Heimatländer",
+      "fr": "Terres Natales",
+      "it": "Origini",
+      "es": "Tierras Natales",
+      "pt": "Terras Natais"
+    },
+    "mkm_name": "Homelands",
+    "mkm_id": 14,
     "cards": [
       {
         "artist": "Melissa A. Benson",
@@ -834,6 +847,8 @@
     "releaseDate": "2010-06-18",
     "border": "black",
     "type": "archenemy",
+    "mkm_name": "Archenemy",
+    "mkm_id": 1194,
     "cards": [
       {
         "artist": "Nic Klein",
@@ -865,6 +880,7 @@
         "imageName": "leonin abunas",
         "layout": "normal",
         "manaCost": "{3}{W}",
+        "mciNumber": "1",
         "multiverseid": 220527,
         "name": "Leonin Abunas",
         "number": "1",
@@ -1215,6 +1231,8 @@
         "foil common"
       ]
     ],
+    "mkm_name": "Modern Masters",
+    "mkm_id": 1444,
     "cards": [
       {
         "artist": "Trevor Claxton",
@@ -1229,6 +1247,7 @@
         "imageName": "thallid",
         "layout": "normal",
         "manaCost": "{G}",
+        "mciNumber": "167",
         "multiverseid": 370352,
         "name": "Thallid",
         "number": "167",
@@ -1291,6 +1310,7 @@
         "imageName": "academy elite",
         "layout": "normal",
         "manaCost": "{3}{U}",
+        "mciNumber": "55",
         "multiverseid": 382835,
         "name": "Academy Elite",
         "number": "55",
