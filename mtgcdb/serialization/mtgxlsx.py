@@ -36,6 +36,17 @@ def create_sets_sheet(sheet, card_sets):
     """Populate sheet with information about all card sets."""
     sheet.title = 'Sets'
     sheet.append(SETS_SHEET_HEADER)
+    sheet.append([
+        'Total',
+        None,
+        None,
+        None,
+        None,
+        '=SUM(F3:F65535)',
+        '=SUM(G3:G65535)',
+        '=SUM(H3:H65535)',
+        '=SUM(I3:I63353)',
+    ])
     for card_set in card_sets:
         row = [
             card_set.code,
@@ -46,12 +57,12 @@ def create_sets_sheet(sheet, card_sets):
             len(card_set.printings),
             '=COUNTIF(\'{}\'!A:A,">0")'.format(card_set.code),
             '=COUNTIF(\'{}\'!A:A,">=4")'.format(card_set.code),
-            "=SUM('{}'!A:A)".format(card_set.code)
+            "=SUM('{}'!A:A)".format(card_set.code),
         ]
         sheet.append(row)
 
     # Styling
-    sheet.freeze_panes = sheet['C2']
+    sheet.freeze_panes = sheet['C3']
     col_width_hidden = [
         ('A', 6, False),
         ('B', 24, False),

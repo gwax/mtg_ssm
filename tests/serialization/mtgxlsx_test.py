@@ -40,6 +40,7 @@ class MtgXlsxTest(
         # pylint: disable=line-too-long
         expected = [
             ['code', 'name', 'release', 'block', 'type', 'cards', 'unique', 'playsets', 'count'],
+            ['Total', None, None, None, None, '=SUM(F3:F65535)', '=SUM(G3:G65535)', '=SUM(H3:H65535)', '=SUM(I3:I63353)'],
             ['LEA', 'Limited Edition Alpha', datetime.datetime(1993, 8, 5), None, 'core', 4, '=COUNTIF(\'LEA\'!A:A,">0")', '=COUNTIF(\'LEA\'!A:A,">=4")', "=SUM('LEA'!A:A)"],
             ['FEM', 'Fallen Empires', datetime.datetime(1994, 11, 1), None, 'expansion', 4, '=COUNTIF(\'FEM\'!A:A,">0")', '=COUNTIF(\'FEM\'!A:A,">=4")', "=SUM('FEM'!A:A)"],
             ['pMEI', 'Media Inserts', datetime.datetime(1995, 1, 1), None, 'promo', 1, '=COUNTIF(\'pMEI\'!A:A,">0")', '=COUNTIF(\'pMEI\'!A:A,">=4")', "=SUM('pMEI'!A:A)"],
