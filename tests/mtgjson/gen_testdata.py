@@ -7,8 +7,7 @@ import os
 
 from mtgcdb.mtgjson import downloader
 
-TEST_DATA_DIR = os.path.join(
-    os.path.dirname(__file__), 'tests', 'mtgjson', 'data')
+TEST_DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
 DATA_DIR = os.path.join(TEST_DATA_DIR, 'source_data')
 TARGET_MTGJSON_FILE = os.path.join(TEST_DATA_DIR, 'AllSets_testdata.json')
 
@@ -34,9 +33,12 @@ INCLUDED = {
 
 def main():
     """Filter source mtgjson data and dump testdata."""
+    print('Fetching mtgjson data.')
     downloader.fetch_mtgjson(DATA_DIR)
+    print('Reading mtgjson data.')
     mtg_data = downloader.read_mtgjson(DATA_DIR)
 
+    print('Generating testdata.')
     testdata = collections.OrderedDict()
     for setcode, setdata in mtg_data.items():
         if setcode not in INCLUDED:
@@ -47,10 +49,12 @@ def main():
             c for c in setdata['cards'] if c['name'] in INCLUDED[setcode]]
         testdata[setcode] = testsetdata
 
+    print('Writing testdata.')
     with open(TARGET_MTGJSON_FILE, 'w') as mtgjson_testfile:
         json.dump(
             testdata, mtgjson_testfile, ensure_ascii=False, indent=2,
             sort_keys=False)
+    print('Done')
 
 
 if __name__ == '__main__':
