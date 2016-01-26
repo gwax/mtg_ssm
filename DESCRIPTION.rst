@@ -93,7 +93,7 @@ Acknowledgments
    been my favorite hobby since the early '90s.
 -  `MTG JSON <http://mtgjson.com>`__: MTG JSON is an amazing resource
    for anyone looking to build tools around magic card data. It is
-   pretty **THE** source for structured magic card data. Without
+   pretty much **THE** source for structured magic card data. Without
    MTG JSON this project would not have been possible.
 
 .. |Build Status| image:: https://travis-ci.org/gwax/mtg_ssm.svg?branch=master
