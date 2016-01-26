@@ -1,8 +1,8 @@
-"""Tests for mtgcdb.mtgcsv"""
+"""Tests for mtg_ssm.mtgcsv"""
 
-from mtgcdb.db import models
-from mtgcdb.mtgjson import mtgjson
-from mtgcdb.serialization import mtgcsv
+from mtg_ssm.db import models
+from mtg_ssm.mtgjson import mtgjson
+from mtg_ssm.serialization import mtgcsv
 
 from tests.mtgjson import mtgjson_testcase
 from tests.db import sqlite_testcase

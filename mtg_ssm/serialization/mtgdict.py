@@ -2,7 +2,7 @@
 
 import collections
 
-from mtgcdb.db import models
+from mtg_ssm.db import models
 
 
 def get_printing(

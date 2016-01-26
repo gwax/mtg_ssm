@@ -1,6 +1,6 @@
-# mtgcdb - Magic: the Gathering Collection Database
+# mtg_ssm - Magic: the Gathering Collection Database
 
-[![Build Status](https://travis-ci.org/gwax/mtgcdb.svg?branch=master)](https://travis-ci.org/gwax/mtgcdb)
+[![Build Status](https://travis-ci.org/gwax/mtg_ssm.svg?branch=master)](https://travis-ci.org/gwax/mtg_ssm)
 
 This is a tool for creating/updating user-friendly spreadsheets with
 Magic: the Gathering collection information. The tool can also import/export

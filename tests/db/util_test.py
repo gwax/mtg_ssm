@@ -1,11 +1,11 @@
-"""Tests for mtgcdb.util"""
+"""Tests for mtg_ssm.util"""
 
 import enum
 
 import sqlalchemy as sqla
 import sqlalchemy.ext.declarative as sqld
 
-from mtgcdb.db import util
+from mtg_ssm.db import util
 
 from tests.db import sqlite_testcase
 

@@ -1,9 +1,9 @@
-"""Tests for mtgcdb.mtgjson"""
+"""Tests for mtg_ssm.mtgjson"""
 
 import datetime
 
-from mtgcdb.db import models
-from mtgcdb.mtgjson import mtgjson
+from mtg_ssm.db import models
+from mtg_ssm.mtgjson import mtgjson
 
 from tests.mtgjson import mtgjson_testcase
 from tests.db import sqlite_testcase

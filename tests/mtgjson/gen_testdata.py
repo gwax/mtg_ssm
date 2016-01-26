@@ -5,7 +5,7 @@ import collections
 import json
 import os
 
-from mtgcdb.mtgjson import downloader
+from mtg_ssm.mtgjson import downloader
 
 TEST_DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
 DATA_DIR = os.path.join(TEST_DATA_DIR, 'source_data')

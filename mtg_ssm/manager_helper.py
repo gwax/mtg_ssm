@@ -1,4 +1,4 @@
-"""Script for managing mtgcdb."""
+"""Script for managing mtg_ssm."""
 
 import csv
 import datetime
@@ -7,11 +7,11 @@ import shutil
 
 import openpyxl
 
-from mtgcdb.db import models
-from mtgcdb.mtgjson import downloader
-from mtgcdb.mtgjson import mtgjson
-from mtgcdb.serialization import mtgcsv
-from mtgcdb.serialization import mtgxlsx
+from mtg_ssm.db import models
+from mtg_ssm.mtgjson import downloader
+from mtg_ssm.mtgjson import mtgjson
+from mtg_ssm.serialization import mtgcsv
+from mtg_ssm.serialization import mtgxlsx
 
 
 def backup_file(filename):

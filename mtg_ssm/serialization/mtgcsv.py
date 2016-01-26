@@ -2,8 +2,8 @@
 
 import sqlalchemy.orm as sqlo
 
-from mtgcdb.db import models
-from mtgcdb.serialization import mtgdict
+from mtg_ssm.db import models
+from mtg_ssm.serialization import mtgdict
 
 
 def header():
