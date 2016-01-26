@@ -9,19 +9,15 @@ if sys.version_info < (3, 4):
     raise Exception('Python version < 3.4 are not supported.')
 
 
-with open('requirements.txt', 'r') as reqfile:
-    DEPENDENCIES = [l.strip() for l in reqfile]
-
-with open('README.md', 'r') as descfile:
-    LONG_DESCRIPTION = descfile.read()
-
 # Get version information without importing the package
 __version__ = None
-with open('mtg_ssm/version.py', 'r') as verfile:
-    exec(verfile.read())  # pylint: disable=exec-used
+exec(open('mtg_ssm/version.py', 'r').read())  # pylint: disable=exec-used
 
 SHORT_DESCRIPTION = (
     'A tool to manage Magic: the Gathering collection spreadsheets.')
+LONG_DESCRIPTION = open('DESCRIPTION.rst', 'r').read()
+
+DEPENDENCIES = [l.strip() for l in open('requirements.txt', 'r').read()]
 
 CLASSIFIERS = [
     'Development Status :: 4 - Beta',
