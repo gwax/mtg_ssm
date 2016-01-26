@@ -1,10 +1,9 @@
 """Profiling code."""
 
 import cProfile
+import io
 import pstats
 import contextlib
-
-import six
 
 
 def start():
@@ -17,7 +16,7 @@ def start():
 def finish(profiler):
     """Stop the profiler and print out stats."""
     profiler.disable()
-    out_stream = six.StringIO()
+    out_stream = io.StringIO()
     profile_stats = pstats.Stats(
         profiler, stream=out_stream).sort_stats('cumulative')
     profile_stats.print_stats(30)
