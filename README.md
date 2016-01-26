@@ -1,4 +1,4 @@
-# mtg_ssm - Magic: the Gathering Collection Database
+# mtg_ssm - Magic: the Gathering Spreadsheet Manager
 
 [![Build Status](https://travis-ci.org/gwax/mtg_ssm.svg?branch=master)](https://travis-ci.org/gwax/mtg_ssm)
 
@@ -8,30 +8,28 @@ data to/from these spreadsheets to other formats, such as CSV files.
 
 As a matter of convenience, you can store the created spreadsheet in
 Dropbox, Google Drive, or the like and access your collection from
-any device.
-
-## Note
-
-This tool is something that I am developing in my spare time, primarily for
-the purpose of tracking my own card collection so installation and ease of
-use may be a little tricky if you don't have an understanding of git and python.
+anywhere.
 
 # Installation
 
-As of right now, there is no simple means of installation.
-
-You will need a working copy of python3 and pip3 on your system.
-
-Clone this repository, and then from the root of the repository run:
+mtg_ssm is available on PyPI so, if you have python (>=3.4) and pip installed
+on your system, you should be able to get mtg_ssm by entering the following
+into a terminal:
 
 ```bash
-pip3 install -r requirements.txt
+pip3 install mtg_ssm
 ```
 
-You should now be able to run mtgss_manager from the root of the repository:
+Updates can be performed by entering:
 
 ```bash
-./mtgss_manager.py --help
+pip3 install -U mtg_ssm
+```
+
+You can verify installation from the terminal by running:
+
+```bash
+mtg-ssm --help
 ```
 
 # Usage
@@ -39,13 +37,13 @@ You should now be able to run mtgss_manager from the root of the repository:
 For first time use, you will want to create an empty spreadsheet with card data:
 
 ```bash
-./mtgss_manager.py collection.xlsx create
+mtg-ssm collection.xlsx create
 ```
 In the future, when new sets are released, you can update your spreadsheet
 with new cards:
 
 ```bash
-./mtgss_manager.py collection.xlsx update
+mtg-ssm collection.xlsx update
 ```
 
 ## Existing collections
@@ -56,14 +54,14 @@ import that collection into your card database.
 First create an example csv file:
 
 ```bash
-./mtgss_manager.py collection.xlsx create
-./mtgss_manager.py collection.xlsx export collection.csv.example
+mtg-ssm collection.xlsx create
+mtg-ssm collection.xlsx export collection.csv.example
 ```
 
 Then create a matching csv and import into your database:
 
 ```bash
-./mtgss_manager.py collection.xlsx import collection.csv
+mtg-ssm collection.xlsx import collection.csv
 ```
 
 # In development
@@ -83,6 +81,7 @@ Pull requests are welcome and contributions are greatly appreciated.
 * [Wizards of the Coast](http://magic.wizards.com/): For making Magic: the
 Gathering and continuing to support it. Off and on, it's been my favorite
 hobby since the early '90s.
-* Robert at [MTG JSON](http://mtgjson.com): MTG JSON is an amazing resource
-for anyone looking to build tools around magic card data. Without MTG JSON
-this project would not have been possible.
+* [MTG JSON](http://mtgjson.com): MTG JSON is an amazing resource
+for anyone looking to build tools around magic card data. It is pretty **THE**
+authoritative source of structured magic card data. Without MTG JSON this
+project would not have been possible.
