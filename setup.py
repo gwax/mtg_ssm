@@ -2,7 +2,7 @@
 
 import sys
 
-from setuptools import setup, find_packages
+import setuptools
 
 
 if sys.version_info < (3, 4):
@@ -37,7 +37,7 @@ CLASSIFIERS = [
     'Topic :: Games/Entertainment',
 ]
 
-setup(
+setuptools.setup(
     name='mtg_ssm',
     version=__version__,
     description=SHORT_DESCRIPTION,
@@ -45,7 +45,7 @@ setup(
     author='George Leslie-Waksman',
     author_email='waksman@gwax.com',
     url='https://github.com/gwax/mtg_ssm',
-    packages=find_packages(exclude=['tests']),
+    packages=setuptools.find_packages(exclude=('tests*',)),
     license='MIT',
     platforms=['any'],
     keywords='mtg magic collection tracking spreadsheet',
