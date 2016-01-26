@@ -11,7 +11,7 @@ from mtg_ssm import manager_helper
 from mtg_ssm import profiling
 
 
-mtg_ssm_DATA_PATH = os.path.expanduser(os.path.join('~', '.mtg_ssm'))
+MTG_SSM_DATA_PATH = os.path.expanduser(os.path.join('~', '.mtg_ssm'))
 
 
 def get_parser():
@@ -19,9 +19,9 @@ def get_parser():
     parser = argparse.ArgumentParser(
         description='Magic Collection Spreadsheet Manager')
     parser.add_argument(
-        '--data_path', default=mtg_ssm_DATA_PATH,
+        '--data_path', default=MTG_SSM_DATA_PATH,
         help='Path to mtg_ssm\'s data storage folder. Default={0}'.format(
-            mtg_ssm_DATA_PATH))
+            MTG_SSM_DATA_PATH))
     parser.add_argument(
         '--include_online_only', default=False, action='store_true',
         help='Include online only sets (e.g. Masters sets) in the database.')
