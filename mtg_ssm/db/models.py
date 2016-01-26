@@ -9,7 +9,7 @@ import sqlalchemy.ext.declarative as sqld
 import sqlalchemy.orm as sqlo
 import sqlalchemy.orm.collections as sqlc
 
-from mtgcdb.db import util
+from mtg_ssm.db import util
 
 VARIANT_CHARS = (string.ascii_lowercase + '★')
 

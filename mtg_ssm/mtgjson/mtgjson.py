@@ -2,7 +2,7 @@
 
 import datetime
 
-from mtgcdb.db import models
+from mtg_ssm.db import models
 
 
 def update_models(session, mtg_data, include_online_only):

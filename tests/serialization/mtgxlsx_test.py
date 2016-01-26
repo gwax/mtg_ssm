@@ -1,4 +1,4 @@
-"""Tests for mtgcdb.mtgxlsx"""
+"""Tests for mtg_ssm.mtgxlsx"""
 
 import collections
 import datetime
@@ -6,9 +6,9 @@ from unittest import mock
 
 import openpyxl
 
-from mtgcdb.db import models
-from mtgcdb.mtgjson import mtgjson
-from mtgcdb.serialization import mtgxlsx
+from mtg_ssm.db import models
+from mtg_ssm.mtgjson import mtgjson
+from mtg_ssm.serialization import mtgxlsx
 
 from tests.mtgjson import mtgjson_testcase
 from tests.db import sqlite_testcase

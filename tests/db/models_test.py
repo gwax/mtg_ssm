@@ -1,8 +1,8 @@
-"""Tests for mtgcdb.models"""
+"""Tests for mtg_ssm.models"""
 
 import sqlalchemy.exc as sqlx
 
-from mtgcdb.db import models
+from mtg_ssm.db import models
 
 from tests.db import sqlite_testcase
 

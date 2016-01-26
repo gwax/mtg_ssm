@@ -1,11 +1,9 @@
-"""Tests for mtgcdb.mtgjson"""
+"""Tests for mtg_ssm.mtgjson"""
 
 import datetime
 
-import six
-
-from mtgcdb.db import models
-from mtgcdb.mtgjson import mtgjson
+from mtg_ssm.db import models
+from mtg_ssm.mtgjson import mtgjson
 
 from tests.mtgjson import mtgjson_testcase
 from tests.db import sqlite_testcase
@@ -227,7 +225,7 @@ class MtgjsonTest(
             ('MMA', 'Thallid', 370352, '167'),
             ('VMA', 'Academy Elite', 382835, '55'),
         ]
-        six.assertCountEqual(self, expected, set_card_mv_number)
+        self.assertCountEqual(expected, set_card_mv_number)
 
     def test_update_models_without_online_only(self):
         # Execute
@@ -277,4 +275,4 @@ class MtgjsonTest(
             ('PC2', 'Stairs to Infinity', 226521, 'P1'),
             ('MMA', 'Thallid', 370352, '167'),
         ]
-        six.assertCountEqual(self, expected, set_card_mv_number)
+        self.assertCountEqual(expected, set_card_mv_number)
