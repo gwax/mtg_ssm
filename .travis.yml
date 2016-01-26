@@ -21,7 +21,7 @@ script:
   - pylint --rcfile=pylintrc *.py mtg_ssm
   - pylint --rcfile=pylintrc --disable=similarities tests
   - flake8 --ignore=E501,F401,F841 *.py mtg_ssm tests
-  - pandoc --from=markdown --to=rst README.md | cmp DESCRIPTION.rst -
+  - pandoc --from=markdown --to=rst README.md | diff DESCRIPTION.rst -
 
 notifications:
   email:
