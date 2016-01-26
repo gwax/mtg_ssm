@@ -17,7 +17,7 @@ SHORT_DESCRIPTION = (
     'A tool to manage Magic: the Gathering collection spreadsheets.')
 LONG_DESCRIPTION = open('DESCRIPTION.rst', 'r').read()
 
-DEPENDENCIES = [l.strip() for l in open('requirements.txt', 'r').read()]
+DEPENDENCIES = [l.strip() for l in open('requirements.txt', 'r')]
 
 CLASSIFIERS = [
     'Development Status :: 4 - Beta',
