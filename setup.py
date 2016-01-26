@@ -47,6 +47,7 @@ setup(
     url='https://github.com/gwax/mtg_ssm',
     packages=find_packages(exclude=['tests']),
     license='MIT',
+    platforms=['any'],
     keywords='mtg magic collection tracking spreadsheet',
     classifiers=CLASSIFIERS,
     install_requires=DEPENDENCIES,
