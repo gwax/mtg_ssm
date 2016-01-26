@@ -7,6 +7,8 @@ import os
 import sqlalchemy as sqla
 import sqlalchemy.orm as sqlo
 
+import mtg_ssm
+
 from mtg_ssm import manager_helper
 from mtg_ssm import profiling
 
@@ -18,6 +20,9 @@ def get_parser():
     """Create and return application argument parser."""
     parser = argparse.ArgumentParser(
         description='Magic Collection Spreadsheet Manager')
+    parser.add_argument(
+        '--version', action='version', version=mtg_ssm.__version__)
+
     parser.add_argument(
         '--data_path', default=MTG_SSM_DATA_PATH,
         help='Path to mtg_ssm\'s data storage folder. Default={0}'.format(
