@@ -13,15 +13,18 @@ python:
   - 3.5
 
 before_install:
-  - pip install --upgrade pip pytest
-  - pip install pylint flake8
+  - pip install -U pip
+  - pip install pylint flake8 pytest pytest-cov coveralls
 
 script:
-  - py.test --strict -r w tests
+  - py.test --cov=mtg_ssm --strict -r w tests
   - pylint --rcfile=pylintrc *.py mtg_ssm
   - pylint --rcfile=pylintrc --disable=similarities tests
   - flake8 --ignore=E501,F401,F841 *.py mtg_ssm tests
 #  - pandoc --from=markdown --to=rst README.md | diff DESCRIPTION.rst -
+
+after_success:
+  - coveralls
 
 notifications:
   email:
