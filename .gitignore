@@ -30,6 +30,7 @@ var/
 .installed.cfg
 *.egg
 .python-version
+.sublimelinterrc
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
