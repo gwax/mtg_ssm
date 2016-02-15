@@ -60,12 +60,11 @@ class CardPrinting(Base):
     set = sqlo.relationship('CardSet', lazy='subquery')
     collection_counts = sqlo.relationship(
         'CollectionCount', lazy='subquery',
-        collection_class=sqlc.attribute_mapped_collection('key'),
+        collection_class=sqlc.attribute_mapped_collection('type'),
         cascade='all, delete-orphan')
     counts = sqlpxy.association_proxy(
         'collection_counts', 'count',
-        creator=lambda k, v: CollectionCount(
-            type=getattr(CountTypes, k), count=v))
+        creator=lambda k, v: CollectionCount(type=k, count=v))
 
 
 class CardSet(Base):
@@ -103,8 +102,3 @@ class CollectionCount(Base):
     print_id = sqla.Column(sqla.ForeignKey('printings.id_'), primary_key=True)
     type = sqla.Column(util.SqlEnumType(CountTypes), primary_key=True)
     count = sqla.Column(sqla.Integer, nullable=False)
-
-    @property
-    def key(self):
-        """Model key for use in associationproxy relationships."""
-        return self.type.name

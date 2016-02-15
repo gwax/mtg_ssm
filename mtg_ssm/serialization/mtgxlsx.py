@@ -138,7 +138,7 @@ def get_other_print_references(printing, name_to_prints):
     return other_print_references
 
 
-COUNT_KEYS = list(models.CountTypes.__members__.keys())
+COUNT_KEYS = [ct.name for ct in models.CountTypes]
 CARDS_SHEET_HEADER = (
     ['have', 'name', 'id', 'multiverseid', 'number', 'artist'] +
     COUNT_KEYS + ['others'])
@@ -162,8 +162,8 @@ def create_cards_sheet(sheet, card_set, name_to_prints):
             printing.set_number,
             printing.artist,
         ]
-        for key in COUNT_KEYS:
-            row.append(printing.counts.get(key))
+        for counttype in models.CountTypes:
+            row.append(printing.counts.get(counttype))
         row.append(get_other_print_references(printing, name_to_prints))
         sheet.append(row)
 

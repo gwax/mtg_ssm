@@ -15,7 +15,7 @@ def header():
         'multiverseid',
         'mtgjid',
     ]
-    headers.extend(models.CountTypes.__members__.keys())
+    headers.extend(ct.name for ct in models.CountTypes)
     return headers
 
 
@@ -31,7 +31,9 @@ def dump_rows(session):
                 'multiverseid': printing.multiverseid,
                 'mtgjid': printing.id_,
             }
-            card_info.update(printing.counts)
+            for counttype, count in printing.counts.items():
+                if count:
+                    card_info[counttype.name] = count
             yield card_info
 
 
@@ -54,9 +56,10 @@ def process_row_dict(row_dict):
         'multiverseid': int_or_none(row_dict['multiverseid']),
         'id': row_dict.get('mtgjid'),
     }
-    for countype in models.CountTypes.__members__.keys():
-        if countype in row_dict:
-            card_dict[countype] = int_or_none(row_dict[countype])
+    for counttype in models.CountTypes:
+        countname = counttype.name
+        if countname in row_dict:
+            card_dict[countname] = int_or_none(row_dict[countname])
     return card_dict
 
 

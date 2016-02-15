@@ -207,8 +207,8 @@ class MtgDictTest(
             models.CardPrinting).filter_by(multiverseid=2748).first()
         forest4 = self.session.query(
             models.CardPrinting).filter_by(multiverseid=2749).first()
-        forest4.counts['copies'] = 2
-        forest4.counts['foils'] = 3
+        forest4.counts[models.CountTypes.copies] = 2
+        forest4.counts[models.CountTypes.foils] = 3
         self.session.commit()
         # pylint: disable=line-too-long
         card_dicts = [
@@ -224,7 +224,7 @@ class MtgDictTest(
         self.session.commit()
 
         # Verify
-        self.assertEqual({'copies': 1}, forest1.counts)
-        self.assertEqual({'foils': 2}, forest2.counts)
-        self.assertEqual({'copies': 3, 'foils': 4}, forest3.counts)
+        self.assertEqual({models.CountTypes.copies: 1}, forest1.counts)
+        self.assertEqual({models.CountTypes.foils: 2}, forest2.counts)
+        self.assertEqual({models.CountTypes.copies: 3, models.CountTypes.foils: 4}, forest3.counts)
         self.assertFalse(forest4.counts)
