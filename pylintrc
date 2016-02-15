@@ -10,9 +10,6 @@ disable=no-init,too-few-public-methods,locally-disabled,locally-enabled
 # mypackage.mymodule.MyReporterClass.
 output-format=colorized
 
-# Tells whether to display a full report or only the messages
-reports=no
-
 [BASIC]
 # Regular expression which should only match function or class names that do
 # not require a docstring.
