@@ -30,8 +30,7 @@ script: |
   if [ "${TEST_SUITE}" = "test" ]; then
     py.test --cov=mtg_ssm --strict -r w tests;
   elif [ "${TEST_SUITE}" = "lint" ]; then
-    pylint --rcfile=pylintrc mtg_ssm;
-    pylint --rcfile=pylintrc --disable=similarities tests;
+    pylint --rcfile=pylintrc mtg_ssm tests;
     flake8 --ignore=E501,F401,F841 *.py mtg_ssm tests;
   fi
 #  - pandoc --from=markdown --to=rst README.md | diff DESCRIPTION.rst -
