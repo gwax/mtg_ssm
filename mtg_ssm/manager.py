@@ -10,7 +10,6 @@ import sqlalchemy.orm as sqlo
 import mtg_ssm
 
 from mtg_ssm import manager_helper
-from mtg_ssm import profiling
 
 
 MTG_SSM_DATA_PATH = os.path.expanduser(os.path.join('~', '.mtg_ssm'))
@@ -30,12 +29,6 @@ def get_parser():
     parser.add_argument(
         '--include_online_only', default=False, action='store_true',
         help='Include online only sets (e.g. Masters sets) in the database.')
-    parser.add_argument(
-        '--debug_stats', default=False, action='store_true',
-        help='Output additional debugging statistics.')
-    parser.add_argument(
-        '--db_echo', default=False, action='store_true',
-        help='Output sql queries issued against db engine for debugging.')
     parser.add_argument(
         'spreadsheet_file', help='Spreadsheet (xlsx) filename to work with.')
 
@@ -78,7 +71,7 @@ def get_parser():
 
 def run_commands(args):
     """Run the requested operations."""
-    engine = sqla.create_engine('sqlite://', echo=args.db_echo)
+    engine = sqla.create_engine('sqlite://')
     session_factory = sqlo.sessionmaker(engine)
     session = session_factory()
     try:
@@ -115,14 +108,7 @@ def main():
         raise Exception(
             'data_path: {} must be a folder'.format(args.data_path))
 
-    profiler = None
-    if args.debug_stats:
-        profiler = profiling.start()
-    try:
-        run_commands(args)
-    finally:
-        if profiler is not None:
-            profiling.finish(profiler)
+    run_commands(args)
 
 
 if __name__ == '__main__':
