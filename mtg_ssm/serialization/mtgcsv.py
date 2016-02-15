@@ -29,7 +29,7 @@ def dump_rows(session):
                 'set': card_set.code, 'name': printing.card.name,
                 'number': printing.set_number,
                 'multiverseid': printing.multiverseid,
-                'mtgjid': printing.id,
+                'mtgjid': printing.id_,
             }
             card_info.update(printing.counts)
             yield card_info

@@ -20,7 +20,7 @@ class ModelsTest(sqlite_testcase.SqliteTestCase):
         card_set = models.CardSet(code='F', name='Foo')
         card = models.Card(name='Bar')
         printing = models.CardPrinting(
-            id='A', card_name='Bar', set_code='F', set_number='123abc',
+            id_='A', card_name='Bar', set_code='F', set_number='123abc',
             multiverseid=27, artist='Quux')
         self.session.add_all([card_set, card, printing])
         self.session.commit()
@@ -35,7 +35,7 @@ class ModelsTest(sqlite_testcase.SqliteTestCase):
         card_set = models.CardSet(code='F', name='Foo')
         card = models.Card(name='Bar')
         printing = models.CardPrinting(
-            id='A', card_name='Bar', set_code='F', set_number=None,
+            id_='A', card_name='Bar', set_code='F', set_number=None,
             multiverseid=None, artist='Quux')
         self.session.add_all([card_set, card, printing])
         self.session.commit()
@@ -50,7 +50,7 @@ class ModelsTest(sqlite_testcase.SqliteTestCase):
         card_set = models.CardSet(code='F', name='Foo')
         card = models.Card(name='Bar')
         printing = models.CardPrinting(
-            id='A', card_name='Bar', set_code='F', set_number='★107',
+            id_='A', card_name='Bar', set_code='F', set_number='★107',
             multiverseid=27, artist='Quux')
         self.session.add_all([card_set, card, printing])
         self.session.commit()
@@ -65,7 +65,7 @@ class ModelsTest(sqlite_testcase.SqliteTestCase):
         card_set = models.CardSet(code='F', name='Foo')
         card = models.Card(name='Bar')
         printing = models.CardPrinting(
-            id='A', card_name='Bar', set_code='F', set_number='123abc',
+            id_='A', card_name='Bar', set_code='F', set_number='123abc',
             multiverseid=27, artist='Quux')
         count = models.CollectionCount(
             print_id='A', type=models.CountTypes.copies, count=5)
@@ -83,7 +83,7 @@ class ModelsTest(sqlite_testcase.SqliteTestCase):
         card_set = models.CardSet(code='F', name='Foo')
         card = models.Card(name='Bar')
         printing = models.CardPrinting(
-            id='A', card_name='Bar', set_code='F', set_number='123abc',
+            id_='A', card_name='Bar', set_code='F', set_number='123abc',
             multiverseid=27, artist='Quux')
         count = models.CollectionCount(
             print_id='A', type=models.CountTypes.copies, count=5)
@@ -109,7 +109,7 @@ class ModelsTest(sqlite_testcase.SqliteTestCase):
         card_set = models.CardSet(code='F', name='Foo')
         card = models.Card(name='Bar')
         printing = models.CardPrinting(
-            id='A', card_name='Bar', set_code='F', set_number='123abc',
+            id_='A', card_name='Bar', set_code='F', set_number='123abc',
             multiverseid=27, artist='Quux')
         self.session.add_all([card_set, card, printing])
         self.session.commit()
@@ -123,7 +123,7 @@ class ModelsTest(sqlite_testcase.SqliteTestCase):
         card_set = models.CardSet(code='F', name='Foo')
         card = models.Card(name='Bar')
         printing = models.CardPrinting(
-            id='A', card_name='Bar', set_code='F', set_number='123abc',
+            id_='A', card_name='Bar', set_code='F', set_number='123abc',
             multiverseid=27, artist='Quux')
         self.session.add_all([card_set, card, printing])
         self.session.commit()
@@ -138,7 +138,7 @@ class ModelsTest(sqlite_testcase.SqliteTestCase):
         card_set = models.CardSet(code='F', name='Foo')
         card = models.Card(name='Bar')
         printing = models.CardPrinting(
-            id='A', card_name='Bar', set_code='F', set_number='123abc',
+            id_='A', card_name='Bar', set_code='F', set_number='123abc',
             multiverseid=27, artist='Quux')
         count = models.CollectionCount(
             print_id='A', type=models.CountTypes.copies, count=5)

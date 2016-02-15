@@ -38,7 +38,7 @@ class CardPrinting(Base):
             name='uix_card_set_number_mvid'),
         {})
 
-    id = sqla.Column(sqla.String(40), primary_key=True)
+    id_ = sqla.Column(sqla.String(40), primary_key=True)
     card_name = sqla.Column(sqla.ForeignKey('cards.name'))
     set_code = sqla.Column(sqla.ForeignKey('sets.code'))
 
@@ -100,7 +100,7 @@ class CollectionCount(Base):
     """Model for storing information about collected printings."""
     __tablename__ = 'collection_counts'
 
-    print_id = sqla.Column(sqla.ForeignKey('printings.id'), primary_key=True)
+    print_id = sqla.Column(sqla.ForeignKey('printings.id_'), primary_key=True)
     type = sqla.Column(util.SqlEnumType(CountTypes), primary_key=True)
     count = sqla.Column(sqla.Integer, nullable=False)
 

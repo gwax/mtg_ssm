@@ -139,7 +139,7 @@ class MtgjsonTest(
         # Verify
         [printing] = self.session.query(models.CardPrinting).all()
         self.assertEqual(
-            '958ae1416f8f6287115ccd7c5c61f2415a313546', printing.id)
+            '958ae1416f8f6287115ccd7c5c61f2415a313546', printing.id_)
         self.assertEqual('Abattoir Ghoul', printing.card.name)
         self.assertEqual('ISD', printing.set.code)
         self.assertEqual('85', printing.set_number)
@@ -151,7 +151,7 @@ class MtgjsonTest(
         card_set = models.CardSet(code='ISD', name='Innistrad')
         card = models.Card(name='Abattoir Ghoul')
         setup_printing = models.CardPrinting(
-            id='958ae1416f8f6287115ccd7c5c61f2415a313546',
+            id_='958ae1416f8f6287115ccd7c5c61f2415a313546',
             card_name='Abattoir Ghoul', set_code='ISD', artist='Hokum')
         self.session.add(card_set)
         self.session.add(card)
@@ -169,7 +169,7 @@ class MtgjsonTest(
         # Verify
         [printing] = self.session.query(models.CardPrinting).all()
         self.assertEqual(
-            '958ae1416f8f6287115ccd7c5c61f2415a313546', printing.id)
+            '958ae1416f8f6287115ccd7c5c61f2415a313546', printing.id_)
         self.assertEqual('Abattoir Ghoul', printing.card.name)
         self.assertEqual('ISD', printing.set.code)
         self.assertEqual('85', printing.set_number)

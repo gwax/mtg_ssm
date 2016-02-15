@@ -157,7 +157,7 @@ def create_cards_sheet(sheet, card_set, name_to_prints):
         row = [
             HAVE_TMPL.format(rownum),
             printing.card.name,
-            printing.id,
+            printing.id_,
             printing.multiverseid,
             printing.set_number,
             printing.artist,
