@@ -1,7 +1,7 @@
 mtg\_ssm - Magic: the Gathering Spreadsheet Manager
 ===================================================
 
-|Build Status|
+|Build Status| |Coverage Status|
 
 This is a tool for creating/updating user-friendly spreadsheets with
 Magic: the Gathering collection information. The tool can also
@@ -98,3 +98,5 @@ Acknowledgments
 
 .. |Build Status| image:: https://travis-ci.org/gwax/mtg_ssm.svg?branch=master
    :target: https://travis-ci.org/gwax/mtg_ssm
+.. |Coverage Status| image:: https://coveralls.io/repos/github/gwax/mtg_ssm/badge.svg?branch=master
+   :target: https://coveralls.io/github/gwax/mtg_ssm?branch=master
