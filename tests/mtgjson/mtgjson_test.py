@@ -176,7 +176,7 @@ class MtgjsonTest(
         self.assertEqual(222911, printing.multiverseid)
         self.assertEqual('Volkan Baga', printing.artist)
 
-    def test_update_models_with_online_only(self):
+    def test_update_with_online_only(self):
         # Execute
         mtgjson.update_models(self.session, self.mtg_data, True)
         self.session.commit()
@@ -227,7 +227,7 @@ class MtgjsonTest(
         ]
         self.assertCountEqual(expected, set_card_mv_number)
 
-    def test_update_models_without_online_only(self):
+    def test_update_no_online_only(self):
         # Execute
         mtgjson.update_models(self.session, self.mtg_data, False)
         self.session.commit()

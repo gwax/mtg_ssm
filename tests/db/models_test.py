@@ -45,7 +45,7 @@ class ModelsTest(sqlite_testcase.SqliteTestCase):
         self.assertEqual(None, printing.set_integer)
         self.assertEqual(None, printing.set_variant)
 
-    def test_set_integer_variant_nonascii_prefix(self):
+    def test_variant_nonascii_prefix(self):
         # Setup
         card_set = models.CardSet(code='F', name='Foo')
         card = models.Card(name='Bar')

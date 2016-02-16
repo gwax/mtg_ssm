@@ -95,7 +95,7 @@ class MtgXlsxTest(
         expected = "SUM('ABC'!A3:A5)+'ABC'!A8+'ABC'!A10"
         self.assertEqual(expected, mtgxlsx.create_haveref_sum(setcode, rownums))
 
-    def test_get_other_print_refs_multiple_sets(self):
+    def test_get_refs_multiple_sets(self):
         # Setup
         mtgjson.update_models(self.session, self.mtg_data, True)
         self.session.commit()
@@ -115,7 +115,7 @@ class MtgXlsxTest(
             '&IF(\'HOP\'!A4>0,"HOP: "&\'HOP\'!A4&", ","")')
         self.assertEqual(expected, print_refs)
 
-    def test_get_other_print_refs_multiple_variants(self):
+    def test_get_refs_multiple_variants(self):
         # Setup
         mtgjson.update_models(self.session, self.mtg_data, True)
         self.session.commit()
@@ -134,7 +134,7 @@ class MtgXlsxTest(
             '=IF(SUM(\'FEM\'!A2:A5)>0,"FEM: "&SUM(\'FEM\'!A2:A5)&", ","")')
         self.assertEqual(expected, print_refs)
 
-    def test_get_other_print_references_basic_land(self):
+    def test_get_refs_basic_land(self):
         # Setup
         mtgjson.update_models(self.session, self.mtg_data, True)
         self.session.commit()
@@ -278,7 +278,7 @@ class MtgXlsxTest(
         ]
         self.assertEqual(expected, list(row_dicts))
 
-    def test_workbook_row_reader_invalid_set(self):
+    def test_row_reader_invalid_set(self):
         # Setup
         book = openpyxl.Workbook()
         sheet = book.create_sheet()

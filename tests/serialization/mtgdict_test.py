@@ -51,7 +51,7 @@ class MtgDictTest(
         # Verify
         self.assertEqual('printing', printing)
 
-    def test_get_printing_set_name_num_duplicate(self):
+    def test_get_set_name_num_duplicate(self):
         # Setup
         id_to_print = {'ID': 'printing'}
         set_name_num_mv_to_prints = {('SET', 'NAME', 'NUM', 'MV'): ['printing']}
@@ -85,7 +85,7 @@ class MtgDictTest(
         # Verify
         self.assertEqual('printing', printing)
 
-    def test_get_printing_set_name_mv_duplicate(self):
+    def test_get_set_name_mv_duplicate(self):
         # Setup
         id_to_print = {'ID': 'printing'}
         set_name_num_mv_to_prints = {('SET', 'NAME', 'NUM', 'MV'): ['printing']}
@@ -102,7 +102,7 @@ class MtgDictTest(
         # Verify
         self.assertIsNone(printing)
 
-    def test_get_printing_set_name_num_mv(self):
+    def test_get_set_name_num_mv(self):
         # Setup
         id_to_print = {'ID': 'printing'}
         set_name_num_mv_to_prints = {('SET', 'NAME', 'NUM', 'MV'): ['printing']}
@@ -122,7 +122,7 @@ class MtgDictTest(
         # Verify
         self.assertEqual('printing', printing)
 
-    def test_get_printing_set_name_num_mv_duplicate(self):
+    def test_get_set_name_num_mv_dupe(self):
         # Setup
         id_to_print = {'ID': 'printing'}
         set_name_num_mv_to_prints = {
