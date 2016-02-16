@@ -24,6 +24,7 @@ class SqliteTestCase(unittest.TestCase):
 
         self.sessionmaker = sqlalchemy.orm.sessionmaker(self.engine)
         self.session = self.__session = self.sessionmaker()
+        self.connection = self.session.connection()
 
     def tearDown(self):
         self.__session.close()

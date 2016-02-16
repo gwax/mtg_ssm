@@ -19,9 +19,7 @@ class MtgXlsxTest(
 
     def setUp(self):
         super().setUp()
-        connection = self.engine.connect()
-        models.Base.metadata.create_all(connection)
-        connection.close()
+        models.Base.metadata.create_all(self.connection)
 
     def test_create_sets_sheet(self):
         # Setup

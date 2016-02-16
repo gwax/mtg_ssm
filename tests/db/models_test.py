@@ -11,9 +11,7 @@ class ModelsTest(sqlite_testcase.SqliteTestCase):
 
     def setUp(self):
         super().setUp()
-        connection = self.engine.connect()
-        models.Base.metadata.create_all(connection)
-        connection.close()
+        models.Base.metadata.create_all(self.connection)
 
     def test_set_integer_variant(self):
         # Setup

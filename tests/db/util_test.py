@@ -28,9 +28,7 @@ class SqlEnumTest(sqlite_testcase.SqliteTestCase):
 
     def setUp(self):
         super().setUp()
-        connection = self.engine.connect()
-        Model.metadata.create_all(connection)
-        connection.close()
+        Model.metadata.create_all(self.connection)
 
     def test_store_retrieve(self):
         # Store

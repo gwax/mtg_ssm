@@ -13,9 +13,7 @@ class MtgDictTest(
 
     def setUp(self):
         super().setUp()
-        connection = self.engine.connect()
-        models.Base.metadata.create_all(connection)
-        connection.close()
+        models.Base.metadata.create_all(self.connection)
 
     def test_get_printing_not_found(self):
         # Setup
