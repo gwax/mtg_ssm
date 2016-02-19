@@ -38,7 +38,7 @@ class CardPrinting(Base):
             name='uix_card_set_number_mvid'),
         {})
 
-    id = sqla.Column(sqla.String(40), primary_key=True)
+    id_ = sqla.Column(sqla.String(40), primary_key=True)
     card_name = sqla.Column(sqla.ForeignKey('cards.name'))
     set_code = sqla.Column(sqla.ForeignKey('sets.code'))
 
@@ -60,12 +60,11 @@ class CardPrinting(Base):
     set = sqlo.relationship('CardSet', lazy='subquery')
     collection_counts = sqlo.relationship(
         'CollectionCount', lazy='subquery',
-        collection_class=sqlc.attribute_mapped_collection('key'),
+        collection_class=sqlc.attribute_mapped_collection('type'),
         cascade='all, delete-orphan')
     counts = sqlpxy.association_proxy(
         'collection_counts', 'count',
-        creator=lambda k, v: CollectionCount(
-            type=getattr(CountTypes, k), count=v))
+        creator=lambda k, v: CollectionCount(type=k, count=v))
 
 
 class CardSet(Base):
@@ -100,11 +99,6 @@ class CollectionCount(Base):
     """Model for storing information about collected printings."""
     __tablename__ = 'collection_counts'
 
-    print_id = sqla.Column(sqla.ForeignKey('printings.id'), primary_key=True)
+    print_id = sqla.Column(sqla.ForeignKey('printings.id_'), primary_key=True)
     type = sqla.Column(util.SqlEnumType(CountTypes), primary_key=True)
     count = sqla.Column(sqla.Integer, nullable=False)
-
-    @property
-    def key(self):
-        """Model key for use in associationproxy relationships."""
-        return self.type.name

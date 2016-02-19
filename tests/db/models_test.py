@@ -11,16 +11,14 @@ class ModelsTest(sqlite_testcase.SqliteTestCase):
 
     def setUp(self):
         super().setUp()
-        connection = self.engine.connect()
-        models.Base.metadata.create_all(connection)
-        connection.close()
+        models.Base.metadata.create_all(self.connection)
 
     def test_set_integer_variant(self):
         # Setup
         card_set = models.CardSet(code='F', name='Foo')
         card = models.Card(name='Bar')
         printing = models.CardPrinting(
-            id='A', card_name='Bar', set_code='F', set_number='123abc',
+            id_='A', card_name='Bar', set_code='F', set_number='123abc',
             multiverseid=27, artist='Quux')
         self.session.add_all([card_set, card, printing])
         self.session.commit()
@@ -35,7 +33,7 @@ class ModelsTest(sqlite_testcase.SqliteTestCase):
         card_set = models.CardSet(code='F', name='Foo')
         card = models.Card(name='Bar')
         printing = models.CardPrinting(
-            id='A', card_name='Bar', set_code='F', set_number=None,
+            id_='A', card_name='Bar', set_code='F', set_number=None,
             multiverseid=None, artist='Quux')
         self.session.add_all([card_set, card, printing])
         self.session.commit()
@@ -45,12 +43,12 @@ class ModelsTest(sqlite_testcase.SqliteTestCase):
         self.assertEqual(None, printing.set_integer)
         self.assertEqual(None, printing.set_variant)
 
-    def test_set_integer_variant_nonascii_prefix(self):
+    def test_variant_nonascii_prefix(self):
         # Setup
         card_set = models.CardSet(code='F', name='Foo')
         card = models.Card(name='Bar')
         printing = models.CardPrinting(
-            id='A', card_name='Bar', set_code='F', set_number='★107',
+            id_='A', card_name='Bar', set_code='F', set_number='★107',
             multiverseid=27, artist='Quux')
         self.session.add_all([card_set, card, printing])
         self.session.commit()
@@ -65,7 +63,7 @@ class ModelsTest(sqlite_testcase.SqliteTestCase):
         card_set = models.CardSet(code='F', name='Foo')
         card = models.Card(name='Bar')
         printing = models.CardPrinting(
-            id='A', card_name='Bar', set_code='F', set_number='123abc',
+            id_='A', card_name='Bar', set_code='F', set_number='123abc',
             multiverseid=27, artist='Quux')
         count = models.CollectionCount(
             print_id='A', type=models.CountTypes.copies, count=5)
@@ -73,17 +71,17 @@ class ModelsTest(sqlite_testcase.SqliteTestCase):
         self.session.commit()
 
         # Verify
-        self.assertEqual(5, printing.collection_counts['copies'].count)
-        self.assertEqual(5, printing.counts['copies'])
+        self.assertEqual(5, printing.collection_counts[models.CountTypes.copies].count)
+        self.assertEqual(5, printing.counts[models.CountTypes.copies])
         with self.assertRaises(KeyError):
-            _ = printing.counts['foils']
+            _ = printing.counts[models.CountTypes.foils]
 
     def test_counts_write(self):
         # Setup
         card_set = models.CardSet(code='F', name='Foo')
         card = models.Card(name='Bar')
         printing = models.CardPrinting(
-            id='A', card_name='Bar', set_code='F', set_number='123abc',
+            id_='A', card_name='Bar', set_code='F', set_number='123abc',
             multiverseid=27, artist='Quux')
         count = models.CollectionCount(
             print_id='A', type=models.CountTypes.copies, count=5)
@@ -91,8 +89,8 @@ class ModelsTest(sqlite_testcase.SqliteTestCase):
         self.session.commit()
 
         # Execute
-        printing.counts['copies'] = 2
-        printing.counts['foils'] = 7
+        printing.counts[models.CountTypes.copies] = 2
+        printing.counts[models.CountTypes.foils] = 7
         self.session.commit()
 
         # Verify
@@ -109,28 +107,29 @@ class ModelsTest(sqlite_testcase.SqliteTestCase):
         card_set = models.CardSet(code='F', name='Foo')
         card = models.Card(name='Bar')
         printing = models.CardPrinting(
-            id='A', card_name='Bar', set_code='F', set_number='123abc',
-            multiverseid=27, artist='Quux')
-        self.session.add_all([card_set, card, printing])
-        self.session.commit()
-
-        # Execute
-        with self.assertRaises(AttributeError):
-            printing.counts['invalid'] = 12
-
-    def test_invalid_counts_value(self):
-        # Setup
-        card_set = models.CardSet(code='F', name='Foo')
-        card = models.Card(name='Bar')
-        printing = models.CardPrinting(
-            id='A', card_name='Bar', set_code='F', set_number='123abc',
+            id_='A', card_name='Bar', set_code='F', set_number='123abc',
             multiverseid=27, artist='Quux')
         self.session.add_all([card_set, card, printing])
         self.session.commit()
 
         # Execute
         with self.assertRaises(sqlx.IntegrityError):
-            printing.counts['copies'] = None
+            printing.counts[None] = 12
+            self.session.commit()
+
+    def test_invalid_counts_value(self):
+        # Setup
+        card_set = models.CardSet(code='F', name='Foo')
+        card = models.Card(name='Bar')
+        printing = models.CardPrinting(
+            id_='A', card_name='Bar', set_code='F', set_number='123abc',
+            multiverseid=27, artist='Quux')
+        self.session.add_all([card_set, card, printing])
+        self.session.commit()
+
+        # Execute
+        with self.assertRaises(sqlx.IntegrityError):
+            printing.counts[models.CountTypes.copies] = None
             self.session.commit()
 
     def test_counts_delete(self):
@@ -138,7 +137,7 @@ class ModelsTest(sqlite_testcase.SqliteTestCase):
         card_set = models.CardSet(code='F', name='Foo')
         card = models.Card(name='Bar')
         printing = models.CardPrinting(
-            id='A', card_name='Bar', set_code='F', set_number='123abc',
+            id_='A', card_name='Bar', set_code='F', set_number='123abc',
             multiverseid=27, artist='Quux')
         count = models.CollectionCount(
             print_id='A', type=models.CountTypes.copies, count=5)
@@ -146,10 +145,10 @@ class ModelsTest(sqlite_testcase.SqliteTestCase):
         self.session.commit()
 
         # Execute
-        del printing.counts['copies']
+        del printing.counts[models.CountTypes.copies]
         self.session.commit()
 
         # Verify
         self.assertEqual({}, printing.counts)
         with self.assertRaises(KeyError):
-            _ = printing.counts['copies']
+            _ = printing.counts[models.CountTypes.copies]

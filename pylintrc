@@ -15,27 +15,13 @@ output-format=colorized
 # not require a docstring.
 no-docstring-rgx=__.*__|test_.*|.*Test|setUp.*|tearDown.*
 
-# Regular expression matching correct method names
-method-rgx=([a-z_][a-z0-9_]{2,30}|assert[A-Z][a-zA-Z]{2,24}|test_[a-z_][a-z0-9_]{2,40})$
-
-# Regular expression matching correct class attribute names
-class-attribute-rgx=([A-Za-z_][A-Za-z0-9_]{2,30}|(__.*__)|id)$
-
-[FORMAT]
-# Maximum number of characters on a single line.
-max-line-length=80
-
 [TYPECHECK]
 # List of members which are set dynamically and missed by pylint inference
 # system, and so shouldn't trigger E0201 when accessed. Python regular
 # expressions are accepted.
-generated-members=metadata,__table__,__members__
+generated-members=metadata
 
 [VARIABLES]
 # A regular expression matching the name of dummy variables (i.e. expectedly
 # not used).
 dummy-variables-rgx=(_|_[a-z][a-z0-9_]{2,30})$
-
-[DESIGN]
-# Argument names that match this expression will be ignored.
-ignored-argument-names=(_|_[a-z][a-z0-9_]{2,30})$

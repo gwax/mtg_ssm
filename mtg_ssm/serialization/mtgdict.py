@@ -65,7 +65,7 @@ def load_counts(session, card_dicts):
         name = printing.card_name
         mvid = printing.multiverseid
         num = printing.set_number
-        id_to_print[printing.id] = printing
+        id_to_print[printing.id_] = printing
         set_name_num_mv_to_prints[(set_code, name, num, mvid)].append(printing)
         set_name_mv_to_prints[(set_code, name, mvid)].append(printing)
         set_name_num_to_prints[(set_code, name, num)].append(printing)
@@ -75,9 +75,9 @@ def load_counts(session, card_dicts):
             card_dict, id_to_print, set_name_num_mv_to_prints,
             set_name_mv_to_prints, set_name_num_to_prints)
 
-        for key in models.CountTypes.__members__.keys():
-            count = card_dict.get(key)
+        for counttype in models.CountTypes:
+            count = card_dict.get(counttype.name)
             if count is not None:
-                printing.counts[key] = count
-            elif printing is not None and key in printing.counts:
-                del printing.counts[key]
+                printing.counts[counttype] = count
+            elif printing is not None and counttype in printing.counts:
+                del printing.counts[counttype]
