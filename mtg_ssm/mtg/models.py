@@ -21,6 +21,12 @@ class Card:
         """List of all printings of this card."""
         return self.collection.card_name_to_printings[self.name]
 
+    def __str__(self):
+        return 'Card: {card.name}'.format(card=self)
+
+    def __repr__(self):
+        return '<Card: {card.name}>'.format(card=self)
+
 
 class CountTypes(enum.Enum):
     """Enum for possible card printing types (normal, foil)."""
@@ -61,6 +67,12 @@ class CardPrinting:
         """The CardSet associated with this printing."""
         return self.collection.code_to_card_set[self.set_code]
 
+    def __str__(self):
+        return 'CardPrinting: {print.id_}'.format(print=self)
+
+    def __repr__(self):
+        return '<CardPrinting: {print.id_}>'.format(print=self)
+
 
 class CardSet:
     """Model for storing card set information."""
@@ -86,3 +98,9 @@ class CardSet:
             card_name.
         """
         return self.collection.set_code_to_printings[self.code]
+
+    def __str__(self):
+        return 'CardSet: {cset.name}'.format(cset=self)
+
+    def __repr__(self):
+        return '<CardSet: {cset.code}>'.format(cset=self)
