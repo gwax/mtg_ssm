@@ -1,104 +1,88 @@
 """SQLAlchemy models for managing data."""
 
+import datetime as dt
 import enum
 import string
-
-import sqlalchemy as sqla
-import sqlalchemy.ext.associationproxy as sqlpxy
-import sqlalchemy.ext.declarative as sqld
-import sqlalchemy.orm as sqlo
-import sqlalchemy.orm.collections as sqlc
-
-from mtg_ssm.db import util
 
 VARIANT_CHARS = (string.ascii_lowercase + '★')
 
 
-class Base(sqld.declarative_base()):
-    """Abstract base class for declarative models."""
-    __abstract__ = True
-
-
-class Card(Base):
+class Card:
     """Model for storing card information."""
-    __tablename__ = 'cards'
-    name = sqla.Column(sqla.Unicode(255), primary_key=True)
-    strict_basic = sqla.Column(sqla.Boolean, default=False)
+    __slots__ = ('collection', 'name', 'strict_basic')
 
-    # Relationships
-    printings = sqlo.relationship('CardPrinting')
+    def __init__(self, collection, card_data):
+        self.collection = collection
+        self.name = card_data['name']
+        self.strict_basic = (card_data.get('supertypes') == ['Basic'])
+
+    @property
+    def printings(self):
+        """List of all printings of this card."""
+        return self.collection.card_name_to_printings[self.name]
 
 
-class CardPrinting(Base):
+class CountTypes(enum.Enum):
+    """Enum for possible card printing types (normal, foil)."""
+    copies = 'copies'
+    foils = 'foils'
+
+
+class CardPrinting:
     """Model for storing information about card printings."""
-    __tablename__ = 'printings'
-    __table_args__ = (
-        sqla.UniqueConstraint(
-            'card_name', 'set_code', 'set_number', 'multiverseid',
-            name='uix_card_set_number_mvid'),
-        {})
+    __slots__ = ('collection', 'id_', 'card_name', 'set_code', 'set_number',
+                 'set_integer', 'set_variant', 'multiverseid', 'artist',
+                 'counts')
 
-    id_ = sqla.Column(sqla.String(40), primary_key=True)
-    card_name = sqla.Column(sqla.ForeignKey('cards.name'))
-    set_code = sqla.Column(sqla.ForeignKey('sets.code'))
+    def __init__(self, collection, set_code, card_data):
+        self.collection = collection
+        self.id_ = card_data['id']
+        self.card_name = card_data['name']
+        self.set_code = set_code
+        self.set_number = card_data.get('number')
+        self.multiverseid = card_data.get('multiverseid')
+        self.artist = card_data['artist']
+        self.counts = {}
 
-    set_number = sqla.Column(sqla.Unicode(15), nullable=True)
-    multiverseid = sqla.Column(sqla.Integer, nullable=True)
+        if self.set_number is None:
+            self.set_integer = None
+            self.set_variant = None
+        else:
+            self.set_integer = int(self.set_number.strip(VARIANT_CHARS))
+            self.set_variant = self.set_number.strip(string.digits) or None
 
-    artist = sqla.Column(sqla.Unicode(255), nullable=False)
+    @property
+    def card(self):
+        """The Card associated with this printing."""
+        return self.collection.name_to_card[self.card_name]
 
-    # Properties
-    set_integer = sqlo.column_property(
-        sqla.cast(
-            sqla.func.trim(set_number, VARIANT_CHARS),
-            sqla.Integer))
-    set_variant = sqlo.column_property(
-        sqla.func.trim(set_number, string.digits))
-
-    # Relationships
-    card = sqlo.relationship('Card', lazy='joined')
-    set = sqlo.relationship('CardSet', lazy='subquery')
-    collection_counts = sqlo.relationship(
-        'CollectionCount', lazy='subquery',
-        collection_class=sqlc.attribute_mapped_collection('type'),
-        cascade='all, delete-orphan')
-    counts = sqlpxy.association_proxy(
-        'collection_counts', 'count',
-        creator=lambda k, v: CollectionCount(type=k, count=v))
+    @property
+    def set(self):
+        """The CardSet associated with this printing."""
+        return self.collection.code_to_card_set[self.set_code]
 
 
-class CardSet(Base):
+class CardSet:
     """Model for storing card set information."""
-    __tablename__ = 'sets'
+    __slots__ = ('collection', 'code', 'name', 'block', 'release_date',
+                 'type_', 'online_only')
 
-    code = sqla.Column(sqla.Unicode(15), primary_key=True)
-    name = sqla.Column(sqla.Unicode(255), unique=True, nullable=False)
-    block = sqla.Column(sqla.Unicode(255))
-    release_date = sqla.Column(sqla.Date)
-    type = sqla.Column(sqla.Unicode(255))
-    online_only = sqla.Column(sqla.Boolean, default=False)
+    def __init__(self, collection, set_data):
+        self.collection = collection
+        self.code = set_data['code']
+        self.name = set_data['name']
+        self.block = set_data.get('block')
+        self.release_date = dt.datetime.strptime(
+            set_data['releaseDate'], '%Y-%m-%d').date()
+        self.type_ = set_data['type']
+        self.online_only = set_data.get('onlineOnly', False)
 
-    # Relationships
-    printings = sqlo.relationship(
-        'CardPrinting', order_by=(
-            CardPrinting.set_integer, CardPrinting.set_variant,
-            CardPrinting.multiverseid, CardPrinting.card_name))
+    @property
+    def printings(self):
+        """The printings in this set.
 
-    __mapper_args__ = {
-        'order_by': release_date,
-    }
-
-
-class CountTypes(enum.IntEnum):
-    """Enum for holding card printing types (normal, foil)."""
-    copies = 1
-    foils = 2
-
-
-class CollectionCount(Base):
-    """Model for storing information about collected printings."""
-    __tablename__ = 'collection_counts'
-
-    print_id = sqla.Column(sqla.ForeignKey('printings.id_'), primary_key=True)
-    type = sqla.Column(util.SqlEnumType(CountTypes), primary_key=True)
-    count = sqla.Column(sqla.Integer, nullable=False)
+        Note:
+            Printings are ordered by set_integer, set_variant, multiverseid,
+            card_name.
+        """
+        return self.collection.set_code_to_printings[self.code]
