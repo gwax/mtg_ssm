@@ -1,8 +1,6 @@
 """Code for handling data from csv files."""
 
-import sqlalchemy.orm as sqlo
-
-from mtg_ssm.db import models
+from mtg_ssm.mtg import models
 from mtg_ssm.serialization import mtgdict
 
 
@@ -19,10 +17,10 @@ def header():
     return headers
 
 
-def dump_rows(session):
-    """Yield mtgcsv row dicts from the database."""
-    card_sets = session.query(models.CardSet) \
-        .options(sqlo.joinedload('printings'))
+def dump_rows(collection):
+    """Yield mtgcsv row dicts from a Collection."""
+    card_sets = collection.code_to_card_set.values()
+    card_sets = sorted(card_sets, key=lambda cset: cset.release_date)
     for card_set in card_sets:
         for printing in card_set.printings:
             card_info = {

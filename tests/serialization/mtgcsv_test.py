@@ -1,19 +1,13 @@
 """Tests for mtg_ssm.mtgcsv"""
 
-from mtg_ssm.db import models
-from mtg_ssm.mtgjson import mtgjson
+from mtg_ssm.mtg import collection
+from mtg_ssm.mtg import models
 from mtg_ssm.serialization import mtgcsv
 
 from tests.mtgjson import mtgjson_testcase
-from tests.db import sqlite_testcase
 
 
-class MtgCsvTest(
-        sqlite_testcase.SqliteTestCase, mtgjson_testcase.MtgJsonTestCase):
-
-    def setUp(self):
-        super().setUp()
-        models.Base.metadata.create_all(self.connection)
+class MtgCsvTest(mtgjson_testcase.MtgJsonTestCase):
 
     def test_get_header(self):
         # Execute
@@ -30,22 +24,20 @@ class MtgCsvTest(
         mtg_data = {
             k: v for k, v in self.mtg_data.items()
             if k in ['ICE', 'S00', 'MMA']}
-        mtgjson.update_models(self.session, mtg_data, False)
-        self.session.commit()
-        forest1 = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=2746).first()
-        forest2 = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=2747).first()
-        forest3 = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=2748).first()
+        coll = collection.Collection(mtg_data)
+        forest1 = coll.id_to_printing[
+            '676a1f5b64dc03bbb3876840c3ff2ba2c16f99cb']
+        forest2 = coll.id_to_printing[
+            'd0a4414893bc2f9bd3beea2f8f2693635ef926a4']
+        forest3 = coll.id_to_printing[
+            'c78d2da78c68c558b1adc734b3f164e885407ffc']
         forest1.counts[models.CountTypes.copies] = 1
         forest2.counts[models.CountTypes.foils] = 2
         forest3.counts[models.CountTypes.copies] = 3
         forest3.counts[models.CountTypes.foils] = 4
-        self.session.commit()
 
         # Execute
-        rows = list(mtgcsv.dump_rows(self.session))
+        rows = list(mtgcsv.dump_rows(coll))
 
         # Verify
         # pylint: disable=line-too-long
@@ -92,19 +84,17 @@ class MtgCsvTest(
 
     def test_read_row_counts(self):
         # Setup
-        mtgjson.update_models(self.session, self.mtg_data, False)
-        self.session.commit()
-        forest1 = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=2746).first()
-        forest2 = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=2747).first()
-        forest3 = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=2748).first()
-        forest4 = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=2749).first()
+        coll = collection.Collection(self.mtg_data)
+        forest1 = coll.id_to_printing[
+            '676a1f5b64dc03bbb3876840c3ff2ba2c16f99cb']
+        forest2 = coll.id_to_printing[
+            'd0a4414893bc2f9bd3beea2f8f2693635ef926a4']
+        forest3 = coll.id_to_printing[
+            'c78d2da78c68c558b1adc734b3f164e885407ffc']
+        forest4 = coll.id_to_printing[
+            '5e9f08498a9343b1954103e493da2586be0fe394']
         forest4.counts[models.CountTypes.copies] = 2
         forest4.counts[models.CountTypes.foils] = 3
-        self.session.commit()
         # pylint: disable=line-too-long
         rows = [
             {'set': 'ICE', 'name': 'Forest', 'multiverseid': '2746', 'mtgjid': '676a1f5b64dc03bbb3876840c3ff2ba2c16f99cb', 'number': '', 'copies': '1'},
@@ -115,11 +105,10 @@ class MtgCsvTest(
         # pylint: enable=line-too-long
 
         # Execute
-        mtgcsv.read_row_counts(self.session, rows)
-        self.session.commit()
+        mtgcsv.read_row_counts(coll, rows)
 
         # Verify
         self.assertEqual({models.CountTypes.copies: 1}, forest1.counts)
         self.assertEqual({models.CountTypes.foils: 2}, forest2.counts)
         self.assertEqual({models.CountTypes.copies: 3, models.CountTypes.foils: 4}, forest3.counts)
-        self.assertFalse(forest4.counts)
+        self.assertEqual({models.CountTypes.copies: 2, models.CountTypes.foils: 3}, forest4.counts)
