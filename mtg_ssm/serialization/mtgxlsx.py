@@ -5,25 +5,24 @@ import string
 
 import openpyxl
 
-from mtg_ssm.db import models
+from mtg_ssm.mtg import models
 from mtg_ssm.serialization import mtgdict
 
 
-def dump_workbook(session):
-    """Return xlsx workbook from the database."""
+def dump_workbook(collection):
+    """Return xlsx workbook from a Collection."""
     workbook = openpyxl.Workbook()
 
-    name_to_prints = collections.defaultdict(list)
-    printings = session.query(models.CardPrinting)
-    for printing in printings:
-        name_to_prints[printing.card_name].append(printing)
+    card_sets = sorted(
+        collection.code_to_card_set.values(),
+        key=lambda cset: cset.release_date)
 
-    card_sets = session.query(models.CardSet)
     sets_sheet = workbook['Sheet']
     create_sets_sheet(sets_sheet, card_sets)
     for card_set in card_sets:
         cards_sheet = workbook.create_sheet()
-        create_cards_sheet(cards_sheet, card_set, name_to_prints)
+        create_cards_sheet(
+            cards_sheet, card_set, collection.card_name_to_printings)
     return workbook
 
 
@@ -53,7 +52,7 @@ def create_sets_sheet(sheet, card_sets):
             card_set.name,
             card_set.release_date,
             card_set.block,
-            card_set.type,
+            card_set.type_,
             len(card_set.printings),
             '=COUNTIF(\'{}\'!A:A,">0")'.format(card_set.code),
             '=COUNTIF(\'{}\'!A:A,">=4")'.format(card_set.code),
@@ -186,12 +185,11 @@ def create_cards_sheet(sheet, card_set, name_to_prints):
         cdim.hidden = hidden
 
 
-def read_workbook_counts(session, workbook):
-    """Read mtgxlsx workbook and load counts into the database."""
-    card_sets = session.query(models.CardSet)
-    set_codes = {s.code for s in card_sets}
+def read_workbook_counts(collection, workbook):
+    """Read mtgxlsx workbook and load counts into a Collection."""
+    set_codes = collection.code_to_card_set.keys()
     card_dicts = workbook_row_reader(workbook, set_codes)
-    mtgdict.load_counts(session, card_dicts)
+    mtgdict.load_counts(collection, card_dicts)
 
 
 def workbook_row_reader(workbook, known_sets):

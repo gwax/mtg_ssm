@@ -1,32 +1,28 @@
 """Tests for mtg_ssm.mtgxlsx"""
 
-import collections
 import datetime
 from unittest import mock
 
 import openpyxl
 
-from mtg_ssm.db import models
-from mtg_ssm.mtgjson import mtgjson
+from mtg_ssm.mtg import collection
+from mtg_ssm.mtg import models
 from mtg_ssm.serialization import mtgxlsx
 
 from tests.mtgjson import mtgjson_testcase
-from tests.db import sqlite_testcase
 
 
-class MtgXlsxTest(
-        sqlite_testcase.SqliteTestCase, mtgjson_testcase.MtgJsonTestCase):
+class MtgXlsxTest(mtgjson_testcase.MtgJsonTestCase):
 
     def setUp(self):
         super().setUp()
-        models.Base.metadata.create_all(self.connection)
+        self.collection = collection.Collection(
+            self.mtg_data, include_online_only=True)
 
     def test_create_sets_sheet(self):
         # Setup
-        mtgjson.update_models(self.session, self.mtg_data, True)
-        self.session.commit()
-        card_sets = self.session.query(models.CardSet) \
-            .order_by(models.CardSet.release_date).all()
+        card_sets = self.collection.code_to_card_set.values()
+        card_sets = sorted(card_sets, key=lambda cset: cset.release_date)
         book = openpyxl.Workbook()
         sheet = book.create_sheet()
 
@@ -52,7 +48,7 @@ class MtgXlsxTest(
             ['ISD', 'Innistrad', datetime.datetime(2011, 9, 30), 'Innistrad', 'expansion', 6, '=COUNTIF(\'ISD\'!A:A,">0")', '=COUNTIF(\'ISD\'!A:A,">=4")', "=SUM('ISD'!A:A)"],
             ['PC2', 'Planechase 2012 Edition', datetime.datetime(2012, 6, 1), None, 'planechase', 4, '=COUNTIF(\'PC2\'!A:A,">0")', '=COUNTIF(\'PC2\'!A:A,">=4")', "=SUM('PC2'!A:A)"],
             ['MMA', 'Modern Masters', datetime.datetime(2013, 6, 7, 0, 0), None, 'reprint', 1, '=COUNTIF(\'MMA\'!A:A,">0")', '=COUNTIF(\'MMA\'!A:A,">=4")', "=SUM('MMA'!A:A)"],
-            ['VMA', 'Vintage Masters', datetime.datetime(2014, 6, 16), None, 'masters', 1, '=COUNTIF(\'VMA\'!A:A,">0")', '=COUNTIF(\'VMA\'!A:A,">=4")', "=SUM('VMA'!A:A)"],
+            ['VMA', 'Vintage Masters', datetime.datetime(2014, 6, 16, 0, 0), None, 'masters', 1, '=COUNTIF(\'VMA\'!A:A,">0")', '=COUNTIF(\'VMA\'!A:A,">=4")', "=SUM('VMA'!A:A)"],
         ]
         # pylint: enable=line-too-long
         self.assertEqual(expected, rows)
@@ -95,17 +91,12 @@ class MtgXlsxTest(
 
     def test_get_refs_multiple_sets(self):
         # Setup
-        mtgjson.update_models(self.session, self.mtg_data, True)
-        self.session.commit()
-        dark_rits = self.session.query(models.CardPrinting).filter(
-            models.CardPrinting.card.has(name='Dark Ritual')).all()
-        name_to_prints = {'Dark Ritual': dark_rits}
-        lea_dark_rit = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=54).first()
+        lea_dark_rit = self.collection.id_to_printing[
+            'fff0b8e8fea06ee1ac5c35f048a0a459b1222673']
 
         # Execute
         print_refs = mtgxlsx.get_other_print_references(
-            lea_dark_rit, name_to_prints)
+            lea_dark_rit, self.collection.card_name_to_printings)
 
         # Verify
         expected = (
@@ -115,17 +106,12 @@ class MtgXlsxTest(
 
     def test_get_refs_multiple_variants(self):
         # Setup
-        mtgjson.update_models(self.session, self.mtg_data, True)
-        self.session.commit()
-        thallids = self.session.query(models.CardPrinting).filter(
-            models.CardPrinting.card.has(name='Thallid')).all()
-        name_to_prints = {'Thallid': thallids}
-        mma_thallid = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=370352).first()
+        mma_thallid = self.collection.id_to_printing[
+            'fc46a4b72d216117a352f59217a84d0baeaaacb7']
 
         # Execute
         print_refs = mtgxlsx.get_other_print_references(
-            mma_thallid, name_to_prints)
+            mma_thallid, self.collection.card_name_to_printings)
 
         # Verify
         expected = (
@@ -134,46 +120,36 @@ class MtgXlsxTest(
 
     def test_get_refs_basic_land(self):
         # Setup
-        mtgjson.update_models(self.session, self.mtg_data, True)
-        self.session.commit()
-        forests = self.session.query(models.CardPrinting).filter(
-            models.CardPrinting.card.has(name='Forest')).all()
-        name_to_prints = {'Forest': forests}
-        lea_forest = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=288).first()
+        lea_forest = self.collection.id_to_printing[
+            '5ede9781b0c5d157c28a15c3153a455d7d6180fa']
 
         # Execute
         print_refs = mtgxlsx.get_other_print_references(
-            lea_forest, name_to_prints)
+            lea_forest, self.collection.card_name_to_printings)
 
         # Verify
         self.assertIsNone(print_refs)
 
     def test_create_cards_sheet(self):
         # Setup
-        mtgjson.update_models(self.session, self.mtg_data, True)
-        self.session.commit()
-        forest1 = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=2746).first()
-        forest2 = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=2747).first()
-        forest3 = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=2748).first()
+        forest1 = self.collection.id_to_printing[
+            '676a1f5b64dc03bbb3876840c3ff2ba2c16f99cb']
+        forest2 = self.collection.id_to_printing[
+            'd0a4414893bc2f9bd3beea2f8f2693635ef926a4']
+        forest3 = self.collection.id_to_printing[
+            'c78d2da78c68c558b1adc734b3f164e885407ffc']
         forest1.counts[models.CountTypes.copies] = 1
         forest2.counts[models.CountTypes.foils] = 2
         forest3.counts[models.CountTypes.copies] = 3
         forest3.counts[models.CountTypes.foils] = 4
-        self.session.commit()
-        printings = self.session.query(models.CardPrinting)
-        name_to_prints = collections.defaultdict(list)
-        for printing in printings:
-            name_to_prints[printing.card.name].append(printing)
-        ice_age = self.session.query(models.CardSet).filter_by(code='ICE').one()
+
+        ice_age = self.collection.code_to_card_set['ICE']
         book = openpyxl.Workbook()
         sheet = book.create_sheet()
 
         # Execute
-        mtgxlsx.create_cards_sheet(sheet, ice_age, name_to_prints)
+        mtgxlsx.create_cards_sheet(
+            sheet, ice_age, self.collection.card_name_to_printings)
 
         # Verify
         rows = [[cell.value for cell in row] for row in sheet.rows]
@@ -190,12 +166,8 @@ class MtgXlsxTest(
         self.assertEqual(expected, rows)
 
     def test_dump_workbook(self):
-        # Setup
-        mtgjson.update_models(self.session, self.mtg_data, True)
-        self.session.commit()
-
         # Execute
-        book = mtgxlsx.dump_workbook(self.session)
+        book = mtgxlsx.dump_workbook(self.collection)
 
         # Verify
         expected = [
@@ -292,19 +264,17 @@ class MtgXlsxTest(
 
     def test_read_workbook_counts(self):
         # Setup
-        mtgjson.update_models(self.session, self.mtg_data, True)
-        self.session.commit()
-        forest1 = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=2746).first()
-        forest2 = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=2747).first()
-        forest3 = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=2748).first()
-        forest4 = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=2749).first()
+        forest1 = self.collection.id_to_printing[
+            '676a1f5b64dc03bbb3876840c3ff2ba2c16f99cb']
+        forest2 = self.collection.id_to_printing[
+            'd0a4414893bc2f9bd3beea2f8f2693635ef926a4']
+        forest3 = self.collection.id_to_printing[
+            'c78d2da78c68c558b1adc734b3f164e885407ffc']
+        forest4 = self.collection.id_to_printing[
+            '5e9f08498a9343b1954103e493da2586be0fe394']
         forest4.counts[models.CountTypes.copies] = 2
         forest4.counts[models.CountTypes.foils] = 3
-        self.session.commit()
+
         book = openpyxl.Workbook()
         sets_sheet = book.create_sheet()
         sets_sheet.title = 'Sets'
@@ -323,11 +293,10 @@ class MtgXlsxTest(
             cards_sheet.append(row)
 
         # Execute
-        mtgxlsx.read_workbook_counts(self.session, book)
-        self.session.commit()
+        mtgxlsx.read_workbook_counts(self.collection, book)
 
         # Verify
         self.assertEqual({models.CountTypes.copies: 1}, forest1.counts)
         self.assertEqual({models.CountTypes.foils: 2}, forest2.counts)
         self.assertEqual({models.CountTypes.copies: 3, models.CountTypes.foils: 4}, forest3.counts)
-        self.assertFalse(forest4.counts)
+        self.assertEqual({models.CountTypes.copies: 2, models.CountTypes.foils: 3}, forest4.counts)
