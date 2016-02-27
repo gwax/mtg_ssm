@@ -4,7 +4,7 @@ import datetime as dt
 import enum
 import string
 
-VARIANT_CHARS = (string.ascii_lowercase + '★')
+VARIANT_CHARS = (string.ascii_letters + '★')
 
 
 class Card:

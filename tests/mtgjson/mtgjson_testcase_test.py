@@ -21,6 +21,9 @@ class MtgJsonTestCaseTest(mtgjson_testcase.MtgJsonTestCase):
         [air_elemental] = [
             c for c in self.mtg_data['LEA']['cards']
             if c['id'] == '926234c2fe8863f49220a878346c4c5ca79b6046']
+        self.assertIs(
+            air_elemental,
+            self.cards_data['926234c2fe8863f49220a878346c4c5ca79b6046'])
         self.assertIsInstance(air_elemental, dict)
         self.assertEqual('Air Elemental', air_elemental['name'])
         self.assertEqual(94, air_elemental['multiverseid'])

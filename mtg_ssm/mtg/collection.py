@@ -2,18 +2,27 @@
 
 import collections
 
-from mtg_ssm.db import models
+from mtg_ssm.mtg import models
+
 
 def set_code_to_printings_key(printing):
     """Sort key function for set_code_to_printings index."""
-    return (printing.set_integer, printing.set_variant, printing.multiverseid,
-            printing.card_name)
+    return (
+        printing.set_integer or 0,
+        str(printing.set_variant),
+        printing.multiverseid,
+        printing.card_name,
+    )
 
 
 def card_name_to_printing_key(printing):
     """Sort key function for card_name_to_printings index."""
-    return (printing.set_code, printing.set_integer, printing.set_variant,
-            printing.multiverseid)
+    return (
+        printing.set_code,
+        printing.set_integer or 0,
+        str(printing.set_variant),
+        printing.multiverseid,
+    )
 
 
 class Collection:
@@ -30,7 +39,7 @@ class Collection:
         self.set_name_num_mv_to_printings = None
         self.set_name_mv_to_printings = None
         self.set_name_num_to_printings = None
-        self.set_name_to_printings = None
+        self.set_and_name_to_printings = None
 
     def load_mtg_json(self, mtg_json_data, include_online_only=False):
         """Update the collection with data from mtg_json."""
@@ -55,7 +64,7 @@ class Collection:
         self.set_name_num_mv_to_printings = collections.defaultdict(list)
         self.set_name_mv_to_printings = collections.defaultdict(list)
         self.set_name_num_to_printings = collections.defaultdict(list)
-        self.set_name_to_printings = collections.defaultdict(list)
+        self.set_and_name_to_printings = collections.defaultdict(list)
 
         for printing in self.id_to_printing.values():
             self.set_code_to_printings[printing.set_code].append(printing)
@@ -68,8 +77,8 @@ class Collection:
             self.set_name_mv_to_printings[snm].append(printing)
             snn = (printing.set_code, printing.card_name, printing.set_number)
             self.set_name_num_to_printings[snn].append(printing)
-            s_n = (printing.set_code, printing.card_name)
-            self.set_name_to_printings[s_n].append(printing)
+            san = (printing.set_code, printing.card_name)
+            self.set_and_name_to_printings[san].append(printing)
 
     def sort_indexes(self):
         """Sort the indexes."""
