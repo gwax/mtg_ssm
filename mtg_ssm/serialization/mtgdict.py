@@ -1,13 +1,9 @@
 """Methods for managing data in the form of dicts."""
 
-import collections
-
-from mtg_ssm.db import models
+from mtg_ssm.mtg import models
 
 
-def get_printing(
-        card_dict, id_to_print, set_name_num_mv_to_prints,
-        set_name_mv_to_prints, set_name_num_to_prints):
+def get_printing(coll, card_dict):
     """Given a card dict and various indexes, get the matching CardPrinting."""
     mtgjsid = card_dict.get('id')
     set_code = card_dict.get('set')
@@ -15,8 +11,8 @@ def get_printing(
     mvid = card_dict.get('multiverseid')
     number = card_dict.get('number')
 
-    if mtgjsid is not None and mtgjsid in id_to_print:
-        return id_to_print[mtgjsid]
+    if mtgjsid is not None and mtgjsid in coll.id_to_printing:
+        return coll.id_to_printing[mtgjsid]
 
     if set_code is None or name is None:
         print('Card has no set or card has no name and cannot be found.')
@@ -24,8 +20,8 @@ def get_printing(
 
     print('Could not find card by id, trying (set, name, num, mvid).')
     set_name_num_mv = (set_code, name, number, mvid)
-    if set_name_num_mv in set_name_num_mv_to_prints:
-        prints = set_name_num_mv_to_prints[set_name_num_mv]
+    if set_name_num_mv in coll.set_name_num_mv_to_printings:
+        prints = coll.set_name_num_mv_to_printings[set_name_num_mv]
         if len(prints) == 1:
             return prints[0]
         else:
@@ -33,8 +29,8 @@ def get_printing(
 
     print('trying (set, name, mv)')
     set_name_mv = (set_code, name, mvid)
-    if set_name_mv in set_name_mv_to_prints:
-        prints = set_name_mv_to_prints[set_name_mv]
+    if set_name_mv in coll.set_name_mv_to_printings:
+        prints = coll.set_name_mv_to_printings[set_name_mv]
         if len(prints) == 1:
             return prints[0]
         else:
@@ -42,8 +38,17 @@ def get_printing(
 
     print('trying (set, name, number)')
     set_name_num = (set_code, name, number)
-    if set_name_num in set_name_num_to_prints:
-        prints = set_name_num_to_prints[set_name_num]
+    if set_name_num in coll.set_name_num_to_printings:
+        prints = coll.set_name_num_to_printings[set_name_num]
+        if len(prints) == 1:
+            return prints[0]
+        else:
+            print('{} entries found.'.format(len(prints)))
+
+    print('trying (set, name)')
+    set_and_name = (set_code, name)
+    if set_and_name in coll.set_and_name_to_printings:
+        prints = coll.set_and_name_to_printings[set_and_name]
         if len(prints) == 1:
             return prints[0]
         else:
@@ -53,31 +58,13 @@ def get_printing(
     return None
 
 
-def load_counts(session, card_dicts):
-    """Load counts from dicts of card info/counts into the database."""
-    printings = session.query(models.CardPrinting)
-    id_to_print = {}
-    set_name_num_mv_to_prints = collections.defaultdict(list)
-    set_name_mv_to_prints = collections.defaultdict(list)
-    set_name_num_to_prints = collections.defaultdict(list)
-    for printing in printings:
-        set_code = printing.set_code
-        name = printing.card_name
-        mvid = printing.multiverseid
-        num = printing.set_number
-        id_to_print[printing.id_] = printing
-        set_name_num_mv_to_prints[(set_code, name, num, mvid)].append(printing)
-        set_name_mv_to_prints[(set_code, name, mvid)].append(printing)
-        set_name_num_to_prints[(set_code, name, num)].append(printing)
-
+def load_counts(collection, card_dicts):
+    """Load counts from dicts of card info/counts into a Collection."""
     for card_dict in card_dicts:
-        printing = get_printing(
-            card_dict, id_to_print, set_name_num_mv_to_prints,
-            set_name_mv_to_prints, set_name_num_to_prints)
+        printing = get_printing(collection, card_dict)
 
         for counttype in models.CountTypes:
             count = card_dict.get(counttype.name)
             if count is not None:
-                printing.counts[counttype] = count
-            elif printing is not None and counttype in printing.counts:
-                del printing.counts[counttype]
+                existing = printing.counts.setdefault(counttype, 0)
+                printing.counts[counttype] = existing + count
