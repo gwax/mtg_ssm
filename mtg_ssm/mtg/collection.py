@@ -28,7 +28,7 @@ def card_name_to_printing_key(printing):
 class Collection:
     """Container/manager object for storing models."""
 
-    def __init__(self):
+    def __init__(self, mtg_json_data=None, include_online_only=False):
         self.name_to_card = {}
         self.code_to_card_set = {}
         self.id_to_printing = {}
@@ -40,6 +40,11 @@ class Collection:
         self.set_name_mv_to_printings = None
         self.set_name_num_to_printings = None
         self.set_and_name_to_printings = None
+
+        if mtg_json_data is not None:
+            self.load_mtg_json(mtg_json_data, include_online_only)
+            self.rebuild_indexes()
+            self.sort_indexes()
 
     def load_mtg_json(self, mtg_json_data, include_online_only=False):
         """Update the collection with data from mtg_json."""

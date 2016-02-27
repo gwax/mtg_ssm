@@ -11,9 +11,7 @@ class MtgDictTest(mtgjson_testcase.MtgJsonTestCase):
 
     def setUp(self):
         super().setUp()
-        self.collection = collection.Collection()
-        self.collection.load_mtg_json(self.mtg_data)
-        self.collection.rebuild_indexes()
+        self.collection = collection.Collection(self.mtg_data)
 
     def test_get_printing_not_found(self):
         # Setup
