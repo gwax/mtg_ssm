@@ -1,14 +1,6 @@
 sudo: false
-addons:
-  apt_packages:
-    - pandoc
 
 language: python
-
-cache:
-  directories:
-    - $HOME/.cache/pip
-    - $HOME/.pylint.d
 
 matrix:
   include:
