@@ -21,8 +21,7 @@ def dump_workbook(collection):
     create_sets_sheet(sets_sheet, card_sets)
     for card_set in card_sets:
         cards_sheet = workbook.create_sheet()
-        create_cards_sheet(
-            cards_sheet, card_set, collection.card_name_to_printings)
+        create_cards_sheet(cards_sheet, card_set)
     return workbook
 
 
@@ -110,12 +109,12 @@ def create_haveref_sum(setcode, rownums):
     return '+'.join(haverefs)
 
 
-def get_other_print_references(printing, name_to_prints):
+def get_other_print_references(printing):
     """Get an xlsx formula to list counts of a card from other sets."""
     if printing.card.strict_basic:
         return None  # Basics are so prolific, they tend to bog things down
     other_prints = (
-        p for p in name_to_prints[printing.card_name]
+        p for p in printing.card.printings
         if p.set_code != printing.set_code)
     setcode_and_release = set()
     setcode_to_rownums = collections.defaultdict(list)
@@ -147,7 +146,7 @@ HAVE_TMPL = '=' + '+'.join(c + '{0}' for c in COUNT_COLS)
 ROW_OFFSET = 2
 
 
-def create_cards_sheet(sheet, card_set, name_to_prints):
+def create_cards_sheet(sheet, card_set):
     """Populate sheet with card information from a given set."""
     sheet.title = card_set.code
     sheet.append(CARDS_SHEET_HEADER)
@@ -163,7 +162,7 @@ def create_cards_sheet(sheet, card_set, name_to_prints):
         ]
         for counttype in models.CountTypes:
             row.append(printing.counts.get(counttype))
-        row.append(get_other_print_references(printing, name_to_prints))
+        row.append(get_other_print_references(printing))
         sheet.append(row)
 
     # Styling

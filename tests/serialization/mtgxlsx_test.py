@@ -94,8 +94,7 @@ class MtgXlsxTest(mtgjson_testcase.MtgJsonTestCase):
             'fff0b8e8fea06ee1ac5c35f048a0a459b1222673']
 
         # Execute
-        print_refs = mtgxlsx.get_other_print_references(
-            lea_dark_rit, self.collection.card_name_to_printings)
+        print_refs = mtgxlsx.get_other_print_references(lea_dark_rit)
 
         # Verify
         expected = (
@@ -109,8 +108,7 @@ class MtgXlsxTest(mtgjson_testcase.MtgJsonTestCase):
             'fc46a4b72d216117a352f59217a84d0baeaaacb7']
 
         # Execute
-        print_refs = mtgxlsx.get_other_print_references(
-            mma_thallid, self.collection.card_name_to_printings)
+        print_refs = mtgxlsx.get_other_print_references(mma_thallid)
 
         # Verify
         expected = (
@@ -123,8 +121,7 @@ class MtgXlsxTest(mtgjson_testcase.MtgJsonTestCase):
             '5ede9781b0c5d157c28a15c3153a455d7d6180fa']
 
         # Execute
-        print_refs = mtgxlsx.get_other_print_references(
-            lea_forest, self.collection.card_name_to_printings)
+        print_refs = mtgxlsx.get_other_print_references(lea_forest)
 
         # Verify
         self.assertIsNone(print_refs)
@@ -147,8 +144,7 @@ class MtgXlsxTest(mtgjson_testcase.MtgJsonTestCase):
         sheet = book.create_sheet()
 
         # Execute
-        mtgxlsx.create_cards_sheet(
-            sheet, ice_age, self.collection.card_name_to_printings)
+        mtgxlsx.create_cards_sheet(sheet, ice_age)
 
         # Verify
         rows = [[cell.value for cell in row] for row in sheet.rows]
