@@ -1,7 +1,7 @@
 sudo: false
-addons:
-  apt_packages:
-    - pandoc
+#addons:
+#  apt_packages:
+#    - pandoc
 
 language: python
 
