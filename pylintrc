@@ -15,13 +15,15 @@ output-format=colorized
 # not require a docstring.
 no-docstring-rgx=__.*__|test_.*|.*Test|setUp.*|tearDown.*
 
-[TYPECHECK]
-# List of members which are set dynamically and missed by pylint inference
-# system, and so shouldn't trigger E0201 when accessed. Python regular
-# expressions are accepted.
-generated-members=metadata
+[FORMAT]
+# Maximum number of characters on a single line.
+max-line-length=80
 
 [VARIABLES]
 # A regular expression matching the name of dummy variables (i.e. expectedly
 # not used).
 dummy-variables-rgx=(_|_[a-z][a-z0-9_]{2,30})$
+
+[DESIGN]
+# Maximum number of attributes for a class (see R0902).
+max-attributes=10

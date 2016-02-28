@@ -4,12 +4,11 @@
 import argparse
 import os
 
-import sqlalchemy as sqla
-import sqlalchemy.orm as sqlo
-
 import mtg_ssm
 
 from mtg_ssm import manager_helper
+from mtg_ssm import profiling
+from mtg_ssm.mtg import collection
 
 
 MTG_SSM_DATA_PATH = os.path.expanduser(os.path.join('~', '.mtg_ssm'))
@@ -29,6 +28,9 @@ def get_parser():
     parser.add_argument(
         '--include_online_only', default=False, action='store_true',
         help='Include online only sets (e.g. Masters sets) in the database.')
+    parser.add_argument(
+        '--profile_stats', default=False, action='store_true',
+        help='Output profiling statistics.')
     parser.add_argument(
         'spreadsheet_file', help='Spreadsheet (xlsx) filename to work with.')
 
@@ -71,31 +73,23 @@ def get_parser():
 
 def run_commands(args):
     """Run the requested operations."""
-    engine = sqla.create_engine('sqlite://')
-    session_factory = sqlo.sessionmaker(engine)
-    session = session_factory()
-    try:
-        manager_helper.read_mtgjson(
-            session, args.data_path, args.include_online_only)
-        session.commit()
+    coll = collection.Collection()
 
-        if args.command in {'update', 'export'}:
-            manager_helper.read_xlsx(session, args.spreadsheet_file)
-        session.commit()
+    manager_helper.read_mtgjson(coll, args.data_path, args.include_online_only)
 
-        if args.command in {'import'}:
-            if args.format == 'csv':
-                manager_helper.read_csv(session, args.import_file)
-        session.commit()
+    if args.command in {'update', 'export'}:
+        manager_helper.read_xlsx(coll, args.spreadsheet_file)
 
-        if args.command in {'create', 'update'}:
-            manager_helper.write_xlsx(session, args.spreadsheet_file)
+    if args.command in {'import'}:
+        if args.format == 'csv':
+            manager_helper.read_csv(coll, args.import_file)
 
-        if args.command in {'export'}:
-            if args.format == 'csv':
-                manager_helper.write_csv(session, args.export_file)
-    finally:
-        session.close()
+    if args.command in {'create', 'update'}:
+        manager_helper.write_xlsx(coll, args.spreadsheet_file)
+
+    if args.command in {'export'}:
+        if args.format == 'csv':
+            manager_helper.write_csv(coll, args.export_file)
 
 
 def main():
@@ -108,7 +102,14 @@ def main():
         raise Exception(
             'data_path: {} must be a folder'.format(args.data_path))
 
-    run_commands(args)
+    profiler = None
+    if args.profile_stats:
+        profiler = profiling.start()
+    try:
+        run_commands(args)
+    finally:
+        if profiler is not None:
+            profiling.finish(profiler)
 
 
 if __name__ == '__main__':

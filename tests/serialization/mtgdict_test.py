@@ -1,228 +1,150 @@
 """Tests for mtg_ssm.mtgcsv"""
 
-from mtg_ssm.db import models
-from mtg_ssm.mtgjson import mtgjson
+from mtg_ssm.mtg import collection
+from mtg_ssm.mtg import models
 from mtg_ssm.serialization import mtgdict
 
 from tests.mtgjson import mtgjson_testcase
-from tests.db import sqlite_testcase
 
 
-class MtgDictTest(
-        sqlite_testcase.SqliteTestCase, mtgjson_testcase.MtgJsonTestCase):
+class MtgDictTest(mtgjson_testcase.MtgJsonTestCase):
 
     def setUp(self):
         super().setUp()
-        models.Base.metadata.create_all(self.connection)
+        self.collection = collection.Collection(self.mtg_data)
 
     def test_get_printing_not_found(self):
         # Setup
-        id_to_print = {'ID': 'printing'}
-        set_name_num_mv_to_prints = {('SET', 'NAME', 'NUM', 'MV'): ['printing']}
-        set_name_mv_to_prints = {('SET', 'NAME', 'MV'): ['printing']}
-        set_name_num_to_prints = {('SET', 'NAME', 'NUM'): ['printing']}
-
         card_dict = {}
-
         # Execute
-        printing = mtgdict.get_printing(
-            card_dict, id_to_print, set_name_num_mv_to_prints,
-            set_name_mv_to_prints, set_name_num_to_prints)
-
+        printing = mtgdict.get_printing(self.collection, card_dict)
         # Verify
         self.assertIsNone(printing)
+
+    def test_get_printing_set_and_name(self):
+        # Setup
+        card_dict = {'set': 'ISD', 'name': 'Abattoir Ghoul'}
+        # Execute
+        printing = mtgdict.get_printing(self.collection, card_dict)
+        # Verify
+        self.assertEqual(
+            '958ae1416f8f6287115ccd7c5c61f2415a313546', printing.id_)
 
     def test_get_printing_set_name_num(self):
         # Setup
-        id_to_print = {'ID': 'printing'}
-        set_name_num_mv_to_prints = {('SET', 'NAME', 'NUM', 'MV'): ['printing']}
-        set_name_mv_to_prints = {('SET', 'NAME', 'MV'): ['printing']}
-        set_name_num_to_prints = {('SET', 'NAME', 'NUM'): ['printing']}
-
-        card_dict = {'set': 'SET', 'name': 'NAME', 'number': 'NUM'}
-
+        card_dict = {'set': 'ISD', 'name': 'Forest', 'number': '263'}
         # Execute
-        printing = mtgdict.get_printing(
-            card_dict, id_to_print, set_name_num_mv_to_prints,
-            set_name_mv_to_prints, set_name_num_to_prints)
-
+        printing = mtgdict.get_printing(self.collection, card_dict)
         # Verify
-        self.assertEqual('printing', printing)
-
-    def test_get_set_name_num_duplicate(self):
-        # Setup
-        id_to_print = {'ID': 'printing'}
-        set_name_num_mv_to_prints = {('SET', 'NAME', 'NUM', 'MV'): ['printing']}
-        set_name_mv_to_prints = {('SET', 'NAME', 'MV'): ['printing']}
-        set_name_num_to_prints = {('SET', 'NAME', 'NUM'): ['printing', 'p2']}
-
-        card_dict = {'set': 'SET', 'name': 'NAME', 'number': 'NUM'}
-
-        # Execute
-        printing = mtgdict.get_printing(
-            card_dict, id_to_print, set_name_num_mv_to_prints,
-            set_name_mv_to_prints, set_name_num_to_prints)
-
-        # Verify
-        self.assertIsNone(printing)
+        self.assertEqual(
+            '3c509643d7f7827b2debf968c05cb800cb772360', printing.id_)
 
     def test_get_printing_set_name_mv(self):
         # Setup
-        id_to_print = {'ID': 'printing'}
-        set_name_num_mv_to_prints = {('SET', 'NAME', 'NUM', 'MV'): ['printing']}
-        set_name_mv_to_prints = {('SET', 'NAME', 'MV'): ['printing']}
-        set_name_num_to_prints = {('SET', 'NAME', 'NUM'): ['printing']}
-
-        card_dict = {'set': 'SET', 'name': 'NAME', 'multiverseid': 'MV'}
-
+        card_dict = {'set': 'ISD', 'name': 'Forest', 'multiverseid': 245248}
         # Execute
-        printing = mtgdict.get_printing(
-            card_dict, id_to_print, set_name_num_mv_to_prints,
-            set_name_mv_to_prints, set_name_num_to_prints)
-
+        printing = mtgdict.get_printing(self.collection, card_dict)
         # Verify
-        self.assertEqual('printing', printing)
-
-    def test_get_set_name_mv_duplicate(self):
-        # Setup
-        id_to_print = {'ID': 'printing'}
-        set_name_num_mv_to_prints = {('SET', 'NAME', 'NUM', 'MV'): ['printing']}
-        set_name_mv_to_prints = {('SET', 'NAME', 'MV'): ['printing', 'p2']}
-        set_name_num_to_prints = {('SET', 'NAME', 'NUM'): ['printing']}
-
-        card_dict = {'set': 'SET', 'name': 'NAME', 'multiverseid': 'MV'}
-
-        # Execute
-        printing = mtgdict.get_printing(
-            card_dict, id_to_print, set_name_num_mv_to_prints,
-            set_name_mv_to_prints, set_name_num_to_prints)
-
-        # Verify
-        self.assertIsNone(printing)
+        self.assertEqual(
+            '3c509643d7f7827b2debf968c05cb800cb772360', printing.id_)
 
     def test_get_set_name_num_mv(self):
         # Setup
-        id_to_print = {'ID': 'printing'}
-        set_name_num_mv_to_prints = {('SET', 'NAME', 'NUM', 'MV'): ['printing']}
-        set_name_mv_to_prints = {
-            ('SET', 'NAME', 'MV'): ['printing', 'p2', 'p3']}
-        set_name_num_to_prints = {
-            ('SET', 'NAME', 'NUM'): ['printing', 'p2', 'p3']}
-
-        card_dict = {
-            'set': 'SET', 'name': 'NAME', 'number': 'NUM', 'multiverseid': 'MV'}
-
+        card_dict = {'set': 'HML', 'name': 'Cemetery Gate', 'number': None,
+                     'multiverseid': 2913}
         # Execute
-        printing = mtgdict.get_printing(
-            card_dict, id_to_print, set_name_num_mv_to_prints,
-            set_name_mv_to_prints, set_name_num_to_prints)
-
+        printing = mtgdict.get_printing(self.collection, card_dict)
         # Verify
-        self.assertEqual('printing', printing)
-
-    def test_get_set_name_num_mv_dupe(self):
-        # Setup
-        id_to_print = {'ID': 'printing'}
-        set_name_num_mv_to_prints = {
-            ('SET', 'NAME', 'NUM', 'MV'): ['printing', 'p2']}
-        set_name_mv_to_prints = {
-            ('SET', 'NAME', 'MV'): ['printing', 'p2', 'p3']}
-        set_name_num_to_prints = {
-            ('SET', 'NAME', 'NUM'): ['printing', 'p2', 'p3']}
-
-        card_dict = {
-            'set': 'SET', 'name': 'NAME', 'number': 'NUM', 'multiverseid': 'MV'}
-
-        # Execute
-        printing = mtgdict.get_printing(
-            card_dict, id_to_print, set_name_num_mv_to_prints,
-            set_name_mv_to_prints, set_name_num_to_prints)
-
-        # Verify
-        self.assertIsNone(printing)
+        self.assertEqual(
+            'f7a1292dac99aa861d3f501653969595ed12038c', printing.id_)
 
     def test_get_printing_none_set(self):
         # Setup
-        id_to_print = {'ID': 'printing'}
-        set_name_num_mv_to_prints = {(None, 'NAME', 'NUM', 'MV'): ['printing']}
-        set_name_mv_to_prints = {(None, 'NAME', 'MV'): ['printing']}
-        set_name_num_to_prints = {(None, 'NAME', 'NUM'): ['printing']}
-
-        card_dict = {'name': 'NAME', 'number': 'NUM', 'multiverseid': 'MV'}
-
+        card_dict = {'name': 'Abattoir Ghoul'}
         # Execute
-        printing = mtgdict.get_printing(
-            card_dict, id_to_print, set_name_num_mv_to_prints,
-            set_name_mv_to_prints, set_name_num_to_prints)
+        printing = mtgdict.get_printing(self.collection, card_dict)
 
         # Verify
         self.assertIsNone(printing)
 
     def test_get_printing_none_name(self):
         # Setup
-        id_to_print = {'ID': 'printing'}
-        set_name_num_mv_to_prints = {('SET', None, 'NUM', 'MV'): ['printing']}
-        set_name_mv_to_prints = {('SET', None, 'MV'): ['printing']}
-        set_name_num_to_prints = {('SET', None, 'NUM'): ['printing']}
-
-        card_dict = {'set': 'SET', 'number': 'NUM', 'multiverseid': 'MV'}
-
+        card_dict = {'set': 'ISD'}
         # Execute
-        printing = mtgdict.get_printing(
-            card_dict, id_to_print, set_name_num_mv_to_prints,
-            set_name_mv_to_prints, set_name_num_to_prints)
-
+        printing = mtgdict.get_printing(self.collection, card_dict)
         # Verify
         self.assertIsNone(printing)
 
     def test_get_printing_by_id(self):
         # Setup
-        id_to_print = {'ID': 'printing'}
-        set_name_num_mv_to_prints = {('SET', 'NAME', 'NUM', 'MV'): ['printing']}
-        set_name_mv_to_prints = {('SET', 'NAME', 'MV'): ['printing']}
-        set_name_num_to_prints = {('SET', 'NAME', 'NUM'): ['printing']}
-
-        card_dict = {'id': 'ID'}
-
+        card_dict = {'id': '958ae1416f8f6287115ccd7c5c61f2415a313546'}
         # Execute
-        printing = mtgdict.get_printing(
-            card_dict, id_to_print, set_name_num_mv_to_prints,
-            set_name_mv_to_prints, set_name_num_to_prints)
-
+        printing = mtgdict.get_printing(self.collection, card_dict)
         # Verify
-        self.assertEqual('printing', printing)
+        self.assertEqual(
+            '958ae1416f8f6287115ccd7c5c61f2415a313546', printing.id_)
 
     def test_load_counts(self):
         # Setup
-        mtgjson.update_models(self.session, self.mtg_data, False)
-        self.session.commit()
-
-        forest1 = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=2746).first()
-        forest2 = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=2747).first()
-        forest3 = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=2748).first()
-        forest4 = self.session.query(
-            models.CardPrinting).filter_by(multiverseid=2749).first()
-        forest4.counts[models.CountTypes.copies] = 2
-        forest4.counts[models.CountTypes.foils] = 3
-        self.session.commit()
-        # pylint: disable=line-too-long
         card_dicts = [
-            {'set': 'ICE', 'name': 'Forest', 'multiverseid': 2746, 'number': None, 'copies': 1},
-            {'set': 'ICE', 'name': 'Forest', 'multiverseid': 2747, 'number': None, 'foils': 2},
-            {'set': 'ICE', 'name': 'Forest', 'multiverseid': 2748, 'number': None, 'copies': 3, 'foils': 4},
-            {'set': 'ICE', 'name': 'Snow-Covered Forest', 'multiverseid': 2749, 'number': None, 'copies': None, 'foils': None},
+            # pylint: disable=line-too-long
+            {'id': 'e9abef8533c9ce6549147232c5fceff75ffb460a', 'copies': 1},
+            {'id': '3c509643d7f7827b2debf968c05cb800cb772360', 'foils': 2},
+            {'id': 'd5dbd9b201a515d119b424b3d7b06dcf30a5c675', 'copies': 3, 'foils': 4},
         ]
-        # pylint: enable=line-too-long
-
         # Execute
-        mtgdict.load_counts(self.session, card_dicts)
-        self.session.commit()
-
+        mtgdict.load_counts(self.collection, card_dicts)
         # Verify
-        self.assertEqual({models.CountTypes.copies: 1}, forest1.counts)
-        self.assertEqual({models.CountTypes.foils: 2}, forest2.counts)
-        self.assertEqual({models.CountTypes.copies: 3, models.CountTypes.foils: 4}, forest3.counts)
-        self.assertFalse(forest4.counts)
+        id_to_counts = {
+            p.id_: p.counts for p in self.collection.id_to_printing.values()
+            if p.counts
+        }
+        expected = {
+            'e9abef8533c9ce6549147232c5fceff75ffb460a': {
+                models.CountTypes.copies: 1,
+            },
+            '3c509643d7f7827b2debf968c05cb800cb772360': {
+                models.CountTypes.foils: 2,
+            },
+            'd5dbd9b201a515d119b424b3d7b06dcf30a5c675': {
+                models.CountTypes.copies: 3,
+                models.CountTypes.foils: 4,
+            },
+        }
+        self.assertEqual(expected, id_to_counts)
+
+    def test_load_counts_add_more(self):
+        # Setup
+        preload_card_dicts = [
+            # pylint: disable=line-too-long
+            {'id': 'e9abef8533c9ce6549147232c5fceff75ffb460a', 'copies': 1},
+            {'id': '3c509643d7f7827b2debf968c05cb800cb772360', 'foils': 2},
+            {'id': 'd5dbd9b201a515d119b424b3d7b06dcf30a5c675', 'copies': 3, 'foils': 4},
+        ]
+        mtgdict.load_counts(self.collection, preload_card_dicts)
+        card_dicts = [
+            # pylint: disable=line-too-long
+            {'id': 'e9abef8533c9ce6549147232c5fceff75ffb460a', 'copies': None},
+            {'id': '3c509643d7f7827b2debf968c05cb800cb772360', 'copies': 5},
+            {'id': 'd5dbd9b201a515d119b424b3d7b06dcf30a5c675', 'copies': 6, 'foils': 7},
+        ]
+        # Execute
+        mtgdict.load_counts(self.collection, card_dicts)
+        # Verify
+        id_to_counts = {
+            p.id_: p.counts for p in self.collection.id_to_printing.values()
+            if p.counts
+        }
+        expected = {
+            'e9abef8533c9ce6549147232c5fceff75ffb460a': {
+                models.CountTypes.copies: 1,
+            },
+            '3c509643d7f7827b2debf968c05cb800cb772360': {
+                models.CountTypes.foils: 2, models.CountTypes.copies: 5
+            },
+            'd5dbd9b201a515d119b424b3d7b06dcf30a5c675': {
+                models.CountTypes.copies: 9,
+                models.CountTypes.foils: 11,
+            },
+        }
+        self.assertEqual(expected, id_to_counts)
