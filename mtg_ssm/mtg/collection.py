@@ -10,7 +10,7 @@ def set_code_to_printings_key(printing):
     return (
         printing.set_integer or 0,
         str(printing.set_variant),
-        printing.multiverseid,
+        printing.multiverseid or 0,
         printing.card_name,
     )
 
@@ -21,7 +21,7 @@ def card_name_to_printing_key(printing):
         printing.set_code,
         printing.set_integer or 0,
         str(printing.set_variant),
-        printing.multiverseid,
+        printing.multiverseid or 0,
     )
 
 
