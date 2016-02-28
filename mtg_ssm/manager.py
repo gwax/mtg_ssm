@@ -7,6 +7,7 @@ import os
 import mtg_ssm
 
 from mtg_ssm import manager_helper
+from mtg_ssm import profiling
 from mtg_ssm.mtg import collection
 
 
@@ -27,6 +28,9 @@ def get_parser():
     parser.add_argument(
         '--include_online_only', default=False, action='store_true',
         help='Include online only sets (e.g. Masters sets) in the database.')
+    parser.add_argument(
+        '--profile_stats', default=False, action='store_true',
+        help='Output profiling statistics.')
     parser.add_argument(
         'spreadsheet_file', help='Spreadsheet (xlsx) filename to work with.')
 
@@ -98,7 +102,14 @@ def main():
         raise Exception(
             'data_path: {} must be a folder'.format(args.data_path))
 
-    run_commands(args)
+    profiler = None
+    if args.profile_stats:
+        profiler = profiling.start()
+    try:
+        run_commands(args)
+    finally:
+        if profiler is not None:
+            profiling.finish(profiler)
 
 
 if __name__ == '__main__':
