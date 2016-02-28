@@ -14,18 +14,12 @@ def get_printing(coll, card_dict):
     if mtgjsid is not None and mtgjsid in coll.id_to_printing:
         return coll.id_to_printing[mtgjsid]
 
-    if set_code is None or name is None:
-        print('Card has no set or card has no name and cannot be found.')
-        return None
-
     print('Could not find card by id, trying (set, name, num, mvid).')
     set_name_num_mv = (set_code, name, number, mvid)
     if set_name_num_mv in coll.set_name_num_mv_to_printings:
         prints = coll.set_name_num_mv_to_printings[set_name_num_mv]
         if len(prints) == 1:
             return prints[0]
-        else:
-            print('{} entries found.'.format(len(prints)))
 
     print('trying (set, name, mv)')
     set_name_mv = (set_code, name, mvid)
@@ -33,8 +27,6 @@ def get_printing(coll, card_dict):
         prints = coll.set_name_mv_to_printings[set_name_mv]
         if len(prints) == 1:
             return prints[0]
-        else:
-            print('{} entries found.'.format(len(prints)))
 
     print('trying (set, name, number)')
     set_name_num = (set_code, name, number)
@@ -42,8 +34,6 @@ def get_printing(coll, card_dict):
         prints = coll.set_name_num_to_printings[set_name_num]
         if len(prints) == 1:
             return prints[0]
-        else:
-            print('{} entries found.'.format(len(prints)))
 
     print('trying (set, name)')
     set_and_name = (set_code, name)
@@ -51,8 +41,6 @@ def get_printing(coll, card_dict):
         prints = coll.set_and_name_to_printings[set_and_name]
         if len(prints) == 1:
             return prints[0]
-        else:
-            print('{} entries found.'.format(len(prints)))
 
     print('Warning: Could not find printing for {}'.format(card_dict))
     return None
