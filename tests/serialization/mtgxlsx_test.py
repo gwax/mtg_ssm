@@ -31,8 +31,8 @@ class MtgXlsxTest(mtgjson_testcase.MtgJsonTestCase):
 
         # Verify
         rows = [[cell.value for cell in row] for row in sheet.rows]
-        # pylint: disable=line-too-long
         expected = [
+            # pylint: disable=line-too-long
             ['code', 'name', 'release', 'block', 'type', 'cards', 'unique', 'playsets', 'count'],
             ['Total', None, None, None, None, '=SUM(F3:F65535)', '=SUM(G3:G65535)', '=SUM(H3:H65535)', '=SUM(I3:I63353)'],
             ['LEA', 'Limited Edition Alpha', datetime.datetime(1993, 8, 5), None, 'core', 4, '=COUNTIF(\'LEA\'!A:A,">0")', '=COUNTIF(\'LEA\'!A:A,">=4")', "=SUM('LEA'!A:A)"],
@@ -50,7 +50,6 @@ class MtgXlsxTest(mtgjson_testcase.MtgJsonTestCase):
             ['MMA', 'Modern Masters', datetime.datetime(2013, 6, 7, 0, 0), None, 'reprint', 1, '=COUNTIF(\'MMA\'!A:A,">0")', '=COUNTIF(\'MMA\'!A:A,">=4")', "=SUM('MMA'!A:A)"],
             ['VMA', 'Vintage Masters', datetime.datetime(2014, 6, 16, 0, 0), None, 'masters', 1, '=COUNTIF(\'VMA\'!A:A,">0")', '=COUNTIF(\'VMA\'!A:A,">=4")', "=SUM('VMA'!A:A)"],
         ]
-        # pylint: enable=line-too-long
         self.assertEqual(expected, rows)
 
     def test_split_into_consecutives(self):
@@ -153,8 +152,8 @@ class MtgXlsxTest(mtgjson_testcase.MtgJsonTestCase):
 
         # Verify
         rows = [[cell.value for cell in row] for row in sheet.rows]
-        # pylint: disable=line-too-long
         expected = [
+            # pylint: disable=line-too-long
             ['have', 'name', 'id', 'multiverseid', 'number', 'artist', 'copies', 'foils', 'others'],
             ['=G2+H2', 'Dark Ritual', '2fab0ea29e3bbe8bfbc981a4c8163f3e7d267853', 2444, None, 'Justin Hampton', None, None, mock.ANY],
             ['=G3+H3', 'Forest', '676a1f5b64dc03bbb3876840c3ff2ba2c16f99cb', 2746, None, 'Pat Morrissey', 1, None, mock.ANY],
@@ -162,7 +161,6 @@ class MtgXlsxTest(mtgjson_testcase.MtgJsonTestCase):
             ['=G5+H5', 'Forest', 'c78d2da78c68c558b1adc734b3f164e885407ffc', 2748, None, 'Pat Morrissey', 3, 4, mock.ANY],
             ['=G6+H6', 'Snow-Covered Forest', '5e9f08498a9343b1954103e493da2586be0fe394', 2749, None, 'Pat Morrissey', None, None, mock.ANY],
         ]
-        # pylint: enable=line-too-long
         self.assertEqual(expected, rows)
 
     def test_dump_workbook(self):
@@ -214,7 +212,6 @@ class MtgXlsxTest(mtgjson_testcase.MtgJsonTestCase):
             {'name': 'Forest', 'artist': 'Pat Morrissey', 'multiverseid': 2747, 'number': None, 'copies': None, 'foils': 2},
             {'name': 'Forest', 'artist': 'Pat Morrissey', 'multiverseid': 2748, 'number': None, 'copies': 3, 'foils': 4},
             {'name': 'Snow-Covered Forest', 'artist': 'Pat Morrissey', 'multiverseid': 2749, 'number': None, 'copies': None, 'foils': None},
-            # pylint: enable=line-too-long
         ]
         self.assertEqual(expected, list(row_dicts))
 
@@ -244,7 +241,6 @@ class MtgXlsxTest(mtgjson_testcase.MtgJsonTestCase):
             {'set': 'ICE', 'name': 'Forest', 'artist': 'Pat Morrissey', 'multiverseid': 2747, 'number': None, 'copies': None, 'foils': 2},
             {'set': 'ICE', 'name': 'Forest', 'artist': 'Pat Morrissey', 'multiverseid': 2748, 'number': None, 'copies': 3, 'foils': 4},
             {'set': 'ICE', 'name': 'Snow-Covered Forest', 'artist': 'Pat Morrissey', 'multiverseid': 2749, 'number': None, 'copies': None, 'foils': None},
-            # pylint: enable=line-too-long
         ]
         self.assertEqual(expected, list(row_dicts))
 
@@ -298,5 +294,9 @@ class MtgXlsxTest(mtgjson_testcase.MtgJsonTestCase):
         # Verify
         self.assertEqual({models.CountTypes.copies: 1}, forest1.counts)
         self.assertEqual({models.CountTypes.foils: 2}, forest2.counts)
-        self.assertEqual({models.CountTypes.copies: 3, models.CountTypes.foils: 4}, forest3.counts)
-        self.assertEqual({models.CountTypes.copies: 2, models.CountTypes.foils: 3}, forest4.counts)
+        self.assertEqual(
+            {models.CountTypes.copies: 3, models.CountTypes.foils: 4},
+            forest3.counts)
+        self.assertEqual(
+            {models.CountTypes.copies: 2, models.CountTypes.foils: 3},
+            forest4.counts)

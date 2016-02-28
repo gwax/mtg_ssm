@@ -86,7 +86,8 @@ class MtgDictTest(mtgjson_testcase.MtgJsonTestCase):
 
     def test_load_counts(self):
         # Setup
-        card_dicts = [  # pylint: disable=line-too-long
+        card_dicts = [
+            # pylint: disable=line-too-long
             {'id': 'e9abef8533c9ce6549147232c5fceff75ffb460a', 'copies': 1},
             {'id': '3c509643d7f7827b2debf968c05cb800cb772360', 'foils': 2},
             {'id': 'd5dbd9b201a515d119b424b3d7b06dcf30a5c675', 'copies': 3, 'foils': 4},
@@ -114,13 +115,15 @@ class MtgDictTest(mtgjson_testcase.MtgJsonTestCase):
 
     def test_load_counts_add_more(self):
         # Setup
-        preload_card_dicts = [  # pylint: disable=line-too-long
+        preload_card_dicts = [
+            # pylint: disable=line-too-long
             {'id': 'e9abef8533c9ce6549147232c5fceff75ffb460a', 'copies': 1},
             {'id': '3c509643d7f7827b2debf968c05cb800cb772360', 'foils': 2},
             {'id': 'd5dbd9b201a515d119b424b3d7b06dcf30a5c675', 'copies': 3, 'foils': 4},
         ]
         mtgdict.load_counts(self.collection, preload_card_dicts)
         card_dicts = [
+            # pylint: disable=line-too-long
             {'id': 'e9abef8533c9ce6549147232c5fceff75ffb460a', 'copies': None},
             {'id': '3c509643d7f7827b2debf968c05cb800cb772360', 'copies': 5},
             {'id': 'd5dbd9b201a515d119b424b3d7b06dcf30a5c675', 'copies': 6, 'foils': 7},

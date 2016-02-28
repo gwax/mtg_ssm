@@ -15,6 +15,10 @@ output-format=colorized
 # not require a docstring.
 no-docstring-rgx=__.*__|test_.*|.*Test|setUp.*|tearDown.*
 
+[FORMAT]
+# Maximum number of characters on a single line.
+max-line-length=80
+
 [VARIABLES]
 # A regular expression matching the name of dummy variables (i.e. expectedly
 # not used).
