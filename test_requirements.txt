@@ -1,5 +1,5 @@
-coveralls
 flake8
 pylint
 pytest
 pytest-cov
+python-coveralls
