@@ -43,7 +43,7 @@ def create_sets_sheet(sheet, card_sets):
         '=SUM(F3:F65535)',
         '=SUM(G3:G65535)',
         '=SUM(H3:H65535)',
-        '=SUM(I3:I63353)',
+        '=SUM(I3:I65535)',
     ])
     for card_set in card_sets:
         row = [
