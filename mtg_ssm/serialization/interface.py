@@ -52,6 +52,6 @@ class MtgSsmSerializer(metaclass=abc.ABCMeta):
         for counttype in models.CountTypes:
             countname = counttype.name
             count = counts.get(countname)
-            if count is not None:
+            if count:
                 existing = printing.counts.get(counttype, 0)
                 printing.counts[counttype] = existing + count
