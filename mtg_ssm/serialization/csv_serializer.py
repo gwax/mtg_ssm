@@ -11,7 +11,7 @@ CSV_HEADER = [
     'name',
     'number',
     'multiverseid',
-    'mtgjson_id',
+    'id',
 ] + [ct.name for ct in models.CountTypes]
 
 
@@ -22,7 +22,7 @@ def row_from_printing(printing):
         'name': printing.card_name,
         'number': printing.set_number,
         'multiverseid': printing.multiverseid,
-        'mtgjson_id': printing.id_,
+        'id': printing.id_,
     }
     for counttype, count in printing.counts.items():
         if count:
@@ -32,27 +32,9 @@ def row_from_printing(printing):
 
 def csv_rows_from_collection(collection):
     """Generator that yields csv rows from a collection."""
-    card_sets = collection.code_to_card_set.values()
-    card_sets.sort(key=lambda cset: cset.release_date)
-    for card_set in card_sets:
+    for card_set in collection.card_sets:
         for printing in card_set.printings:
             yield row_from_printing(printing)
-
-
-def load_counts_from_row(collection, row):
-    """Given a csv DictReader row, read card counts according to mtgjson_id."""
-    printing_id = row.get('mtgjson_id')
-    printing = collection.id_to_printing.get(printing_id)
-    if printing is None:
-        raise interface.DeserializationError(
-            'Could not match mtgjson_id to known printing for row: %r' % row)
-
-    for counttype in models.CountTypes:
-        countname = counttype.name
-        count = row.get(countname)
-        if count is not None:
-            existing = printing.counts.get(counttype, 0)
-            printing.counts[counttype] = existing + count
 
 
 class MtgCsvSerializer(interface.MtgSsmSerializer):
@@ -73,4 +55,4 @@ class MtgCsvSerializer(interface.MtgSsmSerializer):
         with open(filename, 'r') as csv_file:
             reader = csv.DictReader(csv_file)
             for row in reader:
-                load_counts_from_row(self.collection, row)
+                self.load_counts(row)

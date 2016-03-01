@@ -33,6 +33,9 @@ class Collection:
         self.code_to_card_set = {}
         self.id_to_printing = {}
 
+        # Card Sets Index
+        self.card_sets = None
+
         # Printing Indexes
         self.set_code_to_printings = None
         self.card_name_to_printings = None
@@ -64,6 +67,8 @@ class Collection:
 
     def rebuild_indexes(self):
         """Rebuild the printing indexes."""
+        self.card_sets = list(self.code_to_card_set.values())
+
         self.set_code_to_printings = collections.defaultdict(list)
         self.card_name_to_printings = collections.defaultdict(list)
         self.set_name_num_mv_to_printings = collections.defaultdict(list)
@@ -87,6 +92,8 @@ class Collection:
 
     def sort_indexes(self):
         """Sort the indexes."""
+        self.card_sets.sort(key=lambda cset: cset.release_date)
+
         for printings in self.set_code_to_printings.values():
             printings.sort(key=set_code_to_printings_key)
 
