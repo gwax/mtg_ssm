@@ -8,7 +8,6 @@ from mtg_ssm.serialization import interface
 CSV_HEADER = [
     'set',
     'name',
-    'name',
     'number',
     'multiverseid',
     'id',
@@ -40,7 +39,7 @@ def csv_rows_from_collection(collection):
 class MtgCsvSerializer(interface.MtgSsmSerializer):
     """MtgSsmSerializer for reading and writing csv files."""
 
-    extensions = {'csv'}
+    extension = 'csv'
 
     def write_to_file(self, filename: str) -> None:
         """Write the collection to a csv file."""

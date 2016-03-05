@@ -91,6 +91,38 @@ HAVE_TMPL = '=' + '+'.join(c + '{0}' for c in COUNT_COLS)
 ROW_OFFSET = 2
 
 
+def create_haverefs(printings):
+    """Create a reference to the have cells for printings in a single set."""
+    card_set = printings[0].set
+    rownums = [card_set.printings.index(p) + ROW_OFFSET for p in printings]
+    haverefs = [
+        "'{setcode}'!A{rownum}".format(setcode=card_set.code, rownum=r)
+        for r in rownums]
+    return '+'.join(haverefs)
+
+
+def get_other_print_references(printing):
+    """Get an xlsx formula to list counts of a card from other sets."""
+    if printing.card.strict_basic:
+        return None  # Basics are so prolific that they overwhelm Excel
+
+    set_to_others = collections.defaultdict(list)
+    for other in printing.card.printings:
+        if other.set_code != printing.set_code:
+            set_to_others[other.set].append(other)
+
+    set_to_haveref = {k: create_haverefs(v) for k, v in set_to_others.items()}
+    if not set_to_haveref:
+        return None
+
+    other_references = []
+    for card_set in sorted(set_to_haveref, key=lambda cset: cset.release_date):
+        other_reference = 'IF({count}>0,"{setcode}: "&{count}&", ","")'.format(
+            setcode=card_set.code, count=set_to_haveref[card_set])
+        other_references.append(other_reference)
+    return '=' + '&'.join(other_references)
+
+
 def create_set_sheet(sheet, card_set):
     """Populate sheet with card information from a given set."""
     sheet.title = card_set.code
@@ -100,7 +132,7 @@ def create_set_sheet(sheet, card_set):
         row = [
             HAVE_TMPL.format(rownum),
             printing.card.name,
-            printing.id,
+            printing.id_,
             printing.multiverseid,
             printing.set_number,
             printing.artist,
@@ -131,36 +163,6 @@ def style_set_sheet(sheet):
         cdim.hidden = hidden
 
 
-def get_other_print_references(printing):
-    """Get an xlsx formula to list counts of a card from other sets."""
-    if printing.card.strict_basic:
-        return None  # Basics are so prolific that they overwhelm Excel
-
-    set_to_others = collections.defaultdict(list)
-    for other in printing.card.printings:
-        if other.set_code != printing.set_code:
-            set_to_others[other.set].append(other)
-
-    set_to_haveref = {k: create_haverefs(v) for k, v in set_to_others.items()}
-
-    other_references = []
-    for card_set in sorted(set_to_haveref, key=lambda cset: cset.release_date):
-        other_reference = 'IF({count}>0,"{setcode}: "&{count}&", ","")'.format(
-            setcode=card_set.code, count=set_to_haveref[card_set])
-        other_references.append(other_reference)
-    return '=' + '&'.join(other_references)
-
-
-def create_haverefs(printings):
-    """Create a reference to the have cells for printings in a single set."""
-    card_set = printings[0].set
-    rownums = [card_set.printings.index(p) + ROW_OFFSET for p in printings]
-    haverefs = [
-        "'{setcode}'!A{rownum}".format(setcode=card_set.code, rownum=r)
-        for r in rownums]
-    return '+'.join(haverefs)
-
-
 def counts_from_sheet(sheet):
     """Given an xlsx set sheet, read card counts."""
     rows = iter(sheet.rows)
@@ -173,7 +175,7 @@ def counts_from_sheet(sheet):
 class MtgXlsxSerializer(interface.MtgSsmSerializer):
     """MtgSsmSerializer for reading and writing xlsx files."""
 
-    extensions = {'xlsx'}
+    extension = 'xlsx'
 
     def write_to_file(self, filename: str) -> None:
         """Write the collection to an xlsx file."""
@@ -193,9 +195,9 @@ class MtgXlsxSerializer(interface.MtgSsmSerializer):
         workbook = openpyxl.load_workbook(filename=filename, read_only=True)
         for sheet in workbook.worksheets:
             if sheet.title not in self.collection.code_to_card_set:
-                if sheet.title != 'All Sets':
-                    print('No known set with code {}, skipping'.format(
-                        sheet.title))
-                continue
+                if sheet.title == 'All Sets':
+                    continue
+                raise interface.DeserializationError(
+                    'No known set with code {}'.format(sheet.title))
             for counts in counts_from_sheet(sheet):
                 self.load_counts(counts)
