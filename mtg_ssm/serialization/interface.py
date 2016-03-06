@@ -2,7 +2,6 @@
 
 import abc
 import collections
-import os
 from typing import Any, Dict
 
 from mtg_ssm.mtg import collection

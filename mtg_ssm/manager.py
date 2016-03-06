@@ -5,14 +5,13 @@ import argparse
 import datetime as dt
 import os
 import shutil
-import sys
 
 import mtg_ssm
 
+from mtg_ssm import mtgjson
 from mtg_ssm import profiling
 import mtg_ssm.serialization.interface as ser_interface
 from mtg_ssm.mtg import collection
-from mtg_ssm.mtgjson import downloader
 
 
 MTG_SSM_DATA_PATH = os.path.expanduser(os.path.join('~', '.mtg_ssm'))
@@ -50,11 +49,11 @@ def get_args():
 
 def build_collection(data_path, include_online_only):
     """Get a collection with current mtgjson data."""
-    downloader.fetch_mtgjson(data_path)
+    mtgjson.fetch_mtgjson(data_path)
     print('Reading mtgjson data.')
-    mtgjson = downloader.read_mtgjson(data_path)
+    mtgjsondata = mtgjson.read_mtgjson(data_path)
     return collection.Collection(
-        mtgjson, include_online_only=include_online_only)
+        mtgjsondata, include_online_only=include_online_only)
 
 
 def process_files(args):
