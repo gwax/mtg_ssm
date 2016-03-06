@@ -2,7 +2,7 @@
 """Script to manage magic collection spreadsheets."""
 
 import argparse
-import datetime as dt
+import datetime
 import os
 import shutil
 
@@ -17,7 +17,7 @@ from mtg_ssm.mtg import collection
 MTG_SSM_DATA_PATH = os.path.expanduser(os.path.join('~', '.mtg_ssm'))
 
 
-def get_args():
+def get_args(args=None):
     """Create and return application argument parser."""
     parser = argparse.ArgumentParser(
         description='Magic Collection Spreadsheet Manager')
@@ -44,7 +44,7 @@ def get_args():
     parser.add_argument(
         'collection', help='Sheet to update.')
 
-    return parser.parse_args()
+    return parser.parse_args(args=args)
 
 
 def build_collection(data_path, include_online_only):
@@ -69,7 +69,7 @@ def process_files(args):
         print('Reading counts from existing file.')
         serializer.read_from_file(args.collection)
         backup_name = args.collection + '.bak-{:%Y%m%d_%H%M%S}'.format(
-            dt.datetime.now())
+            datetime.datetime.now())
         print('Moving existing collection to backup: %s' % backup_name)
         shutil.move(args.collection, backup_name)
 
@@ -80,20 +80,8 @@ def process_files(args):
 def main():
     """Process user input and run commands.."""
     args = get_args()
-    if not os.path.exists(args.data_path):
-        os.makedirs(args.data_path)
-    elif not os.path.isdir(args.data_path):
-        raise Exception(
-            'data_path: {} must be a folder'.format(args.data_path))
-
-    profiler = None
-    if args.profile_stats:
-        profiler = profiling.start()
-    try:
+    with profiling.profiled(enabled=args.profile_stats):
         process_files(args)
-    finally:
-        if profiler is not None:
-            profiling.finish(profiler)
 
 
 if __name__ == '__main__':

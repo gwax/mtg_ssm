@@ -24,8 +24,13 @@ def finish(profiler):
 
 
 @contextlib.contextmanager
-def profiled():
+def profiled(enabled):
     """Context manager to profile within a given context."""
-    profiler = start()
-    yield
-    finish(profiler)
+    profiler = None
+    if enabled:
+        profiler = start()
+    try:
+        yield
+    finally:
+        if profiler is not None:
+            finish(profiler)
