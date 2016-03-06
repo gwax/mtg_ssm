@@ -1,11 +1,11 @@
-"""Tests for mtg_ssm.serialization.csv_serializer."""
+"""Tests for mtg_ssm.serialization.csv."""
 
 import os
 import tempfile
 
 from mtg_ssm.mtg import collection
 from mtg_ssm.mtg import models
-from mtg_ssm.serialization import csv_serializer
+from mtg_ssm.serialization import csv
 
 from tests.mtgjson import mtgjson_testcase
 
@@ -30,14 +30,14 @@ class CsvSerializerTest(mtgjson_testcase.MtgJsonTestCase):
             'copies',
             'foils',
         ]
-        self.assertEqual(expected, csv_serializer.CSV_HEADER)
+        self.assertEqual(expected, csv.CSV_HEADER)
 
     def test_row_from_printing(self):
         # Setup
         self.printing.counts[models.CountTypes.copies] = 3
         self.printing.counts[models.CountTypes.foils] = 5
         # Execute
-        csv_row = csv_serializer.row_from_printing(self.printing)
+        csv_row = csv.row_from_printing(self.printing)
         # Verify
         expected = {
             'set': 'MMA',
@@ -52,7 +52,7 @@ class CsvSerializerTest(mtgjson_testcase.MtgJsonTestCase):
 
     def test_rows_from_collection(self):
         # Execute
-        row_generator = csv_serializer.csv_rows_from_collection(self.collection)
+        row_generator = csv.csv_rows_from_collection(self.collection)
         # Verify
         rows = list(row_generator)
         expected = [
@@ -77,7 +77,7 @@ class CsvSerializerTest(mtgjson_testcase.MtgJsonTestCase):
         # Setup
         self.printing.counts[models.CountTypes.copies] = 1
         self.printing.counts[models.CountTypes.foils] = 12
-        serializer = csv_serializer.MtgCsvSerializer(self.collection)
+        serializer = csv.MtgCsvSerializer(self.collection)
         with tempfile.TemporaryDirectory() as tmpdirname:
             csvfilename = os.path.join(tmpdirname, 'outfile.csv')
 
@@ -103,7 +103,7 @@ class CsvSerializerTest(mtgjson_testcase.MtgJsonTestCase):
                 'MMA,Thallid,167,370352,'
                 'fc46a4b72d216117a352f59217a84d0baeaaacb7,3,72\n')
             csvfile.flush()
-            serializer = csv_serializer.MtgCsvSerializer(self.collection)
+            serializer = csv.MtgCsvSerializer(self.collection)
 
             # Execute
             serializer.read_from_file(csvfile.name)

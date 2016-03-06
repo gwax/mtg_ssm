@@ -1,4 +1,4 @@
-"""Tests for mtg_ssm.serialization.xlsx_serializer."""
+"""Tests for mtg_ssm.serialization.xlsx."""
 
 import datetime as dt
 import os
@@ -10,7 +10,7 @@ import openpyxl
 from mtg_ssm.mtg import collection
 from mtg_ssm.mtg import models
 from mtg_ssm.serialization import interface
-from mtg_ssm.serialization import xlsx_serializer
+from mtg_ssm.serialization import xlsx
 
 from tests.mtgjson import mtgjson_testcase
 
@@ -26,7 +26,7 @@ class XlsxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
         book = openpyxl.Workbook()
         sheet = book.create_sheet()
         # Execute
-        xlsx_serializer.create_all_sets(sheet, self.collection)
+        xlsx.create_all_sets(sheet, self.collection)
         # Verify
         rows = [[cell.value for cell in row] for row in sheet.rows]
         expected = [
@@ -62,7 +62,7 @@ class XlsxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
             self.collection.id_to_printing[pid] for pid in fem_thallid_ids]
         fem_thallids.sort(key=lambda p: p.multiverseid)
         # Execute
-        haverefs = xlsx_serializer.create_haverefs(fem_thallids)
+        haverefs = xlsx.create_haverefs(fem_thallids)
         # Verify
         expected = "'FEM'!A2+'FEM'!A3+'FEM'!A4+'FEM'!A5"
         self.assertEqual(expected, haverefs)
@@ -72,7 +72,7 @@ class XlsxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
         lea_forest = self.collection.id_to_printing[
             '5ede9781b0c5d157c28a15c3153a455d7d6180fa']
         # Execute
-        print_refs = xlsx_serializer.get_other_print_references(lea_forest)
+        print_refs = xlsx.get_other_print_references(lea_forest)
         # Verify
         self.assertIsNone(print_refs)
 
@@ -81,7 +81,7 @@ class XlsxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
         rhox = self.collection.id_to_printing[
             '536d407161fa03eddee7da0e823c2042a8fa0262']
         # Execute
-        print_refs = xlsx_serializer.get_other_print_references(rhox)
+        print_refs = xlsx.get_other_print_references(rhox)
         # Verify
         self.assertIsNone(print_refs)
 
@@ -90,7 +90,7 @@ class XlsxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
         lea_dark_rit = self.collection.id_to_printing[
             'fff0b8e8fea06ee1ac5c35f048a0a459b1222673']
         # Execute
-        print_refs = xlsx_serializer.get_other_print_references(lea_dark_rit)
+        print_refs = xlsx.get_other_print_references(lea_dark_rit)
         # Verify
         expected = (
             '=IF(\'ICE\'!A2>0,"ICE: "&\'ICE\'!A2&", ","")'
@@ -103,7 +103,7 @@ class XlsxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
             'fc46a4b72d216117a352f59217a84d0baeaaacb7']
 
         # Execute
-        print_refs = xlsx_serializer.get_other_print_references(mma_thallid)
+        print_refs = xlsx.get_other_print_references(mma_thallid)
 
         # Verify
         expected = (
@@ -129,7 +129,7 @@ class XlsxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
         sheet = book.create_sheet()
 
         # Execute
-        xlsx_serializer.create_set_sheet(sheet, ice_age)
+        xlsx.create_set_sheet(sheet, ice_age)
 
         # Verify
         rows = [[cell.value for cell in row] for row in sheet.rows]
@@ -151,7 +151,7 @@ class XlsxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
             '536d407161fa03eddee7da0e823c2042a8fa0262']
         printing.counts[models.CountTypes.copies] = 7
         printing.counts[models.CountTypes.foils] = 12
-        serializer = xlsx_serializer.MtgXlsxSerializer(self.collection)
+        serializer = xlsx.MtgXlsxSerializer(self.collection)
         with tempfile.TemporaryDirectory() as tmpdirname:
             xlsxfilename = os.path.join(tmpdirname, 'outfile.xlsx')
 
@@ -193,7 +193,7 @@ class XlsxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
         sheet.append(['A', 'B', 'C'])
         sheet.append([1, 'B', '=5+7'])
         # Execute
-        row_generator = xlsx_serializer.counts_from_sheet(sheet)
+        row_generator = xlsx.counts_from_sheet(sheet)
         # Verify
         rows = list(row_generator)
         expected = [
@@ -203,7 +203,7 @@ class XlsxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
 
     def test_read_from_file_bad_set(self):
         # Setup
-        serializer = xlsx_serializer.MtgXlsxSerializer(self.collection)
+        serializer = xlsx.MtgXlsxSerializer(self.collection)
         workbook = openpyxl.Workbook()
         workbook['Sheet'].title = 'BADSET'
         with tempfile.TemporaryDirectory() as tmpdirname:
@@ -216,7 +216,7 @@ class XlsxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
 
     def test_read_from_file(self):
         # Setup
-        serializer = xlsx_serializer.MtgXlsxSerializer(self.collection)
+        serializer = xlsx.MtgXlsxSerializer(self.collection)
         workbook = openpyxl.Workbook()
         sheet = workbook['Sheet']
         sheet.title = 'S00'

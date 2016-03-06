@@ -5,7 +5,7 @@ import collections
 import json
 import os
 
-from mtg_ssm.mtgjson import downloader
+from mtg_ssm import mtgjson
 
 TEST_DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
 DATA_DIR = os.path.join(TEST_DATA_DIR, 'source_data')
@@ -34,9 +34,9 @@ INCLUDED = {
 def main():
     """Filter source mtgjson data and dump testdata."""
     print('Fetching mtgjson data.')
-    downloader.fetch_mtgjson(DATA_DIR)
+    mtgjson.fetch_mtgjson(DATA_DIR)
     print('Reading mtgjson data.')
-    mtg_data = downloader.read_mtgjson(DATA_DIR)
+    mtg_data = mtgjson.read_mtgjson(DATA_DIR)
 
     print('Generating testdata.')
     testdata = collections.OrderedDict()
