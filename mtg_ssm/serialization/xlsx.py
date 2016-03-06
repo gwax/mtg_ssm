@@ -196,7 +196,7 @@ class MtgXlsxSerializer(interface.MtgSsmSerializer):
         workbook = openpyxl.load_workbook(filename=filename, read_only=True)
         for sheet in workbook.worksheets:
             if sheet.title not in self.collection.code_to_card_set:
-                if sheet.title == 'All Sets':
+                if sheet.title in ['Sets', 'All Sets']:
                     continue
                 raise interface.DeserializationError(
                     'No known set with code {}'.format(sheet.title))
