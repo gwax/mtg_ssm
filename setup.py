@@ -5,8 +5,8 @@ import sys
 import setuptools
 
 
-if sys.version_info < (3, 2):
-    raise Exception('Python version < 3.2 are not supported.')
+if sys.version_info < (3, 3):
+    raise Exception('Python version < 3.3 are not supported.')
 
 
 # Get version information without importing the package

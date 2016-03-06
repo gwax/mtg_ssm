@@ -12,8 +12,6 @@ matrix:
       env: TEST_SUITE=test
     - python: 3.3
       env: TEST_SUITE=test
-    - python: 3.2
-      env: TEST_SUITE=test
 
 before_install:
   - pip install -U pip
