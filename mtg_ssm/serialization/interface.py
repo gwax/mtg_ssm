@@ -1,6 +1,8 @@
 """Interface definition for serializers."""
 
 import abc
+import collections
+import os
 from typing import Any, Dict
 
 from mtg_ssm.mtg import collection
@@ -9,6 +11,10 @@ from mtg_ssm.mtg import models
 
 class Error(Exception):
     """Base error for serializers."""
+
+
+class InvalidExtensionOrFormat(Error):
+    """Raised if an invalid extension or format is provided."""
 
 
 class DeserializationError(Error):
@@ -60,13 +66,21 @@ def coerce_counts(counts_dict):
 class MtgSsmSerializer(metaclass=abc.ABCMeta):
     """Abstract interface for a mtg ssm serializer."""
 
+    _format_to_serializer = None
+    _extension_to_serializer = None
+
     def __init__(self, coll: collection.Collection):
         self.collection = coll
 
     @property
     @abc.abstractmethod
     def extension(self) -> str:
-        """File extensions handled by this serializer."""
+        """The extension this serializer is authoritative over."""
+
+    @property
+    @abc.abstractmethod
+    def format(self) -> str:
+        """The format name for this serializer."""
 
     @abc.abstractmethod
     def write_to_file(self, filename: str) -> None:
@@ -104,3 +118,42 @@ class MtgSsmSerializer(metaclass=abc.ABCMeta):
             if count:
                 existing = printing.counts.get(counttype, 0)
                 printing.counts[counttype] = existing + count
+
+    @classmethod
+    def _register_subclasses(cls):
+        """Register formats and extensions for all subclasses."""
+        cls._format_to_serializer = {}
+        cls._extension_to_serializer = {}
+        subclasses = collections.deque(cls.__subclasses__())
+        while subclasses:
+            subclass = subclasses.popleft()
+            if subclass.format is not None:
+                cls._format_to_serializer[subclass.format] = subclass
+            if subclass.extension is not None:
+                cls._extension_to_serializer[subclass.extension] = subclass
+            subclasses.extend(subclass.__subclasses__())
+
+    @classmethod
+    def all_formats(cls):
+        """List of all valid serializer formats."""
+        if cls._format_to_serializer is None:
+            cls._register_subclasses()
+        formats = ['auto']
+        formats.extend(cls._format_to_serializer)
+        return formats
+
+    @classmethod
+    def by_extension_and_format(cls, extension: str, ser_format: str):
+        """Get the appropriate serialzer for a file."""
+        if cls._format_to_serializer is None:
+            cls._register_subclasses()
+        if ser_format == 'auto':
+            serializer = cls._extension_to_serializer.get(extension.lstrip('.'))
+        else:
+            serializer = cls._format_to_serializer.get(ser_format)
+
+        if serializer is None:
+            raise InvalidExtensionOrFormat(
+                'Cannot find serializer for format: %s and extension %s' % (
+                    ser_format, extension))
+        return serializer

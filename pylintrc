@@ -19,6 +19,12 @@ no-docstring-rgx=__.*__|test_.*|.*Test|setUp.*|tearDown.*
 # Maximum number of characters on a single line.
 max-line-length=80
 
+[TYPECHECK]
+# List of members which are set dynamically and missed by pylint inference
+# system, and so shouldn't trigger E0201 when accessed. Python regular
+# expressions are accepted.
+generated-members=__subclasses__
+
 [VARIABLES]
 # A regular expression matching the name of dummy variables (i.e. expectedly
 # not used).

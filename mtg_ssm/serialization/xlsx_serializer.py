@@ -175,6 +175,7 @@ def counts_from_sheet(sheet):
 class MtgXlsxSerializer(interface.MtgSsmSerializer):
     """MtgSsmSerializer for reading and writing xlsx files."""
 
+    format = 'xlsx'
     extension = 'xlsx'
 
     def write_to_file(self, filename: str) -> None:

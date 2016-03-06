@@ -1,5 +1,7 @@
 """Tests for mtg_ssm.serialization.interface.py"""
 
+import unittest
+
 from mtg_ssm.mtg import collection
 from mtg_ssm.mtg import models
 from mtg_ssm.serialization import interface
@@ -10,9 +12,51 @@ from tests.mtgjson import mtgjson_testcase
 class StubSerializer(interface.MtgSsmSerializer):
     """Stub serializer for testing purposes."""
 
+    format = None
     extension = None
     write_to_file = None
     read_from_file = None
+
+
+class SubclassRegistrationTest(unittest.TestCase):
+
+    def test_all_formats(self):
+        all_formats = interface.MtgSsmSerializer.all_formats()
+        expected = ['auto', 'csv', 'xlsx']
+        self.assertCountEqual(expected, all_formats)
+        self.assertEqual('auto', expected[0])
+
+    def test_auto_csv(self):
+        serializer_class = interface.MtgSsmSerializer.by_extension_and_format(
+            '.csv', 'auto')
+        self.assertIsInstance(serializer_class, type)
+        self.assertEqual('MtgCsvSerializer', serializer_class.__name__)
+
+    def test_manual_csv(self):
+        serializer_class = interface.MtgSsmSerializer.by_extension_and_format(
+            None, 'csv')
+        self.assertIsInstance(serializer_class, type)
+        self.assertEqual('MtgCsvSerializer', serializer_class.__name__)
+
+    def test_auto_xlsx(self):
+        serializer_class = interface.MtgSsmSerializer.by_extension_and_format(
+            '.xlsx', 'auto')
+        self.assertIsInstance(serializer_class, type)
+        self.assertEqual('MtgXlsxSerializer', serializer_class.__name__)
+
+    def test_manual_xlsx(self):
+        serializer_class = interface.MtgSsmSerializer.by_extension_and_format(
+            None, 'xlsx')
+        self.assertIsInstance(serializer_class, type)
+        self.assertEqual('MtgXlsxSerializer', serializer_class.__name__)
+
+    def test_unknown_auto(self):
+        with self.assertRaises(interface.InvalidExtensionOrFormat):
+            interface.MtgSsmSerializer.by_extension_and_format('', 'auto')
+
+    def test_unknown_format(self):
+        with self.assertRaises(interface.InvalidExtensionOrFormat):
+            interface.MtgSsmSerializer.by_extension_and_format(None, 'foo')
 
 
 class LoadCountsTest(mtgjson_testcase.MtgJsonTestCase):

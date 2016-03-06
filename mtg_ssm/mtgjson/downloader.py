@@ -14,12 +14,12 @@ VERSION_FILENAME = 'version-full.json'
 ALLSETS_FILENAME = 'AllSets.json.zip'
 
 
-class DownloadError(Exception):
+class Error(Exception):
+    """Base error class for this module."""
+
+
+class DownloadError(Error):
     """Raised if the downloader fails to fetch a file."""
-
-
-class VersionError(Exception):
-    """Raised if the remote version is newer than the max supported version."""
 
 
 def fetch_mtgjson(data_folder):
@@ -44,6 +44,7 @@ def fetch_mtgjson(data_folder):
     if local_version >= remote_version:
         return False
 
+    print('Downloading mtgjson data.')
     if not os.path.exists(data_folder):
         os.makedirs(data_folder)
     allsets_filename = os.path.join(data_folder, ALLSETS_FILENAME)

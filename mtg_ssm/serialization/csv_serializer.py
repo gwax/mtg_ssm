@@ -39,6 +39,7 @@ def csv_rows_from_collection(collection):
 class MtgCsvSerializer(interface.MtgSsmSerializer):
     """MtgSsmSerializer for reading and writing csv files."""
 
+    format = 'csv'
     extension = 'csv'
 
     def write_to_file(self, filename: str) -> None:
