@@ -111,7 +111,7 @@ class ProcessFilesTest(mtgjson_testcase.MtgJsonTestCase):
                 'infile.csv',
                 'infile.csv.bak-20150628_000000',
             ]
-            self.assertEqual(expected, files)
+            self.assertCountEqual(expected, files)
 
             with open(infilename, 'r') as outfile:
                 outfiledata = outfile.readlines()
