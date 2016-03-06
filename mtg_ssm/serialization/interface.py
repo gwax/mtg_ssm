@@ -50,14 +50,14 @@ def coerce_counts(counts_dict):
     if 'multiverseid' in counts_dict:
         try:
             counts_dict['multiverseid'] = int(counts_dict['multiverseid'])
-        except TypeError:
+        except (TypeError, ValueError):
             pass
     for counttype in models.CountTypes:
         countname = counttype.name
         if countname in counts_dict:
             try:
                 counts_dict[countname] = int(counts_dict[countname])
-            except TypeError:
+            except (TypeError, ValueError):
                 pass
     return counts_dict
 

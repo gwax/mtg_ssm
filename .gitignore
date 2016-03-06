@@ -1,7 +1,6 @@
 # Database files
 /*.csv
-/*.sqlite
-/*.sqlite-journal
+/*.csv.bak*
 /*.xlsx
 /*.xlsx.bak*
 
