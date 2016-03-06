@@ -126,16 +126,16 @@ class FindPrintingTest(mtgjson_testcase.MtgJsonTestCase):
     def test_not_found(self):
         # Execute
         printing = interface.find_printing(
-            coll=self.collection, set_code=None, name=None, set_number=None,
-            multiverseid=None)
+            coll=self.collection, set_code='foo', name='bar', set_number='baz',
+            multiverseid='quux')
         # Verify
         self.assertIsNone(printing)
 
     def test_set_and_name(self):
         # Execute
         printing = interface.find_printing(
-            coll=self.collection, set_code='S00', name='Rhox', set_number=None,
-            multiverseid=None)
+            coll=self.collection, set_code='S00', name='Rhox', set_number='foo',
+            multiverseid='bar')
         # Verify
         self.assertEqual(
             '536d407161fa03eddee7da0e823c2042a8fa0262', printing.id_)
@@ -152,7 +152,7 @@ class FindPrintingTest(mtgjson_testcase.MtgJsonTestCase):
         # Execute
         printing = interface.find_printing(
             coll=self.collection, set_code='pMGD', name="Black Sun's Zenith",
-            set_number='7', multiverseid=None)
+            set_number='7', multiverseid='foo')
         # Verify
         self.assertEqual(
             '6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc', printing.id_)
@@ -161,7 +161,7 @@ class FindPrintingTest(mtgjson_testcase.MtgJsonTestCase):
         # Execute
         printing = interface.find_printing(
             coll=self.collection, set_code='LEA', name='Forest',
-            set_number=None, multiverseid=288)
+            set_number='foo', multiverseid=288)
         # Verify
         self.assertEqual(
             '5ede9781b0c5d157c28a15c3153a455d7d6180fa', printing.id_)
@@ -175,18 +175,18 @@ class FindPrintingTest(mtgjson_testcase.MtgJsonTestCase):
         self.assertEqual(
             '958ae1416f8f6287115ccd7c5c61f2415a313546', printing.id_)
 
-    def test_none_set(self):
+    def test_bad_set_code(self):
         # Execute
         printing = interface.find_printing(
-            coll=self.collection, set_code=None, name='Abattoir Ghoul',
+            coll=self.collection, set_code='foo', name='Abattoir Ghoul',
             set_number='85', multiverseid=222911)
         # Verify
         self.assertIsNone(printing)
 
-    def test_none_name(self):
+    def test_bad_name(self):
         # Execute
         printing = interface.find_printing(
-            coll=self.collection, set_code='ISD', name=None, set_number='85',
+            coll=self.collection, set_code='ISD', name='foo', set_number='85',
             multiverseid=222911)
         # Verify
         self.assertIsNone(printing)
