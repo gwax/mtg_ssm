@@ -38,31 +38,31 @@ mtg-ssm --help
 For first time use, you will want to create an empty spreadsheet with card data:
 
 ```bash
-mtg-ssm collection.xlsx create
+mtg-ssm collection.xlsx
 ```
-In the future, when new sets are released, you can update your spreadsheet
-with new cards:
+
+In the future, when new sets are released, running the same command will update
+your collection spreadsheet while keeping existing counts:
 
 ```bash
-mtg-ssm collection.xlsx update
+mtg-ssm collection.xlsx
 ```
 
 ## Existing collections
 
 If you already have your cards in another collection store, you might want to
-import that collection into your card database.
+import that collection into your card spreadsheet.
 
 First create an example csv file:
 
 ```bash
-mtg-ssm collection.xlsx create
-mtg-ssm collection.xlsx export collection.csv.example
+mtg-ssm --format csv collection.csv.example
 ```
 
-Then create a matching csv and import into your database:
+Then modify the template to match your counts and import into your spreadsheet:
 
 ```bash
-mtg-ssm collection.xlsx import collection.csv
+mtg-ssm collection.xlsx collection.csv
 ```
 
 # In development

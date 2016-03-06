@@ -5,8 +5,8 @@ import sys
 import setuptools
 
 
-if sys.version_info < (3, 4):
-    raise Exception('Python version < 3.4 are not supported.')
+if sys.version_info < (3, 3):
+    raise Exception('Python version < 3.3 are not supported.')
 
 
 # Get version information without importing the package
@@ -18,6 +18,11 @@ SHORT_DESCRIPTION = (
 LONG_DESCRIPTION = open('DESCRIPTION.rst', 'r').read()
 
 DEPENDENCIES = [l.strip() for l in open('requirements.txt', 'r')]
+
+if sys.version_info < (3, 5):
+    DEPENDENCIES.append('typing>=3.5.0.1')
+if sys.version_info < (3, 4):
+    DEPENDENCIES.append('enum34>=1.1.2')
 
 CLASSIFIERS = [
     'Development Status :: 4 - Beta',
@@ -32,6 +37,7 @@ CLASSIFIERS = [
     'Programming Language :: Python',
     'Programming Language :: Python :: 3',
     'Programming Language :: Python :: 3 :: Only',
+    'Programming Language :: Python :: 3.3',
     'Programming Language :: Python :: 3.4',
     'Programming Language :: Python :: 3.5',
     'Topic :: Games/Entertainment',
