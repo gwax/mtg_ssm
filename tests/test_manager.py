@@ -22,6 +22,8 @@ class GetArgsTest(unittest.TestCase):
         expected = ap.Namespace(
             collection='testfilename',
             format='auto',
+            imports=[],
+            import_format='auto',
             data_path=mock.ANY,
             include_online_only=False,
             profile_stats=False)
@@ -30,14 +32,29 @@ class GetArgsTest(unittest.TestCase):
     def test_non_default(self):
         cmdline = (
             '--data_path=/foo --include_online_only --profile_stats '
-            '--format csv testfilename')
+            '--format csv --import_format xlsx testfilename testfilename2')
         args = manager.get_args(args=cmdline.split())
         expected = ap.Namespace(
             collection='testfilename',
             format='csv',
+            imports=['testfilename2'],
+            import_format='xlsx',
             data_path='/foo',
             include_online_only=True,
             profile_stats=True)
+        self.assertEqual(expected, args)
+
+    def test_multiple_imports(self):
+        cmdline = 'testfilename testfilename2 testfilename3'
+        args = manager.get_args(args=cmdline.split())
+        expected = ap.Namespace(
+            collection='testfilename',
+            format='auto',
+            imports=['testfilename2', 'testfilename3'],
+            import_format='auto',
+            data_path=mock.ANY,
+            include_online_only=False,
+            profile_stats=False)
         self.assertEqual(expected, args)
 
 
@@ -70,6 +87,8 @@ class ProcessFilesTest(mtgjson_testcase.MtgJsonTestCase):
             args = ap.Namespace(
                 collection=outfilename,
                 format='auto',
+                imports=[],
+                import_format='auto',
                 data_path=mock.sentinel.data_path,
                 include_online_only=mock.sentinel.include_online_only)
 
@@ -99,6 +118,8 @@ class ProcessFilesTest(mtgjson_testcase.MtgJsonTestCase):
             args = ap.Namespace(
                 collection=infilename,
                 format='auto',
+                imports=[],
+                import_format='auto',
                 data_path=mock.sentinel.data_path,
                 include_online_only=mock.sentinel.include_online_only)
 
@@ -129,3 +150,92 @@ class ProcessFilesTest(mtgjson_testcase.MtgJsonTestCase):
             'fc46a4b72d216117a352f59217a84d0baeaaacb7,4,8\n',
         ]
         self.assertEqual(bakexpected, bakfiledata)
+
+    def test_import(self):
+        # Setup
+        with tf.TemporaryDirectory() as tmpdirname:
+            outfilename = os.path.join(tmpdirname, 'outfile.csv')
+            importname = os.path.join(tmpdirname, 'import.csv')
+            with open(importname, 'w') as importfile:
+                importfile.write(
+                    'id,copies,foils\n'
+                    'fc46a4b72d216117a352f59217a84d0baeaaacb7,4,8\n')
+
+            args = ap.Namespace(
+                collection=outfilename,
+                format='auto',
+                imports=[importname],
+                import_format='auto',
+                data_path=mock.sentinel.data_path,
+                include_online_only=mock.sentinel.include_online_only)
+
+            # Execute
+            manager.process_files(args)
+
+            # Verify
+            files = os.listdir(tmpdirname)
+            expected = [
+                'import.csv',
+                'outfile.csv',
+            ]
+            self.assertCountEqual(expected, files)
+
+            with open(outfilename, 'r') as outfile:
+                outfiledata = outfile.readlines()
+            with open(importname, 'r') as importfile:
+                importdata = importfile.readlines()
+        outexpected = [
+            # pylint: disable=line-too-long
+            'set,name,number,multiverseid,id,copies,foils\n',
+            'pMGD,Black Sun\'s Zenith,7,,6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc,,\n',
+            'MMA,Thallid,167,370352,fc46a4b72d216117a352f59217a84d0baeaaacb7,4,8\n',
+        ]
+        self.assertEqual(outexpected, outfiledata)
+        importexpected = [
+            'id,copies,foils\n',
+            'fc46a4b72d216117a352f59217a84d0baeaaacb7,4,8\n',
+        ]
+        self.assertEqual(importexpected, importdata)
+
+    def test_multiple_import(self):
+        # Setup
+        with tf.TemporaryDirectory() as tmpdirname:
+            outfilename = os.path.join(tmpdirname, 'outfile.csv')
+            importname1 = os.path.join(tmpdirname, 'import1.csv')
+            importname2 = os.path.join(tmpdirname, 'import2.csv')
+            for filename in [outfilename, importname1, importname2]:
+                with open(filename, 'w') as inputfile:
+                    inputfile.write(
+                        'id,copies,foils\n'
+                        'fc46a4b72d216117a352f59217a84d0baeaaacb7,1,3\n')
+
+            args = ap.Namespace(
+                collection=outfilename,
+                format='auto',
+                imports=[importname1, importname2],
+                import_format='auto',
+                data_path=mock.sentinel.data_path,
+                include_online_only=mock.sentinel.include_online_only)
+
+            # Execute
+            manager.process_files(args)
+
+            # Verify
+            files = os.listdir(tmpdirname)
+            expected = [
+                'outfile.csv',
+                'outfile.csv.bak-20150628_000000',
+                'import1.csv',
+                'import2.csv',
+            ]
+            self.assertCountEqual(expected, files)
+
+            with open(outfilename, 'r') as outfile:
+                outfiledata = outfile.readlines()
+        outexpected = [
+            # pylint: disable=line-too-long
+            'set,name,number,multiverseid,id,copies,foils\n',
+            'pMGD,Black Sun\'s Zenith,7,,6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc,,\n',
+            'MMA,Thallid,167,370352,fc46a4b72d216117a352f59217a84d0baeaaacb7,3,9\n',
+        ]
+        self.assertEqual(outexpected, outfiledata)

@@ -37,12 +37,20 @@ def get_args(args=None):
 
     format_choices = ser_interface.MtgSsmSerializer.all_formats()
     parser.add_argument(
-        '-f', '--format', default='auto', choices=format_choices,
+        '--format', default='auto', choices=format_choices,
         help='File format for collection, auto will guess from the '
         'file extension.')
-
     parser.add_argument(
         'collection', help='Sheet to update.')
+
+    parser.add_argument(
+        '--import_format', default='auto', choices=format_choices,
+        help='File format for the import file, if provided.')
+    parser.add_argument(
+        'imports', metavar='import', nargs='*',
+        help='Optional files to read additional counts from. You may also '
+        'use this to convert from one format to another. Note: counts will '
+        'be added to collection, not replaced.')
 
     return parser.parse_args(args=args)
 
@@ -58,11 +66,19 @@ def build_collection(data_path, include_online_only):
 
 def process_files(args):
     """Run the requested operations."""
+    coll = build_collection(args.data_path, args.include_online_only)
+
+    for import_file in args.imports:
+        _, ext = os.path.splitext(import_file)
+        import_serializer_class = ser_interface.MtgSsmSerializer \
+            .by_extension_and_format(ext, args.import_format)
+        import_serializer = import_serializer_class(coll)
+        print('Importing counts from import: %s' % import_file)
+        import_serializer.read_from_file(import_file)
+
     _, ext = os.path.splitext(args.collection)
     serializer_class = ser_interface.MtgSsmSerializer.by_extension_and_format(
         ext, args.format)
-
-    coll = build_collection(args.data_path, args.include_online_only)
     serializer = serializer_class(coll)
 
     if os.path.exists(args.collection):
