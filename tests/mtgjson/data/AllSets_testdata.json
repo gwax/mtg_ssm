@@ -727,6 +727,91 @@
       }
     ]
   },
+  "PLC": {
+    "name": "Planar Chaos",
+    "code": "PLC",
+    "magicCardsInfoCode": "pc",
+    "releaseDate": "2007-02-02",
+    "border": "black",
+    "type": "expansion",
+    "block": "Time Spiral",
+    "booster": [
+      "rare",
+      "uncommon",
+      "uncommon",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "timeshifted common",
+      "timeshifted common",
+      "timeshifted common",
+      [
+        "timeshifted rare",
+        "timeshifted uncommon"
+      ]
+    ],
+    "cards": [
+      {
+        "artist": "John Avon",
+        "cmc": 2,
+        "colorIdentity": [
+          "R"
+        ],
+        "colors": [
+          "Red"
+        ],
+        "id": "c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae",
+        "imageName": "boombust",
+        "layout": "split",
+        "manaCost": "{1}{R}",
+        "multiverseid": 126218,
+        "name": "Boom",
+        "names": [
+          "Boom",
+          "Bust"
+        ],
+        "number": "112a",
+        "rarity": "Rare",
+        "text": "Destroy target land you control and target land you don't control.",
+        "type": "Sorcery",
+        "types": [
+          "Sorcery"
+        ]
+      },
+      {
+        "artist": "John Avon",
+        "cmc": 6,
+        "colorIdentity": [
+          "R"
+        ],
+        "colors": [
+          "Red"
+        ],
+        "id": "2eecf5001fe332f5dadf4d87665bcf182c5f24ee",
+        "imageName": "boombust",
+        "layout": "split",
+        "manaCost": "{5}{R}",
+        "multiverseid": 126218,
+        "name": "Bust",
+        "names": [
+          "Boom",
+          "Bust"
+        ],
+        "number": "112b",
+        "rarity": "Rare",
+        "text": "Destroy all lands.",
+        "type": "Sorcery",
+        "types": [
+          "Sorcery"
+        ]
+      }
+    ]
+  },
   "pMGD": {
     "name": "Magic Game Day",
     "code": "pMGD",
