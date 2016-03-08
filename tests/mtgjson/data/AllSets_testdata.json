@@ -727,6 +727,103 @@
       }
     ]
   },
+  "CHK": {
+    "name": "Champions of Kamigawa",
+    "code": "CHK",
+    "magicCardsInfoCode": "chk",
+    "releaseDate": "2004-10-01",
+    "border": "black",
+    "type": "expansion",
+    "block": "Kamigawa",
+    "booster": [
+      "rare",
+      "uncommon",
+      "uncommon",
+      "uncommon",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common"
+    ],
+    "cards": [
+      {
+        "artist": "Mark Zug",
+        "cmc": 1,
+        "colorIdentity": [
+          "W"
+        ],
+        "colors": [
+          "White"
+        ],
+        "id": "5933bb74b618a4e4f61eb4b5b55b416c11affd11",
+        "imageName": "bushi tenderfoot",
+        "layout": "flip",
+        "manaCost": "{W}",
+        "multiverseid": 78600,
+        "name": "Bushi Tenderfoot",
+        "names": [
+          "Bushi Tenderfoot",
+          "Kenzo the Hardhearted"
+        ],
+        "number": "2a",
+        "power": "1",
+        "rarity": "Uncommon",
+        "subtypes": [
+          "Human",
+          "Soldier"
+        ],
+        "text": "When a creature dealt damage by Bushi Tenderfoot this turn dies, flip Bushi Tenderfoot.",
+        "toughness": "1",
+        "type": "Creature — Human Soldier",
+        "types": [
+          "Creature"
+        ]
+      },
+      {
+        "artist": "Mark Zug",
+        "cmc": 1,
+        "colorIdentity": [
+          "W"
+        ],
+        "colors": [
+          "White"
+        ],
+        "id": "b955500d1a3e0c4b36e3cbf6332c3bca4597eaee",
+        "imageName": "kenzo the hardhearted",
+        "layout": "flip",
+        "manaCost": "{W}",
+        "multiverseid": 78600,
+        "name": "Kenzo the Hardhearted",
+        "names": [
+          "Bushi Tenderfoot",
+          "Kenzo the Hardhearted"
+        ],
+        "number": "2b",
+        "power": "3",
+        "rarity": "Uncommon",
+        "subtypes": [
+          "Human",
+          "Samurai"
+        ],
+        "supertypes": [
+          "Legendary"
+        ],
+        "text": "Double strike; bushido 2 (Whenever this creature blocks or becomes blocked, it gets +2/+2 until end of turn.)",
+        "toughness": "4",
+        "type": "Legendary Creature — Human Samurai",
+        "types": [
+          "Creature"
+        ]
+      }
+    ]
+  },
   "PLC": {
     "name": "Planar Chaos",
     "code": "PLC",

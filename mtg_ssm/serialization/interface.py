@@ -29,9 +29,7 @@ def find_printing(coll, set_code, name, set_number, multiverseid):
         (set_code, name, None, None),
     ]
     for snnm_key in snnm_keys:
-        print(snnm_key)
         found_printings = coll.set_name_num_mv_to_printings.get(snnm_key, [])
-        print(found_printings)
         if len(found_printings) == 1:
             return found_printings[0]
 

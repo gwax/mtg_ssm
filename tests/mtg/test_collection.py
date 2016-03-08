@@ -71,6 +71,7 @@ class CollectionTest(mtgjson_testcase.MtgJsonTestCase):
             'PLS',
             'PLC',
             'OGW',
+            'CHK'
         }
         self.assertEqual(expected_set_codes, coll.code_to_card_set.keys())
 
@@ -96,6 +97,7 @@ class CollectionTest(mtgjson_testcase.MtgJsonTestCase):
             'PLS',
             'PLC',
             'OGW',
+            'CHK',
         }
         self.assertEqual(expected_set_codes, coll.code_to_card_set.keys())
 
