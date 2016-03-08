@@ -22,25 +22,18 @@ class DeserializationError(Error):
 
 def find_printing(coll, set_code, name, set_number, multiverseid):
     """Attempt to find a CardPrinting from given parameters."""
-    found_printings = coll.set_name_num_mv_to_printings.get(
-        (set_code, name, set_number, multiverseid), [])
-    if len(found_printings) == 1:
-        return found_printings[0]
-
-    found_printings = coll.set_name_mv_to_printings.get(
-        (set_code, name, multiverseid), [])
-    if len(found_printings) == 1:
-        return found_printings[0]
-
-    found_printings = coll.set_name_num_to_printings.get(
-        (set_code, name, set_number), [])
-    if len(found_printings) == 1:
-        return found_printings[0]
-
-    found_printings = coll.set_and_name_to_printings.get(
-        (set_code, name), [])
-    if len(found_printings) == 1:
-        return found_printings[0]
+    snnm_keys = [
+        (set_code, name, set_number, multiverseid),
+        (set_code, name, None, multiverseid),
+        (set_code, name, set_number, None),
+        (set_code, name, None, None),
+    ]
+    for snnm_key in snnm_keys:
+        print(snnm_key)
+        found_printings = coll.set_name_num_mv_to_printings.get(snnm_key, [])
+        print(found_printings)
+        if len(found_printings) == 1:
+            return found_printings[0]
 
     return None
 

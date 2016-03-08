@@ -31,6 +31,7 @@ class Collection:
     def __init__(self, mtg_json_data=None, include_online_only=False):
         self.name_to_card = {}
         self.code_to_card_set = {}
+        self.setname_to_card_set = {}
         self.id_to_printing = {}
 
         # Card Sets Index
@@ -40,9 +41,6 @@ class Collection:
         self.set_code_to_printings = None
         self.card_name_to_printings = None
         self.set_name_num_mv_to_printings = None
-        self.set_name_mv_to_printings = None
-        self.set_name_num_to_printings = None
-        self.set_and_name_to_printings = None
 
         if mtg_json_data is not None:
             self.load_mtg_json(mtg_json_data, include_online_only)
@@ -57,6 +55,7 @@ class Collection:
                 continue
 
             self.code_to_card_set[card_set.code] = card_set
+            self.setname_to_card_set[card_set.name] = card_set
 
             for card_data in set_data['cards']:
                 card = models.Card(self, card_data)
@@ -72,23 +71,21 @@ class Collection:
         self.set_code_to_printings = collections.defaultdict(list)
         self.card_name_to_printings = collections.defaultdict(list)
         self.set_name_num_mv_to_printings = collections.defaultdict(list)
-        self.set_name_mv_to_printings = collections.defaultdict(list)
-        self.set_name_num_to_printings = collections.defaultdict(list)
-        self.set_and_name_to_printings = collections.defaultdict(list)
 
         for printing in self.id_to_printing.values():
             self.set_code_to_printings[printing.set_code].append(printing)
             self.card_name_to_printings[printing.card_name].append(printing)
-            snnm = (printing.set_code, printing.card_name, printing.set_number,
-                    printing.multiverseid)
-            self.set_name_num_mv_to_printings[snnm].append(printing)
-            snm = (printing.set_code, printing.card_name,
-                   printing.multiverseid)
-            self.set_name_mv_to_printings[snm].append(printing)
-            snn = (printing.set_code, printing.card_name, printing.set_number)
-            self.set_name_num_to_printings[snn].append(printing)
-            san = (printing.set_code, printing.card_name)
-            self.set_and_name_to_printings[san].append(printing)
+            snnm_index_keys = {
+                (printing.set_code, printing.card_name, printing.set_number,
+                 printing.multiverseid),
+                (printing.set_code, printing.card_name, None,
+                 printing.multiverseid),
+                (printing.set_code, printing.card_name, printing.set_number,
+                 None),
+                (printing.set_code, printing.card_name, None, None),
+            }
+            for key in snnm_index_keys:
+                self.set_name_num_mv_to_printings[key].append(printing)
 
     def sort_indexes(self):
         """Sort the indexes."""
