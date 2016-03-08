@@ -29,6 +29,7 @@ INCLUDED = {
     'pMEI': {'Arena'},
     'PLS': {'Ertai, the Corrupted'},
     'PLC': {'Boom', 'Bust'},
+    'OGW': {'Wastes'},
 }
 
 

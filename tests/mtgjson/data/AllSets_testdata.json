@@ -1413,5 +1413,137 @@
         ]
       }
     ]
+  },
+  "OGW": {
+    "name": "Oath of the Gatewatch",
+    "code": "OGW",
+    "magicCardsInfoCode": "ogw",
+    "releaseDate": "2016-01-22",
+    "border": "black",
+    "type": "expansion",
+    "block": "Battle for Zendikar",
+    "booster": [
+      [
+        "rare",
+        "mythic rare"
+      ],
+      "uncommon",
+      "uncommon",
+      "uncommon",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "land",
+      "marketing"
+    ],
+    "translations": {
+      "pt": "Juramento das Sentinelas",
+      "es": "El juramento de los Guardianes",
+      "ru": "Клятва Стражей",
+      "ko": "관문수호대의 맹세",
+      "jp": "『ゲートウォッチの誓い』",
+      "it": "Giuramento dei Guardiani",
+      "de": "Eid der Wächter",
+      "fr": "Le serment des Sentinelles",
+      "zh-hant": "守護者誓約",
+      "zh-hans": "守护者誓约"
+    },
+    "cards": [
+      {
+        "artist": "Jason Felix",
+        "id": "68d4ca6db1b4f92aa306627cefa3d02137e4fa10",
+        "imageName": "wastes2",
+        "layout": "normal",
+        "multiverseid": 407693,
+        "name": "Wastes",
+        "number": "183",
+        "rarity": "Basic Land",
+        "supertypes": [
+          "Basic"
+        ],
+        "type": "Basic Land",
+        "types": [
+          "Land"
+        ],
+        "variations": [
+          407694,
+          407695,
+          407696
+        ]
+      },
+      {
+        "artist": "Jason Felix",
+        "id": "90a199d89b8723133c290be1c8fa99a13063fb05",
+        "imageName": "wastes1",
+        "layout": "normal",
+        "multiverseid": 407694,
+        "name": "Wastes",
+        "number": "183",
+        "rarity": "Basic Land",
+        "supertypes": [
+          "Basic"
+        ],
+        "type": "Basic Land",
+        "types": [
+          "Land"
+        ],
+        "variations": [
+          407693,
+          407695,
+          407696
+        ]
+      },
+      {
+        "artist": "Raymond Swanland",
+        "id": "84e8fe1ff78f9f447c6870dfd80a354d687f230e",
+        "imageName": "wastes4",
+        "layout": "normal",
+        "multiverseid": 407695,
+        "name": "Wastes",
+        "number": "184",
+        "rarity": "Basic Land",
+        "supertypes": [
+          "Basic"
+        ],
+        "type": "Basic Land",
+        "types": [
+          "Land"
+        ],
+        "variations": [
+          407693,
+          407694,
+          407696
+        ]
+      },
+      {
+        "artist": "Raymond Swanland",
+        "id": "9a1e2c33bbe0aed2a499e49036754b4e3aa5338d",
+        "imageName": "wastes3",
+        "layout": "normal",
+        "multiverseid": 407696,
+        "name": "Wastes",
+        "number": "184",
+        "rarity": "Basic Land",
+        "supertypes": [
+          "Basic"
+        ],
+        "type": "Basic Land",
+        "types": [
+          "Land"
+        ],
+        "variations": [
+          407693,
+          407694,
+          407695
+        ]
+      }
+    ]
   }
 }

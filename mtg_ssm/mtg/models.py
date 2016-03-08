@@ -9,12 +9,18 @@ VARIANT_CHARS = (string.ascii_letters + '★')
 
 class Card:
     """Model for storing card information."""
-    __slots__ = ('collection', 'name', 'strict_basic')
+    __slots__ = ('collection', 'name', 'layout', 'names')
 
     def __init__(self, collection, card_data):
         self.collection = collection
         self.name = card_data['name']
-        self.strict_basic = (card_data.get('supertypes') == ['Basic'])
+        self.layout = card_data['layout']
+        self.names = card_data.get('names', [self.name])
+
+    @property
+    def strict_basic(self):
+        """Is this card one of the five basic lands (not Snow or Wastes)."""
+        return self.name in ('Plains', 'Island', 'Swamp', 'Mountain', 'Forest')
 
     @property
     def printings(self):

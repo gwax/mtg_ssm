@@ -47,6 +47,7 @@ class XlsxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
             ['ISD', 'Innistrad', dt.datetime(2011, 9, 30), 'Innistrad', 'expansion', 6, '=COUNTIF(\'ISD\'!A:A,">0")', '=COUNTIF(\'ISD\'!A:A,">=4")', "=SUM('ISD'!A:A)"],
             ['PC2', 'Planechase 2012 Edition', dt.datetime(2012, 6, 1), None, 'planechase', 4, '=COUNTIF(\'PC2\'!A:A,">0")', '=COUNTIF(\'PC2\'!A:A,">=4")', "=SUM('PC2'!A:A)"],
             ['MMA', 'Modern Masters', dt.datetime(2013, 6, 7, 0, 0), None, 'reprint', 1, '=COUNTIF(\'MMA\'!A:A,">0")', '=COUNTIF(\'MMA\'!A:A,">=4")', "=SUM('MMA'!A:A)"],
+            ['OGW', 'Oath of the Gatewatch', dt.datetime(2016, 1, 22, 0, 0), 'Battle for Zendikar', 'expansion', 4, '=COUNTIF(\'OGW\'!A:A,">0")', '=COUNTIF(\'OGW\'!A:A,">=4")', "=SUM('OGW'!A:A)"],
         ]
         self.assertEqual(expected, rows)
         self.assertEqual('All Sets', sheet.title)
@@ -177,6 +178,7 @@ class XlsxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
             'ISD',
             'PC2',
             'MMA',
+            'OGW',
         ]
         self.assertEqual(expected_sheetnames, workbook.sheetnames)
 
