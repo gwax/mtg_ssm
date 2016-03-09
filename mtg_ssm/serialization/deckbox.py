@@ -120,7 +120,7 @@ class MtgDeckboxSerializer(interface.MtgSsmSerializer):
 
     def read_from_file(self, filename: str) -> None:
         """Read collection counts from deckbox csv file."""
-        with open(filename, 'r') as csv_file:
-            reader = csv.DictReader(csv_file)
+        with open(filename, 'r') as deckbox_file:
+            reader = csv.DictReader(deckbox_file)
             for row in reader:
                 self.load_counts(create_counts_row(self.collection, row))
