@@ -68,8 +68,6 @@ def rows_from_printing(printing):
         'Textless': None,
         'My Price': None,
     }
-    # Foil
-    # Count
     if name is not None:
         row_base['Name'] = name
         copies = printing.counts.get(models.CountTypes.copies, 0)
@@ -102,7 +100,7 @@ def create_counts_row(coll, deckbox_row):
     }
 
 
-class MtgDeckboxCsvSerializer(interface.MtgSsmSerializer):
+class MtgDeckboxSerializer(interface.MtgSsmSerializer):
     """MtgSsmSerializer for reading/writing deckbox compatible csv files."""
 
     format = 'deckbox'
