@@ -11,6 +11,7 @@ As a matter of convenience, you can store the created spreadsheet in
 Dropbox, Google Drive, or the like and access your collection from
 anywhere.
 
+
 # Installation
 
 mtg_ssm is available on PyPI so, if you have python (>=3.4) and pip installed
@@ -32,6 +33,7 @@ You can verify installation from the terminal by running:
 ```bash
 mtg-ssm --help
 ```
+
 
 # Usage
 
@@ -65,17 +67,13 @@ Then modify the template to match your counts and import into your spreadsheet:
 mtg-ssm collection.xlsx collection.csv
 ```
 
-# In development
-
-This tool is a work in progress. It is fully working now and I use it for
-tracking my own, personal collection, but it is somewhat tailored to my
-needs. There are, also, quite a few features that I would like to add and
-bits of code to cleanup (of course, every project always needs some code
-cleanup).
 
 # Contributions
 
 Pull requests are welcome and contributions are greatly appreciated.
+
+Issues can be reported via GitHub.
+
 
 # Acknowledgments
 
@@ -86,3 +84,30 @@ hobby since the early '90s.
 for anyone looking to build tools around magic card data. It is pretty much
 **THE** source for structured magic card data. Without MTG JSON this
 project would not have been possible.
+
+
+# Changelog
+
+
+
+## 1.2.0
+
+* Complete rework of the serialization architecture.
+* Rebuild of the manager cli.
+* CLI interface changes. See help for changes.
+
+## 1.1.0
+
+* Complete rework of the data model storage. Drop sqlite based data models in favor of custom classes and dict based indexes.
+
+## 1.0.2
+
+* Version bump MTGJSON support.
+
+## 1.0.1
+
+* Fixed some PyPI related issues.
+
+## 1.0.0
+
+* Initial stable release.
