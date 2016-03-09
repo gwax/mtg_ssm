@@ -3,6 +3,7 @@
 import os
 import tempfile
 import textwrap
+import unittest
 
 from mtg_ssm.mtg import collection
 from mtg_ssm.mtg import models
@@ -132,6 +133,21 @@ class DeckboxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
             },
         ]
         self.assertEqual(expected, rows)
+
+    @unittest.expectedFailure
+    def test_alt_art_ertai(self):
+        # Setup
+        ertai1 = self.collection.id_to_printing[
+            '08fcfee6a7c4eddcd44e43e918cbf9d479492fe7']
+        ertai2 = self.collection.id_to_printing[
+            '62ff415cafefac84a5bb7174cb7ef175c14625de']
+        ertai1.counts[models.CountTypes.foils] = 5
+        ertai2.counts[models.CountTypes.foils] = 5
+        # Execute
+        ertai1_rows = list(deckbox.rows_from_printing(ertai1))
+        ertai2_rows = list(deckbox.rows_from_printing(ertai2))
+        # Verify
+        self.assertNotEqual(ertai1_rows, ertai2_rows)
 
     def test_rows_from_collection(self):
         # Setup
