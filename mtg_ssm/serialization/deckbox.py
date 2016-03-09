@@ -73,10 +73,12 @@ def rows_from_printing(printing):
         copies = printing.counts.get(models.CountTypes.copies, 0)
         foils = printing.counts.get(models.CountTypes.foils, 0)
         if copies:
+            # yield {**row_base, 'Foil': None, 'Count': copies}
             copies_row = row_base.copy()
             copies_row.update({'Foil': None, 'Count': copies})
             yield copies_row
         if foils:
+            # yield {**row_base, 'Foil': 'foil', 'Count': foils}
             foils_row = row_base.copy()
             foils_row.update({'Foil': 'foil', 'Count': foils})
             yield foils_row
