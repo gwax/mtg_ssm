@@ -1,7 +1,20 @@
-mtg\_ssm - Magic: the Gathering Spreadsheet Manager
+mtg-ssm - Magic: the Gathering Spreadsheet Manager
 ===================================================
 
-|Build Status| |Coverage Status|
+.. image:: https://img.shields.io/coveralls/gwax/mtg_ssm.svg
+    :target: https://coveralls.io/r/gwax/mtg_ssm
+
+.. image:: https://img.shields.io/travis/gwax/mtg_ssm/master.svg
+    :target: https://travis-ci.org/gwax/mtg_ssm
+
+.. image:: https://img.shields.io/pypi/v/mtg-ssm.svg
+    :target: https://pypi.python.org/pypi/mtg-ssm/
+
+.. image:: https://img.shields.io/pypi/pyversions/mtg-ssm.svg
+    :target: https://pypi.python.org/pypi/mtg-ssm/
+
+.. image:: https://img.shields.io/pypi/dm/mtg-ssm.svg
+    :target: https://pypi.python.org/pypi/mtg-ssm/
 
 This is a tool for creating/updating user-friendly spreadsheets with
 Magic: the Gathering collection information. The tool can also
@@ -15,8 +28,8 @@ anywhere.
 Installation
 ============
 
-mtg\_ssm is available on PyPI so, if you have python (>=3.4) and pip
-installed on your system, you should be able to get mtg\_ssm by entering
+mtg-ssm is available on PyPI so, if you have python (>=3.3) and pip
+installed on your system, you should be able to get mtg-ssm by entering
 the following into a terminal:
 
 .. code:: bash
@@ -88,15 +101,13 @@ Pull requests are welcome and contributions are greatly appreciated.
 Acknowledgments
 ===============
 
--  `Wizards of the Coast <http://magic.wizards.com/>`__: For making
-   Magic: the Gathering and continuing to support it. Off and on, it's
-   been my favorite hobby since the early '90s.
--  `MTG JSON <http://mtgjson.com>`__: MTG JSON is an amazing resource
-   for anyone looking to build tools around magic card data. It is
-   pretty much **THE** source for structured magic card data. Without
-   MTG JSON this project would not have been possible.
+-  `Wizards of the Coast`_: For making Magic: the Gathering and continuing
+   to support it. Off and on, it's been my favorite hobby since the
+   early '90s.
+-  `MTG JSON`_: MTG JSON is an amazing resource for anyone looking to build
+   tools around magic card data. It is pretty much **THE** source for
+   structured magic card data. Without MTG JSON this project would not have
+   been possible.
 
-.. |Build Status| image:: https://travis-ci.org/gwax/mtg_ssm.svg?branch=master
-   :target: https://travis-ci.org/gwax/mtg_ssm
-.. |Coverage Status| image:: https://coveralls.io/repos/github/gwax/mtg_ssm/badge.svg?branch=master
-   :target: https://coveralls.io/github/gwax/mtg_ssm?branch=master
+.. _Wizards of the Coast: http://magic.wizards.com
+.. _MTG JSON: http://mtgjson.com
