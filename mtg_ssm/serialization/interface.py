@@ -20,8 +20,9 @@ class DeserializationError(Error):
     """Raised when there is an error reading counts from a file."""
 
 
-def find_printing(coll, set_code, name, set_number, multiverseid, strict):
+def find_printing(coll, set_code, name, set_number, multiverseid, strict=True):
     """Attempt to find a CardPrinting from given parameters."""
+    name = name or ''
     names = [name]
     if 'Ae' in name:
         names.append(name.replace('Ae', 'Æ'))

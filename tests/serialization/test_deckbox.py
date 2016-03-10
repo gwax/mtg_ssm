@@ -118,7 +118,7 @@ class DeckboxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
                 'Count': 5,
                 'Tradelist Count': 0,
                 'Name': 'Black Sun\'s Zenith',
-                'Edition': 'Magic Game Day',
+                'Edition': 'Magic Game Day Cards',
                 'Card Number': 7,
                 'Condition': 'Near Mint',
                 'Language': 'English',
@@ -148,9 +148,6 @@ class DeckboxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
         ertai2_rows = list(deckbox.rows_from_printing(ertai2))
         # Verify
         self.assertNotEqual(ertai1_rows, ertai2_rows)
-
-    # TODO: test duplicates from Arabian Nights, Antiquities, FEM, Chronicles,
-    #       Homelands, Alliances
 
     def test_rows_from_collection(self):
         # Setup
@@ -207,7 +204,7 @@ class DeckboxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
                 'Count': 11,
                 'Tradelist Count': 0,
                 'Name': 'Black Sun\'s Zenith',
-                'Edition': 'Magic Game Day',
+                'Edition': 'Magic Game Day Cards',
                 'Card Number': 7,
                 'Condition': 'Near Mint',
                 'Language': 'English',
@@ -275,7 +272,7 @@ class DeckboxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
         expected = textwrap.dedent("""\
             Count,Tradelist Count,Name,Edition,Card Number,Condition,Language,Foil,Signed,Artist Proof,Altered Art,Misprint,Promo,Textless,My Price
             1,0,Boom // Bust,Planar Chaos,112,Near Mint,English,,,,,,,,
-            3,0,Black Sun's Zenith,Magic Game Day,7,Near Mint,English,foil,,,,,promo,,
+            3,0,Black Sun's Zenith,Magic Game Day Cards,7,Near Mint,English,foil,,,,,promo,,
             """)
         self.assertEqual(expected, csvdata)
 
@@ -285,7 +282,7 @@ class DeckboxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
             csvfile.write(textwrap.dedent("""\
                 Count,Tradelist Count,Name,Edition,Card Number,Condition,Language,Foil,Signed,Artist Proof,Altered Art,Misprint,Promo,Textless,My Price
                 1,4,Boom // Bust,Planar Chaos,112,Near Mint,English,,,,,,,,
-                3,8,Black Sun's Zenith,Magic Game Day,7,Near Mint,English,foil,,,,,promo,,
+                3,8,Black Sun's Zenith,Magic Game Day Cards,7,Near Mint,English,foil,,,,,promo,,
                 """))
             csvfile.flush()
             serializer = deckbox.MtgDeckboxSerializer(self.collection)
