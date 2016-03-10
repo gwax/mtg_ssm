@@ -120,19 +120,12 @@ The following conversion issues are known to exist:
   of the art version when going back and forth.
 - Not all Clash Pack cards are available in mtg-ssm.
 
-In development
-==============
-
-This tool is a work in progress. It is fully working now and I use it
-for tracking my own, personal collection, but it is somewhat tailored to
-my needs. There are, also, quite a few features that I would like to add
-and bits of code to cleanup (of course, every project always needs some
-code cleanup).
-
 Contributions
 =============
 
 Pull requests are welcome and contributions are greatly appreciated.
+
+Issues can be reported via GitHub.
 
 Acknowledgments
 ===============
