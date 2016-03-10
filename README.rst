@@ -87,7 +87,38 @@ spreadsheet:
 Export / import to deckbox
 --------------------------
 
-TODO...
+If you already have your cards entered into `Deckbox`_, you can export a
+csv from deckbox and import the contents into a spreadsheet just as you might
+merge from an existing collection using the "deckbox" import format:
+
+.. _Deckbox: https://deckbox.org
+
+.. code:: bash
+
+  mtg-ssm --import_format collection.xlsx Inventory_username_2016.March.10.csv
+
+Alternatively, if you have your collection in a spreadsheet already and would
+like to load your data into deckbox to check prices or share with other people,
+just go the other direction.
+
+.. code:: bash
+
+  mtg-ssm --format inventory.csv collection.xlsx
+
+Deckbox Warning
+~~~~~~~~~~~~~~~
+
+MTG JSON, which we use for card data doesn't always map 1-to-1 to cards in
+Deckbox. This means that data can lose its granularity in going from one form
+to the other, or back.
+
+The following conversion issues are known to exist:
+
+- Sets that contain multiple versions of the same card (ex. Thallid in Fallen
+  Empires) may lose track of the specific version when going back and forth.
+- Alternate art cards (ex. Ertai, the Corrupted in Planeshift) may lose track
+  of the art version when going back and forth.
+- Not all Clash Pack cards are available in mtg-ssm.
 
 In development
 ==============
@@ -116,3 +147,42 @@ Acknowledgments
 
 .. _Wizards of the Coast: http://magic.wizards.com
 .. _MTG JSON: http://mtgjson.com
+
+
+Changelog
+=========
+
+1.2.x
+-----
+
+- Add support for deckbox.org import/export.
+
+1.2.0
+-----
+
+- Complete rework of the serialization architecture.
+- Rebuild of the manager cli.
+- Incompatible CLI interface changes. See help for new usage information.
+
+1.1.0
+-----
+
+- Complete rework of the data model storage. Drop sqlite based data models in
+  favor of custom classes and dict based indexes.
+- Switch to accepting all versions of MTGJSON instead of bumping for every
+  release.
+
+1.0.2
+-----
+
+- Version bump MTGJSON support.
+
+1.0.1
+-----
+
+Fixed some PyPI related issues.
+
+1.0.0
+-----
+
+* Initial stable release.
