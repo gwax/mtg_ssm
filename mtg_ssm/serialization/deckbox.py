@@ -5,15 +5,30 @@ import csv
 from mtg_ssm.mtg import models
 from mtg_ssm.serialization import interface
 
-DECKBOX_TO_MTGJSON_SETNAME = {
-    'Planechase 2012': 'Planechase 2012 Edition',
-    'Conspiracy': 'Magic: The Gathering—Conspiracy',
-    'Commander': 'Magic: The Gathering-Commander',
-    'Commander 2013': 'Commander 2013 Edition',
-    'WPN/Gateway': 'Wizards Play Network',
+
+DECKBOX_EDITION_TO_RANGE_AND_SETNAMES = {
+    'Champs': [(None, None, 'Champs and States')],
+    'Commander 2013': [(None, None, 'Commander 2013 Edition')],
+    'Commander': [(None, None, 'Magic: The Gathering-Commander')],
+    'Conspiracy': [(None, None, 'Magic: The Gathering—Conspiracy')],
+    'From the Vault: Annihilation': [
+        (None, None, 'From the Vault: Annihilation (2014)')],
+    'Introductory Two-Player Set': [(None, None, 'Rivals Quick Start Set')],
+    'Magic 2015 Clash Pack Promos': [(None, None, 'Clash Pack')],
+    'Magic Game Day Cards': [(None, None, 'Magic Game Day')],
+    'Multiverse Gift Box Cards': [(None, None, 'Multiverse Gift Box')],
+    'Planechase 2012': [(None, None, 'Planechase 2012 Edition')],
+    'Portal Demogame': [(None, None, 'Portal Demo Game')],
+    'WotC Online Store': [(None, None, 'Wizards of the Coast Online Store')],
+    'WPN/Gateway': [
+        (1, 20, 'Gateway'),
+        (21, 100, 'Wizards Play Network'),
+    ],
 }
 MTGJSON_TO_DECKBOX_SETNAME = {
-    v: k for k, v in DECKBOX_TO_MTGJSON_SETNAME.items()
+    s: k
+    for k, v in DECKBOX_EDITION_TO_RANGE_AND_SETNAMES.items()
+    for _, _, s in v
 }
 
 DECKBOX_HEADER = [
@@ -91,17 +106,29 @@ def deckbox_rows_from_collection(coll):
             yield from rows_from_printing(printing)
 
 
+def get_mtgj_setname(edition, number):
+    """Use the remappings to get the setname from a deckbox edition."""
+    if edition not in DECKBOX_EDITION_TO_RANGE_AND_SETNAMES:
+        return edition
+
+    for start, end, setname in DECKBOX_EDITION_TO_RANGE_AND_SETNAMES[edition]:
+        if ((start is None or int(number) >= start) and
+                (end is None or int(number) <= end)):
+            return setname
+
+
 def create_counts_row(coll, deckbox_row):
     """Given a row from a deckbox csv file, return a counts row."""
     edition = deckbox_row['Edition']
-    mtgj_setname = DECKBOX_TO_MTGJSON_SETNAME.get(edition, edition)
+    number = deckbox_row['Card Number']
+    mtgj_setname = get_mtgj_setname(edition, number)
     set_code = coll.setname_to_card_set[mtgj_setname].code
     counts = int(deckbox_row['Count']) + int(deckbox_row['Tradelist Count'])
     countname = 'foils' if deckbox_row['Foil'] == 'foil' else 'copies'
     return {
         'name': deckbox_row['Name'].split('//')[0].strip(),
         'set': set_code,
-        'number': deckbox_row['Card Number'],
+        'number': number,
         countname: counts,
     }
 
@@ -125,4 +152,6 @@ class MtgDeckboxSerializer(interface.MtgSsmSerializer):
         with open(filename, 'r') as deckbox_file:
             reader = csv.DictReader(deckbox_file)
             for row in reader:
-                self.load_counts(create_counts_row(self.collection, row))
+                self.load_counts(
+                    create_counts_row(self.collection, row),
+                    strict=False)

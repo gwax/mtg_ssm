@@ -84,6 +84,11 @@ spreadsheet:
 
     mtg-ssm collection.xlsx collection.csv
 
+Export / import to deckbox
+--------------------------
+
+TODO...
+
 In development
 ==============
 

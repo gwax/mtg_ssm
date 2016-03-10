@@ -20,17 +20,24 @@ class DeserializationError(Error):
     """Raised when there is an error reading counts from a file."""
 
 
-def find_printing(coll, set_code, name, set_number, multiverseid):
+def find_printing(coll, set_code, name, set_number, multiverseid, strict):
     """Attempt to find a CardPrinting from given parameters."""
-    snnm_keys = [
-        (set_code, name, set_number, multiverseid),
-        (set_code, name, None, multiverseid),
-        (set_code, name, set_number, None),
-        (set_code, name, None, None),
-    ]
+    names = [name]
+    if 'Ae' in name:
+        names.append(name.replace('Ae', 'Æ'))
+    if 'Jo' in name:
+        names.append(name.replace('Jo', 'Jö'))
+    snnm_keys = []
+    for name_var in names:
+        snnm_keys.extend([
+            (set_code, name_var, set_number, multiverseid),
+            (set_code, name_var, None, multiverseid),
+            (set_code, name_var, set_number, None),
+            (set_code, name_var, None, None),
+        ])
     for snnm_key in snnm_keys:
         found_printings = coll.set_name_num_mv_to_printings.get(snnm_key, [])
-        if len(found_printings) == 1:
+        if len(found_printings) == 1 or found_printings and not strict:
             return found_printings[0]
 
     return None
@@ -80,7 +87,7 @@ class MtgSsmSerializer(metaclass=abc.ABCMeta):
     def read_from_file(self, filename: str) -> None:
         """Read counts from file and add them to the collection."""
 
-    def load_counts(self, counts: Dict[Any, Any]) -> None:
+    def load_counts(self, counts: Dict[Any, Any], strict: bool=True) -> None:
         """Load counts from a dict into the collection.
 
         Arguments:
@@ -96,7 +103,7 @@ class MtgSsmSerializer(metaclass=abc.ABCMeta):
             printing = find_printing(
                 coll=self.collection, set_code=counts.get('set'),
                 name=counts.get('name'), set_number=counts.get('number'),
-                multiverseid=counts.get('multiverseid'))
+                multiverseid=counts.get('multiverseid'), strict=strict)
             if printing is None:
                 raise DeserializationError(
                     'Could not match id to known printing from counts: %r' %

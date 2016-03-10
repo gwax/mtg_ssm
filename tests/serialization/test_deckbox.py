@@ -149,6 +149,9 @@ class DeckboxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
         # Verify
         self.assertNotEqual(ertai1_rows, ertai2_rows)
 
+    # TODO: test duplicates from Arabian Nights, Antiquities, FEM, Chronicles,
+    #       Homelands, Alliances
+
     def test_rows_from_collection(self):
         # Setup
         bust = self.collection.id_to_printing[
