@@ -22,7 +22,7 @@ class SubclassRegistrationTest(unittest.TestCase):
 
     def test_all_formats(self):
         all_formats = interface.MtgSsmSerializer.all_formats()
-        expected = ['auto', 'csv', 'xlsx']
+        expected = ['auto', 'csv', 'xlsx', 'deckbox']
         self.assertCountEqual(expected, all_formats)
         self.assertEqual('auto', expected[0])
 

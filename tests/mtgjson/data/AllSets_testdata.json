@@ -727,6 +727,188 @@
       }
     ]
   },
+  "CHK": {
+    "name": "Champions of Kamigawa",
+    "code": "CHK",
+    "magicCardsInfoCode": "chk",
+    "releaseDate": "2004-10-01",
+    "border": "black",
+    "type": "expansion",
+    "block": "Kamigawa",
+    "booster": [
+      "rare",
+      "uncommon",
+      "uncommon",
+      "uncommon",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common"
+    ],
+    "cards": [
+      {
+        "artist": "Mark Zug",
+        "cmc": 1,
+        "colorIdentity": [
+          "W"
+        ],
+        "colors": [
+          "White"
+        ],
+        "id": "5933bb74b618a4e4f61eb4b5b55b416c11affd11",
+        "imageName": "bushi tenderfoot",
+        "layout": "flip",
+        "manaCost": "{W}",
+        "multiverseid": 78600,
+        "name": "Bushi Tenderfoot",
+        "names": [
+          "Bushi Tenderfoot",
+          "Kenzo the Hardhearted"
+        ],
+        "number": "2a",
+        "power": "1",
+        "rarity": "Uncommon",
+        "subtypes": [
+          "Human",
+          "Soldier"
+        ],
+        "text": "When a creature dealt damage by Bushi Tenderfoot this turn dies, flip Bushi Tenderfoot.",
+        "toughness": "1",
+        "type": "Creature — Human Soldier",
+        "types": [
+          "Creature"
+        ]
+      },
+      {
+        "artist": "Mark Zug",
+        "cmc": 1,
+        "colorIdentity": [
+          "W"
+        ],
+        "colors": [
+          "White"
+        ],
+        "id": "b955500d1a3e0c4b36e3cbf6332c3bca4597eaee",
+        "imageName": "kenzo the hardhearted",
+        "layout": "flip",
+        "manaCost": "{W}",
+        "multiverseid": 78600,
+        "name": "Kenzo the Hardhearted",
+        "names": [
+          "Bushi Tenderfoot",
+          "Kenzo the Hardhearted"
+        ],
+        "number": "2b",
+        "power": "3",
+        "rarity": "Uncommon",
+        "subtypes": [
+          "Human",
+          "Samurai"
+        ],
+        "supertypes": [
+          "Legendary"
+        ],
+        "text": "Double strike; bushido 2 (Whenever this creature blocks or becomes blocked, it gets +2/+2 until end of turn.)",
+        "toughness": "4",
+        "type": "Legendary Creature — Human Samurai",
+        "types": [
+          "Creature"
+        ]
+      }
+    ]
+  },
+  "PLC": {
+    "name": "Planar Chaos",
+    "code": "PLC",
+    "magicCardsInfoCode": "pc",
+    "releaseDate": "2007-02-02",
+    "border": "black",
+    "type": "expansion",
+    "block": "Time Spiral",
+    "booster": [
+      "rare",
+      "uncommon",
+      "uncommon",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "timeshifted common",
+      "timeshifted common",
+      "timeshifted common",
+      [
+        "timeshifted rare",
+        "timeshifted uncommon"
+      ]
+    ],
+    "cards": [
+      {
+        "artist": "John Avon",
+        "cmc": 2,
+        "colorIdentity": [
+          "R"
+        ],
+        "colors": [
+          "Red"
+        ],
+        "id": "c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae",
+        "imageName": "boombust",
+        "layout": "split",
+        "manaCost": "{1}{R}",
+        "multiverseid": 126218,
+        "name": "Boom",
+        "names": [
+          "Boom",
+          "Bust"
+        ],
+        "number": "112a",
+        "rarity": "Rare",
+        "text": "Destroy target land you control and target land you don't control.",
+        "type": "Sorcery",
+        "types": [
+          "Sorcery"
+        ]
+      },
+      {
+        "artist": "John Avon",
+        "cmc": 6,
+        "colorIdentity": [
+          "R"
+        ],
+        "colors": [
+          "Red"
+        ],
+        "id": "2eecf5001fe332f5dadf4d87665bcf182c5f24ee",
+        "imageName": "boombust",
+        "layout": "split",
+        "manaCost": "{5}{R}",
+        "multiverseid": 126218,
+        "name": "Bust",
+        "names": [
+          "Boom",
+          "Bust"
+        ],
+        "number": "112b",
+        "rarity": "Rare",
+        "text": "Destroy all lands.",
+        "type": "Sorcery",
+        "types": [
+          "Sorcery"
+        ]
+      }
+    ]
+  },
   "pMGD": {
     "name": "Magic Game Day",
     "code": "pMGD",
@@ -1325,6 +1507,138 @@
         "type": "Creature — Human Wizard",
         "types": [
           "Creature"
+        ]
+      }
+    ]
+  },
+  "OGW": {
+    "name": "Oath of the Gatewatch",
+    "code": "OGW",
+    "magicCardsInfoCode": "ogw",
+    "releaseDate": "2016-01-22",
+    "border": "black",
+    "type": "expansion",
+    "block": "Battle for Zendikar",
+    "booster": [
+      [
+        "rare",
+        "mythic rare"
+      ],
+      "uncommon",
+      "uncommon",
+      "uncommon",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "land",
+      "marketing"
+    ],
+    "translations": {
+      "pt": "Juramento das Sentinelas",
+      "es": "El juramento de los Guardianes",
+      "ru": "Клятва Стражей",
+      "ko": "관문수호대의 맹세",
+      "jp": "『ゲートウォッチの誓い』",
+      "it": "Giuramento dei Guardiani",
+      "de": "Eid der Wächter",
+      "fr": "Le serment des Sentinelles",
+      "zh-hant": "守護者誓約",
+      "zh-hans": "守护者誓约"
+    },
+    "cards": [
+      {
+        "artist": "Jason Felix",
+        "id": "68d4ca6db1b4f92aa306627cefa3d02137e4fa10",
+        "imageName": "wastes2",
+        "layout": "normal",
+        "multiverseid": 407693,
+        "name": "Wastes",
+        "number": "183",
+        "rarity": "Basic Land",
+        "supertypes": [
+          "Basic"
+        ],
+        "type": "Basic Land",
+        "types": [
+          "Land"
+        ],
+        "variations": [
+          407694,
+          407695,
+          407696
+        ]
+      },
+      {
+        "artist": "Jason Felix",
+        "id": "90a199d89b8723133c290be1c8fa99a13063fb05",
+        "imageName": "wastes1",
+        "layout": "normal",
+        "multiverseid": 407694,
+        "name": "Wastes",
+        "number": "183",
+        "rarity": "Basic Land",
+        "supertypes": [
+          "Basic"
+        ],
+        "type": "Basic Land",
+        "types": [
+          "Land"
+        ],
+        "variations": [
+          407693,
+          407695,
+          407696
+        ]
+      },
+      {
+        "artist": "Raymond Swanland",
+        "id": "84e8fe1ff78f9f447c6870dfd80a354d687f230e",
+        "imageName": "wastes4",
+        "layout": "normal",
+        "multiverseid": 407695,
+        "name": "Wastes",
+        "number": "184",
+        "rarity": "Basic Land",
+        "supertypes": [
+          "Basic"
+        ],
+        "type": "Basic Land",
+        "types": [
+          "Land"
+        ],
+        "variations": [
+          407693,
+          407694,
+          407696
+        ]
+      },
+      {
+        "artist": "Raymond Swanland",
+        "id": "9a1e2c33bbe0aed2a499e49036754b4e3aa5338d",
+        "imageName": "wastes3",
+        "layout": "normal",
+        "multiverseid": 407696,
+        "name": "Wastes",
+        "number": "184",
+        "rarity": "Basic Land",
+        "supertypes": [
+          "Basic"
+        ],
+        "type": "Basic Land",
+        "types": [
+          "Land"
+        ],
+        "variations": [
+          407693,
+          407694,
+          407695
         ]
       }
     ]

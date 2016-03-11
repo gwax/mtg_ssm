@@ -2,6 +2,7 @@
 
 import os
 import tempfile
+import textwrap
 
 from mtg_ssm.mtg import collection
 from mtg_ssm.mtg import models
@@ -86,22 +87,21 @@ class CsvSerializerTest(mtgjson_testcase.MtgJsonTestCase):
 
             # Verify
             with open(csvfilename, 'r') as csvfile:
-                csvdata = csvfile.readlines()
-        expected = [
-            # pylint: disable=line-too-long
-            'set,name,number,multiverseid,id,copies,foils\n',
-            'pMGD,Black Sun\'s Zenith,7,,6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc,,\n',
-            'MMA,Thallid,167,370352,fc46a4b72d216117a352f59217a84d0baeaaacb7,1,12\n',
-        ]
+                csvdata = csvfile.read()
+        expected = textwrap.dedent("""\
+            set,name,number,multiverseid,id,copies,foils
+            pMGD,Black Sun\'s Zenith,7,,6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc,,
+            MMA,Thallid,167,370352,fc46a4b72d216117a352f59217a84d0baeaaacb7,1,12
+            """)
         self.assertEqual(expected, csvdata)
 
     def test_read_from_file(self):
         # Setup
-        with tempfile.NamedTemporaryFile('w+') as csvfile:
-            csvfile.write(
-                'set,name,number,multiverseid,id,copies,foils\n'
-                'MMA,Thallid,167,370352,'
-                'fc46a4b72d216117a352f59217a84d0baeaaacb7,3,72\n')
+        with tempfile.NamedTemporaryFile('w') as csvfile:
+            csvfile.write(textwrap.dedent("""\
+                set,name,number,multiverseid,id,copies,foils
+                MMA,Thallid,167,370352,fc46a4b72d216117a352f59217a84d0baeaaacb7,3,72
+                """))
             csvfile.flush()
             serializer = csv.MtgCsvSerializer(self.collection)
 

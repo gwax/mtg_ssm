@@ -32,6 +32,13 @@ class CollectionTest(mtgjson_testcase.MtgJsonTestCase):
         }
         self.assertEqual(expected_code_to_setname, code_to_setname)
 
+        setname_to_setcode = {
+            n: s.code for n, s in coll.setname_to_card_set.items()}
+        expected_setname_to_code = {
+            'Innistrad': 'ISD',
+        }
+        self.assertEqual(expected_setname_to_code, setname_to_setcode)
+
         id_to_setnum = {i: p.set_number for i, p in coll.id_to_printing.items()}
         expected_id_to_setnum = {
             '0b06d8d9e7662ada82bd29e1138d959978ba2280': '51a',
@@ -62,6 +69,9 @@ class CollectionTest(mtgjson_testcase.MtgJsonTestCase):
             'MMA',
             'pMEI',
             'PLS',
+            'PLC',
+            'OGW',
+            'CHK'
         }
         self.assertEqual(expected_set_codes, coll.code_to_card_set.keys())
 
@@ -85,6 +95,9 @@ class CollectionTest(mtgjson_testcase.MtgJsonTestCase):
             'MMA',
             'pMEI',
             'PLS',
+            'PLC',
+            'OGW',
+            'CHK',
         }
         self.assertEqual(expected_set_codes, coll.code_to_card_set.keys())
 
@@ -115,25 +128,17 @@ class CollectionTest(mtgjson_testcase.MtgJsonTestCase):
         }
         self.assertEqual(expected_ids, darkrit_ids)
 
-        snnm = ('ISD', 'Abattoir Ghoul', '85', 222911)
-        snnm_ids = {p.id_ for p in coll.set_name_num_mv_to_printings[snnm]}
-        expected_ids = {'958ae1416f8f6287115ccd7c5c61f2415a313546'}
-        self.assertEqual(expected_ids, snnm_ids)
-
-        snm = ('ISD', 'Abattoir Ghoul', 222911)
-        snm_ids = {p.id_ for p in coll.set_name_mv_to_printings[snm]}
-        expected_ids = {'958ae1416f8f6287115ccd7c5c61f2415a313546'}
-        self.assertEqual(expected_ids, snm_ids)
-
-        snn = ('ISD', 'Abattoir Ghoul', '85')
-        snn_ids = {p.id_ for p in coll.set_name_num_to_printings[snn]}
-        expected_ids = {'958ae1416f8f6287115ccd7c5c61f2415a313546'}
-        self.assertEqual(expected_ids, snn_ids)
-
-        san = ('ISD', 'Abattoir Ghoul')
-        san_ids = {p.id_ for p in coll.set_and_name_to_printings[san]}
-        expected_ids = {'958ae1416f8f6287115ccd7c5c61f2415a313546'}
-        self.assertEqual(expected_ids, san_ids)
+        snnm_keys = [
+            ('ISD', 'Abattoir Ghoul', '85', 222911),
+            ('ISD', 'Abattoir Ghoul', None, 222911),
+            ('ISD', 'Abattoir Ghoul', '85', None),
+            ('ISD', 'Abattoir Ghoul', None, None),
+        ]
+        for snnm_key in snnm_keys:
+            found_print_ids = {
+                p.id_ for p in coll.set_name_num_mv_to_printings[snnm_key]}
+            self.assertEqual(
+                {'958ae1416f8f6287115ccd7c5c61f2415a313546'}, found_print_ids)
 
     def test_sort_indexes(self):
         # Setup

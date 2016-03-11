@@ -28,6 +28,9 @@ INCLUDED = {
     'MMA': {'Thallid'},
     'pMEI': {'Arena'},
     'PLS': {'Ertai, the Corrupted'},
+    'PLC': {'Boom', 'Bust'},
+    'OGW': {'Wastes'},
+    'CHK': {'Bushi Tenderfoot', 'Kenzo the Hardhearted'},
 }
 
 

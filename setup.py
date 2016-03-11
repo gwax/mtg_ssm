@@ -15,7 +15,7 @@ exec(open('mtg_ssm/version.py', 'r').read())  # pylint: disable=exec-used
 
 SHORT_DESCRIPTION = (
     'A tool to manage Magic: the Gathering collection spreadsheets.')
-LONG_DESCRIPTION = open('DESCRIPTION.rst', 'r').read()
+LONG_DESCRIPTION = open('README.rst', 'r').read()
 
 DEPENDENCIES = [l.strip() for l in open('requirements.txt', 'r')]
 
@@ -25,7 +25,7 @@ if sys.version_info < (3, 4):
     DEPENDENCIES.append('enum34>=1.1.2')
 
 CLASSIFIERS = [
-    'Development Status :: 4 - Beta',
+    'Development Status :: 5 - Production/Stable',
     'Environment :: Console',
     'Intended Audience :: End Users/Desktop',
     'License :: OSI Approved :: MIT License',

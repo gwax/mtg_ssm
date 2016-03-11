@@ -27,15 +27,19 @@ class ModelsTest(mtgjson_testcase.MtgJsonTestCase):
             'c78d2da78c68c558b1adc734b3f164e885407ffc']
         snow_forest_data = self.cards_data[
             '5e9f08498a9343b1954103e493da2586be0fe394']
+        wastes_data = self.cards_data[
+            '68d4ca6db1b4f92aa306627cefa3d02137e4fa10']
         ag_card_data = self.cards_data[
             '958ae1416f8f6287115ccd7c5c61f2415a313546']
         # Execute
         forest_card = models.Card(None, forest_data)
         snow_forest_card = models.Card(None, snow_forest_data)
+        wastes_card = models.Card(None, wastes_data)
         ag_card = models.Card(None, ag_card_data)
         # Verify
         self.assertTrue(forest_card.strict_basic)
         self.assertFalse(snow_forest_card.strict_basic)
+        self.assertFalse(wastes_card.strict_basic)
         self.assertFalse(ag_card.strict_basic)
 
     def test_card_printing(self):
