@@ -16,10 +16,12 @@ mtg-ssm - Magic: the Gathering Spreadsheet Manager
 .. image:: https://img.shields.io/pypi/dm/mtg-ssm.svg
     :target: https://pypi.python.org/pypi/mtg-ssm/
 
-This is a tool for creating/updating user-friendly spreadsheets with
+`mtg-ssm`_ is a tool for creating/updating user-friendly spreadsheets with
 Magic: the Gathering collection information. The tool can also
 import/export data to/from these spreadsheets to other formats, such as
 CSV files.
+
+.. _mtg-ssm: https://github.com/gwax/mtg_ssm
 
 As a matter of convenience, you can store the created spreadsheet in
 Dropbox, Google Drive, or the like and access your collection from
