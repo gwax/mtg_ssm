@@ -111,8 +111,10 @@ Deckbox Warning
 ~~~~~~~~~~~~~~~
 
 MTG JSON, which we use for card data doesn't always map 1-to-1 to cards in
-Deckbox. This means that data can lose its granularity in going from one form
-to the other, or back.
+Deckbox. This means that data can lose granularity in going from one form
+to the other, or back. If you intend to use both native mtg-ssm spreadsheets
+and Deckbox, I encourage you to choose one to be authoritative and always
+export to the other; going back and forth is probably not a good idea.
 
 The following conversion issues are known to exist:
 
