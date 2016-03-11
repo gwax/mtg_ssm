@@ -149,10 +149,11 @@ Acknowledgments
 Changelog
 =========
 
-1.2.x
+1.2.1
 -----
 
 - Add support for deckbox.org import/export.
+- Backend improvements.
 
 1.2.0
 -----
