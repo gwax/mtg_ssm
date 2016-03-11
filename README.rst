@@ -178,9 +178,9 @@ Changelog
 1.0.1
 -----
 
-Fixed some PyPI related issues.
+- Fixed some PyPI related issues.
 
 1.0.0
 -----
 
-* Initial stable release.
+- Initial stable release.
