@@ -101,26 +101,34 @@ def create_haverefs(printings):
     return '+'.join(haverefs)
 
 
-def get_other_print_references(printing):
-    """Get an xlsx formula to list counts of a card from other sets."""
-    if printing.card.strict_basic:
+def get_references(card, exclude_sets=None):
+    """Get an equation for the references to a card."""
+    if card.strict_basic:
         return None  # Basics are so prolific that they overwhelm Excel
 
-    set_to_others = collections.defaultdict(list)
-    for other in printing.card.printings:
-        if other.set_code != printing.set_code:
-            set_to_others[other.set].append(other)
+    if exclude_sets is None:
+        exclude_sets = set()
 
-    set_to_haveref = {k: create_haverefs(v) for k, v in set_to_others.items()}
+    set_to_prints = collections.defaultdict(list)
+    for printing in card.printings:
+        if printing.set not in exclude_sets:
+            set_to_prints[printing.set].append(printing)
+
+    set_to_haveref = {k: create_haverefs(v) for k, v in set_to_prints.items()}
     if not set_to_haveref:
         return None
 
-    other_references = []
+    references = []
     for card_set in sorted(set_to_haveref, key=lambda cset: cset.release_date):
-        other_reference = 'IF({count}>0,"{setcode}: "&{count}&", ","")'.format(
+        reference = 'IF({count}>0,"{setcode}: "&{count}&", ","")'.format(
             setcode=card_set.code, count=set_to_haveref[card_set])
-        other_references.append(other_reference)
-    return '=' + '&'.join(other_references)
+        references.append(reference)
+    return '=' + '&'.join(references)
+
+
+def get_other_print_references(printing):
+    """Get an xlsx formula to list counts of a card from other sets."""
+    return get_references(printing.card, exclude_sets={printing.set})
 
 
 def create_set_sheet(sheet, card_set):
