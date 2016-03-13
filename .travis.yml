@@ -30,7 +30,6 @@ script: |
   else
     error_without_calling_exit;
   fi
-#  - pandoc --from=markdown --to=rst README.md | diff DESCRIPTION.rst -
 
 after_success: |
   if [ "${TEST_SUITE}" = "test" ]; then
