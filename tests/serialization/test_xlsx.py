@@ -19,7 +19,10 @@ class XlsxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
 
     def setUp(self):
         super().setUp()
-        self.collection = collection.Collection(self.mtg_data)
+        set_data = {
+            k: v for k, v in self.mtg_data.items()
+            if k in {'LEA', 'FEM', 'S00', 'ICE', 'HOP'}}
+        self.collection = collection.Collection(set_data)
 
     def test_create_all_sets(self):
         # Setup
@@ -35,20 +38,9 @@ class XlsxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
             ['Total', None, None, None, None, '=SUM(F3:F65535)', '=SUM(G3:G65535)', '=SUM(H3:H65535)', '=SUM(I3:I65535)'],
             ['LEA', 'Limited Edition Alpha', dt.datetime(1993, 8, 5), None, 'core', 4, '=COUNTIF(\'LEA\'!A:A,">0")', '=COUNTIF(\'LEA\'!A:A,">=4")', "=SUM('LEA'!A:A)"],
             ['FEM', 'Fallen Empires', dt.datetime(1994, 11, 1), None, 'expansion', 4, '=COUNTIF(\'FEM\'!A:A,">0")', '=COUNTIF(\'FEM\'!A:A,">=4")', "=SUM('FEM'!A:A)"],
-            ['pMEI', 'Media Inserts', dt.datetime(1995, 1, 1), None, 'promo', 1, '=COUNTIF(\'pMEI\'!A:A,">0")', '=COUNTIF(\'pMEI\'!A:A,">=4")', "=SUM('pMEI'!A:A)"],
             ['ICE', 'Ice Age', dt.datetime(1995, 6, 1), 'Ice Age', 'expansion', 5, '=COUNTIF(\'ICE\'!A:A,">0")', '=COUNTIF(\'ICE\'!A:A,">=4")', "=SUM('ICE'!A:A)"],
-            ['HML', 'Homelands', dt.datetime(1995, 10, 1), None, 'expansion', 2, '=COUNTIF(\'HML\'!A:A,">0")', '=COUNTIF(\'HML\'!A:A,">=4")', "=SUM('HML'!A:A)"],
             ['S00', 'Starter 2000', dt.datetime(2000, 4, 1), None, 'starter', 1, '=COUNTIF(\'S00\'!A:A,">0")', '=COUNTIF(\'S00\'!A:A,">=4")', "=SUM('S00'!A:A)"],
-            ['PLS', 'Planeshift', dt.datetime(2001, 2, 5), 'Invasion', 'expansion', 2, '=COUNTIF(\'PLS\'!A:A,">0")', '=COUNTIF(\'PLS\'!A:A,">=4")', "=SUM('PLS'!A:A)"],
-            ['CHK', 'Champions of Kamigawa', dt.datetime(2004, 10, 1, 0, 0), 'Kamigawa', 'expansion', 2, '=COUNTIF(\'CHK\'!A:A,">0")', '=COUNTIF(\'CHK\'!A:A,">=4")', "=SUM('CHK'!A:A)"],
-            ['PLC', 'Planar Chaos', dt.datetime(2007, 2, 2, 0, 0), 'Time Spiral', 'expansion', 2, '=COUNTIF(\'PLC\'!A:A,">0")', '=COUNTIF(\'PLC\'!A:A,">=4")', "=SUM('PLC'!A:A)"],
-            ['pMGD', 'Magic Game Day', dt.datetime(2007, 7, 14), None, 'promo', 1, '=COUNTIF(\'pMGD\'!A:A,">0")', '=COUNTIF(\'pMGD\'!A:A,">=4")', "=SUM('pMGD'!A:A)"],
             ['HOP', 'Planechase', dt.datetime(2009, 9, 4), None, 'planechase', 3, '=COUNTIF(\'HOP\'!A:A,">0")', '=COUNTIF(\'HOP\'!A:A,">=4")', "=SUM('HOP'!A:A)"],
-            ['ARC', 'Archenemy', dt.datetime(2010, 6, 18), None, 'archenemy', 2, '=COUNTIF(\'ARC\'!A:A,">0")', '=COUNTIF(\'ARC\'!A:A,">=4")', "=SUM('ARC'!A:A)"],
-            ['ISD', 'Innistrad', dt.datetime(2011, 9, 30), 'Innistrad', 'expansion', 6, '=COUNTIF(\'ISD\'!A:A,">0")', '=COUNTIF(\'ISD\'!A:A,">=4")', "=SUM('ISD'!A:A)"],
-            ['PC2', 'Planechase 2012 Edition', dt.datetime(2012, 6, 1), None, 'planechase', 4, '=COUNTIF(\'PC2\'!A:A,">0")', '=COUNTIF(\'PC2\'!A:A,">=4")', "=SUM('PC2'!A:A)"],
-            ['MMA', 'Modern Masters', dt.datetime(2013, 6, 7, 0, 0), None, 'reprint', 1, '=COUNTIF(\'MMA\'!A:A,">0")', '=COUNTIF(\'MMA\'!A:A,">=4")', "=SUM('MMA'!A:A)"],
-            ['OGW', 'Oath of the Gatewatch', dt.datetime(2016, 1, 22, 0, 0), 'Battle for Zendikar', 'expansion', 4, '=COUNTIF(\'OGW\'!A:A,">0")', '=COUNTIF(\'OGW\'!A:A,">=4")', "=SUM('OGW'!A:A)"],
         ]
         self.assertEqual(expected, rows)
         self.assertEqual('All Sets', sheet.title)
@@ -122,9 +114,8 @@ class XlsxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
     def test_get_refs_multiple_variants(self):
         # Setup
         thallid = self.collection.name_to_card['Thallid']
-        mma = self.collection.code_to_card_set['MMA']
         # Execute
-        print_refs = xlsx.get_references(thallid, exclude_sets={mma})
+        print_refs = xlsx.get_references(thallid)
         # Verify
         expected = (
             '=IF(\'FEM\'!A2+\'FEM\'!A3+\'FEM\'!A4+\'FEM\'!A5>0,'
@@ -180,25 +171,7 @@ class XlsxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
 
             # Verify
             workbook = openpyxl.load_workbook(filename=xlsxfilename)
-        expected_sheetnames = [
-            'All Sets',
-            'LEA',
-            'FEM',
-            'pMEI',
-            'ICE',
-            'HML',
-            'S00',
-            'PLS',
-            'CHK',
-            'PLC',
-            'pMGD',
-            'HOP',
-            'ARC',
-            'ISD',
-            'PC2',
-            'MMA',
-            'OGW',
-        ]
+        expected_sheetnames = ['All Sets', 'LEA', 'FEM', 'ICE', 'S00', 'HOP']
         self.assertEqual(expected_sheetnames, workbook.sheetnames)
 
         s00_rows = [[cell.value for cell in row] for row in workbook['S00']]
