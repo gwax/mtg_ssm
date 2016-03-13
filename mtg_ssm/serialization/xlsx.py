@@ -126,11 +126,6 @@ def get_references(card, exclude_sets=None):
     return '=' + '&'.join(references)
 
 
-def get_other_print_references(printing):
-    """Get an xlsx formula to list counts of a card from other sets."""
-    return get_references(printing.card, exclude_sets={printing.set})
-
-
 def create_set_sheet(sheet, card_set):
     """Populate sheet with card information from a given set."""
     sheet.title = card_set.code
@@ -147,7 +142,7 @@ def create_set_sheet(sheet, card_set):
         ]
         for counttype in models.CountTypes:
             row.append(printing.counts.get(counttype))
-        row.append(get_other_print_references(printing))
+        row.append(get_references(printing.card, exclude_sets={card_set}))
         sheet.append(row)
 
 

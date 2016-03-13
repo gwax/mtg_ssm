@@ -72,42 +72,59 @@ class XlsxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
 
     def test_get_refs_basic_land(self):
         # Setup
-        lea_forest = self.collection.id_to_printing[
-            '5ede9781b0c5d157c28a15c3153a455d7d6180fa']
+        forest = self.collection.name_to_card['Forest']
         # Execute
-        print_refs = xlsx.get_other_print_references(lea_forest)
+        print_refs = xlsx.get_references(forest)
         # Verify
         self.assertIsNone(print_refs)
 
-    def test_get_refs_no_others(self):
+    def test_get_refs_singular(self):
         # Setup
-        rhox = self.collection.id_to_printing[
-            '536d407161fa03eddee7da0e823c2042a8fa0262']
+        rhox = self.collection.name_to_card['Rhox']
         # Execute
-        print_refs = xlsx.get_other_print_references(rhox)
+        print_refs = xlsx.get_references(rhox)
         # Verify
-        self.assertIsNone(print_refs)
+        expected = '=IF(\'S00\'!A2>0,"S00: "&\'S00\'!A2&", ","")'
+        self.assertEqual(expected, print_refs)
 
-    def test_ref_refs_multiple_sets(self):
+    def test_get_refs_exclude_only(self):
         # Setup
-        lea_dark_rit = self.collection.id_to_printing[
-            'fff0b8e8fea06ee1ac5c35f048a0a459b1222673']
+        rhox = self.collection.name_to_card['Rhox']
+        s00 = self.collection.code_to_card_set['S00']
         # Execute
-        print_refs = xlsx.get_other_print_references(lea_dark_rit)
+        print_refs = xlsx.get_references(rhox, exclude_sets={s00})
+        # Verify'
+        self.assertFalse(print_refs)
+
+    def test_get_refs_multiple_sets(self):
+        # Setup
+        dark_rit = self.collection.name_to_card['Dark Ritual']
+        lea = self.collection.code_to_card_set['LEA']
+        # Execute
+        print_refs = xlsx.get_references(dark_rit, exclude_sets={lea})
         # Verify
         expected = (
             '=IF(\'ICE\'!A2>0,"ICE: "&\'ICE\'!A2&", ","")'
             '&IF(\'HOP\'!A4>0,"HOP: "&\'HOP\'!A4&", ","")')
         self.assertEqual(expected, print_refs)
 
+    def test_get_refs_exclude_multiple(self):
+        # Setup
+        dark_rit = self.collection.name_to_card['Dark Ritual']
+        lea = self.collection.code_to_card_set['LEA']
+        ice = self.collection.code_to_card_set['ICE']
+        # Execute
+        print_refs = xlsx.get_references(dark_rit, exclude_sets={lea, ice})
+        # Verify
+        expected = '=IF(\'HOP\'!A4>0,"HOP: "&\'HOP\'!A4&", ","")'
+        self.assertEqual(expected, print_refs)
+
     def test_get_refs_multiple_variants(self):
         # Setup
-        mma_thallid = self.collection.id_to_printing[
-            'fc46a4b72d216117a352f59217a84d0baeaaacb7']
-
+        thallid = self.collection.name_to_card['Thallid']
+        mma = self.collection.code_to_card_set['MMA']
         # Execute
-        print_refs = xlsx.get_other_print_references(mma_thallid)
-
+        print_refs = xlsx.get_references(thallid, exclude_sets={mma})
         # Verify
         expected = (
             '=IF(\'FEM\'!A2+\'FEM\'!A3+\'FEM\'!A4+\'FEM\'!A5>0,'
