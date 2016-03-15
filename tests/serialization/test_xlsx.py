@@ -122,6 +122,33 @@ class XlsxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
             '"FEM: "&\'FEM\'!A2+\'FEM\'!A3+\'FEM\'!A4+\'FEM\'!A5&", ","")')
         self.assertEqual(expected, print_refs)
 
+    def test_create_all_cards_sheet(self):
+        # Setup
+        book = openpyxl.Workbook()
+        sheet = book.create_sheet()
+
+        # Execute
+        xlsx.create_all_cards(sheet, self.collection)
+
+        # Verify
+        rows = [[cell.value for cell in row] for row in sheet.rows]
+        expected = [
+            # pylint: disable=line-too-long
+            ['name', 'have'],
+            ['Academy at Tolaria West', '=IF(\'HOP\'!A2>0,"HOP: "&\'HOP\'!A2&", ","")'],
+            ['Air Elemental', '=IF(\'LEA\'!A3>0,"LEA: "&\'LEA\'!A3&", ","")'],
+            ["Akroma's Vengeance", '=IF(\'HOP\'!A3>0,"HOP: "&\'HOP\'!A3&", ","")'],
+            ['Dark Ritual', '=IF(\'LEA\'!A2>0,"LEA: "&\'LEA\'!A2&", ","")&'
+                            'IF(\'ICE\'!A2>0,"ICE: "&\'ICE\'!A2&", ","")&'
+                            'IF(\'HOP\'!A4>0,"HOP: "&\'HOP\'!A4&", ","")'],
+            ['Forest', None],
+            ['Rhox', '=IF(\'S00\'!A2>0,"S00: "&\'S00\'!A2&", ","")'],
+            ['Snow-Covered Forest', '=IF(\'ICE\'!A6>0,"ICE: "&\'ICE\'!A6&", ","")'],
+            ['Thallid', '=IF(\'FEM\'!A2+\'FEM\'!A3+\'FEM\'!A4+\'FEM\'!A5>0,"FEM: "&\'FEM\'!A2+\'FEM\'!A3+\'FEM\'!A4+\'FEM\'!A5&", ","")'],
+        ]
+        self.assertEqual(expected, rows)
+        self.assertEqual('All Cards', sheet.title)
+
     def test_create_set_sheet(self):
         # Setup
         forest1 = self.collection.id_to_printing[
@@ -171,7 +198,8 @@ class XlsxSerializerTest(mtgjson_testcase.MtgJsonTestCase):
 
             # Verify
             workbook = openpyxl.load_workbook(filename=xlsxfilename)
-        expected_sheetnames = ['All Sets', 'LEA', 'FEM', 'ICE', 'S00', 'HOP']
+        expected_sheetnames = [
+            'All Sets', 'All Cards', 'LEA', 'FEM', 'ICE', 'S00', 'HOP']
         self.assertEqual(expected_sheetnames, workbook.sheetnames)
 
         s00_rows = [[cell.value for cell in row] for row in workbook['S00']]

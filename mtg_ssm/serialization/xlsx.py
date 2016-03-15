@@ -74,23 +74,6 @@ def style_all_sets(sheet):
         cdim.hidden = hidden
 
 
-SET_SHEET_HEADER = [
-    'have',
-    'name',
-    'id',
-    'multiverseid',
-    'number',
-    'artist',
-] + [ct.name for ct in models.CountTypes] + [
-    'others',
-]
-COUNT_COLS = [
-    string.ascii_uppercase[SET_SHEET_HEADER.index(ct.name)]
-    for ct in models.CountTypes]
-HAVE_TMPL = '=' + '+'.join(c + '{0}' for c in COUNT_COLS)
-ROW_OFFSET = 2
-
-
 def create_haverefs(printings):
     """Create a reference to the have cells for printings in a single set."""
     card_set = printings[0].set
@@ -124,6 +107,57 @@ def get_references(card, exclude_sets=None):
             setcode=card_set.code, count=set_to_haveref[card_set])
         references.append(reference)
     return '=' + '&'.join(references)
+
+
+ALL_CARDS_SHEET_HEADER = [
+    'name',
+    'have',
+]
+
+
+def create_all_cards(sheet, collection):
+    """Create all cards sheet from collection."""
+    sheet.title = 'All Cards'
+    sheet.append(ALL_CARDS_SHEET_HEADER)
+    # Should this be done in the collection class indexes?
+    # Should card_sets not be done in the collection indexes?
+    cards = sorted(collection.name_to_card.values(), key=lambda c: c.name)
+    for card in cards:
+        row = [
+            card.name,
+            get_references(card),
+        ]
+        sheet.append(row)
+
+
+def style_all_cards(sheet):
+    """Apply styles to the all cards sheet."""
+    sheet.freeze_panes = sheet['B2']
+    col_width_hidden = [
+        ('A', 18, False),
+        ('B', 20, False),
+    ]
+    for col, width, hidden in col_width_hidden:
+        cdim = sheet.column_dimensions[col]
+        cdim.width = width
+        cdim.hidden = hidden
+
+
+SET_SHEET_HEADER = [
+    'have',
+    'name',
+    'id',
+    'multiverseid',
+    'number',
+    'artist',
+] + [ct.name for ct in models.CountTypes] + [
+    'others',
+]
+COUNT_COLS = [
+    string.ascii_uppercase[SET_SHEET_HEADER.index(ct.name)]
+    for ct in models.CountTypes]
+HAVE_TMPL = '=' + '+'.join(c + '{0}' for c in COUNT_COLS)
+ROW_OFFSET = 2
 
 
 def create_set_sheet(sheet, card_set):
@@ -187,6 +221,9 @@ class MtgXlsxSerializer(interface.MtgSsmSerializer):
         all_sets_sheet = workbook.create_sheet()
         create_all_sets(all_sets_sheet, self.collection)
         style_all_sets(all_sets_sheet)
+        all_cards_sheet = workbook.create_sheet()
+        create_all_cards(all_cards_sheet, self.collection)
+        style_all_cards(all_cards_sheet)
         for card_set in self.collection.card_sets:
             set_sheet = workbook.create_sheet()
             create_set_sheet(set_sheet, card_set)
@@ -199,7 +236,7 @@ class MtgXlsxSerializer(interface.MtgSsmSerializer):
         workbook = openpyxl.load_workbook(filename=filename, read_only=True)
         for sheet in workbook.worksheets:
             if sheet.title not in self.collection.code_to_card_set:
-                if sheet.title in ['Sets', 'All Sets']:
+                if sheet.title in {'Sets', 'All Sets', 'All Cards'}:
                     continue
                 raise interface.DeserializationError(
                     'No known set with code {}'.format(sheet.title))
