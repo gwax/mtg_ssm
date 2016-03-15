@@ -134,8 +134,8 @@ def style_all_cards(sheet):
     """Apply styles to the all cards sheet."""
     sheet.freeze_panes = sheet['B2']
     col_width_hidden = [
-        ('A', 18, False),
-        ('B', 20, False),
+        ('A', 24, False),
+        ('B', 32, False),
     ]
     for col, width, hidden in col_width_hidden:
         cdim = sheet.column_dimensions[col]
