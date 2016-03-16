@@ -21,17 +21,11 @@ ALL_SETS_SHEET_HEADER = [
     'count',
 ]
 
-ALL_SETS_SHEET_TOTALS = [
-    'Total',
-    None,
-    None,
-    None,
-    None,
-    '=SUM(F3:F65535)',
-    '=SUM(G3:G65535)',
-    '=SUM(H3:H65535)',
-    '=SUM(I3:I65535)',
-]
+ALL_SETS_SHEET_TOTALS = (
+    ['Total'] +
+    [None] * 4 +
+    ['=SUM({c}3:{c}65535)'.format(c=c) for c in 'FGHI']
+)
 
 
 def create_all_sets(sheet, collection):
@@ -74,6 +68,75 @@ def style_all_sets(sheet):
         cdim.hidden = hidden
 
 
+def create_haverefs(printings):
+    """Create a reference to the have cells for printings in a single set."""
+    card_set = printings[0].set
+    rownums = [card_set.printings.index(p) + ROW_OFFSET for p in printings]
+    haverefs = [
+        "'{setcode}'!A{rownum}".format(setcode=card_set.code, rownum=r)
+        for r in rownums]
+    return '+'.join(haverefs)
+
+
+def get_references(card, exclude_sets=None):
+    """Get an equation for the references to a card."""
+    if card.strict_basic:
+        return None  # Basics are so prolific that they overwhelm Excel
+
+    if exclude_sets is None:
+        exclude_sets = set()
+
+    set_to_prints = collections.defaultdict(list)
+    for printing in card.printings:
+        if printing.set not in exclude_sets:
+            set_to_prints[printing.set].append(printing)
+
+    set_to_haveref = {k: create_haverefs(v) for k, v in set_to_prints.items()}
+    if not set_to_haveref:
+        return None
+
+    references = []
+    for card_set in sorted(set_to_haveref, key=lambda cset: cset.release_date):
+        reference = 'IF({count}>0,"{setcode}: "&{count}&", ","")'.format(
+            setcode=card_set.code, count=set_to_haveref[card_set])
+        references.append(reference)
+    return '=' + '&'.join(references)
+
+
+ALL_CARDS_SHEET_HEADER = [
+    'name',
+    'have',
+]
+
+
+def create_all_cards(sheet, collection):
+    """Create all cards sheet from collection."""
+    sheet.title = 'All Cards'
+    sheet.append(ALL_CARDS_SHEET_HEADER)
+    # Should this be done in the collection class indexes?
+    # Should card_sets not be done in the collection indexes?
+    cards = sorted(collection.name_to_card.values(), key=lambda c: c.name)
+    for card in cards:
+        row = [
+            card.name,
+            get_references(card),
+        ]
+        sheet.append(row)
+
+
+def style_all_cards(sheet):
+    """Apply styles to the all cards sheet."""
+    sheet.freeze_panes = sheet['B2']
+    col_width_hidden = [
+        ('A', 24, False),
+        ('B', 32, False),
+    ]
+    for col, width, hidden in col_width_hidden:
+        cdim = sheet.column_dimensions[col]
+        cdim.width = width
+        cdim.hidden = hidden
+
+
 SET_SHEET_HEADER = [
     'have',
     'name',
@@ -89,38 +152,6 @@ COUNT_COLS = [
     for ct in models.CountTypes]
 HAVE_TMPL = '=' + '+'.join(c + '{0}' for c in COUNT_COLS)
 ROW_OFFSET = 2
-
-
-def create_haverefs(printings):
-    """Create a reference to the have cells for printings in a single set."""
-    card_set = printings[0].set
-    rownums = [card_set.printings.index(p) + ROW_OFFSET for p in printings]
-    haverefs = [
-        "'{setcode}'!A{rownum}".format(setcode=card_set.code, rownum=r)
-        for r in rownums]
-    return '+'.join(haverefs)
-
-
-def get_other_print_references(printing):
-    """Get an xlsx formula to list counts of a card from other sets."""
-    if printing.card.strict_basic:
-        return None  # Basics are so prolific that they overwhelm Excel
-
-    set_to_others = collections.defaultdict(list)
-    for other in printing.card.printings:
-        if other.set_code != printing.set_code:
-            set_to_others[other.set].append(other)
-
-    set_to_haveref = {k: create_haverefs(v) for k, v in set_to_others.items()}
-    if not set_to_haveref:
-        return None
-
-    other_references = []
-    for card_set in sorted(set_to_haveref, key=lambda cset: cset.release_date):
-        other_reference = 'IF({count}>0,"{setcode}: "&{count}&", ","")'.format(
-            setcode=card_set.code, count=set_to_haveref[card_set])
-        other_references.append(other_reference)
-    return '=' + '&'.join(other_references)
 
 
 def create_set_sheet(sheet, card_set):
@@ -139,7 +170,7 @@ def create_set_sheet(sheet, card_set):
         ]
         for counttype in models.CountTypes:
             row.append(printing.counts.get(counttype))
-        row.append(get_other_print_references(printing))
+        row.append(get_references(printing.card, exclude_sets={card_set}))
         sheet.append(row)
 
 
@@ -184,6 +215,9 @@ class MtgXlsxSerializer(interface.MtgSsmSerializer):
         all_sets_sheet = workbook.create_sheet()
         create_all_sets(all_sets_sheet, self.collection)
         style_all_sets(all_sets_sheet)
+        all_cards_sheet = workbook.create_sheet()
+        create_all_cards(all_cards_sheet, self.collection)
+        style_all_cards(all_cards_sheet)
         for card_set in self.collection.card_sets:
             set_sheet = workbook.create_sheet()
             create_set_sheet(set_sheet, card_set)
@@ -196,7 +230,7 @@ class MtgXlsxSerializer(interface.MtgSsmSerializer):
         workbook = openpyxl.load_workbook(filename=filename, read_only=True)
         for sheet in workbook.worksheets:
             if sheet.title not in self.collection.code_to_card_set:
-                if sheet.title in ['Sets', 'All Sets']:
+                if sheet.title in {'Sets', 'All Sets', 'All Cards'}:
                     continue
                 raise interface.DeserializationError(
                     'No known set with code {}'.format(sheet.title))
