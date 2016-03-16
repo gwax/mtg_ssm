@@ -149,6 +149,11 @@ Acknowledgments
 Changelog
 =========
 
+1.2.2
+-----
+
+- Add "All Cards" page with index of all cards in XlsxSerializer.
+
 1.2.1
 -----
 
