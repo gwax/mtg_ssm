@@ -21,17 +21,11 @@ ALL_SETS_SHEET_HEADER = [
     'count',
 ]
 
-ALL_SETS_SHEET_TOTALS = [
-    'Total',
-    None,
-    None,
-    None,
-    None,
-    '=SUM(F3:F65535)',
-    '=SUM(G3:G65535)',
-    '=SUM(H3:H65535)',
-    '=SUM(I3:I65535)',
-]
+ALL_SETS_SHEET_TOTALS = (
+    ['Total'] +
+    [None] * 4 +
+    ['=SUM({c}3:{c}65535)'.format(c=c) for c in 'FGHI']
+)
 
 
 def create_all_sets(sheet, collection):
