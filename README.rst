@@ -149,6 +149,11 @@ Acknowledgments
 Changelog
 =========
 
+1.2.3
+-----
+
+- Hack to work around missing "releaseDate" and "type" in MTG JSON 3.3.14
+
 1.2.2
 -----
 
