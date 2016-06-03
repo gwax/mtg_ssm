@@ -31,6 +31,7 @@ INCLUDED = {
     'PLC': {'Boom', 'Bust'},
     'OGW': {'Wastes'},
     'CHK': {'Bushi Tenderfoot', 'Kenzo the Hardhearted'},
+    'W16': {'Serra Angel'},
 }
 
 
