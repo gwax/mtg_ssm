@@ -68,7 +68,4 @@ def read_mtgjson(data_path):
         reader = codecs.getreader('utf-8')
         mtgdata = json.load(
             reader(datafile), object_pairs_hook=collections.OrderedDict)
-    # Hack to work around mtg_ssm/issues/1
-    mtgdata['W16'].setdefault('releaseDate', '2016-04-08')
-    mtgdata['W16'].setdefault('type', 'starter')
     return mtgdata

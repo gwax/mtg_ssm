@@ -167,6 +167,7 @@
         "id": "741b2637bc11ba8687f50f1d18b5f447f8056d73",
         "imageName": "arena",
         "layout": "normal",
+        "mciNumber": "1",
         "multiverseid": 97042,
         "name": "Arena",
         "number": "1",
@@ -198,6 +199,8 @@
       "common",
       "common"
     ],
+    "mkm_name": "Fallen Empires",
+    "mkm_id": 9,
     "cards": [
       {
         "artist": "Edward P. Beard, Jr.",
@@ -355,6 +358,15 @@
       "common",
       "common"
     ],
+    "translations": {
+      "de": "Eiszeit",
+      "fr": "Ere Glaciaire",
+      "it": "Era Glaciale",
+      "es": "Era Glacial",
+      "pt": "Era Glacial"
+    },
+    "mkm_name": "Ice Age",
+    "mkm_id": 11,
     "cards": [
       {
         "artist": "Justin Hampton",
@@ -370,6 +382,7 @@
         "imageName": "dark ritual",
         "layout": "normal",
         "manaCost": "{B}",
+        "mciNumber": "8",
         "multiverseid": 2444,
         "name": "Dark Ritual",
         "rarity": "Common",
@@ -465,6 +478,7 @@
         "id": "5e9f08498a9343b1954103e493da2586be0fe394",
         "imageName": "snow-covered forest",
         "layout": "normal",
+        "mciNumber": "347",
         "multiverseid": 2749,
         "name": "Snow-Covered Forest",
         "rarity": "Basic Land",
@@ -588,6 +602,15 @@
     "releaseDate": "2000-04-01",
     "border": "white",
     "type": "starter",
+    "translations": {
+      "de": "Starter 2000",
+      "fr": "Starter 2000",
+      "it": "Starter 2000",
+      "es": "Starter 2000",
+      "pt": "Starter 2000"
+    },
+    "mkm_name": "Starter 2000",
+    "mkm_id": 65,
     "cards": [
       {
         "artist": "Mark Zug",
@@ -602,6 +625,7 @@
         "imageName": "rhox",
         "layout": "normal",
         "manaCost": "{4}{G}{G}",
+        "mciNumber": "13",
         "name": "Rhox",
         "power": "5",
         "rarity": "Rare",
@@ -752,6 +776,17 @@
       "common",
       "common"
     ],
+    "translations": {
+      "de": "Meister von Kamigawa",
+      "fr": "Guerriers de Kamigawa",
+      "it": "Campioni di Kamigawa",
+      "es": "Campeones de Kamigawa",
+      "pt": "Campeões de Kamigawa",
+      "jp": "神河物語",
+      "cn": "神河群英录"
+    },
+    "mkm_name": "Champions of Kamigawa",
+    "mkm_id": 48,
     "cards": [
       {
         "artist": "Mark Zug",
@@ -766,6 +801,7 @@
         "imageName": "bushi tenderfoot",
         "layout": "flip",
         "manaCost": "{W}",
+        "mciNumber": "2a",
         "multiverseid": 78600,
         "name": "Bushi Tenderfoot",
         "names": [
@@ -799,6 +835,7 @@
         "imageName": "kenzo the hardhearted",
         "layout": "flip",
         "manaCost": "{W}",
+        "mciNumber": "2b",
         "multiverseid": 78600,
         "name": "Kenzo the Hardhearted",
         "names": [
@@ -852,6 +889,18 @@
         "timeshifted uncommon"
       ]
     ],
+    "translations": {
+      "de": "Weltenchaos",
+      "fr": "Chaos planaire",
+      "it": "Caos Dimensionale",
+      "es": "Caos planar",
+      "pt": "Caos Planar",
+      "jp": "次元の混乱",
+      "cn": "时空混沌",
+      "ru": "Вселенский Хаос"
+    },
+    "mkm_name": "Planar Chaos",
+    "mkm_id": 58,
     "cards": [
       {
         "artist": "John Avon",
@@ -866,6 +915,7 @@
         "imageName": "boombust",
         "layout": "split",
         "manaCost": "{1}{R}",
+        "mciNumber": "112a",
         "multiverseid": 126218,
         "name": "Boom",
         "names": [
@@ -893,6 +943,7 @@
         "imageName": "boombust",
         "layout": "split",
         "manaCost": "{5}{R}",
+        "mciNumber": "112b",
         "multiverseid": 126218,
         "name": "Bust",
         "names": [
@@ -923,9 +974,6 @@
       {
         "artist": "James Paick",
         "cmc": 2,
-        "colorIdentity": [
-          "B"
-        ],
         "colors": [
           "Black"
         ],
@@ -933,10 +981,10 @@
         "imageName": "black sun's zenith",
         "layout": "normal",
         "manaCost": "{X}{B}{B}",
+        "mciNumber": "7",
         "name": "Black Sun's Zenith",
         "number": "7",
         "rarity": "Special",
-        "releaseDate": "2011-03-05",
         "text": "Put X -1/-1 counters on each creature. Shuffle Black Sun's Zenith into its owner's library.",
         "type": "Sorcery",
         "types": [
@@ -1117,6 +1165,19 @@
       "marketing",
       "double faced"
     ],
+    "translations": {
+      "de": "Innistrad",
+      "fr": "Innistrad",
+      "it": "Innistrad",
+      "es": "Innistrad",
+      "pt": "Innistrad",
+      "jp": "イニストラード",
+      "cn": "依尼翠",
+      "ru": "Innistrad",
+      "tw": "依尼翠"
+    },
+    "mkm_name": "Innistrad",
+    "mkm_id": 1327,
     "cards": [
       {
         "artist": "Nils Hamm",
@@ -1131,6 +1192,7 @@
         "imageName": "delver of secrets",
         "layout": "double-faced",
         "manaCost": "{U}",
+        "mciNumber": "51a",
         "multiverseid": 226749,
         "name": "Delver of Secrets",
         "names": [
@@ -1153,6 +1215,7 @@
       },
       {
         "artist": "Nils Hamm",
+        "cmc": 1,
         "colorIdentity": [
           "U"
         ],
@@ -1163,6 +1226,7 @@
         "id": "e5c4aa9a443c346ccbf8d99c9320138827065e05",
         "imageName": "insectile aberration",
         "layout": "double-faced",
+        "mciNumber": "51b",
         "multiverseid": 226755,
         "name": "Insectile Aberration",
         "names": [
@@ -1197,6 +1261,7 @@
         "imageName": "abattoir ghoul",
         "layout": "normal",
         "manaCost": "{3}{B}",
+        "mciNumber": "85",
         "multiverseid": 222911,
         "name": "Abattoir Ghoul",
         "number": "85",
@@ -1660,10 +1725,10 @@
   "W16": {
     "name": "Welcome Deck 2016",
     "code": "W16",
-    "border": "black",
-    "block": "Shadows over Innistrad",
     "releaseDate": "2016-04-08",
+    "border": "black",
     "type": "starter",
+    "block": "Shadows over Innistrad",
     "cards": [
       {
         "artist": "Greg Staples",
