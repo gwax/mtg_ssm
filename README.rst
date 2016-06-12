@@ -149,6 +149,11 @@ Acknowledgments
 Changelog
 =========
 
+1.2.4
+-----
+
+- Remove workarounds introduced in 1.2.3
+
 1.2.3
 -----
 
