@@ -1,14 +1,45 @@
 """Tests for mtg_ssm.serialization.interface.py"""
 
-import unittest
+import pytest
 
 from mtg_ssm.mtg import collection
 from mtg_ssm.mtg import models
 from mtg_ssm.serialization import interface
 
-from tests.mtgjson import mtgjson_testcase
+
+# Subclass registration tests
+def test_all_formats():
+    all_formats = interface.MtgSsmSerializer.all_formats()
+    expected = {'auto', 'csv', 'xlsx', 'deckbox'}
+    assert set(all_formats) == expected
+    assert all_formats[0] == 'auto'
 
 
+@pytest.mark.parametrize('extension,ser_format,name', [
+    ('.csv', 'auto', 'MtgCsvSerializer'),
+    (None, 'csv', 'MtgCsvSerializer'),
+    ('.xlsx', 'auto', 'MtgXlsxSerializer'),
+    (None, 'xlsx', 'MtgXlsxSerializer'),
+    (None, 'deckbox', 'MtgDeckboxSerializer'),
+])
+def test_serializer_lookup(extension, ser_format, name):
+    serializer_class = interface.MtgSsmSerializer.by_extension_and_format(
+        extension, ser_format)
+    assert isinstance(serializer_class, type)
+    assert serializer_class.__name__ == name
+
+
+@pytest.mark.parametrize('extension,ser_format', [
+    ('', 'auto'),
+    (None, 'foo'),
+])
+def test_serializer_lookup_invalid(extension, ser_format):
+    with pytest.raises(interface.InvalidExtensionOrFormat):
+        interface.MtgSsmSerializer.by_extension_and_format(
+            extension, ser_format)
+
+
+# Count loading tests
 class StubSerializer(interface.MtgSsmSerializer):
     """Stub serializer for testing purposes."""
 
@@ -18,175 +49,102 @@ class StubSerializer(interface.MtgSsmSerializer):
     read_from_file = None
 
 
-class SubclassRegistrationTest(unittest.TestCase):
-
-    def test_all_formats(self):
-        all_formats = interface.MtgSsmSerializer.all_formats()
-        expected = ['auto', 'csv', 'xlsx', 'deckbox']
-        self.assertCountEqual(expected, all_formats)
-        self.assertEqual('auto', expected[0])
-
-    def test_auto_csv(self):
-        serializer_class = interface.MtgSsmSerializer.by_extension_and_format(
-            '.csv', 'auto')
-        self.assertIsInstance(serializer_class, type)
-        self.assertEqual('MtgCsvSerializer', serializer_class.__name__)
-
-    def test_manual_csv(self):
-        serializer_class = interface.MtgSsmSerializer.by_extension_and_format(
-            None, 'csv')
-        self.assertIsInstance(serializer_class, type)
-        self.assertEqual('MtgCsvSerializer', serializer_class.__name__)
-
-    def test_auto_xlsx(self):
-        serializer_class = interface.MtgSsmSerializer.by_extension_and_format(
-            '.xlsx', 'auto')
-        self.assertIsInstance(serializer_class, type)
-        self.assertEqual('MtgXlsxSerializer', serializer_class.__name__)
-
-    def test_manual_xlsx(self):
-        serializer_class = interface.MtgSsmSerializer.by_extension_and_format(
-            None, 'xlsx')
-        self.assertIsInstance(serializer_class, type)
-        self.assertEqual('MtgXlsxSerializer', serializer_class.__name__)
-
-    def test_unknown_auto(self):
-        with self.assertRaises(interface.InvalidExtensionOrFormat):
-            interface.MtgSsmSerializer.by_extension_and_format('', 'auto')
-
-    def test_unknown_format(self):
-        with self.assertRaises(interface.InvalidExtensionOrFormat):
-            interface.MtgSsmSerializer.by_extension_and_format(None, 'foo')
+TEST_PRINT_ID = '958ae1416f8f6287115ccd7c5c61f2415a313546'
 
 
-class LoadCountsTest(mtgjson_testcase.MtgJsonTestCase):
-
-    def setUp(self):
-        super().setUp()
-        self.collection = collection.Collection(self.mtg_data)
-        self.print_id = '958ae1416f8f6287115ccd7c5c61f2415a313546'
-        self.printing = self.collection.id_to_printing[self.print_id]
-        self.serializer = StubSerializer(self.collection)
-
-    def test_coerce_counts(self):
-        counts = {'id': 'a', 'multiverseid': '12', 'copies': '4', 'foils': '5'}
-        coerced_counts = interface.coerce_counts(counts)
-        expected = {'id': 'a', 'multiverseid': 12, 'copies': 4, 'foils': 5}
-        self.assertEqual(expected, coerced_counts)
-
-    def test_printing_not_found(self):
-        counts = {}
-        with self.assertRaises(interface.DeserializationError):
-            self.serializer.load_counts(counts)
-
-    def test_load_nothing(self):
-        counts = {'id': self.print_id}
-        self.serializer.load_counts(counts)
-        self.assertFalse(self.printing.counts)
-
-    def test_load_zeros(self):
-        counts = {'id': self.print_id, 'copies': 0, 'foils': 0}
-        self.serializer.load_counts(counts)
-        self.assertFalse(self.printing.counts)
-
-    def test_load_counts(self):
-        counts = {'id': self.print_id, 'copies': 1, 'foils': 2}
-        self.serializer.load_counts(counts)
-        expected = {
-            models.CountTypes.copies: 1,
-            models.CountTypes.foils: 2,
-        }
-        self.assertEqual(expected, self.printing.counts)
-
-    def test_load_with_find(self):
-        counts = {'set': 'S00', 'name': 'Rhox', 'copies': 1}
-        self.serializer.load_counts(counts)
-        printing = self.collection.id_to_printing[
-            '536d407161fa03eddee7da0e823c2042a8fa0262']
-        self.assertEqual({models.CountTypes.copies: 1}, printing.counts)
-
-    def test_increase_counts(self):
-        self.printing.counts[models.CountTypes.copies] = 1
-        self.printing.counts[models.CountTypes.foils] = 2
-        counts = {'id': self.print_id, 'copies': 4, 'foils': '8'}
-        self.serializer.load_counts(counts)
-        expected = {
-            models.CountTypes.copies: 5,
-            models.CountTypes.foils: 10,
-        }
-        self.assertEqual(expected, self.printing.counts)
+@pytest.fixture  # todo: default scope?
+def coll(sets_data):
+    """Fixture collection with mtg json data."""
+    return collection.Collection(sets_data)
 
 
-class FindPrintingTest(mtgjson_testcase.MtgJsonTestCase):
+@pytest.fixture  # todo: default scope?
+def stub_serializer(coll):
+    """Fixture for StubSerializer instance bound to coll."""
+    return StubSerializer(coll)
 
-    def setUp(self):
-        super().setUp()
-        self.collection = collection.Collection(self.mtg_data)
 
-    def test_not_found(self):
-        # Execute
-        printing = interface.find_printing(
-            coll=self.collection, set_code='foo', name='bar', set_number='baz',
-            multiverseid='quux')
-        # Verify
-        self.assertIsNone(printing)
+def test_coerce_counts():
+    counts = {'id': 'a', 'multiverseid': '12', 'copies': '4', 'foils': '5'}
+    coerced_counts = interface.coerce_counts(counts)
+    expected = {'id': 'a', 'multiverseid': 12, 'copies': 4, 'foils': 5}
+    assert coerced_counts == expected
 
-    def test_set_and_name(self):
-        # Execute
-        printing = interface.find_printing(
-            coll=self.collection, set_code='S00', name='Rhox', set_number='foo',
-            multiverseid='bar')
-        # Verify
-        self.assertEqual(
-            '536d407161fa03eddee7da0e823c2042a8fa0262', printing.id_)
 
-    def test_set_and_name_dupes(self):
-        # Execute
-        printing = interface.find_printing(
-            coll=self.collection, set_code='ICE', name='Forest',
-            set_number=None, multiverseid=None)
-        # Verify
-        self.assertIsNone(printing)
+def test_bad_printing(stub_serializer):
+    counts = {}
+    with pytest.raises(interface.DeserializationError):
+        stub_serializer.load_counts(counts)
 
-    def test_set_name_num(self):
-        # Execute
-        printing = interface.find_printing(
-            coll=self.collection, set_code='pMGD', name="Black Sun's Zenith",
-            set_number='7', multiverseid='foo')
-        # Verify
-        self.assertEqual(
-            '6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc', printing.id_)
 
-    def test_set_name_mv(self):
-        # Execute
-        printing = interface.find_printing(
-            coll=self.collection, set_code='LEA', name='Forest',
-            set_number='foo', multiverseid=288)
-        # Verify
-        self.assertEqual(
-            '5ede9781b0c5d157c28a15c3153a455d7d6180fa', printing.id_)
+def test_load_nothing(coll, stub_serializer):
+    counts = {'id': TEST_PRINT_ID}
+    stub_serializer.load_counts(counts)
+    assert not coll.id_to_printing[TEST_PRINT_ID].counts
 
-    def test_get_set_name_num_mv(self):
-        # Execute
-        printing = interface.find_printing(
-            coll=self.collection, set_code='ISD', name='Abattoir Ghoul',
-            set_number='85', multiverseid=222911)
-        # Verify
-        self.assertEqual(
-            '958ae1416f8f6287115ccd7c5c61f2415a313546', printing.id_)
 
-    def test_bad_set_code(self):
-        # Execute
-        printing = interface.find_printing(
-            coll=self.collection, set_code='foo', name='Abattoir Ghoul',
-            set_number='85', multiverseid=222911)
-        # Verify
-        self.assertIsNone(printing)
+def test_load_zeros(coll, stub_serializer):
+    counts = {'id': TEST_PRINT_ID, 'copies': 0, 'foils': 0}
+    stub_serializer.load_counts(counts)
+    assert not coll.id_to_printing[TEST_PRINT_ID].counts
 
-    def test_bad_name(self):
-        # Execute
-        printing = interface.find_printing(
-            coll=self.collection, set_code='ISD', name='foo', set_number='85',
-            multiverseid=222911)
-        # Verify
-        self.assertIsNone(printing)
+
+def test_load_counts(coll, stub_serializer):
+    counts = {'id': TEST_PRINT_ID, 'copies': 1, 'foils': 2}
+    stub_serializer.load_counts(counts)
+    expected = {
+        models.CountTypes.copies: 1,
+        models.CountTypes.foils: 2,
+    }
+    assert coll.id_to_printing[TEST_PRINT_ID].counts == expected
+
+
+def test_load_with_find(coll, stub_serializer):
+    counts = {'set': 'S00', 'name': 'Rhox', 'copies': 1}
+    stub_serializer.load_counts(counts)
+    printing = coll.id_to_printing[
+        '536d407161fa03eddee7da0e823c2042a8fa0262']
+    assert printing.counts == {models.CountTypes.copies: 1}
+
+
+def test_increase_counts(coll, stub_serializer):
+    coll.id_to_printing[TEST_PRINT_ID].counts = {
+        models.CountTypes.copies: 1,
+        models.CountTypes.foils: 2,
+    }
+    counts = {'id': TEST_PRINT_ID, 'copies': 4, 'foils': '8'}
+    stub_serializer.load_counts(counts)
+    expected = {
+        models.CountTypes.copies: 5,
+        models.CountTypes.foils: 10,
+    }
+    assert coll.id_to_printing[TEST_PRINT_ID].counts == expected
+
+
+# Printing lookup tests
+@pytest.mark.parametrize('set_code,name,set_number,multiverseid', [
+    ('foo', 'bar', 'baz', 'quux'),  # not matching printing
+    ('ICE', 'Forest', None, None),  # multiple matches
+    ('foo', 'Abattoir Ghoul', '85', 222911),  # bad set_code
+    ('ISD', 'foo', '85', 222911),  # bad name
+])
+def test_printing_not_found(coll, set_code, name, set_number, multiverseid):
+    printing = interface.find_printing(
+        coll=coll, set_code=set_code, name=name, set_number=set_number,
+        multiverseid=multiverseid)
+    assert printing is None
+
+
+@pytest.mark.parametrize('set_code,name,set_number,multiverseid,found_id', [
+    # pylint: disable=line-too-long
+    ('S00', 'Rhox', 'foo', 'bar', '536d407161fa03eddee7da0e823c2042a8fa0262'),
+    ('pMGD', "Black Sun's Zenith", '7', 'foo', '6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc'),
+    ('LEA', 'Forest', 'foo', 288, '5ede9781b0c5d157c28a15c3153a455d7d6180fa'),
+    ('ISD', 'Abattoir Ghoul', '85', 222911, '958ae1416f8f6287115ccd7c5c61f2415a313546'),
+])
+def test_found_printing(coll, set_code, name, set_number, multiverseid,
+                        found_id):
+    printing = interface.find_printing(
+        coll=coll, set_code=set_code, name=name, set_number=set_number,
+        multiverseid=multiverseid)
+    assert printing.id_ == found_id
