@@ -13,6 +13,7 @@ from mtg_ssm.serialization import deckbox
 
 @pytest.fixture
 def coll(sets_data):
+    """Collection fixture for testing."""
     return collection.Collection(sets_data)
 
 

@@ -57,29 +57,34 @@ TEST_PRINT_ID = 'fc46a4b72d216117a352f59217a84d0baeaaacb7'
 
 @pytest.fixture
 def coll(sets_data):
+    """Collection fixture for testing."""
     sets_data = {k: v for k, v in sets_data.items() if k in {'MMA', 'pMGD'}}
     return collection.Collection(sets_data)
 
 
 @pytest.fixture
 def printing(coll):
+    """Printing fixture for testing."""
     return coll.id_to_printing[TEST_PRINT_ID]
 
 
 @pytest.fixture(autouse=True)
 def patch_now_and_build_collection(monkeypatch, coll):
-    class mock_datetime(datetime.datetime):
+    """Fixture to monkeypatch now and build_collection methods for testing."""
+    class MockDatetime(datetime.datetime):
+        """Datetime object that returns fixed now value."""
         @classmethod
         def now(cls, *_):
             return datetime.datetime(2015, 6, 28)
-    monkeypatch.setattr(datetime, 'datetime', mock_datetime)
+    monkeypatch.setattr(datetime, 'datetime', MockDatetime)
 
-    def mock_build_collection(*_):
+    def mock_build_coll(*_):
+        """Build collection method that always returns fixed value."""
         return coll
-    monkeypatch.setattr(manager, 'build_collection', mock_build_collection)
+    monkeypatch.setattr(manager, 'build_collection', mock_build_coll)
 
 
-def test_process_files_new(coll, printing):
+def test_process_files_new(printing):
     # Setup
     printing.counts[models.CountTypes.copies] = 2
     printing.counts[models.CountTypes.foils] = 5
@@ -107,7 +112,7 @@ def test_process_files_new(coll, printing):
     assert outdata == expected
 
 
-def test_process_files_upgrade(coll):
+def test_process_files_upgrade():
     # Setup
     with tf.TemporaryDirectory() as tmpdirname:
         infilename = os.path.join(tmpdirname, 'infile.csv')
@@ -153,7 +158,7 @@ def test_process_files_upgrade(coll):
     assert bakfiledata == bakexpected
 
 
-def test_import(coll):
+def test_import():
     # Setup
     with tf.TemporaryDirectory() as tmpdirname:
         outfilename = os.path.join(tmpdirname, 'outfile.csv')
@@ -200,7 +205,7 @@ def test_import(coll):
     assert importdata == importexpected
 
 
-def test_multiple_import(coll):
+def test_multiple_import():
     # Setup
     with tf.TemporaryDirectory() as tmpdirname:
         outfilename = os.path.join(tmpdirname, 'outfile.csv')

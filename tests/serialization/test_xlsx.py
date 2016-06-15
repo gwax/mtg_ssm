@@ -16,6 +16,7 @@ from mtg_ssm.serialization import xlsx
 
 @pytest.fixture
 def coll(sets_data):
+    """Collection fixture for testing."""
     sets_data = {
         k: v for k, v in sets_data.items()
         if k in {'LEA', 'FEM', 'S00', 'ICE', 'HOP'}}
@@ -173,7 +174,7 @@ def test_write_to_file(coll):
     assert s00_rows == expected
 
 
-def test_counts_from_sheet(coll):
+def test_counts_from_sheet():
     # Setup
     workbook = openpyxl.Workbook()
     sheet = workbook['Sheet']

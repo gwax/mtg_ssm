@@ -15,12 +15,14 @@ TEST_PRINT_ID = 'fc46a4b72d216117a352f59217a84d0baeaaacb7'
 
 @pytest.fixture
 def coll(sets_data):
+    """Collection fixture for testing."""
     sets_data = {k: v for k, v in sets_data.items() if k in {'MMA', 'pMGD'}}
     return collection.Collection(sets_data)
 
 
 @pytest.fixture
 def printing(coll):
+    """Printing fixture for testing."""
     return coll.id_to_printing[TEST_PRINT_ID]
 
 

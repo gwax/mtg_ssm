@@ -1,5 +1,4 @@
 """Tests for mtg_ssm.mtg.collection"""
-# TODO: test sorting of None and '★' for indexes
 
 from mtg_ssm.mtg import collection
 
