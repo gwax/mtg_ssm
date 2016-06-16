@@ -4,7 +4,7 @@ import abc
 import collections
 from typing import Any, Dict
 
-from mtg_ssm.mtg import collection
+from mtg_ssm.mtg import card_db
 from mtg_ssm.mtg import models
 
 
@@ -20,7 +20,7 @@ class DeserializationError(Error):
     """Raised when there is an error reading counts from a file."""
 
 
-def find_printing(coll, set_code, name, set_number, multiverseid, strict=True):
+def find_printing(cdb, set_code, name, set_number, multiverseid, strict=True):
     """Attempt to find a CardPrinting from given parameters."""
     name = name or ''
     names = [name]
@@ -37,7 +37,7 @@ def find_printing(coll, set_code, name, set_number, multiverseid, strict=True):
             (set_code, name_var, None, None),
         ])
     for snnm_key in snnm_keys:
-        found_printings = coll.set_name_num_mv_to_printings.get(snnm_key, [])
+        found_printings = cdb.set_name_num_mv_to_printings.get(snnm_key, [])
         if len(found_printings) == 1 or found_printings and not strict:
             return found_printings[0]
 
@@ -67,8 +67,8 @@ class MtgSsmSerializer(metaclass=abc.ABCMeta):
     _format_to_serializer = None
     _extension_to_serializer = None
 
-    def __init__(self, coll: collection.Collection):
-        self.collection = coll
+    def __init__(self, cdb: card_db.CardDb):
+        self.card_db = cdb
 
     @property
     @abc.abstractmethod
@@ -82,14 +82,14 @@ class MtgSsmSerializer(metaclass=abc.ABCMeta):
 
     @abc.abstractmethod
     def write_to_file(self, filename: str) -> None:
-        """Write the collection to a file."""
+        """Write the card_db to a file."""
 
     @abc.abstractmethod
     def read_from_file(self, filename: str) -> None:
-        """Read counts from file and add them to the collection."""
+        """Read counts from file and add them to the card_db."""
 
     def load_counts(self, counts: Dict[Any, Any], strict: bool=True) -> None:
-        """Load counts from a dict into the collection.
+        """Load counts from a dict into the card_db.
 
         Arguments:
             counts: a dict containing key 'id' mapping to mtgjson id, and
@@ -98,11 +98,11 @@ class MtgSsmSerializer(metaclass=abc.ABCMeta):
         """
         counts = coerce_counts(counts)
         printing_id = counts.get('id')
-        printing = self.collection.id_to_printing.get(printing_id)
+        printing = self.card_db.id_to_printing.get(printing_id)
         if printing is None:
             print('id not found for printing, searching')
             printing = find_printing(
-                coll=self.collection, set_code=counts.get('set'),
+                cdb=self.card_db, set_code=counts.get('set'),
                 name=counts.get('name'), set_number=counts.get('number'),
                 multiverseid=counts.get('multiverseid'), strict=strict)
             if printing is None:

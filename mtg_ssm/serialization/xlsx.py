@@ -28,12 +28,12 @@ ALL_SETS_SHEET_TOTALS = (
 )
 
 
-def create_all_sets(sheet, collection):
-    """Create all sets sheet from collection."""
+def create_all_sets(sheet, card_db):
+    """Create all sets sheet from card_db."""
     sheet.title = 'All Sets'
     sheet.append(ALL_SETS_SHEET_HEADER)
     sheet.append(ALL_SETS_SHEET_TOTALS)
-    for card_set in collection.card_sets:
+    for card_set in card_db.card_sets:
         row = [
             card_set.code,
             card_set.name,
@@ -109,13 +109,13 @@ ALL_CARDS_SHEET_HEADER = [
 ]
 
 
-def create_all_cards(sheet, collection):
-    """Create all cards sheet from collection."""
+def create_all_cards(sheet, card_db):
+    """Create all cards sheet from card_db."""
     sheet.title = 'All Cards'
     sheet.append(ALL_CARDS_SHEET_HEADER)
-    # Should this be done in the collection class indexes?
-    # Should card_sets not be done in the collection indexes?
-    cards = sorted(collection.name_to_card.values(), key=lambda c: c.name)
+    # Should this be done in the card_db class indexes?
+    # Should card_sets not be done in the card_db indexes?
+    cards = sorted(card_db.name_to_card.values(), key=lambda c: c.name)
     for card in cards:
         row = [
             card.name,
@@ -210,15 +210,15 @@ class MtgXlsxSerializer(interface.MtgSsmSerializer):
     extension = 'xlsx'
 
     def write_to_file(self, filename: str) -> None:
-        """Write the collection to an xlsx file."""
+        """Write the card_db to an xlsx file."""
         workbook = openpyxl.Workbook()
         all_sets_sheet = workbook.create_sheet()
-        create_all_sets(all_sets_sheet, self.collection)
+        create_all_sets(all_sets_sheet, self.card_db)
         style_all_sets(all_sets_sheet)
         all_cards_sheet = workbook.create_sheet()
-        create_all_cards(all_cards_sheet, self.collection)
+        create_all_cards(all_cards_sheet, self.card_db)
         style_all_cards(all_cards_sheet)
-        for card_set in self.collection.card_sets:
+        for card_set in self.card_db.card_sets:
             set_sheet = workbook.create_sheet()
             create_set_sheet(set_sheet, card_set)
             style_set_sheet(set_sheet)
@@ -226,10 +226,10 @@ class MtgXlsxSerializer(interface.MtgSsmSerializer):
         workbook.save(filename)
 
     def read_from_file(self, filename: str) -> None:
-        """Read collection counts from xlsx file."""
+        """Read card_db counts from xlsx file."""
         workbook = openpyxl.load_workbook(filename=filename, read_only=True)
         for sheet in workbook.worksheets:
-            if sheet.title not in self.collection.code_to_card_set:
+            if sheet.title not in self.card_db.code_to_card_set:
                 if sheet.title in {'Sets', 'All Sets', 'All Cards'}:
                     continue
                 raise interface.DeserializationError(

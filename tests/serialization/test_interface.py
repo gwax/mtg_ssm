@@ -2,7 +2,7 @@
 
 import pytest
 
-from mtg_ssm.mtg import collection
+from mtg_ssm.mtg import card_db
 from mtg_ssm.mtg import models
 from mtg_ssm.serialization import interface
 
@@ -53,15 +53,15 @@ TEST_PRINT_ID = '958ae1416f8f6287115ccd7c5c61f2415a313546'
 
 
 @pytest.fixture  # todo: default scope?
-def coll(sets_data):
-    """Fixture collection with mtg json data."""
-    return collection.Collection(sets_data)
+def cdb(sets_data):
+    """Fixture card_db with mtg json data."""
+    return card_db.CardDb(sets_data)
 
 
 @pytest.fixture  # todo: default scope?
-def stub_serializer(coll):
-    """Fixture for StubSerializer instance bound to coll."""
-    return StubSerializer(coll)
+def stub_serializer(cdb):
+    """Fixture for StubSerializer instance bound to cdb."""
+    return StubSerializer(cdb)
 
 
 def test_coerce_counts():
@@ -77,38 +77,38 @@ def test_bad_printing(stub_serializer):
         stub_serializer.load_counts(counts)
 
 
-def test_load_nothing(coll, stub_serializer):
+def test_load_nothing(cdb, stub_serializer):
     counts = {'id': TEST_PRINT_ID}
     stub_serializer.load_counts(counts)
-    assert not coll.id_to_printing[TEST_PRINT_ID].counts
+    assert not cdb.id_to_printing[TEST_PRINT_ID].counts
 
 
-def test_load_zeros(coll, stub_serializer):
+def test_load_zeros(cdb, stub_serializer):
     counts = {'id': TEST_PRINT_ID, 'copies': 0, 'foils': 0}
     stub_serializer.load_counts(counts)
-    assert not coll.id_to_printing[TEST_PRINT_ID].counts
+    assert not cdb.id_to_printing[TEST_PRINT_ID].counts
 
 
-def test_load_counts(coll, stub_serializer):
+def test_load_counts(cdb, stub_serializer):
     counts = {'id': TEST_PRINT_ID, 'copies': 1, 'foils': 2}
     stub_serializer.load_counts(counts)
     expected = {
         models.CountTypes.copies: 1,
         models.CountTypes.foils: 2,
     }
-    assert coll.id_to_printing[TEST_PRINT_ID].counts == expected
+    assert cdb.id_to_printing[TEST_PRINT_ID].counts == expected
 
 
-def test_load_with_find(coll, stub_serializer):
+def test_load_with_find(cdb, stub_serializer):
     counts = {'set': 'S00', 'name': 'Rhox', 'copies': 1}
     stub_serializer.load_counts(counts)
-    printing = coll.id_to_printing[
+    printing = cdb.id_to_printing[
         '536d407161fa03eddee7da0e823c2042a8fa0262']
     assert printing.counts == {models.CountTypes.copies: 1}
 
 
-def test_increase_counts(coll, stub_serializer):
-    coll.id_to_printing[TEST_PRINT_ID].counts = {
+def test_increase_counts(cdb, stub_serializer):
+    cdb.id_to_printing[TEST_PRINT_ID].counts = {
         models.CountTypes.copies: 1,
         models.CountTypes.foils: 2,
     }
@@ -118,7 +118,7 @@ def test_increase_counts(coll, stub_serializer):
         models.CountTypes.copies: 5,
         models.CountTypes.foils: 10,
     }
-    assert coll.id_to_printing[TEST_PRINT_ID].counts == expected
+    assert cdb.id_to_printing[TEST_PRINT_ID].counts == expected
 
 
 # Printing lookup tests
@@ -128,9 +128,9 @@ def test_increase_counts(coll, stub_serializer):
     ('foo', 'Abattoir Ghoul', '85', 222911),  # bad set_code
     ('ISD', 'foo', '85', 222911),  # bad name
 ])
-def test_printing_not_found(coll, set_code, name, set_number, multiverseid):
+def test_printing_not_found(cdb, set_code, name, set_number, multiverseid):
     printing = interface.find_printing(
-        coll=coll, set_code=set_code, name=name, set_number=set_number,
+        cdb=cdb, set_code=set_code, name=name, set_number=set_number,
         multiverseid=multiverseid)
     assert printing is None
 
@@ -142,9 +142,9 @@ def test_printing_not_found(coll, set_code, name, set_number, multiverseid):
     ('LEA', 'Forest', 'foo', 288, '5ede9781b0c5d157c28a15c3153a455d7d6180fa'),
     ('ISD', 'Abattoir Ghoul', '85', 222911, '958ae1416f8f6287115ccd7c5c61f2415a313546'),
 ])
-def test_found_printing(coll, set_code, name, set_number, multiverseid,
+def test_found_printing(cdb, set_code, name, set_number, multiverseid,
                         found_id):
     printing = interface.find_printing(
-        coll=coll, set_code=set_code, name=name, set_number=set_number,
+        cdb=cdb, set_code=set_code, name=name, set_number=set_number,
         multiverseid=multiverseid)
     assert printing.id_ == found_id

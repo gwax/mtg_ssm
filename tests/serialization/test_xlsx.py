@@ -8,27 +8,27 @@ from unittest import mock
 import openpyxl
 import pytest
 
-from mtg_ssm.mtg import collection
+from mtg_ssm.mtg import card_db
 from mtg_ssm.mtg import models
 from mtg_ssm.serialization import interface
 from mtg_ssm.serialization import xlsx
 
 
 @pytest.fixture
-def coll(sets_data):
-    """Collection fixture for testing."""
+def cdb(sets_data):
+    """card_db fixture for testing."""
     sets_data = {
         k: v for k, v in sets_data.items()
         if k in {'LEA', 'FEM', 'S00', 'ICE', 'HOP'}}
-    return collection.Collection(sets_data)
+    return card_db.CardDb(sets_data)
 
 
-def test_create_all_sets(coll):
+def test_create_all_sets(cdb):
     # Setup
     book = openpyxl.Workbook()
     sheet = book.create_sheet()
     # Execute
-    xlsx.create_all_sets(sheet, coll)
+    xlsx.create_all_sets(sheet, cdb)
     # Verify
     rows = [[cell.value for cell in row] for row in sheet.rows]
     expected = [
@@ -45,7 +45,7 @@ def test_create_all_sets(coll):
     assert sheet.title == 'All Sets'
 
 
-def test_create_haverefs(coll):
+def test_create_haverefs(cdb):
     # Setup
     fem_thallid_ids = [
         '3deebffcf4f5152f4a5cc270cfac746a3bd2089d',
@@ -54,7 +54,7 @@ def test_create_haverefs(coll):
         '378e47697b1b74df8c901cac23f7402b01da31b2',
     ]
     fem_thallids = [
-        coll.id_to_printing[pid] for pid in fem_thallid_ids]
+        cdb.id_to_printing[pid] for pid in fem_thallid_ids]
     fem_thallids.sort(key=lambda p: p.multiverseid)
     # Execute
     haverefs = xlsx.create_haverefs(fem_thallids)
@@ -75,21 +75,21 @@ def test_create_haverefs(coll):
                     '"FEM: "&\'FEM\'!A2+\'FEM\'!A3+\'FEM\'!A4+\'FEM\'!A5'
                     '&", ","")')
 ])
-def test_get_references(coll, name, exclude_set_codes, expected):
-    card = coll.name_to_card[name]
+def test_get_references(cdb, name, exclude_set_codes, expected):
+    card = cdb.name_to_card[name]
     exclude_sets = {
-        coll.code_to_card_set[set_code] for set_code in exclude_set_codes}
+        cdb.code_to_card_set[set_code] for set_code in exclude_set_codes}
     print_refs = xlsx.get_references(card, exclude_sets=exclude_sets)
     assert print_refs == expected
 
 
-def test_create_all_cards_sheet(coll):
+def test_create_all_cards_sheet(cdb):
     # Setup
     book = openpyxl.Workbook()
     sheet = book.create_sheet()
 
     # Execute
-    xlsx.create_all_cards(sheet, coll)
+    xlsx.create_all_cards(sheet, cdb)
 
     # Verify
     rows = [[cell.value for cell in row] for row in sheet.rows]
@@ -111,20 +111,20 @@ def test_create_all_cards_sheet(coll):
     assert sheet.title == 'All Cards'
 
 
-def test_create_set_sheet(coll):
+def test_create_set_sheet(cdb):
     # Setup
-    forest1 = coll.id_to_printing[
+    forest1 = cdb.id_to_printing[
         '676a1f5b64dc03bbb3876840c3ff2ba2c16f99cb']
-    forest2 = coll.id_to_printing[
+    forest2 = cdb.id_to_printing[
         'd0a4414893bc2f9bd3beea2f8f2693635ef926a4']
-    forest3 = coll.id_to_printing[
+    forest3 = cdb.id_to_printing[
         'c78d2da78c68c558b1adc734b3f164e885407ffc']
     forest1.counts[models.CountTypes.copies] = 1
     forest2.counts[models.CountTypes.foils] = 2
     forest3.counts[models.CountTypes.copies] = 3
     forest3.counts[models.CountTypes.foils] = 4
 
-    ice_age = coll.code_to_card_set['ICE']
+    ice_age = cdb.code_to_card_set['ICE']
     book = openpyxl.Workbook()
     sheet = book.create_sheet()
 
@@ -146,13 +146,13 @@ def test_create_set_sheet(coll):
     assert sheet.title == 'ICE'
 
 
-def test_write_to_file(coll):
+def test_write_to_file(cdb):
     # Setup
-    printing = coll.id_to_printing[
+    printing = cdb.id_to_printing[
         '536d407161fa03eddee7da0e823c2042a8fa0262']
     printing.counts[models.CountTypes.copies] = 7
     printing.counts[models.CountTypes.foils] = 12
-    serializer = xlsx.MtgXlsxSerializer(coll)
+    serializer = xlsx.MtgXlsxSerializer(cdb)
     with tempfile.TemporaryDirectory() as tmpdirname:
         xlsxfilename = os.path.join(tmpdirname, 'outfile.xlsx')
 
@@ -190,9 +190,9 @@ def test_counts_from_sheet():
     assert rows == expected
 
 
-def test_read_from_file_bad_set(coll):
+def test_read_from_file_bad_set(cdb):
     # Setup
-    serializer = xlsx.MtgXlsxSerializer(coll)
+    serializer = xlsx.MtgXlsxSerializer(cdb)
     workbook = openpyxl.Workbook()
     workbook['Sheet'].title = 'BADSET'
     with tempfile.TemporaryDirectory() as tmpdirname:
@@ -204,9 +204,9 @@ def test_read_from_file_bad_set(coll):
             serializer.read_from_file(xlsxfilename)
 
 
-def test_read_from_file(coll):
+def test_read_from_file(cdb):
     # Setup
-    serializer = xlsx.MtgXlsxSerializer(coll)
+    serializer = xlsx.MtgXlsxSerializer(cdb)
     workbook = openpyxl.Workbook()
     sheet = workbook['Sheet']
     sheet.title = 'S00'
@@ -220,7 +220,7 @@ def test_read_from_file(coll):
         serializer.read_from_file(xlsxfilename)
 
     # Verify
-    printing = coll.id_to_printing[
+    printing = cdb.id_to_printing[
         '536d407161fa03eddee7da0e823c2042a8fa0262']
     expected = {models.CountTypes.copies: 3, models.CountTypes.foils: 7}
     assert printing.counts == expected

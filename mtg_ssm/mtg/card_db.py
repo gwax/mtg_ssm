@@ -25,8 +25,8 @@ def card_name_to_printing_key(printing):
     )
 
 
-class Collection:
-    """Container/manager object for storing models."""
+class CardDb:
+    """Card database, containing information and indexes for magic cards."""
 
     def __init__(self, mtg_json_data=None, include_online_only=False):
         self.name_to_card = {}

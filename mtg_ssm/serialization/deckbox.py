@@ -99,9 +99,9 @@ def rows_from_printing(printing):
             yield foils_row
 
 
-def deckbox_rows_from_collection(coll):
-    """Generator that yields csv rows from a collection."""
-    for card_set in coll.card_sets:
+def deckbox_rows_from_card_db(cdb):
+    """Generator that yields csv rows from a card_db."""
+    for card_set in cdb.card_sets:
         for printing in card_set.printings:
             yield from rows_from_printing(printing)
 
@@ -117,12 +117,12 @@ def get_mtgj_setname(edition, number):
             return setname
 
 
-def create_counts_row(coll, deckbox_row):
+def create_counts_row(cdb, deckbox_row):
     """Given a row from a deckbox csv file, return a counts row."""
     edition = deckbox_row['Edition']
     number = deckbox_row['Card Number']
     mtgj_setname = get_mtgj_setname(edition, number)
-    set_code = coll.setname_to_card_set[mtgj_setname].code
+    set_code = cdb.setname_to_card_set[mtgj_setname].code
     counts = int(deckbox_row['Count']) + int(deckbox_row['Tradelist Count'])
     countname = 'foils' if deckbox_row['Foil'] == 'foil' else 'copies'
     return {
@@ -140,18 +140,18 @@ class MtgDeckboxSerializer(interface.MtgSsmSerializer):
     extension = None
 
     def write_to_file(self, filename: str) -> None:
-        """Write the collection to a deckbox csv file."""
+        """Write the card_db to a deckbox csv file."""
         with open(filename, 'w') as csv_file:
             writer = csv.DictWriter(csv_file, DECKBOX_HEADER)
             writer.writeheader()
-            for row in deckbox_rows_from_collection(self.collection):
+            for row in deckbox_rows_from_card_db(self.card_db):
                 writer.writerow(row)
 
     def read_from_file(self, filename: str) -> None:
-        """Read collection counts from deckbox csv file."""
+        """Read card_db counts from deckbox csv file."""
         with open(filename, 'r') as deckbox_file:
             reader = csv.DictReader(deckbox_file)
             for row in reader:
                 self.load_counts(
-                    create_counts_row(self.collection, row),
+                    create_counts_row(self.card_db, row),
                     strict=False)

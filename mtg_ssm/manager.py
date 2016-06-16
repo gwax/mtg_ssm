@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Script to manage magic collection spreadsheets."""
+"""Script to manage magic card_db spreadsheets."""
 
 import argparse
 import datetime
@@ -11,7 +11,7 @@ import mtg_ssm
 from mtg_ssm import mtgjson
 from mtg_ssm import profiling
 import mtg_ssm.serialization.interface as ser_interface
-from mtg_ssm.mtg import collection
+from mtg_ssm.mtg import card_db
 
 
 MTG_SSM_DATA_PATH = os.path.expanduser(os.path.join('~', '.mtg_ssm'))
@@ -20,7 +20,7 @@ MTG_SSM_DATA_PATH = os.path.expanduser(os.path.join('~', '.mtg_ssm'))
 def get_args(args=None):
     """Create and return application argument parser."""
     parser = argparse.ArgumentParser(
-        description='Magic Collection Spreadsheet Manager')
+        description='Magic card_db Spreadsheet Manager')
     parser.add_argument(
         '--version', action='version', version=mtg_ssm.__version__)
 
@@ -38,10 +38,10 @@ def get_args(args=None):
     format_choices = ser_interface.MtgSsmSerializer.all_formats()
     parser.add_argument(
         '--format', default='auto', choices=format_choices,
-        help='File format for collection, auto will guess from the '
+        help='File format for card_db, auto will guess from the '
         'file extension.')
     parser.add_argument(
-        'collection', help='Sheet to update.')
+        'card_db', help='Sheet to update.')
 
     parser.add_argument(
         '--import_format', default='auto', choices=format_choices,
@@ -50,23 +50,23 @@ def get_args(args=None):
         'imports', metavar='import', nargs='*',
         help='Optional files to read additional counts from. You may also '
         'use this to convert from one format to another. Note: counts will '
-        'be added to collection, not replaced.')
+        'be added to card_db, not replaced.')
 
     return parser.parse_args(args=args)
 
 
-def build_collection(data_path, include_online_only):
-    """Get a collection with current mtgjson data."""
+def build_card_db(data_path, include_online_only):
+    """Get a card_db with current mtgjson data."""
     mtgjson.fetch_mtgjson(data_path)
     print('Reading mtgjson data.')
     mtgjsondata = mtgjson.read_mtgjson(data_path)
-    return collection.Collection(
+    return card_db.CardDb(
         mtgjsondata, include_online_only=include_online_only)
 
 
 def process_files(args):
     """Run the requested operations."""
-    coll = build_collection(args.data_path, args.include_online_only)
+    coll = build_card_db(args.data_path, args.include_online_only)
 
     for import_file in args.imports:
         _, ext = os.path.splitext(import_file)
@@ -76,21 +76,21 @@ def process_files(args):
         print('Importing counts from import: %s' % import_file)
         import_serializer.read_from_file(import_file)
 
-    _, ext = os.path.splitext(args.collection)
+    _, ext = os.path.splitext(args.card_db)
     serializer_class = ser_interface.MtgSsmSerializer.by_extension_and_format(
         ext, args.format)
     serializer = serializer_class(coll)
 
-    if os.path.exists(args.collection):
+    if os.path.exists(args.card_db):
         print('Reading counts from existing file.')
-        serializer.read_from_file(args.collection)
-        backup_name = args.collection + '.bak-{:%Y%m%d_%H%M%S}'.format(
+        serializer.read_from_file(args.card_db)
+        backup_name = args.card_db + '.bak-{:%Y%m%d_%H%M%S}'.format(
             datetime.datetime.now())
-        print('Moving existing collection to backup: %s' % backup_name)
-        shutil.move(args.collection, backup_name)
+        print('Moving existing card_db to backup: %s' % backup_name)
+        shutil.move(args.card_db, backup_name)
 
-    print('Writing collection to file.')
-    serializer.write_to_file(args.collection)
+    print('Writing card_db to file.')
+    serializer.write_to_file(args.card_db)
 
 
 def main():

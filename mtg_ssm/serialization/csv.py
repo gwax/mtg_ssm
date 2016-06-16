@@ -29,9 +29,9 @@ def row_from_printing(printing):
     return csv_row
 
 
-def csv_rows_from_collection(collection):
-    """Generator that yields csv rows from a collection."""
-    for card_set in collection.card_sets:
+def csv_rows_from_card_db(card_db):
+    """Generator that yields csv rows from a card_db."""
+    for card_set in card_db.card_sets:
         for printing in card_set.printings:
             yield row_from_printing(printing)
 
@@ -43,15 +43,15 @@ class MtgCsvSerializer(interface.MtgSsmSerializer):
     extension = 'csv'
 
     def write_to_file(self, filename: str) -> None:
-        """Write the collection to a csv file."""
+        """Write the card_db to a csv file."""
         with open(filename, 'w') as csv_file:
             writer = csv.DictWriter(csv_file, CSV_HEADER)
             writer.writeheader()
-            for row in csv_rows_from_collection(self.collection):
+            for row in csv_rows_from_card_db(self.card_db):
                 writer.writerow(row)
 
     def read_from_file(self, filename: str) -> None:
-        """Read collection counts from a csv file."""
+        """Read card_db counts from a csv file."""
         with open(filename, 'r') as csv_file:
             reader = csv.DictReader(csv_file)
             for row in reader:

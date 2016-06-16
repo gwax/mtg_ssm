@@ -10,7 +10,7 @@ from unittest import mock
 import pytest
 
 from mtg_ssm import manager
-from mtg_ssm.mtg import collection
+from mtg_ssm.mtg import card_db
 from mtg_ssm.mtg import models
 
 
@@ -18,7 +18,7 @@ from mtg_ssm.mtg import models
     (
         'testfilename',
         ap.Namespace(
-            collection='testfilename',
+            card_db='testfilename',
             format='auto',
             imports=[],
             import_format='auto',
@@ -29,7 +29,7 @@ from mtg_ssm.mtg import models
         '--data_path=/foo --include_online_only --profile_stats '
         '--format csv --import_format xlsx testfilename testfilename2',
         ap.Namespace(
-            collection='testfilename',
+            card_db='testfilename',
             format='csv',
             imports=['testfilename2'],
             import_format='xlsx',
@@ -39,7 +39,7 @@ from mtg_ssm.mtg import models
     ), (
         'testfilename testfilename2 testfilename3',
         ap.Namespace(
-            collection='testfilename',
+            card_db='testfilename',
             format='auto',
             imports=['testfilename2', 'testfilename3'],
             import_format='auto',
@@ -56,21 +56,21 @@ TEST_PRINT_ID = 'fc46a4b72d216117a352f59217a84d0baeaaacb7'
 
 
 @pytest.fixture
-def coll(sets_data):
-    """Collection fixture for testing."""
+def cdb(sets_data):
+    """card_db fixture for testing."""
     sets_data = {k: v for k, v in sets_data.items() if k in {'MMA', 'pMGD'}}
-    return collection.Collection(sets_data)
+    return card_db.CardDb(sets_data)
 
 
 @pytest.fixture
-def printing(coll):
+def printing(cdb):
     """Printing fixture for testing."""
-    return coll.id_to_printing[TEST_PRINT_ID]
+    return cdb.id_to_printing[TEST_PRINT_ID]
 
 
 @pytest.fixture(autouse=True)
-def patch_now_and_build_collection(monkeypatch, coll):
-    """Fixture to monkeypatch now and build_collection methods for testing."""
+def patch_now_and_build_card_db(monkeypatch, cdb):
+    """Fixture to monkeypatch now and build_card_db methods for testing."""
     class MockDatetime(datetime.datetime):
         """Datetime object that returns fixed now value."""
         @classmethod
@@ -78,10 +78,10 @@ def patch_now_and_build_collection(monkeypatch, coll):
             return datetime.datetime(2015, 6, 28)
     monkeypatch.setattr(datetime, 'datetime', MockDatetime)
 
-    def mock_build_coll(*_):
-        """Build collection method that always returns fixed value."""
-        return coll
-    monkeypatch.setattr(manager, 'build_collection', mock_build_coll)
+    def mock_build_cdb(*_):
+        """Build card_db method that always returns fixed value."""
+        return cdb
+    monkeypatch.setattr(manager, 'build_card_db', mock_build_cdb)
 
 
 def test_process_files_new(printing):
@@ -91,7 +91,7 @@ def test_process_files_new(printing):
     with tf.TemporaryDirectory() as tmpdirname:
         outfilename = os.path.join(tmpdirname, 'outfile.csv')
         args = ap.Namespace(
-            collection=outfilename,
+            card_db=outfilename,
             format='auto',
             imports=[],
             import_format='auto',
@@ -123,7 +123,7 @@ def test_process_files_upgrade():
             """))
 
         args = ap.Namespace(
-            collection=infilename,
+            card_db=infilename,
             format='auto',
             imports=[],
             import_format='auto',
@@ -170,7 +170,7 @@ def test_import():
             """))
 
         args = ap.Namespace(
-            collection=outfilename,
+            card_db=outfilename,
             format='auto',
             imports=[importname],
             import_format='auto',
@@ -219,7 +219,7 @@ def test_multiple_import():
                 """))
 
         args = ap.Namespace(
-            collection=outfilename,
+            card_db=outfilename,
             format='auto',
             imports=[importname1, importname2],
             import_format='auto',
