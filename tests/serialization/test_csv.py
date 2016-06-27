@@ -40,12 +40,13 @@ def test_header():
     assert csv.CSV_HEADER == expected
 
 
-def test_row_from_printing(printing):
-    # Setup
-    printing.counts[models.CountTypes.copies] = 3
-    printing.counts[models.CountTypes.foils] = 5
+def test_row_for_printing(printing):
+    print_counts = {printing: {
+        models.CountTypes.copies: 3,
+        models.CountTypes.foils: 5,
+    }}
     # Execute
-    csv_row = csv.row_from_printing(printing)
+    csv_row = csv.row_for_printing(printing, print_counts)
     # Verify
     expected = {
         'set': 'MMA',
@@ -59,9 +60,9 @@ def test_row_from_printing(printing):
     assert csv_row == expected
 
 
-def test_rows_from_card_db(cdb):
+def test_rows_for_printings(cdb):
     # Execute
-    row_generator = csv.csv_rows_from_card_db(cdb)
+    row_generator = csv.rows_for_printings(cdb, {})
     # Verify
     rows = list(row_generator)
     expected = [
@@ -83,16 +84,18 @@ def test_rows_from_card_db(cdb):
     assert rows == expected
 
 
-def test_write_to_file(cdb, printing):
+def test_write(cdb, printing):
     # Setup
-    printing.counts[models.CountTypes.copies] = 1
-    printing.counts[models.CountTypes.foils] = 12
+    print_counts = {printing: {
+        models.CountTypes.copies: 1,
+        models.CountTypes.foils: 12,
+    }}
     serializer = csv.MtgCsvSerializer(cdb)
     with tempfile.TemporaryDirectory() as tmpdirname:
         csvfilename = os.path.join(tmpdirname, 'outfile.csv')
 
         # Execute
-        serializer.write_to_file(csvfilename)
+        serializer.write(csvfilename, print_counts)
 
         # Verify
         with open(csvfilename, 'r') as csvfile:
@@ -105,7 +108,7 @@ def test_write_to_file(cdb, printing):
     assert csvdata == expected
 
 
-def test_read_from_file(cdb, printing):
+def test_read(cdb, printing):
     # Setup
     with tempfile.NamedTemporaryFile('w') as csvfile:
         csvfile.write(textwrap.dedent("""\
@@ -116,8 +119,10 @@ def test_read_from_file(cdb, printing):
         serializer = csv.MtgCsvSerializer(cdb)
 
         # Execute
-        serializer.read_from_file(csvfile.name)
+        print_counts = serializer.read(csvfile.name)
 
     # Verify
-    assert printing.counts[models.CountTypes.copies] == 3
-    assert printing.counts[models.CountTypes.foils] == 72
+    assert print_counts == {printing: {
+        models.CountTypes.copies: 3,
+        models.CountTypes.foils: 72,
+    }}

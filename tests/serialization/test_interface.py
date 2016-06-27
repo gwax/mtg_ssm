@@ -39,16 +39,6 @@ def test_serializer_lookup_invalid(extension, ser_format):
             extension, ser_format)
 
 
-# Count loading tests
-class StubSerializer(interface.MtgSsmSerializer):
-    """Stub serializer for testing purposes."""
-
-    format = None
-    extension = None
-    write_to_file = None
-    read_from_file = None
-
-
 TEST_PRINT_ID = '958ae1416f8f6287115ccd7c5c61f2415a313546'
 
 
@@ -58,67 +48,96 @@ def cdb(sets_data):
     return card_db.CardDb(sets_data)
 
 
-@pytest.fixture  # todo: default scope?
-def stub_serializer(cdb):
-    """Fixture for StubSerializer instance bound to cdb."""
-    return StubSerializer(cdb)
-
-
-def test_coerce_counts():
-    counts = {'id': 'a', 'multiverseid': '12', 'copies': '4', 'foils': '5'}
-    coerced_counts = interface.coerce_counts(counts)
+def test_coerce_count():
+    count = {'id': 'a', 'multiverseid': '12', 'copies': '4', 'foils': '5'}
+    coerced_counts = interface.coerce_count(count)
     expected = {'id': 'a', 'multiverseid': 12, 'copies': 4, 'foils': 5}
     assert coerced_counts == expected
 
 
-def test_bad_printing(stub_serializer):
-    counts = {}
+# build_print_count tests
+def test_bpc_bad_printing(cdb):
+    card_counts = [{}]
     with pytest.raises(interface.DeserializationError):
-        stub_serializer.load_counts(counts)
+        interface.build_print_counts(cdb, card_counts)
 
 
-def test_load_nothing(cdb, stub_serializer):
-    counts = {'id': TEST_PRINT_ID}
-    stub_serializer.load_counts(counts)
-    assert not cdb.id_to_printing[TEST_PRINT_ID].counts
+def test_bpc_no_counts(cdb):
+    card_counts = [{'id': TEST_PRINT_ID}]
+    print_counts = interface.build_print_counts(cdb, card_counts)
+    assert not print_counts
 
 
-def test_load_zeros(cdb, stub_serializer):
-    counts = {'id': TEST_PRINT_ID, 'copies': 0, 'foils': 0}
-    stub_serializer.load_counts(counts)
-    assert not cdb.id_to_printing[TEST_PRINT_ID].counts
+def test_bpc_zeros(cdb):
+    card_counts = [{'id': TEST_PRINT_ID, 'copies': 0, 'foils': 0}]
+    print_counts = interface.build_print_counts(cdb, card_counts)
+    assert not print_counts
 
 
-def test_load_counts(cdb, stub_serializer):
-    counts = {'id': TEST_PRINT_ID, 'copies': 1, 'foils': 2}
-    stub_serializer.load_counts(counts)
-    expected = {
-        models.CountTypes.copies: 1,
-        models.CountTypes.foils: 2,
+def test_bpc_once(cdb):
+    print_ = cdb.id_to_printing[TEST_PRINT_ID]
+    card_counts = [{'id': TEST_PRINT_ID, 'copies': 1, 'foils': 2}]
+    print_counts = interface.build_print_counts(cdb, card_counts)
+    assert print_counts == {
+        print_: {
+            models.CountTypes.copies: 1,
+            models.CountTypes.foils: 2,
+        }
     }
-    assert cdb.id_to_printing[TEST_PRINT_ID].counts == expected
 
 
-def test_load_with_find(cdb, stub_serializer):
-    counts = {'set': 'S00', 'name': 'Rhox', 'copies': 1}
-    stub_serializer.load_counts(counts)
-    printing = cdb.id_to_printing[
+def test_bpc_with_find(cdb):
+    print_ = cdb.id_to_printing[
         '536d407161fa03eddee7da0e823c2042a8fa0262']
-    assert printing.counts == {models.CountTypes.copies: 1}
+    card_counts = [{'set': 'S00', 'name': 'Rhox', 'copies': 1}]
+    print_counts = interface.build_print_counts(cdb, card_counts)
+    assert print_counts == {
+        print_: {models.CountTypes.copies: 1}
+    }
 
 
-def test_increase_counts(cdb, stub_serializer):
-    cdb.id_to_printing[TEST_PRINT_ID].counts = {
-        models.CountTypes.copies: 1,
-        models.CountTypes.foils: 2,
+def test_bpc_multiple(cdb):
+    print1 = cdb.id_to_printing[TEST_PRINT_ID]
+    print2 = cdb.id_to_printing[
+        '536d407161fa03eddee7da0e823c2042a8fa0262']
+    card_counts = [
+        {'id': TEST_PRINT_ID, 'copies': 1, 'foils': 2},
+        {'set': 'S00', 'name': 'Rhox', 'copies': 1},
+    ]
+    print_counts = interface.build_print_counts(cdb, card_counts)
+    assert print_counts == {
+        print1: {
+            models.CountTypes.copies: 1,
+            models.CountTypes.foils: 2,
+        },
+        print2: {models.CountTypes.copies: 1},
     }
-    counts = {'id': TEST_PRINT_ID, 'copies': 4, 'foils': '8'}
-    stub_serializer.load_counts(counts)
-    expected = {
-        models.CountTypes.copies: 5,
-        models.CountTypes.foils: 10,
+
+
+def test_bpc_repeat(cdb):
+    print_ = cdb.id_to_printing[TEST_PRINT_ID]
+    card_counts = [
+        {'id': TEST_PRINT_ID, 'copies': 4},
+        {'id': TEST_PRINT_ID, 'copies': 3, 'foils': '8'},
+    ]
+    print_counts = interface.build_print_counts(cdb, card_counts)
+    assert print_counts == {
+        print_: {
+            models.CountTypes.copies: 7,
+            models.CountTypes.foils: 8,
+        }
     }
-    assert cdb.id_to_printing[TEST_PRINT_ID].counts == expected
+
+
+@pytest.mark.parametrize('in_print_counts,out_print_counts', [
+    ([], {}),
+    ([{'a': {'b': 2}}], {'a': {'b': 2}}),
+    ([{'a': {'b': 2}}, {'a': {'b': 1, 'c': 4}}], {'a': {'b': 3, 'c': 4}}),
+    ([{'a': {'b': 2}}, {'a': {'c': 1}, 'b': {'c': 3}}, {'a': {'c': 5}}],
+     {'a': {'b': 2, 'c': 6}, 'b': {'c': 3}}),
+])
+def test_merge_print_counts(in_print_counts, out_print_counts):
+    assert interface.merge_print_counts(*in_print_counts) == out_print_counts
 
 
 # Printing lookup tests

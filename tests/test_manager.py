@@ -11,14 +11,13 @@ import pytest
 
 from mtg_ssm import manager
 from mtg_ssm.mtg import card_db
-from mtg_ssm.mtg import models
 
 
 @pytest.mark.parametrize('cmdline,expected', [
     (
         'testfilename',
         ap.Namespace(
-            card_db='testfilename',
+            collection='testfilename',
             format='auto',
             imports=[],
             import_format='auto',
@@ -29,7 +28,7 @@ from mtg_ssm.mtg import models
         '--data_path=/foo --include_online_only --profile_stats '
         '--format csv --import_format xlsx testfilename testfilename2',
         ap.Namespace(
-            card_db='testfilename',
+            collection='testfilename',
             format='csv',
             imports=['testfilename2'],
             import_format='xlsx',
@@ -39,7 +38,7 @@ from mtg_ssm.mtg import models
     ), (
         'testfilename testfilename2 testfilename3',
         ap.Namespace(
-            card_db='testfilename',
+            collection='testfilename',
             format='auto',
             imports=['testfilename2', 'testfilename3'],
             import_format='auto',
@@ -52,20 +51,12 @@ def test_get_args(cmdline, expected):
     args = manager.get_args(args=cmdline.split())
     assert args == expected
 
-TEST_PRINT_ID = 'fc46a4b72d216117a352f59217a84d0baeaaacb7'
-
 
 @pytest.fixture
 def cdb(sets_data):
     """card_db fixture for testing."""
     sets_data = {k: v for k, v in sets_data.items() if k in {'MMA', 'pMGD'}}
     return card_db.CardDb(sets_data)
-
-
-@pytest.fixture
-def printing(cdb):
-    """Printing fixture for testing."""
-    return cdb.id_to_printing[TEST_PRINT_ID]
 
 
 @pytest.fixture(autouse=True)
@@ -84,14 +75,12 @@ def patch_now_and_build_card_db(monkeypatch, cdb):
     monkeypatch.setattr(manager, 'build_card_db', mock_build_cdb)
 
 
-def test_process_files_new(printing):
+def test_process_files_new():
     # Setup
-    printing.counts[models.CountTypes.copies] = 2
-    printing.counts[models.CountTypes.foils] = 5
     with tf.TemporaryDirectory() as tmpdirname:
         outfilename = os.path.join(tmpdirname, 'outfile.csv')
         args = ap.Namespace(
-            card_db=outfilename,
+            collection=outfilename,
             format='auto',
             imports=[],
             import_format='auto',
@@ -107,7 +96,7 @@ def test_process_files_new(printing):
     expected = textwrap.dedent("""\
         set,name,number,multiverseid,id,copies,foils
         pMGD,Black Sun's Zenith,7,,6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc,,
-        MMA,Thallid,167,370352,fc46a4b72d216117a352f59217a84d0baeaaacb7,2,5
+        MMA,Thallid,167,370352,fc46a4b72d216117a352f59217a84d0baeaaacb7,,
     """)
     assert outdata == expected
 
@@ -123,7 +112,7 @@ def test_process_files_upgrade():
             """))
 
         args = ap.Namespace(
-            card_db=infilename,
+            collection=infilename,
             format='auto',
             imports=[],
             import_format='auto',
@@ -170,7 +159,7 @@ def test_import():
             """))
 
         args = ap.Namespace(
-            card_db=outfilename,
+            collection=outfilename,
             format='auto',
             imports=[importname],
             import_format='auto',
@@ -219,7 +208,7 @@ def test_multiple_import():
                 """))
 
         args = ap.Namespace(
-            card_db=outfilename,
+            collection=outfilename,
             format='auto',
             imports=[importname1, importname2],
             import_format='auto',

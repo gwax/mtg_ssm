@@ -53,7 +53,6 @@ def test_card_printing(cards_data):
     assert printing.set_number == '85'
     assert printing.multiverseid == 222911
     assert printing.artist == 'Volkan Baga'
-    assert not printing.counts
     assert printing.set_integer == 85
     assert printing.set_variant is None
 

@@ -20,7 +20,7 @@ MTG_SSM_DATA_PATH = os.path.expanduser(os.path.join('~', '.mtg_ssm'))
 def get_args(args=None):
     """Create and return application argument parser."""
     parser = argparse.ArgumentParser(
-        description='Magic card_db Spreadsheet Manager')
+        description='Magic collection Spreadsheet Manager')
     parser.add_argument(
         '--version', action='version', version=mtg_ssm.__version__)
 
@@ -38,10 +38,10 @@ def get_args(args=None):
     format_choices = ser_interface.MtgSsmSerializer.all_formats()
     parser.add_argument(
         '--format', default='auto', choices=format_choices,
-        help='File format for card_db, auto will guess from the '
+        help='File format for collection, auto will guess from the '
         'file extension.')
     parser.add_argument(
-        'card_db', help='Sheet to update.')
+        'collection', help='Sheet to update.')
 
     parser.add_argument(
         '--import_format', default='auto', choices=format_choices,
@@ -50,7 +50,7 @@ def get_args(args=None):
         'imports', metavar='import', nargs='*',
         help='Optional files to read additional counts from. You may also '
         'use this to convert from one format to another. Note: counts will '
-        'be added to card_db, not replaced.')
+        'be added to collection, not replaced.')
 
     return parser.parse_args(args=args)
 
@@ -66,31 +66,35 @@ def build_card_db(data_path, include_online_only):
 
 def process_files(args):
     """Run the requested operations."""
-    coll = build_card_db(args.data_path, args.include_online_only)
+    cdb = build_card_db(args.data_path, args.include_online_only)
 
+    # pylint: disable=redefined-variable-type
+    print_counts = {}
     for import_file in args.imports:
         _, ext = os.path.splitext(import_file)
         import_serializer_class = ser_interface.MtgSsmSerializer \
             .by_extension_and_format(ext, args.import_format)
-        import_serializer = import_serializer_class(coll)
+        import_serializer = import_serializer_class(cdb)
         print('Importing counts from import: %s' % import_file)
-        import_serializer.read_from_file(import_file)
+        print_counts = ser_interface.merge_print_counts(
+            print_counts, import_serializer.read(import_file))
 
-    _, ext = os.path.splitext(args.card_db)
+    _, ext = os.path.splitext(args.collection)
     serializer_class = ser_interface.MtgSsmSerializer.by_extension_and_format(
         ext, args.format)
-    serializer = serializer_class(coll)
+    serializer = serializer_class(cdb)
 
-    if os.path.exists(args.card_db):
+    if os.path.exists(args.collection):
         print('Reading counts from existing file.')
-        serializer.read_from_file(args.card_db)
-        backup_name = args.card_db + '.bak-{:%Y%m%d_%H%M%S}'.format(
+        print_counts = ser_interface.merge_print_counts(
+            print_counts, serializer.read(args.collection))
+        backup_name = args.collection + '.bak-{:%Y%m%d_%H%M%S}'.format(
             datetime.datetime.now())
-        print('Moving existing card_db to backup: %s' % backup_name)
-        shutil.move(args.card_db, backup_name)
+        print('Moving existing collection to backup: %s' % backup_name)
+        shutil.move(args.collection, backup_name)
 
-    print('Writing card_db to file.')
-    serializer.write_to_file(args.card_db)
+    print('Writing collection to file.')
+    serializer.write(args.collection, print_counts)
 
 
 def main():

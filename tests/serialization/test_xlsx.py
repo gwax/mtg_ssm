@@ -119,17 +119,21 @@ def test_create_set_sheet(cdb):
         'd0a4414893bc2f9bd3beea2f8f2693635ef926a4']
     forest3 = cdb.id_to_printing[
         'c78d2da78c68c558b1adc734b3f164e885407ffc']
-    forest1.counts[models.CountTypes.copies] = 1
-    forest2.counts[models.CountTypes.foils] = 2
-    forest3.counts[models.CountTypes.copies] = 3
-    forest3.counts[models.CountTypes.foils] = 4
+    print_counts = {
+        forest1: {models.CountTypes.copies: 1},
+        forest2: {models.CountTypes.foils: 2},
+        forest3: {
+            models.CountTypes.copies: 3,
+            models.CountTypes.foils: 4,
+        }
+    }
 
     ice_age = cdb.code_to_card_set['ICE']
     book = openpyxl.Workbook()
     sheet = book.create_sheet()
 
     # Execute
-    xlsx.create_set_sheet(sheet, ice_age)
+    xlsx.create_set_sheet(sheet, ice_age, print_counts)
 
     # Verify
     rows = [[cell.value for cell in row] for row in sheet.rows]
@@ -146,18 +150,20 @@ def test_create_set_sheet(cdb):
     assert sheet.title == 'ICE'
 
 
-def test_write_to_file(cdb):
+def test_write(cdb):
     # Setup
-    printing = cdb.id_to_printing[
-        '536d407161fa03eddee7da0e823c2042a8fa0262']
-    printing.counts[models.CountTypes.copies] = 7
-    printing.counts[models.CountTypes.foils] = 12
+    print_counts = {
+        cdb.id_to_printing['536d407161fa03eddee7da0e823c2042a8fa0262']: {
+            models.CountTypes.copies: 7,
+            models.CountTypes.foils: 12,
+        }
+    }
     serializer = xlsx.MtgXlsxSerializer(cdb)
     with tempfile.TemporaryDirectory() as tmpdirname:
         xlsxfilename = os.path.join(tmpdirname, 'outfile.xlsx')
 
         # Execute
-        serializer.write_to_file(xlsxfilename)
+        serializer.write(xlsxfilename, print_counts)
 
         # Verify
         workbook = openpyxl.load_workbook(filename=xlsxfilename)
@@ -190,7 +196,7 @@ def test_counts_from_sheet():
     assert rows == expected
 
 
-def test_read_from_file_bad_set(cdb):
+def test_read_bad_set(cdb):
     # Setup
     serializer = xlsx.MtgXlsxSerializer(cdb)
     workbook = openpyxl.Workbook()
@@ -201,7 +207,7 @@ def test_read_from_file_bad_set(cdb):
 
         # Execute
         with pytest.raises(interface.DeserializationError):
-            serializer.read_from_file(xlsxfilename)
+            serializer.read(xlsxfilename)
 
 
 def test_read_from_file(cdb):
@@ -217,10 +223,12 @@ def test_read_from_file(cdb):
         workbook.save(xlsxfilename)
 
         # Execute
-        serializer.read_from_file(xlsxfilename)
+        print_counts = serializer.read(xlsxfilename)
 
     # Verify
-    printing = cdb.id_to_printing[
-        '536d407161fa03eddee7da0e823c2042a8fa0262']
-    expected = {models.CountTypes.copies: 3, models.CountTypes.foils: 7}
-    assert printing.counts == expected
+    assert print_counts == {
+        cdb.id_to_printing['536d407161fa03eddee7da0e823c2042a8fa0262']: {
+            models.CountTypes.copies: 3,
+            models.CountTypes.foils: 7,
+        }
+    }

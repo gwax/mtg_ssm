@@ -7,6 +7,12 @@ import string
 VARIANT_CHARS = (string.ascii_letters + '★')
 
 
+class CountTypes(enum.Enum):
+    """Enum for possible card printing types (normal, foil)."""
+    copies = 'copies'
+    foils = 'foils'
+
+
 class Card:
     """Model for storing card information."""
     __slots__ = ('cdb', 'name', 'layout', 'names')
@@ -34,12 +40,6 @@ class Card:
         return '<Card: {card.name}>'.format(card=self)
 
 
-class CountTypes(enum.Enum):
-    """Enum for possible card printing types (normal, foil)."""
-    copies = 'copies'
-    foils = 'foils'
-
-
 class CardPrinting:
     """Model for storing information about card printings."""
     __slots__ = ('cdb', 'id_', 'card_name', 'set_code', 'set_number',
@@ -54,7 +54,6 @@ class CardPrinting:
         self.set_number = card_data.get('number')
         self.multiverseid = card_data.get('multiverseid')
         self.artist = card_data['artist']
-        self.counts = {}
 
         if self.set_number is None:
             self.set_integer = None
@@ -78,6 +77,12 @@ class CardPrinting:
 
     def __repr__(self):
         return '<CardPrinting: {print.id_}>'.format(print=self)
+
+    def __hash__(self):
+        return hash(self.id_)
+
+    def __eq__(self, other):
+        return isinstance(other, type(self)) and self.id_ == other.id_
 
 
 class CardSet:

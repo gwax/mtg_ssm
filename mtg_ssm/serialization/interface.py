@@ -2,7 +2,7 @@
 
 import abc
 import collections
-from typing import Any, Dict
+from typing import Dict
 
 from mtg_ssm.mtg import card_db
 from mtg_ssm.mtg import models
@@ -44,78 +44,83 @@ def find_printing(cdb, set_code, name, set_number, multiverseid, strict=True):
     return None
 
 
-def coerce_counts(counts_dict):
+def coerce_count(card_count):
     """Given a counts dict, coerce types to match desired input."""
-    if 'multiverseid' in counts_dict:
+    if 'multiverseid' in card_count:
         try:
-            counts_dict['multiverseid'] = int(counts_dict['multiverseid'])
+            card_count['multiverseid'] = int(card_count['multiverseid'])
         except (TypeError, ValueError):
             pass
     for counttype in models.CountTypes:
         countname = counttype.name
-        if countname in counts_dict:
+        if countname in card_count:
             try:
-                counts_dict[countname] = int(counts_dict[countname])
+                card_count[countname] = int(card_count[countname])
             except (TypeError, ValueError):
                 pass
-    return counts_dict
+    return card_count
+
+
+def build_print_counts(cdb, card_counts, strict=True):
+    """Given a card database and card_counts, return print counts"""
+    print_counts = collections.defaultdict(
+        lambda: collections.defaultdict(int))
+    for card_count in card_counts:
+        card_count = coerce_count(card_count)
+        printing_id = card_count.get('id')
+        printing = cdb.id_to_printing.get(printing_id)
+        if printing is None:
+            print('id not found for printing, searching')
+            printing = find_printing(
+                cdb=cdb,
+                set_code=card_count.get('set'),
+                name=card_count.get('name'),
+                set_number=card_count.get('number'),
+                multiverseid=card_count.get('multiverseid'),
+                strict=strict)
+        if printing is None:
+            raise DeserializationError(
+                'Could not match id to known printing from counts: %r' %
+                card_count)
+        for count_type in models.CountTypes:
+            count_name = count_type.name
+            count = card_count.get(count_name)
+            if count:
+                print_counts[printing][count_type] += count
+    return print_counts
+
+
+def merge_print_counts(*print_counts_args):
+    """Merge two sets of print_counts."""
+    print_counts = collections.defaultdict(
+        lambda: collections.defaultdict(int))
+    for in_print_counts in print_counts_args:
+        for printing, counts in in_print_counts.items():
+            for key, value in counts.items():
+                print_counts[printing][key] += value
+    return print_counts
 
 
 class MtgSsmSerializer(metaclass=abc.ABCMeta):
     """Abstract interface for a mtg ssm serializer."""
 
+    format = None  # type: str
+    extension = None  # type: str
+
     _format_to_serializer = None
     _extension_to_serializer = None
 
-    def __init__(self, cdb: card_db.CardDb):
-        self.card_db = cdb
-
-    @property
-    @abc.abstractmethod
-    def extension(self) -> str:
-        """The extension this serializer is authoritative over."""
-
-    @property
-    @abc.abstractmethod
-    def format(self) -> str:
-        """The format name for this serializer."""
+    def __init__(self, cdb: card_db.CardDb) -> None:
+        self.cdb = cdb
 
     @abc.abstractmethod
-    def write_to_file(self, filename: str) -> None:
-        """Write the card_db to a file."""
+    def write(self, filename: str, print_counts) -> None:
+        """Write print counts to a file."""
 
     @abc.abstractmethod
-    def read_from_file(self, filename: str) -> None:
-        """Read counts from file and add them to the card_db."""
-
-    def load_counts(self, counts: Dict[Any, Any], strict: bool=True) -> None:
-        """Load counts from a dict into the card_db.
-
-        Arguments:
-            counts: a dict containing key 'id' mapping to mtgjson id, and
-                keys matching CountTypes name and count increment. Other keys
-                are ignored.
-        """
-        counts = coerce_counts(counts)
-        printing_id = counts.get('id')
-        printing = self.card_db.id_to_printing.get(printing_id)
-        if printing is None:
-            print('id not found for printing, searching')
-            printing = find_printing(
-                cdb=self.card_db, set_code=counts.get('set'),
-                name=counts.get('name'), set_number=counts.get('number'),
-                multiverseid=counts.get('multiverseid'), strict=strict)
-            if printing is None:
-                raise DeserializationError(
-                    'Could not match id to known printing from counts: %r' %
-                    counts)
-
-        for counttype in models.CountTypes:
-            countname = counttype.name
-            count = counts.get(countname)
-            if count:
-                existing = printing.counts.get(counttype, 0)
-                printing.counts[counttype] = existing + count
+    def read(self, filename: str) -> Dict[
+            models.CardPrinting, Dict[models.CountTypes, int]]:
+        """Read print counts from file."""
 
     @classmethod
     def _register_subclasses(cls):
