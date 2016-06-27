@@ -19,4 +19,4 @@ before_install:
 
 install: python setup.py -q install
 
-script: ./test.sh
+script: ./check.sh "$TEST_SUITE"

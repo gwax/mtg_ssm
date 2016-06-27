@@ -4,15 +4,16 @@ set -e
 set -o nounset
 
 SCRIPT_PATH=$(dirname "$0")
+SUITE="$1"
 
 EXIT=0
 
-if [ "$TEST_SUITE" = "test" ]; then
+if [ "$SUITE" = "test" ]; then
     echo "Running test suite"
     py.test --cov=mtg_ssm --strict -r w tests || EXIT=$?
     coveralls || EXIT=$?
 
-elif [ "$TEST_SUITE" = "lint" ]; then
+elif [ "$SUITE" = "lint" ]; then
     echo "Running lint suite"
     pylint \
         --rcfile="$SCRIPT_PATH"/pylintrc \
