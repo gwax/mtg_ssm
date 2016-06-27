@@ -17,21 +17,6 @@ before_install:
   - pip install -U pip
   - pip install -U -r test_requirements.txt
 
-install:
-  - python setup.py -q install
+install: python setup.py -q install
 
-script: |
-  if [ "${TEST_SUITE}" = "test" ]; then
-    py.test --cov=mtg_ssm --strict -r w tests;
-  elif [ "${TEST_SUITE}" = "lint" ]; then
-    pylint --rcfile=pylintrc mtg_ssm &&
-    pylint --rcfile=pylintrc --disable=similarities,redefined-outer-name tests &&
-    flake8 --max-complexity 10 --ignore=E501,F401,F841 *.py mtg_ssm tests;
-  else
-    error_without_calling_exit;
-  fi
-
-after_success: |
-  if [ "${TEST_SUITE}" = "test" ]; then
-    coveralls;
-  fi
+script: ./test.sh
