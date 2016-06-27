@@ -4,9 +4,9 @@ language: python
 
 matrix:
   include:
-    - python: 3.5
+    - python: 3.5.1
       env: TEST_SUITE=test
-    - python: 3.5
+    - python: 3.5.1
       env: TEST_SUITE=lint
     - python: 3.4
       env: TEST_SUITE=test
@@ -17,21 +17,6 @@ before_install:
   - pip install -U pip
   - pip install -U -r test_requirements.txt
 
-install:
-  - python setup.py -q install
+install: python setup.py -q install
 
-script: |
-  if [ "${TEST_SUITE}" = "test" ]; then
-    py.test --cov=mtg_ssm --strict -r w tests;
-  elif [ "${TEST_SUITE}" = "lint" ]; then
-    pylint --rcfile=pylintrc mtg_ssm &&
-    pylint --rcfile=pylintrc --disable=similarities,redefined-outer-name tests &&
-    flake8 --max-complexity 10 --ignore=E501,F401,F841 *.py mtg_ssm tests;
-  else
-    error_without_calling_exit;
-  fi
-
-after_success: |
-  if [ "${TEST_SUITE}" = "test" ]; then
-    coveralls;
-  fi
+script: ./check.sh "$TEST_SUITE"

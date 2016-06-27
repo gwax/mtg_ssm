@@ -6,18 +6,18 @@ import textwrap
 
 import pytest
 
-from mtg_ssm.mtg import collection
+from mtg_ssm.mtg import card_db
 from mtg_ssm.mtg import models
 from mtg_ssm.serialization import deckbox
 
 
 @pytest.fixture
-def coll(sets_data):
-    """Collection fixture for testing."""
-    return collection.Collection(sets_data)
+def cdb(sets_data):
+    """card_db fixture for testing."""
+    return card_db.CardDb(sets_data)
 
 
-def test_get_deckbox_name(coll):
+def test_get_deckbox_name(cdb):
     # Setup
     card_names = [
         'Chaotic Æther',
@@ -29,7 +29,7 @@ def test_get_deckbox_name(coll):
         'Kenzo the Hardhearted',
         'Abattoir Ghoul',
     ]
-    cards = [coll.name_to_card[name] for name in card_names]
+    cards = [cdb.name_to_card[name] for name in card_names]
     # Execute
     deckbox_names = [deckbox.get_deckbox_name(card) for card in cards]
     # Verify
@@ -46,24 +46,15 @@ def test_get_deckbox_name(coll):
     assert deckbox_names == expected
 
 
-def test_rows_from_printing_none(coll):
+def test_rfp(cdb):
     # Setup
-    printing = coll.id_to_printing['2eecf5001fe332f5dadf4d87665bcf182c5f24ee']
-    printing.counts[models.CountTypes.copies] = 3
-    printing.counts[models.CountTypes.foils] = 5
+    printing = cdb.id_to_printing['c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae']
+    print_counts = {printing: {
+        models.CountTypes.copies: 3,
+        models.CountTypes.foils: 5,
+    }}
     # Execute
-    rows = list(deckbox.rows_from_printing(printing))
-    # Verify
-    assert not rows
-
-
-def test_rows_from_printing(coll):
-    # Setup
-    printing = coll.id_to_printing['c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae']
-    printing.counts[models.CountTypes.copies] = 3
-    printing.counts[models.CountTypes.foils] = 5
-    # Execute
-    rows = list(deckbox.rows_from_printing(printing))
+    rows = list(deckbox.rows_for_printing(printing, print_counts))
     # Verify
     expected = [
         {
@@ -104,13 +95,28 @@ def test_rows_from_printing(coll):
     assert rows == expected
 
 
-def test_rows_from_printing_promo(coll):
+def test_rfp_split_second_half(cdb):
     # Setup
-    printing = coll.id_to_printing['6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc']
-    printing.counts[models.CountTypes.copies] = 0
-    printing.counts[models.CountTypes.foils] = 5
+    printing = cdb.id_to_printing['2eecf5001fe332f5dadf4d87665bcf182c5f24ee']
+    print_counts = {printing: {
+        models.CountTypes.copies: 3,
+        models.CountTypes.foils: 5,
+    }}
     # Execute
-    rows = list(deckbox.rows_from_printing(printing))
+    rows = list(deckbox.rows_for_printing(printing, print_counts))
+    # Verify
+    assert not rows
+
+
+def test_rfp_promo(cdb):
+    # Setup
+    printing = cdb.id_to_printing['6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc']
+    print_counts = {printing: {
+        models.CountTypes.copies: 0,
+        models.CountTypes.foils: 5,
+    }}
+    # Execute
+    rows = list(deckbox.rows_for_printing(printing, print_counts))
     # Verify
     expected = [
         {
@@ -135,31 +141,41 @@ def test_rows_from_printing_promo(coll):
 
 
 @pytest.mark.xfail
-def test_alt_art_ertai():
+def test_alt_art_ertai(cdb):
     # Setup
-    ertai1 = coll.id_to_printing['08fcfee6a7c4eddcd44e43e918cbf9d479492fe7']
-    ertai2 = coll.id_to_printing['62ff415cafefac84a5bb7174cb7ef175c14625de']
-    ertai1.counts[models.CountTypes.foils] = 5
-    ertai2.counts[models.CountTypes.foils] = 5
+    ertai1 = cdb.id_to_printing['08fcfee6a7c4eddcd44e43e918cbf9d479492fe7']
+    ertai2 = cdb.id_to_printing['62ff415cafefac84a5bb7174cb7ef175c14625de']
+    print_counts = {
+        ertai1: {models.CountTypes.foils: 5},
+        ertai2: {models.CountTypes.foils: 5},
+    }
     # Execute
-    ertai1_rows = list(deckbox.rows_from_printing(ertai1))
-    ertai2_rows = list(deckbox.rows_from_printing(ertai2))
+    ertai1_rows = list(deckbox.rows_for_printing(ertai1, print_counts))
+    ertai2_rows = list(deckbox.rows_for_printing(ertai2, print_counts))
     # Verify
     assert ertai1_rows != ertai2_rows
 
 
-def test_rows_from_collection(coll):
+def test_rows_from_print_counts(cdb):
     # Setup
-    bust = coll.id_to_printing['2eecf5001fe332f5dadf4d87665bcf182c5f24ee']
-    boom = coll.id_to_printing['c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae']
-    bsz = coll.id_to_printing['6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc']
-    bust.counts[models.CountTypes.copies] = 3
-    bust.counts[models.CountTypes.foils] = 5
-    boom.counts[models.CountTypes.copies] = 7
-    boom.counts[models.CountTypes.foils] = 9
-    bsz.counts[models.CountTypes.foils] = 11
+    bust = cdb.id_to_printing['2eecf5001fe332f5dadf4d87665bcf182c5f24ee']
+    boom = cdb.id_to_printing['c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae']
+    bsz = cdb.id_to_printing['6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc']
+    print_counts = {
+        bust: {
+            models.CountTypes.copies: 3,
+            models.CountTypes.foils: 5,
+        },
+        boom: {
+            models.CountTypes.copies: 7,
+            models.CountTypes.foils: 9,
+        },
+        bsz: {
+            models.CountTypes.foils: 11,
+        }
+    }
     # Execute
-    rows = list(deckbox.deckbox_rows_from_collection(coll))
+    rows = list(deckbox.deckbox_rows_from_print_counts(cdb, print_counts))
     # Verify
     expected = [
         {
@@ -217,7 +233,7 @@ def test_rows_from_collection(coll):
     assert rows == expected
 
 
-def test_create_counts_row(coll):
+def test_create_counts_row(cdb):
     # Setup
     deckbox_rows = [
         {
@@ -238,7 +254,7 @@ def test_create_counts_row(coll):
         },
     ]
     # Execute
-    counts = [deckbox.create_counts_row(coll, r) for r in deckbox_rows]
+    counts = [deckbox.create_counts_row(cdb, r) for r in deckbox_rows]
     # Verify
     expected = [
         {'name': 'Foo', 'set': 'PC2', 'number': '12', 'foils': 5},
@@ -247,18 +263,20 @@ def test_create_counts_row(coll):
     assert counts == expected
 
 
-def test_write_to_file(coll):
+def test_write(cdb):
     # Setup
-    boom = coll.id_to_printing['c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae']
-    bsz = coll.id_to_printing['6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc']
-    boom.counts[models.CountTypes.copies] = 1
-    bsz.counts[models.CountTypes.foils] = 3
-    serializer = deckbox.MtgDeckboxSerializer(coll)
+    boom = cdb.id_to_printing['c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae']
+    bsz = cdb.id_to_printing['6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc']
+    print_counts = {
+        boom: {models.CountTypes.copies: 1},
+        bsz: {models.CountTypes.foils: 3},
+    }
+    serializer = deckbox.MtgDeckboxSerializer(cdb)
     with tempfile.TemporaryDirectory() as tmpdirname:
         csvfilename = os.path.join(tmpdirname, 'outfile.csv')
 
         # Execute
-        serializer.write_to_file(csvfilename)
+        serializer.write(csvfilename, print_counts)
 
         # Verify
         with open(csvfilename, 'r') as csvfile:
@@ -271,7 +289,7 @@ def test_write_to_file(coll):
     assert csvdata == expected
 
 
-def test_read_from_file(coll):
+def test_read(cdb):
     # Setup
     with tempfile.NamedTemporaryFile('w') as csvfile:
         csvfile.write(textwrap.dedent("""\
@@ -280,13 +298,15 @@ def test_read_from_file(coll):
             3,8,Black Sun's Zenith,Magic Game Day Cards,7,Near Mint,English,foil,,,,,promo,,
             """))
         csvfile.flush()
-        serializer = deckbox.MtgDeckboxSerializer(coll)
+        serializer = deckbox.MtgDeckboxSerializer(cdb)
 
         # Execute
-        serializer.read_from_file(csvfile.name)
+        print_counts = serializer.read(csvfile.name)
 
     # Verify
-    boom = coll.id_to_printing['c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae']
-    assert boom.counts[models.CountTypes.copies] == 5
-    bsz = coll.id_to_printing['6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc']
-    assert bsz.counts[models.CountTypes.foils] == 11
+    boom = cdb.id_to_printing['c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae']
+    bsz = cdb.id_to_printing['6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc']
+    assert print_counts == {
+        boom: {models.CountTypes.copies: 5},
+        bsz: {models.CountTypes.foils: 11},
+    }

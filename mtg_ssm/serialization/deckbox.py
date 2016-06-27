@@ -64,7 +64,7 @@ def get_deckbox_name(card):
     return cardname
 
 
-def rows_from_printing(printing):
+def rows_for_printing(printing, print_counts):
     """Given a CardPrinting yield rows for copies and foils, if present."""
     name = get_deckbox_name(printing.card)
     set_name = printing.set.name
@@ -85,8 +85,9 @@ def rows_from_printing(printing):
     }
     if name is not None:
         row_base['Name'] = name
-        copies = printing.counts.get(models.CountTypes.copies, 0)
-        foils = printing.counts.get(models.CountTypes.foils, 0)
+        counts = print_counts.get(printing, {})
+        copies = counts.get(models.CountTypes.copies, 0)
+        foils = counts.get(models.CountTypes.foils, 0)
         if copies:
             # yield {**row_base, 'Foil': None, 'Count': copies}
             copies_row = row_base.copy()
@@ -99,11 +100,11 @@ def rows_from_printing(printing):
             yield foils_row
 
 
-def deckbox_rows_from_collection(coll):
-    """Generator that yields csv rows from a collection."""
-    for card_set in coll.card_sets:
+def deckbox_rows_from_print_counts(cdb, print_counts):
+    """Generator that yields csv rows from a card_db."""
+    for card_set in cdb.card_sets:
         for printing in card_set.printings:
-            yield from rows_from_printing(printing)
+            yield from rows_for_printing(printing, print_counts)
 
 
 def get_mtgj_setname(edition, number):
@@ -117,12 +118,12 @@ def get_mtgj_setname(edition, number):
             return setname
 
 
-def create_counts_row(coll, deckbox_row):
+def create_counts_row(cdb, deckbox_row):
     """Given a row from a deckbox csv file, return a counts row."""
     edition = deckbox_row['Edition']
     number = deckbox_row['Card Number']
     mtgj_setname = get_mtgj_setname(edition, number)
-    set_code = coll.setname_to_card_set[mtgj_setname].code
+    set_code = cdb.setname_to_card_set[mtgj_setname].code
     counts = int(deckbox_row['Count']) + int(deckbox_row['Tradelist Count'])
     countname = 'foils' if deckbox_row['Foil'] == 'foil' else 'copies'
     return {
@@ -139,19 +140,18 @@ class MtgDeckboxSerializer(interface.MtgSsmSerializer):
     format = 'deckbox'
     extension = None
 
-    def write_to_file(self, filename: str) -> None:
-        """Write the collection to a deckbox csv file."""
+    def write(self, filename: str, print_counts) -> None:
+        """Write print counts to a deckbox csv file."""
         with open(filename, 'w') as csv_file:
             writer = csv.DictWriter(csv_file, DECKBOX_HEADER)
             writer.writeheader()
-            for row in deckbox_rows_from_collection(self.collection):
+            for row in deckbox_rows_from_print_counts(self.cdb, print_counts):
                 writer.writerow(row)
 
-    def read_from_file(self, filename: str) -> None:
-        """Read collection counts from deckbox csv file."""
+    def read(self, filename: str):
+        """Read print counts from deckbox csv file."""
         with open(filename, 'r') as deckbox_file:
             reader = csv.DictReader(deckbox_file)
-            for row in reader:
-                self.load_counts(
-                    create_counts_row(self.collection, row),
-                    strict=False)
+            card_counts = (create_counts_row(self.cdb, row) for row in reader)
+            return interface.build_print_counts(
+                self.cdb, card_counts, strict=False)

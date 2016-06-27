@@ -10,8 +10,7 @@ from unittest import mock
 import pytest
 
 from mtg_ssm import manager
-from mtg_ssm.mtg import collection
-from mtg_ssm.mtg import models
+from mtg_ssm.mtg import card_db
 
 
 @pytest.mark.parametrize('cmdline,expected', [
@@ -52,25 +51,17 @@ def test_get_args(cmdline, expected):
     args = manager.get_args(args=cmdline.split())
     assert args == expected
 
-TEST_PRINT_ID = 'fc46a4b72d216117a352f59217a84d0baeaaacb7'
-
 
 @pytest.fixture
-def coll(sets_data):
-    """Collection fixture for testing."""
+def cdb(sets_data):
+    """card_db fixture for testing."""
     sets_data = {k: v for k, v in sets_data.items() if k in {'MMA', 'pMGD'}}
-    return collection.Collection(sets_data)
-
-
-@pytest.fixture
-def printing(coll):
-    """Printing fixture for testing."""
-    return coll.id_to_printing[TEST_PRINT_ID]
+    return card_db.CardDb(sets_data)
 
 
 @pytest.fixture(autouse=True)
-def patch_now_and_build_collection(monkeypatch, coll):
-    """Fixture to monkeypatch now and build_collection methods for testing."""
+def patch_now_and_build_card_db(monkeypatch, cdb):
+    """Fixture to monkeypatch now and build_card_db methods for testing."""
     class MockDatetime(datetime.datetime):
         """Datetime object that returns fixed now value."""
         @classmethod
@@ -78,16 +69,14 @@ def patch_now_and_build_collection(monkeypatch, coll):
             return datetime.datetime(2015, 6, 28)
     monkeypatch.setattr(datetime, 'datetime', MockDatetime)
 
-    def mock_build_coll(*_):
-        """Build collection method that always returns fixed value."""
-        return coll
-    monkeypatch.setattr(manager, 'build_collection', mock_build_coll)
+    def mock_build_cdb(*_):
+        """Build card_db method that always returns fixed value."""
+        return cdb
+    monkeypatch.setattr(manager, 'build_card_db', mock_build_cdb)
 
 
-def test_process_files_new(printing):
+def test_process_files_new():
     # Setup
-    printing.counts[models.CountTypes.copies] = 2
-    printing.counts[models.CountTypes.foils] = 5
     with tf.TemporaryDirectory() as tmpdirname:
         outfilename = os.path.join(tmpdirname, 'outfile.csv')
         args = ap.Namespace(
@@ -107,7 +96,7 @@ def test_process_files_new(printing):
     expected = textwrap.dedent("""\
         set,name,number,multiverseid,id,copies,foils
         pMGD,Black Sun's Zenith,7,,6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc,,
-        MMA,Thallid,167,370352,fc46a4b72d216117a352f59217a84d0baeaaacb7,2,5
+        MMA,Thallid,167,370352,fc46a4b72d216117a352f59217a84d0baeaaacb7,,
     """)
     assert outdata == expected
 

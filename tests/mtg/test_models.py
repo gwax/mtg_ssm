@@ -4,16 +4,16 @@ import datetime as dt
 
 from mtg_ssm.mtg import models
 
-COLLECTION_SENTINTEL = object()
+CARD_DB_SENTINEL = object()
 
 
 def test_card(cards_data):
     # Setup
     ag_card_data = cards_data['958ae1416f8f6287115ccd7c5c61f2415a313546']
     # Execute
-    card = models.Card(COLLECTION_SENTINTEL, ag_card_data)
+    card = models.Card(CARD_DB_SENTINEL, ag_card_data)
     # Verify
-    assert card.collection is COLLECTION_SENTINTEL
+    assert card.cdb is CARD_DB_SENTINEL
     assert card.name == 'Abattoir Ghoul'
     assert not card.strict_basic
 
@@ -25,10 +25,10 @@ def test_card_strict_basic(cards_data):
     wastes_data = cards_data['68d4ca6db1b4f92aa306627cefa3d02137e4fa10']
     ag_card_data = cards_data['958ae1416f8f6287115ccd7c5c61f2415a313546']
     # Execute
-    forest_card = models.Card(COLLECTION_SENTINTEL, forest_data)
-    snow_forest_card = models.Card(COLLECTION_SENTINTEL, snow_forest_data)
-    wastes_card = models.Card(COLLECTION_SENTINTEL, wastes_data)
-    ag_card = models.Card(COLLECTION_SENTINTEL, ag_card_data)
+    forest_card = models.Card(CARD_DB_SENTINEL, forest_data)
+    snow_forest_card = models.Card(CARD_DB_SENTINEL, snow_forest_data)
+    wastes_card = models.Card(CARD_DB_SENTINEL, wastes_data)
+    ag_card = models.Card(CARD_DB_SENTINEL, ag_card_data)
     # Verify
     assert forest_card.name == 'Forest'
     assert forest_card.strict_basic
@@ -44,16 +44,15 @@ def test_card_printing(cards_data):
     # Setup
     ag_card_data = cards_data['958ae1416f8f6287115ccd7c5c61f2415a313546']
     # Execute
-    printing = models.CardPrinting(COLLECTION_SENTINTEL, 'ISD', ag_card_data)
+    printing = models.CardPrinting(CARD_DB_SENTINEL, 'ISD', ag_card_data)
     # Verify
-    assert printing.collection is COLLECTION_SENTINTEL
+    assert printing.cdb is CARD_DB_SENTINEL
     assert printing.id_ == '958ae1416f8f6287115ccd7c5c61f2415a313546'
     assert printing.card_name == 'Abattoir Ghoul'
     assert printing.set_code == 'ISD'
     assert printing.set_number == '85'
     assert printing.multiverseid == 222911
     assert printing.artist == 'Volkan Baga'
-    assert not printing.counts
     assert printing.set_integer == 85
     assert printing.set_variant is None
 
@@ -64,9 +63,9 @@ def test_printing_letter_var(cards_data):
     ia_card_data = cards_data['e5c4aa9a443c346ccbf8d99c9320138827065e05']
     # Execute
     dlv_printing = models.CardPrinting(
-        COLLECTION_SENTINTEL, 'ISD', dlv_card_data)
+        CARD_DB_SENTINEL, 'ISD', dlv_card_data)
     ia_printing = models.CardPrinting(
-        COLLECTION_SENTINTEL, 'ISD', ia_card_data)
+        CARD_DB_SENTINEL, 'ISD', ia_card_data)
     # Verify
     assert dlv_printing.card_name == 'Delver of Secrets'
     assert ia_printing.card_name == 'Insectile Aberration'
@@ -84,9 +83,9 @@ def test_printing_star_variant(cards_data):
     etc2_card_data = cards_data['62ff415cafefac84a5bb7174cb7ef175c14625de']
     # Execut
     etc1_printing = models.CardPrinting(
-        COLLECTION_SENTINTEL, 'PLS', etc1_card_data)
+        CARD_DB_SENTINEL, 'PLS', etc1_card_data)
     etc2_printing = models.CardPrinting(
-        COLLECTION_SENTINTEL, 'PLS', etc2_card_data)
+        CARD_DB_SENTINEL, 'PLS', etc2_card_data)
     # Verify
     assert etc1_printing.card_name == 'Ertai, the Corrupted'
     assert etc2_printing.card_name == 'Ertai, the Corrupted'
@@ -102,9 +101,9 @@ def test_card_set(sets_data):
     # Setup
     set_data = sets_data['PLS']
     # Execute
-    card_set = models.CardSet(COLLECTION_SENTINTEL, set_data)
+    card_set = models.CardSet(CARD_DB_SENTINEL, set_data)
     # Verify
-    assert card_set.collection is COLLECTION_SENTINTEL
+    assert card_set.cdb is CARD_DB_SENTINEL
     assert card_set.code == 'PLS'
     assert card_set.name == 'Planeshift'
     assert card_set.block == 'Invasion'

@@ -6,7 +6,7 @@ import textwrap
 
 import pytest
 
-from mtg_ssm.mtg import collection
+from mtg_ssm.mtg import card_db
 from mtg_ssm.mtg import models
 from mtg_ssm.serialization import csv
 
@@ -14,16 +14,16 @@ TEST_PRINT_ID = 'fc46a4b72d216117a352f59217a84d0baeaaacb7'
 
 
 @pytest.fixture
-def coll(sets_data):
-    """Collection fixture for testing."""
+def cdb(sets_data):
+    """card_db fixture for testing."""
     sets_data = {k: v for k, v in sets_data.items() if k in {'MMA', 'pMGD'}}
-    return collection.Collection(sets_data)
+    return card_db.CardDb(sets_data)
 
 
 @pytest.fixture
-def printing(coll):
+def printing(cdb):
     """Printing fixture for testing."""
-    return coll.id_to_printing[TEST_PRINT_ID]
+    return cdb.id_to_printing[TEST_PRINT_ID]
 
 
 def test_header():
@@ -40,12 +40,13 @@ def test_header():
     assert csv.CSV_HEADER == expected
 
 
-def test_row_from_printing(printing):
-    # Setup
-    printing.counts[models.CountTypes.copies] = 3
-    printing.counts[models.CountTypes.foils] = 5
+def test_row_for_printing(printing):
+    print_counts = {printing: {
+        models.CountTypes.copies: 3,
+        models.CountTypes.foils: 5,
+    }}
     # Execute
-    csv_row = csv.row_from_printing(printing)
+    csv_row = csv.row_for_printing(printing, print_counts)
     # Verify
     expected = {
         'set': 'MMA',
@@ -59,9 +60,9 @@ def test_row_from_printing(printing):
     assert csv_row == expected
 
 
-def test_rows_from_collection(coll):
+def test_rows_for_printings(cdb):
     # Execute
-    row_generator = csv.csv_rows_from_collection(coll)
+    row_generator = csv.rows_for_printings(cdb, {})
     # Verify
     rows = list(row_generator)
     expected = [
@@ -83,16 +84,18 @@ def test_rows_from_collection(coll):
     assert rows == expected
 
 
-def test_write_to_file(coll, printing):
+def test_write(cdb, printing):
     # Setup
-    printing.counts[models.CountTypes.copies] = 1
-    printing.counts[models.CountTypes.foils] = 12
-    serializer = csv.MtgCsvSerializer(coll)
+    print_counts = {printing: {
+        models.CountTypes.copies: 1,
+        models.CountTypes.foils: 12,
+    }}
+    serializer = csv.MtgCsvSerializer(cdb)
     with tempfile.TemporaryDirectory() as tmpdirname:
         csvfilename = os.path.join(tmpdirname, 'outfile.csv')
 
         # Execute
-        serializer.write_to_file(csvfilename)
+        serializer.write(csvfilename, print_counts)
 
         # Verify
         with open(csvfilename, 'r') as csvfile:
@@ -105,7 +108,7 @@ def test_write_to_file(coll, printing):
     assert csvdata == expected
 
 
-def test_read_from_file(coll, printing):
+def test_read(cdb, printing):
     # Setup
     with tempfile.NamedTemporaryFile('w') as csvfile:
         csvfile.write(textwrap.dedent("""\
@@ -113,11 +116,13 @@ def test_read_from_file(coll, printing):
             MMA,Thallid,167,370352,fc46a4b72d216117a352f59217a84d0baeaaacb7,3,72
             """))
         csvfile.flush()
-        serializer = csv.MtgCsvSerializer(coll)
+        serializer = csv.MtgCsvSerializer(cdb)
 
         # Execute
-        serializer.read_from_file(csvfile.name)
+        print_counts = serializer.read(csvfile.name)
 
     # Verify
-    assert printing.counts[models.CountTypes.copies] == 3
-    assert printing.counts[models.CountTypes.foils] == 72
+    assert print_counts == {printing: {
+        models.CountTypes.copies: 3,
+        models.CountTypes.foils: 72,
+    }}
