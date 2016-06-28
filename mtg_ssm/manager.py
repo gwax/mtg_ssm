@@ -5,6 +5,7 @@ import argparse
 import datetime
 import os
 import shutil
+import tempfile
 
 import mtg_ssm
 
@@ -30,7 +31,7 @@ def get_args(args=None):
         help='Path to mtg_ssm\'s data storage folder. Default={0}'.format(
             MTG_SSM_DATA_PATH))
     parser.add_argument(
-        '--include-online_only', default=False, action='store_true',
+        '--include-online-only', default=False, action='store_true',
         help='Include online only sets (e.g. Masters sets) in the database.')
     parser.add_argument(
         '--profile-stats', default=False, action='store_true',
@@ -94,11 +95,16 @@ def process_files(args):
             print_counts, serializer.read(args.collection))
         backup_name = args.collection + '.bak-{:%Y%m%d_%H%M%S}'.format(
             datetime.datetime.now())
-        print('Moving existing collection to backup: %s' % backup_name)
-        shutil.move(args.collection, backup_name)
-
-    print('Writing collection to file.')
-    serializer.write(args.collection, print_counts)
+        with tempfile.NamedTemporaryFile(mode='w+b') as temp_coll:
+            print('Writing collection to temporary file.')
+            serializer.write(temp_coll.name, print_counts)
+            print('Backing up existing file to backup: %s' % backup_name)
+            shutil.copy(args.collection, backup_name)
+            print('Overwriting with new collection')
+            shutil.copy(temp_coll.name, args.collection)
+    else:
+        print('Writing collection to file.')
+        serializer.write(args.collection, print_counts)
 
 
 def main():

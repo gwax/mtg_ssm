@@ -25,8 +25,8 @@ from mtg_ssm.mtg import card_db
             include_online_only=False,
             profile_stats=False)
     ), (
-        '--data_path=/foo --include_online_only --profile_stats '
-        '--format csv --import_format xlsx testfilename testfilename2',
+        '--data-path=/foo --include-online-only --profile-stats '
+        '--format csv --import-format xlsx testfilename testfilename2',
         ap.Namespace(
             collection='testfilename',
             format='csv',
