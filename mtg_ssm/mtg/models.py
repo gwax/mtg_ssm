@@ -104,6 +104,10 @@ class CardSet:
         """
         return self.cdb.set_code_to_printings[self.code]
 
+    def printing_index(self, printing):
+        """The index of a printing in a sets card list."""
+        return self.cdb.set_code_to_printing_to_row[self.code][printing]
+
     def __str__(self):
         return 'CardSet: {cset.name}'.format(cset=self)
 

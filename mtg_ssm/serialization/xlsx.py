@@ -71,7 +71,7 @@ def style_all_sets(sheet):
 def create_haverefs(printings):
     """Create a reference to the have cells for printings in a single set."""
     card_set = printings[0].set
-    rownums = [card_set.printings.index(p) + ROW_OFFSET for p in printings]
+    rownums = [card_set.printing_index(p) + ROW_OFFSET for p in printings]
     haverefs = [
         "'{setcode}'!A{rownum}".format(setcode=card_set.code, rownum=r)
         for r in rownums]
@@ -113,10 +113,7 @@ def create_all_cards(sheet, card_db):
     """Create all cards sheet from card_db."""
     sheet.title = 'All Cards'
     sheet.append(ALL_CARDS_SHEET_HEADER)
-    # Should this be done in the card_db class indexes?
-    # Should card_sets not be done in the card_db indexes?
-    cards = sorted(card_db.name_to_card.values(), key=lambda c: c.name)
-    for card in cards:
+    for card in card_db.cards:
         row = [
             card.name,
             get_references(card),
@@ -159,7 +156,7 @@ def create_set_sheet(sheet, card_set, print_counts):
     sheet.title = card_set.code
     sheet.append(SET_SHEET_HEADER)
     for printing in card_set.printings:
-        rownum = card_set.printings.index(printing) + ROW_OFFSET
+        rownum = card_set.printing_index(printing) + ROW_OFFSET
         row = [
             HAVE_TMPL.format(rownum),
             printing.card.name,

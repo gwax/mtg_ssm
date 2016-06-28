@@ -101,10 +101,8 @@ def test_with_online_only(sets_data):
 
 
 def test_rebuild_indexes(sets_data):
-    # Setup
     cdb = card_db.CardDb()
     cdb.load_mtg_json(sets_data)
-    # Execute
     cdb.rebuild_indexes()
     # Verify
     isd_ids = {p.id_ for p in cdb.set_code_to_printings['ISD']}
@@ -139,13 +137,10 @@ def test_rebuild_indexes(sets_data):
         assert found_print_ids == {'958ae1416f8f6287115ccd7c5c61f2415a313546'}
 
 
-def test_sort_indexes(sets_data):
-    # Setup
+def test_index_sorting(sets_data):
     cdb = card_db.CardDb()
     cdb.load_mtg_json(sets_data)
     cdb.rebuild_indexes()
-    # Execute
-    cdb.sort_indexes()
     # Verify
     forest_set_and_mvid = [
         (p.set_code, p.multiverseid)
@@ -173,3 +168,14 @@ def test_sort_indexes(sets_data):
         '264',
     ]
     assert isd_set_numbers == expected
+
+    assert cdb.cards[0].name == 'Abattoir Ghoul'
+    assert cdb.cards[-1].name == 'Wastes'
+
+    assert cdb.card_sets[0].code == 'LEA'
+    assert cdb.card_sets[-1].code == 'W16'
+
+    isd_dos = cdb.id_to_printing['0b06d8d9e7662ada82bd29e1138d959978ba2280']
+    assert cdb.set_code_to_printing_to_row['ISD'][isd_dos] == 0
+    isd_ag = cdb.id_to_printing['958ae1416f8f6287115ccd7c5c61f2415a313546']
+    assert cdb.set_code_to_printing_to_row['ISD'][isd_ag] == 2
