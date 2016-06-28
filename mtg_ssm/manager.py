@@ -26,14 +26,14 @@ def get_args(args=None):
         '--version', action='version', version=mtg_ssm.__version__)
 
     parser.add_argument(
-        '--data_path', default=MTG_SSM_DATA_PATH,
+        '--data-path', default=MTG_SSM_DATA_PATH,
         help='Path to mtg_ssm\'s data storage folder. Default={0}'.format(
             MTG_SSM_DATA_PATH))
     parser.add_argument(
-        '--include_online_only', default=False, action='store_true',
+        '--include-online_only', default=False, action='store_true',
         help='Include online only sets (e.g. Masters sets) in the database.')
     parser.add_argument(
-        '--profile_stats', default=False, action='store_true',
+        '--profile-stats', default=False, action='store_true',
         help='Output profiling statistics.')
 
     format_choices = ser_interface.MtgSsmSerializer.all_formats()
@@ -45,7 +45,7 @@ def get_args(args=None):
         'collection', help='Sheet to update.')
 
     parser.add_argument(
-        '--import_format', default='auto', choices=format_choices,
+        '--import-format', default='auto', choices=format_choices,
         help='File format for the import file, if provided.')
     parser.add_argument(
         'imports', metavar='import', nargs='*',
@@ -58,7 +58,10 @@ def get_args(args=None):
 
 def build_card_db(data_path, include_online_only):
     """Get a card_db with current mtgjson data."""
-    mtgjson.fetch_mtgjson(data_path)
+    try:
+        mtgjson.fetch_mtgjson(data_path)
+    except mtgjson.DownloadError:
+        print('Failed to download mtgjson data, attempting to use cached data.')
     print('Reading mtgjson data.')
     mtgjsondata = mtgjson.read_mtgjson(data_path)
     return card_db.CardDb(

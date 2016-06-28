@@ -7,6 +7,7 @@ import os
 import zipfile
 
 import requests
+import requests.exceptions
 
 
 MTGJSON_ADDRESS = 'http://mtgjson.com/json/'
@@ -38,7 +39,10 @@ def fetch_mtgjson(data_path):
     else:
         local_version = (0, 0, 0)
 
-    ver_req = requests.get(MTGJSON_ADDRESS + VERSION_FILENAME)
+    try:
+        ver_req = requests.get(MTGJSON_ADDRESS + VERSION_FILENAME)
+    except requests.ConnectionError as err:
+        raise DownloadError('Could not connect to mtgjson') from err
     if ver_req.status_code != 200:
         raise DownloadError(
             'Could not fetch version: {}'.format(ver_req.reason))
