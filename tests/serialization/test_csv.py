@@ -7,7 +7,7 @@ import textwrap
 import pytest
 
 from mtg_ssm.mtg import card_db
-from mtg_ssm.mtg import models
+from mtg_ssm.mtg import counts
 from mtg_ssm.serialization import csv
 
 TEST_PRINT_ID = 'fc46a4b72d216117a352f59217a84d0baeaaacb7'
@@ -42,8 +42,8 @@ def test_header():
 
 def test_row_for_printing(printing):
     print_counts = {printing: {
-        models.CountTypes.copies: 3,
-        models.CountTypes.foils: 5,
+        counts.CountTypes.copies: 3,
+        counts.CountTypes.foils: 5,
     }}
     # Execute
     csv_row = csv.row_for_printing(printing, print_counts)
@@ -87,8 +87,8 @@ def test_rows_for_printings(cdb):
 def test_write(cdb, printing):
     # Setup
     print_counts = {printing: {
-        models.CountTypes.copies: 1,
-        models.CountTypes.foils: 12,
+        counts.CountTypes.copies: 1,
+        counts.CountTypes.foils: 12,
     }}
     serializer = csv.MtgCsvSerializer(cdb)
     with tempfile.TemporaryDirectory() as tmpdirname:
@@ -123,6 +123,6 @@ def test_read(cdb, printing):
 
     # Verify
     assert print_counts == {printing: {
-        models.CountTypes.copies: 3,
-        models.CountTypes.foils: 72,
+        counts.CountTypes.copies: 3,
+        counts.CountTypes.foils: 72,
     }}

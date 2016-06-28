@@ -7,7 +7,7 @@ import textwrap
 import pytest
 
 from mtg_ssm.mtg import card_db
-from mtg_ssm.mtg import models
+from mtg_ssm.mtg import counts
 from mtg_ssm.serialization import deckbox
 
 
@@ -50,8 +50,8 @@ def test_rfp(cdb):
     # Setup
     printing = cdb.id_to_printing['c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae']
     print_counts = {printing: {
-        models.CountTypes.copies: 3,
-        models.CountTypes.foils: 5,
+        counts.CountTypes.copies: 3,
+        counts.CountTypes.foils: 5,
     }}
     # Execute
     rows = list(deckbox.rows_for_printing(printing, print_counts))
@@ -99,8 +99,8 @@ def test_rfp_split_second_half(cdb):
     # Setup
     printing = cdb.id_to_printing['2eecf5001fe332f5dadf4d87665bcf182c5f24ee']
     print_counts = {printing: {
-        models.CountTypes.copies: 3,
-        models.CountTypes.foils: 5,
+        counts.CountTypes.copies: 3,
+        counts.CountTypes.foils: 5,
     }}
     # Execute
     rows = list(deckbox.rows_for_printing(printing, print_counts))
@@ -112,8 +112,8 @@ def test_rfp_promo(cdb):
     # Setup
     printing = cdb.id_to_printing['6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc']
     print_counts = {printing: {
-        models.CountTypes.copies: 0,
-        models.CountTypes.foils: 5,
+        counts.CountTypes.copies: 0,
+        counts.CountTypes.foils: 5,
     }}
     # Execute
     rows = list(deckbox.rows_for_printing(printing, print_counts))
@@ -146,8 +146,8 @@ def test_alt_art_ertai(cdb):
     ertai1 = cdb.id_to_printing['08fcfee6a7c4eddcd44e43e918cbf9d479492fe7']
     ertai2 = cdb.id_to_printing['62ff415cafefac84a5bb7174cb7ef175c14625de']
     print_counts = {
-        ertai1: {models.CountTypes.foils: 5},
-        ertai2: {models.CountTypes.foils: 5},
+        ertai1: {counts.CountTypes.foils: 5},
+        ertai2: {counts.CountTypes.foils: 5},
     }
     # Execute
     ertai1_rows = list(deckbox.rows_for_printing(ertai1, print_counts))
@@ -163,15 +163,15 @@ def test_rows_from_print_counts(cdb):
     bsz = cdb.id_to_printing['6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc']
     print_counts = {
         bust: {
-            models.CountTypes.copies: 3,
-            models.CountTypes.foils: 5,
+            counts.CountTypes.copies: 3,
+            counts.CountTypes.foils: 5,
         },
         boom: {
-            models.CountTypes.copies: 7,
-            models.CountTypes.foils: 9,
+            counts.CountTypes.copies: 7,
+            counts.CountTypes.foils: 9,
         },
         bsz: {
-            models.CountTypes.foils: 11,
+            counts.CountTypes.foils: 11,
         }
     }
     # Execute
@@ -268,8 +268,8 @@ def test_write(cdb):
     boom = cdb.id_to_printing['c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae']
     bsz = cdb.id_to_printing['6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc']
     print_counts = {
-        boom: {models.CountTypes.copies: 1},
-        bsz: {models.CountTypes.foils: 3},
+        boom: {counts.CountTypes.copies: 1},
+        bsz: {counts.CountTypes.foils: 3},
     }
     serializer = deckbox.MtgDeckboxSerializer(cdb)
     with tempfile.TemporaryDirectory() as tmpdirname:
@@ -307,6 +307,6 @@ def test_read(cdb):
     boom = cdb.id_to_printing['c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae']
     bsz = cdb.id_to_printing['6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc']
     assert print_counts == {
-        boom: {models.CountTypes.copies: 5},
-        bsz: {models.CountTypes.foils: 11},
+        boom: {counts.CountTypes.copies: 5},
+        bsz: {counts.CountTypes.foils: 11},
     }

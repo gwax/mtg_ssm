@@ -2,7 +2,7 @@
 
 import csv
 
-from mtg_ssm.mtg import models
+from mtg_ssm.mtg import counts
 from mtg_ssm.serialization import interface
 
 
@@ -85,9 +85,9 @@ def rows_for_printing(printing, print_counts):
     }
     if name is not None:
         row_base['Name'] = name
-        counts = print_counts.get(printing, {})
-        copies = counts.get(models.CountTypes.copies, 0)
-        foils = counts.get(models.CountTypes.foils, 0)
+        row_counts = print_counts.get(printing, {})
+        copies = row_counts.get(counts.CountTypes.copies, 0)
+        foils = row_counts.get(counts.CountTypes.foils, 0)
         if copies:
             # yield {**row_base, 'Foil': None, 'Count': copies}
             copies_row = row_base.copy()
@@ -124,13 +124,13 @@ def create_counts_row(cdb, deckbox_row):
     number = deckbox_row['Card Number']
     mtgj_setname = get_mtgj_setname(edition, number)
     set_code = cdb.setname_to_card_set[mtgj_setname].code
-    counts = int(deckbox_row['Count']) + int(deckbox_row['Tradelist Count'])
+    row_counts = int(deckbox_row['Count']) + int(deckbox_row['Tradelist Count'])
     countname = 'foils' if deckbox_row['Foil'] == 'foil' else 'copies'
     return {
         'name': deckbox_row['Name'].split('//')[0].strip(),
         'set': set_code,
         'number': number,
-        countname: counts,
+        countname: row_counts,
     }
 
 
@@ -153,5 +153,5 @@ class MtgDeckboxSerializer(interface.MtgSsmSerializer):
         with open(filename, 'r') as deckbox_file:
             reader = csv.DictReader(deckbox_file)
             card_counts = (create_counts_row(self.cdb, row) for row in reader)
-            return interface.build_print_counts(
+            return counts.aggregate_print_counts(
                 self.cdb, card_counts, strict=False)

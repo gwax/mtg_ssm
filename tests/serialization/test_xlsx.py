@@ -9,7 +9,7 @@ import openpyxl
 import pytest
 
 from mtg_ssm.mtg import card_db
-from mtg_ssm.mtg import models
+from mtg_ssm.mtg import counts
 from mtg_ssm.serialization import interface
 from mtg_ssm.serialization import xlsx
 
@@ -120,11 +120,11 @@ def test_create_set_sheet(cdb):
     forest3 = cdb.id_to_printing[
         'c78d2da78c68c558b1adc734b3f164e885407ffc']
     print_counts = {
-        forest1: {models.CountTypes.copies: 1},
-        forest2: {models.CountTypes.foils: 2},
+        forest1: {counts.CountTypes.copies: 1},
+        forest2: {counts.CountTypes.foils: 2},
         forest3: {
-            models.CountTypes.copies: 3,
-            models.CountTypes.foils: 4,
+            counts.CountTypes.copies: 3,
+            counts.CountTypes.foils: 4,
         }
     }
 
@@ -154,8 +154,8 @@ def test_write(cdb):
     # Setup
     print_counts = {
         cdb.id_to_printing['536d407161fa03eddee7da0e823c2042a8fa0262']: {
-            models.CountTypes.copies: 7,
-            models.CountTypes.foils: 12,
+            counts.CountTypes.copies: 7,
+            counts.CountTypes.foils: 12,
         }
     }
     serializer = xlsx.MtgXlsxSerializer(cdb)
@@ -228,7 +228,7 @@ def test_read_from_file(cdb):
     # Verify
     assert print_counts == {
         cdb.id_to_printing['536d407161fa03eddee7da0e823c2042a8fa0262']: {
-            models.CountTypes.copies: 3,
-            models.CountTypes.foils: 7,
+            counts.CountTypes.copies: 3,
+            counts.CountTypes.foils: 7,
         }
     }

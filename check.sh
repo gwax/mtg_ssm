@@ -37,4 +37,5 @@ else
     EXIT=1
 fi
 
+echo "Exit code: $EXIT"
 exit $EXIT

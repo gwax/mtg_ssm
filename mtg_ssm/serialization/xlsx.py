@@ -5,7 +5,7 @@ import string
 
 import openpyxl
 
-from mtg_ssm.mtg import models
+from mtg_ssm.mtg import counts
 from mtg_ssm.serialization import interface
 
 
@@ -144,12 +144,12 @@ SET_SHEET_HEADER = [
     'multiverseid',
     'number',
     'artist',
-] + [ct.name for ct in models.CountTypes] + [
+] + [ct.name for ct in counts.CountTypes] + [
     'others',
 ]
 COUNT_COLS = [
     string.ascii_uppercase[SET_SHEET_HEADER.index(ct.name)]
-    for ct in models.CountTypes]
+    for ct in counts.CountTypes]
 HAVE_TMPL = '=' + '+'.join(c + '{0}' for c in COUNT_COLS)
 ROW_OFFSET = 2
 
@@ -168,9 +168,9 @@ def create_set_sheet(sheet, card_set, print_counts):
             printing.set_number,
             printing.artist,
         ]
-        counts = print_counts.get(printing, {})
-        for counttype in models.CountTypes:
-            row.append(counts.get(counttype))
+        row_counts = print_counts.get(printing, {})
+        for counttype in counts.CountTypes:
+            row.append(row_counts.get(counttype))
         row.append(get_references(printing.card, exclude_sets={card_set}))
         sheet.append(row)
 
@@ -237,7 +237,7 @@ class MtgXlsxSerializer(interface.MtgSsmSerializer):
                     continue
                 raise interface.DeserializationError(
                     'No known set with code {}'.format(sheet.title))
-            print_counts = interface.merge_print_counts(
-                print_counts, interface.build_print_counts(
+            print_counts = counts.merge_print_counts(
+                print_counts, counts.aggregate_print_counts(
                     self.cdb, counts_from_sheet(sheet)))
         return print_counts

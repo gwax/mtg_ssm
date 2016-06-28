@@ -75,13 +75,12 @@ class CardDb:
         for printing in self.id_to_printing.values():
             self.set_code_to_printings[printing.set_code].append(printing)
             self.card_name_to_printings[printing.card_name].append(printing)
+            # snnm == (set, name, number, multiverseid)
             snnm_index_keys = {
-                (printing.set_code, printing.card_name, printing.set_number,
-                 printing.multiverseid),
-                (printing.set_code, printing.card_name, None,
-                 printing.multiverseid),
-                (printing.set_code, printing.card_name, printing.set_number,
-                 None),
+                # pylint: disable=line-too-long
+                (printing.set_code, printing.card_name, printing.set_number, printing.multiverseid),
+                (printing.set_code, printing.card_name, None, printing.multiverseid),
+                (printing.set_code, printing.card_name, printing.set_number, None),
                 (printing.set_code, printing.card_name, None, None),
             }
             for key in snnm_index_keys:

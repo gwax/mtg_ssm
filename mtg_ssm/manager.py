@@ -12,6 +12,7 @@ from mtg_ssm import mtgjson
 from mtg_ssm import profiling
 import mtg_ssm.serialization.interface as ser_interface
 from mtg_ssm.mtg import card_db
+from mtg_ssm.mtg import counts
 
 
 MTG_SSM_DATA_PATH = os.path.expanduser(os.path.join('~', '.mtg_ssm'))
@@ -76,7 +77,7 @@ def process_files(args):
             .by_extension_and_format(ext, args.import_format)
         import_serializer = import_serializer_class(cdb)
         print('Importing counts from import: %s' % import_file)
-        print_counts = ser_interface.merge_print_counts(
+        print_counts = counts.merge_print_counts(
             print_counts, import_serializer.read(import_file))
 
     _, ext = os.path.splitext(args.collection)
@@ -86,7 +87,7 @@ def process_files(args):
 
     if os.path.exists(args.collection):
         print('Reading counts from existing file.')
-        print_counts = ser_interface.merge_print_counts(
+        print_counts = counts.merge_print_counts(
             print_counts, serializer.read(args.collection))
         backup_name = args.collection + '.bak-{:%Y%m%d_%H%M%S}'.format(
             datetime.datetime.now())
