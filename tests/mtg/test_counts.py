@@ -17,8 +17,8 @@ def cdb(sets_data):
 def test_coerce_card_row():
     count = {'id': 'a', 'multiverseid': '12', 'copies': '4', 'foils': '5'}
     coerced_counts = counts.coerce_card_row(count)
-    expected = {'id': 'a', 'multiverseid': 12, 'copies': 4, 'foils': 5}
-    assert coerced_counts == expected
+    assert coerced_counts == {
+        'id': 'a', 'multiverseid': 12, 'copies': 4, 'foils': 5}
 
 
 # aggregate_print_counts tests

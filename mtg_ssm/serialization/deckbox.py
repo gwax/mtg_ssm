@@ -118,7 +118,7 @@ def get_mtgj_setname(edition, number):
             return setname
 
 
-def create_counts_row(cdb, deckbox_row):
+def create_card_row(cdb, deckbox_row):
     """Given a row from a deckbox csv file, return a counts row."""
     edition = deckbox_row['Edition']
     number = deckbox_row['Card Number']
@@ -152,6 +152,6 @@ class MtgDeckboxSerializer(interface.MtgSsmSerializer):
         """Read print counts from deckbox csv file."""
         with open(filename, 'r') as deckbox_file:
             reader = csv.DictReader(deckbox_file)
-            card_counts = (create_counts_row(self.cdb, row) for row in reader)
+            card_counts = (create_card_row(self.cdb, row) for row in reader)
             return counts.aggregate_print_counts(
                 self.cdb, card_counts, strict=False)

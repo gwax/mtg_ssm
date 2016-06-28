@@ -8,8 +8,7 @@ from mtg_ssm.serialization import interface
 # Subclass registration tests
 def test_all_formats():
     all_formats = interface.MtgSsmSerializer.all_formats()
-    expected = {'auto', 'csv', 'xlsx', 'deckbox'}
-    assert set(all_formats) == expected
+    assert set(all_formats) == {'auto', 'csv', 'xlsx', 'deckbox'}
     assert all_formats[0] == 'auto'
 
 

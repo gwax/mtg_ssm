@@ -1,6 +1,5 @@
 """Tests for mtg_ssm.serialization.deckbox"""
 
-import os
 import tempfile
 import textwrap
 
@@ -18,7 +17,6 @@ def cdb(sets_data):
 
 
 def test_get_deckbox_name(cdb):
-    # Setup
     card_names = [
         'Chaotic Æther',
         'Delver of Secrets',
@@ -30,10 +28,8 @@ def test_get_deckbox_name(cdb):
         'Abattoir Ghoul',
     ]
     cards = [cdb.name_to_card[name] for name in card_names]
-    # Execute
     deckbox_names = [deckbox.get_deckbox_name(card) for card in cards]
-    # Verify
-    expected = [
+    assert deckbox_names == [
         'Chaotic Aether',
         'Delver of Secrets',
         None,
@@ -43,7 +39,6 @@ def test_get_deckbox_name(cdb):
         None,
         'Abattoir Ghoul',
     ]
-    assert deckbox_names == expected
 
 
 def test_rfp(cdb):
@@ -53,10 +48,8 @@ def test_rfp(cdb):
         counts.CountTypes.copies: 3,
         counts.CountTypes.foils: 5,
     }}
-    # Execute
-    rows = list(deckbox.rows_for_printing(printing, print_counts))
-    # Verify
-    expected = [
+    rows = deckbox.rows_for_printing(printing, print_counts)
+    assert list(rows) == [
         {
             'Count': 3,
             'Tradelist Count': 0,
@@ -92,33 +85,26 @@ def test_rfp(cdb):
             'My Price': None,
         },
     ]
-    assert rows == expected
 
 
 def test_rfp_split_second_half(cdb):
-    # Setup
     printing = cdb.id_to_printing['2eecf5001fe332f5dadf4d87665bcf182c5f24ee']
     print_counts = {printing: {
         counts.CountTypes.copies: 3,
         counts.CountTypes.foils: 5,
     }}
-    # Execute
-    rows = list(deckbox.rows_for_printing(printing, print_counts))
-    # Verify
-    assert not rows
+    rows = deckbox.rows_for_printing(printing, print_counts)
+    assert not list(rows)
 
 
 def test_rfp_promo(cdb):
-    # Setup
     printing = cdb.id_to_printing['6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc']
     print_counts = {printing: {
         counts.CountTypes.copies: 0,
         counts.CountTypes.foils: 5,
     }}
-    # Execute
-    rows = list(deckbox.rows_for_printing(printing, print_counts))
-    # Verify
-    expected = [
+    rows = deckbox.rows_for_printing(printing, print_counts)
+    assert list(rows) == [
         {
             'Count': 5,
             'Tradelist Count': 0,
@@ -137,27 +123,22 @@ def test_rfp_promo(cdb):
             'My Price': None,
         },
     ]
-    assert rows == expected
 
 
 @pytest.mark.xfail
 def test_alt_art_ertai(cdb):
-    # Setup
     ertai1 = cdb.id_to_printing['08fcfee6a7c4eddcd44e43e918cbf9d479492fe7']
     ertai2 = cdb.id_to_printing['62ff415cafefac84a5bb7174cb7ef175c14625de']
     print_counts = {
         ertai1: {counts.CountTypes.foils: 5},
         ertai2: {counts.CountTypes.foils: 5},
     }
-    # Execute
-    ertai1_rows = list(deckbox.rows_for_printing(ertai1, print_counts))
-    ertai2_rows = list(deckbox.rows_for_printing(ertai2, print_counts))
-    # Verify
-    assert ertai1_rows != ertai2_rows
+    ertai1_rows = deckbox.rows_for_printing(ertai1, print_counts)
+    ertai2_rows = deckbox.rows_for_printing(ertai2, print_counts)
+    assert list(ertai1_rows) != list(ertai2_rows)
 
 
 def test_rows_from_print_counts(cdb):
-    # Setup
     bust = cdb.id_to_printing['2eecf5001fe332f5dadf4d87665bcf182c5f24ee']
     boom = cdb.id_to_printing['c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae']
     bsz = cdb.id_to_printing['6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc']
@@ -174,10 +155,8 @@ def test_rows_from_print_counts(cdb):
             counts.CountTypes.foils: 11,
         }
     }
-    # Execute
-    rows = list(deckbox.deckbox_rows_from_print_counts(cdb, print_counts))
-    # Verify
-    expected = [
+    rows = deckbox.deckbox_rows_from_print_counts(cdb, print_counts)
+    assert list(rows) == [
         {
             'Count': 7,
             'Tradelist Count': 0,
@@ -230,12 +209,10 @@ def test_rows_from_print_counts(cdb):
             'My Price': None,
         },
     ]
-    assert rows == expected
 
 
-def test_create_counts_row(cdb):
-    # Setup
-    deckbox_rows = [
+@pytest.mark.parametrize('deckbox_row,target_card_row', [
+    (
         {
             'Edition': 'Planechase 2012',
             'Count': '2',
@@ -244,6 +221,8 @@ def test_create_counts_row(cdb):
             'Name': 'Foo // Bar',
             'Card Number': '12',
         },
+        {'name': 'Foo', 'set': 'PC2', 'number': '12', 'foils': 5}
+    ), (
         {
             'Edition': 'Innistrad',
             'Count': '4',
@@ -252,15 +231,12 @@ def test_create_counts_row(cdb):
             'Name': 'Thing',
             'Card Number': '95',
         },
-    ]
-    # Execute
-    counts = [deckbox.create_counts_row(cdb, r) for r in deckbox_rows]
-    # Verify
-    expected = [
-        {'name': 'Foo', 'set': 'PC2', 'number': '12', 'foils': 5},
-        {'name': 'Thing', 'set': 'ISD', 'number': '95', 'copies': 4},
-    ]
-    assert counts == expected
+        {'name': 'Thing', 'set': 'ISD', 'number': '95', 'copies': 4}
+    ),
+])
+def test_create_counts_row(cdb, deckbox_row, target_card_row):
+    card_row = deckbox.create_card_row(cdb, deckbox_row)
+    assert card_row == target_card_row
 
 
 def test_write(cdb):
@@ -272,38 +248,27 @@ def test_write(cdb):
         bsz: {counts.CountTypes.foils: 3},
     }
     serializer = deckbox.MtgDeckboxSerializer(cdb)
-    with tempfile.TemporaryDirectory() as tmpdirname:
-        csvfilename = os.path.join(tmpdirname, 'outfile.csv')
-
-        # Execute
-        serializer.write(csvfilename, print_counts)
-
-        # Verify
-        with open(csvfilename, 'r') as csvfile:
-            csvdata = csvfile.read()
-    expected = textwrap.dedent("""\
+    with tempfile.NamedTemporaryFile(mode='rt') as outfile:
+        serializer.write(outfile.name, print_counts)
+        csvdata = outfile.read()
+    assert csvdata == textwrap.dedent("""\
         Count,Tradelist Count,Name,Edition,Card Number,Condition,Language,Foil,Signed,Artist Proof,Altered Art,Misprint,Promo,Textless,My Price
         1,0,Boom // Bust,Planar Chaos,112,Near Mint,English,,,,,,,,
         3,0,Black Sun's Zenith,Magic Game Day Cards,7,Near Mint,English,foil,,,,,promo,,
-        """)
-    assert csvdata == expected
+    """)
 
 
 def test_read(cdb):
     # Setup
-    with tempfile.NamedTemporaryFile('w') as csvfile:
-        csvfile.write(textwrap.dedent("""\
+    with tempfile.NamedTemporaryFile('w') as infile:
+        infile.write(textwrap.dedent("""\
             Count,Tradelist Count,Name,Edition,Card Number,Condition,Language,Foil,Signed,Artist Proof,Altered Art,Misprint,Promo,Textless,My Price
             1,4,Boom // Bust,Planar Chaos,112,Near Mint,English,,,,,,,,
             3,8,Black Sun's Zenith,Magic Game Day Cards,7,Near Mint,English,foil,,,,,promo,,
-            """))
-        csvfile.flush()
+        """))
+        infile.flush()
         serializer = deckbox.MtgDeckboxSerializer(cdb)
-
-        # Execute
-        print_counts = serializer.read(csvfile.name)
-
-    # Verify
+        print_counts = serializer.read(infile.name)
     boom = cdb.id_to_printing['c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae']
     bsz = cdb.id_to_printing['6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc']
     assert print_counts == {
