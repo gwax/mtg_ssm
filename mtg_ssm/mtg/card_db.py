@@ -34,18 +34,18 @@ class CardDb:
         self.setname_to_card_set = {}
         self.id_to_printing = {}
 
-        # Card Sets Index
+        self.cards = None
         self.card_sets = None
 
-        # Printing Indexes
         self.set_code_to_printings = None
         self.card_name_to_printings = None
         self.set_name_num_mv_to_printings = None
 
+        self.set_code_to_printing_to_row = None
+
         if mtg_json_data is not None:
             self.load_mtg_json(mtg_json_data, include_online_only)
             self.rebuild_indexes()
-            self.sort_indexes()
 
     def load_mtg_json(self, mtg_json_data, include_online_only=False):
         """Update the collection with data from mtg_json."""
@@ -66,6 +66,7 @@ class CardDb:
 
     def rebuild_indexes(self):
         """Rebuild the printing indexes."""
+        self.cards = list(self.name_to_card.values())
         self.card_sets = list(self.code_to_card_set.values())
 
         self.set_code_to_printings = collections.defaultdict(list)
@@ -75,20 +76,19 @@ class CardDb:
         for printing in self.id_to_printing.values():
             self.set_code_to_printings[printing.set_code].append(printing)
             self.card_name_to_printings[printing.card_name].append(printing)
+            # snnm == (set, name, number, multiverseid)
             snnm_index_keys = {
-                (printing.set_code, printing.card_name, printing.set_number,
-                 printing.multiverseid),
-                (printing.set_code, printing.card_name, None,
-                 printing.multiverseid),
-                (printing.set_code, printing.card_name, printing.set_number,
-                 None),
+                # pylint: disable=line-too-long
+                (printing.set_code, printing.card_name, printing.set_number, printing.multiverseid),
+                (printing.set_code, printing.card_name, None, printing.multiverseid),
+                (printing.set_code, printing.card_name, printing.set_number, None),
                 (printing.set_code, printing.card_name, None, None),
             }
             for key in snnm_index_keys:
                 self.set_name_num_mv_to_printings[key].append(printing)
 
-    def sort_indexes(self):
-        """Sort the indexes."""
+        # Sort indexes
+        self.cards.sort(key=lambda card: card.name)
         self.card_sets.sort(key=lambda cset: cset.release_date)
 
         for printings in self.set_code_to_printings.values():
@@ -96,3 +96,9 @@ class CardDb:
 
         for printings in self.card_name_to_printings.values():
             printings.sort(key=card_name_to_printing_key)
+
+        # Build ordered indexes
+        self.set_code_to_printing_to_row = {}
+        for set_code, printings in self.set_code_to_printings.items():
+            self.set_code_to_printing_to_row[set_code] = {
+                printing: i for i, printing in enumerate(printings)}

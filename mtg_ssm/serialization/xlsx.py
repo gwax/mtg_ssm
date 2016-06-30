@@ -5,7 +5,7 @@ import string
 
 import openpyxl
 
-from mtg_ssm.mtg import models
+from mtg_ssm.mtg import counts
 from mtg_ssm.serialization import interface
 
 
@@ -71,7 +71,7 @@ def style_all_sets(sheet):
 def create_haverefs(printings):
     """Create a reference to the have cells for printings in a single set."""
     card_set = printings[0].set
-    rownums = [card_set.printings.index(p) + ROW_OFFSET for p in printings]
+    rownums = [card_set.printing_index(p) + ROW_OFFSET for p in printings]
     haverefs = [
         "'{setcode}'!A{rownum}".format(setcode=card_set.code, rownum=r)
         for r in rownums]
@@ -113,10 +113,7 @@ def create_all_cards(sheet, card_db):
     """Create all cards sheet from card_db."""
     sheet.title = 'All Cards'
     sheet.append(ALL_CARDS_SHEET_HEADER)
-    # Should this be done in the card_db class indexes?
-    # Should card_sets not be done in the card_db indexes?
-    cards = sorted(card_db.name_to_card.values(), key=lambda c: c.name)
-    for card in cards:
+    for card in card_db.cards:
         row = [
             card.name,
             get_references(card),
@@ -144,12 +141,12 @@ SET_SHEET_HEADER = [
     'multiverseid',
     'number',
     'artist',
-] + [ct.name for ct in models.CountTypes] + [
+] + [ct.name for ct in counts.CountTypes] + [
     'others',
 ]
 COUNT_COLS = [
     string.ascii_uppercase[SET_SHEET_HEADER.index(ct.name)]
-    for ct in models.CountTypes]
+    for ct in counts.CountTypes]
 HAVE_TMPL = '=' + '+'.join(c + '{0}' for c in COUNT_COLS)
 ROW_OFFSET = 2
 
@@ -159,7 +156,7 @@ def create_set_sheet(sheet, card_set, print_counts):
     sheet.title = card_set.code
     sheet.append(SET_SHEET_HEADER)
     for printing in card_set.printings:
-        rownum = card_set.printings.index(printing) + ROW_OFFSET
+        rownum = card_set.printing_index(printing) + ROW_OFFSET
         row = [
             HAVE_TMPL.format(rownum),
             printing.card.name,
@@ -168,9 +165,9 @@ def create_set_sheet(sheet, card_set, print_counts):
             printing.set_number,
             printing.artist,
         ]
-        counts = print_counts.get(printing, {})
-        for counttype in models.CountTypes:
-            row.append(counts.get(counttype))
+        row_counts = print_counts.get(printing, {})
+        for counttype in counts.CountTypes:
+            row.append(row_counts.get(counttype))
         row.append(get_references(printing.card, exclude_sets={card_set}))
         sheet.append(row)
 
@@ -237,7 +234,7 @@ class MtgXlsxSerializer(interface.MtgSsmSerializer):
                     continue
                 raise interface.DeserializationError(
                     'No known set with code {}'.format(sheet.title))
-            print_counts = interface.merge_print_counts(
-                print_counts, interface.build_print_counts(
+            print_counts = counts.merge_print_counts(
+                print_counts, counts.aggregate_print_counts(
                     self.cdb, counts_from_sheet(sheet)))
         return print_counts

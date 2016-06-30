@@ -20,9 +20,9 @@ LONG_DESCRIPTION = open('README.rst', 'r').read()
 DEPENDENCIES = [l.strip() for l in open('requirements.txt', 'r')]
 
 if sys.version_info < (3, 5):
-    DEPENDENCIES.append('typing>=3.5.0.1')
+    DEPENDENCIES.append('typing>=3.5.2,<4.0.0')
 if sys.version_info < (3, 4):
-    DEPENDENCIES.append('enum34>=1.1.2')
+    DEPENDENCIES.append('enum34>=1.1.6,<2.0.0')
 
 CLASSIFIERS = [
     'Development Status :: 5 - Production/Stable',

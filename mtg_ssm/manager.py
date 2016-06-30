@@ -5,6 +5,7 @@ import argparse
 import datetime
 import os
 import shutil
+import tempfile
 
 import mtg_ssm
 
@@ -12,6 +13,7 @@ from mtg_ssm import mtgjson
 from mtg_ssm import profiling
 import mtg_ssm.serialization.interface as ser_interface
 from mtg_ssm.mtg import card_db
+from mtg_ssm.mtg import counts
 
 
 MTG_SSM_DATA_PATH = os.path.expanduser(os.path.join('~', '.mtg_ssm'))
@@ -25,14 +27,14 @@ def get_args(args=None):
         '--version', action='version', version=mtg_ssm.__version__)
 
     parser.add_argument(
-        '--data_path', default=MTG_SSM_DATA_PATH,
+        '--data-path', default=MTG_SSM_DATA_PATH,
         help='Path to mtg_ssm\'s data storage folder. Default={0}'.format(
             MTG_SSM_DATA_PATH))
     parser.add_argument(
-        '--include_online_only', default=False, action='store_true',
+        '--include-online-only', default=False, action='store_true',
         help='Include online only sets (e.g. Masters sets) in the database.')
     parser.add_argument(
-        '--profile_stats', default=False, action='store_true',
+        '--profile-stats', default=False, action='store_true',
         help='Output profiling statistics.')
 
     format_choices = ser_interface.MtgSsmSerializer.all_formats()
@@ -44,7 +46,7 @@ def get_args(args=None):
         'collection', help='Sheet to update.')
 
     parser.add_argument(
-        '--import_format', default='auto', choices=format_choices,
+        '--import-format', default='auto', choices=format_choices,
         help='File format for the import file, if provided.')
     parser.add_argument(
         'imports', metavar='import', nargs='*',
@@ -57,7 +59,10 @@ def get_args(args=None):
 
 def build_card_db(data_path, include_online_only):
     """Get a card_db with current mtgjson data."""
-    mtgjson.fetch_mtgjson(data_path)
+    try:
+        mtgjson.fetch_mtgjson(data_path)
+    except mtgjson.DownloadError:
+        print('Failed to download mtgjson data, attempting to use cached data.')
     print('Reading mtgjson data.')
     mtgjsondata = mtgjson.read_mtgjson(data_path)
     return card_db.CardDb(
@@ -76,7 +81,7 @@ def process_files(args):
             .by_extension_and_format(ext, args.import_format)
         import_serializer = import_serializer_class(cdb)
         print('Importing counts from import: %s' % import_file)
-        print_counts = ser_interface.merge_print_counts(
+        print_counts = counts.merge_print_counts(
             print_counts, import_serializer.read(import_file))
 
     _, ext = os.path.splitext(args.collection)
@@ -86,15 +91,20 @@ def process_files(args):
 
     if os.path.exists(args.collection):
         print('Reading counts from existing file.')
-        print_counts = ser_interface.merge_print_counts(
+        print_counts = counts.merge_print_counts(
             print_counts, serializer.read(args.collection))
         backup_name = args.collection + '.bak-{:%Y%m%d_%H%M%S}'.format(
             datetime.datetime.now())
-        print('Moving existing collection to backup: %s' % backup_name)
-        shutil.move(args.collection, backup_name)
-
-    print('Writing collection to file.')
-    serializer.write(args.collection, print_counts)
+        with tempfile.NamedTemporaryFile(mode='w+b') as temp_coll:
+            print('Writing collection to temporary file.')
+            serializer.write(temp_coll.name, print_counts)
+            print('Backing up existing file to backup: %s' % backup_name)
+            shutil.copy(args.collection, backup_name)
+            print('Overwriting with new collection')
+            shutil.copy(temp_coll.name, args.collection)
+    else:
+        print('Writing collection to file.')
+        serializer.write(args.collection, print_counts)
 
 
 def main():

@@ -2,7 +2,7 @@
 
 import csv
 
-from mtg_ssm.mtg import models
+from mtg_ssm.mtg import counts
 from mtg_ssm.serialization import interface
 
 CSV_HEADER = [
@@ -11,7 +11,7 @@ CSV_HEADER = [
     'number',
     'multiverseid',
     'id',
-] + [ct.name for ct in models.CountTypes]
+] + [ct.name for ct in counts.CountTypes]
 
 
 def row_for_printing(printing, print_counts):
@@ -53,5 +53,5 @@ class MtgCsvSerializer(interface.MtgSsmSerializer):
     def read(self, filename: str):
         """Read print counts from file."""
         with open(filename, 'r') as csv_file:
-            return interface.build_print_counts(
+            return counts.aggregate_print_counts(
                 self.cdb, csv.DictReader(csv_file))

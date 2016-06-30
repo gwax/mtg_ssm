@@ -1,16 +1,10 @@
 """SQLAlchemy models for managing data."""
 
 import datetime as dt
-import enum
 import string
 
 VARIANT_CHARS = (string.ascii_letters + '★')
-
-
-class CountTypes(enum.Enum):
-    """Enum for possible card printing types (normal, foil)."""
-    copies = 'copies'
-    foils = 'foils'
+STRICT_BASICS = {'Plains', 'Island', 'Swamp', 'Mountain', 'Forest'}
 
 
 class Card:
@@ -26,7 +20,7 @@ class Card:
     @property
     def strict_basic(self):
         """Is this card one of the five basic lands (not Snow or Wastes)."""
-        return self.name in ('Plains', 'Island', 'Swamp', 'Mountain', 'Forest')
+        return self.name in STRICT_BASICS
 
     @property
     def printings(self):
@@ -109,6 +103,10 @@ class CardSet:
             card_name.
         """
         return self.cdb.set_code_to_printings[self.code]
+
+    def printing_index(self, printing):
+        """The index of a printing in a sets card list."""
+        return self.cdb.set_code_to_printing_to_row[self.code][printing]
 
     def __str__(self):
         return 'CardSet: {cset.name}'.format(cset=self)
