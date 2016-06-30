@@ -201,11 +201,10 @@ def counts_from_sheet(sheet):
         yield dict(zip(header, row_values))
 
 
-class MtgXlsxSerializer(interface.MtgSsmSerializer):
-    """MtgSsmSerializer for reading and writing xlsx files."""
-
-    format = 'xlsx'
+class MtgXlsxSerializer(interface.SerializationDialect):
+    """excel xlsx collection"""
     extension = 'xlsx'
+    dialect = 'xlsx'
 
     def write(self, filename: str, print_counts) -> None:
         """Write print counts to an xlsx file."""

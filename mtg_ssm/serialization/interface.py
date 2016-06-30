@@ -13,25 +13,36 @@ class Error(Exception):
     """Base error for serializers."""
 
 
-class InvalidExtensionOrFormat(Error):
-    """Raised if an invalid extension or format is provided."""
+class UnknownDialect(Exception):
+    """Raised when an (extension, dialect) pair is requested."""
 
 
 class DeserializationError(Error):
     """Raised when there is an error reading counts from a file."""
 
 
-class MtgSsmSerializer(metaclass=abc.ABCMeta):
-    """Abstract interface for a mtg ssm serializer."""
+class SerializationDialect(metaclass=abc.ABCMeta):
+    """Abstract interface for mtg ssm serialization dialect."""
 
-    format = None  # type: str
-    extension = None  # type: str
-
-    _format_to_serializer = None
-    _extension_to_serializer = None
+    _dialects = None
+    _dialect_registry = None
 
     def __init__(self, cdb: card_db.CardDb) -> None:
         self.cdb = cdb
+
+    @property
+    @abc.abstractmethod
+    def extension(self) -> str:
+        """Registered file extension, excluding '.' """
+
+    @property
+    @abc.abstractmethod
+    def dialect(self) -> str:
+        """Registered dialect name.
+
+        Note: a dialect that matches the extension will be considered the
+            default dialect for that extension.
+        """
 
     @abc.abstractmethod
     def write(self, filename: str, print_counts) -> None:
@@ -42,41 +53,38 @@ class MtgSsmSerializer(metaclass=abc.ABCMeta):
             models.CardPrinting, Dict[counts.CountTypes, int]]:
         """Read print counts from file."""
 
-    @classmethod
-    def _register_subclasses(cls):
-        """Register formats and extensions for all subclasses."""
-        cls._format_to_serializer = {}
-        cls._extension_to_serializer = {}
-        subclasses = collections.deque(cls.__subclasses__())
+    @staticmethod
+    def _register_dialects():
+        """Register dialects for extensions from all subclasses."""
+        dialects = SerializationDialect._dialects = []
+        registry = SerializationDialect._dialect_registry = {}
+        subclasses = collections.deque(SerializationDialect.__subclasses__())
         while subclasses:
-            subclass = subclasses.popleft()
-            if subclass.format is not None:
-                cls._format_to_serializer[subclass.format] = subclass
-            if subclass.extension is not None:
-                cls._extension_to_serializer[subclass.extension] = subclass
-            subclasses.extend(subclass.__subclasses__())
+            klass = subclasses.popleft()
+            print(klass)
+            if not klass.__abstractmethods__:
+                print(klass.extension, klass.dialect)
+                registry[(klass.extension, klass.dialect)] = klass
+                dialects.append(
+                    (klass.extension, klass.dialect, klass.__doc__))
+            subclasses.extend(klass.__subclasses__())
+        dialects.sort()
 
-    @classmethod
-    def all_formats(cls):
-        """List of all valid serializer formats."""
-        if cls._format_to_serializer is None:
-            cls._register_subclasses()
-        formats = ['auto']
-        formats.extend(cls._format_to_serializer)
-        return formats
+    @staticmethod
+    def dialects():
+        """List of (extension, dialect, description) of registered dialects."""
+        if SerializationDialect._dialects is None:
+            SerializationDialect._register_dialects()
+        return SerializationDialect._dialects
 
-    @classmethod
-    def by_extension_and_format(cls, extension: str, ser_format: str):
-        """Get the appropriate serialzer for a file."""
-        if cls._format_to_serializer is None:
-            cls._register_subclasses()
-        if ser_format == 'auto':
-            serializer = cls._extension_to_serializer.get(extension.lstrip('.'))
-        else:
-            serializer = cls._format_to_serializer.get(ser_format)
-
-        if serializer is None:
-            raise InvalidExtensionOrFormat(
-                'Cannot find serializer for format: %s and extension %s' % (
-                    ser_format, extension))
-        return serializer
+    @staticmethod
+    def by_extension(extension, dialect_mappings):
+        """Get a serializer class for a given extension and dialect mapping."""
+        if SerializationDialect._dialect_registry is None:
+            SerializationDialect._register_dialects()
+        dialect = dialect_mappings.get(extension, extension)
+        try:
+            return SerializationDialect._dialect_registry[(extension, dialect)]
+        except KeyError:
+            raise UnknownDialect(
+                'Extension: {ext} dialect: {dia} not found in registry')

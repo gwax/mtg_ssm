@@ -1,5 +1,7 @@
 #!/bin/bash
 
+CI="$CI"
+
 set -e
 set -o nounset
 
@@ -11,7 +13,9 @@ EXIT=0
 if [ "$SUITE" = "test" ]; then
     echo "Running test suite"
     py.test --cov=mtg_ssm --strict -r w tests || EXIT=$?
-    coveralls || EXIT=$?
+    if [ "$CI" = "true" ]; then
+        coveralls || EXIT=$?
+    fi
 
 elif [ "$SUITE" = "lint" ]; then
     echo "Running lint suite"
