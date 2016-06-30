@@ -4,10 +4,14 @@ language: python
 
 matrix:
   include:
-    - python: 3.5.2
+    - python: 3.5.1
       env: TEST_SUITE=test
-    - python: 3.5.2
+    - python: 3.5.1
       env: TEST_SUITE=lint
+    - python: 3.5-dev
+      env: TEST_SUITE=test
+    - python: 3.6-dev
+      env: TEST_SUITE=test
     - python: 3.4
       env: TEST_SUITE=test
     - python: 3.3
