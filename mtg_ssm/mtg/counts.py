@@ -69,18 +69,12 @@ def find_printing(cdb, set_code, name, set_number, multiverseid, strict=True):
 
 def coerce_card_row(card_count):
     """Given a card_row dict, coerce types to match desired input."""
-    if 'multiverseid' in card_count:
+    int_keys = ['multiverseid'] + [ct.name for ct in CountTypes]
+    for key in int_keys:
         try:
-            card_count['multiverseid'] = int(card_count['multiverseid'])
-        except (TypeError, ValueError):
+            card_count[key] = int(card_count[key])
+        except (KeyError, TypeError, ValueError):
             pass
-    for counttype in CountTypes:
-        countname = counttype.name
-        if countname in card_count:
-            try:
-                card_count[countname] = int(card_count[countname])
-            except (TypeError, ValueError):
-                pass
     return card_count
 
 

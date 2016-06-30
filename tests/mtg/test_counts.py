@@ -14,11 +14,19 @@ def cdb(sets_data):
     return card_db.CardDb(sets_data)
 
 
-def test_coerce_card_row():
-    count = {'id': 'a', 'multiverseid': '12', 'copies': '4', 'foils': '5'}
-    coerced_counts = counts.coerce_card_row(count)
-    assert coerced_counts == {
-        'id': 'a', 'multiverseid': 12, 'copies': 4, 'foils': 5}
+@pytest.mark.parametrize('raw_card_row,expected_card_row', [
+    ({}, {}),
+    ({'multiverseid': '17'}, {'multiverseid': 17}),
+    ({'copies': '4'}, {'copies': 4}),
+    ({'foils': '7'}, {'foils': 7}),
+    ({'multiverseid': 'a'}, {'multiverseid': 'a'}),
+    ({'copies': 'b'}, {'copies': 'b'}),
+    ({'foils': 'c'}, {'foils': 'c'}),
+    ({'id': 'a', 'multiverseid': '12', 'copies': '4', 'foils': '5'},
+     {'id': 'a', 'multiverseid': 12, 'copies': 4, 'foils': 5}),
+])
+def test_coerce_card_row(raw_card_row, expected_card_row):
+    assert counts.coerce_card_row(raw_card_row) == expected_card_row
 
 
 # aggregate_print_counts tests
@@ -126,6 +134,8 @@ def test_printing_not_found(cdb, set_code, name, set_number, multiverseid):
     ('pMGD', "Black Sun's Zenith", '7', 'foo', '6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc'),
     ('LEA', 'Forest', 'foo', 288, '5ede9781b0c5d157c28a15c3153a455d7d6180fa'),
     ('ISD', 'Abattoir Ghoul', '85', 222911, '958ae1416f8f6287115ccd7c5c61f2415a313546'),
+    ('PC2', 'Chaotic Æther', 'foo', 'bar', '5669523e75ffdb436b768d4dd37cb95b82919d51'),
+    ('PC2', 'Chaotic Aether', 'foo', 'bar', '5669523e75ffdb436b768d4dd37cb95b82919d51'),
 ])
 def test_found_printing(cdb, set_code, name, set_number, multiverseid,
                         found_id):
