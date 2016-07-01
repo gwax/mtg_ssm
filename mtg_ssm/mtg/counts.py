@@ -116,3 +116,17 @@ def merge_print_counts(*print_counts_args):
             for key, value in counts.items():
                 print_counts[printing][key] += value
     return print_counts
+
+
+def diff_print_counts(left, right):
+    """Subtract right print counts from left print counts."""
+    print_counts = collections.defaultdict(
+        lambda: collections.defaultdict(int))
+    for printing in left.keys() | right.keys():
+        left_counts = left.get(printing, {})
+        right_counts = right.get(printing, {})
+        for key in left_counts.keys() | right_counts.keys():
+            value = left_counts.get(key, 0) - right_counts.get(key, 0)
+            if value:
+                print_counts[printing][key] = value
+    return print_counts

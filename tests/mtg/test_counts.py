@@ -114,6 +114,17 @@ def test_merge_print_counts(in_print_counts, out_print_counts):
     assert counts.merge_print_counts(*in_print_counts) == out_print_counts
 
 
+@pytest.mark.parametrize('left,right,output', [
+    ({}, {}, {}),
+    ({'a': {'b': 2}}, {'a': {'b': 1}}, {'a': {'b': 1}}),
+    ({'a': {'b': 1}}, {'a': {'b': 2}}, {'a': {'b': -1}}),
+    ({'a': {'b': 1}}, {'a': {'b': 1}}, {}),
+    ({'a': {'b': 1}}, {'c': {'d': 1}}, {'a': {'b': 1}, 'c': {'d': -1}}),
+])
+def test_diff_ptin_counts(left, right, output):
+    assert counts.diff_print_counts(left, right) == output
+
+
 # Printing lookup tests
 @pytest.mark.parametrize('set_code,name,set_number,multiverseid', [
     ('foo', 'bar', 'baz', 'quux'),  # not matching printing
