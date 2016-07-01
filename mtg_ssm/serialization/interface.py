@@ -85,4 +85,5 @@ class SerializationDialect(metaclass=abc.ABCMeta):
             return SerializationDialect._dialect_registry[(extension, dialect)]
         except KeyError:
             raise UnknownDialect(
-                'Extension: {ext} dialect: {dia} not found in registry')
+                'Extension: {ext} dialect: {dia} not found in registry'.format(
+                    ext=extension, dia=dialect))
