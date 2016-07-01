@@ -40,7 +40,7 @@ def fetch_mtgjson(data_path):
         local_version = (0, 0, 0)
 
     try:
-        print('Checking remove vs local version of mtgjson data.')
+        print('Checking remote vs local version of mtgjson data.')
         ver_req = requests.get(MTGJSON_ADDRESS + VERSION_FILENAME)
         ver_req.raise_for_status()
 
