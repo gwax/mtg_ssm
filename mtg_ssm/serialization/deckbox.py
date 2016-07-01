@@ -134,7 +134,7 @@ def create_card_row(cdb, dbox_row):
     }
 
 
-class MtgDeckboxSerializer(interface.SerializationDialect):
+class DeckboxCsvDialect(interface.SerializationDialect):
     """csv collection compatible with deckbox csv import/export"""
     extension = 'csv'
     dialect = 'deckbox'

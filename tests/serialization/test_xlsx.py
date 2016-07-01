@@ -135,7 +135,7 @@ def test_write(cdb):
             counts.CountTypes.foils: 12,
         }
     }
-    serializer = xlsx.MtgXlsxSerializer(cdb)
+    serializer = xlsx.XlsxDialect(cdb)
     with tempfile.NamedTemporaryFile(mode='rt', suffix='.xlsx') as outfile:
         serializer.write(outfile.name, print_counts)
         workbook = openpyxl.load_workbook(filename=outfile.name)
@@ -162,7 +162,7 @@ def test_counts_from_sheet():
 
 
 def test_read_bad_set(cdb):
-    serializer = xlsx.MtgXlsxSerializer(cdb)
+    serializer = xlsx.XlsxDialect(cdb)
     workbook = openpyxl.Workbook()
     workbook['Sheet'].title = 'BADSET'
     with tempfile.NamedTemporaryFile(suffix='.xlsx') as infile:
@@ -172,7 +172,7 @@ def test_read_bad_set(cdb):
 
 
 def test_read_from_file(cdb):
-    serializer = xlsx.MtgXlsxSerializer(cdb)
+    serializer = xlsx.XlsxDialect(cdb)
     workbook = openpyxl.Workbook()
     sheet = workbook['Sheet']
     sheet.title = 'S00'

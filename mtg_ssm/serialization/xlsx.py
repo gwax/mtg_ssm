@@ -201,7 +201,7 @@ def counts_from_sheet(sheet):
         yield dict(zip(header, row_values))
 
 
-class MtgXlsxSerializer(interface.SerializationDialect):
+class XlsxDialect(interface.SerializationDialect):
     """excel xlsx collection"""
     extension = 'xlsx'
     dialect = 'xlsx'

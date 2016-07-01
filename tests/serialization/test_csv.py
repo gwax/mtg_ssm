@@ -38,10 +38,10 @@ def test_header():
 
 
 def test_row_for_printing(printing):
-    print_counts = {printing: {
+    print_counts = {
         counts.CountTypes.copies: 3,
         counts.CountTypes.foils: 5,
-    }}
+    }
     csv_row = csv.row_for_printing(printing, print_counts)
     assert csv_row == {
         'set': 'MMA',
@@ -54,8 +54,9 @@ def test_row_for_printing(printing):
     }
 
 
-def test_rows_for_printings(cdb):
-    rows = csv.rows_for_printings(cdb, {})
+def test_rows_for_printings_verbose(cdb, printing):
+    print_counts = {printing: {counts.CountTypes.copies: 3}}
+    rows = csv.rows_for_printings(cdb, print_counts, True)
     assert list(rows) == [
         {
             'set': 'pMGD',
@@ -70,22 +71,53 @@ def test_rows_for_printings(cdb):
             'number': '167',
             'multiverseid': 370352,
             'id': 'fc46a4b72d216117a352f59217a84d0baeaaacb7',
+            'copies': 3,
         },
     ]
 
 
-def test_write(cdb, printing):
+def test_rows_for_printings_terse(cdb, printing):
+    print_counts = {printing: {counts.CountTypes.copies: 3}}
+    rows = csv.rows_for_printings(cdb, print_counts, False)
+    assert list(rows) == [
+        {
+            'set': 'MMA',
+            'name': 'Thallid',
+            'number': '167',
+            'multiverseid': 370352,
+            'id': 'fc46a4b72d216117a352f59217a84d0baeaaacb7',
+            'copies': 3,
+        },
+    ]
+
+
+def test_write_verbose(cdb, printing):
     print_counts = {printing: {
         counts.CountTypes.copies: 1,
         counts.CountTypes.foils: 12,
     }}
-    serializer = csv.MtgCsvSerializer(cdb)
+    serializer = csv.CsvFullDialect(cdb)
     with tempfile.NamedTemporaryFile(mode='rt') as outfile:
         serializer.write(outfile.name, print_counts)
         csvdata = outfile.read()
     assert csvdata == textwrap.dedent("""\
         set,name,number,multiverseid,id,copies,foils
         pMGD,Black Sun\'s Zenith,7,,6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc,,
+        MMA,Thallid,167,370352,fc46a4b72d216117a352f59217a84d0baeaaacb7,1,12
+    """)
+
+
+def test_write_terse(cdb, printing):
+    print_counts = {printing: {
+        counts.CountTypes.copies: 1,
+        counts.CountTypes.foils: 12,
+    }}
+    serializer = csv.CsvTerseDialect(cdb)
+    with tempfile.NamedTemporaryFile(mode='rt') as outfile:
+        serializer.write(outfile.name, print_counts)
+        csvdata = outfile.read()
+    assert csvdata == textwrap.dedent("""\
+        set,name,number,multiverseid,id,copies,foils
         MMA,Thallid,167,370352,fc46a4b72d216117a352f59217a84d0baeaaacb7,1,12
     """)
 
@@ -97,7 +129,7 @@ def test_read(cdb, printing):
             MMA,Thallid,167,370352,fc46a4b72d216117a352f59217a84d0baeaaacb7,3,72
         """))
         infile.flush()
-        serializer = csv.MtgCsvSerializer(cdb)
+        serializer = csv.CsvFullDialect(cdb)
         print_counts = serializer.read(infile.name)
     assert print_counts == {printing: {
         counts.CountTypes.copies: 3,
