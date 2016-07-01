@@ -162,7 +162,7 @@ def merge_cmd(args):
     """Merge counts from one or more inputs into a new/existing collection."""
     cdb = build_card_db(args.data_path, args.include_online_only)
     coll_serializer = get_serializer(cdb, args.dialect, args.collection)
-    print_counts = {}
+    print_counts = counts.new_print_counts()
     if os.path.exists(args.collection):
         print('Reading counts from ' + args.collection)
         print_counts = coll_serializer.read(args.collection)

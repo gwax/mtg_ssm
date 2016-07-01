@@ -44,6 +44,12 @@ class CountTypes(enum.Enum):
     foils = 'foils'
 
 
+def new_print_counts():
+    """Get an appropriate defaultdict set up for use ase print counts."""
+    return collections.defaultdict(
+        lambda: collections.defaultdict(int))
+
+
 def find_printing(cdb, set_code, name, set_number, multiverseid, strict=True):
     """Attempt to find a CardPrinting from given parameters."""
     name = name or ''
@@ -109,8 +115,7 @@ def aggregate_print_counts(cdb, card_rows, strict=True):
 
 def merge_print_counts(*print_counts_args):
     """Merge two sets of print_counts."""
-    print_counts = collections.defaultdict(
-        lambda: collections.defaultdict(int))
+    print_counts = new_print_counts()
     for in_print_counts in print_counts_args:
         for printing, counts in in_print_counts.items():
             for key, value in counts.items():
@@ -120,8 +125,7 @@ def merge_print_counts(*print_counts_args):
 
 def diff_print_counts(left, right):
     """Subtract right print counts from left print counts."""
-    print_counts = collections.defaultdict(
-        lambda: collections.defaultdict(int))
+    print_counts = new_print_counts()
     for printing in left.keys() | right.keys():
         left_counts = left.get(printing, {})
         right_counts = right.get(printing, {})

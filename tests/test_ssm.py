@@ -5,7 +5,6 @@ import datetime
 import os
 import tempfile
 import textwrap
-from unittest import mock
 
 import pytest
 
@@ -41,6 +40,7 @@ def patch_build_card_db(monkeypatch, cdb):
 
 
 def get_namespace(**kwargs):
+    """Namespace with defaults constructor."""
     defaults = {
         'data_path': ssm.DEFAULT_DATA_PATH,
         'include_online_only': False,
