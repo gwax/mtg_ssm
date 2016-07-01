@@ -149,6 +149,12 @@ Acknowledgments
 Changelog
 =========
 
+1.3.1
+=====
+
+- Fix bug where were were never actually reading set names from xlsx
+  files.
+
 1.3.0
 -----
 

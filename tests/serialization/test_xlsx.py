@@ -157,7 +157,7 @@ def test_counts_from_sheet():
     sheet.append([1, 'B', '=5+7'])
     rows = xlsx.counts_from_sheet(sheet)
     assert list(rows) == [
-        {'A': 1, 'B': 'B', 'C': '=5+7'},
+        {'set': 'Sheet', 'A': 1, 'B': 'B', 'C': '=5+7'},
     ]
 
 

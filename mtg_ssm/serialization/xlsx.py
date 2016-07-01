@@ -198,7 +198,7 @@ def counts_from_sheet(sheet):
     header = [cell.value for cell in next(rows)]
     for row in rows:
         row_values = [cell.value for cell in row]
-        yield dict(zip(header, row_values))
+        yield dict(zip(header, row_values), set=sheet.title)
 
 
 class XlsxDialect(interface.SerializationDialect):
