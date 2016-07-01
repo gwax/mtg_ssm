@@ -100,7 +100,7 @@ def rows_for_printing(printing, print_counts):
             yield foils_row
 
 
-def deckbox_rows_from_print_counts(cdb, print_counts):
+def dbox_rows_from_print_counts(cdb, print_counts):
     """Generator that yields csv rows from a card_db."""
     for card_set in cdb.card_sets:
         for printing in card_set.printings:
@@ -118,34 +118,33 @@ def get_mtgj_setname(edition, number):
             return setname
 
 
-def create_card_row(cdb, deckbox_row):
+def create_card_row(cdb, dbox_row):
     """Given a row from a deckbox csv file, return a counts row."""
-    edition = deckbox_row['Edition']
-    number = deckbox_row['Card Number']
+    edition = dbox_row['Edition']
+    number = dbox_row['Card Number']
     mtgj_setname = get_mtgj_setname(edition, number)
     set_code = cdb.setname_to_card_set[mtgj_setname].code
-    row_counts = int(deckbox_row['Count']) + int(deckbox_row['Tradelist Count'])
-    countname = 'foils' if deckbox_row['Foil'] == 'foil' else 'copies'
+    row_counts = int(dbox_row['Count']) + int(dbox_row['Tradelist Count'])
+    countname = 'foils' if dbox_row['Foil'] == 'foil' else 'copies'
     return {
-        'name': deckbox_row['Name'].split('//')[0].strip(),
+        'name': dbox_row['Name'].split('//')[0].strip(),
         'set': set_code,
         'number': number,
         countname: row_counts,
     }
 
 
-class MtgDeckboxSerializer(interface.MtgSsmSerializer):
-    """MtgSsmSerializer for reading/writing deckbox compatible csv files."""
-
-    format = 'deckbox'
-    extension = None
+class DeckboxCsvDialect(interface.SerializationDialect):
+    """csv collection compatible with deckbox csv import/export"""
+    extension = 'csv'
+    dialect = 'deckbox'
 
     def write(self, filename: str, print_counts) -> None:
         """Write print counts to a deckbox csv file."""
         with open(filename, 'w') as csv_file:
             writer = csv.DictWriter(csv_file, DECKBOX_HEADER)
             writer.writeheader()
-            for row in deckbox_rows_from_print_counts(self.cdb, print_counts):
+            for row in dbox_rows_from_print_counts(self.cdb, print_counts):
                 writer.writerow(row)
 
     def read(self, filename: str):

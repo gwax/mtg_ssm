@@ -1,36 +1,40 @@
 """Tests for mtg_ssm.serialization.interface.py"""
 
+from unittest import mock
+
 import pytest
 
 from mtg_ssm.serialization import interface
 
 
 # Subclass registration tests
-def test_all_formats():
-    all_formats = interface.MtgSsmSerializer.all_formats()
-    assert set(all_formats) == {'auto', 'csv', 'xlsx', 'deckbox'}
-    assert all_formats[0] == 'auto'
+def test_all_dialects():
+    all_formats = interface.SerializationDialect.dialects()
+    assert sorted(all_formats) == [
+        ('csv', 'csv', mock.ANY),
+        ('csv', 'deckbox', mock.ANY),
+        ('csv', 'terse', mock.ANY),
+        ('xlsx', 'xlsx', mock.ANY),
+    ]
 
 
-@pytest.mark.parametrize('extension,ser_format,name', [
-    ('.csv', 'auto', 'MtgCsvSerializer'),
-    (None, 'csv', 'MtgCsvSerializer'),
-    ('.xlsx', 'auto', 'MtgXlsxSerializer'),
-    (None, 'xlsx', 'MtgXlsxSerializer'),
-    (None, 'deckbox', 'MtgDeckboxSerializer'),
+@pytest.mark.parametrize('extension,dialect_mapping,dialect_name', [
+    ('csv', {}, 'CsvFullDialect'),
+    ('csv', {'csv': 'csv'}, 'CsvFullDialect'),
+    ('csv', {'csv': 'terse'}, 'CsvTerseDialect'),
+    ('csv', {'csv': 'deckbox'}, 'DeckboxCsvDialect'),
+    ('csv', {'xlsx': 'csv'}, 'CsvFullDialect'),
+    ('xlsx', {}, 'XlsxDialect'),
+    ('xlsx', {'xlsx': 'xlsx'}, 'XlsxDialect'),
 ])
-def test_serializer_lookup(extension, ser_format, name):
-    serializer_class = interface.MtgSsmSerializer.by_extension_and_format(
-        extension, ser_format)
-    assert isinstance(serializer_class, type)
-    assert serializer_class.__name__ == name
+def test_extension_lookup(extension, dialect_mapping, dialect_name):
+    serialization_class = interface.SerializationDialect.by_extension(
+        extension, dialect_mapping)
+    assert isinstance(serialization_class, type)
+    assert issubclass(serialization_class, interface.SerializationDialect)
+    assert serialization_class.__name__ == dialect_name
 
 
-@pytest.mark.parametrize('extension,ser_format', [
-    ('', 'auto'),
-    (None, 'foo'),
-])
-def test_serializer_lookup_invalid(extension, ser_format):
-    with pytest.raises(interface.InvalidExtensionOrFormat):
-        interface.MtgSsmSerializer.by_extension_and_format(
-            extension, ser_format)
+def test_extension_invalid():
+    with pytest.raises(interface.UnknownDialect):
+        interface.SerializationDialect.by_extension('invalid', {})

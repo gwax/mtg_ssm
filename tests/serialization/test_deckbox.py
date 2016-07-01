@@ -125,7 +125,7 @@ def test_rfp_promo(cdb):
     ]
 
 
-@pytest.mark.xfail
+@pytest.mark.xfail(strict=True)
 def test_alt_art_ertai(cdb):
     ertai1 = cdb.id_to_printing['08fcfee6a7c4eddcd44e43e918cbf9d479492fe7']
     ertai2 = cdb.id_to_printing['62ff415cafefac84a5bb7174cb7ef175c14625de']
@@ -155,7 +155,7 @@ def test_rows_from_print_counts(cdb):
             counts.CountTypes.foils: 11,
         }
     }
-    rows = deckbox.deckbox_rows_from_print_counts(cdb, print_counts)
+    rows = deckbox.dbox_rows_from_print_counts(cdb, print_counts)
     assert list(rows) == [
         {
             'Count': 7,
@@ -247,7 +247,7 @@ def test_write(cdb):
         boom: {counts.CountTypes.copies: 1},
         bsz: {counts.CountTypes.foils: 3},
     }
-    serializer = deckbox.MtgDeckboxSerializer(cdb)
+    serializer = deckbox.DeckboxCsvDialect(cdb)
     with tempfile.NamedTemporaryFile(mode='rt') as outfile:
         serializer.write(outfile.name, print_counts)
         csvdata = outfile.read()
@@ -267,7 +267,7 @@ def test_read(cdb):
             3,8,Black Sun's Zenith,Magic Game Day Cards,7,Near Mint,English,foil,,,,,promo,,
         """))
         infile.flush()
-        serializer = deckbox.MtgDeckboxSerializer(cdb)
+        serializer = deckbox.DeckboxCsvDialect(cdb)
         print_counts = serializer.read(infile.name)
     boom = cdb.id_to_printing['c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae']
     bsz = cdb.id_to_printing['6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc']

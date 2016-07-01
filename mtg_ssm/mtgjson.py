@@ -40,27 +40,31 @@ def fetch_mtgjson(data_path):
         local_version = (0, 0, 0)
 
     try:
+        print('Checking remove vs local version of mtgjson data.')
         ver_req = requests.get(MTGJSON_ADDRESS + VERSION_FILENAME)
+        ver_req.raise_for_status()
+
+        remote_version_data = ver_req.json()
+        remote_version = tuple(
+            int(v) for v in remote_version_data['version'].split('.'))
+
+        if local_version >= remote_version:
+            print('Mtgjson data is already up to date.')
+            return False
+
+        print('Downloading mtgjson data.')
+        allsets_filename = os.path.join(data_path, ALLSETS_FILENAME)
+        mtg_req = requests.get(MTGJSON_ADDRESS + ALLSETS_FILENAME)
+        mtg_req.raise_for_status()
+        with open(allsets_filename, 'wb') as allsets_file:
+            allsets_file.write(mtg_req.content)
+        with open(version_filename, 'wb') as version_file:
+            version_file.write(ver_req.content)
+        return True
     except requests.ConnectionError as err:
         raise DownloadError('Could not connect to mtgjson') from err
-    if ver_req.status_code != 200:
-        raise DownloadError(
-            'Could not fetch version: {}'.format(ver_req.reason))
-    remote_version_data = ver_req.json()
-    remote_version = tuple(
-        int(v) for v in remote_version_data['version'].split('.'))
-
-    if local_version >= remote_version:
-        return False
-
-    print('Downloading mtgjson data.')
-    allsets_filename = os.path.join(data_path, ALLSETS_FILENAME)
-    mtg_req = requests.get(MTGJSON_ADDRESS + ALLSETS_FILENAME)
-    with open(allsets_filename, 'wb') as allsets_file:
-        allsets_file.write(mtg_req.content)
-    with open(version_filename, 'wb') as version_file:
-        version_file.write(ver_req.content)
-    return True
+    except requests.exceptions.HTTPError as err:
+        raise DownloadError('Could not retrieve mtgjson data') from err
 
 
 def read_mtgjson(data_path):

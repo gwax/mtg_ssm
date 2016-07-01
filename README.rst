@@ -58,14 +58,14 @@ card data:
 
 .. code:: bash
 
-    mtg-ssm collection.xlsx
+    mtg-ssm create collection.xlsx
 
-In the future, when new sets are released, running the same command will
-update your collection spreadsheet while keeping existing counts:
+In the future, when new sets are released, you will want to update your
+collection spreadsheet while keeping existing counts:
 
 .. code:: bash
 
-    mtg-ssm collection.xlsx
+    mtg-ssm update collection.xlsx
 
 Existing collections
 --------------------
@@ -73,18 +73,18 @@ Existing collections
 If you already have your cards in another collection store, you might
 want to import that collection into your card spreadsheet.
 
-First create an example csv file:
+First create an input csv file:
 
 .. code:: bash
 
-    mtg-ssm --format csv collection.csv.example
+    mtg-ssm create input_data.csv
 
 Then modify the template to match your counts and import into your
 spreadsheet:
 
 .. code:: bash
 
-    mtg-ssm collection.xlsx collection.csv
+    mtg-ssm merge collection.xlsx input_data.csv
 
 Export / import to deckbox
 --------------------------
@@ -97,7 +97,7 @@ merge from an existing collection using the "deckbox" import format:
 
 .. code:: bash
 
-  mtg-ssm --import_format collection.xlsx Inventory_username_2016.March.10.csv
+  mtg-ssm --dialect csv deckbox merge collection.xlsx Inventory_username_2016.March.10.csv
 
 Alternatively, if you have your collection in a spreadsheet already and would
 like to load your data into deckbox to check prices or share with other people,
@@ -105,7 +105,7 @@ just go the other direction.
 
 .. code:: bash
 
-  mtg-ssm --format inventory.csv collection.xlsx
+  mtg-ssm --dialect csv deckbox merge inventory.csv collection.xlsx
 
 Deckbox Warning
 ~~~~~~~~~~~~~~~
@@ -148,6 +148,21 @@ Acknowledgments
 
 Changelog
 =========
+
+1.3.0
+-----
+
+- Complete rework of cli (see `--help` for details)
+
+  - cli is **NOT** the same; old commands will **NOT** work
+  - new global argument flags and dialect selection mechanisms
+  - create: create a new collection
+  - update: update an existing collection
+  - merge: merge multiple collections
+  - diff: get a diff of two collections
+
+- Lots of under the hood changes and performance improvements
+- Files are still compatible
 
 1.2.4
 -----

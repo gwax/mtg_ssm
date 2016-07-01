@@ -60,7 +60,7 @@ setuptools.setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'mtg-ssm = mtg_ssm.manager:main',
+            'mtg-ssm = mtg_ssm.ssm:main',
         ],
     },
 )
