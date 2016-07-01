@@ -61,9 +61,7 @@ class SerializationDialect(metaclass=abc.ABCMeta):
         subclasses = collections.deque(SerializationDialect.__subclasses__())
         while subclasses:
             klass = subclasses.popleft()
-            print(klass)
             if not klass.__abstractmethods__:
-                print(klass.extension, klass.dialect)
                 registry[(klass.extension, klass.dialect)] = klass
                 dialects.append(
                     (klass.extension, klass.dialect, klass.__doc__))
