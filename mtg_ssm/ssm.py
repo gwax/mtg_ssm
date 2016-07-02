@@ -125,14 +125,22 @@ def get_serializer(cdb, dialect_mapping, filename):
     return serialization_class(cdb)
 
 
+def get_backup_name(filename):
+    """Given a filename, return a timestamped backup name for the file."""
+    basename, extension = os.path.splitext(filename)
+    extension = extension.lstrip('.')
+    now = datetime.datetime.now()
+    return '{basename}.{now:%Y%m%d_%H%M%S}.{extension}'.format(
+        basename=basename, now=now, extension=extension)
+
+
 def write_file(serializer, print_counts, filename):
     """Write print counts to a file, backing up existing target files."""
     if not os.path.exists(filename):
         print('Writing collection to file.')
         serializer.write(filename, print_counts)
     else:
-        backup_name = filename + '.bak-{:%Y%m%d_%H%M%S}'.format(
-            datetime.datetime.now())
+        backup_name = get_backup_name(filename)
         with tempfile.NamedTemporaryFile() as temp_coll:
             print('Writing to temporary file.')
             serializer.write(temp_coll.name, print_counts)
