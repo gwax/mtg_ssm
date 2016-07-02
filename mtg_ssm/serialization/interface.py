@@ -6,7 +6,6 @@ from typing import Dict
 
 from mtg_ssm.mtg import card_db
 from mtg_ssm.mtg import counts
-from mtg_ssm.mtg import models
 
 
 class Error(Exception):
@@ -50,7 +49,7 @@ class SerializationDialect(metaclass=abc.ABCMeta):
 
     @abc.abstractmethod
     def read(self, filename: str) -> Dict[
-            models.CardPrinting, Dict[counts.CountTypes, int]]:
+            str, Dict[counts.CountTypes, int]]:
         """Read print counts from file."""
 
     @staticmethod

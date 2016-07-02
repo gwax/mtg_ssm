@@ -33,7 +33,7 @@ def rows_for_printings(cdb, print_counts, verbose):
     """Generator that yields csv rows from a card_db."""
     for card_set in cdb.card_sets:
         for printing in card_set.printings:
-            printing_counts = print_counts.get(printing, {})
+            printing_counts = print_counts.get(printing.id_, {})
             if verbose or any(printing_counts):
                 yield row_for_printing(printing, printing_counts)
 
@@ -58,7 +58,7 @@ class CsvFullDialect(interface.SerializationDialect):
         """Read print counts from file."""
         with open(filename, 'r') as csv_file:
             return counts.aggregate_print_counts(
-                self.cdb, csv.DictReader(csv_file))
+                self.cdb, csv.DictReader(csv_file), strict=True)
 
 
 class CsvTerseDialect(CsvFullDialect):

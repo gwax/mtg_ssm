@@ -67,8 +67,10 @@ def find_printing(cdb, set_code, name, set_number, multiverseid, strict=True):
         ])
     for snnm_key in snnm_keys:
         found_printings = cdb.set_name_num_mv_to_printings.get(snnm_key, [])
-        if len(found_printings) == 1 or found_printings and not strict:
+        if len(found_printings) == 1:
             return found_printings[0]
+        elif found_printings and not strict:
+            return sorted(found_printings, key=lambda p: p.id_)[0]
 
     return None
 
@@ -84,7 +86,7 @@ def coerce_card_row(card_count):
     return card_count
 
 
-def aggregate_print_counts(cdb, card_rows, strict=True):
+def aggregate_print_counts(cdb, card_rows, strict):
     """Given a card database Iterable[card_row], return print_counts"""
     print_counts = collections.defaultdict(
         lambda: collections.defaultdict(int))
@@ -109,7 +111,7 @@ def aggregate_print_counts(cdb, card_rows, strict=True):
             ct_name = count_type.name
             count = card_row.get(ct_name)
             if count:
-                print_counts[printing][count_type] += count
+                print_counts[printing.id_][count_type] += count
     return print_counts
 
 
@@ -117,20 +119,20 @@ def merge_print_counts(*print_counts_args):
     """Merge two sets of print_counts."""
     print_counts = new_print_counts()
     for in_print_counts in print_counts_args:
-        for printing, counts in in_print_counts.items():
+        for print_id, counts in in_print_counts.items():
             for key, value in counts.items():
-                print_counts[printing][key] += value
+                print_counts[print_id][key] += value
     return print_counts
 
 
 def diff_print_counts(left, right):
     """Subtract right print counts from left print counts."""
     print_counts = new_print_counts()
-    for printing in left.keys() | right.keys():
-        left_counts = left.get(printing, {})
-        right_counts = right.get(printing, {})
+    for print_id in left.keys() | right.keys():
+        left_counts = left.get(print_id, {})
+        right_counts = right.get(print_id, {})
         for key in left_counts.keys() | right_counts.keys():
             value = left_counts.get(key, 0) - right_counts.get(key, 0)
             if value:
-                print_counts[printing][key] = value
+                print_counts[print_id][key] = value
     return print_counts

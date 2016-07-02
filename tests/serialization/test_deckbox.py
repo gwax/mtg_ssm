@@ -43,8 +43,9 @@ def test_get_deckbox_name(cdb):
 
 def test_rfp(cdb):
     # Setup
-    printing = cdb.id_to_printing['c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae']
-    print_counts = {printing: {
+    print_id = 'c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae'
+    printing = cdb.id_to_printing[print_id]
+    print_counts = {print_id: {
         counts.CountTypes.copies: 3,
         counts.CountTypes.foils: 5,
     }}
@@ -88,8 +89,9 @@ def test_rfp(cdb):
 
 
 def test_rfp_split_second_half(cdb):
-    printing = cdb.id_to_printing['2eecf5001fe332f5dadf4d87665bcf182c5f24ee']
-    print_counts = {printing: {
+    print_id = '2eecf5001fe332f5dadf4d87665bcf182c5f24ee'
+    printing = cdb.id_to_printing[print_id]
+    print_counts = {print_id: {
         counts.CountTypes.copies: 3,
         counts.CountTypes.foils: 5,
     }}
@@ -98,8 +100,9 @@ def test_rfp_split_second_half(cdb):
 
 
 def test_rfp_promo(cdb):
-    printing = cdb.id_to_printing['6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc']
-    print_counts = {printing: {
+    print_id = '6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc'
+    printing = cdb.id_to_printing[print_id]
+    print_counts = {print_id: {
         counts.CountTypes.copies: 0,
         counts.CountTypes.foils: 5,
     }}
@@ -125,7 +128,7 @@ def test_rfp_promo(cdb):
     ]
 
 
-@pytest.mark.xfail(strict=True)
+@pytest.mark.xfail
 def test_alt_art_ertai(cdb):
     ertai1 = cdb.id_to_printing['08fcfee6a7c4eddcd44e43e918cbf9d479492fe7']
     ertai2 = cdb.id_to_printing['62ff415cafefac84a5bb7174cb7ef175c14625de']
@@ -139,19 +142,16 @@ def test_alt_art_ertai(cdb):
 
 
 def test_rows_from_print_counts(cdb):
-    bust = cdb.id_to_printing['2eecf5001fe332f5dadf4d87665bcf182c5f24ee']
-    boom = cdb.id_to_printing['c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae']
-    bsz = cdb.id_to_printing['6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc']
     print_counts = {
-        bust: {
+        '2eecf5001fe332f5dadf4d87665bcf182c5f24ee': {
             counts.CountTypes.copies: 3,
             counts.CountTypes.foils: 5,
         },
-        boom: {
+        'c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae': {
             counts.CountTypes.copies: 7,
             counts.CountTypes.foils: 9,
         },
-        bsz: {
+        '6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc': {
             counts.CountTypes.foils: 11,
         }
     }
@@ -241,11 +241,11 @@ def test_create_counts_row(cdb, deckbox_row, target_card_row):
 
 def test_write(cdb):
     # Setup
-    boom = cdb.id_to_printing['c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae']
-    bsz = cdb.id_to_printing['6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc']
     print_counts = {
-        boom: {counts.CountTypes.copies: 1},
-        bsz: {counts.CountTypes.foils: 3},
+        'c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae': {
+            counts.CountTypes.copies: 1},
+        '6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc': {
+            counts.CountTypes.foils: 3},
     }
     serializer = deckbox.DeckboxCsvDialect(cdb)
     with tempfile.NamedTemporaryFile(mode='rt') as outfile:
@@ -269,9 +269,9 @@ def test_read(cdb):
         infile.flush()
         serializer = deckbox.DeckboxCsvDialect(cdb)
         print_counts = serializer.read(infile.name)
-    boom = cdb.id_to_printing['c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae']
-    bsz = cdb.id_to_printing['6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc']
     assert print_counts == {
-        boom: {counts.CountTypes.copies: 5},
-        bsz: {counts.CountTypes.foils: 11},
+        'c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae': {
+            counts.CountTypes.copies: 5},
+        '6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc': {
+            counts.CountTypes.foils: 11},
     }

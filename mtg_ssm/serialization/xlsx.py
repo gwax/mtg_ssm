@@ -165,7 +165,7 @@ def create_set_sheet(sheet, card_set, print_counts):
             printing.set_number,
             printing.artist,
         ]
-        row_counts = print_counts.get(printing, {})
+        row_counts = print_counts.get(printing.id_, {})
         for counttype in counts.CountTypes:
             row.append(row_counts.get(counttype))
         row.append(get_references(printing.card, exclude_sets={card_set}))
@@ -235,5 +235,5 @@ class XlsxDialect(interface.SerializationDialect):
                     'No known set with code {}'.format(sheet.title))
             print_counts = counts.merge_print_counts(
                 print_counts, counts.aggregate_print_counts(
-                    self.cdb, counts_from_sheet(sheet)))
+                    self.cdb, counts_from_sheet(sheet), strict=True))
         return print_counts
