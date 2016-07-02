@@ -2,6 +2,7 @@
 
 import datetime as dt
 import string
+import weakref
 
 VARIANT_CHARS = (string.ascii_letters + '★')
 STRICT_BASICS = {'Plains', 'Island', 'Swamp', 'Mountain', 'Forest'}
@@ -12,7 +13,7 @@ class Card:
     __slots__ = ('cdb', 'name', 'layout', 'names')
 
     def __init__(self, card_db, card_data):
-        self.cdb = card_db
+        self.cdb = weakref.proxy(card_db)
         self.name = card_data['name']
         self.layout = card_data['layout']
         self.names = card_data.get('names', [self.name])
@@ -41,7 +42,7 @@ class CardPrinting:
                  'counts')
 
     def __init__(self, card_db, set_code, card_data):
-        self.cdb = card_db
+        self.cdb = weakref.proxy(card_db)
         self.id_ = card_data['id']
         self.card_name = card_data['name']
         self.set_code = set_code
@@ -85,7 +86,7 @@ class CardSet:
                  'type_', 'online_only')
 
     def __init__(self, card_db, set_data):
-        self.cdb = card_db
+        self.cdb = weakref.proxy(card_db)
         self.code = set_data['code']
         self.name = set_data['name']
         self.block = set_data.get('block')

@@ -6,13 +6,17 @@ import pytest
 
 from mtg_ssm.mtg import models
 
-CARD_DB_SENTINEL = object()
+
+class Sentinel:
+    """Simple sentinel object class."""
+
+CARD_DB_SENTINEL = Sentinel()
 
 
 def test_card(cards_data):
     ag_card_data = cards_data['958ae1416f8f6287115ccd7c5c61f2415a313546']
     card = models.Card(CARD_DB_SENTINEL, ag_card_data)
-    assert card.cdb is CARD_DB_SENTINEL
+    assert card.cdb == CARD_DB_SENTINEL
     assert card.name == 'Abattoir Ghoul'
     assert not card.strict_basic
 
@@ -32,7 +36,7 @@ def test_card_strict_basic(cards_data, name, id_, strict_basic):
 def test_card_printing(cards_data):
     ag_card_data = cards_data['958ae1416f8f6287115ccd7c5c61f2415a313546']
     printing = models.CardPrinting(CARD_DB_SENTINEL, 'ISD', ag_card_data)
-    assert printing.cdb is CARD_DB_SENTINEL
+    assert printing.cdb == CARD_DB_SENTINEL
     assert printing.id_ == '958ae1416f8f6287115ccd7c5c61f2415a313546'
     assert printing.card_name == 'Abattoir Ghoul'
     assert printing.set_code == 'ISD'
@@ -64,7 +68,7 @@ def test_card_set(sets_data):
     # Execute
     card_set = models.CardSet(CARD_DB_SENTINEL, set_data)
     # Verify
-    assert card_set.cdb is CARD_DB_SENTINEL
+    assert card_set.cdb == CARD_DB_SENTINEL
     assert card_set.code == 'PLS'
     assert card_set.name == 'Planeshift'
     assert card_set.block == 'Invasion'
