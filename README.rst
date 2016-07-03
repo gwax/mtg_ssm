@@ -149,8 +149,14 @@ Acknowledgments
 Changelog
 =========
 
+1.3.2
+-----
+
+- Changed the backup file naming convention; date is now before extension
+- Minor tweaks and performance enhancements
+
 1.3.1
-=====
+-----
 
 - Fix bug where were were never actually reading set names from xlsx
   files.
