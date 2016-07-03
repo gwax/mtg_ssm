@@ -24,7 +24,7 @@ DECKBOX_EDITION_TO_RANGE_AND_SETNAMES = {
         (1, 20, 'Gateway'),
         (21, 100, 'Wizards Play Network'),
     ],
-}
+}  # type: Mapping[str, List[Tuple[int, int, str]]]
 MTGJSON_TO_DECKBOX_SETNAME = {
     s: k
     for k, v in DECKBOX_EDITION_TO_RANGE_AND_SETNAMES.items()

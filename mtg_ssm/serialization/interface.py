@@ -30,13 +30,15 @@ class SerializationDialect(metaclass=abc.ABCMeta):
         self.cdb = cdb
 
     @property
+    @classmethod
     @abc.abstractmethod
-    def extension(self) -> str:
+    def extension(cls) -> str:
         """Registered file extension, excluding '.' """
 
     @property
+    @classmethod
     @abc.abstractmethod
-    def dialect(self) -> str:
+    def dialect(cls) -> str:
         """Registered dialect name.
 
         Note: a dialect that matches the extension will be considered the

@@ -51,8 +51,8 @@ class CardPrinting:
         self.artist = card_data['artist']
 
         if self.set_number is None:
-            self.set_integer = None
-            self.set_variant = None
+            self.set_integer = None  # type: int
+            self.set_variant = None  # type: str
         else:
             self.set_integer = int(self.set_number.strip(VARIANT_CHARS))
             self.set_variant = self.set_number.strip(string.digits) or None

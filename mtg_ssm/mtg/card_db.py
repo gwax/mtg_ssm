@@ -28,14 +28,14 @@ def card_name_to_printing_key(printing):
 class CardDb:
     """Card database, containing information and indexes for magic cards."""
 
-    def __init__(self, mtg_json_data=None, include_online_only=False):
-        self.name_to_card = {}
-        self.code_to_card_set = {}
-        self.setname_to_card_set = {}
-        self.id_to_printing = {}
+    def __init__(self, mtg_json_data=None, include_online_only=False) -> None:
+        self.name_to_card = {}  # type: Mapping[str, models.Card]
+        self.code_to_card_set = {}  # type: Mapping[str, models.CardSet]
+        self.setname_to_card_set = {}  # type: Mapping[str, models.CardSet]
+        self.id_to_printing = {}  # type: Mapping[str, models.CardPrinting]
 
-        self.cards = None
-        self.card_sets = None
+        self.cards = None  # type: List[models.Card]
+        self.card_sets = None  # type: List[models.CardSet]
 
         self.set_code_to_printings = None
         self.card_name_to_printings = None

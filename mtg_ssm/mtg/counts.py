@@ -23,6 +23,7 @@ iterables of card_row dicts into singular print_counts dicts.
 
 import collections
 import enum
+from typing import Mapping
 
 NAME_SUBSTITUTIONS = [
     ('Ae', 'Æ'),
@@ -44,7 +45,7 @@ class CountTypes(enum.Enum):
     foils = 'foils'
 
 
-def new_print_counts():
+def new_print_counts() -> Mapping[str, Mapping[CountTypes, int]]:
     """Get an appropriate defaultdict set up for use ase print counts."""
     return collections.defaultdict(
         lambda: collections.defaultdict(int))
@@ -88,8 +89,7 @@ def coerce_card_row(card_count):
 
 def aggregate_print_counts(cdb, card_rows, strict):
     """Given a card database Iterable[card_row], return print_counts"""
-    print_counts = collections.defaultdict(
-        lambda: collections.defaultdict(int))
+    print_counts = new_print_counts()
     for card_row in card_rows:
         card_row = coerce_card_row(card_row)
         printing_id = card_row.get('id')
