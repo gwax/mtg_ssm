@@ -97,16 +97,12 @@ def test_create_all_cards_sheet(cdb):
 
 
 def test_create_set_sheet(cdb):
-    forest1 = cdb.id_to_printing[
-        '676a1f5b64dc03bbb3876840c3ff2ba2c16f99cb']
-    forest2 = cdb.id_to_printing[
-        'd0a4414893bc2f9bd3beea2f8f2693635ef926a4']
-    forest3 = cdb.id_to_printing[
-        'c78d2da78c68c558b1adc734b3f164e885407ffc']
     print_counts = {
-        forest1: {counts.CountTypes.copies: 1},
-        forest2: {counts.CountTypes.foils: 2},
-        forest3: {
+        '676a1f5b64dc03bbb3876840c3ff2ba2c16f99cb': {
+            counts.CountTypes.copies: 1},
+        'd0a4414893bc2f9bd3beea2f8f2693635ef926a4': {
+            counts.CountTypes.foils: 2},
+        'c78d2da78c68c558b1adc734b3f164e885407ffc': {
             counts.CountTypes.copies: 3,
             counts.CountTypes.foils: 4,
         }
@@ -130,7 +126,7 @@ def test_create_set_sheet(cdb):
 
 def test_write(cdb):
     print_counts = {
-        cdb.id_to_printing['536d407161fa03eddee7da0e823c2042a8fa0262']: {
+        '536d407161fa03eddee7da0e823c2042a8fa0262': {
             counts.CountTypes.copies: 7,
             counts.CountTypes.foils: 12,
         }
@@ -182,7 +178,7 @@ def test_read_from_file(cdb):
         workbook.save(infile.name)
         print_counts = serializer.read(infile.name)
     assert print_counts == {
-        cdb.id_to_printing['536d407161fa03eddee7da0e823c2042a8fa0262']: {
+        '536d407161fa03eddee7da0e823c2042a8fa0262': {
             counts.CountTypes.copies: 3,
             counts.CountTypes.foils: 7,
         }

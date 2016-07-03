@@ -144,11 +144,12 @@ def test_update_cmd():
         ssm.update_cmd(args)
         assert set(os.listdir(tmpdirname)) == {
             'infile.csv',
-            'infile.csv.bak-20150628_000000',
+            'infile.20150628_000000.csv',
         }
         with open(infilename, 'rt') as outfile:
             outfiledata = outfile.read()
-        with open(infilename + '.bak-20150628_000000') as bakfile:
+        bakfilename = os.path.join(tmpdirname, 'infile.20150628_000000.csv')
+        with open(bakfilename) as bakfile:
             bakfiledata = bakfile.read()
     assert outfiledata == textwrap.dedent("""\
         set,name,number,multiverseid,id,copies,foils
@@ -214,13 +215,14 @@ def test_merge_cmd_existing():
         assert set(os.listdir(tmpdirname)) == {
             'import.csv',
             'outfile.csv',
-            'outfile.csv.bak-20150628_000000',
+            'outfile.20150628_000000.csv',
         }
         with open(outfilename, 'rt') as outfile:
             outfiledata = outfile.read()
         with open(importname, 'rt') as importfile:
             importdata = importfile.read()
-        with open(outfilename + '.bak-20150628_000000') as bakfile:
+        bakfilename = os.path.join(tmpdirname, 'outfile.20150628_000000.csv')
+        with open(bakfilename) as bakfile:
             bakfiledata = bakfile.read()
     assert outfiledata == textwrap.dedent("""\
         set,name,number,multiverseid,id,copies,foils

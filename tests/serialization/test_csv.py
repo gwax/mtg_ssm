@@ -19,12 +19,6 @@ def cdb(sets_data):
     return card_db.CardDb(sets_data)
 
 
-@pytest.fixture
-def printing(cdb):
-    """Printing fixture for testing."""
-    return cdb.id_to_printing[TEST_PRINT_ID]
-
-
 def test_header():
     assert csv.CSV_HEADER == [
         'set',
@@ -37,7 +31,8 @@ def test_header():
     ]
 
 
-def test_row_for_printing(printing):
+def test_row_for_printing(cdb):
+    printing = cdb.id_to_printing[TEST_PRINT_ID]
     print_counts = {
         counts.CountTypes.copies: 3,
         counts.CountTypes.foils: 5,
@@ -54,8 +49,8 @@ def test_row_for_printing(printing):
     }
 
 
-def test_rows_for_printings_verbose(cdb, printing):
-    print_counts = {printing: {counts.CountTypes.copies: 3}}
+def test_rows_for_printings_verbose(cdb):
+    print_counts = {TEST_PRINT_ID: {counts.CountTypes.copies: 3}}
     rows = csv.rows_for_printings(cdb, print_counts, True)
     assert list(rows) == [
         {
@@ -76,8 +71,8 @@ def test_rows_for_printings_verbose(cdb, printing):
     ]
 
 
-def test_rows_for_printings_terse(cdb, printing):
-    print_counts = {printing: {counts.CountTypes.copies: 3}}
+def test_rows_for_printings_terse(cdb):
+    print_counts = {TEST_PRINT_ID: {counts.CountTypes.copies: 3}}
     rows = csv.rows_for_printings(cdb, print_counts, False)
     assert list(rows) == [
         {
@@ -91,8 +86,8 @@ def test_rows_for_printings_terse(cdb, printing):
     ]
 
 
-def test_write_verbose(cdb, printing):
-    print_counts = {printing: {
+def test_write_verbose(cdb):
+    print_counts = {TEST_PRINT_ID: {
         counts.CountTypes.copies: 1,
         counts.CountTypes.foils: 12,
     }}
@@ -107,8 +102,8 @@ def test_write_verbose(cdb, printing):
     """)
 
 
-def test_write_terse(cdb, printing):
-    print_counts = {printing: {
+def test_write_terse(cdb):
+    print_counts = {TEST_PRINT_ID: {
         counts.CountTypes.copies: 1,
         counts.CountTypes.foils: 12,
     }}
@@ -122,7 +117,7 @@ def test_write_terse(cdb, printing):
     """)
 
 
-def test_read(cdb, printing):
+def test_read(cdb):
     with tempfile.NamedTemporaryFile('w') as infile:
         infile.write(textwrap.dedent("""\
             set,name,number,multiverseid,id,copies,foils
@@ -131,7 +126,7 @@ def test_read(cdb, printing):
         infile.flush()
         serializer = csv.CsvFullDialect(cdb)
         print_counts = serializer.read(infile.name)
-    assert print_counts == {printing: {
+    assert print_counts == {TEST_PRINT_ID: {
         counts.CountTypes.copies: 3,
         counts.CountTypes.foils: 72,
     }}

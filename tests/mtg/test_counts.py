@@ -29,78 +29,48 @@ def test_coerce_card_row(raw_card_row, expected_card_row):
     assert counts.coerce_card_row(raw_card_row) == expected_card_row
 
 
-# aggregate_print_counts tests
-def test_apc_bad_printing(cdb):
-    card_counts = [{}]
-    with pytest.raises(counts.UnknownPrintingError):
-        counts.aggregate_print_counts(cdb, card_counts)
-
-
-def test_apc_no_counts(cdb):
-    card_counts = [{'id': TEST_PRINT_ID}]
-    print_counts = counts.aggregate_print_counts(cdb, card_counts)
-    assert not print_counts
-
-
-def test_apc_zeros(cdb):
-    card_counts = [{'id': TEST_PRINT_ID, 'copies': 0, 'foils': 0}]
-    print_counts = counts.aggregate_print_counts(cdb, card_counts)
-    assert not print_counts
-
-
-def test_apc_once(cdb):
-    print_ = cdb.id_to_printing[TEST_PRINT_ID]
-    card_counts = [{'id': TEST_PRINT_ID, 'copies': 1, 'foils': 2}]
-    print_counts = counts.aggregate_print_counts(cdb, card_counts)
-    assert print_counts == {
-        print_: {
+@pytest.mark.parametrize('card_rows,strict,expected', [
+    ([], True, {}),
+    pytest.mark.xfail(
+        ([{}], True, 'N/A'),
+        raises=counts.UnknownPrintingError),
+    ([{'id': TEST_PRINT_ID}], True, {}),
+    ([{'id': TEST_PRINT_ID, 'copies': 0, 'foils': 0}], True, {}),
+    ([{'id': TEST_PRINT_ID, 'copies': 1, 'foils': 2}], True, {
+        TEST_PRINT_ID: {
             counts.CountTypes.copies: 1,
             counts.CountTypes.foils: 2,
-        }
-    }
-
-
-def test_apc_with_find(cdb):
-    print_ = cdb.id_to_printing[
-        '536d407161fa03eddee7da0e823c2042a8fa0262']
-    card_counts = [{'set': 'S00', 'name': 'Rhox', 'copies': 1}]
-    print_counts = counts.aggregate_print_counts(cdb, card_counts)
-    assert print_counts == {
-        print_: {counts.CountTypes.copies: 1}
-    }
-
-
-def test_apc_multiple(cdb):
-    print1 = cdb.id_to_printing[TEST_PRINT_ID]
-    print2 = cdb.id_to_printing[
-        '536d407161fa03eddee7da0e823c2042a8fa0262']
-    card_counts = [
-        {'id': TEST_PRINT_ID, 'copies': 1, 'foils': 2},
-        {'set': 'S00', 'name': 'Rhox', 'copies': 1},
-    ]
-    print_counts = counts.aggregate_print_counts(cdb, card_counts)
-    assert print_counts == {
-        print1: {
+        }}),
+    ([{'set': 'S00', 'name': 'Rhox', 'copies': 1}], True, {
+        '536d407161fa03eddee7da0e823c2042a8fa0262': {
             counts.CountTypes.copies: 1,
-            counts.CountTypes.foils: 2,
-        },
-        print2: {counts.CountTypes.copies: 1},
-    }
-
-
-def test_apc_repeat(cdb):
-    print_ = cdb.id_to_printing[TEST_PRINT_ID]
-    card_counts = [
-        {'id': TEST_PRINT_ID, 'copies': 4},
-        {'id': TEST_PRINT_ID, 'copies': 3, 'foils': '8'},
-    ]
-    print_counts = counts.aggregate_print_counts(cdb, card_counts)
-    assert print_counts == {
-        print_: {
-            counts.CountTypes.copies: 7,
-            counts.CountTypes.foils: 8,
-        }
-    }
+        }}),
+    ([{'id': TEST_PRINT_ID, 'copies': 1, 'foils': 2},
+      {'set': 'S00', 'name': 'Rhox', 'copies': 1}],
+     True,
+     {TEST_PRINT_ID: {
+         counts.CountTypes.copies: 1,
+         counts.CountTypes.foils: 2},
+      '536d407161fa03eddee7da0e823c2042a8fa0262': {
+          counts.CountTypes.copies: 1}}),
+    ([{'id': TEST_PRINT_ID, 'copies': 4},
+      {'id': TEST_PRINT_ID, 'copies': 3, 'foils': '8'}],
+     True,
+     {TEST_PRINT_ID: {
+         counts.CountTypes.copies: 7,
+         counts.CountTypes.foils: 8}}),
+    ([{'set': 'LEA', 'name': 'Forest', 'copies': 1}], False, {
+        '5ede9781b0c5d157c28a15c3153a455d7d6180fa': {
+            counts.CountTypes.copies: 1}}),
+    pytest.mark.xfail(
+        ([{'set': 'LEA', 'name': 'Forest', 'copies': 1}], True, {
+            '5ede9781b0c5d157c28a15c3153a455d7d6180fa': {
+                counts.CountTypes.copies: 1}}),
+        raises=counts.UnknownPrintingError),
+])
+def test_aggregate_print_counts(cdb, card_rows, strict, expected):
+    print_counts = counts.aggregate_print_counts(cdb, card_rows, strict)
+    assert print_counts == expected
 
 
 @pytest.mark.parametrize('in_print_counts,out_print_counts', [

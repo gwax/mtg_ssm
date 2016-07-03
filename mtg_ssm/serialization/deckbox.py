@@ -85,7 +85,7 @@ def rows_for_printing(printing, print_counts):
     }
     if name is not None:
         row_base['Name'] = name
-        row_counts = print_counts.get(printing, {})
+        row_counts = print_counts.get(printing.id_, {})
         copies = row_counts.get(counts.CountTypes.copies, 0)
         foils = row_counts.get(counts.CountTypes.foils, 0)
         if copies:
