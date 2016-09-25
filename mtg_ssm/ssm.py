@@ -56,8 +56,7 @@ def get_args(args=None):
              'May be repeated for multiple different extensions.')
 
     # Commands
-    subparsers = parser.add_subparsers(
-        dest='action', title='actions')
+    subparsers = parser.add_subparsers(dest='action', title='actions')
     subparsers.required = True
 
     create = subparsers.add_parser(
@@ -137,7 +136,7 @@ def get_backup_name(filename):
 def write_file(serializer, print_counts, filename):
     """Write print counts to a file, backing up existing target files."""
     if not os.path.exists(filename):
-        print('Writing collection to file.')
+        print('Writing collection to file: ' + filename)
         serializer.write(filename, print_counts)
     else:
         backup_name = get_backup_name(filename)
@@ -146,7 +145,7 @@ def write_file(serializer, print_counts, filename):
             serializer.write(temp_coll.name, print_counts)
             print('Backing up exiting file to: ' + backup_name)
             shutil.copy(filename, backup_name)
-            print('Overwriting with new collection')
+            print('Overwriting with new collection: ' + filename)
             shutil.copy(temp_coll.name, filename)
 
 

@@ -69,9 +69,14 @@ def find_printing(cdb, set_code, name, set_number, multiverseid, strict=True):
     for snnm_key in snnm_keys:
         found_printings = cdb.set_name_num_mv_to_printings.get(snnm_key, [])
         if len(found_printings) == 1:
-            return found_printings[0]
+            printing = found_printings[0]
+            print('found: ' + printing.id_)
+            return printing
         elif found_printings and not strict:
-            return sorted(found_printings, key=lambda p: p.id_)[0]
+            found_printings = sorted(found_printings, key=lambda p: p.id_)
+            printing = found_printings[0]
+            print('fuzzy found: ' + printing.id_)
+            return printing
 
     return None
 
