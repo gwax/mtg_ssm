@@ -19,6 +19,7 @@ def finish(profiler):
     out_stream = io.StringIO()
     profile_stats = pstats.Stats(
         profiler, stream=out_stream).sort_stats('cumulative')
+    profiler.dump_stats('mtg_ssm.prof')
     profile_stats.print_stats(30)
     print(out_stream.getvalue())
 
