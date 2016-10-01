@@ -1,13 +1,11 @@
 """Setup script for mtg_ssm."""
 
 import sys
-
 import setuptools
 
 
 if sys.version_info < (3, 3):
     raise Exception('Python version < 3.3 are not supported.')
-
 
 # Get version information without importing the package
 __version__ = None
@@ -18,6 +16,10 @@ SHORT_DESCRIPTION = (
 LONG_DESCRIPTION = open('README.rst', 'r').read()
 
 DEPENDENCIES = [l.strip() for l in open('requirements.txt', 'r')]
+TEST_DEPENDENCIES = [l.strip() for l in open('test_requirements.txt', 'r')]
+SETUP_DEPENDENCIES = []
+if {'pytest', 'test', 'ptr'}.intersection(sys.argv):
+    SETUP_DEPENDENCIES.append('pytest-runner')
 
 if sys.version_info < (3, 5):
     DEPENDENCIES.append('typing>=3.5.2,<4.0.0')
@@ -57,7 +59,8 @@ setuptools.setup(
     keywords='mtg magic collection tracking spreadsheet',
     classifiers=CLASSIFIERS,
     install_requires=DEPENDENCIES,
-    tests_require=['pytest'],
+    setup_requires=SETUP_DEPENDENCIES,
+    tests_require=TEST_DEPENDENCIES,
     entry_points={
         'console_scripts': [
             'mtg-ssm = mtg_ssm.ssm:main',
