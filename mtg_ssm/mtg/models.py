@@ -1,4 +1,4 @@
-"""SQLAlchemy models for managing data."""
+"""Models for managing data."""
 
 import datetime as dt
 import string
@@ -19,7 +19,7 @@ class Card:
         self.names = card_data.get('names', [self.name])
 
     @property
-    def strict_basic(self):
+    def strict_basic(self) -> bool:
         """Is this card one of the five basic lands (not Snow or Wastes)."""
         return self.name in STRICT_BASICS
 
@@ -28,15 +28,16 @@ class Card:
         """List of all printings of this card."""
         return self.cdb.card_name_to_printings[self.name]
 
-    def __str__(self):
+    def __str__(self) -> str:
         return 'Card: {card.name}'.format(card=self)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return '<Card: {card.name}>'.format(card=self)
 
 
 class CardPrinting:
     """Model for storing information about card printings."""
+
     __slots__ = ('cdb', 'id_', 'card_name', 'set_code', 'set_number',
                  'set_integer', 'set_variant', 'multiverseid', 'artist',
                  'counts')
@@ -82,6 +83,7 @@ class CardPrinting:
 
 class CardSet:
     """Model for storing card set information."""
+
     __slots__ = ('cdb', 'code', 'name', 'block', 'release_date',
                  'type_', 'online_only')
 

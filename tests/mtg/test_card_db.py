@@ -1,6 +1,9 @@
 """Tests for mtg_ssm.mtg.card_db"""
 
+import pytest
+
 from mtg_ssm.mtg import card_db
+from tests import gen_testdata
 
 
 def test_load_mtgjson(sets_data):
@@ -34,53 +37,14 @@ def test_load_mtgjson(sets_data):
     }
 
 
-def test_without_online_only(sets_data):
+@pytest.mark.parametrize('online_only, expected', [
+    (False, set(gen_testdata.TEST_SETS_TO_CARDS) - {'VMA'}),
+    (True, set(gen_testdata.TEST_SETS_TO_CARDS)),
+])
+def test_sets_loaded(sets_data, online_only, expected):
     cdb = card_db.CardDb()
-    cdb.load_mtg_json(sets_data)
-    assert cdb.code_to_card_set.keys() == {
-        'LEA',
-        'FEM',
-        'S00',
-        'ICE',
-        'pMGD',
-        'HML',
-        'ISD',
-        'ARC',
-        'HOP',
-        'PC2',
-        'MMA',
-        'pMEI',
-        'PLS',
-        'PLC',
-        'OGW',
-        'CHK',
-        'W16',
-    }
-
-
-def test_with_online_only(sets_data):
-    cdb = card_db.CardDb()
-    cdb.load_mtg_json(sets_data, include_online_only=True)
-    assert cdb.code_to_card_set.keys() == {
-        'LEA',
-        'FEM',
-        'S00',
-        'ICE',
-        'VMA',
-        'pMGD',
-        'HML',
-        'ISD',
-        'ARC',
-        'HOP',
-        'PC2',
-        'MMA',
-        'pMEI',
-        'PLS',
-        'PLC',
-        'OGW',
-        'CHK',
-        'W16',
-    }
+    cdb.load_mtg_json(sets_data, include_online_only=online_only)
+    assert set(cdb.code_to_card_set.keys()) == expected
 
 
 def test_rebuild_indexes(sets_data):

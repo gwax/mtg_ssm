@@ -31,8 +31,10 @@ def test_coerce_card_row(raw_card_row, expected_card_row):
 
 @pytest.mark.parametrize('card_rows,strict,expected', [
     ([], True, {}),
+    ([{}], True, {}),
+    ([{'copies': 0}], True, {}),
     pytest.mark.xfail(
-        ([{}], True, 'N/A'),
+        ([{'copies': 1}], True, 'N/A'),
         raises=counts.UnknownPrintingError),
     ([{'id': TEST_PRINT_ID}], True, {}),
     ([{'id': TEST_PRINT_ID, 'copies': 0, 'foils': 0}], True, {}),
@@ -115,8 +117,10 @@ def test_printing_not_found(cdb, set_code, name, set_number, multiverseid):
     ('pMGD', "Black Sun's Zenith", '7', 'foo', '6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc'),
     ('LEA', 'Forest', 'foo', 288, '5ede9781b0c5d157c28a15c3153a455d7d6180fa'),
     ('ISD', 'Abattoir Ghoul', '85', 222911, '958ae1416f8f6287115ccd7c5c61f2415a313546'),
-    ('PC2', 'Chaotic Æther', 'foo', 'bar', '5669523e75ffdb436b768d4dd37cb95b82919d51'),
-    ('PC2', 'Chaotic Aether', 'foo', 'bar', '5669523e75ffdb436b768d4dd37cb95b82919d51'),
+    ('PC2', 'Chaotic Æther', 'foo', 'bar', 'c98cdec5d2201abe3411db460cb088b82945bb9e'),
+    ('PC2', 'Chaotic Aether', 'foo', 'bar', 'c98cdec5d2201abe3411db460cb088b82945bb9e'),
+    ('CSP', 'Jötun Grunt', 'foo', 'bar', 'b6d3b800eee5851e4727adf50d9c2d82f269f25f'),
+    ('CSP', 'Jotun Grunt', 'foo', 'bar', 'b6d3b800eee5851e4727adf50d9c2d82f269f25f'),
 ])
 def test_found_printing(cdb, set_code, name, set_number, multiverseid,
                         found_id):

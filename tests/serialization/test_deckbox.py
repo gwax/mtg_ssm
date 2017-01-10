@@ -16,29 +16,19 @@ def cdb(sets_data):
     return card_db.CardDb(sets_data)
 
 
-def test_get_deckbox_name(cdb):
-    card_names = [
-        'Chaotic Æther',
-        'Delver of Secrets',
-        'Insectile Aberration',
-        'Boom',
-        'Bust',
-        'Bushi Tenderfoot',
-        'Kenzo the Hardhearted',
-        'Abattoir Ghoul',
-    ]
-    cards = [cdb.name_to_card[name] for name in card_names]
-    deckbox_names = [deckbox.get_deckbox_name(card) for card in cards]
-    assert deckbox_names == [
-        'Chaotic Aether',
-        'Delver of Secrets',
-        None,
-        'Boom // Bust',
-        None,
-        'Bushi Tenderfoot',
-        None,
-        'Abattoir Ghoul',
-    ]
+@pytest.mark.parametrize('mtgj_name, deckbox_name', [
+    ('Chaotic Aether', 'Chaotic Aether'),
+    ('Delver of Secrets', 'Delver of Secrets'),
+    ('Insectile Aberration', None),
+    ('Boom', 'Boom // Bust'),
+    ('Bust', None),
+    ('Bushi Tenderfoot', 'Bushi Tenderfoot'),
+    ('Kenzo the Hardhearted', None),
+    ('Abattoir Ghoul', 'Abattoir Ghoul'),
+])
+def test_get_deckbox_name1(cdb, mtgj_name, deckbox_name):
+    card = cdb.name_to_card[mtgj_name]
+    assert deckbox.get_deckbox_name(card) == deckbox_name
 
 
 def test_rfp(cdb):

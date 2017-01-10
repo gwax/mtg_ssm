@@ -222,7 +222,7 @@
         "subtypes": [
           "Fungus"
         ],
-        "text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Put a 1/1 green Saproling creature token onto the battlefield.",
+        "text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Create a 1/1 green Saproling creature token.",
         "toughness": "1",
         "type": "Creature — Fungus",
         "types": [
@@ -254,7 +254,7 @@
         "subtypes": [
           "Fungus"
         ],
-        "text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Put a 1/1 green Saproling creature token onto the battlefield.",
+        "text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Create a 1/1 green Saproling creature token.",
         "toughness": "1",
         "type": "Creature — Fungus",
         "types": [
@@ -286,7 +286,7 @@
         "subtypes": [
           "Fungus"
         ],
-        "text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Put a 1/1 green Saproling creature token onto the battlefield.",
+        "text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Create a 1/1 green Saproling creature token.",
         "toughness": "1",
         "type": "Creature — Fungus",
         "types": [
@@ -318,7 +318,7 @@
         "subtypes": [
           "Fungus"
         ],
-        "text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Put a 1/1 green Saproling creature token onto the battlefield.",
+        "text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Create a 1/1 green Saproling creature token.",
         "toughness": "1",
         "type": "Creature — Fungus",
         "types": [
@@ -797,52 +797,14 @@
         "colors": [
           "White"
         ],
-        "id": "5933bb74b618a4e4f61eb4b5b55b416c11affd11",
-        "imageName": "bushi tenderfoot",
-        "layout": "flip",
-        "manaCost": "{W}",
-        "mciNumber": "2a",
-        "multiverseid": 78600,
-        "name": "Bushi Tenderfoot",
-        "names": [
-          "Bushi Tenderfoot",
-          "Kenzo the Hardhearted"
-        ],
-        "number": "2a",
-        "power": "1",
-        "rarity": "Uncommon",
-        "subtypes": [
-          "Human",
-          "Soldier"
-        ],
-        "text": "When a creature dealt damage by Bushi Tenderfoot this turn dies, flip Bushi Tenderfoot.",
-        "toughness": "1",
-        "type": "Creature — Human Soldier",
-        "types": [
-          "Creature"
-        ]
-      },
-      {
-        "artist": "Mark Zug",
-        "cmc": 1,
-        "colorIdentity": [
-          "W"
-        ],
-        "colors": [
-          "White"
-        ],
         "id": "b955500d1a3e0c4b36e3cbf6332c3bca4597eaee",
         "imageName": "kenzo the hardhearted",
-        "layout": "flip",
+        "layout": "normal",
         "manaCost": "{W}",
         "mciNumber": "2b",
         "multiverseid": 78600,
         "name": "Kenzo the Hardhearted",
-        "names": [
-          "Bushi Tenderfoot",
-          "Kenzo the Hardhearted"
-        ],
-        "number": "2b",
+        "number": "2",
         "power": "3",
         "rarity": "Uncommon",
         "subtypes": [
@@ -855,6 +817,251 @@
         "text": "Double strike; bushido 2 (Whenever this creature blocks or becomes blocked, it gets +2/+2 until end of turn.)",
         "toughness": "4",
         "type": "Legendary Creature — Human Samurai",
+        "types": [
+          "Creature"
+        ]
+      }
+    ]
+  },
+  "BOK": {
+    "name": "Betrayers of Kamigawa",
+    "code": "BOK",
+    "magicCardsInfoCode": "bok",
+    "releaseDate": "2005-02-04",
+    "border": "black",
+    "type": "expansion",
+    "block": "Kamigawa",
+    "booster": [
+      "rare",
+      "uncommon",
+      "uncommon",
+      "uncommon",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common"
+    ],
+    "translations": {
+      "de": "Verräter von Kamigawa",
+      "fr": "Traîtres de Kamigawa",
+      "it": "Traditori di Kamigawa",
+      "es": "Traidores de Kamigawa",
+      "pt": "Traidores de Kamigawa",
+      "jp": "神河謀叛",
+      "cn": "神河叛将谱"
+    },
+    "mkm_name": "Betrayers of Kamigawa",
+    "mkm_id": 51,
+    "cards": [
+      {
+        "artist": "Mark Zug",
+        "cmc": 3,
+        "colorIdentity": [
+          "W"
+        ],
+        "colors": [
+          "White"
+        ],
+        "id": "284c1af34bceb74c211ca1f314e76f95030299d4",
+        "imageName": "faithful squire",
+        "layout": "flip",
+        "manaCost": "{1}{W}{W}",
+        "mciNumber": "3a",
+        "multiverseid": 74093,
+        "name": "Faithful Squire",
+        "names": [
+          "Faithful Squire",
+          "Kaiso, Memory of Loyalty"
+        ],
+        "number": "3a",
+        "power": "2",
+        "rarity": "Uncommon",
+        "subtypes": [
+          "Human",
+          "Soldier"
+        ],
+        "text": "Whenever you cast a Spirit or Arcane spell, you may put a ki counter on Faithful Squire.\nAt the beginning of the end step, if there are two or more ki counters on Faithful Squire, you may flip it.",
+        "toughness": "2",
+        "type": "Creature — Human Soldier",
+        "types": [
+          "Creature"
+        ]
+      },
+      {
+        "artist": "Mark Zug",
+        "cmc": 3,
+        "colorIdentity": [
+          "W"
+        ],
+        "colors": [
+          "White"
+        ],
+        "id": "0b9a826470865b4e67039d0bc606d856d69e30b3",
+        "imageName": "kaiso, memory of loyalty",
+        "layout": "flip",
+        "manaCost": "{1}{W}{W}",
+        "mciNumber": "3b",
+        "multiverseid": 74093,
+        "name": "Kaiso, Memory of Loyalty",
+        "names": [
+          "Faithful Squire",
+          "Kaiso, Memory of Loyalty"
+        ],
+        "number": "3b",
+        "power": "3",
+        "rarity": "Uncommon",
+        "subtypes": [
+          "Spirit"
+        ],
+        "supertypes": [
+          "Legendary"
+        ],
+        "text": "Flying\nRemove a ki counter from Kaiso, Memory of Loyalty: Prevent all damage that would be dealt to target creature this turn.",
+        "toughness": "4",
+        "type": "Legendary Creature — Spirit",
+        "types": [
+          "Creature"
+        ]
+      }
+    ]
+  },
+  "SOK": {
+    "name": "Saviors of Kamigawa",
+    "code": "SOK",
+    "magicCardsInfoCode": "sok",
+    "releaseDate": "2005-06-03",
+    "border": "black",
+    "type": "expansion",
+    "block": "Kamigawa",
+    "booster": [
+      "rare",
+      "uncommon",
+      "uncommon",
+      "uncommon",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common"
+    ],
+    "translations": {
+      "de": "Retter von Kamigawa",
+      "fr": "Libérateurs de Kamigawa",
+      "it": "Liberatori di Kamigawa",
+      "es": "Salvadores de Kamigawa",
+      "pt": "Salvadores Kamigawa",
+      "jp": "神河救済",
+      "cn": "Saviors of Kamigawa"
+    },
+    "mkm_name": "Saviors of Kamigawa",
+    "mkm_id": 50,
+    "cards": [
+      {
+        "artist": "Matt Cavotta",
+        "cmc": 2,
+        "colorIdentity": [
+          "U"
+        ],
+        "colors": [
+          "Blue"
+        ],
+        "id": "50c034015a3dc2a7d4ca924f7e6f696268063ef8",
+        "imageName": "erayo's essence",
+        "layout": "normal",
+        "manaCost": "{1}{U}",
+        "mciNumber": "35b",
+        "multiverseid": 87599,
+        "name": "Erayo's Essence",
+        "number": "35",
+        "rarity": "Rare",
+        "supertypes": [
+          "Legendary"
+        ],
+        "text": "Whenever an opponent casts his or her first spell each turn, counter that spell.",
+        "type": "Legendary Enchantment",
+        "types": [
+          "Enchantment"
+        ]
+      }
+    ]
+  },
+  "CSP": {
+    "name": "Coldsnap",
+    "code": "CSP",
+    "magicCardsInfoCode": "cs",
+    "releaseDate": "2006-07-21",
+    "border": "black",
+    "type": "expansion",
+    "block": "Ice Age",
+    "booster": [
+      "rare",
+      "uncommon",
+      "uncommon",
+      "uncommon",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common"
+    ],
+    "translations": {
+      "de": "Kälteeinbruch",
+      "fr": "Souffle glaciaire",
+      "it": "Ondata Glaciale",
+      "es": "Ola de frío",
+      "pt": "Frente Fria",
+      "jp": "コールドスナップ",
+      "cn": "骤霜",
+      "ru": "Стужа"
+    },
+    "mkm_name": "Coldsnap",
+    "mkm_id": 52,
+    "cards": [
+      {
+        "artist": "Franz Vohwinkel",
+        "cmc": 2,
+        "colorIdentity": [
+          "W"
+        ],
+        "colors": [
+          "White"
+        ],
+        "id": "b6d3b800eee5851e4727adf50d9c2d82f269f25f",
+        "imageName": "jotun grunt",
+        "layout": "normal",
+        "manaCost": "{1}{W}",
+        "mciNumber": "8",
+        "multiverseid": 122075,
+        "name": "Jötun Grunt",
+        "number": "8",
+        "power": "4",
+        "rarity": "Uncommon",
+        "subtypes": [
+          "Giant",
+          "Soldier"
+        ],
+        "text": "Cumulative upkeep—Put two cards from a single graveyard on the bottom of their owner's library. (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)",
+        "toughness": "4",
+        "type": "Creature — Giant Soldier",
         "types": [
           "Creature"
         ]
@@ -974,6 +1181,9 @@
       {
         "artist": "James Paick",
         "cmc": 2,
+        "colorIdentity": [
+          "B"
+        ],
         "colors": [
           "Black"
         ],
@@ -1023,7 +1233,7 @@
         ]
       },
       {
-        "artist": "Greg & Tim Hildebrandt",
+        "artist": "Greg &amp; Tim Hildebrandt",
         "cmc": 6,
         "colorIdentity": [
           "W"
@@ -1379,14 +1589,14 @@
     "cards": [
       {
         "artist": "Dan Scott",
-        "id": "5669523e75ffdb436b768d4dd37cb95b82919d51",
+        "id": "c98cdec5d2201abe3411db460cb088b82945bb9e",
         "imageName": "chaotic aether",
         "layout": "phenomenon",
         "multiverseid": 226509,
-        "name": "Chaotic Æther",
+        "name": "Chaotic Aether",
         "number": "1",
         "rarity": "Common",
-        "text": "When you encounter Chaotic Æther, each blank roll of the planar die is a CHAOS roll until a player planeswalks away from a plane. (Then planeswalk away from this phenomenon.)",
+        "text": "When you encounter Chaotic Aether, each blank roll of the planar die is a CHAOS roll until a player planeswalks away from a plane. (Then planeswalk away from this phenomenon.)",
         "type": "Phenomenon",
         "types": [
           "Phenomenon"
@@ -1434,7 +1644,7 @@
         "subtypes": [
           "Zendikar"
         ],
-        "text": "Players may cast enchantment cards as though they had flash.\nWhenever you roll CHAOS, destroy target creature that isn't enchanted.",
+        "text": "Players may cast enchantment spells as though they had flash.\nWhenever you roll CHAOS, destroy target creature that isn't enchanted.",
         "type": "Plane — Zendikar",
         "types": [
           "Plane"
@@ -1517,7 +1727,7 @@
         "subtypes": [
           "Fungus"
         ],
-        "text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Put a 1/1 green Saproling creature token onto the battlefield.",
+        "text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Create a 1/1 green Saproling creature token.",
         "toughness": "1",
         "type": "Creature — Fungus",
         "types": [
@@ -1749,6 +1959,7 @@
         "number": "3",
         "power": "4",
         "rarity": "Uncommon",
+        "starter": true,
         "subtypes": [
           "Angel"
         ],

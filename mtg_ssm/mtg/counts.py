@@ -29,6 +29,7 @@ NAME_SUBSTITUTIONS = [
     ('Ae', 'Æ'),
     ('Jo', 'Jö'),
 ]
+NAME_SUBSTITUTIONS += [(right, left) for (left, right) in NAME_SUBSTITUTIONS]
 
 
 class Error(Exception):
@@ -96,6 +97,8 @@ def aggregate_print_counts(cdb, card_rows, strict):
     """Given a card database Iterable[card_row], return print_counts"""
     print_counts = new_print_counts()
     for card_row in card_rows:
+        if not any(card_row.get(ct.name) for ct in CountTypes):
+            continue
         card_row = coerce_card_row(card_row)
         printing_id = card_row.get('id')
         printing = cdb.id_to_printing.get(printing_id)

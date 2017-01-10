@@ -11,11 +11,12 @@ TEST_DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
 DATA_DIR = os.path.join(TEST_DATA_DIR, 'source_data')
 TARGET_MTGJSON_FILE = os.path.join(TEST_DATA_DIR, 'AllSets_testdata.json')
 
-INCLUDED = {
+TEST_SETS_TO_CARDS = {
     'LEA': {'Air Elemental', 'Dark Ritual', 'Forest'},
     'FEM': {'Thallid'},
     'S00': {'Rhox'},
     'ICE': {'Dark Ritual', 'Forest', 'Snow-Covered Forest'},
+    'CSP': {'Jötun Grunt'},
     'VMA': {'Academy Elite'},
     'pMGD': {'Black Sun\'s Zenith'},
     'HML': {'Cemetery Gate'},
@@ -24,12 +25,15 @@ INCLUDED = {
         'Forest'},
     'ARC': {'All in Good Time', 'Leonin Abunas'},
     'HOP': {'Academy at Tolaria West', 'Akroma\'s Vengeance', 'Dark Ritual'},
-    'PC2': {'Akoum', 'Armored Griffin', 'Chaotic Æther', 'Stairs to Infinity'},
+    'PC2': {
+        'Akoum', 'Armored Griffin', 'Chaotic Aether', 'Stairs to Infinity'},
     'MMA': {'Thallid'},
     'pMEI': {'Arena'},
     'PLS': {'Ertai, the Corrupted'},
     'PLC': {'Boom', 'Bust'},
     'OGW': {'Wastes'},
+    'BOK': {'Faithful Squire', 'Kaiso, Memory of Loyalty'},
+    'SOK': {'Erayo, Soratami Ascendant', 'Erayo\'s Essence'},
     'CHK': {'Bushi Tenderfoot', 'Kenzo the Hardhearted'},
     'W16': {'Serra Angel'},
 }
@@ -45,12 +49,12 @@ def main():
     print('Generating testdata.')
     testdata = collections.OrderedDict()
     for setcode, setdata in mtg_data.items():
-        if setcode not in INCLUDED:
+        if setcode not in TEST_SETS_TO_CARDS:
             continue
         testsetdata = collections.OrderedDict(
             (k, v) for k, v in setdata.items() if k != 'cards')
         testsetdata['cards'] = [
-            c for c in setdata['cards'] if c['name'] in INCLUDED[setcode]]
+            c for c in setdata['cards'] if c['name'] in TEST_SETS_TO_CARDS[setcode]]
         testdata[setcode] = testsetdata
 
     print('Writing testdata.')

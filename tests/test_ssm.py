@@ -1,4 +1,4 @@
-"""Tests for mtg_ssm.manager"""
+"""Tests for mtg_ssm.manager module."""
 
 import argparse as ap
 import datetime
@@ -24,6 +24,7 @@ def patch_now(monkeypatch):
     """Fixture to monkeypatch datetime.now for testing."""
     class MockDatetime(datetime.datetime):
         """Datetime object that returns fixed now value."""
+
         @classmethod
         def now(cls, *_):
             return datetime.datetime(2015, 6, 28)
