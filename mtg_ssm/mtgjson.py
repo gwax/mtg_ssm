@@ -12,7 +12,7 @@ import requests.exceptions
 
 MTGJSON_ADDRESS = 'http://mtgjson.com/json/'
 VERSION_FILENAME = 'version-full.json'
-ALLSETS_FILENAME = 'AllSets.json.zip'
+ALLSETS_FILENAME = 'AllSets-x.json.zip'
 
 
 class Error(Exception):
@@ -30,8 +30,9 @@ def fetch_mtgjson(data_path):
     elif not os.path.isdir(data_path):
         raise DownloadError('data_path: %s must be a folder' % data_path)
 
+    allsets_filename = os.path.join(data_path, ALLSETS_FILENAME)
     version_filename = os.path.join(data_path, VERSION_FILENAME)
-    if os.path.exists(version_filename):
+    if os.path.exists(allsets_filename) and os.path.exists(version_filename):
         with open(version_filename, 'r') as version_file:
             local_version_data = json.load(version_file)
             local_version = tuple(
@@ -53,7 +54,6 @@ def fetch_mtgjson(data_path):
             return False
 
         print('Downloading mtgjson data.')
-        allsets_filename = os.path.join(data_path, ALLSETS_FILENAME)
         mtg_req = requests.get(MTGJSON_ADDRESS + ALLSETS_FILENAME)
         mtg_req.raise_for_status()
         with open(allsets_filename, 'wb') as allsets_file:

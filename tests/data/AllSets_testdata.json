@@ -40,11 +40,55 @@
         "id": "926234c2fe8863f49220a878346c4c5ca79b6046",
         "imageName": "air elemental",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{3}{U}{U}",
         "mciNumber": "47",
         "multiverseid": 94,
         "name": "Air Elemental",
+        "originalText": "Flying",
+        "originalType": "Summon — Elemental",
         "power": "4",
+        "printings": [
+          "LEA",
+          "LEB",
+          "2ED",
+          "CED",
+          "CEI",
+          "3ED",
+          "4ED",
+          "5ED",
+          "PO2",
+          "6ED",
+          "S99",
+          "BRB",
+          "BTD",
+          "7ED",
+          "8ED",
+          "9ED",
+          "10E",
+          "DD2",
+          "M10",
+          "DPA",
+          "ME4",
+          "DD3_JVC"
+        ],
         "rarity": "Uncommon",
         "subtypes": [
           "Elemental"
@@ -68,10 +112,76 @@
         "id": "fff0b8e8fea06ee1ac5c35f048a0a459b1222673",
         "imageName": "dark ritual",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Ice Age Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Masques Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Mirage Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Tempest Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Urza Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{B}",
         "mciNumber": "7",
         "multiverseid": 54,
         "name": "Dark Ritual",
+        "originalText": "Add 3 black mana to your mana pool.",
+        "originalType": "Interrupt",
+        "printings": [
+          "LEA",
+          "LEB",
+          "2ED",
+          "CED",
+          "CEI",
+          "3ED",
+          "4ED",
+          "ICE",
+          "RQS",
+          "MIR",
+          "ITP",
+          "5ED",
+          "TMP",
+          "pJGP",
+          "USG",
+          "MMQ",
+          "BRB",
+          "BTD",
+          "DKM",
+          "CST",
+          "DDC",
+          "HOP",
+          "DDE",
+          "ME4",
+          "V13",
+          "VMA",
+          "DD3_DVD",
+          "TPR"
+        ],
         "rarity": "Common",
         "text": "Add {B}{B}{B} to your mana pool.",
         "type": "Instant",
@@ -87,8 +197,226 @@
         "id": "5ede9781b0c5d157c28a15c3153a455d7d6180fa",
         "imageName": "forest2",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Battle for Zendikar Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Ice Age Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Innistrad Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Invasion Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Kaladesh Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Kamigawa Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Khans of Tarkir Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Lorwyn-Shadowmoor Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Masques Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Mirage Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Mirrodin Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Odyssey Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Onslaught Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Ravnica Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Return to Ravnica Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Scars of Mirrodin Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Shadows over Innistrad Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Shards of Alara Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Standard",
+            "legality": "Legal"
+          },
+          {
+            "format": "Tempest Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Theros Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Time Spiral Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Un-Sets",
+            "legality": "Legal"
+          },
+          {
+            "format": "Urza Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          },
+          {
+            "format": "Zendikar Block",
+            "legality": "Legal"
+          }
+        ],
         "multiverseid": 288,
         "name": "Forest",
+        "originalText": "Tap to add {G} to your mana pool.",
+        "originalType": "Land",
+        "printings": [
+          "LEA",
+          "LEB",
+          "2ED",
+          "CED",
+          "CEI",
+          "3ED",
+          "4ED",
+          "ICE",
+          "RQS",
+          "pARL",
+          "MIR",
+          "ITP",
+          "5ED",
+          "POR",
+          "TMP",
+          "pJGP",
+          "PO2",
+          "UGL",
+          "pALP",
+          "USG",
+          "ATH",
+          "6ED",
+          "PTK",
+          "S99",
+          "pGRU",
+          "MMQ",
+          "BRB",
+          "pELP",
+          "S00",
+          "BTD",
+          "INV",
+          "7ED",
+          "ODY",
+          "DKM",
+          "ONS",
+          "8ED",
+          "MRD",
+          "CHK",
+          "UNH",
+          "9ED",
+          "RAV",
+          "CST",
+          "TSP",
+          "10E",
+          "MED",
+          "LRW",
+          "EVG",
+          "SHM",
+          "ALA",
+          "M10",
+          "HOP",
+          "ME3",
+          "ZEN",
+          "DDD",
+          "H09",
+          "DDE",
+          "ROE",
+          "DPA",
+          "ARC",
+          "M11",
+          "SOM",
+          "MBS",
+          "DDG",
+          "NPH",
+          "CMD",
+          "M12",
+          "DDH",
+          "ISD",
+          "AVR",
+          "PC2",
+          "M13",
+          "DDJ",
+          "RTR",
+          "M14",
+          "DDL",
+          "THS",
+          "C13",
+          "DDM",
+          "M15",
+          "KTK",
+          "C14",
+          "DD3_EVG",
+          "DD3_GVL",
+          "FRF",
+          "DDO",
+          "DTK",
+          "TPR",
+          "ORI",
+          "DDP",
+          "BFZ",
+          "C15",
+          "SOI",
+          "DDR",
+          "KLD",
+          "C16",
+          "PCA"
+        ],
         "rarity": "Basic Land",
         "subtypes": [
           "Forest"
@@ -112,8 +440,226 @@
         "id": "970af6b2a9a1db5d3956172791717b2afab3e03f",
         "imageName": "forest1",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Battle for Zendikar Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Ice Age Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Innistrad Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Invasion Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Kaladesh Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Kamigawa Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Khans of Tarkir Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Lorwyn-Shadowmoor Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Masques Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Mirage Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Mirrodin Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Odyssey Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Onslaught Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Ravnica Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Return to Ravnica Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Scars of Mirrodin Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Shadows over Innistrad Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Shards of Alara Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Standard",
+            "legality": "Legal"
+          },
+          {
+            "format": "Tempest Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Theros Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Time Spiral Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Un-Sets",
+            "legality": "Legal"
+          },
+          {
+            "format": "Urza Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          },
+          {
+            "format": "Zendikar Block",
+            "legality": "Legal"
+          }
+        ],
         "multiverseid": 289,
         "name": "Forest",
+        "originalText": "Tap to add {G} to your mana pool.",
+        "originalType": "Land",
+        "printings": [
+          "LEA",
+          "LEB",
+          "2ED",
+          "CED",
+          "CEI",
+          "3ED",
+          "4ED",
+          "ICE",
+          "RQS",
+          "pARL",
+          "MIR",
+          "ITP",
+          "5ED",
+          "POR",
+          "TMP",
+          "pJGP",
+          "PO2",
+          "UGL",
+          "pALP",
+          "USG",
+          "ATH",
+          "6ED",
+          "PTK",
+          "S99",
+          "pGRU",
+          "MMQ",
+          "BRB",
+          "pELP",
+          "S00",
+          "BTD",
+          "INV",
+          "7ED",
+          "ODY",
+          "DKM",
+          "ONS",
+          "8ED",
+          "MRD",
+          "CHK",
+          "UNH",
+          "9ED",
+          "RAV",
+          "CST",
+          "TSP",
+          "10E",
+          "MED",
+          "LRW",
+          "EVG",
+          "SHM",
+          "ALA",
+          "M10",
+          "HOP",
+          "ME3",
+          "ZEN",
+          "DDD",
+          "H09",
+          "DDE",
+          "ROE",
+          "DPA",
+          "ARC",
+          "M11",
+          "SOM",
+          "MBS",
+          "DDG",
+          "NPH",
+          "CMD",
+          "M12",
+          "DDH",
+          "ISD",
+          "AVR",
+          "PC2",
+          "M13",
+          "DDJ",
+          "RTR",
+          "M14",
+          "DDL",
+          "THS",
+          "C13",
+          "DDM",
+          "M15",
+          "KTK",
+          "C14",
+          "DD3_EVG",
+          "DD3_GVL",
+          "FRF",
+          "DDO",
+          "DTK",
+          "TPR",
+          "ORI",
+          "DDP",
+          "BFZ",
+          "C15",
+          "SOI",
+          "DDR",
+          "KLD",
+          "C16",
+          "PCA"
+        ],
         "rarity": "Basic Land",
         "subtypes": [
           "Forest"
@@ -164,15 +710,94 @@
     "cards": [
       {
         "artist": "Rob Alexander",
+        "foreignNames": [
+          {
+            "language": "Chinese Simplified",
+            "name": "斗技场"
+          },
+          {
+            "language": "French",
+            "name": "Arène"
+          },
+          {
+            "language": "German",
+            "name": "Arena"
+          },
+          {
+            "language": "Italian",
+            "name": "Arena"
+          },
+          {
+            "language": "Japanese",
+            "name": "闘技場"
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Arena"
+          },
+          {
+            "language": "Russian",
+            "name": "Арена"
+          },
+          {
+            "language": "Spanish",
+            "name": "Arena"
+          }
+        ],
         "id": "741b2637bc11ba8687f50f1d18b5f447f8056d73",
         "imageName": "arena",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Time Spiral Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "mciNumber": "1",
         "multiverseid": 97042,
         "name": "Arena",
         "number": "1",
+        "printings": [
+          "pMEI",
+          "TSB"
+        ],
         "rarity": "Special",
         "releaseDate": "1994-09",
+        "rulings": [
+          {
+            "date": "2004-10-04",
+            "text": "The power of the creatures when the effect resolves is used to determine how much damage is done."
+          },
+          {
+            "date": "2004-10-04",
+            "text": "In multiplayer games, you can choose a different opposing player each time it the ability is activated."
+          },
+          {
+            "date": "2004-10-04",
+            "text": "Either or both creatures can be tapped prior to using the ability and it still works."
+          },
+          {
+            "date": "2006-09-25",
+            "text": "If either target is illegal at the time the ability resolves (whether because it has left the battlefield, because it has gained Shroud or Protection, or for any other reason), the ability taps the remaining target, but no damage is dealt. If both targets are illegal, the ability is countered."
+          }
+        ],
+        "source": "HarperPrism Arena novel purchase bonus",
         "text": "{3}, {T}: Tap target creature you control and target creature of an opponent's choice he or she controls. Those creatures fight each other. (Each deals damage equal to its power to the other.)",
         "type": "Land",
         "types": [
@@ -214,10 +839,40 @@
         "id": "3deebffcf4f5152f4a5cc270cfac746a3bd2089d",
         "imageName": "thallid1",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Time Spiral Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{G}",
         "multiverseid": 1924,
         "name": "Thallid",
+        "originalText": "During your upkeep, put a spore counter on Thallid.\n{0}: Remove three spore counters from Thallid to put a Saproling token into play. Treat this token as a 1/1 green creature.",
+        "originalType": "Summon — Fungus",
         "power": "1",
+        "printings": [
+          "FEM",
+          "TSB",
+          "ME2",
+          "MMA"
+        ],
         "rarity": "Common",
         "subtypes": [
           "Fungus"
@@ -246,10 +901,40 @@
         "id": "bd676ca33f673a6769312e8e9b12e1cf40ae2c84",
         "imageName": "thallid4",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Time Spiral Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{G}",
         "multiverseid": 1925,
         "name": "Thallid",
+        "originalText": "During your upkeep, put a spore counter on Thallid.\n{0}: Remove three spore counters from Thallid to put a Saproling token into play. Treat this token as a 1/1 green creature.",
+        "originalType": "Summon — Fungus",
         "power": "1",
+        "printings": [
+          "FEM",
+          "TSB",
+          "ME2",
+          "MMA"
+        ],
         "rarity": "Common",
         "subtypes": [
           "Fungus"
@@ -278,10 +963,40 @@
         "id": "f68597b2ddfbd715c5c51b94e3a39e0a307e3f40",
         "imageName": "thallid2",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Time Spiral Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{G}",
         "multiverseid": 1926,
         "name": "Thallid",
+        "originalText": "During your upkeep, put a spore counter on Thallid.\n{0}: Remove three spore counters from Thallid to put a Saproling token into play. Treat this token as a 1/1 green creature.",
+        "originalType": "Summon — Fungus",
         "power": "1",
+        "printings": [
+          "FEM",
+          "TSB",
+          "ME2",
+          "MMA"
+        ],
         "rarity": "Common",
         "subtypes": [
           "Fungus"
@@ -310,10 +1025,40 @@
         "id": "378e47697b1b74df8c901cac23f7402b01da31b2",
         "imageName": "thallid3",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Time Spiral Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{G}",
         "multiverseid": 1927,
         "name": "Thallid",
+        "originalText": "During your upkeep, put a spore counter on Thallid.\n{0}: Remove three spore counters from Thallid to put a Saproling token into play. Treat this token as a 1/1 green creature.",
+        "originalType": "Summon — Fungus",
         "power": "1",
+        "printings": [
+          "FEM",
+          "TSB",
+          "ME2",
+          "MMA"
+        ],
         "rarity": "Common",
         "subtypes": [
           "Fungus"
@@ -381,10 +1126,76 @@
         "id": "2fab0ea29e3bbe8bfbc981a4c8163f3e7d267853",
         "imageName": "dark ritual",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Ice Age Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Masques Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Mirage Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Tempest Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Urza Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{B}",
         "mciNumber": "8",
         "multiverseid": 2444,
         "name": "Dark Ritual",
+        "originalText": "Add {B}{B}{B} to your mana pool.",
+        "originalType": "Interrupt",
+        "printings": [
+          "LEA",
+          "LEB",
+          "2ED",
+          "CED",
+          "CEI",
+          "3ED",
+          "4ED",
+          "ICE",
+          "RQS",
+          "MIR",
+          "ITP",
+          "5ED",
+          "TMP",
+          "pJGP",
+          "USG",
+          "MMQ",
+          "BRB",
+          "BTD",
+          "DKM",
+          "CST",
+          "DDC",
+          "HOP",
+          "DDE",
+          "ME4",
+          "V13",
+          "VMA",
+          "DD3_DVD",
+          "TPR"
+        ],
         "rarity": "Common",
         "text": "Add {B}{B}{B} to your mana pool.",
         "type": "Instant",
@@ -400,8 +1211,226 @@
         "id": "676a1f5b64dc03bbb3876840c3ff2ba2c16f99cb",
         "imageName": "forest2",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Battle for Zendikar Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Ice Age Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Innistrad Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Invasion Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Kaladesh Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Kamigawa Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Khans of Tarkir Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Lorwyn-Shadowmoor Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Masques Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Mirage Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Mirrodin Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Odyssey Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Onslaught Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Ravnica Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Return to Ravnica Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Scars of Mirrodin Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Shadows over Innistrad Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Shards of Alara Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Standard",
+            "legality": "Legal"
+          },
+          {
+            "format": "Tempest Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Theros Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Time Spiral Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Un-Sets",
+            "legality": "Legal"
+          },
+          {
+            "format": "Urza Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          },
+          {
+            "format": "Zendikar Block",
+            "legality": "Legal"
+          }
+        ],
         "multiverseid": 2746,
         "name": "Forest",
+        "originalText": "{T}: Add {G} to your mana pool.",
+        "originalType": "Land",
+        "printings": [
+          "LEA",
+          "LEB",
+          "2ED",
+          "CED",
+          "CEI",
+          "3ED",
+          "4ED",
+          "ICE",
+          "RQS",
+          "pARL",
+          "MIR",
+          "ITP",
+          "5ED",
+          "POR",
+          "TMP",
+          "pJGP",
+          "PO2",
+          "UGL",
+          "pALP",
+          "USG",
+          "ATH",
+          "6ED",
+          "PTK",
+          "S99",
+          "pGRU",
+          "MMQ",
+          "BRB",
+          "pELP",
+          "S00",
+          "BTD",
+          "INV",
+          "7ED",
+          "ODY",
+          "DKM",
+          "ONS",
+          "8ED",
+          "MRD",
+          "CHK",
+          "UNH",
+          "9ED",
+          "RAV",
+          "CST",
+          "TSP",
+          "10E",
+          "MED",
+          "LRW",
+          "EVG",
+          "SHM",
+          "ALA",
+          "M10",
+          "HOP",
+          "ME3",
+          "ZEN",
+          "DDD",
+          "H09",
+          "DDE",
+          "ROE",
+          "DPA",
+          "ARC",
+          "M11",
+          "SOM",
+          "MBS",
+          "DDG",
+          "NPH",
+          "CMD",
+          "M12",
+          "DDH",
+          "ISD",
+          "AVR",
+          "PC2",
+          "M13",
+          "DDJ",
+          "RTR",
+          "M14",
+          "DDL",
+          "THS",
+          "C13",
+          "DDM",
+          "M15",
+          "KTK",
+          "C14",
+          "DD3_EVG",
+          "DD3_GVL",
+          "FRF",
+          "DDO",
+          "DTK",
+          "TPR",
+          "ORI",
+          "DDP",
+          "BFZ",
+          "C15",
+          "SOI",
+          "DDR",
+          "KLD",
+          "C16",
+          "PCA"
+        ],
         "rarity": "Basic Land",
         "subtypes": [
           "Forest"
@@ -426,8 +1455,226 @@
         "id": "d0a4414893bc2f9bd3beea2f8f2693635ef926a4",
         "imageName": "forest3",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Battle for Zendikar Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Ice Age Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Innistrad Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Invasion Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Kaladesh Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Kamigawa Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Khans of Tarkir Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Lorwyn-Shadowmoor Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Masques Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Mirage Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Mirrodin Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Odyssey Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Onslaught Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Ravnica Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Return to Ravnica Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Scars of Mirrodin Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Shadows over Innistrad Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Shards of Alara Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Standard",
+            "legality": "Legal"
+          },
+          {
+            "format": "Tempest Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Theros Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Time Spiral Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Un-Sets",
+            "legality": "Legal"
+          },
+          {
+            "format": "Urza Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          },
+          {
+            "format": "Zendikar Block",
+            "legality": "Legal"
+          }
+        ],
         "multiverseid": 2747,
         "name": "Forest",
+        "originalText": "{T}: Add {G} to your mana pool.",
+        "originalType": "Land",
+        "printings": [
+          "LEA",
+          "LEB",
+          "2ED",
+          "CED",
+          "CEI",
+          "3ED",
+          "4ED",
+          "ICE",
+          "RQS",
+          "pARL",
+          "MIR",
+          "ITP",
+          "5ED",
+          "POR",
+          "TMP",
+          "pJGP",
+          "PO2",
+          "UGL",
+          "pALP",
+          "USG",
+          "ATH",
+          "6ED",
+          "PTK",
+          "S99",
+          "pGRU",
+          "MMQ",
+          "BRB",
+          "pELP",
+          "S00",
+          "BTD",
+          "INV",
+          "7ED",
+          "ODY",
+          "DKM",
+          "ONS",
+          "8ED",
+          "MRD",
+          "CHK",
+          "UNH",
+          "9ED",
+          "RAV",
+          "CST",
+          "TSP",
+          "10E",
+          "MED",
+          "LRW",
+          "EVG",
+          "SHM",
+          "ALA",
+          "M10",
+          "HOP",
+          "ME3",
+          "ZEN",
+          "DDD",
+          "H09",
+          "DDE",
+          "ROE",
+          "DPA",
+          "ARC",
+          "M11",
+          "SOM",
+          "MBS",
+          "DDG",
+          "NPH",
+          "CMD",
+          "M12",
+          "DDH",
+          "ISD",
+          "AVR",
+          "PC2",
+          "M13",
+          "DDJ",
+          "RTR",
+          "M14",
+          "DDL",
+          "THS",
+          "C13",
+          "DDM",
+          "M15",
+          "KTK",
+          "C14",
+          "DD3_EVG",
+          "DD3_GVL",
+          "FRF",
+          "DDO",
+          "DTK",
+          "TPR",
+          "ORI",
+          "DDP",
+          "BFZ",
+          "C15",
+          "SOI",
+          "DDR",
+          "KLD",
+          "C16",
+          "PCA"
+        ],
         "rarity": "Basic Land",
         "subtypes": [
           "Forest"
@@ -452,8 +1699,226 @@
         "id": "c78d2da78c68c558b1adc734b3f164e885407ffc",
         "imageName": "forest1",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Battle for Zendikar Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Ice Age Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Innistrad Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Invasion Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Kaladesh Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Kamigawa Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Khans of Tarkir Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Lorwyn-Shadowmoor Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Masques Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Mirage Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Mirrodin Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Odyssey Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Onslaught Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Ravnica Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Return to Ravnica Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Scars of Mirrodin Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Shadows over Innistrad Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Shards of Alara Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Standard",
+            "legality": "Legal"
+          },
+          {
+            "format": "Tempest Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Theros Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Time Spiral Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Un-Sets",
+            "legality": "Legal"
+          },
+          {
+            "format": "Urza Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          },
+          {
+            "format": "Zendikar Block",
+            "legality": "Legal"
+          }
+        ],
         "multiverseid": 2748,
         "name": "Forest",
+        "originalText": "{T}: Add {G} to your mana pool.",
+        "originalType": "Land",
+        "printings": [
+          "LEA",
+          "LEB",
+          "2ED",
+          "CED",
+          "CEI",
+          "3ED",
+          "4ED",
+          "ICE",
+          "RQS",
+          "pARL",
+          "MIR",
+          "ITP",
+          "5ED",
+          "POR",
+          "TMP",
+          "pJGP",
+          "PO2",
+          "UGL",
+          "pALP",
+          "USG",
+          "ATH",
+          "6ED",
+          "PTK",
+          "S99",
+          "pGRU",
+          "MMQ",
+          "BRB",
+          "pELP",
+          "S00",
+          "BTD",
+          "INV",
+          "7ED",
+          "ODY",
+          "DKM",
+          "ONS",
+          "8ED",
+          "MRD",
+          "CHK",
+          "UNH",
+          "9ED",
+          "RAV",
+          "CST",
+          "TSP",
+          "10E",
+          "MED",
+          "LRW",
+          "EVG",
+          "SHM",
+          "ALA",
+          "M10",
+          "HOP",
+          "ME3",
+          "ZEN",
+          "DDD",
+          "H09",
+          "DDE",
+          "ROE",
+          "DPA",
+          "ARC",
+          "M11",
+          "SOM",
+          "MBS",
+          "DDG",
+          "NPH",
+          "CMD",
+          "M12",
+          "DDH",
+          "ISD",
+          "AVR",
+          "PC2",
+          "M13",
+          "DDJ",
+          "RTR",
+          "M14",
+          "DDL",
+          "THS",
+          "C13",
+          "DDM",
+          "M15",
+          "KTK",
+          "C14",
+          "DD3_EVG",
+          "DD3_GVL",
+          "FRF",
+          "DDO",
+          "DTK",
+          "TPR",
+          "ORI",
+          "DDP",
+          "BFZ",
+          "C15",
+          "SOI",
+          "DDR",
+          "KLD",
+          "C16",
+          "PCA"
+        ],
         "rarity": "Basic Land",
         "subtypes": [
           "Forest"
@@ -478,10 +1943,57 @@
         "id": "5e9f08498a9343b1954103e493da2586be0fe394",
         "imageName": "snow-covered forest",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Ice Age Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "mciNumber": "347",
         "multiverseid": 2749,
         "name": "Snow-Covered Forest",
+        "originalText": "{T}: Add {G} to your mana pool.",
+        "originalType": "Land",
+        "printings": [
+          "ICE",
+          "CSP",
+          "ME2"
+        ],
         "rarity": "Basic Land",
+        "rulings": [
+          {
+            "date": "2008-10-01",
+            "text": "\"Snow\" has no particular meaning or rules associated with it."
+          },
+          {
+            "date": "2008-10-01",
+            "text": "Since this is a basic land, you may have any number of it in a Constructed deck in any format in which the _Masters Edition II_ set, the _Coldsnap_ set, or the _Ice Age_ set is legal."
+          },
+          {
+            "date": "2008-10-01",
+            "text": "In Limited events, you can't add basic snow lands to your deck from outside your card pool. You may add only lands named Plains, Island, Swamp, Mountain, and Forest, as normal."
+          },
+          {
+            "date": "2008-10-01",
+            "text": "Effects that target nonbasic lands can't target basic snow lands."
+          }
+        ],
         "subtypes": [
           "Forest"
         ],
@@ -543,10 +2055,29 @@
         "id": "f7a1292dac99aa861d3f501653969595ed12038c",
         "imageName": "cemetery gate1",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{2}{B}",
         "multiverseid": 2913,
         "name": "Cemetery Gate",
+        "originalText": "Protection from black",
+        "originalType": "Summon — Wall",
         "power": "0",
+        "printings": [
+          "HML"
+        ],
         "rarity": "Common",
         "subtypes": [
           "Wall"
@@ -574,10 +2105,29 @@
         "id": "960dd99077c44e66e4d7c76e2d52689b92010275",
         "imageName": "cemetery gate2",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{2}{B}",
         "multiverseid": 2914,
         "name": "Cemetery Gate",
+        "originalText": "Protection from black",
+        "originalType": "Summon — Wall",
         "power": "0",
+        "printings": [
+          "HML"
+        ],
         "rarity": "Common",
         "subtypes": [
           "Wall"
@@ -621,14 +2171,109 @@
         "colors": [
           "Green"
         ],
+        "foreignNames": [
+          {
+            "language": "Chinese Simplified",
+            "name": "罗克犀龙",
+            "multiverseid": 147894
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "羅克犀龍",
+            "multiverseid": 151519
+          },
+          {
+            "language": "French",
+            "name": "Rhox",
+            "multiverseid": 150224
+          },
+          {
+            "language": "German",
+            "name": "Rhox",
+            "multiverseid": 148660
+          },
+          {
+            "language": "Italian",
+            "name": "Rhox",
+            "multiverseid": 149043
+          },
+          {
+            "language": "Japanese",
+            "name": "ロウクス",
+            "multiverseid": 148277
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Rhox",
+            "multiverseid": 149841
+          },
+          {
+            "language": "Russian",
+            "name": "Рокс",
+            "multiverseid": 149458
+          },
+          {
+            "language": "Spanish",
+            "name": "Rhox",
+            "multiverseid": 150607
+          }
+        ],
         "id": "536d407161fa03eddee7da0e823c2042a8fa0262",
         "imageName": "rhox",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Masques Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{4}{G}{G}",
         "mciNumber": "13",
         "name": "Rhox",
+        "originalText": "You may have Rhox deal combat damage to defending player as though it weren't blocked.\n{2}{G}: Regenerate Rhox.",
+        "originalType": "Creature — Beast",
         "power": "5",
+        "printings": [
+          "NMS",
+          "S00",
+          "8ED",
+          "10E"
+        ],
         "rarity": "Rare",
+        "rulings": [
+          {
+            "date": "2008-04-01",
+            "text": "If this creature is attacking a planeswalker, assigning its damage as though it weren't blocked means the damage is assigned to the planeswalker, not to the defending player."
+          },
+          {
+            "date": "2008-04-01",
+            "text": "When assigning combat damage, you choose whether you want to assign all damage to blocking creatures, or if you want to assign all of it to the defending player or planeswalker. You can't split the damage assignment between them."
+          },
+          {
+            "date": "2008-04-01",
+            "text": "You can decide to assign damage to the defending player or planeswalker even if the blocking creature has protection from green or damage preventing effects on it."
+          },
+          {
+            "date": "2008-04-01",
+            "text": "If blocked by a creature with banding, the defending player decides whether or not the damage is assigned \"as though it weren't blocked\"."
+          }
+        ],
         "subtypes": [
           "Rhino",
           "Beast"
@@ -683,15 +2328,82 @@
           "Black"
         ],
         "flavor": "Altered by Phyrexian science, corrupted by black mana, and twisted by rage, Ertai still looked in the mirror and saw only glory.",
+        "foreignNames": [
+          {
+            "language": "French",
+            "name": "Ertaï le corrompu",
+            "multiverseid": 185254
+          },
+          {
+            "language": "French",
+            "name": "Ertaï le corrompu",
+            "multiverseid": 185255
+          },
+          {
+            "language": "German",
+            "name": "Ertai, der Verführte",
+            "multiverseid": 183182
+          },
+          {
+            "language": "German",
+            "name": "Ertai, der Verführte",
+            "multiverseid": 183183
+          }
+        ],
         "id": "08fcfee6a7c4eddcd44e43e918cbf9d479492fe7",
         "imageName": "ertai, the corrupted1",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Freeform",
+            "legality": "Legal"
+          },
+          {
+            "format": "Invasion Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Prismatic",
+            "legality": "Legal"
+          },
+          {
+            "format": "Singleton 100",
+            "legality": "Legal"
+          },
+          {
+            "format": "Tribal Wars Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{2}{W}{U}{B}",
         "multiverseid": 25614,
         "name": "Ertai, the Corrupted",
         "number": "107",
+        "originalText": "{U}, {T}, Sacrifice a creature or enchantment: Counter target spell.",
+        "originalType": "Creature — Wizard Legend",
         "power": "3",
+        "printings": [
+          "PLS"
+        ],
         "rarity": "Rare",
+        "rulings": [
+          {
+            "date": "2004-10-04",
+            "text": "The Legend rule only applies to two legendary permanents with identical names. If the names are different, even if they depict the same character, the rule does not apply."
+          }
+        ],
         "subtypes": [
           "Human",
           "Wizard"
@@ -723,15 +2435,82 @@
           "Black"
         ],
         "flavor": "Altered by Phyrexian science, corrupted by black mana, and twisted by rage, Ertai still looked in the mirror and saw only glory.",
+        "foreignNames": [
+          {
+            "language": "French",
+            "name": "Ertaï le corrompu",
+            "multiverseid": 185254
+          },
+          {
+            "language": "French",
+            "name": "Ertaï le corrompu",
+            "multiverseid": 185255
+          },
+          {
+            "language": "German",
+            "name": "Ertai, der Verführte",
+            "multiverseid": 183182
+          },
+          {
+            "language": "German",
+            "name": "Ertai, der Verführte",
+            "multiverseid": 183183
+          }
+        ],
         "id": "62ff415cafefac84a5bb7174cb7ef175c14625de",
         "imageName": "ertai, the corrupted2",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Freeform",
+            "legality": "Legal"
+          },
+          {
+            "format": "Invasion Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Prismatic",
+            "legality": "Legal"
+          },
+          {
+            "format": "Singleton 100",
+            "legality": "Legal"
+          },
+          {
+            "format": "Tribal Wars Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{2}{W}{U}{B}",
         "multiverseid": 29292,
         "name": "Ertai, the Corrupted",
         "number": "★107",
+        "originalText": "{U}, {T}, Sacrifice a creature or enchantment: Counter target spell.",
+        "originalType": "Creature — Wizard Legend",
         "power": "3",
+        "printings": [
+          "PLS"
+        ],
         "rarity": "Rare",
+        "rulings": [
+          {
+            "date": "2004-10-04",
+            "text": "The Legend rule only applies to two legendary permanents with identical names. If the names are different, even if they depict the same character, the rule does not apply."
+          }
+        ],
         "subtypes": [
           "Human",
           "Wizard"
@@ -797,15 +2576,79 @@
         "colors": [
           "White"
         ],
+        "foreignNames": [
+          {
+            "language": "Chinese Simplified",
+            "name": "Bushi Tenderfoot",
+            "multiverseid": 85200
+          },
+          {
+            "language": "French",
+            "name": "Bushi Tenderfoot",
+            "multiverseid": 85507
+          },
+          {
+            "language": "German",
+            "name": "Bushi Tenderfoot",
+            "multiverseid": 85814
+          },
+          {
+            "language": "Italian",
+            "name": "Bushi Tenderfoot",
+            "multiverseid": 86121
+          },
+          {
+            "language": "Japanese",
+            "name": "Bushi Tenderfoot",
+            "multiverseid": 86428
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Bushi Tenderfoot",
+            "multiverseid": 86735
+          },
+          {
+            "language": "Spanish",
+            "name": "Bushi Tenderfoot",
+            "multiverseid": 87042
+          }
+        ],
         "id": "b955500d1a3e0c4b36e3cbf6332c3bca4597eaee",
         "imageName": "kenzo the hardhearted",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Kamigawa Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{W}",
         "mciNumber": "2b",
         "multiverseid": 78600,
         "name": "Kenzo the Hardhearted",
         "number": "2",
+        "originalText": "When a creature dealt damage by Bushi Tenderfoot this turn is put into a graveyard, flip Bushi Tenderfoot.\n-----\nKenzo the Hardhearted\nLegendary Creature Human Samurai\n3/4\nDouble strike; bushido 2 (When this blocks or becomes blocked, it gets +2/+2 until end of turn.)",
+        "originalType": "Creature — Human Soldier",
         "power": "3",
+        "printings": [
+          "CHK"
+        ],
         "rarity": "Uncommon",
         "subtypes": [
           "Human",
@@ -869,9 +2712,68 @@
         "colors": [
           "White"
         ],
+        "foreignNames": [
+          {
+            "language": "Chinese Simplified",
+            "name": "Faithful Squire",
+            "multiverseid": 93431
+          },
+          {
+            "language": "French",
+            "name": "Faithful Squire",
+            "multiverseid": 93596
+          },
+          {
+            "language": "German",
+            "name": "Faithful Squire",
+            "multiverseid": 93761
+          },
+          {
+            "language": "Italian",
+            "name": "Faithful Squire",
+            "multiverseid": 93956
+          },
+          {
+            "language": "Japanese",
+            "name": "Faithful Squire",
+            "multiverseid": 94121
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Faithful Squire",
+            "multiverseid": 94286
+          },
+          {
+            "language": "Spanish",
+            "name": "Faithful Squire",
+            "multiverseid": 94451
+          }
+        ],
         "id": "284c1af34bceb74c211ca1f314e76f95030299d4",
         "imageName": "faithful squire",
         "layout": "flip",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Kamigawa Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{1}{W}{W}",
         "mciNumber": "3a",
         "multiverseid": 74093,
@@ -881,7 +2783,12 @@
           "Kaiso, Memory of Loyalty"
         ],
         "number": "3a",
+        "originalText": "Whenever you play a Spirit or Arcane spell, you may put a ki counter on Faithful Squire.\nAt end of turn, if there are two or more ki counters on Faithful Squire, you may flip it.\n-----\nKaiso, Memory of Loyalty\nLegendary Creature Spirit\n3/4\nFlying\nRemove a ki counter from Kaiso, Memory of Loyalty: Prevent all damage that would be dealt to target creature this turn.",
+        "originalType": "Creature — Human Soldier",
         "power": "2",
+        "printings": [
+          "BOK"
+        ],
         "rarity": "Uncommon",
         "subtypes": [
           "Human",
@@ -903,9 +2810,68 @@
         "colors": [
           "White"
         ],
+        "foreignNames": [
+          {
+            "language": "Chinese Simplified",
+            "name": "Faithful Squire",
+            "multiverseid": 93431
+          },
+          {
+            "language": "French",
+            "name": "Faithful Squire",
+            "multiverseid": 93596
+          },
+          {
+            "language": "German",
+            "name": "Faithful Squire",
+            "multiverseid": 93761
+          },
+          {
+            "language": "Italian",
+            "name": "Faithful Squire",
+            "multiverseid": 93956
+          },
+          {
+            "language": "Japanese",
+            "name": "Faithful Squire",
+            "multiverseid": 94121
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Faithful Squire",
+            "multiverseid": 94286
+          },
+          {
+            "language": "Spanish",
+            "name": "Faithful Squire",
+            "multiverseid": 94451
+          }
+        ],
         "id": "0b9a826470865b4e67039d0bc606d856d69e30b3",
         "imageName": "kaiso, memory of loyalty",
         "layout": "flip",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Kamigawa Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{1}{W}{W}",
         "mciNumber": "3b",
         "multiverseid": 74093,
@@ -915,7 +2881,12 @@
           "Kaiso, Memory of Loyalty"
         ],
         "number": "3b",
+        "originalText": "Whenever you play a Spirit or Arcane spell, you may put a ki counter on Faithful Squire.\nAt end of turn, if there are two or more ki counters on Faithful Squire, you may flip it.\n-----\nKaiso, Memory of Loyalty\nLegendary Creature Spirit\n3/4\nFlying\nRemove a ki counter from Kaiso, Memory of Loyalty: Prevent all damage that would be dealt to target creature this turn.",
+        "originalType": "Creature — Human Soldier",
         "power": "3",
+        "printings": [
+          "BOK"
+        ],
         "rarity": "Uncommon",
         "subtypes": [
           "Spirit"
@@ -978,14 +2949,78 @@
         "colors": [
           "Blue"
         ],
+        "foreignNames": [
+          {
+            "language": "Chinese Simplified",
+            "name": "Erayo, Soratami Ascendant",
+            "multiverseid": 104918
+          },
+          {
+            "language": "French",
+            "name": "Erayo, Soratami Ascendant",
+            "multiverseid": 105083
+          },
+          {
+            "language": "German",
+            "name": "Erayo, Soratami Ascendant",
+            "multiverseid": 105248
+          },
+          {
+            "language": "Italian",
+            "name": "Erayo, Soratami Ascendant",
+            "multiverseid": 105413
+          },
+          {
+            "language": "Japanese",
+            "name": "Erayo, Soratami Ascendant",
+            "multiverseid": 105578
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Erayo, Soratami Ascendant",
+            "multiverseid": 105743
+          },
+          {
+            "language": "Spanish",
+            "name": "Erayo, Soratami Ascendant",
+            "multiverseid": 105908
+          }
+        ],
         "id": "50c034015a3dc2a7d4ca924f7e6f696268063ef8",
         "imageName": "erayo's essence",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Banned"
+          },
+          {
+            "format": "Kamigawa Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{1}{U}",
         "mciNumber": "35b",
         "multiverseid": 87599,
         "name": "Erayo's Essence",
         "number": "35",
+        "originalText": "Flying\nWhenever the fourth spell of a turn is played, flip Erayo, Soratami Ascendant.\n-----\nErayo's Essence\nLegendary Enchantment\nCounter the first spell played by each opponent each turn.",
+        "originalType": "Legendary Creature — Moonfolk Monk",
+        "printings": [
+          "SOK"
+        ],
         "rarity": "Rare",
         "supertypes": [
           "Legendary"
@@ -1045,16 +3080,92 @@
         "colors": [
           "White"
         ],
+        "foreignNames": [
+          {
+            "language": "Chinese Simplified",
+            "name": "尤屯大兵",
+            "multiverseid": 126974
+          },
+          {
+            "language": "French",
+            "name": "Grognard jötun",
+            "multiverseid": 127129
+          },
+          {
+            "language": "German",
+            "name": "Jötun-Geiferer",
+            "multiverseid": 127284
+          },
+          {
+            "language": "Italian",
+            "name": "Energumeno Jötun",
+            "multiverseid": 127439
+          },
+          {
+            "language": "Japanese",
+            "name": "ヨツンの兵卒",
+            "multiverseid": 127594
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Soldado Raso Jötun",
+            "multiverseid": 127749
+          },
+          {
+            "language": "Russian",
+            "name": "Йотун-пехотинец",
+            "multiverseid": 127904
+          },
+          {
+            "language": "Spanish",
+            "name": "Soldado raso jötun",
+            "multiverseid": 128059
+          }
+        ],
         "id": "b6d3b800eee5851e4727adf50d9c2d82f269f25f",
         "imageName": "jotun grunt",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Ice Age Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{1}{W}",
         "mciNumber": "8",
         "multiverseid": 122075,
         "name": "Jötun Grunt",
         "number": "8",
+        "originalText": "Cumulative upkeep—Put two cards in a single graveyard on the bottom of their owner's library. (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)",
+        "originalType": "Creature — Giant Soldier",
         "power": "4",
+        "printings": [
+          "CSP",
+          "CMD"
+        ],
         "rarity": "Uncommon",
+        "rulings": [
+          {
+            "date": "2006-07-15",
+            "text": "When paying Jötun Grunt's cumulative upkeep, you may choose a different graveyard for each age counter. For example, if it has three age counters on it, you may put four cards from your graveyard on the bottom of your library and two cards from your opponent's graveyard on the bottom of his or her library. However, you can't put five cards from your graveyard on the bottom of your library and one card from your opponent's graveyard on the bottom of his or her library."
+          }
+        ],
         "subtypes": [
           "Giant",
           "Soldier"
@@ -1118,9 +3229,73 @@
         "colors": [
           "Red"
         ],
+        "foreignNames": [
+          {
+            "language": "Chinese Simplified",
+            "name": "Boom",
+            "multiverseid": 141320
+          },
+          {
+            "language": "French",
+            "name": "Boom",
+            "multiverseid": 140360
+          },
+          {
+            "language": "German",
+            "name": "Boom",
+            "multiverseid": 140480
+          },
+          {
+            "language": "Italian",
+            "name": "Boom",
+            "multiverseid": 140600
+          },
+          {
+            "language": "Japanese",
+            "name": "Boom",
+            "multiverseid": 140840
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Boom",
+            "multiverseid": 140960
+          },
+          {
+            "language": "Russian",
+            "name": "Boom",
+            "multiverseid": 141080
+          },
+          {
+            "language": "Spanish",
+            "name": "Boom",
+            "multiverseid": 141200
+          }
+        ],
         "id": "c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae",
         "imageName": "boombust",
         "layout": "split",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Time Spiral Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{1}{R}",
         "mciNumber": "112a",
         "multiverseid": 126218,
@@ -1130,6 +3305,11 @@
           "Bust"
         ],
         "number": "112a",
+        "originalText": "Destroy target land you control and target land you don't control.\n//\nBust\n{5}{R}\nSorcery\nDestroy all lands.",
+        "originalType": "Sorcery",
+        "printings": [
+          "PLC"
+        ],
         "rarity": "Rare",
         "text": "Destroy target land you control and target land you don't control.",
         "type": "Sorcery",
@@ -1146,9 +3326,73 @@
         "colors": [
           "Red"
         ],
+        "foreignNames": [
+          {
+            "language": "Chinese Simplified",
+            "name": "Bust",
+            "multiverseid": 141320
+          },
+          {
+            "language": "French",
+            "name": "Bust",
+            "multiverseid": 140360
+          },
+          {
+            "language": "German",
+            "name": "Bust",
+            "multiverseid": 140480
+          },
+          {
+            "language": "Italian",
+            "name": "Bust",
+            "multiverseid": 140600
+          },
+          {
+            "language": "Japanese",
+            "name": "Bust",
+            "multiverseid": 140840
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Bust",
+            "multiverseid": 140960
+          },
+          {
+            "language": "Russian",
+            "name": "Bust",
+            "multiverseid": 141080
+          },
+          {
+            "language": "Spanish",
+            "name": "Bust",
+            "multiverseid": 141200
+          }
+        ],
         "id": "2eecf5001fe332f5dadf4d87665bcf182c5f24ee",
         "imageName": "boombust",
         "layout": "split",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Time Spiral Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{5}{R}",
         "mciNumber": "112b",
         "multiverseid": 126218,
@@ -1158,6 +3402,11 @@
           "Bust"
         ],
         "number": "112b",
+        "originalText": "Destroy target land you control and target land you don't control.\n//\nBust\n{5}{R}\nSorcery\nDestroy all lands.",
+        "originalType": "Sorcery",
+        "printings": [
+          "PLC"
+        ],
         "rarity": "Rare",
         "text": "Destroy all lands.",
         "type": "Sorcery",
@@ -1187,14 +3436,86 @@
         "colors": [
           "Black"
         ],
+        "foreignNames": [
+          {
+            "language": "Chinese Simplified",
+            "name": "黑阳当空"
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "黑陽當空"
+          },
+          {
+            "language": "French",
+            "name": "Zénith de Noirsoleil"
+          },
+          {
+            "language": "German",
+            "name": "Zenit der Schwarzen Sonne"
+          },
+          {
+            "language": "Italian",
+            "name": "Zenit del Sole Nero"
+          },
+          {
+            "language": "Japanese",
+            "name": "黒の太陽の頂点"
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Zênite do Sol Negro"
+          },
+          {
+            "language": "Russian",
+            "name": "Зенит Черного Солнца"
+          },
+          {
+            "language": "Spanish",
+            "name": "Cenit del sol negro"
+          }
+        ],
         "id": "6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc",
         "imageName": "black sun's zenith",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Scars of Mirrodin Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{X}{B}{B}",
         "mciNumber": "7",
         "name": "Black Sun's Zenith",
         "number": "7",
+        "printings": [
+          "pMGD",
+          "MBS",
+          "C14"
+        ],
         "rarity": "Special",
+        "rulings": [
+          {
+            "date": "2011-06-01",
+            "text": "If this spell is countered, none of its effects occur. In particular, it will go to the graveyard rather than to its owner's library."
+          }
+        ],
+        "source": "Mirrodin Besieged",
         "text": "Put X -1/-1 counters on each creature. Shuffle Black Sun's Zenith into its owner's library.",
         "type": "Sorcery",
         "types": [
@@ -1216,13 +3537,72 @@
     "cards": [
       {
         "artist": "James Paick",
+        "foreignNames": [
+          {
+            "language": "French",
+            "name": "Académie de l'Ouest de Tolaria",
+            "multiverseid": 211853
+          },
+          {
+            "language": "German",
+            "name": "Akademie von West-Tolaria",
+            "multiverseid": 211763
+          },
+          {
+            "language": "Italian",
+            "name": "Accademia di Tolaria Occidentale",
+            "multiverseid": 211808
+          },
+          {
+            "language": "Japanese",
+            "name": "トレイリア西部のアカデミー",
+            "multiverseid": 211943
+          },
+          {
+            "language": "Spanish",
+            "name": "Academia en Tolaria Oeste",
+            "multiverseid": 211898
+          }
+        ],
         "id": "e5e0a663b682507c2f0c057ceb60f623337d8633",
         "imageName": "academy at tolaria west",
         "layout": "plane",
         "multiverseid": 198073,
         "name": "Academy at Tolaria West",
         "number": "1",
+        "originalText": "At the beginning of your end step, if you have no cards in hand, draw seven cards.\nWhenever you roll {C}, discard your hand.",
+        "originalType": "Plane — Dominaria",
+        "printings": [
+          "HOP",
+          "PCA"
+        ],
         "rarity": "Common",
+        "rulings": [
+          {
+            "date": "2009-10-01",
+            "text": "A plane card is treated as if its text box included \"When you roll {PW}, put this card on the bottom of its owner's planar deck face down, then move the top card of your planar deck off that planar deck and turn it face up.\" This is called the \"planeswalking ability.\""
+          },
+          {
+            "date": "2009-10-01",
+            "text": "A face-up plane card that's turned face down becomes a new object with no relation to its previous existence. In particular, it loses all counters it may have had."
+          },
+          {
+            "date": "2009-10-01",
+            "text": "The controller of a face-up plane card is the player designated as the \"planar controller.\" Normally, the planar controller is whoever the active player is. However, if the current planar controller would leave the game, instead the next player in turn order that wouldn't leave the game becomes the planar controller, then the old planar controller leaves the game. The new planar controller retains that designation until he or she leaves the game or a different player becomes the active player, whichever comes first."
+          },
+          {
+            "date": "2009-10-01",
+            "text": "If an ability of a plane refers to \"you,\" it's referring to whoever the plane's controller is at the time, not to the player that started the game with that plane card in his or her deck. Many abilities of plane cards affect all players, while many others affect only the planar controller, so read each ability carefully."
+          },
+          {
+            "date": "2009-10-01",
+            "text": "Academy at Tolaria West's first ability has an \"intervening 'if' clause.\" That means (1) the ability won't trigger at all unless you have no cards in hand as your end step begins, and (2) the ability will do nothing unless you have no cards in hand by the time it resolves."
+          },
+          {
+            "date": "2009-10-01",
+            "text": "If you discard your hand as a result of rolling {CHAOS}, Academy at Tolaria West's first ability will then trigger at the beginning of your end step (unless you planeswalk or somehow put a card in your hand before then)."
+          }
+        ],
         "subtypes": [
           "Dominaria"
         ],
@@ -1245,12 +3625,44 @@
         "id": "e0f9ef8a8c40d81268545f1a7a89652994d57592",
         "imageName": "akroma's vengeance",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Onslaught Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{4}{W}{W}",
         "mciNumber": "1",
         "multiverseid": 205366,
         "name": "Akroma's Vengeance",
         "number": "1",
+        "originalText": "Destroy all artifacts, creatures, and enchantments.\nCycling {3} ({3}, Discard this card: Draw a card.)",
+        "originalType": "Sorcery",
+        "printings": [
+          "ONS",
+          "HOP",
+          "CMD",
+          "V13"
+        ],
         "rarity": "Rare",
+        "rulings": [
+          {
+            "date": "2008-10-01",
+            "text": "Cycling is an activated ability. Effects that interact with activated abilities (such as Stifle or Rings of Brighthearth) will interact with cycling. Effects that interact with spells (such as Remove Soul or Faerie Tauntings) will not."
+          }
+        ],
         "text": "Destroy all artifacts, creatures, and enchantments.\nCycling {3} ({3}, Discard this card: Draw a card.)",
         "type": "Sorcery",
         "types": [
@@ -1270,11 +3682,77 @@
         "id": "19c38ff78c0e98b38f3bd8184478e22152d9a624",
         "imageName": "dark ritual",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Ice Age Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Masques Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Mirage Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Tempest Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Urza Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{B}",
         "mciNumber": "24",
         "multiverseid": 205422,
         "name": "Dark Ritual",
         "number": "24",
+        "originalText": "Add {B}{B}{B} to your mana pool.",
+        "originalType": "Instant",
+        "printings": [
+          "LEA",
+          "LEB",
+          "2ED",
+          "CED",
+          "CEI",
+          "3ED",
+          "4ED",
+          "ICE",
+          "RQS",
+          "MIR",
+          "ITP",
+          "5ED",
+          "TMP",
+          "pJGP",
+          "USG",
+          "MMQ",
+          "BRB",
+          "BTD",
+          "DKM",
+          "CST",
+          "DDC",
+          "HOP",
+          "DDE",
+          "ME4",
+          "V13",
+          "VMA",
+          "DD3_DVD",
+          "TPR"
+        ],
         "rarity": "Common",
         "text": "Add {B}{B}{B} to your mana pool.",
         "type": "Instant",
@@ -1297,12 +3775,44 @@
       {
         "artist": "Nic Klein",
         "flavor": "\"Take a moment. Ponder the depths of your insignificance.\"",
+        "foreignNames": [
+          {
+            "language": "French",
+            "name": "Toute chose en son temps",
+            "multiverseid": 235062
+          },
+          {
+            "language": "German",
+            "name": "Alles zu seiner Zeit",
+            "multiverseid": 234912
+          },
+          {
+            "language": "Italian",
+            "name": "Tutto a Suo Tempo",
+            "multiverseid": 234862
+          },
+          {
+            "language": "Japanese",
+            "name": "全ては成されるべきもの",
+            "multiverseid": 234962
+          },
+          {
+            "language": "Spanish",
+            "name": "Cada cosa a su tiempo",
+            "multiverseid": 235012
+          }
+        ],
         "id": "0ac51bc6b0c720032a90016360e404b30705f47e",
         "imageName": "all in good time",
         "layout": "scheme",
         "multiverseid": 212648,
         "name": "All in Good Time",
         "number": "1",
+        "originalText": "When you set this scheme in motion, take an extra turn after this one. Schemes can't be set in motion that turn.",
+        "originalType": "Scheme",
+        "printings": [
+          "ARC"
+        ],
         "rarity": "Common",
         "text": "When you set this scheme in motion, take an extra turn after this one. Schemes can't be set in motion that turn.",
         "type": "Scheme",
@@ -1323,12 +3833,40 @@
         "id": "983e8f0c10c56bbac44b860e1fb90e7683e03aa6",
         "imageName": "leonin abunas",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Mirrodin Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{3}{W}",
         "mciNumber": "1",
         "multiverseid": 220527,
         "name": "Leonin Abunas",
         "number": "1",
+        "originalText": "Artifacts you control can't be the targets of spells or abilities your opponents control.",
+        "originalType": "Creature — Cat Cleric",
         "power": "2",
+        "printings": [
+          "MRD",
+          "ARC"
+        ],
         "rarity": "Rare",
         "subtypes": [
           "Cat",
@@ -1398,9 +3936,78 @@
         "colors": [
           "Blue"
         ],
+        "foreignNames": [
+          {
+            "language": "Chinese Simplified",
+            "name": "掘密师",
+            "multiverseid": 272101
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "掘密師",
+            "multiverseid": 272385
+          },
+          {
+            "language": "French",
+            "name": "Sondeur de secrets",
+            "multiverseid": 272953
+          },
+          {
+            "language": "German",
+            "name": "Geheimnisstöberer",
+            "multiverseid": 273521
+          },
+          {
+            "language": "Italian",
+            "name": "Scopritore di Segreti",
+            "multiverseid": 274089
+          },
+          {
+            "language": "Japanese",
+            "name": "秘密を掘り下げる者",
+            "multiverseid": 274373
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Investigador de Segredos",
+            "multiverseid": 272669
+          },
+          {
+            "language": "Russian",
+            "name": "Разыскиватель Тайн",
+            "multiverseid": 273237
+          },
+          {
+            "language": "Spanish",
+            "name": "Indagador de secretos",
+            "multiverseid": 273805
+          }
+        ],
         "id": "0b06d8d9e7662ada82bd29e1138d959978ba2280",
         "imageName": "delver of secrets",
         "layout": "double-faced",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Innistrad Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{U}",
         "mciNumber": "51a",
         "multiverseid": 226749,
@@ -1410,8 +4017,23 @@
           "Insectile Aberration"
         ],
         "number": "51a",
+        "originalText": "At the beginning of your upkeep, look at the top card of your library. You may reveal that card. If an instant or sorcery card is revealed this way, transform Delver of Secrets.",
+        "originalType": "Creature — Human Wizard",
         "power": "1",
+        "printings": [
+          "ISD"
+        ],
         "rarity": "Common",
+        "rulings": [
+          {
+            "date": "2011-09-22",
+            "text": "You may reveal the card even if it's not an instant or sorcery. Whether or not you reveal it, the card stays on top of your library."
+          },
+          {
+            "date": "2016-07-13",
+            "text": "For more information on double-faced cards, see the Shadows over Innistrad mechanics article (http://magic.wizards.com/en/articles/archive/feature/shadows-over-innistrad-mechanics)."
+          }
+        ],
         "subtypes": [
           "Human",
           "Wizard"
@@ -1433,9 +4055,78 @@
           "Blue"
         ],
         "flavor": "\"Unfortunately, all my test animals have died or escaped, so I shall be the final subject. I feel no fear. This is a momentous night.\"\n—Laboratory notes, final entry",
+        "foreignNames": [
+          {
+            "language": "Chinese Simplified",
+            "name": "昆虫变体",
+            "multiverseid": 272104
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "昆蟲變體",
+            "multiverseid": 272388
+          },
+          {
+            "language": "French",
+            "name": "Aberration insectoïde",
+            "multiverseid": 272956
+          },
+          {
+            "language": "German",
+            "name": "Insekten-Scheußlichkeit",
+            "multiverseid": 273524
+          },
+          {
+            "language": "Italian",
+            "name": "Insetto Aberrante",
+            "multiverseid": 274092
+          },
+          {
+            "language": "Japanese",
+            "name": "昆虫の逸脱者",
+            "multiverseid": 274376
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Aberração Insetídea",
+            "multiverseid": 272672
+          },
+          {
+            "language": "Russian",
+            "name": "Насекомовидная Тварь",
+            "multiverseid": 273240
+          },
+          {
+            "language": "Spanish",
+            "name": "Aberración insectoide",
+            "multiverseid": 273808
+          }
+        ],
         "id": "e5c4aa9a443c346ccbf8d99c9320138827065e05",
         "imageName": "insectile aberration",
         "layout": "double-faced",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Innistrad Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "mciNumber": "51b",
         "multiverseid": 226755,
         "name": "Insectile Aberration",
@@ -1444,7 +4135,12 @@
           "Insectile Aberration"
         ],
         "number": "51b",
+        "originalText": "Flying",
+        "originalType": "Creature — Human Insect",
         "power": "3",
+        "printings": [
+          "ISD"
+        ],
         "rarity": "Common",
         "subtypes": [
           "Human",
@@ -1467,16 +4163,97 @@
           "Black"
         ],
         "flavor": "Death took his humanity but not his skill with the knife.",
+        "foreignNames": [
+          {
+            "language": "Chinese Simplified",
+            "name": "屠宰场食尸鬼",
+            "multiverseid": 272092
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "屠宰場食屍鬼",
+            "multiverseid": 272376
+          },
+          {
+            "language": "French",
+            "name": "Goule de l'abattoir",
+            "multiverseid": 272944
+          },
+          {
+            "language": "German",
+            "name": "Schlachthaus-Ghul",
+            "multiverseid": 273512
+          },
+          {
+            "language": "Italian",
+            "name": "Ghoul del Mattatoio",
+            "multiverseid": 274080
+          },
+          {
+            "language": "Japanese",
+            "name": "肉切り屋のグール",
+            "multiverseid": 274364
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Carniçal Abatedor",
+            "multiverseid": 272660
+          },
+          {
+            "language": "Russian",
+            "name": "Скотобойный Упырь",
+            "multiverseid": 273228
+          },
+          {
+            "language": "Spanish",
+            "name": "Necrófago del matadero",
+            "multiverseid": 273796
+          }
+        ],
         "id": "958ae1416f8f6287115ccd7c5c61f2415a313546",
         "imageName": "abattoir ghoul",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Innistrad Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{3}{B}",
         "mciNumber": "85",
         "multiverseid": 222911,
         "name": "Abattoir Ghoul",
         "number": "85",
+        "originalText": "First strike\nWhenever a creature dealt damage by Abattoir Ghoul this turn dies, you gain life equal to that creature's toughness.",
+        "originalType": "Creature — Zombie",
         "power": "3",
+        "printings": [
+          "ISD",
+          "DDQ"
+        ],
         "rarity": "Uncommon",
+        "rulings": [
+          {
+            "date": "2011-09-22",
+            "text": "You'll gain life equal to the creature's last known toughness before it died. For example, if Abattoir Ghoul deals 3 first-strike damage to a 7/7 creature and then you give the creature -5/-5 before the regular combat damage step, you'll gain 2 life."
+          }
+        ],
         "subtypes": [
           "Zombie"
         ],
@@ -1492,12 +4269,357 @@
         "colorIdentity": [
           "G"
         ],
+        "foreignNames": [
+          {
+            "language": "Chinese Simplified",
+            "name": "树林",
+            "multiverseid": 272256
+          },
+          {
+            "language": "Chinese Simplified",
+            "name": "树林",
+            "multiverseid": 272257
+          },
+          {
+            "language": "Chinese Simplified",
+            "name": "树林",
+            "multiverseid": 272258
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "樹林",
+            "multiverseid": 272540
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "樹林",
+            "multiverseid": 272541
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "樹林",
+            "multiverseid": 272542
+          },
+          {
+            "language": "French",
+            "name": "Forêt",
+            "multiverseid": 273110
+          },
+          {
+            "language": "German",
+            "name": "Wald",
+            "multiverseid": 273676
+          },
+          {
+            "language": "German",
+            "name": "Wald",
+            "multiverseid": 273677
+          },
+          {
+            "language": "German",
+            "name": "Wald",
+            "multiverseid": 273678
+          },
+          {
+            "language": "Italian",
+            "name": "Foresta",
+            "multiverseid": 274244
+          },
+          {
+            "language": "Italian",
+            "name": "Foresta",
+            "multiverseid": 274245
+          },
+          {
+            "language": "Italian",
+            "name": "Foresta",
+            "multiverseid": 274246
+          },
+          {
+            "language": "Japanese",
+            "name": "森",
+            "multiverseid": 274528
+          },
+          {
+            "language": "Japanese",
+            "name": "森",
+            "multiverseid": 274529
+          },
+          {
+            "language": "Japanese",
+            "name": "森",
+            "multiverseid": 274530
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Floresta",
+            "multiverseid": 272824
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Floresta",
+            "multiverseid": 272825
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Floresta",
+            "multiverseid": 272826
+          },
+          {
+            "language": "Russian",
+            "name": "Лес",
+            "multiverseid": 273392
+          },
+          {
+            "language": "Russian",
+            "name": "Лес",
+            "multiverseid": 273393
+          },
+          {
+            "language": "Russian",
+            "name": "Лес",
+            "multiverseid": 273394
+          },
+          {
+            "language": "Spanish",
+            "name": "Bosque",
+            "multiverseid": 273960
+          },
+          {
+            "language": "Spanish",
+            "name": "Bosque",
+            "multiverseid": 273961
+          },
+          {
+            "language": "Spanish",
+            "name": "Bosque",
+            "multiverseid": 273962
+          }
+        ],
         "id": "e9abef8533c9ce6549147232c5fceff75ffb460a",
         "imageName": "forest1",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Battle for Zendikar Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Ice Age Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Innistrad Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Invasion Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Kaladesh Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Kamigawa Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Khans of Tarkir Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Lorwyn-Shadowmoor Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Masques Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Mirage Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Mirrodin Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Odyssey Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Onslaught Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Ravnica Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Return to Ravnica Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Scars of Mirrodin Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Shadows over Innistrad Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Shards of Alara Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Standard",
+            "legality": "Legal"
+          },
+          {
+            "format": "Tempest Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Theros Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Time Spiral Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Un-Sets",
+            "legality": "Legal"
+          },
+          {
+            "format": "Urza Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          },
+          {
+            "format": "Zendikar Block",
+            "legality": "Legal"
+          }
+        ],
         "multiverseid": 245247,
         "name": "Forest",
         "number": "262",
+        "originalText": "G",
+        "originalType": "Basic Land — Forest",
+        "printings": [
+          "LEA",
+          "LEB",
+          "2ED",
+          "CED",
+          "CEI",
+          "3ED",
+          "4ED",
+          "ICE",
+          "RQS",
+          "pARL",
+          "MIR",
+          "ITP",
+          "5ED",
+          "POR",
+          "TMP",
+          "pJGP",
+          "PO2",
+          "UGL",
+          "pALP",
+          "USG",
+          "ATH",
+          "6ED",
+          "PTK",
+          "S99",
+          "pGRU",
+          "MMQ",
+          "BRB",
+          "pELP",
+          "S00",
+          "BTD",
+          "INV",
+          "7ED",
+          "ODY",
+          "DKM",
+          "ONS",
+          "8ED",
+          "MRD",
+          "CHK",
+          "UNH",
+          "9ED",
+          "RAV",
+          "CST",
+          "TSP",
+          "10E",
+          "MED",
+          "LRW",
+          "EVG",
+          "SHM",
+          "ALA",
+          "M10",
+          "HOP",
+          "ME3",
+          "ZEN",
+          "DDD",
+          "H09",
+          "DDE",
+          "ROE",
+          "DPA",
+          "ARC",
+          "M11",
+          "SOM",
+          "MBS",
+          "DDG",
+          "NPH",
+          "CMD",
+          "M12",
+          "DDH",
+          "ISD",
+          "AVR",
+          "PC2",
+          "M13",
+          "DDJ",
+          "RTR",
+          "M14",
+          "DDL",
+          "THS",
+          "C13",
+          "DDM",
+          "M15",
+          "KTK",
+          "C14",
+          "DD3_EVG",
+          "DD3_GVL",
+          "FRF",
+          "DDO",
+          "DTK",
+          "TPR",
+          "ORI",
+          "DDP",
+          "BFZ",
+          "C15",
+          "SOI",
+          "DDR",
+          "KLD",
+          "C16",
+          "PCA"
+        ],
         "rarity": "Basic Land",
         "subtypes": [
           "Forest"
@@ -1519,12 +4641,357 @@
         "colorIdentity": [
           "G"
         ],
+        "foreignNames": [
+          {
+            "language": "Chinese Simplified",
+            "name": "树林",
+            "multiverseid": 272256
+          },
+          {
+            "language": "Chinese Simplified",
+            "name": "树林",
+            "multiverseid": 272257
+          },
+          {
+            "language": "Chinese Simplified",
+            "name": "树林",
+            "multiverseid": 272258
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "樹林",
+            "multiverseid": 272540
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "樹林",
+            "multiverseid": 272541
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "樹林",
+            "multiverseid": 272542
+          },
+          {
+            "language": "French",
+            "name": "Forêt",
+            "multiverseid": 273110
+          },
+          {
+            "language": "German",
+            "name": "Wald",
+            "multiverseid": 273676
+          },
+          {
+            "language": "German",
+            "name": "Wald",
+            "multiverseid": 273677
+          },
+          {
+            "language": "German",
+            "name": "Wald",
+            "multiverseid": 273678
+          },
+          {
+            "language": "Italian",
+            "name": "Foresta",
+            "multiverseid": 274244
+          },
+          {
+            "language": "Italian",
+            "name": "Foresta",
+            "multiverseid": 274245
+          },
+          {
+            "language": "Italian",
+            "name": "Foresta",
+            "multiverseid": 274246
+          },
+          {
+            "language": "Japanese",
+            "name": "森",
+            "multiverseid": 274528
+          },
+          {
+            "language": "Japanese",
+            "name": "森",
+            "multiverseid": 274529
+          },
+          {
+            "language": "Japanese",
+            "name": "森",
+            "multiverseid": 274530
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Floresta",
+            "multiverseid": 272824
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Floresta",
+            "multiverseid": 272825
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Floresta",
+            "multiverseid": 272826
+          },
+          {
+            "language": "Russian",
+            "name": "Лес",
+            "multiverseid": 273392
+          },
+          {
+            "language": "Russian",
+            "name": "Лес",
+            "multiverseid": 273393
+          },
+          {
+            "language": "Russian",
+            "name": "Лес",
+            "multiverseid": 273394
+          },
+          {
+            "language": "Spanish",
+            "name": "Bosque",
+            "multiverseid": 273960
+          },
+          {
+            "language": "Spanish",
+            "name": "Bosque",
+            "multiverseid": 273961
+          },
+          {
+            "language": "Spanish",
+            "name": "Bosque",
+            "multiverseid": 273962
+          }
+        ],
         "id": "3c509643d7f7827b2debf968c05cb800cb772360",
         "imageName": "forest2",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Battle for Zendikar Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Ice Age Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Innistrad Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Invasion Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Kaladesh Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Kamigawa Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Khans of Tarkir Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Lorwyn-Shadowmoor Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Masques Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Mirage Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Mirrodin Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Odyssey Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Onslaught Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Ravnica Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Return to Ravnica Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Scars of Mirrodin Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Shadows over Innistrad Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Shards of Alara Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Standard",
+            "legality": "Legal"
+          },
+          {
+            "format": "Tempest Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Theros Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Time Spiral Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Un-Sets",
+            "legality": "Legal"
+          },
+          {
+            "format": "Urza Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          },
+          {
+            "format": "Zendikar Block",
+            "legality": "Legal"
+          }
+        ],
         "multiverseid": 245248,
         "name": "Forest",
         "number": "263",
+        "originalText": "G",
+        "originalType": "Basic Land — Forest",
+        "printings": [
+          "LEA",
+          "LEB",
+          "2ED",
+          "CED",
+          "CEI",
+          "3ED",
+          "4ED",
+          "ICE",
+          "RQS",
+          "pARL",
+          "MIR",
+          "ITP",
+          "5ED",
+          "POR",
+          "TMP",
+          "pJGP",
+          "PO2",
+          "UGL",
+          "pALP",
+          "USG",
+          "ATH",
+          "6ED",
+          "PTK",
+          "S99",
+          "pGRU",
+          "MMQ",
+          "BRB",
+          "pELP",
+          "S00",
+          "BTD",
+          "INV",
+          "7ED",
+          "ODY",
+          "DKM",
+          "ONS",
+          "8ED",
+          "MRD",
+          "CHK",
+          "UNH",
+          "9ED",
+          "RAV",
+          "CST",
+          "TSP",
+          "10E",
+          "MED",
+          "LRW",
+          "EVG",
+          "SHM",
+          "ALA",
+          "M10",
+          "HOP",
+          "ME3",
+          "ZEN",
+          "DDD",
+          "H09",
+          "DDE",
+          "ROE",
+          "DPA",
+          "ARC",
+          "M11",
+          "SOM",
+          "MBS",
+          "DDG",
+          "NPH",
+          "CMD",
+          "M12",
+          "DDH",
+          "ISD",
+          "AVR",
+          "PC2",
+          "M13",
+          "DDJ",
+          "RTR",
+          "M14",
+          "DDL",
+          "THS",
+          "C13",
+          "DDM",
+          "M15",
+          "KTK",
+          "C14",
+          "DD3_EVG",
+          "DD3_GVL",
+          "FRF",
+          "DDO",
+          "DTK",
+          "TPR",
+          "ORI",
+          "DDP",
+          "BFZ",
+          "C15",
+          "SOI",
+          "DDR",
+          "KLD",
+          "C16",
+          "PCA"
+        ],
         "rarity": "Basic Land",
         "subtypes": [
           "Forest"
@@ -1546,12 +5013,357 @@
         "colorIdentity": [
           "G"
         ],
+        "foreignNames": [
+          {
+            "language": "Chinese Simplified",
+            "name": "树林",
+            "multiverseid": 272256
+          },
+          {
+            "language": "Chinese Simplified",
+            "name": "树林",
+            "multiverseid": 272257
+          },
+          {
+            "language": "Chinese Simplified",
+            "name": "树林",
+            "multiverseid": 272258
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "樹林",
+            "multiverseid": 272540
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "樹林",
+            "multiverseid": 272541
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "樹林",
+            "multiverseid": 272542
+          },
+          {
+            "language": "French",
+            "name": "Forêt",
+            "multiverseid": 273110
+          },
+          {
+            "language": "German",
+            "name": "Wald",
+            "multiverseid": 273676
+          },
+          {
+            "language": "German",
+            "name": "Wald",
+            "multiverseid": 273677
+          },
+          {
+            "language": "German",
+            "name": "Wald",
+            "multiverseid": 273678
+          },
+          {
+            "language": "Italian",
+            "name": "Foresta",
+            "multiverseid": 274244
+          },
+          {
+            "language": "Italian",
+            "name": "Foresta",
+            "multiverseid": 274245
+          },
+          {
+            "language": "Italian",
+            "name": "Foresta",
+            "multiverseid": 274246
+          },
+          {
+            "language": "Japanese",
+            "name": "森",
+            "multiverseid": 274528
+          },
+          {
+            "language": "Japanese",
+            "name": "森",
+            "multiverseid": 274529
+          },
+          {
+            "language": "Japanese",
+            "name": "森",
+            "multiverseid": 274530
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Floresta",
+            "multiverseid": 272824
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Floresta",
+            "multiverseid": 272825
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Floresta",
+            "multiverseid": 272826
+          },
+          {
+            "language": "Russian",
+            "name": "Лес",
+            "multiverseid": 273392
+          },
+          {
+            "language": "Russian",
+            "name": "Лес",
+            "multiverseid": 273393
+          },
+          {
+            "language": "Russian",
+            "name": "Лес",
+            "multiverseid": 273394
+          },
+          {
+            "language": "Spanish",
+            "name": "Bosque",
+            "multiverseid": 273960
+          },
+          {
+            "language": "Spanish",
+            "name": "Bosque",
+            "multiverseid": 273961
+          },
+          {
+            "language": "Spanish",
+            "name": "Bosque",
+            "multiverseid": 273962
+          }
+        ],
         "id": "d5dbd9b201a515d119b424b3d7b06dcf30a5c675",
         "imageName": "forest3",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Battle for Zendikar Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Ice Age Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Innistrad Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Invasion Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Kaladesh Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Kamigawa Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Khans of Tarkir Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Lorwyn-Shadowmoor Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Masques Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Mirage Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Mirrodin Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Odyssey Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Onslaught Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Ravnica Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Return to Ravnica Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Scars of Mirrodin Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Shadows over Innistrad Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Shards of Alara Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Standard",
+            "legality": "Legal"
+          },
+          {
+            "format": "Tempest Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Theros Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Time Spiral Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Un-Sets",
+            "legality": "Legal"
+          },
+          {
+            "format": "Urza Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          },
+          {
+            "format": "Zendikar Block",
+            "legality": "Legal"
+          }
+        ],
         "multiverseid": 245246,
         "name": "Forest",
         "number": "264",
+        "originalText": "G",
+        "originalType": "Basic Land — Forest",
+        "printings": [
+          "LEA",
+          "LEB",
+          "2ED",
+          "CED",
+          "CEI",
+          "3ED",
+          "4ED",
+          "ICE",
+          "RQS",
+          "pARL",
+          "MIR",
+          "ITP",
+          "5ED",
+          "POR",
+          "TMP",
+          "pJGP",
+          "PO2",
+          "UGL",
+          "pALP",
+          "USG",
+          "ATH",
+          "6ED",
+          "PTK",
+          "S99",
+          "pGRU",
+          "MMQ",
+          "BRB",
+          "pELP",
+          "S00",
+          "BTD",
+          "INV",
+          "7ED",
+          "ODY",
+          "DKM",
+          "ONS",
+          "8ED",
+          "MRD",
+          "CHK",
+          "UNH",
+          "9ED",
+          "RAV",
+          "CST",
+          "TSP",
+          "10E",
+          "MED",
+          "LRW",
+          "EVG",
+          "SHM",
+          "ALA",
+          "M10",
+          "HOP",
+          "ME3",
+          "ZEN",
+          "DDD",
+          "H09",
+          "DDE",
+          "ROE",
+          "DPA",
+          "ARC",
+          "M11",
+          "SOM",
+          "MBS",
+          "DDG",
+          "NPH",
+          "CMD",
+          "M12",
+          "DDH",
+          "ISD",
+          "AVR",
+          "PC2",
+          "M13",
+          "DDJ",
+          "RTR",
+          "M14",
+          "DDL",
+          "THS",
+          "C13",
+          "DDM",
+          "M15",
+          "KTK",
+          "C14",
+          "DD3_EVG",
+          "DD3_GVL",
+          "FRF",
+          "DDO",
+          "DTK",
+          "TPR",
+          "ORI",
+          "DDP",
+          "BFZ",
+          "C15",
+          "SOI",
+          "DDR",
+          "KLD",
+          "C16",
+          "PCA"
+        ],
         "rarity": "Basic Land",
         "subtypes": [
           "Forest"
@@ -1589,13 +5401,56 @@
     "cards": [
       {
         "artist": "Dan Scott",
+        "foreignNames": [
+          {
+            "language": "French",
+            "name": "Æther chaotique",
+            "multiverseid": 288474
+          },
+          {
+            "language": "German",
+            "name": "Chaotischer Äther",
+            "multiverseid": 288515
+          },
+          {
+            "language": "Italian",
+            "name": "Etere Caotico",
+            "multiverseid": 288597
+          },
+          {
+            "language": "Japanese",
+            "name": "混沌の霊気",
+            "multiverseid": 288638
+          },
+          {
+            "language": "Spanish",
+            "name": "Éter caótico",
+            "multiverseid": 288556
+          }
+        ],
         "id": "c98cdec5d2201abe3411db460cb088b82945bb9e",
         "imageName": "chaotic aether",
         "layout": "phenomenon",
         "multiverseid": 226509,
         "name": "Chaotic Aether",
         "number": "1",
+        "originalText": "When you encounter Chaotic Æther, each blank roll of the planar die is a {C} roll until a player planeswalks away from a plane. (Then planeswalk away from this phenomenon.)",
+        "originalType": "Phenomenon",
+        "printings": [
+          "PC2",
+          "PCA"
+        ],
         "rarity": "Common",
+        "rulings": [
+          {
+            "date": "2012-06-01",
+            "text": "While Chaotic Aether's effect applies, rolling any blank face of the planar die will cause chaos abilities to trigger."
+          },
+          {
+            "date": "2012-06-01",
+            "text": "Planeswalking away from a phenomenon (as you do when resolving Chaotic Aether's ability) doesn't cause Chaotic Aether's effect to expire."
+          }
+        ],
         "text": "When you encounter Chaotic Aether, each blank roll of the planar die is a CHAOS roll until a player planeswalks away from a plane. (Then planeswalk away from this phenomenon.)",
         "type": "Phenomenon",
         "types": [
@@ -1612,15 +5467,64 @@
           "White"
         ],
         "flavor": "When an order for griffin barding comes in, blacksmiths prepare their forges for months of exacting work. They know griffins always detect imperfections and never haggle.",
+        "foreignNames": [
+          {
+            "language": "French",
+            "name": "Griffon cuirassé",
+            "multiverseid": 287803
+          },
+          {
+            "language": "German",
+            "name": "Gepanzerter Greif",
+            "multiverseid": 287959
+          },
+          {
+            "language": "Italian",
+            "name": "Grifone Corazzato",
+            "multiverseid": 288271
+          },
+          {
+            "language": "Japanese",
+            "name": "鎧のグリフィン",
+            "multiverseid": 288427
+          },
+          {
+            "language": "Spanish",
+            "name": "Grifo acorazado",
+            "multiverseid": 288115
+          }
+        ],
         "id": "149b5dbcdc895e66c8530a6adc0e16b9f3210ec6",
         "imageName": "armored griffin",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{3}{W}",
         "mciNumber": "1",
         "multiverseid": 271234,
         "name": "Armored Griffin",
         "number": "1",
+        "originalText": "Flying, vigilance",
+        "originalType": "Creature — Griffin",
         "power": "2",
+        "printings": [
+          "PO2",
+          "ME2",
+          "PC2",
+          "PCA"
+        ],
         "rarity": "Uncommon",
         "subtypes": [
           "Griffin"
@@ -1634,13 +5538,56 @@
       },
       {
         "artist": "Rob Alexander",
+        "foreignNames": [
+          {
+            "language": "French",
+            "name": "Akoum",
+            "multiverseid": 288476
+          },
+          {
+            "language": "German",
+            "name": "Akoum",
+            "multiverseid": 288517
+          },
+          {
+            "language": "Italian",
+            "name": "Akoum",
+            "multiverseid": 288599
+          },
+          {
+            "language": "Japanese",
+            "name": "アクーム",
+            "multiverseid": 288640
+          },
+          {
+            "language": "Spanish",
+            "name": "Akoum",
+            "multiverseid": 288558
+          }
+        ],
         "id": "987af3f421ec11e042ff1722e56a8d71b120feb9",
         "imageName": "akoum",
         "layout": "plane",
         "multiverseid": 226512,
         "name": "Akoum",
         "number": "9",
+        "originalText": "Players may cast enchantment cards as though they had flash.\nWhenever you roll {C}, destroy target creature that isn't enchanted.",
+        "originalType": "Plane — Zendikar",
+        "printings": [
+          "PC2",
+          "PCA"
+        ],
         "rarity": "Common",
+        "rulings": [
+          {
+            "date": "2012-06-01",
+            "text": "A creature that's enchanted can't be chosen as the target of the chaos ability."
+          },
+          {
+            "date": "2012-06-01",
+            "text": "If a creature that isn't enchanted is targeted by the chaos ability, but that creature is enchanted when that ability tries to resolve, the ability will be countered for having an illegal target."
+          }
+        ],
         "subtypes": [
           "Zendikar"
         ],
@@ -1652,12 +5599,45 @@
       },
       {
         "artist": "Steven Belledin",
+        "foreignNames": [
+          {
+            "language": "French",
+            "name": "Escalier vers l'Infini",
+            "multiverseid": 288483
+          },
+          {
+            "language": "German",
+            "name": "Treppen in die Unendlichkeit",
+            "multiverseid": 288524
+          },
+          {
+            "language": "Italian",
+            "name": "Scala per l'Infinito",
+            "multiverseid": 288606
+          },
+          {
+            "language": "Japanese",
+            "name": "無限への階段",
+            "multiverseid": 288647
+          },
+          {
+            "language": "Spanish",
+            "name": "Escaleras al infinito",
+            "multiverseid": 288565
+          }
+        ],
         "id": "72f22a825c3764f7131d7c255a8db6214c852ba9",
         "imageName": "stairs to infinity",
         "layout": "plane",
         "multiverseid": 226521,
         "name": "Stairs to Infinity",
         "number": "P1",
+        "originalText": "Players have no maximum hand size.\nWhenever you roll the planar die, draw a card.\nWhenever you roll {C}, reveal the top card of your planar deck. You may put it on the bottom of your planar deck.",
+        "originalType": "Plane — Xerex",
+        "printings": [
+          "PC2",
+          "PCA"
+        ],
         "rarity": "Rare",
         "subtypes": [
           "Xerex"
@@ -1717,12 +5697,42 @@
         "id": "fc46a4b72d216117a352f59217a84d0baeaaacb7",
         "imageName": "thallid",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Time Spiral Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{G}",
         "mciNumber": "167",
         "multiverseid": 370352,
         "name": "Thallid",
         "number": "167",
+        "originalText": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Put a 1/1 green Saproling creature token onto the battlefield.",
+        "originalType": "Creature — Fungus",
         "power": "1",
+        "printings": [
+          "FEM",
+          "TSB",
+          "ME2",
+          "MMA"
+        ],
         "rarity": "Common",
         "subtypes": [
           "Fungus"
@@ -1780,12 +5790,33 @@
         "id": "190abc553c4704e867f4331bfd47a6ba628f5b1e",
         "imageName": "academy elite",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{3}{U}",
         "mciNumber": "55",
         "multiverseid": 382835,
         "name": "Academy Elite",
         "number": "55",
+        "originalText": "Academy Elite enters the battlefield with X +1/+1 counters on it, where X is the number of instant and sorcery cards in all graveyards.\n{2}{U}, Remove a +1/+1 counter from Academy Elite: Draw a card, then discard a card.",
+        "originalType": "Creature — Human Wizard",
         "power": "0",
+        "printings": [
+          "CNS",
+          "VMA",
+          "C16"
+        ],
         "rarity": "Rare",
         "subtypes": [
           "Human",
@@ -1844,13 +5875,193 @@
     "cards": [
       {
         "artist": "Jason Felix",
+        "foreignNames": [
+          {
+            "language": "Chinese Traditional",
+            "name": "荒野",
+            "multiverseid": 408065
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "荒野",
+            "multiverseid": 408066
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "荒野",
+            "multiverseid": 408067
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "荒野",
+            "multiverseid": 408068
+          },
+          {
+            "language": "French",
+            "name": "Lande",
+            "multiverseid": 408437
+          },
+          {
+            "language": "French",
+            "name": "Lande",
+            "multiverseid": 408438
+          },
+          {
+            "language": "French",
+            "name": "Lande",
+            "multiverseid": 408439
+          },
+          {
+            "language": "French",
+            "name": "Lande",
+            "multiverseid": 408440
+          },
+          {
+            "language": "German",
+            "name": "Ödnis",
+            "multiverseid": 408251
+          },
+          {
+            "language": "German",
+            "name": "Ödnis",
+            "multiverseid": 408252
+          },
+          {
+            "language": "German",
+            "name": "Ödnis",
+            "multiverseid": 408253
+          },
+          {
+            "language": "German",
+            "name": "Ödnis",
+            "multiverseid": 408254
+          },
+          {
+            "language": "Italian",
+            "name": "Distesa",
+            "multiverseid": 408623
+          },
+          {
+            "language": "Italian",
+            "name": "Distesa",
+            "multiverseid": 408624
+          },
+          {
+            "language": "Italian",
+            "name": "Distesa",
+            "multiverseid": 408625
+          },
+          {
+            "language": "Italian",
+            "name": "Distesa",
+            "multiverseid": 408626
+          },
+          {
+            "language": "Japanese",
+            "name": "荒地",
+            "multiverseid": 408809
+          },
+          {
+            "language": "Japanese",
+            "name": "荒地",
+            "multiverseid": 408810
+          },
+          {
+            "language": "Japanese",
+            "name": "荒地",
+            "multiverseid": 408811
+          },
+          {
+            "language": "Japanese",
+            "name": "荒地",
+            "multiverseid": 408812
+          },
+          {
+            "language": "Korean",
+            "name": "불모지",
+            "multiverseid": 408995
+          },
+          {
+            "language": "Korean",
+            "name": "불모지",
+            "multiverseid": 408996
+          },
+          {
+            "language": "Korean",
+            "name": "불모지",
+            "multiverseid": 408997
+          },
+          {
+            "language": "Korean",
+            "name": "불모지",
+            "multiverseid": 408998
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Ermo",
+            "multiverseid": 409181
+          }
+        ],
         "id": "68d4ca6db1b4f92aa306627cefa3d02137e4fa10",
         "imageName": "wastes2",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Battle for Zendikar Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Standard",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "multiverseid": 407693,
         "name": "Wastes",
         "number": "183",
+        "originalText": "C",
+        "originalType": "Basic Land",
+        "printings": [
+          "OGW"
+        ],
         "rarity": "Basic Land",
+        "rulings": [
+          {
+            "date": "2016-01-22",
+            "text": "The mana ability of Wastes doesn't appear on the printed cards, but it is in its official Oracle text. (A card's Oracle text (in English) can be found using the Gatherer card database at Gatherer.Wizards.com.) The printed cards display a large colorless mana symbol in a design that's similar to other basic land cards."
+          },
+          {
+            "date": "2016-01-22",
+            "text": "Because Wastes is a basic land, you can include as many of them as you like in your Constructed decks."
+          },
+          {
+            "date": "2016-01-22",
+            "text": "In Limited events (including Sealed Deck and Booster Draft), Wastes must be in your card pool to be included in your deck. You can't add Wastes to your card pool in the same way that you can add other basic lands."
+          },
+          {
+            "date": "2016-01-22",
+            "text": "Wastes is not a land type. If something asks you to name a land type, you can't choose Wastes."
+          },
+          {
+            "date": "2016-01-22",
+            "text": "Similarly, colorless is not a color. If something asks you to choose a color, you can't choose colorless."
+          }
+        ],
         "supertypes": [
           "Basic"
         ],
@@ -1866,13 +6077,193 @@
       },
       {
         "artist": "Jason Felix",
+        "foreignNames": [
+          {
+            "language": "Chinese Traditional",
+            "name": "荒野",
+            "multiverseid": 408065
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "荒野",
+            "multiverseid": 408066
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "荒野",
+            "multiverseid": 408067
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "荒野",
+            "multiverseid": 408068
+          },
+          {
+            "language": "French",
+            "name": "Lande",
+            "multiverseid": 408437
+          },
+          {
+            "language": "French",
+            "name": "Lande",
+            "multiverseid": 408438
+          },
+          {
+            "language": "French",
+            "name": "Lande",
+            "multiverseid": 408439
+          },
+          {
+            "language": "French",
+            "name": "Lande",
+            "multiverseid": 408440
+          },
+          {
+            "language": "German",
+            "name": "Ödnis",
+            "multiverseid": 408251
+          },
+          {
+            "language": "German",
+            "name": "Ödnis",
+            "multiverseid": 408252
+          },
+          {
+            "language": "German",
+            "name": "Ödnis",
+            "multiverseid": 408253
+          },
+          {
+            "language": "German",
+            "name": "Ödnis",
+            "multiverseid": 408254
+          },
+          {
+            "language": "Italian",
+            "name": "Distesa",
+            "multiverseid": 408623
+          },
+          {
+            "language": "Italian",
+            "name": "Distesa",
+            "multiverseid": 408624
+          },
+          {
+            "language": "Italian",
+            "name": "Distesa",
+            "multiverseid": 408625
+          },
+          {
+            "language": "Italian",
+            "name": "Distesa",
+            "multiverseid": 408626
+          },
+          {
+            "language": "Japanese",
+            "name": "荒地",
+            "multiverseid": 408809
+          },
+          {
+            "language": "Japanese",
+            "name": "荒地",
+            "multiverseid": 408810
+          },
+          {
+            "language": "Japanese",
+            "name": "荒地",
+            "multiverseid": 408811
+          },
+          {
+            "language": "Japanese",
+            "name": "荒地",
+            "multiverseid": 408812
+          },
+          {
+            "language": "Korean",
+            "name": "불모지",
+            "multiverseid": 408995
+          },
+          {
+            "language": "Korean",
+            "name": "불모지",
+            "multiverseid": 408996
+          },
+          {
+            "language": "Korean",
+            "name": "불모지",
+            "multiverseid": 408997
+          },
+          {
+            "language": "Korean",
+            "name": "불모지",
+            "multiverseid": 408998
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Ermo",
+            "multiverseid": 409181
+          }
+        ],
         "id": "90a199d89b8723133c290be1c8fa99a13063fb05",
         "imageName": "wastes1",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Battle for Zendikar Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Standard",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "multiverseid": 407694,
         "name": "Wastes",
         "number": "183",
+        "originalText": "C",
+        "originalType": "Basic Land",
+        "printings": [
+          "OGW"
+        ],
         "rarity": "Basic Land",
+        "rulings": [
+          {
+            "date": "2016-01-22",
+            "text": "The mana ability of Wastes doesn't appear on the printed cards, but it is in its official Oracle text. (A card's Oracle text (in English) can be found using the Gatherer card database at Gatherer.Wizards.com.) The printed cards display a large colorless mana symbol in a design that's similar to other basic land cards."
+          },
+          {
+            "date": "2016-01-22",
+            "text": "Because Wastes is a basic land, you can include as many of them as you like in your Constructed decks."
+          },
+          {
+            "date": "2016-01-22",
+            "text": "In Limited events (including Sealed Deck and Booster Draft), Wastes must be in your card pool to be included in your deck. You can't add Wastes to your card pool in the same way that you can add other basic lands."
+          },
+          {
+            "date": "2016-01-22",
+            "text": "Wastes is not a land type. If something asks you to name a land type, you can't choose Wastes."
+          },
+          {
+            "date": "2016-01-22",
+            "text": "Similarly, colorless is not a color. If something asks you to choose a color, you can't choose colorless."
+          }
+        ],
         "supertypes": [
           "Basic"
         ],
@@ -1888,13 +6279,193 @@
       },
       {
         "artist": "Raymond Swanland",
+        "foreignNames": [
+          {
+            "language": "Chinese Traditional",
+            "name": "荒野",
+            "multiverseid": 408065
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "荒野",
+            "multiverseid": 408066
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "荒野",
+            "multiverseid": 408067
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "荒野",
+            "multiverseid": 408068
+          },
+          {
+            "language": "French",
+            "name": "Lande",
+            "multiverseid": 408437
+          },
+          {
+            "language": "French",
+            "name": "Lande",
+            "multiverseid": 408438
+          },
+          {
+            "language": "French",
+            "name": "Lande",
+            "multiverseid": 408439
+          },
+          {
+            "language": "French",
+            "name": "Lande",
+            "multiverseid": 408440
+          },
+          {
+            "language": "German",
+            "name": "Ödnis",
+            "multiverseid": 408251
+          },
+          {
+            "language": "German",
+            "name": "Ödnis",
+            "multiverseid": 408252
+          },
+          {
+            "language": "German",
+            "name": "Ödnis",
+            "multiverseid": 408253
+          },
+          {
+            "language": "German",
+            "name": "Ödnis",
+            "multiverseid": 408254
+          },
+          {
+            "language": "Italian",
+            "name": "Distesa",
+            "multiverseid": 408623
+          },
+          {
+            "language": "Italian",
+            "name": "Distesa",
+            "multiverseid": 408624
+          },
+          {
+            "language": "Italian",
+            "name": "Distesa",
+            "multiverseid": 408625
+          },
+          {
+            "language": "Italian",
+            "name": "Distesa",
+            "multiverseid": 408626
+          },
+          {
+            "language": "Japanese",
+            "name": "荒地",
+            "multiverseid": 408809
+          },
+          {
+            "language": "Japanese",
+            "name": "荒地",
+            "multiverseid": 408810
+          },
+          {
+            "language": "Japanese",
+            "name": "荒地",
+            "multiverseid": 408811
+          },
+          {
+            "language": "Japanese",
+            "name": "荒地",
+            "multiverseid": 408812
+          },
+          {
+            "language": "Korean",
+            "name": "불모지",
+            "multiverseid": 408995
+          },
+          {
+            "language": "Korean",
+            "name": "불모지",
+            "multiverseid": 408996
+          },
+          {
+            "language": "Korean",
+            "name": "불모지",
+            "multiverseid": 408997
+          },
+          {
+            "language": "Korean",
+            "name": "불모지",
+            "multiverseid": 408998
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Ermo",
+            "multiverseid": 409181
+          }
+        ],
         "id": "84e8fe1ff78f9f447c6870dfd80a354d687f230e",
         "imageName": "wastes4",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Battle for Zendikar Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Standard",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "multiverseid": 407695,
         "name": "Wastes",
         "number": "184",
+        "originalText": "C",
+        "originalType": "Basic Land",
+        "printings": [
+          "OGW"
+        ],
         "rarity": "Basic Land",
+        "rulings": [
+          {
+            "date": "2016-01-22",
+            "text": "The mana ability of Wastes doesn't appear on the printed cards, but it is in its official Oracle text. (A card's Oracle text (in English) can be found using the Gatherer card database at Gatherer.Wizards.com.) The printed cards display a large colorless mana symbol in a design that's similar to other basic land cards."
+          },
+          {
+            "date": "2016-01-22",
+            "text": "Because Wastes is a basic land, you can include as many of them as you like in your Constructed decks."
+          },
+          {
+            "date": "2016-01-22",
+            "text": "In Limited events (including Sealed Deck and Booster Draft), Wastes must be in your card pool to be included in your deck. You can't add Wastes to your card pool in the same way that you can add other basic lands."
+          },
+          {
+            "date": "2016-01-22",
+            "text": "Wastes is not a land type. If something asks you to name a land type, you can't choose Wastes."
+          },
+          {
+            "date": "2016-01-22",
+            "text": "Similarly, colorless is not a color. If something asks you to choose a color, you can't choose colorless."
+          }
+        ],
         "supertypes": [
           "Basic"
         ],
@@ -1910,13 +6481,193 @@
       },
       {
         "artist": "Raymond Swanland",
+        "foreignNames": [
+          {
+            "language": "Chinese Traditional",
+            "name": "荒野",
+            "multiverseid": 408065
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "荒野",
+            "multiverseid": 408066
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "荒野",
+            "multiverseid": 408067
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "荒野",
+            "multiverseid": 408068
+          },
+          {
+            "language": "French",
+            "name": "Lande",
+            "multiverseid": 408437
+          },
+          {
+            "language": "French",
+            "name": "Lande",
+            "multiverseid": 408438
+          },
+          {
+            "language": "French",
+            "name": "Lande",
+            "multiverseid": 408439
+          },
+          {
+            "language": "French",
+            "name": "Lande",
+            "multiverseid": 408440
+          },
+          {
+            "language": "German",
+            "name": "Ödnis",
+            "multiverseid": 408251
+          },
+          {
+            "language": "German",
+            "name": "Ödnis",
+            "multiverseid": 408252
+          },
+          {
+            "language": "German",
+            "name": "Ödnis",
+            "multiverseid": 408253
+          },
+          {
+            "language": "German",
+            "name": "Ödnis",
+            "multiverseid": 408254
+          },
+          {
+            "language": "Italian",
+            "name": "Distesa",
+            "multiverseid": 408623
+          },
+          {
+            "language": "Italian",
+            "name": "Distesa",
+            "multiverseid": 408624
+          },
+          {
+            "language": "Italian",
+            "name": "Distesa",
+            "multiverseid": 408625
+          },
+          {
+            "language": "Italian",
+            "name": "Distesa",
+            "multiverseid": 408626
+          },
+          {
+            "language": "Japanese",
+            "name": "荒地",
+            "multiverseid": 408809
+          },
+          {
+            "language": "Japanese",
+            "name": "荒地",
+            "multiverseid": 408810
+          },
+          {
+            "language": "Japanese",
+            "name": "荒地",
+            "multiverseid": 408811
+          },
+          {
+            "language": "Japanese",
+            "name": "荒地",
+            "multiverseid": 408812
+          },
+          {
+            "language": "Korean",
+            "name": "불모지",
+            "multiverseid": 408995
+          },
+          {
+            "language": "Korean",
+            "name": "불모지",
+            "multiverseid": 408996
+          },
+          {
+            "language": "Korean",
+            "name": "불모지",
+            "multiverseid": 408997
+          },
+          {
+            "language": "Korean",
+            "name": "불모지",
+            "multiverseid": 408998
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Ermo",
+            "multiverseid": 409181
+          }
+        ],
         "id": "9a1e2c33bbe0aed2a499e49036754b4e3aa5338d",
         "imageName": "wastes3",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Battle for Zendikar Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Standard",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "multiverseid": 407696,
         "name": "Wastes",
         "number": "184",
+        "originalText": "C",
+        "originalType": "Basic Land",
+        "printings": [
+          "OGW"
+        ],
         "rarity": "Basic Land",
+        "rulings": [
+          {
+            "date": "2016-01-22",
+            "text": "The mana ability of Wastes doesn't appear on the printed cards, but it is in its official Oracle text. (A card's Oracle text (in English) can be found using the Gatherer card database at Gatherer.Wizards.com.) The printed cards display a large colorless mana symbol in a design that's similar to other basic land cards."
+          },
+          {
+            "date": "2016-01-22",
+            "text": "Because Wastes is a basic land, you can include as many of them as you like in your Constructed decks."
+          },
+          {
+            "date": "2016-01-22",
+            "text": "In Limited events (including Sealed Deck and Booster Draft), Wastes must be in your card pool to be included in your deck. You can't add Wastes to your card pool in the same way that you can add other basic lands."
+          },
+          {
+            "date": "2016-01-22",
+            "text": "Wastes is not a land type. If something asks you to name a land type, you can't choose Wastes."
+          },
+          {
+            "date": "2016-01-22",
+            "text": "Similarly, colorless is not a color. If something asks you to choose a color, you can't choose colorless."
+          }
+        ],
         "supertypes": [
           "Basic"
         ],
@@ -1950,14 +6701,119 @@
           "White"
         ],
         "flavor": "Follow the light. In its absence, follow her.",
+        "foreignNames": [
+          {
+            "language": "Chinese Simplified",
+            "name": "撒拉天使",
+            "multiverseid": 413385
+          },
+          {
+            "language": "Chinese Traditional",
+            "name": "撒拉天使",
+            "multiverseid": 413401
+          },
+          {
+            "language": "French",
+            "name": "Ange de Serra",
+            "multiverseid": 413433
+          },
+          {
+            "language": "German",
+            "name": "Serra-Engel",
+            "multiverseid": 413417
+          },
+          {
+            "language": "Italian",
+            "name": "Angelo di Serra",
+            "multiverseid": 413449
+          },
+          {
+            "language": "Japanese",
+            "name": "セラの天使",
+            "multiverseid": 413465
+          },
+          {
+            "language": "Korean",
+            "name": "세라 천사",
+            "multiverseid": 413481
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Anjo Serra",
+            "multiverseid": 413497
+          },
+          {
+            "language": "Russian",
+            "name": "Ангел Серры",
+            "multiverseid": 413513
+          },
+          {
+            "language": "Spanish",
+            "name": "Ángel de Serra",
+            "multiverseid": 413529
+          }
+        ],
         "id": "314a32321963b35da12564f69d262c5a58008370",
         "imageName": "serra angel",
         "layout": "normal",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Standard",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
         "manaCost": "{3}{W}{W}",
         "multiverseid": 413369,
         "name": "Serra Angel",
         "number": "3",
+        "originalText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nVigilance (Attacking doesn't cause this creature to tap.)",
+        "originalType": "Creature — Angel",
         "power": "4",
+        "printings": [
+          "LEA",
+          "LEB",
+          "2ED",
+          "CED",
+          "CEI",
+          "3ED",
+          "4ED",
+          "ATH",
+          "pWOS",
+          "7ED",
+          "8ED",
+          "9ED",
+          "10E",
+          "DDC",
+          "M10",
+          "M11",
+          "ME4",
+          "CMD",
+          "M12",
+          "M13",
+          "M14",
+          "M15",
+          "DD3_DVD",
+          "ORI",
+          "V15",
+          "W16",
+          "EMA"
+        ],
         "rarity": "Uncommon",
         "starter": true,
         "subtypes": [
