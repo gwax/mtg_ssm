@@ -66,8 +66,12 @@ class CardDb:
 
     def rebuild_indexes(self):
         """Rebuild the printing indexes."""
-        self.cards = list(self.name_to_card.values())
-        self.card_sets = list(self.code_to_card_set.values())
+        self.cards = sorted(
+            self.name_to_card.values(),
+            key=lambda card: card.name)
+        self.card_sets = sorted(
+            self.code_to_card_set.values(),
+            key=lambda cset: cset.release_date)
 
         self.set_code_to_printings = collections.defaultdict(list)
         self.card_name_to_printings = collections.defaultdict(list)
@@ -86,10 +90,6 @@ class CardDb:
             }
             for key in snnm_index_keys:
                 self.set_name_num_mv_to_printings[key].append(printing)
-
-        # Sort indexes
-        self.cards.sort(key=lambda card: card.name)
-        self.card_sets.sort(key=lambda cset: cset.release_date)
 
         for printings in self.set_code_to_printings.values():
             printings.sort(key=set_code_to_printings_key)

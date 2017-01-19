@@ -9,7 +9,6 @@ import zipfile
 import requests
 import requests.exceptions
 
-
 MTGJSON_ADDRESS = 'http://mtgjson.com/json/'
 VERSION_FILENAME = 'version-full.json'
 ALLSETS_FILENAME = 'AllSets-x.json.zip'

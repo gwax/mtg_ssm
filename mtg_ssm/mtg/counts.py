@@ -48,8 +48,7 @@ class CountTypes(enum.Enum):
 
 def new_print_counts() -> Mapping[str, Mapping[CountTypes, int]]:
     """Get an appropriate defaultdict set up for use ase print counts."""
-    return collections.defaultdict(
-        lambda: collections.defaultdict(int))
+    return collections.defaultdict(collections.Counter)
 
 
 def find_printing(cdb, set_code, name, set_number, multiverseid, strict=True):
@@ -125,12 +124,11 @@ def aggregate_print_counts(cdb, card_rows, strict):
 
 def merge_print_counts(*print_counts_args):
     """Merge two sets of print_counts."""
-    print_counts = new_print_counts()
-    for in_print_counts in print_counts_args:
-        for print_id, counts in in_print_counts.items():
-            for key, value in counts.items():
-                print_counts[print_id][key] += value
-    return print_counts
+    merged_counts = new_print_counts()
+    for print_counts in print_counts_args:
+        for print_id, counts in print_counts.items():
+            merged_counts[print_id].update(counts)
+    return merged_counts
 
 
 def diff_print_counts(left, right):

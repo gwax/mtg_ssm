@@ -45,6 +45,10 @@ CLASSIFIERS = [
     'Topic :: Games/Entertainment',
 ]
 
+EXTRAS = {
+    'lxml': 'lxml>=3.7.2',
+}
+
 setuptools.setup(
     name='mtg_ssm',
     version=__version__,
@@ -61,6 +65,7 @@ setuptools.setup(
     install_requires=DEPENDENCIES,
     setup_requires=SETUP_DEPENDENCIES,
     tests_require=TEST_DEPENDENCIES,
+    extras_require=EXTRAS,
     entry_points={
         'console_scripts': [
             'mtg-ssm = mtg_ssm.ssm:main',
