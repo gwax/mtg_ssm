@@ -2613,9 +2613,107 @@
             "multiverseid": 87042
           }
         ],
+        "id": "5933bb74b618a4e4f61eb4b5b55b416c11affd11",
+        "imageName": "bushi tenderfoot",
+        "layout": "flip",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Legal"
+          },
+          {
+            "format": "Kamigawa Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
+        "manaCost": "{W}",
+        "mciNumber": "2a",
+        "multiverseid": 78600,
+        "name": "Bushi Tenderfoot",
+        "names": [
+          "Bushi Tenderfoot",
+          "Kenzo the Hardhearted"
+        ],
+        "number": "2a",
+        "originalText": "When a creature dealt damage by Bushi Tenderfoot this turn is put into a graveyard, flip Bushi Tenderfoot.\n-----\nKenzo the Hardhearted\nLegendary Creature Human Samurai\n3/4\nDouble strike; bushido 2 (When this blocks or becomes blocked, it gets +2/+2 until end of turn.)",
+        "originalType": "Creature — Human Soldier",
+        "power": "1",
+        "printings": [
+          "CHK"
+        ],
+        "rarity": "Uncommon",
+        "subtypes": [
+          "Human",
+          "Soldier"
+        ],
+        "text": "When a creature dealt damage by Bushi Tenderfoot this turn dies, flip Bushi Tenderfoot.",
+        "toughness": "1",
+        "type": "Creature — Human Soldier",
+        "types": [
+          "Creature"
+        ]
+      },
+      {
+        "artist": "Mark Zug",
+        "cmc": 1,
+        "colorIdentity": [
+          "W"
+        ],
+        "colors": [
+          "White"
+        ],
+        "foreignNames": [
+          {
+            "language": "Chinese Simplified",
+            "name": "Bushi Tenderfoot",
+            "multiverseid": 85200
+          },
+          {
+            "language": "French",
+            "name": "Bushi Tenderfoot",
+            "multiverseid": 85507
+          },
+          {
+            "language": "German",
+            "name": "Bushi Tenderfoot",
+            "multiverseid": 85814
+          },
+          {
+            "language": "Italian",
+            "name": "Bushi Tenderfoot",
+            "multiverseid": 86121
+          },
+          {
+            "language": "Japanese",
+            "name": "Bushi Tenderfoot",
+            "multiverseid": 86428
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Bushi Tenderfoot",
+            "multiverseid": 86735
+          },
+          {
+            "language": "Spanish",
+            "name": "Bushi Tenderfoot",
+            "multiverseid": 87042
+          }
+        ],
         "id": "b955500d1a3e0c4b36e3cbf6332c3bca4597eaee",
         "imageName": "kenzo the hardhearted",
-        "layout": "normal",
+        "layout": "flip",
         "legalities": [
           {
             "format": "Commander",
@@ -2642,7 +2740,11 @@
         "mciNumber": "2b",
         "multiverseid": 78600,
         "name": "Kenzo the Hardhearted",
-        "number": "2",
+        "names": [
+          "Bushi Tenderfoot",
+          "Kenzo the Hardhearted"
+        ],
+        "number": "2b",
         "originalText": "When a creature dealt damage by Bushi Tenderfoot this turn is put into a graveyard, flip Bushi Tenderfoot.\n-----\nKenzo the Hardhearted\nLegendary Creature Human Samurai\n3/4\nDouble strike; bushido 2 (When this blocks or becomes blocked, it gets +2/+2 until end of turn.)",
         "originalType": "Creature — Human Soldier",
         "power": "3",
@@ -2986,13 +3088,17 @@
             "multiverseid": 105908
           }
         ],
-        "id": "50c034015a3dc2a7d4ca924f7e6f696268063ef8",
-        "imageName": "erayo's essence",
-        "layout": "normal",
+        "id": "63586b1cf22729dfb569a039d95bbd5f48581704",
+        "imageName": "erayo, soratami ascendant",
+        "layout": "flip",
         "legalities": [
           {
             "format": "Commander",
             "legality": "Banned"
+          },
+          {
+            "format": "Freeform",
+            "legality": "Legal"
           },
           {
             "format": "Kamigawa Block",
@@ -3007,15 +3113,164 @@
             "legality": "Legal"
           },
           {
+            "format": "Prismatic",
+            "legality": "Legal"
+          },
+          {
+            "format": "Singleton 100",
+            "legality": "Legal"
+          },
+          {
+            "format": "Tribal Wars Legacy",
+            "legality": "Legal"
+          },
+          {
             "format": "Vintage",
             "legality": "Legal"
           }
         ],
         "manaCost": "{1}{U}",
-        "mciNumber": "35b",
+        "multiverseid": 87599,
+        "name": "Erayo, Soratami Ascendant",
+        "names": [
+          "Erayo, Soratami Ascendant",
+          "Erayo's Essence"
+        ],
+        "number": "35a",
+        "originalText": "Flying\nWhenever the fourth spell of a turn is played, flip Erayo, Soratami Ascendant.\n-----\nErayo's Essence\nLegendary Enchantment\nCounter the first spell played by each opponent each turn.",
+        "originalType": "Legendary Creature — Moonfolk Monk",
+        "power": "1",
+        "printings": [
+          "SOK"
+        ],
+        "rarity": "Rare",
+        "rulings": [
+          {
+            "date": "2005-06-01",
+            "text": "Erayo's Essence triggers only for the first spell an opponent casts in a given turn. It doesn't trigger off any other spell that player casts after the first."
+          },
+          {
+            "date": "2005-06-01",
+            "text": "If Erayo, Soratami Ascendant flips while an opponent's first spell for the turn is still on the stack, the ability of Erayo's Essence doesn't trigger because the opponent's spell has already been cast. The spell isn't countered."
+          },
+          {
+            "date": "2005-06-01",
+            "text": "If you have multiple opponents, Erayo's Essence can trigger once for each opponent."
+          },
+          {
+            "date": "2005-06-01",
+            "text": "Each Ascendant is legendary in both its unflipped and flipped forms. This means that effects that look for legendary creature cards, such as Time of Need and Captain Sisay, can find an Ascendant."
+          }
+        ],
+        "subtypes": [
+          "Moonfolk",
+          "Monk"
+        ],
+        "supertypes": [
+          "Legendary"
+        ],
+        "text": "Flying\nWhenever the fourth spell of a turn is cast, flip Erayo, Soratami Ascendant.",
+        "toughness": "1",
+        "type": "Legendary Creature — Moonfolk Monk",
+        "types": [
+          "Creature"
+        ]
+      },
+      {
+        "artist": "Matt Cavotta",
+        "cmc": 2,
+        "colorIdentity": [
+          "U"
+        ],
+        "colors": [
+          "Blue"
+        ],
+        "foreignNames": [
+          {
+            "language": "Chinese Simplified",
+            "name": "Erayo, Soratami Ascendant",
+            "multiverseid": 104918
+          },
+          {
+            "language": "French",
+            "name": "Erayo, Soratami Ascendant",
+            "multiverseid": 105083
+          },
+          {
+            "language": "German",
+            "name": "Erayo, Soratami Ascendant",
+            "multiverseid": 105248
+          },
+          {
+            "language": "Italian",
+            "name": "Erayo, Soratami Ascendant",
+            "multiverseid": 105413
+          },
+          {
+            "language": "Japanese",
+            "name": "Erayo, Soratami Ascendant",
+            "multiverseid": 105578
+          },
+          {
+            "language": "Portuguese (Brazil)",
+            "name": "Erayo, Soratami Ascendant",
+            "multiverseid": 105743
+          },
+          {
+            "language": "Spanish",
+            "name": "Erayo, Soratami Ascendant",
+            "multiverseid": 105908
+          }
+        ],
+        "id": "50c034015a3dc2a7d4ca924f7e6f696268063ef8",
+        "imageName": "erayo's essence",
+        "layout": "flip",
+        "legalities": [
+          {
+            "format": "Commander",
+            "legality": "Banned"
+          },
+          {
+            "format": "Freeform",
+            "legality": "Legal"
+          },
+          {
+            "format": "Kamigawa Block",
+            "legality": "Legal"
+          },
+          {
+            "format": "Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Modern",
+            "legality": "Legal"
+          },
+          {
+            "format": "Prismatic",
+            "legality": "Legal"
+          },
+          {
+            "format": "Singleton 100",
+            "legality": "Legal"
+          },
+          {
+            "format": "Tribal Wars Legacy",
+            "legality": "Legal"
+          },
+          {
+            "format": "Vintage",
+            "legality": "Legal"
+          }
+        ],
+        "manaCost": "{1}{U}",
         "multiverseid": 87599,
         "name": "Erayo's Essence",
-        "number": "35",
+        "names": [
+          "Erayo, Soratami Ascendant",
+          "Erayo's Essence"
+        ],
+        "number": "35b",
         "originalText": "Flying\nWhenever the fourth spell of a turn is played, flip Erayo, Soratami Ascendant.\n-----\nErayo's Essence\nLegendary Enchantment\nCounter the first spell played by each opponent each turn.",
         "originalType": "Legendary Creature — Moonfolk Monk",
         "printings": [
@@ -3025,7 +3280,7 @@
         "supertypes": [
           "Legendary"
         ],
-        "text": "Whenever an opponent casts his or her first spell each turn, counter that spell.",
+        "text": "Whenever an opponent casts a spell for the first time in a turn, counter that spell.",
         "type": "Legendary Enchantment",
         "types": [
           "Enchantment"
@@ -6065,6 +6320,7 @@
         "supertypes": [
           "Basic"
         ],
+        "text": "{T}: Add {C} to your mana pool",
         "type": "Basic Land",
         "types": [
           "Land"
@@ -6267,6 +6523,7 @@
         "supertypes": [
           "Basic"
         ],
+        "text": "{T}: Add {C} to your mana pool",
         "type": "Basic Land",
         "types": [
           "Land"
@@ -6469,6 +6726,7 @@
         "supertypes": [
           "Basic"
         ],
+        "text": "{T}: Add {C} to your mana pool",
         "type": "Basic Land",
         "types": [
           "Land"
@@ -6671,6 +6929,7 @@
         "supertypes": [
           "Basic"
         ],
+        "text": "{T}: Add {C} to your mana pool",
         "type": "Basic Land",
         "types": [
           "Land"
