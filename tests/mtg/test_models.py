@@ -10,6 +10,7 @@ from mtg_ssm.mtg import models
 class Sentinel:
     """Simple sentinel object class."""
 
+
 CARD_DB_SENTINEL = Sentinel()
 
 
