@@ -54,7 +54,8 @@ def main():
         testsetdata = collections.OrderedDict(
             (k, v) for k, v in setdata.items() if k != 'cards')
         testsetdata['cards'] = [
-            c for c in setdata['cards'] if c['name'] in TEST_SETS_TO_CARDS[setcode]]
+            c for c in setdata['cards']
+            if c['name'] in TEST_SETS_TO_CARDS[setcode]]
         testdata[setcode] = testsetdata
 
     print('Writing testdata.')
