@@ -149,6 +149,14 @@ Acknowledgments
 Changelog
 =========
 
+1.3.3
+-----
+
+- Fixed support for Ae/Æ
+- Increased verbosity when searching for cards with a mismatched id
+- Performance improvements
+- Add tests to catch potential missing card issues
+
 1.3.2
 -----
 
