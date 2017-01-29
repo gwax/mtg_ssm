@@ -53,6 +53,8 @@ def new_print_counts() -> Mapping[str, Mapping[CountTypes, int]]:
 
 def find_printing(cdb, set_code, name, set_number, multiverseid, strict=True):
     """Attempt to find a CardPrinting from given parameters."""
+    print('Searching => Set: %s; Name: %s; Number: %s, Multiverse ID: %s' % (
+        set_code, name, set_number, multiverseid))
     name = name or ''
     names = [name]
     for sub_from, sub_to in NAME_SUBSTITUTIONS:
@@ -66,19 +68,21 @@ def find_printing(cdb, set_code, name, set_number, multiverseid, strict=True):
             (set_code, name_var, set_number, None),
             (set_code, name_var, None, None),
         ])
+    printing = None
     for snnm_key in snnm_keys:
         found_printings = cdb.set_name_num_mv_to_printings.get(snnm_key, [])
         if len(found_printings) == 1:
             printing = found_printings[0]
-            print('found: ' + printing.id_)
-            return printing
+            break
         elif found_printings and not strict:
             found_printings = sorted(found_printings, key=lambda p: p.id_)
             printing = found_printings[0]
-            print('fuzzy found: ' + printing.id_)
-            return printing
-
-    return None
+            break
+    if printing is not None:
+        print('Found => Set: %s; Name: %s; Number: %s; Multiverse ID: %s' % (
+            printing.set_code, printing.card_name, printing.set_number,
+            printing.multiverseid))
+    return printing
 
 
 def coerce_card_row(card_count):
