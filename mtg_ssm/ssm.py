@@ -10,7 +10,6 @@ import tempfile
 import mtg_ssm
 
 from mtg_ssm import mtgjson
-from mtg_ssm import profiling
 import mtg_ssm.serialization.interface as ser_interface
 from mtg_ssm.mtg import card_db
 from mtg_ssm.mtg import counts
@@ -45,9 +44,6 @@ def get_args(args=None):
     parser.add_argument(
         '--include-online-only', default=False, action='store_true',
         help='Include online only sets (e.g. Masters sets)')
-    parser.add_argument(
-        '--profile-stats', default=False, action='store_true',
-        help='Output profiling statistics (for debugging)')
 
     parser.add_argument(
         '-d', '--dialect', nargs=2, metavar=('EXTENSION', 'DIALECT'),
@@ -197,8 +193,7 @@ def diff_cmd(args):
 def main():
     """Get args and run the appropriate command."""
     args = get_args()
-    with profiling.profiled(enabled=args.profile_stats):
-        args.func(args)
+    args.func(args)
 
 
 if __name__ == '__main__':

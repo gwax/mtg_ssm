@@ -152,6 +152,12 @@ Changelog
 master
 ------
 
+-   Remove profiling code. If we care, we can invoke profiling with:
+
+    .. code:: sh
+
+        python -m cProfile -o mtg_ssm.prof mtg_ssm/ssm.py create collection.xlsx
+
 -   Fix wheel generation to only build py3 wheels.
 
 1.3.4
