@@ -149,6 +149,11 @@ Acknowledgments
 Changelog
 =========
 
+1.3.4
+-----
+
+-   Increase in verbosity when looking up cards by heuristics (instead of id).
+
 1.3.3
 -----
 
