@@ -149,8 +149,8 @@ Acknowledgments
 Changelog
 =========
 
-master
-------
+1.3.5
+-----
 
 -   Remove profiling code. If we care, we can invoke profiling with:
 
