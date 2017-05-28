@@ -19,6 +19,6 @@ script:
   - pytest --verbose --cov=mtg_ssm
   - pylint mtg_ssm
   - pylint --disable=similarities,redefined-outer-name tests
-  - flake8 --verbose --max-complexity 10 --ignore=E501,F401,F841
+  - flake8
 
 after_script: coveralls
