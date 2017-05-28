@@ -149,6 +149,11 @@ Acknowledgments
 Changelog
 =========
 
+master
+------
+
+-   Fix wheel generation to only build py3 wheels.
+
 1.3.4
 -----
 
