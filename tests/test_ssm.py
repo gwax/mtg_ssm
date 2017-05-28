@@ -1,11 +1,11 @@
 """Tests for mtg_ssm.manager module."""
 
 import argparse as ap
-import datetime
 import os
 import tempfile
 import textwrap
 
+import freezegun
 import pytest
 
 from mtg_ssm import ssm
@@ -17,18 +17,6 @@ def cdb(sets_data):
     """card_db fixture for testing."""
     sets_data = {k: v for k, v in sets_data.items() if k in {'MMA', 'pMGD'}}
     return card_db.CardDb(sets_data)
-
-
-@pytest.fixture(autouse=True)
-def patch_now(monkeypatch):
-    """Fixture to monkeypatch datetime.now for testing."""
-    class MockDatetime(datetime.datetime):
-        """Datetime object that returns fixed now value."""
-
-        @classmethod
-        def now(cls, *_):
-            return datetime.datetime(2015, 6, 28)
-    monkeypatch.setattr(datetime, 'datetime', MockDatetime)
 
 
 @pytest.fixture(autouse=True)
@@ -127,6 +115,7 @@ def test_create_cmd():
     """)
 
 
+@freezegun.freeze_time('2015-06-28 01:02:03')
 def test_update_cmd():
     with tempfile.TemporaryDirectory() as tmpdirname:
         infilename = os.path.join(tmpdirname, 'infile.csv')
@@ -142,11 +131,11 @@ def test_update_cmd():
         ssm.update_cmd(args)
         assert set(os.listdir(tmpdirname)) == {
             'infile.csv',
-            'infile.20150628_000000.csv',
+            'infile.20150628_010203.csv',
         }
         with open(infilename, 'rt') as outfile:
             outfiledata = outfile.read()
-        bakfilename = os.path.join(tmpdirname, 'infile.20150628_000000.csv')
+        bakfilename = os.path.join(tmpdirname, 'infile.20150628_010203.csv')
         with open(bakfilename) as bakfile:
             bakfiledata = bakfile.read()
     assert outfiledata == textwrap.dedent("""\
@@ -194,6 +183,7 @@ def test_merge_cmd_new():
     """)
 
 
+@freezegun.freeze_time('2015-06-28 04:05:06')
 def test_merge_cmd_existing():
     with tempfile.TemporaryDirectory() as tmpdirname:
         outfilename = os.path.join(tmpdirname, 'outfile.csv')
@@ -213,13 +203,13 @@ def test_merge_cmd_existing():
         assert set(os.listdir(tmpdirname)) == {
             'import.csv',
             'outfile.csv',
-            'outfile.20150628_000000.csv',
+            'outfile.20150628_040506.csv',
         }
         with open(outfilename, 'rt') as outfile:
             outfiledata = outfile.read()
         with open(importname, 'rt') as importfile:
             importdata = importfile.read()
-        bakfilename = os.path.join(tmpdirname, 'outfile.20150628_000000.csv')
+        bakfilename = os.path.join(tmpdirname, 'outfile.20150628_040506.csv')
         with open(bakfilename) as bakfile:
             bakfiledata = bakfile.read()
     assert outfiledata == textwrap.dedent("""\

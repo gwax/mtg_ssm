@@ -1,2 +1,2 @@
-openpyxl>=2.4.0
+openpyxl>=2.4.7
 requests>=2.11.1

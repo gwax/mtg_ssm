@@ -225,7 +225,6 @@ class XlsxDialect(interface.SerializationDialect):
     def read(self, filename: str):
         """Read print counts from an xlsx file."""
         workbook = openpyxl.load_workbook(filename=filename, read_only=True)
-        # pylint: disable=redefined-variable-type
         print_counts = {}
         for sheet in workbook.worksheets:
             if sheet.title not in self.cdb.code_to_card_set:
