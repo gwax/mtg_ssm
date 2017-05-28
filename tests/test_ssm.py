@@ -45,27 +45,27 @@ def get_namespace(**kwargs):
         get_namespace(
             action='create',
             func=ssm.create_cmd,
-            collection='testfilename')
+            collection='testfilename'),
     ), (
         'update testfilename',
         get_namespace(
             action='update',
             func=ssm.update_cmd,
-            collection='testfilename')
+            collection='testfilename'),
     ), (
         'merge testfilename otherfile1',
         get_namespace(
             action='merge',
             func=ssm.merge_cmd,
             collection='testfilename',
-            imports=['otherfile1'])
+            imports=['otherfile1']),
     ), (
         'merge testfilename otherfile1 otherfile2 otherfile3',
         get_namespace(
             action='merge',
             func=ssm.merge_cmd,
             collection='testfilename',
-            imports=['otherfile1', 'otherfile2', 'otherfile3'])
+            imports=['otherfile1', 'otherfile2', 'otherfile3']),
     ), (
         'diff file1 file2 file3',
         get_namespace(
@@ -73,7 +73,7 @@ def get_namespace(**kwargs):
             func=ssm.diff_cmd,
             output='file3',
             left='file1',
-            right='file2')
+            right='file2'),
     ), (
         '--data-path /foo --include-online-only '
         'create testfilename',
@@ -82,7 +82,7 @@ def get_namespace(**kwargs):
             include_online_only=True,
             action='create',
             func=ssm.create_cmd,
-            collection='testfilename')
+            collection='testfilename'),
     ), (
         '--dialect foo bar --dialect baz quux '
         'create testfilename',
@@ -92,7 +92,7 @@ def get_namespace(**kwargs):
             dialect={'foo': 'bar', 'baz': 'quux'},
             action='create',
             func=ssm.create_cmd,
-            collection='testfilename')
+            collection='testfilename'),
     ),
 ])
 def test_get_args(cmdline, expected):

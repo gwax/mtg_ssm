@@ -143,7 +143,7 @@ def test_rows_from_print_counts(cdb):
         },
         '6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc': {
             counts.CountTypes.foils: 11,
-        }
+        },
     }
     rows = deckbox.dbox_rows_from_print_counts(cdb, print_counts)
     assert list(rows) == [
@@ -211,7 +211,7 @@ def test_rows_from_print_counts(cdb):
             'Name': 'Foo // Bar',
             'Card Number': '12',
         },
-        {'name': 'Foo', 'set': 'PC2', 'number': '12', 'foils': 5}
+        {'name': 'Foo', 'set': 'PC2', 'number': '12', 'foils': 5},
     ), (
         {
             'Edition': 'Innistrad',
@@ -221,7 +221,7 @@ def test_rows_from_print_counts(cdb):
             'Name': 'Thing',
             'Card Number': '95',
         },
-        {'name': 'Thing', 'set': 'ISD', 'number': '95', 'copies': 4}
+        {'name': 'Thing', 'set': 'ISD', 'number': '95', 'copies': 4},
     ),
 ])
 def test_create_counts_row(cdb, deckbox_row, target_card_row):

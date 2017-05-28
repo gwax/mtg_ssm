@@ -64,7 +64,7 @@ def test_create_haverefs(cdb):
                                     '&\'HOP\'!A4&", ","")'),
     ('Thallid', (), '=IF(\'FEM\'!A2+\'FEM\'!A3+\'FEM\'!A4+\'FEM\'!A5>0,'
                     '"FEM: "&\'FEM\'!A2+\'FEM\'!A3+\'FEM\'!A4+\'FEM\'!A5'
-                    '&", ","")')
+                    '&", ","")'),
 ])
 def test_get_references(cdb, name, exclude_set_codes, expected):
     card = cdb.name_to_card[name]
@@ -105,7 +105,7 @@ def test_create_set_sheet(cdb):
         'c78d2da78c68c558b1adc734b3f164e885407ffc': {
             counts.CountTypes.copies: 3,
             counts.CountTypes.foils: 4,
-        }
+        },
     }
     ice_age = cdb.code_to_card_set['ICE']
     book = openpyxl.Workbook()
@@ -129,7 +129,7 @@ def test_write(cdb):
         '536d407161fa03eddee7da0e823c2042a8fa0262': {
             counts.CountTypes.copies: 7,
             counts.CountTypes.foils: 12,
-        }
+        },
     }
     serializer = xlsx.XlsxDialect(cdb)
     with tempfile.NamedTemporaryFile(mode='rt', suffix='.xlsx') as outfile:
@@ -181,5 +181,5 @@ def test_read_from_file(cdb):
         '536d407161fa03eddee7da0e823c2042a8fa0262': {
             counts.CountTypes.copies: 3,
             counts.CountTypes.foils: 7,
-        }
+        },
     }
