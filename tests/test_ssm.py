@@ -45,7 +45,6 @@ def get_namespace(**kwargs):
     defaults = {
         'data_path': ssm.DEFAULT_DATA_PATH,
         'include_online_only': False,
-        'profile_stats': False,
         'dialect': {},
     }
     defaults.update(kwargs)
@@ -88,12 +87,11 @@ def get_namespace(**kwargs):
             left='file1',
             right='file2')
     ), (
-        '--data-path /foo --include-online-only --profile-stats '
+        '--data-path /foo --include-online-only '
         'create testfilename',
         get_namespace(
             data_path='/foo',
             include_online_only=True,
-            profile_stats=True,
             action='create',
             func=ssm.create_cmd,
             collection='testfilename')
@@ -103,7 +101,6 @@ def get_namespace(**kwargs):
         get_namespace(
             data_path=ssm.DEFAULT_DATA_PATH,
             include_online_only=False,
-            profile_stats=False,
             dialect={'foo': 'bar', 'baz': 'quux'},
             action='create',
             func=ssm.create_cmd,
