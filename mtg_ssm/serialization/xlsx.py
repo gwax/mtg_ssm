@@ -177,7 +177,7 @@ def style_set_sheet(sheet):
     sheet.freeze_panes = sheet['C2']
     col_width_hidden = [
         ('A', 5, False),
-        ('B', 18, False),
+        ('B', 24, False),
         ('C', 5, True),
         ('D', 12, True),
         ('E', 8, True),
