@@ -62,7 +62,7 @@ def main():
     with open(TARGET_MTGJSON_FILE, 'w') as mtgjson_testfile:
         json.dump(
             testdata, mtgjson_testfile, ensure_ascii=False, indent=2,
-            sort_keys=False)
+            sort_keys=True)
     print('Done')
 
 

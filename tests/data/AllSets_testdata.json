@@ -1,12 +1,66 @@
 {
-  "LEA": {
-    "name": "Limited Edition Alpha",
-    "code": "LEA",
-    "gathererCode": "1E",
-    "magicCardsInfoCode": "al",
-    "releaseDate": "1993-08-05",
+  "ARC": {
     "border": "black",
-    "type": "core",
+    "cards": [
+      {
+        "artist": "Nic Klein",
+        "cmc": 0,
+        "flavor": "\"Take a moment. Ponder the depths of your insignificance.\"",
+        "id": "0ac51bc6b0c720032a90016360e404b30705f47e",
+        "imageName": "all in good time",
+        "layout": "scheme",
+        "multiverseid": 212648,
+        "name": "All in Good Time",
+        "number": "1",
+        "rarity": "Common",
+        "text": "When you set this scheme in motion, take an extra turn after this one. Schemes can't be set in motion that turn.",
+        "type": "Scheme",
+        "types": [
+          "Scheme"
+        ]
+      },
+      {
+        "artist": "Darrell Riche",
+        "cmc": 4,
+        "colorIdentity": [
+          "W"
+        ],
+        "colors": [
+          "White"
+        ],
+        "flavor": "Only leonin clerics who can survive the Razor Fields for one turning of the suns can stand in the Cave of Light.",
+        "id": "983e8f0c10c56bbac44b860e1fb90e7683e03aa6",
+        "imageName": "leonin abunas",
+        "layout": "normal",
+        "manaCost": "{3}{W}",
+        "mciNumber": "1",
+        "multiverseid": 220527,
+        "name": "Leonin Abunas",
+        "number": "1",
+        "power": "2",
+        "rarity": "Rare",
+        "subtypes": [
+          "Cat",
+          "Cleric"
+        ],
+        "text": "Artifacts you control have hexproof. (They can't be the targets of spells or abilities your opponents control.)",
+        "toughness": "5",
+        "type": "Creature — Cat Cleric",
+        "types": [
+          "Creature"
+        ]
+      }
+    ],
+    "code": "ARC",
+    "magicCardsInfoCode": "arc",
+    "mkm_id": 1194,
+    "mkm_name": "Archenemy",
+    "name": "Archenemy",
+    "releaseDate": "2010-06-18",
+    "type": "archenemy"
+  },
+  "BOK": {
+    "block": "Kamigawa",
     "booster": [
       "rare",
       "uncommon",
@@ -24,171 +78,277 @@
       "common",
       "common"
     ],
-    "mkm_name": "Alpha",
-    "mkm_id": 1,
+    "border": "black",
     "cards": [
       {
-        "artist": "Richard Thomas",
-        "cmc": 5,
+        "artist": "Mark Zug",
+        "cmc": 3,
         "colorIdentity": [
-          "U"
+          "W"
         ],
         "colors": [
-          "Blue"
+          "White"
         ],
-        "flavor": "These spirits of the air are winsome and wild, and cannot be truly contained. Only marginally intelligent, they often substitute whimsy for strategy, delighting in mischief and mayhem.",
-        "id": "926234c2fe8863f49220a878346c4c5ca79b6046",
-        "imageName": "air elemental",
-        "layout": "normal",
-        "manaCost": "{3}{U}{U}",
-        "mciNumber": "47",
-        "multiverseid": 94,
-        "name": "Air Elemental",
-        "power": "4",
+        "id": "284c1af34bceb74c211ca1f314e76f95030299d4",
+        "imageName": "faithful squire",
+        "layout": "flip",
+        "manaCost": "{1}{W}{W}",
+        "mciNumber": "3a",
+        "multiverseid": 74093,
+        "name": "Faithful Squire",
+        "names": [
+          "Faithful Squire",
+          "Kaiso, Memory of Loyalty"
+        ],
+        "number": "3a",
+        "power": "2",
         "rarity": "Uncommon",
         "subtypes": [
-          "Elemental"
+          "Human",
+          "Soldier"
         ],
-        "text": "Flying",
-        "toughness": "4",
-        "type": "Creature — Elemental",
+        "text": "Whenever you cast a Spirit or Arcane spell, you may put a ki counter on Faithful Squire.\nAt the beginning of the end step, if there are two or more ki counters on Faithful Squire, you may flip it.",
+        "toughness": "2",
+        "type": "Creature — Human Soldier",
         "types": [
           "Creature"
         ]
       },
       {
-        "artist": "Sandra Everingham",
-        "cmc": 1,
+        "artist": "Mark Zug",
+        "cmc": 3,
         "colorIdentity": [
-          "B"
+          "W"
         ],
         "colors": [
-          "Black"
+          "White"
         ],
-        "id": "fff0b8e8fea06ee1ac5c35f048a0a459b1222673",
-        "imageName": "dark ritual",
-        "layout": "normal",
-        "manaCost": "{B}",
-        "mciNumber": "7",
-        "multiverseid": 54,
-        "name": "Dark Ritual",
-        "rarity": "Common",
-        "text": "Add {B}{B}{B} to your mana pool.",
-        "type": "Instant",
-        "types": [
-          "Instant"
-        ]
-      },
-      {
-        "artist": "Christopher Rush",
-        "colorIdentity": [
-          "G"
+        "id": "0b9a826470865b4e67039d0bc606d856d69e30b3",
+        "imageName": "kaiso, memory of loyalty",
+        "layout": "flip",
+        "manaCost": "{1}{W}{W}",
+        "mciNumber": "3b",
+        "multiverseid": 74093,
+        "name": "Kaiso, Memory of Loyalty",
+        "names": [
+          "Faithful Squire",
+          "Kaiso, Memory of Loyalty"
         ],
-        "id": "5ede9781b0c5d157c28a15c3153a455d7d6180fa",
-        "imageName": "forest2",
-        "layout": "normal",
-        "multiverseid": 288,
-        "name": "Forest",
-        "rarity": "Basic Land",
+        "number": "3b",
+        "power": "3",
+        "rarity": "Uncommon",
         "subtypes": [
-          "Forest"
+          "Spirit"
         ],
         "supertypes": [
-          "Basic"
+          "Legendary"
         ],
-        "type": "Basic Land — Forest",
+        "text": "Flying\nRemove a ki counter from Kaiso, Memory of Loyalty: Prevent all damage that would be dealt to target creature this turn.",
+        "toughness": "4",
+        "type": "Legendary Creature — Spirit",
         "types": [
-          "Land"
-        ],
-        "variations": [
-          289
-        ]
-      },
-      {
-        "artist": "Christopher Rush",
-        "colorIdentity": [
-          "G"
-        ],
-        "id": "970af6b2a9a1db5d3956172791717b2afab3e03f",
-        "imageName": "forest1",
-        "layout": "normal",
-        "multiverseid": 289,
-        "name": "Forest",
-        "rarity": "Basic Land",
-        "subtypes": [
-          "Forest"
-        ],
-        "supertypes": [
-          "Basic"
-        ],
-        "type": "Basic Land — Forest",
-        "types": [
-          "Land"
-        ],
-        "variations": [
-          288
+          "Creature"
         ]
       }
-    ]
-  },
-  "pMEI": {
-    "name": "Media Inserts",
-    "code": "pMEI",
-    "magicCardsInfoCode": "mbp",
-    "magicRaritiesCodes": [
-      "189-rarities-agent-of-artifice-novel-promo-insert",
-      "109-rarities-harperprism-book-inserts",
-      "20-rarities-armada-comics-book-promos",
-      "175-rarities-coro-coro-comic-book-inserts",
-      "296-rarities-dengeki-maoh-magazine-inserts",
-      "81-rarities-gotta-magazine-cards",
-      "196-rarities-hachette-french-magic-encyclopedia-inserts",
-      "197-rarities-hachette-italian-magic-encyclopedia-inserts",
-      "765-rarities-idw-comics-book-inserts",
-      "16-rarities-kartefakt-magazine-promo",
-      "121-rarities-players-guide-inserts",
-      "228-rarities-rpg-magazine-inserts",
-      "135-rarities-salvat-magic-encyclopedia-cards",
-      "134-rarities-the-cardz-magazine-inserts",
-      "22-rarities-the-duelist-cards",
-      "18-rarities-topdeck-cards",
-      "258-rarities-buy-a-box-promos",
-      "787-rarities-holiday-gift-box",
-      "224-rarities-duels-of-the-planeswalkers-software-promos",
-      "160-rarities-resale-promos",
-      "686-rarities-convention-and-various-promos"
     ],
-    "releaseDate": "1995-01-01",
+    "code": "BOK",
+    "magicCardsInfoCode": "bok",
+    "mkm_id": 51,
+    "mkm_name": "Betrayers of Kamigawa",
+    "name": "Betrayers of Kamigawa",
+    "releaseDate": "2005-02-04",
+    "translations": {
+      "cn": "神河叛将谱",
+      "de": "Verräter von Kamigawa",
+      "es": "Traidores de Kamigawa",
+      "fr": "Traîtres de Kamigawa",
+      "it": "Traditori di Kamigawa",
+      "jp": "神河謀叛",
+      "pt": "Traidores de Kamigawa"
+    },
+    "type": "expansion"
+  },
+  "CHK": {
+    "block": "Kamigawa",
+    "booster": [
+      "rare",
+      "uncommon",
+      "uncommon",
+      "uncommon",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common"
+    ],
     "border": "black",
-    "type": "promo",
     "cards": [
       {
-        "artist": "Rob Alexander",
-        "id": "741b2637bc11ba8687f50f1d18b5f447f8056d73",
-        "imageName": "arena",
-        "layout": "normal",
-        "mciNumber": "1",
-        "multiverseid": 97042,
-        "name": "Arena",
-        "number": "1",
-        "rarity": "Special",
-        "releaseDate": "1994-09",
-        "text": "{3}, {T}: Tap target creature you control and target creature of an opponent's choice he or she controls. Those creatures fight each other. (Each deals damage equal to its power to the other.)",
-        "type": "Land",
+        "artist": "Mark Zug",
+        "cmc": 1,
+        "colorIdentity": [
+          "W"
+        ],
+        "colors": [
+          "White"
+        ],
+        "id": "5933bb74b618a4e4f61eb4b5b55b416c11affd11",
+        "imageName": "bushi tenderfoot",
+        "layout": "flip",
+        "manaCost": "{W}",
+        "mciNumber": "2a",
+        "multiverseid": 78600,
+        "name": "Bushi Tenderfoot",
+        "names": [
+          "Bushi Tenderfoot",
+          "Kenzo the Hardhearted"
+        ],
+        "number": "2a",
+        "power": "1",
+        "rarity": "Uncommon",
+        "subtypes": [
+          "Human",
+          "Soldier"
+        ],
+        "text": "When a creature dealt damage by Bushi Tenderfoot this turn dies, flip Bushi Tenderfoot.",
+        "toughness": "1",
+        "type": "Creature — Human Soldier",
         "types": [
-          "Land"
+          "Creature"
+        ]
+      },
+      {
+        "artist": "Mark Zug",
+        "cmc": 1,
+        "colorIdentity": [
+          "W"
+        ],
+        "colors": [
+          "White"
+        ],
+        "id": "b955500d1a3e0c4b36e3cbf6332c3bca4597eaee",
+        "imageName": "kenzo the hardhearted",
+        "layout": "flip",
+        "manaCost": "{W}",
+        "mciNumber": "2b",
+        "multiverseid": 78600,
+        "name": "Kenzo the Hardhearted",
+        "names": [
+          "Bushi Tenderfoot",
+          "Kenzo the Hardhearted"
+        ],
+        "number": "2b",
+        "power": "3",
+        "rarity": "Uncommon",
+        "subtypes": [
+          "Human",
+          "Samurai"
+        ],
+        "supertypes": [
+          "Legendary"
+        ],
+        "text": "Double strike; bushido 2 (Whenever this creature blocks or becomes blocked, it gets +2/+2 until end of turn.)",
+        "toughness": "4",
+        "type": "Legendary Creature — Human Samurai",
+        "types": [
+          "Creature"
         ]
       }
-    ]
+    ],
+    "code": "CHK",
+    "magicCardsInfoCode": "chk",
+    "mkm_id": 48,
+    "mkm_name": "Champions of Kamigawa",
+    "name": "Champions of Kamigawa",
+    "releaseDate": "2004-10-01",
+    "translations": {
+      "cn": "神河群英录",
+      "de": "Meister von Kamigawa",
+      "es": "Campeones de Kamigawa",
+      "fr": "Guerriers de Kamigawa",
+      "it": "Campioni di Kamigawa",
+      "jp": "神河物語",
+      "pt": "Campeões de Kamigawa"
+    },
+    "type": "expansion"
+  },
+  "CSP": {
+    "block": "Ice Age",
+    "booster": [
+      "rare",
+      "uncommon",
+      "uncommon",
+      "uncommon",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common"
+    ],
+    "border": "black",
+    "cards": [
+      {
+        "artist": "Franz Vohwinkel",
+        "cmc": 2,
+        "colorIdentity": [
+          "W"
+        ],
+        "colors": [
+          "White"
+        ],
+        "id": "b6d3b800eee5851e4727adf50d9c2d82f269f25f",
+        "imageName": "jotun grunt",
+        "layout": "normal",
+        "manaCost": "{1}{W}",
+        "mciNumber": "8",
+        "multiverseid": 122075,
+        "name": "Jötun Grunt",
+        "number": "8",
+        "power": "4",
+        "rarity": "Uncommon",
+        "subtypes": [
+          "Giant",
+          "Soldier"
+        ],
+        "text": "Cumulative upkeep—Put two cards from a single graveyard on the bottom of their owner's library. (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)",
+        "toughness": "4",
+        "type": "Creature — Giant Soldier",
+        "types": [
+          "Creature"
+        ]
+      }
+    ],
+    "code": "CSP",
+    "magicCardsInfoCode": "cs",
+    "mkm_id": 52,
+    "mkm_name": "Coldsnap",
+    "name": "Coldsnap",
+    "releaseDate": "2006-07-21",
+    "translations": {
+      "cn": "骤霜",
+      "de": "Kälteeinbruch",
+      "es": "Ola de frío",
+      "fr": "Souffle glaciaire",
+      "it": "Ondata Glaciale",
+      "jp": "コールドスナップ",
+      "pt": "Frente Fria",
+      "ru": "Стужа"
+    },
+    "type": "expansion"
   },
   "FEM": {
-    "name": "Fallen Empires",
-    "code": "FEM",
-    "gathererCode": "FE",
-    "magicCardsInfoCode": "fe",
-    "releaseDate": "1994-11-01",
-    "border": "black",
-    "type": "expansion",
     "booster": [
       "uncommon",
       "uncommon",
@@ -199,8 +359,7 @@
       "common",
       "common"
     ],
-    "mkm_name": "Fallen Empires",
-    "mkm_id": 9,
+    "border": "black",
     "cards": [
       {
         "artist": "Edward P. Beard, Jr.",
@@ -330,180 +489,17 @@
           1926
         ]
       }
-    ]
-  },
-  "ICE": {
-    "name": "Ice Age",
-    "code": "ICE",
-    "gathererCode": "IA",
-    "magicCardsInfoCode": "ia",
-    "releaseDate": "1995-06-01",
-    "border": "black",
-    "type": "expansion",
-    "block": "Ice Age",
-    "booster": [
-      "rare",
-      "uncommon",
-      "uncommon",
-      "uncommon",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common"
     ],
-    "translations": {
-      "de": "Eiszeit",
-      "fr": "Ere Glaciaire",
-      "it": "Era Glaciale",
-      "es": "Era Glacial",
-      "pt": "Era Glacial"
-    },
-    "mkm_name": "Ice Age",
-    "mkm_id": 11,
-    "cards": [
-      {
-        "artist": "Justin Hampton",
-        "cmc": 1,
-        "colorIdentity": [
-          "B"
-        ],
-        "colors": [
-          "Black"
-        ],
-        "flavor": "\"Leshrac, my liege, grant me the power I am due.\"\n—Lim-Dûl, the Necromancer",
-        "id": "2fab0ea29e3bbe8bfbc981a4c8163f3e7d267853",
-        "imageName": "dark ritual",
-        "layout": "normal",
-        "manaCost": "{B}",
-        "mciNumber": "8",
-        "multiverseid": 2444,
-        "name": "Dark Ritual",
-        "rarity": "Common",
-        "text": "Add {B}{B}{B} to your mana pool.",
-        "type": "Instant",
-        "types": [
-          "Instant"
-        ]
-      },
-      {
-        "artist": "Pat Morrissey",
-        "colorIdentity": [
-          "G"
-        ],
-        "id": "676a1f5b64dc03bbb3876840c3ff2ba2c16f99cb",
-        "imageName": "forest2",
-        "layout": "normal",
-        "multiverseid": 2746,
-        "name": "Forest",
-        "rarity": "Basic Land",
-        "subtypes": [
-          "Forest"
-        ],
-        "supertypes": [
-          "Basic"
-        ],
-        "type": "Basic Land — Forest",
-        "types": [
-          "Land"
-        ],
-        "variations": [
-          2747,
-          2748
-        ]
-      },
-      {
-        "artist": "Pat Morrissey",
-        "colorIdentity": [
-          "G"
-        ],
-        "id": "d0a4414893bc2f9bd3beea2f8f2693635ef926a4",
-        "imageName": "forest3",
-        "layout": "normal",
-        "multiverseid": 2747,
-        "name": "Forest",
-        "rarity": "Basic Land",
-        "subtypes": [
-          "Forest"
-        ],
-        "supertypes": [
-          "Basic"
-        ],
-        "type": "Basic Land — Forest",
-        "types": [
-          "Land"
-        ],
-        "variations": [
-          2748,
-          2746
-        ]
-      },
-      {
-        "artist": "Pat Morrissey",
-        "colorIdentity": [
-          "G"
-        ],
-        "id": "c78d2da78c68c558b1adc734b3f164e885407ffc",
-        "imageName": "forest1",
-        "layout": "normal",
-        "multiverseid": 2748,
-        "name": "Forest",
-        "rarity": "Basic Land",
-        "subtypes": [
-          "Forest"
-        ],
-        "supertypes": [
-          "Basic"
-        ],
-        "type": "Basic Land — Forest",
-        "types": [
-          "Land"
-        ],
-        "variations": [
-          2747,
-          2746
-        ]
-      },
-      {
-        "artist": "Pat Morrissey",
-        "colorIdentity": [
-          "G"
-        ],
-        "id": "5e9f08498a9343b1954103e493da2586be0fe394",
-        "imageName": "snow-covered forest",
-        "layout": "normal",
-        "mciNumber": "347",
-        "multiverseid": 2749,
-        "name": "Snow-Covered Forest",
-        "rarity": "Basic Land",
-        "subtypes": [
-          "Forest"
-        ],
-        "supertypes": [
-          "Basic",
-          "Snow"
-        ],
-        "type": "Basic Snow Land — Forest",
-        "types": [
-          "Land"
-        ]
-      }
-    ]
+    "code": "FEM",
+    "gathererCode": "FE",
+    "magicCardsInfoCode": "fe",
+    "mkm_id": 9,
+    "mkm_name": "Fallen Empires",
+    "name": "Fallen Empires",
+    "releaseDate": "1994-11-15",
+    "type": "expansion"
   },
   "HML": {
-    "name": "Homelands",
-    "code": "HML",
-    "gathererCode": "HM",
-    "magicCardsInfoCode": "hl",
-    "releaseDate": "1995-10-01",
-    "border": "black",
-    "type": "expansion",
     "booster": [
       [
         "rare",
@@ -520,15 +516,7 @@
       "common",
       "common"
     ],
-    "translations": {
-      "de": "Heimatländer",
-      "fr": "Terres Natales",
-      "it": "Origini",
-      "es": "Tierras Natales",
-      "pt": "Terras Natais"
-    },
-    "mkm_name": "Homelands",
-    "mkm_id": 14,
+    "border": "black",
     "cards": [
       {
         "artist": "Melissa A. Benson",
@@ -592,707 +580,29 @@
           2913
         ]
       }
-    ]
-  },
-  "S00": {
-    "name": "Starter 2000",
-    "code": "S00",
-    "gathererCode": "P4",
-    "magicCardsInfoCode": "st2k",
-    "releaseDate": "2000-04-01",
-    "border": "white",
-    "type": "starter",
+    ],
+    "code": "HML",
+    "gathererCode": "HM",
+    "magicCardsInfoCode": "hl",
+    "mkm_id": 14,
+    "mkm_name": "Homelands",
+    "name": "Homelands",
+    "releaseDate": "1995-10-14",
     "translations": {
-      "de": "Starter 2000",
-      "fr": "Starter 2000",
-      "it": "Starter 2000",
-      "es": "Starter 2000",
-      "pt": "Starter 2000"
+      "de": "Heimatländer",
+      "es": "Tierras Natales",
+      "fr": "Terres Natales",
+      "it": "Origini",
+      "pt": "Terras Natais"
     },
-    "mkm_name": "Starter 2000",
-    "mkm_id": 65,
-    "cards": [
-      {
-        "artist": "Mark Zug",
-        "cmc": 6,
-        "colorIdentity": [
-          "G"
-        ],
-        "colors": [
-          "Green"
-        ],
-        "id": "536d407161fa03eddee7da0e823c2042a8fa0262",
-        "imageName": "rhox",
-        "layout": "normal",
-        "manaCost": "{4}{G}{G}",
-        "mciNumber": "13",
-        "name": "Rhox",
-        "power": "5",
-        "rarity": "Rare",
-        "subtypes": [
-          "Rhino",
-          "Beast"
-        ],
-        "text": "You may have Rhox assign its combat damage as though it weren't blocked.\n{2}{G}: Regenerate Rhox. (The next time this creature would be destroyed this turn, it isn't. Instead tap it, remove all damage from it, and remove it from combat.)",
-        "toughness": "5",
-        "type": "Creature — Rhino Beast",
-        "types": [
-          "Creature"
-        ]
-      }
-    ]
-  },
-  "PLS": {
-    "name": "Planeshift",
-    "code": "PLS",
-    "gathererCode": "PS",
-    "magicCardsInfoCode": "ps",
-    "releaseDate": "2001-02-05",
-    "border": "black",
-    "type": "expansion",
-    "block": "Invasion",
-    "booster": [
-      "rare",
-      "uncommon",
-      "uncommon",
-      "uncommon",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common"
-    ],
-    "cards": [
-      {
-        "artist": "Mark Tedin",
-        "cmc": 5,
-        "colorIdentity": [
-          "W",
-          "U",
-          "B"
-        ],
-        "colors": [
-          "White",
-          "Blue",
-          "Black"
-        ],
-        "flavor": "Altered by Phyrexian science, corrupted by black mana, and twisted by rage, Ertai still looked in the mirror and saw only glory.",
-        "id": "08fcfee6a7c4eddcd44e43e918cbf9d479492fe7",
-        "imageName": "ertai, the corrupted1",
-        "layout": "normal",
-        "manaCost": "{2}{W}{U}{B}",
-        "multiverseid": 25614,
-        "name": "Ertai, the Corrupted",
-        "number": "107",
-        "power": "3",
-        "rarity": "Rare",
-        "subtypes": [
-          "Human",
-          "Wizard"
-        ],
-        "supertypes": [
-          "Legendary"
-        ],
-        "text": "{U}, {T}, Sacrifice a creature or enchantment: Counter target spell.",
-        "toughness": "4",
-        "type": "Legendary Creature — Human Wizard",
-        "types": [
-          "Creature"
-        ],
-        "variations": [
-          29292
-        ]
-      },
-      {
-        "artist": "Kev Walker",
-        "cmc": 5,
-        "colorIdentity": [
-          "W",
-          "U",
-          "B"
-        ],
-        "colors": [
-          "White",
-          "Blue",
-          "Black"
-        ],
-        "flavor": "Altered by Phyrexian science, corrupted by black mana, and twisted by rage, Ertai still looked in the mirror and saw only glory.",
-        "id": "62ff415cafefac84a5bb7174cb7ef175c14625de",
-        "imageName": "ertai, the corrupted2",
-        "layout": "normal",
-        "manaCost": "{2}{W}{U}{B}",
-        "multiverseid": 29292,
-        "name": "Ertai, the Corrupted",
-        "number": "★107",
-        "power": "3",
-        "rarity": "Rare",
-        "subtypes": [
-          "Human",
-          "Wizard"
-        ],
-        "supertypes": [
-          "Legendary"
-        ],
-        "text": "{U}, {T}, Sacrifice a creature or enchantment: Counter target spell.",
-        "toughness": "4",
-        "type": "Legendary Creature — Human Wizard",
-        "types": [
-          "Creature"
-        ],
-        "variations": [
-          25614
-        ]
-      }
-    ]
-  },
-  "CHK": {
-    "name": "Champions of Kamigawa",
-    "code": "CHK",
-    "magicCardsInfoCode": "chk",
-    "releaseDate": "2004-10-01",
-    "border": "black",
-    "type": "expansion",
-    "block": "Kamigawa",
-    "booster": [
-      "rare",
-      "uncommon",
-      "uncommon",
-      "uncommon",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common"
-    ],
-    "translations": {
-      "de": "Meister von Kamigawa",
-      "fr": "Guerriers de Kamigawa",
-      "it": "Campioni di Kamigawa",
-      "es": "Campeones de Kamigawa",
-      "pt": "Campeões de Kamigawa",
-      "jp": "神河物語",
-      "cn": "神河群英录"
-    },
-    "mkm_name": "Champions of Kamigawa",
-    "mkm_id": 48,
-    "cards": [
-      {
-        "artist": "Mark Zug",
-        "cmc": 1,
-        "colorIdentity": [
-          "W"
-        ],
-        "colors": [
-          "White"
-        ],
-        "id": "5933bb74b618a4e4f61eb4b5b55b416c11affd11",
-        "imageName": "bushi tenderfoot",
-        "layout": "flip",
-        "manaCost": "{W}",
-        "mciNumber": "2a",
-        "multiverseid": 78600,
-        "name": "Bushi Tenderfoot",
-        "names": [
-          "Bushi Tenderfoot",
-          "Kenzo the Hardhearted"
-        ],
-        "number": "2a",
-        "power": "1",
-        "rarity": "Uncommon",
-        "subtypes": [
-          "Human",
-          "Soldier"
-        ],
-        "text": "When a creature dealt damage by Bushi Tenderfoot this turn dies, flip Bushi Tenderfoot.",
-        "toughness": "1",
-        "type": "Creature — Human Soldier",
-        "types": [
-          "Creature"
-        ]
-      },
-      {
-        "artist": "Mark Zug",
-        "cmc": 1,
-        "colorIdentity": [
-          "W"
-        ],
-        "colors": [
-          "White"
-        ],
-        "id": "b955500d1a3e0c4b36e3cbf6332c3bca4597eaee",
-        "imageName": "kenzo the hardhearted",
-        "layout": "flip",
-        "manaCost": "{W}",
-        "mciNumber": "2b",
-        "multiverseid": 78600,
-        "name": "Kenzo the Hardhearted",
-        "names": [
-          "Bushi Tenderfoot",
-          "Kenzo the Hardhearted"
-        ],
-        "number": "2b",
-        "power": "3",
-        "rarity": "Uncommon",
-        "subtypes": [
-          "Human",
-          "Samurai"
-        ],
-        "supertypes": [
-          "Legendary"
-        ],
-        "text": "Double strike; bushido 2 (Whenever this creature blocks or becomes blocked, it gets +2/+2 until end of turn.)",
-        "toughness": "4",
-        "type": "Legendary Creature — Human Samurai",
-        "types": [
-          "Creature"
-        ]
-      }
-    ]
-  },
-  "BOK": {
-    "name": "Betrayers of Kamigawa",
-    "code": "BOK",
-    "magicCardsInfoCode": "bok",
-    "releaseDate": "2005-02-04",
-    "border": "black",
-    "type": "expansion",
-    "block": "Kamigawa",
-    "booster": [
-      "rare",
-      "uncommon",
-      "uncommon",
-      "uncommon",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common"
-    ],
-    "translations": {
-      "de": "Verräter von Kamigawa",
-      "fr": "Traîtres de Kamigawa",
-      "it": "Traditori di Kamigawa",
-      "es": "Traidores de Kamigawa",
-      "pt": "Traidores de Kamigawa",
-      "jp": "神河謀叛",
-      "cn": "神河叛将谱"
-    },
-    "mkm_name": "Betrayers of Kamigawa",
-    "mkm_id": 51,
-    "cards": [
-      {
-        "artist": "Mark Zug",
-        "cmc": 3,
-        "colorIdentity": [
-          "W"
-        ],
-        "colors": [
-          "White"
-        ],
-        "id": "284c1af34bceb74c211ca1f314e76f95030299d4",
-        "imageName": "faithful squire",
-        "layout": "flip",
-        "manaCost": "{1}{W}{W}",
-        "mciNumber": "3a",
-        "multiverseid": 74093,
-        "name": "Faithful Squire",
-        "names": [
-          "Faithful Squire",
-          "Kaiso, Memory of Loyalty"
-        ],
-        "number": "3a",
-        "power": "2",
-        "rarity": "Uncommon",
-        "subtypes": [
-          "Human",
-          "Soldier"
-        ],
-        "text": "Whenever you cast a Spirit or Arcane spell, you may put a ki counter on Faithful Squire.\nAt the beginning of the end step, if there are two or more ki counters on Faithful Squire, you may flip it.",
-        "toughness": "2",
-        "type": "Creature — Human Soldier",
-        "types": [
-          "Creature"
-        ]
-      },
-      {
-        "artist": "Mark Zug",
-        "cmc": 3,
-        "colorIdentity": [
-          "W"
-        ],
-        "colors": [
-          "White"
-        ],
-        "id": "0b9a826470865b4e67039d0bc606d856d69e30b3",
-        "imageName": "kaiso, memory of loyalty",
-        "layout": "flip",
-        "manaCost": "{1}{W}{W}",
-        "mciNumber": "3b",
-        "multiverseid": 74093,
-        "name": "Kaiso, Memory of Loyalty",
-        "names": [
-          "Faithful Squire",
-          "Kaiso, Memory of Loyalty"
-        ],
-        "number": "3b",
-        "power": "3",
-        "rarity": "Uncommon",
-        "subtypes": [
-          "Spirit"
-        ],
-        "supertypes": [
-          "Legendary"
-        ],
-        "text": "Flying\nRemove a ki counter from Kaiso, Memory of Loyalty: Prevent all damage that would be dealt to target creature this turn.",
-        "toughness": "4",
-        "type": "Legendary Creature — Spirit",
-        "types": [
-          "Creature"
-        ]
-      }
-    ]
-  },
-  "SOK": {
-    "name": "Saviors of Kamigawa",
-    "code": "SOK",
-    "magicCardsInfoCode": "sok",
-    "releaseDate": "2005-06-03",
-    "border": "black",
-    "type": "expansion",
-    "block": "Kamigawa",
-    "booster": [
-      "rare",
-      "uncommon",
-      "uncommon",
-      "uncommon",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common"
-    ],
-    "translations": {
-      "de": "Retter von Kamigawa",
-      "fr": "Libérateurs de Kamigawa",
-      "it": "Liberatori di Kamigawa",
-      "es": "Salvadores de Kamigawa",
-      "pt": "Salvadores Kamigawa",
-      "jp": "神河救済",
-      "cn": "Saviors of Kamigawa"
-    },
-    "mkm_name": "Saviors of Kamigawa",
-    "mkm_id": 50,
-    "cards": [
-      {
-        "artist": "Matt Cavotta",
-        "cmc": 2,
-        "colorIdentity": [
-          "U"
-        ],
-        "colors": [
-          "Blue"
-        ],
-        "id": "63586b1cf22729dfb569a039d95bbd5f48581704",
-        "imageName": "erayo, soratami ascendant",
-        "layout": "flip",
-        "manaCost": "{1}{U}",
-        "multiverseid": 87599,
-        "name": "Erayo, Soratami Ascendant",
-        "names": [
-          "Erayo, Soratami Ascendant",
-          "Erayo's Essence"
-        ],
-        "number": "35a",
-        "power": "1",
-        "rarity": "Rare",
-        "subtypes": [
-          "Moonfolk",
-          "Monk"
-        ],
-        "supertypes": [
-          "Legendary"
-        ],
-        "text": "Flying\nWhenever the fourth spell of a turn is cast, flip Erayo, Soratami Ascendant.",
-        "toughness": "1",
-        "type": "Legendary Creature — Moonfolk Monk",
-        "types": [
-          "Creature"
-        ]
-      },
-      {
-        "artist": "Matt Cavotta",
-        "cmc": 2,
-        "colorIdentity": [
-          "U"
-        ],
-        "colors": [
-          "Blue"
-        ],
-        "id": "50c034015a3dc2a7d4ca924f7e6f696268063ef8",
-        "imageName": "erayo's essence",
-        "layout": "flip",
-        "manaCost": "{1}{U}",
-        "multiverseid": 87599,
-        "name": "Erayo's Essence",
-        "names": [
-          "Erayo, Soratami Ascendant",
-          "Erayo's Essence"
-        ],
-        "number": "35b",
-        "rarity": "Rare",
-        "supertypes": [
-          "Legendary"
-        ],
-        "text": "Whenever an opponent casts a spell for the first time in a turn, counter that spell.",
-        "type": "Legendary Enchantment",
-        "types": [
-          "Enchantment"
-        ]
-      }
-    ]
-  },
-  "CSP": {
-    "name": "Coldsnap",
-    "code": "CSP",
-    "magicCardsInfoCode": "cs",
-    "releaseDate": "2006-07-21",
-    "border": "black",
-    "type": "expansion",
-    "block": "Ice Age",
-    "booster": [
-      "rare",
-      "uncommon",
-      "uncommon",
-      "uncommon",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common"
-    ],
-    "translations": {
-      "de": "Kälteeinbruch",
-      "fr": "Souffle glaciaire",
-      "it": "Ondata Glaciale",
-      "es": "Ola de frío",
-      "pt": "Frente Fria",
-      "jp": "コールドスナップ",
-      "cn": "骤霜",
-      "ru": "Стужа"
-    },
-    "mkm_name": "Coldsnap",
-    "mkm_id": 52,
-    "cards": [
-      {
-        "artist": "Franz Vohwinkel",
-        "cmc": 2,
-        "colorIdentity": [
-          "W"
-        ],
-        "colors": [
-          "White"
-        ],
-        "id": "b6d3b800eee5851e4727adf50d9c2d82f269f25f",
-        "imageName": "jotun grunt",
-        "layout": "normal",
-        "manaCost": "{1}{W}",
-        "mciNumber": "8",
-        "multiverseid": 122075,
-        "name": "Jötun Grunt",
-        "number": "8",
-        "power": "4",
-        "rarity": "Uncommon",
-        "subtypes": [
-          "Giant",
-          "Soldier"
-        ],
-        "text": "Cumulative upkeep—Put two cards from a single graveyard on the bottom of their owner's library. (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)",
-        "toughness": "4",
-        "type": "Creature — Giant Soldier",
-        "types": [
-          "Creature"
-        ]
-      }
-    ]
-  },
-  "PLC": {
-    "name": "Planar Chaos",
-    "code": "PLC",
-    "magicCardsInfoCode": "pc",
-    "releaseDate": "2007-02-02",
-    "border": "black",
-    "type": "expansion",
-    "block": "Time Spiral",
-    "booster": [
-      "rare",
-      "uncommon",
-      "uncommon",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "timeshifted common",
-      "timeshifted common",
-      "timeshifted common",
-      [
-        "timeshifted rare",
-        "timeshifted uncommon"
-      ]
-    ],
-    "translations": {
-      "de": "Weltenchaos",
-      "fr": "Chaos planaire",
-      "it": "Caos Dimensionale",
-      "es": "Caos planar",
-      "pt": "Caos Planar",
-      "jp": "次元の混乱",
-      "cn": "时空混沌",
-      "ru": "Вселенский Хаос"
-    },
-    "mkm_name": "Planar Chaos",
-    "mkm_id": 58,
-    "cards": [
-      {
-        "artist": "John Avon",
-        "cmc": 2,
-        "colorIdentity": [
-          "R"
-        ],
-        "colors": [
-          "Red"
-        ],
-        "id": "c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae",
-        "imageName": "boombust",
-        "layout": "split",
-        "manaCost": "{1}{R}",
-        "mciNumber": "112a",
-        "multiverseid": 126218,
-        "name": "Boom",
-        "names": [
-          "Boom",
-          "Bust"
-        ],
-        "number": "112a",
-        "rarity": "Rare",
-        "text": "Destroy target land you control and target land you don't control.",
-        "type": "Sorcery",
-        "types": [
-          "Sorcery"
-        ]
-      },
-      {
-        "artist": "John Avon",
-        "cmc": 6,
-        "colorIdentity": [
-          "R"
-        ],
-        "colors": [
-          "Red"
-        ],
-        "id": "2eecf5001fe332f5dadf4d87665bcf182c5f24ee",
-        "imageName": "boombust",
-        "layout": "split",
-        "manaCost": "{5}{R}",
-        "mciNumber": "112b",
-        "multiverseid": 126218,
-        "name": "Bust",
-        "names": [
-          "Boom",
-          "Bust"
-        ],
-        "number": "112b",
-        "rarity": "Rare",
-        "text": "Destroy all lands.",
-        "type": "Sorcery",
-        "types": [
-          "Sorcery"
-        ]
-      }
-    ]
-  },
-  "pMGD": {
-    "name": "Magic Game Day",
-    "code": "pMGD",
-    "magicCardsInfoCode": "mgdc",
-    "magicRaritiesCodes": [
-      "119-rarities-magic-game-day-cards"
-    ],
-    "releaseDate": "2007-07-14",
-    "border": "black",
-    "type": "promo",
-    "cards": [
-      {
-        "artist": "James Paick",
-        "cmc": 2,
-        "colorIdentity": [
-          "B"
-        ],
-        "colors": [
-          "Black"
-        ],
-        "id": "6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc",
-        "imageName": "black sun's zenith",
-        "layout": "normal",
-        "manaCost": "{X}{B}{B}",
-        "mciNumber": "7",
-        "name": "Black Sun's Zenith",
-        "number": "7",
-        "rarity": "Special",
-        "text": "Put X -1/-1 counters on each creature. Shuffle Black Sun's Zenith into its owner's library.",
-        "type": "Sorcery",
-        "types": [
-          "Sorcery"
-        ]
-      }
-    ]
+    "type": "expansion"
   },
   "HOP": {
-    "name": "Planechase",
-    "code": "HOP",
-    "oldCode": "PCH",
-    "magicCardsInfoCode": "pch",
-    "releaseDate": "2009-09-04",
     "border": "black",
-    "type": "planechase",
-    "mkm_name": "Planechase",
-    "mkm_id": 113,
     "cards": [
       {
         "artist": "James Paick",
+        "cmc": 0,
         "id": "e5e0a663b682507c2f0c057ceb60f623337d8633",
         "imageName": "academy at tolaria west",
         "layout": "plane",
@@ -1303,14 +613,14 @@
         "subtypes": [
           "Dominaria"
         ],
-        "text": "At the beginning of your end step, if you have no cards in hand, draw seven cards.\nWhenever you roll CHAOS, discard your hand.",
+        "text": "At the beginning of your end step, if you have no cards in hand, draw seven cards.\nWhenever you roll {CHAOS}, discard your hand.",
         "type": "Plane — Dominaria",
         "types": [
           "Plane"
         ]
       },
       {
-        "artist": "Greg &amp; Tim Hildebrandt",
+        "artist": "Greg & Tim Hildebrandt",
         "cmc": 6,
         "colorIdentity": [
           "W"
@@ -1359,74 +669,185 @@
           "Instant"
         ]
       }
-    ]
+    ],
+    "code": "HOP",
+    "magicCardsInfoCode": "pch",
+    "mkm_id": 113,
+    "mkm_name": "Planechase",
+    "name": "Planechase",
+    "oldCode": "PCH",
+    "releaseDate": "2009-09-04",
+    "type": "planechase"
   },
-  "ARC": {
-    "name": "Archenemy",
-    "code": "ARC",
-    "magicCardsInfoCode": "arc",
-    "releaseDate": "2010-06-18",
+  "ICE": {
+    "block": "Ice Age",
+    "booster": [
+      "rare",
+      "uncommon",
+      "uncommon",
+      "uncommon",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common"
+    ],
     "border": "black",
-    "type": "archenemy",
-    "mkm_name": "Archenemy",
-    "mkm_id": 1194,
     "cards": [
       {
-        "artist": "Nic Klein",
-        "flavor": "\"Take a moment. Ponder the depths of your insignificance.\"",
-        "id": "0ac51bc6b0c720032a90016360e404b30705f47e",
-        "imageName": "all in good time",
-        "layout": "scheme",
-        "multiverseid": 212648,
-        "name": "All in Good Time",
-        "number": "1",
+        "artist": "Justin Hampton",
+        "cmc": 1,
+        "colorIdentity": [
+          "B"
+        ],
+        "colors": [
+          "Black"
+        ],
+        "flavor": "\"Leshrac, my liege, grant me the power I am due.\"\n—Lim-Dûl, the Necromancer",
+        "id": "2fab0ea29e3bbe8bfbc981a4c8163f3e7d267853",
+        "imageName": "dark ritual",
+        "layout": "normal",
+        "manaCost": "{B}",
+        "mciNumber": "8",
+        "multiverseid": 2444,
+        "name": "Dark Ritual",
         "rarity": "Common",
-        "text": "When you set this scheme in motion, take an extra turn after this one. Schemes can't be set in motion that turn.",
-        "type": "Scheme",
+        "text": "Add {B}{B}{B} to your mana pool.",
+        "type": "Instant",
         "types": [
-          "Scheme"
+          "Instant"
         ]
       },
       {
-        "artist": "Darrell Riche",
-        "cmc": 4,
+        "artist": "Pat Morrissey",
+        "cmc": 0,
         "colorIdentity": [
-          "W"
+          "G"
         ],
-        "colors": [
-          "White"
-        ],
-        "flavor": "Only leonin clerics who can survive the Razor Fields for one turning of the suns can stand in the Cave of Light.",
-        "id": "983e8f0c10c56bbac44b860e1fb90e7683e03aa6",
-        "imageName": "leonin abunas",
+        "id": "676a1f5b64dc03bbb3876840c3ff2ba2c16f99cb",
+        "imageName": "forest2",
         "layout": "normal",
-        "manaCost": "{3}{W}",
-        "mciNumber": "1",
-        "multiverseid": 220527,
-        "name": "Leonin Abunas",
-        "number": "1",
-        "power": "2",
-        "rarity": "Rare",
+        "multiverseid": 2746,
+        "name": "Forest",
+        "rarity": "Basic Land",
         "subtypes": [
-          "Cat",
-          "Cleric"
+          "Forest"
         ],
-        "text": "Artifacts you control have hexproof. (They can't be the targets of spells or abilities your opponents control.)",
-        "toughness": "5",
-        "type": "Creature — Cat Cleric",
+        "supertypes": [
+          "Basic"
+        ],
+        "type": "Basic Land — Forest",
         "types": [
-          "Creature"
+          "Land"
+        ],
+        "variations": [
+          2747,
+          2748
+        ]
+      },
+      {
+        "artist": "Pat Morrissey",
+        "cmc": 0,
+        "colorIdentity": [
+          "G"
+        ],
+        "id": "d0a4414893bc2f9bd3beea2f8f2693635ef926a4",
+        "imageName": "forest3",
+        "layout": "normal",
+        "multiverseid": 2747,
+        "name": "Forest",
+        "rarity": "Basic Land",
+        "subtypes": [
+          "Forest"
+        ],
+        "supertypes": [
+          "Basic"
+        ],
+        "type": "Basic Land — Forest",
+        "types": [
+          "Land"
+        ],
+        "variations": [
+          2748,
+          2746
+        ]
+      },
+      {
+        "artist": "Pat Morrissey",
+        "cmc": 0,
+        "colorIdentity": [
+          "G"
+        ],
+        "id": "c78d2da78c68c558b1adc734b3f164e885407ffc",
+        "imageName": "forest1",
+        "layout": "normal",
+        "multiverseid": 2748,
+        "name": "Forest",
+        "rarity": "Basic Land",
+        "subtypes": [
+          "Forest"
+        ],
+        "supertypes": [
+          "Basic"
+        ],
+        "type": "Basic Land — Forest",
+        "types": [
+          "Land"
+        ],
+        "variations": [
+          2747,
+          2746
+        ]
+      },
+      {
+        "artist": "Pat Morrissey",
+        "cmc": 0,
+        "colorIdentity": [
+          "G"
+        ],
+        "id": "5e9f08498a9343b1954103e493da2586be0fe394",
+        "imageName": "snow-covered forest",
+        "layout": "normal",
+        "mciNumber": "347",
+        "multiverseid": 2749,
+        "name": "Snow-Covered Forest",
+        "rarity": "Basic Land",
+        "subtypes": [
+          "Forest"
+        ],
+        "supertypes": [
+          "Basic",
+          "Snow"
+        ],
+        "type": "Basic Snow Land — Forest",
+        "types": [
+          "Land"
         ]
       }
-    ]
+    ],
+    "code": "ICE",
+    "gathererCode": "IA",
+    "magicCardsInfoCode": "ia",
+    "mkm_id": 11,
+    "mkm_name": "Ice Age",
+    "name": "Ice Age",
+    "releaseDate": "1995-06-01",
+    "translations": {
+      "de": "Eiszeit",
+      "es": "Era Glacial",
+      "fr": "Ere Glaciaire",
+      "it": "Era Glaciale",
+      "pt": "Era Glacial"
+    },
+    "type": "expansion"
   },
   "ISD": {
-    "name": "Innistrad",
-    "code": "ISD",
-    "magicCardsInfoCode": "isd",
-    "releaseDate": "2011-09-30",
-    "border": "black",
-    "type": "expansion",
     "block": "Innistrad",
     "booster": [
       [
@@ -1452,19 +873,7 @@
       "marketing",
       "double faced"
     ],
-    "translations": {
-      "de": "Innistrad",
-      "fr": "Innistrad",
-      "it": "Innistrad",
-      "es": "Innistrad",
-      "pt": "Innistrad",
-      "jp": "イニストラード",
-      "cn": "依尼翠",
-      "ru": "Innistrad",
-      "tw": "依尼翠"
-    },
-    "mkm_name": "Innistrad",
-    "mkm_id": 1327,
+    "border": "black",
     "cards": [
       {
         "artist": "Nils Hamm",
@@ -1566,6 +975,7 @@
       },
       {
         "artist": "James Paick",
+        "cmc": 0,
         "colorIdentity": [
           "G"
         ],
@@ -1589,10 +999,12 @@
         "variations": [
           245248,
           245246
-        ]
+        ],
+        "watermark": "Green"
       },
       {
         "artist": "Jung Park",
+        "cmc": 0,
         "colorIdentity": [
           "G"
         ],
@@ -1616,10 +1028,12 @@
         "variations": [
           245247,
           245246
-        ]
+        ],
+        "watermark": "Green"
       },
       {
         "artist": "Eytan Zana",
+        "cmc": 0,
         "colorIdentity": [
           "G"
         ],
@@ -1643,29 +1057,379 @@
         "variations": [
           245247,
           245248
+        ],
+        "watermark": "Green"
+      }
+    ],
+    "code": "ISD",
+    "magicCardsInfoCode": "isd",
+    "mkm_id": 1327,
+    "mkm_name": "Innistrad",
+    "name": "Innistrad",
+    "releaseDate": "2011-09-30",
+    "translations": {
+      "cn": "依尼翠",
+      "de": "Innistrad",
+      "es": "Innistrad",
+      "fr": "Innistrad",
+      "it": "Innistrad",
+      "jp": "イニストラード",
+      "pt": "Innistrad",
+      "ru": "Innistrad",
+      "tw": "依尼翠"
+    },
+    "type": "expansion"
+  },
+  "LEA": {
+    "booster": [
+      "rare",
+      "uncommon",
+      "uncommon",
+      "uncommon",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common"
+    ],
+    "border": "black",
+    "cards": [
+      {
+        "artist": "Sandra Everingham",
+        "cmc": 1,
+        "colorIdentity": [
+          "B"
+        ],
+        "colors": [
+          "Black"
+        ],
+        "id": "fff0b8e8fea06ee1ac5c35f048a0a459b1222673",
+        "imageName": "dark ritual",
+        "layout": "normal",
+        "manaCost": "{B}",
+        "mciNumber": "7",
+        "multiverseid": 54,
+        "name": "Dark Ritual",
+        "rarity": "Common",
+        "text": "Add {B}{B}{B} to your mana pool.",
+        "type": "Instant",
+        "types": [
+          "Instant"
+        ]
+      },
+      {
+        "artist": "Richard Thomas",
+        "cmc": 5,
+        "colorIdentity": [
+          "U"
+        ],
+        "colors": [
+          "Blue"
+        ],
+        "flavor": "These spirits of the air are winsome and wild, and cannot be truly contained. Only marginally intelligent, they often substitute whimsy for strategy, delighting in mischief and mayhem.",
+        "id": "926234c2fe8863f49220a878346c4c5ca79b6046",
+        "imageName": "air elemental",
+        "layout": "normal",
+        "manaCost": "{3}{U}{U}",
+        "mciNumber": "47",
+        "multiverseid": 94,
+        "name": "Air Elemental",
+        "power": "4",
+        "rarity": "Uncommon",
+        "subtypes": [
+          "Elemental"
+        ],
+        "text": "Flying",
+        "toughness": "4",
+        "type": "Creature — Elemental",
+        "types": [
+          "Creature"
+        ]
+      },
+      {
+        "artist": "Christopher Rush",
+        "cmc": 0,
+        "colorIdentity": [
+          "G"
+        ],
+        "id": "5ede9781b0c5d157c28a15c3153a455d7d6180fa",
+        "imageName": "forest2",
+        "layout": "normal",
+        "multiverseid": 288,
+        "name": "Forest",
+        "rarity": "Basic Land",
+        "subtypes": [
+          "Forest"
+        ],
+        "supertypes": [
+          "Basic"
+        ],
+        "type": "Basic Land — Forest",
+        "types": [
+          "Land"
+        ],
+        "variations": [
+          289
+        ]
+      },
+      {
+        "artist": "Christopher Rush",
+        "cmc": 0,
+        "colorIdentity": [
+          "G"
+        ],
+        "id": "970af6b2a9a1db5d3956172791717b2afab3e03f",
+        "imageName": "forest1",
+        "layout": "normal",
+        "multiverseid": 289,
+        "name": "Forest",
+        "rarity": "Basic Land",
+        "subtypes": [
+          "Forest"
+        ],
+        "supertypes": [
+          "Basic"
+        ],
+        "type": "Basic Land — Forest",
+        "types": [
+          "Land"
+        ],
+        "variations": [
+          288
         ]
       }
-    ]
+    ],
+    "code": "LEA",
+    "gathererCode": "1E",
+    "magicCardsInfoCode": "al",
+    "mkm_id": 1,
+    "mkm_name": "Alpha",
+    "name": "Limited Edition Alpha",
+    "releaseDate": "1993-08-05",
+    "type": "core"
+  },
+  "MMA": {
+    "booster": [
+      [
+        "rare",
+        "mythic rare"
+      ],
+      "uncommon",
+      "uncommon",
+      "uncommon",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      [
+        "foil mythic rare",
+        "foil rare",
+        "foil uncommon",
+        "foil common"
+      ]
+    ],
+    "border": "black",
+    "cards": [
+      {
+        "artist": "Trevor Claxton",
+        "cmc": 1,
+        "colorIdentity": [
+          "G"
+        ],
+        "colors": [
+          "Green"
+        ],
+        "id": "fc46a4b72d216117a352f59217a84d0baeaaacb7",
+        "imageName": "thallid",
+        "layout": "normal",
+        "manaCost": "{G}",
+        "mciNumber": "167",
+        "multiverseid": 370352,
+        "name": "Thallid",
+        "number": "167",
+        "power": "1",
+        "rarity": "Common",
+        "subtypes": [
+          "Fungus"
+        ],
+        "text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Create a 1/1 green Saproling creature token.",
+        "toughness": "1",
+        "type": "Creature — Fungus",
+        "types": [
+          "Creature"
+        ]
+      }
+    ],
+    "code": "MMA",
+    "magicCardsInfoCode": "mma",
+    "mkm_id": 1444,
+    "mkm_name": "Modern Masters",
+    "name": "Modern Masters",
+    "releaseDate": "2013-06-07",
+    "type": "reprint"
+  },
+  "OGW": {
+    "block": "Battle for Zendikar",
+    "booster": [
+      [
+        "rare",
+        "mythic rare"
+      ],
+      "uncommon",
+      "uncommon",
+      "uncommon",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "land",
+      "marketing"
+    ],
+    "border": "black",
+    "cards": [
+      {
+        "artist": "Jason Felix",
+        "cmc": 0,
+        "id": "68d4ca6db1b4f92aa306627cefa3d02137e4fa10",
+        "imageName": "wastes2",
+        "layout": "normal",
+        "multiverseid": 407693,
+        "name": "Wastes",
+        "number": "183",
+        "rarity": "Basic Land",
+        "supertypes": [
+          "Basic"
+        ],
+        "text": "{T}: Add {C} to your mana pool.",
+        "type": "Basic Land",
+        "types": [
+          "Land"
+        ],
+        "variations": [
+          407694,
+          407695,
+          407696
+        ],
+        "watermark": "Colorless"
+      },
+      {
+        "artist": "Jason Felix",
+        "cmc": 0,
+        "id": "90a199d89b8723133c290be1c8fa99a13063fb05",
+        "imageName": "wastes1",
+        "layout": "normal",
+        "multiverseid": 407694,
+        "name": "Wastes",
+        "number": "183",
+        "rarity": "Basic Land",
+        "supertypes": [
+          "Basic"
+        ],
+        "text": "{T}: Add {C} to your mana pool.",
+        "type": "Basic Land",
+        "types": [
+          "Land"
+        ],
+        "variations": [
+          407693,
+          407695,
+          407696
+        ],
+        "watermark": "Colorless"
+      },
+      {
+        "artist": "Raymond Swanland",
+        "cmc": 0,
+        "id": "84e8fe1ff78f9f447c6870dfd80a354d687f230e",
+        "imageName": "wastes4",
+        "layout": "normal",
+        "multiverseid": 407695,
+        "name": "Wastes",
+        "number": "184",
+        "rarity": "Basic Land",
+        "supertypes": [
+          "Basic"
+        ],
+        "text": "{T}: Add {C} to your mana pool.",
+        "type": "Basic Land",
+        "types": [
+          "Land"
+        ],
+        "variations": [
+          407693,
+          407694,
+          407696
+        ],
+        "watermark": "Colorless"
+      },
+      {
+        "artist": "Raymond Swanland",
+        "cmc": 0,
+        "id": "9a1e2c33bbe0aed2a499e49036754b4e3aa5338d",
+        "imageName": "wastes3",
+        "layout": "normal",
+        "multiverseid": 407696,
+        "name": "Wastes",
+        "number": "184",
+        "rarity": "Basic Land",
+        "supertypes": [
+          "Basic"
+        ],
+        "text": "{T}: Add {C} to your mana pool.",
+        "type": "Basic Land",
+        "types": [
+          "Land"
+        ],
+        "variations": [
+          407693,
+          407694,
+          407695
+        ],
+        "watermark": "Colorless"
+      }
+    ],
+    "code": "OGW",
+    "magicCardsInfoCode": "ogw",
+    "name": "Oath of the Gatewatch",
+    "releaseDate": "2016-01-22",
+    "translations": {
+      "de": "Eid der Wächter",
+      "es": "El juramento de los Guardianes",
+      "fr": "Le serment des Sentinelles",
+      "it": "Giuramento dei Guardiani",
+      "jp": "『ゲートウォッチの誓い』",
+      "ko": "관문수호대의 맹세",
+      "pt": "Juramento das Sentinelas",
+      "ru": "Клятва Стражей",
+      "zh-hans": "守护者誓约",
+      "zh-hant": "守護者誓約"
+    },
+    "type": "expansion"
   },
   "PC2": {
-    "name": "Planechase 2012 Edition",
-    "code": "PC2",
-    "magicCardsInfoCode": "pc2",
-    "releaseDate": "2012-06-01",
     "border": "black",
-    "type": "planechase",
-    "translations": {
-      "de": "Planechase 2012 Edition",
-      "fr": "Planechase 2012 Edition",
-      "it": "Planechase 2012 Edition",
-      "es": "Planechase 2012 Edition",
-      "jp": "プレインチェイス2012"
-    },
-    "mkm_name": "Planechase 2012",
-    "mkm_id": 1369,
     "cards": [
       {
         "artist": "Dan Scott",
+        "cmc": 0,
         "id": "c98cdec5d2201abe3411db460cb088b82945bb9e",
         "imageName": "chaotic aether",
         "layout": "phenomenon",
@@ -1711,6 +1475,7 @@
       },
       {
         "artist": "Rob Alexander",
+        "cmc": 0,
         "id": "987af3f421ec11e042ff1722e56a8d71b120feb9",
         "imageName": "akoum",
         "layout": "plane",
@@ -1721,7 +1486,7 @@
         "subtypes": [
           "Zendikar"
         ],
-        "text": "Players may cast enchantment spells as though they had flash.\nWhenever you roll CHAOS, destroy target creature that isn't enchanted.",
+        "text": "Players may cast enchantment spells as though they had flash.\nWhenever you roll {CHAOS}, destroy target creature that isn't enchanted.",
         "type": "Plane — Zendikar",
         "types": [
           "Plane"
@@ -1729,6 +1494,7 @@
       },
       {
         "artist": "Steven Belledin",
+        "cmc": 0,
         "id": "72f22a825c3764f7131d7c255a8db6214c852ba9",
         "imageName": "stairs to infinity",
         "layout": "plane",
@@ -1739,88 +1505,401 @@
         "subtypes": [
           "Xerex"
         ],
-        "text": "Players have no maximum hand size.\nWhenever you roll the planar die, draw a card.\nWhenever you roll CHAOS, reveal the top card of your planar deck. You may put it on the bottom of your planar deck.",
+        "text": "Players have no maximum hand size.\nWhenever you roll the planar die, draw a card.\nWhenever you roll {CHAOS}, reveal the top card of your planar deck. You may put it on the bottom of your planar deck.",
         "type": "Plane — Xerex",
         "types": [
           "Plane"
         ]
       }
-    ]
+    ],
+    "code": "PC2",
+    "magicCardsInfoCode": "pc2",
+    "mkm_id": 1369,
+    "mkm_name": "Planechase 2012",
+    "name": "Planechase 2012 Edition",
+    "releaseDate": "2012-06-01",
+    "translations": {
+      "de": "Planechase 2012 Edition",
+      "es": "Planechase 2012 Edition",
+      "fr": "Planechase 2012 Edition",
+      "it": "Planechase 2012 Edition",
+      "jp": "プレインチェイス2012"
+    },
+    "type": "planechase"
   },
-  "MMA": {
-    "name": "Modern Masters",
-    "code": "MMA",
-    "magicCardsInfoCode": "mma",
-    "releaseDate": "2013-06-07",
-    "border": "black",
-    "type": "reprint",
+  "PLC": {
+    "block": "Time Spiral",
     "booster": [
+      "rare",
+      "uncommon",
+      "uncommon",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "timeshifted common",
+      "timeshifted common",
+      "timeshifted common",
       [
-        "rare",
-        "mythic rare"
-      ],
-      "uncommon",
-      "uncommon",
-      "uncommon",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      [
-        "foil mythic rare",
-        "foil rare",
-        "foil uncommon",
-        "foil common"
+        "timeshifted rare",
+        "timeshifted uncommon"
       ]
     ],
-    "mkm_name": "Modern Masters",
-    "mkm_id": 1444,
+    "border": "black",
     "cards": [
       {
-        "artist": "Trevor Claxton",
-        "cmc": 1,
+        "artist": "John Avon",
+        "cmc": 2,
+        "colorIdentity": [
+          "R"
+        ],
+        "colors": [
+          "Red"
+        ],
+        "id": "c08c564300a6a6d3f9c1c1dfbcab9351be3a04ae",
+        "imageName": "boombust",
+        "layout": "split",
+        "manaCost": "{1}{R}",
+        "mciNumber": "112a",
+        "multiverseid": 126218,
+        "name": "Boom",
+        "names": [
+          "Boom",
+          "Bust"
+        ],
+        "number": "112a",
+        "rarity": "Rare",
+        "text": "Destroy target land you control and target land you don't control.",
+        "type": "Sorcery",
+        "types": [
+          "Sorcery"
+        ]
+      },
+      {
+        "artist": "John Avon",
+        "cmc": 6,
+        "colorIdentity": [
+          "R"
+        ],
+        "colors": [
+          "Red"
+        ],
+        "id": "2eecf5001fe332f5dadf4d87665bcf182c5f24ee",
+        "imageName": "boombust",
+        "layout": "split",
+        "manaCost": "{5}{R}",
+        "mciNumber": "112b",
+        "multiverseid": 126218,
+        "name": "Bust",
+        "names": [
+          "Boom",
+          "Bust"
+        ],
+        "number": "112b",
+        "rarity": "Rare",
+        "text": "Destroy all lands.",
+        "type": "Sorcery",
+        "types": [
+          "Sorcery"
+        ]
+      }
+    ],
+    "code": "PLC",
+    "magicCardsInfoCode": "pc",
+    "mkm_id": 58,
+    "mkm_name": "Planar Chaos",
+    "name": "Planar Chaos",
+    "releaseDate": "2007-02-02",
+    "translations": {
+      "cn": "时空混沌",
+      "de": "Weltenchaos",
+      "es": "Caos planar",
+      "fr": "Chaos planaire",
+      "it": "Caos Dimensionale",
+      "jp": "次元の混乱",
+      "pt": "Caos Planar",
+      "ru": "Вселенский Хаос"
+    },
+    "type": "expansion"
+  },
+  "PLS": {
+    "block": "Invasion",
+    "booster": [
+      "rare",
+      "uncommon",
+      "uncommon",
+      "uncommon",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common"
+    ],
+    "border": "black",
+    "cards": [
+      {
+        "artist": "Mark Tedin",
+        "cmc": 5,
+        "colorIdentity": [
+          "W",
+          "U",
+          "B"
+        ],
+        "colors": [
+          "White",
+          "Blue",
+          "Black"
+        ],
+        "flavor": "Altered by Phyrexian science, corrupted by black mana, and twisted by rage, Ertai still looked in the mirror and saw only glory.",
+        "id": "08fcfee6a7c4eddcd44e43e918cbf9d479492fe7",
+        "imageName": "ertai, the corrupted1",
+        "layout": "normal",
+        "manaCost": "{2}{W}{U}{B}",
+        "multiverseid": 25614,
+        "name": "Ertai, the Corrupted",
+        "number": "107",
+        "power": "3",
+        "rarity": "Rare",
+        "subtypes": [
+          "Human",
+          "Wizard"
+        ],
+        "supertypes": [
+          "Legendary"
+        ],
+        "text": "{U}, {T}, Sacrifice a creature or enchantment: Counter target spell.",
+        "toughness": "4",
+        "type": "Legendary Creature — Human Wizard",
+        "types": [
+          "Creature"
+        ],
+        "variations": [
+          29292
+        ]
+      },
+      {
+        "artist": "Kev Walker",
+        "cmc": 5,
+        "colorIdentity": [
+          "W",
+          "U",
+          "B"
+        ],
+        "colors": [
+          "White",
+          "Blue",
+          "Black"
+        ],
+        "flavor": "Altered by Phyrexian science, corrupted by black mana, and twisted by rage, Ertai still looked in the mirror and saw only glory.",
+        "id": "62ff415cafefac84a5bb7174cb7ef175c14625de",
+        "imageName": "ertai, the corrupted2",
+        "layout": "normal",
+        "manaCost": "{2}{W}{U}{B}",
+        "multiverseid": 29292,
+        "name": "Ertai, the Corrupted",
+        "number": "★107",
+        "power": "3",
+        "rarity": "Rare",
+        "subtypes": [
+          "Human",
+          "Wizard"
+        ],
+        "supertypes": [
+          "Legendary"
+        ],
+        "text": "{U}, {T}, Sacrifice a creature or enchantment: Counter target spell.",
+        "toughness": "4",
+        "type": "Legendary Creature — Human Wizard",
+        "types": [
+          "Creature"
+        ],
+        "variations": [
+          25614
+        ]
+      }
+    ],
+    "code": "PLS",
+    "gathererCode": "PS",
+    "magicCardsInfoCode": "ps",
+    "mkm_id": 35,
+    "mkm_name": "Planeshift",
+    "name": "Planeshift",
+    "releaseDate": "2001-02-05",
+    "translations": {
+      "de": "Weltenwechsel",
+      "es": "Transmigración",
+      "fr": "Planeshift",
+      "it": "Congiunzione",
+      "pt": "Conjunção"
+    },
+    "type": "expansion"
+  },
+  "S00": {
+    "border": "white",
+    "cards": [
+      {
+        "artist": "Mark Zug",
+        "cmc": 6,
         "colorIdentity": [
           "G"
         ],
         "colors": [
           "Green"
         ],
-        "id": "fc46a4b72d216117a352f59217a84d0baeaaacb7",
-        "imageName": "thallid",
+        "id": "536d407161fa03eddee7da0e823c2042a8fa0262",
+        "imageName": "rhox",
         "layout": "normal",
-        "manaCost": "{G}",
-        "mciNumber": "167",
-        "multiverseid": 370352,
-        "name": "Thallid",
-        "number": "167",
-        "power": "1",
-        "rarity": "Common",
+        "manaCost": "{4}{G}{G}",
+        "mciNumber": "13",
+        "name": "Rhox",
+        "power": "5",
+        "rarity": "Rare",
         "subtypes": [
-          "Fungus"
+          "Rhino",
+          "Beast"
         ],
-        "text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Create a 1/1 green Saproling creature token.",
-        "toughness": "1",
-        "type": "Creature — Fungus",
+        "text": "You may have Rhox assign its combat damage as though it weren't blocked.\n{2}{G}: Regenerate Rhox. (The next time this creature would be destroyed this turn, it isn't. Instead tap it, remove all damage from it, and remove it from combat.)",
+        "toughness": "5",
+        "type": "Creature — Rhino Beast",
         "types": [
           "Creature"
         ]
       }
-    ]
+    ],
+    "code": "S00",
+    "gathererCode": "P4",
+    "magicCardsInfoCode": "st2k",
+    "mkm_id": 65,
+    "mkm_name": "Starter 2000",
+    "name": "Starter 2000",
+    "releaseDate": "2000-04-24",
+    "translations": {
+      "de": "Starter 2000",
+      "es": "Starter 2000",
+      "fr": "Starter 2000",
+      "it": "Starter 2000",
+      "pt": "Starter 2000"
+    },
+    "type": "starter"
+  },
+  "SOK": {
+    "block": "Kamigawa",
+    "booster": [
+      "rare",
+      "uncommon",
+      "uncommon",
+      "uncommon",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common",
+      "common"
+    ],
+    "border": "black",
+    "cards": [
+      {
+        "artist": "Matt Cavotta",
+        "cmc": 2,
+        "colorIdentity": [
+          "U"
+        ],
+        "colors": [
+          "Blue"
+        ],
+        "id": "63586b1cf22729dfb569a039d95bbd5f48581704",
+        "imageName": "erayo, soratami ascendant",
+        "layout": "flip",
+        "manaCost": "{1}{U}",
+        "mciNumber": "35a",
+        "multiverseid": 87599,
+        "name": "Erayo, Soratami Ascendant",
+        "names": [
+          "Erayo, Soratami Ascendant",
+          "Erayo's Essence"
+        ],
+        "number": "35a",
+        "power": "1",
+        "rarity": "Rare",
+        "subtypes": [
+          "Moonfolk",
+          "Monk"
+        ],
+        "supertypes": [
+          "Legendary"
+        ],
+        "text": "Flying\nWhenever the fourth spell of a turn is cast, flip Erayo, Soratami Ascendant.",
+        "toughness": "1",
+        "type": "Legendary Creature — Moonfolk Monk",
+        "types": [
+          "Creature"
+        ]
+      },
+      {
+        "artist": "Matt Cavotta",
+        "cmc": 2,
+        "colorIdentity": [
+          "U"
+        ],
+        "colors": [
+          "Blue"
+        ],
+        "id": "50c034015a3dc2a7d4ca924f7e6f696268063ef8",
+        "imageName": "erayo's essence",
+        "layout": "flip",
+        "manaCost": "{1}{U}",
+        "mciNumber": "35b",
+        "multiverseid": 87599,
+        "name": "Erayo's Essence",
+        "names": [
+          "Erayo, Soratami Ascendant",
+          "Erayo's Essence"
+        ],
+        "number": "35b",
+        "rarity": "Rare",
+        "supertypes": [
+          "Legendary"
+        ],
+        "text": "Whenever an opponent casts his or her first spell each turn, counter that spell.",
+        "type": "Legendary Enchantment",
+        "types": [
+          "Enchantment"
+        ]
+      }
+    ],
+    "code": "SOK",
+    "magicCardsInfoCode": "sok",
+    "mkm_id": 50,
+    "mkm_name": "Saviors of Kamigawa",
+    "name": "Saviors of Kamigawa",
+    "releaseDate": "2005-06-03",
+    "translations": {
+      "cn": "Saviors of Kamigawa",
+      "de": "Retter von Kamigawa",
+      "es": "Salvadores de Kamigawa",
+      "fr": "Libérateurs de Kamigawa",
+      "it": "Liberatori di Kamigawa",
+      "jp": "神河救済",
+      "pt": "Salvadores Kamigawa"
+    },
+    "type": "expansion"
   },
   "VMA": {
-    "name": "Vintage Masters",
-    "code": "VMA",
-    "magicCardsInfoCode": "vma",
-    "releaseDate": "2014-06-16",
-    "border": "black",
-    "type": "masters",
-    "onlineOnly": true,
     "booster": [
       [
         "rare",
@@ -1844,6 +1923,7 @@
         "foil"
       ]
     ],
+    "border": "black",
     "cards": [
       {
         "artist": "Volkan Baga",
@@ -1875,151 +1955,17 @@
           "Creature"
         ]
       }
-    ]
-  },
-  "OGW": {
-    "name": "Oath of the Gatewatch",
-    "code": "OGW",
-    "magicCardsInfoCode": "ogw",
-    "releaseDate": "2016-01-22",
-    "border": "black",
-    "type": "expansion",
-    "block": "Battle for Zendikar",
-    "booster": [
-      [
-        "rare",
-        "mythic rare"
-      ],
-      "uncommon",
-      "uncommon",
-      "uncommon",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "common",
-      "land",
-      "marketing"
     ],
-    "translations": {
-      "pt": "Juramento das Sentinelas",
-      "es": "El juramento de los Guardianes",
-      "ru": "Клятва Стражей",
-      "ko": "관문수호대의 맹세",
-      "jp": "『ゲートウォッチの誓い』",
-      "it": "Giuramento dei Guardiani",
-      "de": "Eid der Wächter",
-      "fr": "Le serment des Sentinelles",
-      "zh-hant": "守護者誓約",
-      "zh-hans": "守护者誓约"
-    },
-    "cards": [
-      {
-        "artist": "Jason Felix",
-        "id": "68d4ca6db1b4f92aa306627cefa3d02137e4fa10",
-        "imageName": "wastes2",
-        "layout": "normal",
-        "multiverseid": 407693,
-        "name": "Wastes",
-        "number": "183",
-        "rarity": "Basic Land",
-        "supertypes": [
-          "Basic"
-        ],
-        "text": "{T}: Add {C} to your mana pool",
-        "type": "Basic Land",
-        "types": [
-          "Land"
-        ],
-        "variations": [
-          407694,
-          407695,
-          407696
-        ]
-      },
-      {
-        "artist": "Jason Felix",
-        "id": "90a199d89b8723133c290be1c8fa99a13063fb05",
-        "imageName": "wastes1",
-        "layout": "normal",
-        "multiverseid": 407694,
-        "name": "Wastes",
-        "number": "183",
-        "rarity": "Basic Land",
-        "supertypes": [
-          "Basic"
-        ],
-        "text": "{T}: Add {C} to your mana pool",
-        "type": "Basic Land",
-        "types": [
-          "Land"
-        ],
-        "variations": [
-          407693,
-          407695,
-          407696
-        ]
-      },
-      {
-        "artist": "Raymond Swanland",
-        "id": "84e8fe1ff78f9f447c6870dfd80a354d687f230e",
-        "imageName": "wastes4",
-        "layout": "normal",
-        "multiverseid": 407695,
-        "name": "Wastes",
-        "number": "184",
-        "rarity": "Basic Land",
-        "supertypes": [
-          "Basic"
-        ],
-        "text": "{T}: Add {C} to your mana pool",
-        "type": "Basic Land",
-        "types": [
-          "Land"
-        ],
-        "variations": [
-          407693,
-          407694,
-          407696
-        ]
-      },
-      {
-        "artist": "Raymond Swanland",
-        "id": "9a1e2c33bbe0aed2a499e49036754b4e3aa5338d",
-        "imageName": "wastes3",
-        "layout": "normal",
-        "multiverseid": 407696,
-        "name": "Wastes",
-        "number": "184",
-        "rarity": "Basic Land",
-        "supertypes": [
-          "Basic"
-        ],
-        "text": "{T}: Add {C} to your mana pool",
-        "type": "Basic Land",
-        "types": [
-          "Land"
-        ],
-        "variations": [
-          407693,
-          407694,
-          407695
-        ]
-      }
-    ]
+    "code": "VMA",
+    "magicCardsInfoCode": "vma",
+    "name": "Vintage Masters",
+    "onlineOnly": true,
+    "releaseDate": "2014-06-16",
+    "type": "masters"
   },
   "W16": {
-    "name": "Welcome Deck 2016",
-    "code": "W16",
-    "releaseDate": "2016-04-08",
-    "border": "black",
-    "type": "starter",
     "block": "Shadows over Innistrad",
+    "border": "black",
     "cards": [
       {
         "artist": "Greg Staples",
@@ -2035,12 +1981,12 @@
         "imageName": "serra angel",
         "layout": "normal",
         "manaCost": "{3}{W}{W}",
+        "mciNumber": "3",
         "multiverseid": 413369,
         "name": "Serra Angel",
         "number": "3",
         "power": "4",
         "rarity": "Uncommon",
-        "starter": true,
         "subtypes": [
           "Angel"
         ],
@@ -2051,6 +1997,99 @@
           "Creature"
         ]
       }
-    ]
+    ],
+    "code": "W16",
+    "magicCardsInfoCode": "w16",
+    "name": "Welcome Deck 2016",
+    "releaseDate": "2016-04-08",
+    "type": "starter"
+  },
+  "pMEI": {
+    "border": "black",
+    "cards": [
+      {
+        "artist": "Rob Alexander",
+        "cmc": 0,
+        "id": "741b2637bc11ba8687f50f1d18b5f447f8056d73",
+        "imageName": "arena",
+        "layout": "normal",
+        "mciNumber": "1",
+        "multiverseid": 97042,
+        "name": "Arena",
+        "number": "1",
+        "rarity": "Special",
+        "releaseDate": "1994-09",
+        "text": "{3}, {T}: Tap target creature you control and target creature of an opponent's choice he or she controls. Those creatures fight each other. (Each deals damage equal to its power to the other.)",
+        "type": "Land",
+        "types": [
+          "Land"
+        ]
+      }
+    ],
+    "code": "pMEI",
+    "magicCardsInfoCode": "mbp",
+    "magicRaritiesCodes": [
+      "189-rarities-agent-of-artifice-novel-promo-insert",
+      "109-rarities-harperprism-book-inserts",
+      "20-rarities-armada-comics-book-promos",
+      "175-rarities-coro-coro-comic-book-inserts",
+      "296-rarities-dengeki-maoh-magazine-inserts",
+      "81-rarities-gotta-magazine-cards",
+      "196-rarities-hachette-french-magic-encyclopedia-inserts",
+      "197-rarities-hachette-italian-magic-encyclopedia-inserts",
+      "765-rarities-idw-comics-book-inserts",
+      "16-rarities-kartefakt-magazine-promo",
+      "121-rarities-players-guide-inserts",
+      "228-rarities-rpg-magazine-inserts",
+      "135-rarities-salvat-magic-encyclopedia-cards",
+      "134-rarities-the-cardz-magazine-inserts",
+      "22-rarities-the-duelist-cards",
+      "18-rarities-topdeck-cards",
+      "258-rarities-buy-a-box-promos",
+      "787-rarities-holiday-gift-box",
+      "224-rarities-duels-of-the-planeswalkers-software-promos",
+      "160-rarities-resale-promos",
+      "686-rarities-convention-and-various-promos"
+    ],
+    "name": "Media Inserts",
+    "releaseDate": "1995-01-01",
+    "type": "promo"
+  },
+  "pMGD": {
+    "border": "black",
+    "cards": [
+      {
+        "artist": "James Paick",
+        "cmc": 2,
+        "colorIdentity": [
+          "B"
+        ],
+        "colors": [
+          "Black"
+        ],
+        "id": "6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc",
+        "imageName": "black sun's zenith",
+        "layout": "normal",
+        "manaCost": "{X}{B}{B}",
+        "mciNumber": "7",
+        "name": "Black Sun's Zenith",
+        "number": "7",
+        "rarity": "Special",
+        "releaseDate": "2011-03-05",
+        "text": "Put X -1/-1 counters on each creature. Shuffle Black Sun's Zenith into its owner's library.",
+        "type": "Sorcery",
+        "types": [
+          "Sorcery"
+        ]
+      }
+    ],
+    "code": "pMGD",
+    "magicCardsInfoCode": "mgdc",
+    "magicRaritiesCodes": [
+      "119-rarities-magic-game-day-cards"
+    ],
+    "name": "Magic Game Day",
+    "releaseDate": "2007-07-14",
+    "type": "promo"
   }
 }
