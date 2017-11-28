@@ -4,8 +4,8 @@ import sys
 import setuptools
 
 
-if sys.version_info < (3, 3):
-    raise Exception('Python version < 3.3 are not supported.')
+if sys.version_info < (3, 4):
+    raise Exception('Python version < 3.4 are not supported.')
 
 # Get version information without importing the package
 __version__ = None
@@ -23,8 +23,6 @@ if {'pytest', 'test', 'ptr'}.intersection(sys.argv):
 
 if sys.version_info < (3, 5):
     DEPENDENCIES.append('typing>=3.5.2,<4.0.0')
-if sys.version_info < (3, 4):
-    DEPENDENCIES.append('enum34>=1.1.6,<2.0.0')
 
 CLASSIFIERS = [
     'Development Status :: 5 - Production/Stable',
@@ -39,7 +37,6 @@ CLASSIFIERS = [
     'Programming Language :: Python',
     'Programming Language :: Python :: 3',
     'Programming Language :: Python :: 3 :: Only',
-    'Programming Language :: Python :: 3.3',
     'Programming Language :: Python :: 3.4',
     'Programming Language :: Python :: 3.5',
     'Programming Language :: Python :: 3.6',
