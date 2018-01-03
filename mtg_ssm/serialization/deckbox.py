@@ -109,13 +109,12 @@ def dbox_rows_from_print_counts(cdb, print_counts):
 
 def get_mtgj_setname(edition, number):
     """Use the remappings to get the setname from a deckbox edition."""
-    if edition not in DECKBOX_EDITION_TO_RANGE_AND_SETNAMES:
-        return edition
-
-    for start, end, setname in DECKBOX_EDITION_TO_RANGE_AND_SETNAMES[edition]:
+    edition_map = DECKBOX_EDITION_TO_RANGE_AND_SETNAMES.get(edition, ())
+    for start, end, setname in edition_map:
         if ((start is None or int(number) >= start) and
                 (end is None or int(number) <= end)):
             return setname
+    return edition
 
 
 def create_card_row(cdb, dbox_row):

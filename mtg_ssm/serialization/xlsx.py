@@ -194,8 +194,8 @@ def style_set_sheet(sheet):
 
 def counts_from_sheet(sheet):
     """Given an xlsx set sheet, read card counts."""
-    rows = iter(sheet.rows)
-    header = [cell.value for cell in next(rows)]
+    header_cells, *rows = iter(sheet.rows)
+    header = [cell.value for cell in header_cells]
     for row in rows:
         row_values = [cell.value for cell in row]
         yield dict(zip(header, row_values), set=sheet.title)
