@@ -149,6 +149,13 @@ Acknowledgments
 Changelog
 =========
 
+1.3.6
+-----
+
+-   Removed support for Python 3.3
+-   Test and bug fixes
+-   Handle newer versions of mtgjson
+
 1.3.5
 -----
 
