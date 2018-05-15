@@ -1,3 +1,5 @@
+attrs>=17.4.0
+coverage<4.1
 flake8>=3.0.4
 flake8-bugbear>=17.3.0; python_version >= '3.5'
 flake8-commas>=0.4.1
@@ -8,4 +10,3 @@ pylint>=1.6.4
 pytest>=3.0.2
 pytest-cov>=2.3.1
 python-coveralls>=2.7.0
-coverage<4.1
