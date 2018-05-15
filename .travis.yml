@@ -1,5 +1,3 @@
-sudo: false
-
 language: python
 cache: pip
 python:
@@ -15,6 +13,7 @@ before_install:
 install: python setup.py develop
 
 script:
+  - pip list
   - pytest --verbose --cov=mtg_ssm
   - pylint mtg_ssm
   - pylint --disable=similarities,redefined-outer-name tests
