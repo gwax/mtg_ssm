@@ -219,7 +219,7 @@ class XlsxDialect(interface.SerializationDialect):
             set_sheet = workbook.create_sheet()
             create_set_sheet(set_sheet, card_set, print_counts)
             style_set_sheet(set_sheet)
-        workbook.remove_sheet(workbook['Sheet'])
+        del workbook['Sheet']
         workbook.save(filename)
 
     def read(self, filename: str):
