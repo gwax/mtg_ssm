@@ -8,7 +8,7 @@ from mtg_ssm.mtg import counts
 TEST_PRINT_ID = '958ae1416f8f6287115ccd7c5c61f2415a313546'
 
 
-@pytest.fixture  # todo: default scope?
+@pytest.fixture(scope='module')
 def cdb(sets_data):
     """Fixture card_db with mtg json data."""
     return card_db.CardDb(sets_data)
