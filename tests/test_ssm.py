@@ -124,7 +124,7 @@ def test_create_cmd():
         set,name,number,multiverseid,id,copies,foils
         pMGD,Black Sun's Zenith,7,,6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc,,
         MMA,Thallid,167,370352,fc46a4b72d216117a352f59217a84d0baeaaacb7,,
-    """
+        """
     )
 
 
@@ -136,9 +136,9 @@ def test_update_cmd():
             infile.write(
                 textwrap.dedent(
                     """\
-                id,copies,foils
-                fc46a4b72d216117a352f59217a84d0baeaaacb7,4,8
-            """
+                    id,copies,foils
+                    fc46a4b72d216117a352f59217a84d0baeaaacb7,4,8
+                    """
                 )
             )
         args = get_namespace(
@@ -159,13 +159,13 @@ def test_update_cmd():
         set,name,number,multiverseid,id,copies,foils
         pMGD,Black Sun's Zenith,7,,6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc,,
         MMA,Thallid,167,370352,fc46a4b72d216117a352f59217a84d0baeaaacb7,4,8
-    """
+        """
     )
     assert bakfiledata == textwrap.dedent(
         """\
         id,copies,foils
         fc46a4b72d216117a352f59217a84d0baeaaacb7,4,8
-    """
+        """
     )
 
 
@@ -177,9 +177,9 @@ def test_merge_cmd_new():
             infile.write(
                 textwrap.dedent(
                     """\
-                id,copies,foils
-                fc46a4b72d216117a352f59217a84d0baeaaacb7,4,8
-            """
+                    id,copies,foils
+                    fc46a4b72d216117a352f59217a84d0baeaaacb7,4,8
+                    """
                 )
             )
         args = get_namespace(
@@ -199,13 +199,13 @@ def test_merge_cmd_new():
         set,name,number,multiverseid,id,copies,foils
         pMGD,Black Sun's Zenith,7,,6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc,,
         MMA,Thallid,167,370352,fc46a4b72d216117a352f59217a84d0baeaaacb7,4,8
-    """
+        """
     )
     assert importdata == textwrap.dedent(
         """\
         id,copies,foils
         fc46a4b72d216117a352f59217a84d0baeaaacb7,4,8
-    """
+        """
     )
 
 
@@ -219,9 +219,9 @@ def test_merge_cmd_existing():
                 infile.write(
                     textwrap.dedent(
                         """\
-                    id,copies,foils
-                    fc46a4b72d216117a352f59217a84d0baeaaacb7,4,8
-                """
+                        id,copies,foils
+                        fc46a4b72d216117a352f59217a84d0baeaaacb7,4,8
+                        """
                     )
                 )
         args = get_namespace(
@@ -248,19 +248,19 @@ def test_merge_cmd_existing():
         set,name,number,multiverseid,id,copies,foils
         pMGD,Black Sun's Zenith,7,,6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc,,
         MMA,Thallid,167,370352,fc46a4b72d216117a352f59217a84d0baeaaacb7,8,16
-    """
+        """
     )
     assert importdata == textwrap.dedent(
         """\
         id,copies,foils
         fc46a4b72d216117a352f59217a84d0baeaaacb7,4,8
-    """
+        """
     )
     assert bakfiledata == textwrap.dedent(
         """\
         id,copies,foils
         fc46a4b72d216117a352f59217a84d0baeaaacb7,4,8
-    """
+        """
     )
 
 
@@ -273,19 +273,19 @@ def test_diff_cmd():
             leftfile.write(
                 textwrap.dedent(
                     """\
-                id,copies,foils
-                fc46a4b72d216117a352f59217a84d0baeaaacb7,2,
-            """
+                    id,copies,foils
+                    fc46a4b72d216117a352f59217a84d0baeaaacb7,2,
+                    """
                 )
             )
         with open(rightfilename, "wt") as rightfile:
             rightfile.write(
                 textwrap.dedent(
                     """\
-                id,copies,foils
-                6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc,4,
-                fc46a4b72d216117a352f59217a84d0baeaaacb7,1,3
-            """
+                    id,copies,foils
+                    6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc,4,
+                    fc46a4b72d216117a352f59217a84d0baeaaacb7,1,3
+                    """
                 )
             )
         args = get_namespace(
@@ -304,5 +304,5 @@ def test_diff_cmd():
         set,name,number,multiverseid,id,copies,foils
         pMGD,Black Sun's Zenith,7,,6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc,-4,
         MMA,Thallid,167,370352,fc46a4b72d216117a352f59217a84d0baeaaacb7,1,-3
-    """
+        """
     )

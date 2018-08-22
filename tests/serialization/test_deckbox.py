@@ -240,7 +240,7 @@ def test_write(cdb):
         Count,Tradelist Count,Name,Edition,Card Number,Condition,Language,Foil,Signed,Artist Proof,Altered Art,Misprint,Promo,Textless,My Price
         1,0,Boom // Bust,Planar Chaos,112,Near Mint,English,,,,,,,,
         3,0,Black Sun's Zenith,Magic Game Day Cards,7,Near Mint,English,foil,,,,,promo,,
-    """
+        """
     )
 
 
@@ -250,10 +250,10 @@ def test_read(cdb):
         infile.write(
             textwrap.dedent(
                 """\
-            Count,Tradelist Count,Name,Edition,Card Number,Condition,Language,Foil,Signed,Artist Proof,Altered Art,Misprint,Promo,Textless,My Price
-            1,4,Boom // Bust,Planar Chaos,112,Near Mint,English,,,,,,,,
-            3,8,Black Sun's Zenith,Magic Game Day Cards,7,Near Mint,English,foil,,,,,promo,,
-        """
+                Count,Tradelist Count,Name,Edition,Card Number,Condition,Language,Foil,Signed,Artist Proof,Altered Art,Misprint,Promo,Textless,My Price
+                1,4,Boom // Bust,Planar Chaos,112,Near Mint,English,,,,,,,,
+                3,8,Black Sun's Zenith,Magic Game Day Cards,7,Near Mint,English,foil,,,,,promo,,
+                """
             )
         )
         infile.flush()

@@ -96,7 +96,7 @@ def test_write_verbose(cdb):
         set,name,number,multiverseid,id,copies,foils
         pMGD,Black Sun\'s Zenith,7,,6c9ffa9ffd2cf7e6f85c6be1713ee0c546b9f8fc,,
         MMA,Thallid,167,370352,fc46a4b72d216117a352f59217a84d0baeaaacb7,1,12
-    """
+        """
     )
 
 
@@ -112,7 +112,7 @@ def test_write_terse(cdb):
         """\
         set,name,number,multiverseid,id,copies,foils
         MMA,Thallid,167,370352,fc46a4b72d216117a352f59217a84d0baeaaacb7,1,12
-    """
+        """
     )
 
 
@@ -121,9 +121,9 @@ def test_read(cdb):
         infile.write(
             textwrap.dedent(
                 """\
-            set,name,number,multiverseid,id,copies,foils
-            MMA,Thallid,167,370352,fc46a4b72d216117a352f59217a84d0baeaaacb7,3,72
-        """
+                set,name,number,multiverseid,id,copies,foils
+                MMA,Thallid,167,370352,fc46a4b72d216117a352f59217a84d0baeaaacb7,3,72
+                """
             )
         )
         infile.flush()
