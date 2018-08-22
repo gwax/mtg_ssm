@@ -26,6 +26,12 @@ def test_all_dialects():
     ('csv', {'xlsx': 'csv'}, 'CsvFullDialect'),
     ('xlsx', {}, 'XlsxDialect'),
     ('xlsx', {'xlsx': 'xlsx'}, 'XlsxDialect'),
+    pytest.mark.xfail(
+        ('invalid', {}, mock.ANY),
+        raises=interface.UnknownDialect),
+    pytest.mark.xfail(
+        ('', {}, mock.ANY),
+        raises=interface.UnknownDialect),
 ])
 def test_extension_lookup(extension, dialect_mapping, dialect_name):
     serialization_class = interface.SerializationDialect.by_extension(
@@ -33,8 +39,3 @@ def test_extension_lookup(extension, dialect_mapping, dialect_name):
     assert isinstance(serialization_class, type)
     assert issubclass(serialization_class, interface.SerializationDialect)
     assert serialization_class.__name__ == dialect_name
-
-
-def test_extension_invalid():
-    with pytest.raises(interface.UnknownDialect):
-        interface.SerializationDialect.by_extension('invalid', {})

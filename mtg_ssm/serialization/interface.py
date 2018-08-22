@@ -82,6 +82,9 @@ class SerializationDialect(metaclass=abc.ABCMeta):
     @staticmethod
     def by_extension(extension, dialect_mappings):
         """Get a serializer class for a given extension and dialect mapping."""
+        if not extension:
+            raise UnknownDialect(
+                'Filename has no extension, cannot determine output format')
         if not SerializationDialect._dialect_registry:
             SerializationDialect._register_dialects()
         dialect = dialect_mappings.get(extension, extension)
@@ -89,5 +92,5 @@ class SerializationDialect(metaclass=abc.ABCMeta):
             return SerializationDialect._dialect_registry[(extension, dialect)]
         except KeyError:
             raise UnknownDialect(
-                'Extension: {ext} dialect: {dia} not found in registry'.format(
+                'File extension: "{ext}" dialect: "{dia}" not found in registry'.format(
                     ext=extension, dia=dialect))
