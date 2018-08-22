@@ -57,7 +57,7 @@ class CardDb:
             self.code_to_card_set[card_set.code] = card_set
             self.setname_to_card_set[card_set.name] = card_set
 
-            for card_data in set_data['cards']:
+            for card_data in set_data["cards"]:
                 card = models.Card(self, card_data)
                 self.name_to_card[card.name] = card
 
@@ -66,12 +66,10 @@ class CardDb:
 
     def rebuild_indexes(self):
         """Rebuild the printing indexes."""
-        self.cards = sorted(
-            self.name_to_card.values(),
-            key=lambda card: card.name)
+        self.cards = sorted(self.name_to_card.values(), key=lambda card: card.name)
         self.card_sets = sorted(
-            self.code_to_card_set.values(),
-            key=lambda cset: cset.release_date)
+            self.code_to_card_set.values(), key=lambda cset: cset.release_date
+        )
 
         self.set_code_to_printings = collections.defaultdict(list)
         self.card_name_to_printings = collections.defaultdict(list)
@@ -83,7 +81,12 @@ class CardDb:
             # snnm == (set, name, number, multiverseid)
             snnm_index_keys = {
                 # pylint: disable=line-too-long
-                (printing.set_code, printing.card_name, printing.set_number, printing.multiverseid),
+                (
+                    printing.set_code,
+                    printing.card_name,
+                    printing.set_number,
+                    printing.multiverseid,
+                ),
                 (printing.set_code, printing.card_name, None, printing.multiverseid),
                 (printing.set_code, printing.card_name, printing.set_number, None),
                 (printing.set_code, printing.card_name, None, None),
@@ -101,4 +104,5 @@ class CardDb:
         self.set_code_to_printing_to_row = {}
         for set_code, printings in self.set_code_to_printings.items():
             self.set_code_to_printing_to_row[set_code] = {
-                printing: i for i, printing in enumerate(printings)}
+                printing: i for i, printing in enumerate(printings)
+            }

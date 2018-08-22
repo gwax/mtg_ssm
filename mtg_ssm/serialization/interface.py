@@ -50,8 +50,7 @@ class SerializationDialect(metaclass=abc.ABCMeta):
         """Write print counts to a file."""
 
     @abc.abstractmethod
-    def read(self, filename: str) -> Dict[
-            str, Dict[counts.CountTypes, int]]:
+    def read(self, filename: str) -> Dict[str, Dict[counts.CountTypes, int]]:
         """Read print counts from file."""
 
     @staticmethod
@@ -64,8 +63,7 @@ class SerializationDialect(metaclass=abc.ABCMeta):
             klass = subclasses.popleft()
             if not klass.__abstractmethods__:
                 registry[(klass.extension, klass.dialect)] = klass
-                dialects.append(
-                    (klass.extension, klass.dialect, klass.__doc__))
+                dialects.append((klass.extension, klass.dialect, klass.__doc__))
             subclasses.extend(klass.__subclasses__())
         dialects.sort()
 
@@ -84,7 +82,8 @@ class SerializationDialect(metaclass=abc.ABCMeta):
         """Get a serializer class for a given extension and dialect mapping."""
         if not extension:
             raise UnknownDialect(
-                'Filename has no extension, cannot determine output format')
+                "Filename has no extension, cannot determine output format"
+            )
         if not SerializationDialect._dialect_registry:
             SerializationDialect._register_dialects()
         dialect = dialect_mappings.get(extension, extension)
@@ -93,4 +92,6 @@ class SerializationDialect(metaclass=abc.ABCMeta):
         except KeyError:
             raise UnknownDialect(
                 'File extension: "{ext}" dialect: "{dia}" not found in registry'.format(
-                    ext=extension, dia=dialect))
+                    ext=extension, dia=dialect
+                )
+            )
