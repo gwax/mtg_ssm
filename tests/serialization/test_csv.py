@@ -1,4 +1,5 @@
 """Tests for mtg_ssm.serialization.csv."""
+# pylint: disable=redefined-outer-name
 
 import tempfile
 import textwrap

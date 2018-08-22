@@ -1,4 +1,5 @@
 """Tests for mtg_ssm.serialization.xlsx."""
+# pylint: disable=redefined-outer-name
 
 import datetime as dt
 import tempfile

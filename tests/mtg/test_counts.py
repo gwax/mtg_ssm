@@ -1,4 +1,5 @@
 """Tests for mtg_ssm.mtg.counts"""
+# pylint: disable=redefined-outer-name
 
 import pytest
 

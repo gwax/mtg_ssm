@@ -1,4 +1,5 @@
 """pytest test configuration file."""
+# pylint: disable=redefined-outer-name
 
 import collections
 import json
