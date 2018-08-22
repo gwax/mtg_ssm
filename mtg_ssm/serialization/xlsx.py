@@ -8,7 +8,6 @@ import openpyxl
 from mtg_ssm.mtg import counts
 from mtg_ssm.serialization import interface
 
-
 ALL_SETS_SHEET_HEADER = [
     'code',
     'name',

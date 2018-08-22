@@ -1,8 +1,8 @@
 """Setup script for mtg_ssm."""
 
 import sys
-import setuptools
 
+import setuptools
 
 if sys.version_info < (3, 4):
     raise Exception('Python version < 3.4 are not supported.')

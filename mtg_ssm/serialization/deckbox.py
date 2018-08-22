@@ -5,7 +5,6 @@ import csv
 from mtg_ssm.mtg import counts
 from mtg_ssm.serialization import interface
 
-
 DECKBOX_EDITION_TO_RANGE_AND_SETNAMES = {
     'Champs': [(None, None, 'Champs and States')],
     'Commander 2013': [(None, None, 'Commander 2013 Edition')],

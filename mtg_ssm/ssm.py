@@ -8,12 +8,10 @@ import shutil
 import tempfile
 
 import mtg_ssm
-
 from mtg_ssm import mtgjson
-import mtg_ssm.serialization.interface as ser_interface
 from mtg_ssm.mtg import card_db
 from mtg_ssm.mtg import counts
-
+import mtg_ssm.serialization.interface as ser_interface
 
 DEFAULT_DATA_PATH = os.path.expanduser(os.path.join('~', '.mtg_ssm'))
 
