@@ -2,10 +2,14 @@
 # See:
 #   http://docs.pylint.org/features.html
 #
-disable=no-init,
-    too-few-public-methods,
+disable=
+    bad-continuation,
+    duplicate-code,
+    line-too-long,
     locally-disabled,
     locally-enabled,
+    no-init,
+    too-few-public-methods,
     wrong-import-order,
 
 [REPORTS]
