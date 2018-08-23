@@ -18,7 +18,7 @@ script:
   - pip list
   - pytest
   - black --check
-  - isort --check --recursive
+  - isort --check --diff --recursive
   - flake8
   - pylint mtg_ssm tests
 
