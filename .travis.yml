@@ -21,7 +21,7 @@ before_script:
 script:
   - pip list
   - pytest
-  - '[ "$SKIP_BLACK" == "true" ] || black --check'
+  - '[ "$SKIP_BLACK" == "true" ] || black --check .'
   - isort --check --diff --recursive
   - flake8
   - pylint mtg_ssm tests
