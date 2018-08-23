@@ -1,9 +1,13 @@
 language: python
 cache: pip
-python:
-  - 3.6
-  - 3.5
-  - 3.4
+matrix:
+  include:
+    - python: 3.6
+      env: SKIP_BLACK=false
+    - python: 3.5
+      env: SKIP_BLACK=true
+    - python: 3.4
+      env: SKIP_BLACK=true
 
 before_install:
   - pip install -U pip
@@ -17,7 +21,7 @@ before_script:
 script:
   - pip list
   - pytest
-  - black --check
+  - '[ "$SKIP_BLACK" == "true" ] || black --check'
   - isort --check --diff --recursive
   - flake8
   - pylint mtg_ssm tests
