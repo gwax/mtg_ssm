@@ -1,2 +1,6 @@
+marshmallow-annotations>=2.3.0
+marshmallow-enum>=1.4.1
+marshmallow-oneofschema>=1.0.5
+marshmallow>=2.15.3,<3.0.0
 openpyxl>=2.5.3
 requests>=2.11.1
