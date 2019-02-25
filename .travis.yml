@@ -1,13 +1,9 @@
 language: python
+stages:
+  - lint
+  - test
+
 cache: pip
-matrix:
-  include:
-    - python: 3.6
-      env: SKIP_BLACK=false
-    - python: 3.5
-      env: SKIP_BLACK=true
-    - python: 3.4
-      env: SKIP_BLACK=true
 
 before_install:
   - pip install -U pip
@@ -15,15 +11,24 @@ before_install:
 
 install: python setup.py develop
 
-before_script:
-  - pip list
-
 script:
-  - pip list
-  - pytest
-  - '[ "$SKIP_BLACK" == "true" ] || black --check .'
-  - isort --check --diff --recursive
-  - flake8
-  - pylint mtg_ssm tests
+  - pytest tests/
+  - coverall
 
-after_script: coveralls
+jobs:
+  include:
+    - python: "3.4"
+    - python: "3.5"
+    - python: "3.6"
+    - python: "3.7"
+      dist: xenial
+
+    - stage: lint
+      python: "3.7"
+      dist: xenial
+      install:
+        - pip install pre-commit
+        - pre-commit install-hooks
+      script:
+        - pre-commit run --all-files
+      after_script: null

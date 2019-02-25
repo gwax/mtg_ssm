@@ -22,6 +22,16 @@ repos:
         language: system
         entry: mypy
         types: [python]
+      - id: doc8-python
+        name: Documentation checking from doc8 (Python)
+        language: system
+        entry: doc8
+        types: [python]
+      - id: doc8-rst
+        name: Documentation checking from doc8 (reStructuredText)
+        language: system
+        entry: doc8
+        types: [rst]
       - id: eclint
         name: EditorConfig file validation
         language: node
