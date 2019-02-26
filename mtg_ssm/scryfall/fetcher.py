@@ -9,7 +9,6 @@ import tempfile
 from typing import Any
 from typing import List
 from typing import Mapping
-from typing import NamedTuple
 from typing import Union
 from typing import cast
 import uuid
@@ -17,6 +16,7 @@ import uuid
 import appdirs
 import requests
 
+from mtg_ssm.containers.bundles import ScryfallDataSet
 from mtg_ssm.scryfall import schema
 from mtg_ssm.scryfall.models import ScryBulkData
 from mtg_ssm.scryfall.models import ScryCard
@@ -37,13 +37,6 @@ DESERIALIZE_BATCH_SIZE = 50
 _OBJECT_SCHEMA = schema.ScryfallUberSchema()
 
 JSON = Union[str, int, float, bool, None, Mapping[str, Any], List[Any]]
-
-
-class ScryfallData(NamedTuple):
-    """Object bundle for storing scryfall data."""
-
-    sets: List[ScrySet]
-    cards: List[ScryCard]
 
 
 def _cache_path(endpoint: str) -> str:
@@ -78,7 +71,7 @@ def _deserialize_object(card_json: JSON) -> Union[ScryObject, List[ScryObject]]:
     return _OBJECT_SCHEMA.load(card_json).data
 
 
-def scryfetch() -> ScryfallData:
+def scryfetch() -> ScryfallDataSet:
     """Retrieve and deserialize Scryfall object data."""
     cached_bulk_json = None
     if os.path.exists(_cache_path(BULK_DATA_ENDPOINT)):
@@ -111,7 +104,7 @@ def scryfetch() -> ScryfallData:
         try:
             with gzip.open(_cache_path(OBJECT_CACHE_URL), "rb") as object_cache:
                 loaded_data = pickle.load(object_cache)
-            if isinstance(loaded_data, ScryfallData):
+            if isinstance(loaded_data, ScryfallDataSet):
                 return loaded_data
         except (OSError, pickle.UnpicklingError):
             pass
@@ -124,7 +117,7 @@ def scryfetch() -> ScryfallData:
         )
         cards_data = cast(List[ScryCard], list(cards_future))
 
-    scryfall_data = ScryfallData(sets=sets_data, cards=cards_data)
+    scryfall_data = ScryfallDataSet(sets=sets_data, cards=cards_data)
     with gzip.open(_cache_path(OBJECT_CACHE_URL), "wb") as object_cache:
         pickle.dump(scryfall_data, object_cache)
     return scryfall_data

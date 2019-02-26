@@ -8,6 +8,7 @@ from typing import List
 import pytest
 from responses import RequestsMock
 
+from mtg_ssm.containers.bundles import ScryfallDataSet
 from mtg_ssm.scryfall import fetcher
 from mtg_ssm.scryfall.models import ScryCard
 from mtg_ssm.scryfall.models import ScrySet
@@ -67,7 +68,10 @@ def test_break_object_cache(baddata: bytes) -> None:
 
 
 @pytest.mark.usefixtures("scryurls")
-def test_data_fixtures(sets_data: List[ScrySet], cards_data: List[ScryCard]) -> None:
+def test_data_fixtures(
+    scryfall_data: ScryfallDataSet, sets_data: List[ScrySet], cards_data: List[ScryCard]
+) -> None:
     scrydata = fetcher.scryfetch()
+    assert scrydata == scryfall_data
     assert scrydata.sets == sets_data
     assert scrydata.cards == cards_data

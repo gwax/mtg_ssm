@@ -7,8 +7,8 @@ from typing import Set
 from typing import Tuple
 from uuid import UUID
 
+from mtg_ssm.containers.bundles import ScryfallDataSet
 from mtg_ssm.mtg import util
-from mtg_ssm.scryfall.fetcher import ScryfallData
 from mtg_ssm.scryfall.models import ScryCard
 from mtg_ssm.scryfall.models import ScrySet
 
@@ -47,7 +47,7 @@ class ScryfallDataIndex:
         self.setcode_to_id_to_index: Dict[str, Dict[UUID, int]] = {}
         self.setcode_to_set: Dict[str, ScrySet] = {}
 
-    def load_data(self, scrydata: ScryfallData) -> None:
+    def load_data(self, scrydata: ScryfallDataSet) -> None:
         """Load all cards and sets from a Scryfall data set."""
         self.id_to_card = {}
         self.name_to_cards = {}

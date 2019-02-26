@@ -12,6 +12,7 @@ from py._path.local import LocalPath
 import pytest
 import responses
 
+from mtg_ssm.containers.bundles import ScryfallDataSet
 from mtg_ssm.scryfall.models import ScryCard
 from mtg_ssm.scryfall.models import ScrySet
 
@@ -59,3 +60,11 @@ def sets_data() -> List[ScrySet]:
 def id_to_card(cards_data: List[ScryCard]) -> Dict[UUID, ScryCard]:
     """Fixture returning scryfall id to card object for all test card data."""
     return {card.id: card for card in cards_data}
+
+
+@pytest.fixture(scope="session")
+def scryfall_data(
+    cards_data: List[ScryCard], sets_data: List[ScrySet]
+) -> ScryfallDataSet:
+    """Fixture containing all scryfall test data."""
+    return ScryfallDataSet(sets=sets_data, cards=cards_data)
