@@ -6,7 +6,6 @@ from decimal import Decimal
 from enum import Enum
 from typing import ClassVar
 from typing import Dict
-from typing import List
 from typing import NewType
 from typing import Optional
 from typing import Sequence
@@ -164,7 +163,7 @@ class ScryObjectList(ScryObject):
     has_more: bool
     next_page: Optional[URI]
     total_cards: Optional[int]
-    warnings: Optional[List[str]]
+    warnings: Optional[Sequence[str]]
 
 
 @dataclass(frozen=True)
@@ -209,8 +208,8 @@ class ScryCardFace(ScryObject):
 
     object: ClassVar[str] = "card_face"
     artist: Optional[str]
-    color_indicator: Optional[List[ScryColor]]
-    colors: Optional[List[ScryColor]]
+    color_indicator: Optional[Sequence[ScryColor]]
+    colors: Optional[Sequence[ScryColor]]
     flavor_text: Optional[str]
     illustration_id: Optional[UUID]
     image_uris: Optional[Dict[str, URI]]
@@ -238,7 +237,7 @@ class ScryCard(ScryObject):
     lang: str
     mtgo_id: Optional[int]
     mtgo_foil_id: Optional[int]
-    multiverse_ids: Optional[List[int]]
+    multiverse_ids: Optional[Sequence[int]]
     tcgplayer_id: Optional[int]
     oracle_id: UUID
     prints_search_uri: URI
@@ -246,12 +245,12 @@ class ScryCard(ScryObject):
     scryfall_uri: URI
     uri: URI
     # Gameplay Fields
-    all_parts: Optional[List[ScryRelatedCard]]
-    card_faces: Optional[List[ScryCardFace]]
+    all_parts: Optional[Sequence[ScryRelatedCard]]
+    card_faces: Optional[Sequence[ScryCardFace]]
     cmc: Decimal
-    colors: Optional[List[ScryColor]]
-    color_identity: List[ScryColor]
-    color_indicator: Optional[List[ScryColor]]
+    colors: Optional[Sequence[ScryColor]]
+    color_identity: Sequence[ScryColor]
+    color_indicator: Optional[Sequence[ScryColor]]
     edhrec_rank: Optional[int]
     foil: bool
     hand_modifier: Optional[str]
@@ -277,7 +276,7 @@ class ScryCard(ScryObject):
     frame_effect: ScryFrameEffect
     frame: ScryCardFrame
     full_art: bool
-    games: List[ScryGame]
+    games: Sequence[ScryGame]
     highres_image: bool
     illustration_id: Optional[UUID]
     image_uris: Optional[Dict[str, URI]]

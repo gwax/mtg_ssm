@@ -112,7 +112,7 @@ class BaseSchema(AnnotationSchema):
         self, _: Any, original_data: Union[Dict[str, Any], List[Dict[str, Any]]]
     ) -> None:
         """Check that no extra fields have been passed in."""
-        if isinstance(original_data, list):
+        if isinstance(original_data, (list, tuple)):
             unknowns = [sorted(set(o) - set(self.fields)) for o in original_data]
             if any(unknowns):
                 raise marshmallow.ValidationError(
