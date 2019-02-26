@@ -17,31 +17,31 @@ SERDE_TESTS = [
         {
             "object": "list",
             "has_more": False,
-            "data": [
+            "data": (
                 {
                     "object": "list",
                     "has_more": True,
                     "next_page": "https://example.com/page2",
                     "total_cards": 3,
                     "warnings": ["warn"],
-                    "data": [],
-                }
-            ],
+                    "data": (),
+                },
+            ),
         },
         models.ScryObjectList(
             has_more=False,
             next_page=None,
             total_cards=None,
             warnings=None,
-            data=[
+            data=(
                 models.ScryObjectList(
                     has_more=True,
                     next_page=models.URI("https://example.com/page2"),
                     total_cards=3,
                     warnings=["warn"],
-                    data=[],
-                )
-            ],
+                    data=(),
+                ),
+            ),
         ),
         id="list",
     ),

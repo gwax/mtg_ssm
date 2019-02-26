@@ -6,7 +6,9 @@ from enum import EnumMeta
 from typing import Any
 from typing import Dict
 from typing import List
+from typing import Optional
 from typing import Sequence
+from typing import Tuple
 from typing import Type
 from typing import Union
 
@@ -46,13 +48,32 @@ def dict_converter(
     )
 
 
+class TupleField(fields.List):
+    """Tuple field based on tuple() wrapping List field."""
+
+    def _serialize(self, value: Any, attr: Any, obj: Any) -> Optional[Tuple[Any, ...]]:
+        ret = super()._serialize(value, attr, obj)
+        if ret is None:
+            return None
+        return tuple(ret)
+
+    def _deserialize(
+        self, value: Any, attr: Any, data: Any
+    ) -> Optional[Tuple[Any, ...]]:
+        ret = super()._deserialize(value, attr, data)
+        if ret is None:
+            return None
+        return tuple(ret)
+
+
 @registry.field_factory(Sequence)
 @registry.field_factory(collections.abc.Sequence)
 def sequence_converter(
     converter: BaseConverter, subtypes: Any, opts: Dict[str, Any]
 ) -> fields.Field:
     """Sequence field factory that treats sequences as lists."""
-    return fields.List(converter.convert(subtypes[0], opts.pop("_interior", ({},))[0]))
+    sub_opts = opts.pop("_interior", {})
+    return TupleField(converter.convert(subtypes[0], sub_opts), **opts)
 
 
 def _register_enum(enum_class: EnumMeta) -> None:
