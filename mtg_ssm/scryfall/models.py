@@ -155,7 +155,7 @@ class ScryLegality(str, Enum):
     BANNED = "banned"
 
 
-@dataclass
+@dataclass(frozen=True)
 class ScryObjectList(ScryObject):
     """Model for https://scryfall.com/docs/api/lists"""
 
@@ -167,7 +167,7 @@ class ScryObjectList(ScryObject):
     warnings: Optional[List[str]]
 
 
-@dataclass
+@dataclass(frozen=True)
 class ScrySet(ScryObject):
     """Model for https://scryfall.com/docs/api/sets"""
 
@@ -191,7 +191,7 @@ class ScrySet(ScryObject):
     uri: URI
 
 
-@dataclass
+@dataclass(frozen=True)
 class ScryRelatedCard(ScryObject):
     """Model for https://scryfall.com/docs/api/cards#related-card-objects"""
 
@@ -203,7 +203,7 @@ class ScryRelatedCard(ScryObject):
     uri: URI
 
 
-@dataclass
+@dataclass(frozen=True)
 class ScryCardFace(ScryObject):
     """Model for https://scryfall.com/docs/api/cards#card-face-objects"""
 
@@ -227,7 +227,7 @@ class ScryCardFace(ScryObject):
     watermark: Optional[str]
 
 
-@dataclass
+@dataclass(frozen=True)
 class ScryCard(ScryObject):
     """Model for https://scryfall.com/docs/api/cards"""
 
@@ -300,7 +300,7 @@ class ScryCard(ScryObject):
     watermark: Optional[str]
 
 
-@dataclass
+@dataclass(frozen=True)
 class ScryBulkData(ScryObject):
     """Model for https://scryfall.com/docs/api/bulk-data"""
 
