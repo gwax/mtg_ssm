@@ -1,66 +1,75 @@
 """CSV serializer."""
 
 import csv
+from pathlib import Path
+from typing import Any
+from typing import ClassVar
+from typing import Dict
+from typing import Iterable
+from typing import Mapping
+from typing import Optional
 
-from mtg_ssm.mtg import counts
+from mtg_ssm.containers import counts
+from mtg_ssm.containers.collection import MagicCollection
+from mtg_ssm.containers.counts import CountType
+from mtg_ssm.containers.indexes import Oracle
+from mtg_ssm.scryfall.models import ScryCard
 from mtg_ssm.serialization import interface
 
-CSV_HEADER = ["set", "name", "number", "multiverseid", "id"] + [
-    ct.name for ct in counts.CountTypes
+CSV_HEADER = ["set", "name", "collector_number", "scryfall_id"] + [
+    ct.name for ct in CountType
 ]
 
 
-def row_for_printing(printing, printing_counts):
+def row_for_card(card: ScryCard, card_count: Mapping[CountType, int]) -> Dict[str, Any]:
     """Given a CardPrinting and counts, return a csv row."""
-    csv_row = {
-        "set": printing.set_code,
-        "name": printing.card_name,
-        "number": printing.set_number,
-        "multiverseid": printing.multiverseid,
-        "id": printing.id_,
+    return {
+        "set": card.set,
+        "name": card.name,
+        "collector_number": card.collector_number,
+        "scryfall_id": card.id,
+        **{ct.name: cnt for ct, cnt in card_count.items() if cnt},
     }
-    for counttype, count in printing_counts.items():
-        if count:
-            csv_row[counttype.name] = count
-    return csv_row
 
 
-def rows_for_printings(cdb, print_counts, verbose):
-    """Generator that yields csv rows from a card_db."""
-    for card_set in cdb.card_sets:
-        for printing in card_set.printings:
-            printing_counts = print_counts.get(printing.id_, {})
-            if verbose or any(printing_counts):
-                yield row_for_printing(printing, printing_counts)
+def rows_for_cards(
+    collection: MagicCollection, verbose: bool
+) -> Iterable[Dict[str, Any]]:
+    """Generator that yields csv rows from a collection."""
+    for cards in collection.oracle.index.setcode_to_cards.values():
+        for card in cards:
+            card_count = collection.counts.get(card.id, {})
+            if verbose or any(card_count.values()):
+                yield row_for_card(card, card_count)
 
 
 class CsvFullDialect(interface.SerializationDialect):
     """csv collection writing a row for every printing"""
 
-    extension = "csv"
-    dialect = "csv"
+    extension: ClassVar[str] = "csv"
+    dialect: ClassVar[Optional[str]] = None
 
-    verbose = True
+    verbose: ClassVar[bool] = True
 
-    def write(self, filename: str, print_counts) -> None:
+    def write(self, path: Path, collection: MagicCollection) -> None:
         """Write print counts to a file."""
-        with open(filename, "w") as csv_file:
+        with path.open("wt") as csv_file:
             writer = csv.DictWriter(csv_file, CSV_HEADER)
             writer.writeheader()
-            for row in rows_for_printings(self.cdb, print_counts, self.verbose):
+            for row in rows_for_cards(collection, self.verbose):
                 writer.writerow(row)
 
-    def read(self, filename: str):
+    def read(self, path: Path, oracle: Oracle) -> MagicCollection:
         """Read print counts from file."""
-        with open(filename, "r") as csv_file:
-            return counts.aggregate_print_counts(
-                self.cdb, csv.DictReader(csv_file), strict=True
-            )
+        with path.open("rt") as csv_file:
+            reader = csv.DictReader(csv_file)
+            card_counts = counts.aggregate_card_counts(reader)
+        return MagicCollection(oracle=oracle, counts=card_counts)
 
 
 class CsvTerseDialect(CsvFullDialect):
     """csv collection writing only rows that have counts"""
 
-    dialect = "terse"
+    dialect: ClassVar[Optional[str]] = "terse"
 
-    verbose = False
+    verbose: ClassVar[bool] = False

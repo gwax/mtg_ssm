@@ -11,7 +11,7 @@ from mtg_ssm.containers.counts import ScryfallCardCount
 
 
 @pytest.mark.parametrize(
-    "in_print_counts, out_print_count",
+    "in_card_counts, out_card_count",
     [
         pytest.param([], {}, id="no inputs"),
         pytest.param(
@@ -41,10 +41,10 @@ from mtg_ssm.containers.counts import ScryfallCardCount
         ),
     ],
 )
-def test_merge_print_counts(
-    in_print_counts: List[ScryfallCardCount], out_print_count: ScryfallCardCount
+def test_merge_card_counts(
+    in_card_counts: List[ScryfallCardCount], out_card_count: ScryfallCardCount
 ) -> None:
-    assert counts.merge_print_counts(*in_print_counts) == out_print_count
+    assert counts.merge_card_counts(*in_card_counts) == out_card_count
 
 
 @pytest.mark.parametrize(
@@ -83,7 +83,7 @@ def test_merge_print_counts(
         ),
     ],
 )
-def test_diff_print_counts(
+def test_diff_card_counts(
     left: ScryfallCardCount, right: ScryfallCardCount, output: ScryfallCardCount
 ) -> None:
-    assert counts.diff_print_counts(left, right) == output
+    assert counts.diff_card_counts(left, right) == output

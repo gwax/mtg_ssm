@@ -38,7 +38,7 @@ class ScryfallDataIndex:
         """Load all cards and sets from a Scryfall data set."""
         self.id_to_card = {}
         self.setcode_to_id_to_index = {}
-        self.setcode_to_set = {}
+        self.setcode_to_set = {}  # TODO: sort sets by release date
 
         name_to_unsorted_cards: Dict[str, List[ScryCard]] = collections.defaultdict(
             list
@@ -64,3 +64,14 @@ class ScryfallDataIndex:
                 c.id: i for i, c in enumerate(cards_list)
             }
         self.setcode_to_cards = dict(setcode_to_unsorted_cards)
+
+
+class Oracle:
+    """Container for an indexed Scryfall data set."""
+
+    def __init__(self, scrydata: ScryfallDataSet) -> None:
+        self._scrydata = scrydata
+        self.cards = scrydata.cards
+        self.sets = scrydata.sets
+        self.index = ScryfallDataIndex()
+        self.index.load_data(scrydata)

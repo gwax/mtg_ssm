@@ -2,7 +2,9 @@
 
 import collections
 import enum
+from typing import Any
 from typing import Dict
+from typing import Iterable
 from typing import MutableMapping
 from uuid import UUID
 
@@ -18,16 +20,22 @@ ScryfallCardCount = Dict[UUID, MutableMapping[CountType, int]]
 """Mapping from scryfall id to card printing type to count."""
 
 
-def merge_print_counts(*print_counts_args: ScryfallCardCount) -> ScryfallCardCount:
-    """Merge two sets of print_counts."""
+def aggregate_card_counts(_card_rows: Iterable[Dict[str, Any]]) -> ScryfallCardCount:
+    """Extract card counts from card rows."""
+    # TODO: implement
+    return {}
+
+
+def merge_card_counts(*card_counts_args: ScryfallCardCount) -> ScryfallCardCount:
+    """Merge two sets of card_counts."""
     merged_counts: ScryfallCardCount = collections.defaultdict(collections.Counter)
-    for print_counts in print_counts_args:
-        for card_id, counts in print_counts.items():
+    for card_counts in card_counts_args:
+        for card_id, counts in card_counts.items():
             merged_counts[card_id].update(counts)
     return dict(merged_counts)
 
 
-def diff_print_counts(
+def diff_card_counts(
     left: ScryfallCardCount, right: ScryfallCardCount
 ) -> ScryfallCardCount:
     """Subtract right print counts from left print counts."""
