@@ -86,44 +86,6 @@ spreadsheet:
 
     mtg-ssm merge collection.xlsx input_data.csv
 
-Export / import to deckbox
---------------------------
-
-If you already have your cards entered into `Deckbox`_, you can export a
-csv from deckbox and import the contents into a spreadsheet just as you might
-merge from an existing collection using the "deckbox" import format:
-
-.. _Deckbox: https://deckbox.org
-
-.. code:: bash
-
-    mtg-ssm --dialect csv deckbox merge collection.xlsx Inventory_username_2016.March.10.csv
-
-Alternatively, if you have your collection in a spreadsheet already and would
-like to load your data into deckbox to check prices or share with other people,
-just go the other direction.
-
-.. code:: bash
-
-    mtg-ssm --dialect csv deckbox merge inventory.csv collection.xlsx
-
-Deckbox Warning
-~~~~~~~~~~~~~~~
-
-MTG JSON, which we use for card data doesn't always map 1-to-1 to cards in
-Deckbox. This means that data can lose granularity in going from one form
-to the other, or back. If you intend to use both native mtg-ssm spreadsheets
-and Deckbox, I encourage you to choose one to be authoritative and always
-export to the other; going back and forth is probably not a good idea.
-
-The following conversion issues are known to exist:
-
--   Sets that contain multiple versions of the same card (ex. Thallid in Fallen
-    Empires) may lose track of the specific version when going back and forth.
--   Alternate art cards (ex. Ertai, the Corrupted in Planeshift) may lose track
-    of the art version when going back and forth.
--   Not all Clash Pack cards are available in mtg-ssm.
-
 Contributions
 =============
 
