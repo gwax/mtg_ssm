@@ -20,10 +20,21 @@ ScryfallCardCount = Dict[UUID, MutableMapping[CountType, int]]
 """Mapping from scryfall id to card printing type to count."""
 
 
-def aggregate_card_counts(_card_rows: Iterable[Dict[str, Any]]) -> ScryfallCardCount:
+def aggregate_card_counts(card_rows: Iterable[Dict[str, Any]]) -> ScryfallCardCount:
     """Extract card counts from card rows."""
-    # TODO: implement
-    return {}
+    card_counts: ScryfallCardCount = {}
+    for card_row in card_rows:
+        scryfall_id = card_row["scryfall_id"]
+        if not isinstance(scryfall_id, UUID):
+            scryfall_id = UUID(scryfall_id)
+        counts = card_counts.get(scryfall_id, {})
+        for count_type in CountType:
+            value = int(card_row.get(count_type.name, 0))
+            if value:
+                counts[count_type] = value + counts.get(count_type, 0)
+        if counts:
+            card_counts[scryfall_id] = counts
+    return card_counts
 
 
 def merge_card_counts(*card_counts_args: ScryfallCardCount) -> ScryfallCardCount:
