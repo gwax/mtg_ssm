@@ -1,7 +1,7 @@
-appdirs>=1.2.0
-marshmallow-annotations>=2.3.0
-marshmallow-enum>=1.4.1
-marshmallow-oneofschema>=1.0.5
-marshmallow>=2.15.3,<3.0.0
-openpyxl>=2.5.3
-requests>=2.11.1
+appdirs~=1.2
+marshmallow-annotations~=2.4
+marshmallow-enum~=1.4
+marshmallow-oneofschema~=1.0
+marshmallow~=2.18
+openpyxl~=2.6
+requests~=2.21

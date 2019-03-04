@@ -52,7 +52,7 @@ class CsvFullDialect(interface.SerializationDialect):
     verbose: ClassVar[bool] = True
 
     def write(self, path: Path, collection: MagicCollection) -> None:
-        """Write print counts to a file."""
+        """Write collection to a file."""
         with path.open("wt") as csv_file:
             writer = csv.DictWriter(csv_file, CSV_HEADER)
             writer.writeheader()
@@ -60,7 +60,7 @@ class CsvFullDialect(interface.SerializationDialect):
                 writer.writerow(row)
 
     def read(self, path: Path, oracle: Oracle) -> MagicCollection:
-        """Read print counts from file."""
+        """Read collection from file."""
         with path.open("rt") as csv_file:
             reader = csv.DictReader(csv_file)
             card_counts = counts.aggregate_card_counts(reader)

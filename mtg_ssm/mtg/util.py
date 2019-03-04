@@ -28,6 +28,6 @@ def collector_int_var(card: ScryCard) -> Tuple[Optional[int], Optional[str]]:
     return dig_str(card.collector_number)
 
 
-def is_strict_basic(card: ScryCard) -> bool:
+def is_strict_basic(card_name: str) -> bool:
     """Is the card on of the five basic lands (not Snow or Wastes)."""
-    return card.name in STRICT_BASICS
+    return card_name in STRICT_BASICS

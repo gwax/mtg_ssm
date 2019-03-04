@@ -31,13 +31,13 @@ class ScryfallDataIndex:
         self.id_to_card: Dict[UUID, ScryCard] = {}
         self.name_to_cards: Dict[str, List[ScryCard]] = {}
         self.setcode_to_cards: Dict[str, List[ScryCard]] = {}
-        self.setcode_to_id_to_index: Dict[str, Dict[UUID, int]] = {}
+        self.id_to_setindex: Dict[UUID, int] = {}
         self.setcode_to_set: Dict[str, ScrySet] = {}
 
     def load_data(self, scrydata: ScryfallDataSet) -> None:
         """Load all cards and sets from a Scryfall data set."""
         self.id_to_card = {}
-        self.setcode_to_id_to_index = {}
+        self.id_to_setindex = {}
         self.setcode_to_set = {}  # TODO: sort sets by release date
 
         name_to_unsorted_cards: Dict[str, List[ScryCard]] = collections.defaultdict(
@@ -58,11 +58,9 @@ class ScryfallDataIndex:
             cards_list.sort(key=name_card_sort_key)
         self.name_to_cards = dict(name_to_unsorted_cards)
 
-        for setcode, cards_list in setcode_to_unsorted_cards.items():
+        for cards_list in setcode_to_unsorted_cards.values():
             cards_list.sort(key=set_card_sort_key)
-            self.setcode_to_id_to_index[setcode] = {
-                c.id: i for i, c in enumerate(cards_list)
-            }
+            self.id_to_setindex.update({c.id: i for i, c in enumerate(cards_list)})
         self.setcode_to_cards = dict(setcode_to_unsorted_cards)
 
 
