@@ -11,24 +11,16 @@ from mtg_ssm.scryfall.models import ScryCard
 
 
 @pytest.mark.parametrize(
-    "name, card_id, expected",
+    "name, expected",
     [
-        pytest.param("Forest", UUID("fbdcbd97-90a9-45ea-94f6-2a1c6faaf965"), True),
-        pytest.param(
-            "Snow-Covered Forest", UUID("4c0ad95c-d62c-4138-ada0-fa39a63a449e"), False
-        ),
-        pytest.param("Wastes", UUID("7019912c-bd9b-4b96-9388-400794909aa1"), False),
-        pytest.param(
-            "Abattoir Ghoul", UUID("59cf0906-04fa-4b30-a7a6-3d117931154f"), False
-        ),
+        pytest.param("Forest", True),
+        pytest.param("Snow-Covered Forest", False),
+        pytest.param("Wastes", False),
+        pytest.param("Abattoir Ghoul", False),
     ],
 )
-def test_is_strict_basic(
-    id_to_card: Dict[UUID, ScryCard], name: str, card_id: UUID, expected: bool
-) -> None:
-    card = id_to_card[card_id]
-    assert card.name == name
-    assert util.is_strict_basic(card) is expected
+def test_is_strict_basic(name: str, expected: bool) -> None:
+    assert util.is_strict_basic(name) is expected
 
 
 @pytest.mark.parametrize(

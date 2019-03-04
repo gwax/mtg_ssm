@@ -71,11 +71,13 @@ def test_setcode_to_cards(scryfall_data: ScryfallDataSet) -> None:
     ]
 
 
-def test_setcode_to_id_to_index(scryfall_data: ScryfallDataSet) -> None:
+def test_id_to_setindex(scryfall_data: ScryfallDataSet) -> None:
     index = ScryfallDataIndex()
     index.load_data(scryfall_data)
 
-    assert index.setcode_to_id_to_index["isd"] == {
+    assert {
+        c.id: index.id_to_setindex[c.id] for c in index.setcode_to_cards["isd"]
+    } == {
         UUID("11bf83bb-c95b-4b4f-9a56-ce7a1816307a"): 0,
         UUID("59cf0906-04fa-4b30-a7a6-3d117931154f"): 1,
         UUID("b606f644-1728-4cb3-90ed-121838875de1"): 2,
