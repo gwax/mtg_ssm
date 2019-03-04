@@ -24,7 +24,7 @@ CSV_HEADER = ["set", "name", "collector_number", "scryfall_id"] + [
 def row_for_card(card: ScryCard, card_count: Mapping[CountType, int]) -> Dict[str, Any]:
     """Given a CardPrinting and counts, return a csv row."""
     return {
-        "set": card.set,
+        "set": card.set.upper(),
         "name": card.name,
         "collector_number": card.collector_number,
         "scryfall_id": card.id,
@@ -36,8 +36,11 @@ def rows_for_cards(
     collection: MagicCollection, verbose: bool
 ) -> Iterable[Dict[str, Any]]:
     """Generator that yields csv rows from a collection."""
-    for cards in collection.oracle.index.setcode_to_cards.values():
-        for card in cards:
+    for card_set in sorted(
+        collection.oracle.index.setcode_to_set.values(),
+        key=lambda cset: cset.released_at,
+    ):
+        for card in collection.oracle.index.setcode_to_cards[card_set.code]:
             card_count = collection.counts.get(card.id, {})
             if verbose or any(card_count.values()):
                 yield row_for_card(card, card_count)

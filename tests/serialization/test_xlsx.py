@@ -22,7 +22,7 @@ from mtg_ssm.containers.indexes import Oracle
 from mtg_ssm.serialization import xlsx
 
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def oracle(scryfall_data: ScryfallDataSet) -> Oracle:
     """Oracle fixture."""
     accepted_sets = {"lea", "fem", "s00", "ice", "hop"}
