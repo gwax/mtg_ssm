@@ -1,1 +1,1 @@
-"""Establish tests package."""
+"""Establish tests.scryfall package."""
