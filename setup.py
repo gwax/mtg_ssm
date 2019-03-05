@@ -54,6 +54,7 @@ setuptools.setup(
     author_email="waksman@gwax.com",
     url="https://github.com/gwax/mtg_ssm",
     packages=setuptools.find_packages(exclude=("tests*",)),
+    package_data={"mtg_ssm": ["py.typed"]},
     license="MIT",
     platforms=["any"],
     keywords="mtg magic collection tracking spreadsheet",

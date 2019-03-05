@@ -10,3 +10,6 @@ trim_trailing_whitespace = true
 
 [*.{json,yaml,yml}]
 indent_size = 2
+
+[py.typed]
+insert_final_newline = false

@@ -1,6 +1,7 @@
 """Tests for mtg_ssm.serialization.interface.py"""
 
 from typing import Dict
+from typing import Optional
 from unittest import mock
 
 import pytest
@@ -37,7 +38,7 @@ def test_all_dialects() -> None:
     ],
 )
 def test_extension_lookup(
-    extension: str, dialect_mapping: Dict[str, str], dialect_name: str
+    extension: str, dialect_mapping: Dict[str, Optional[str]], dialect_name: str
 ) -> None:
     serialization_class = interface.SerializationDialect.by_extension(
         extension, dialect_mapping
