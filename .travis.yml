@@ -13,7 +13,7 @@ install: python setup.py develop
 
 script:
   - pytest tests/
-  - coverall
+  - coveralls
 
 jobs:
   include:

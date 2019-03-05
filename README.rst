@@ -111,6 +111,14 @@ Acknowledgments
 Changelog
 =========
 
+2.0.0a1
+-------
+
+-   Switched from mtgjson to Scryfall as a data source
+-   Broke existing spreadsheets (upgrade function will be added before release)
+-   Dropped deckbox serializer
+-   Removed support for Python 3.4, 3.5
+
 1.3.6
 -----
 
