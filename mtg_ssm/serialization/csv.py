@@ -7,7 +7,6 @@ from typing import ClassVar
 from typing import Dict
 from typing import Iterable
 from typing import Mapping
-from typing import Optional
 
 from mtg_ssm.containers import counts
 from mtg_ssm.containers.collection import MagicCollection
@@ -50,7 +49,7 @@ class CsvFullDialect(interface.SerializationDialect):
     """csv collection writing a row for every printing"""
 
     extension: ClassVar[str] = "csv"
-    dialect: ClassVar[Optional[str]] = None
+    dialect: ClassVar[str] = "csv"
 
     verbose: ClassVar[bool] = True
 
@@ -73,6 +72,6 @@ class CsvFullDialect(interface.SerializationDialect):
 class CsvTerseDialect(CsvFullDialect):
     """csv collection writing only rows that have counts"""
 
-    dialect: ClassVar[Optional[str]] = "terse"
+    dialect: ClassVar[str] = "terse"
 
     verbose: ClassVar[bool] = False

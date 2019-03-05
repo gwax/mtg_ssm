@@ -1,7 +1,6 @@
 """Tests for mtg_ssm.serialization.interface.py"""
 
 from typing import Dict
-from typing import Optional
 from unittest import mock
 
 import pytest
@@ -13,9 +12,9 @@ from mtg_ssm.serialization import interface
 def test_all_dialects() -> None:
     all_formats = interface.SerializationDialect.dialects()
     assert sorted(all_formats) == [
-        ("csv", "", mock.ANY),
+        ("csv", "csv", mock.ANY),
         ("csv", "terse", mock.ANY),
-        ("xlsx", "", mock.ANY),
+        ("xlsx", "xlsx", mock.ANY),
     ]
 
 
@@ -38,7 +37,7 @@ def test_all_dialects() -> None:
     ],
 )
 def test_extension_lookup(
-    extension: str, dialect_mapping: Dict[str, Optional[str]], dialect_name: str
+    extension: str, dialect_mapping: Dict[str, str], dialect_name: str
 ) -> None:
     serialization_class = interface.SerializationDialect.by_extension(
         extension, dialect_mapping

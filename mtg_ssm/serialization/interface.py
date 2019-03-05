@@ -29,9 +29,9 @@ class DeserializationError(Error):
 class SerializationDialect(metaclass=abc.ABCMeta):
     """Abstract interface for mtg ssm serialization dialect."""
 
-    _EXT_DIALECT_DOC: ClassVar[Set[Tuple[str, Optional[str], Optional[str]]]] = set()
+    _EXT_DIALECT_DOC: ClassVar[Set[Tuple[str, str, str]]] = set()
     _EXT_DIALECT_TO_IMPL: ClassVar[
-        Dict[Tuple[str, Optional[str]], Type["SerializationDialect"]]
+        Dict[Tuple[str, str], Type["SerializationDialect"]]
     ] = {}
 
     extension: ClassVar[Optional[str]] = None
@@ -39,8 +39,10 @@ class SerializationDialect(metaclass=abc.ABCMeta):
 
     def __init_subclass__(cls: Type["SerializationDialect"]) -> None:
         super().__init_subclass__()
-        if cls.extension is not None:
-            cls._EXT_DIALECT_DOC.add((cls.extension, cls.dialect, cls.__doc__))
+        if cls.extension is not None and cls.dialect is not None:
+            cls._EXT_DIALECT_DOC.add(
+                (cls.extension, cls.dialect, cls.__doc__ or cls.__name__)
+            )
             cls._EXT_DIALECT_TO_IMPL[(cls.extension, cls.dialect)] = cls
 
     @abc.abstractmethod
@@ -64,10 +66,10 @@ class SerializationDialect(metaclass=abc.ABCMeta):
     def by_extension(
         cls: Type["SerializationDialect"],
         extension: str,
-        dialect_mappings: Dict[str, Optional[str]],
+        dialect_mappings: Dict[str, str],
     ) -> Type["SerializationDialect"]:
         """Get a serializer class for a given extension and dialect mapping."""
-        dialect = dialect_mappings.get(extension)
+        dialect = dialect_mappings.get(extension, extension)
         try:
             return cls._EXT_DIALECT_TO_IMPL[(extension, dialect)]
         except KeyError:

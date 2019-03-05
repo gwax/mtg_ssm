@@ -125,7 +125,6 @@ TODO:
 
 -   Upgrade feature for existing spreadsheets
 -   Write metadata (file version?) to xlsx files (maybe)
--   Go back to Dict[str, str] for dialects
 
 1.3.6
 -----

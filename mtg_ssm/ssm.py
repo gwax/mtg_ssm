@@ -8,7 +8,6 @@ import shutil
 import tempfile
 from typing import Dict
 from typing import List
-from typing import Optional
 
 import mtg_ssm
 from mtg_ssm.containers.collection import MagicCollection
@@ -114,7 +113,7 @@ def get_oracle() -> Oracle:
 
 
 def get_serializer(
-    dialect_mapping: Dict[str, Optional[str]], path: Path
+    dialect_mapping: Dict[str, str], path: Path
 ) -> ser_interface.SerializationDialect:
     """Retrieve a serializer compatible with a given filename."""
     extension = path.suffix.lstrip(".")

@@ -228,7 +228,7 @@ class XlsxDialect(interface.SerializationDialect):
     """excel xlsx collection"""
 
     extension: ClassVar[str] = "xlsx"
-    dialect: ClassVar[Optional[str]] = None
+    dialect: ClassVar[str] = "xlsx"
 
     def write(self, path: Path, collection: MagicCollection) -> None:
         """Write collection to an xlsx file."""
