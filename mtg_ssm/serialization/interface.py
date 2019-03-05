@@ -64,7 +64,7 @@ class SerializationDialect(metaclass=abc.ABCMeta):
     def by_extension(
         cls: Type["SerializationDialect"],
         extension: str,
-        dialect_mappings: Dict[str, str],
+        dialect_mappings: Dict[str, Optional[str]],
     ) -> Type["SerializationDialect"]:
         """Get a serializer class for a given extension and dialect mapping."""
         dialect = dialect_mappings.get(extension)

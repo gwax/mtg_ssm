@@ -108,6 +108,17 @@ def test_diff_card_counts(
         ),
         pytest.param(
             [
+                {
+                    "scryfall_id": "00000000-0000-0000-0000-000000000001",
+                    "foil": "1",
+                    "nonfoil": "",
+                }
+            ],
+            {UUID("00000000-0000-0000-0000-000000000001"): {counts.CountType.foil: 1}},
+            id="empty string",
+        ),
+        pytest.param(
+            [
                 {"scryfall_id": "00000000-0000-0000-0000-000000000001", "foil": "1"},
                 {"scryfall_id": "00000000-0000-0000-0000-000000000002", "foil": "0"},
                 {"scryfall_id": "00000000-0000-0000-0000-000000000003", "nonfoil": "1"},

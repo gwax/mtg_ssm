@@ -29,7 +29,7 @@ def aggregate_card_counts(card_rows: Iterable[Dict[str, Any]]) -> ScryfallCardCo
             scryfall_id = UUID(scryfall_id)
         counts = card_counts.get(scryfall_id, {})
         for count_type in CountType:
-            value = int(card_row.get(count_type.name, 0))
+            value = int(card_row.get(count_type.name) or 0)
             if value:
                 counts[count_type] = value + counts.get(count_type, 0)
         if counts:
