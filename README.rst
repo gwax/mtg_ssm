@@ -125,6 +125,7 @@ TODO:
 
 -   Upgrade feature for existing spreadsheets
 -   Write metadata (file version?) to xlsx files (maybe)
+-   fix xlsx column widths
 
 1.3.6
 -----
