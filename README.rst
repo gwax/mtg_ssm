@@ -30,7 +30,7 @@ anywhere.
 Installation
 ============
 
-mtg-ssm is available on PyPI so, if you have python (>=3.3) and pip
+mtg-ssm is available on PyPI so, if you have python (>=3.6) and pip
 installed on your system, you should be able to get mtg-ssm by entering
 the following into a terminal:
 
@@ -99,12 +99,14 @@ Acknowledgments
 -   `Wizards of the Coast`_: For making Magic: the Gathering and continuing
     to support it. Off and on, it's been my favorite hobby since the
     early '90s.
+-   `Scryfall`_: Scryfall is a fantastic resource for anyone trying to lookup
+    cards or build software on top of up to date Magic card information.
 -   `MTG JSON`_: MTG JSON is an amazing resource for anyone looking to build
-    tools around magic card data. It is pretty much **THE** source for
-    structured magic card data. Without MTG JSON this project would not have
-    been possible.
+    tools around magic card data. Before Scryfall, MTG JSON was my primary
+    source for card data and, without it, mtg-ssm would not exist.
 
 .. _Wizards of the Coast: http://magic.wizards.com
+.. _Scryfall: https://scryfall.com
 .. _MTG JSON: http://mtgjson.com
 
 
@@ -118,6 +120,12 @@ Changelog
 -   Broke existing spreadsheets (upgrade function will be added before release)
 -   Dropped deckbox serializer
 -   Removed support for Python 3.4, 3.5
+
+TODO:
+
+-   Upgrade feature for existing spreadsheets
+-   Write metadata (file version?) to xlsx files (maybe)
+-   Go back to Dict[str, str] for dialects
 
 1.3.6
 -----
