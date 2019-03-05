@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "compressed_size": 13634421,
+      "compressed_size": 13655284,
       "content_encoding": "gzip",
       "content_type": "application/json",
       "description": "A JSON file containing every card object on Scryfall in English or the printed language if the card is only available in one language.",
@@ -10,7 +10,7 @@
       "object": "bulk_data",
       "permalink_uri": "https://archive.scryfall.com/json/scryfall-default-cards.json",
       "type": "default_cards",
-      "updated_at": "2019-02-25T10:05:09.059000+00:00"
+      "updated_at": "2019-03-04T10:09:31.970000+00:00"
     }
   ],
   "has_more": false,
