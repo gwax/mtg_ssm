@@ -1,8 +1,12 @@
 """Card and set index container."""
 
 import collections
+import string
 from typing import Dict
+from typing import Iterable
 from typing import List
+from typing import Optional
+from typing import Set
 from typing import Tuple
 from uuid import UUID
 
@@ -24,6 +28,27 @@ def set_card_sort_key(card: ScryCard) -> Tuple[int, str]:
     return (card_num or 0, card_var or "")
 
 
+def build_snnms(
+    card: ScryCard
+) -> Iterable[Tuple[str, str, Optional[str], Optional[int]]]:
+    """Build set, name, number, multiverse id tuple keys."""
+    mvids: List[Optional[int]] = [None]
+    if card.multiverse_ids is not None:
+        mvids += card.multiverse_ids
+    for mvid in mvids:
+        yield (card.set, card.name, card.collector_number, mvid)
+        yield (card.set, card.name, None, mvid)
+        for i, card_face in enumerate(card.card_faces or ()):
+            yield (card.set, card_face.name, card.collector_number, mvid)
+            yield (
+                card.set,
+                card_face.name,
+                card.collector_number + string.ascii_lowercase[i],
+                mvid,
+            )
+            yield (card.set, card_face.name, None, mvid)
+
+
 class ScryfallDataIndex:
     """Card and set indexes for scryfall data."""
 
@@ -33,12 +58,17 @@ class ScryfallDataIndex:
         self.setcode_to_cards: Dict[str, List[ScryCard]] = {}
         self.id_to_setindex: Dict[UUID, int] = {}
         self.setcode_to_set: Dict[str, ScrySet] = {}
+        self.snnm_to_id: Dict[
+            Tuple[str, str, Optional[str], Optional[int]], Set[UUID]
+        ] = {}
 
     def load_data(self, scrydata: ScryfallDataSet) -> None:
         """Load all cards and sets from a Scryfall data set."""
         self.id_to_card = {}
         self.id_to_setindex = {}
-        self.setcode_to_set = {}  # TODO: sort sets by release date
+        self.setcode_to_set = {}
+
+        self.snnm_to_id = collections.defaultdict(set)
 
         name_to_unsorted_cards: Dict[str, List[ScryCard]] = collections.defaultdict(
             list
@@ -51,6 +81,10 @@ class ScryfallDataIndex:
             self.id_to_card[card.id] = card
             name_to_unsorted_cards[card.name].append(card)
             setcode_to_unsorted_cards[card.set].append(card)
+            for snnm in build_snnms(card):
+                self.snnm_to_id[snnm].add(card.id)
+        self.snnm_to_id = dict(self.snnm_to_id)
+
         for set_ in scrydata.sets:
             self.setcode_to_set[set_.code] = set_
 

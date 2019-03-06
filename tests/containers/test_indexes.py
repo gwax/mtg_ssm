@@ -91,3 +91,67 @@ def test_setcode_to_set(scryfall_data: ScryfallDataSet) -> None:
     index.load_data(scryfall_data)
 
     assert index.setcode_to_set["isd"].name == "Innistrad"
+
+
+def test_snnm_to_id(scryfall_data: ScryfallDataSet) -> None:
+    index = ScryfallDataIndex()
+    index.load_data(scryfall_data)
+
+    assert {
+        k
+        for k, v in index.snnm_to_id.items()
+        if v == {UUID("59cf0906-04fa-4b30-a7a6-3d117931154f")}
+    } == {
+        ("isd", "Abattoir Ghoul", "85", 222911),
+        ("isd", "Abattoir Ghoul", "85", None),
+        ("isd", "Abattoir Ghoul", None, 222911),
+        ("isd", "Abattoir Ghoul", None, None),
+    }
+
+    assert {
+        k
+        for k, v in index.snnm_to_id.items()
+        if v == {UUID("11bf83bb-c95b-4b4f-9a56-ce7a1816307a")}
+    } == {
+        ("isd", "Delver of Secrets // Insectile Aberration", "51", 226749),
+        ("isd", "Delver of Secrets // Insectile Aberration", "51", 226755),
+        ("isd", "Delver of Secrets // Insectile Aberration", "51", None),
+        ("isd", "Delver of Secrets // Insectile Aberration", None, 226749),
+        ("isd", "Delver of Secrets // Insectile Aberration", None, 226755),
+        ("isd", "Delver of Secrets // Insectile Aberration", None, None),
+        ("isd", "Delver of Secrets", "51", 226749),
+        ("isd", "Delver of Secrets", "51", 226755),
+        ("isd", "Delver of Secrets", "51", None),
+        ("isd", "Delver of Secrets", "51a", 226749),
+        ("isd", "Delver of Secrets", "51a", 226755),
+        ("isd", "Delver of Secrets", "51a", None),
+        ("isd", "Delver of Secrets", None, 226749),
+        ("isd", "Delver of Secrets", None, 226755),
+        ("isd", "Delver of Secrets", None, None),
+        ("isd", "Insectile Aberration", "51", 226749),
+        ("isd", "Insectile Aberration", "51", 226755),
+        ("isd", "Insectile Aberration", "51", None),
+        ("isd", "Insectile Aberration", "51b", 226749),
+        ("isd", "Insectile Aberration", "51b", 226755),
+        ("isd", "Insectile Aberration", "51b", None),
+        ("isd", "Insectile Aberration", None, 226749),
+        ("isd", "Insectile Aberration", None, 226755),
+        ("isd", "Insectile Aberration", None, None),
+    }
+
+    assert {
+        k
+        for k, v in index.snnm_to_id.items()
+        if UUID("4caaf31b-86a9-485b-8da7-d5b526ed1233") in v
+    } == {
+        ("fem", "Thallid", "74a", 1924),
+        ("fem", "Thallid", "74a", None),
+        ("fem", "Thallid", None, 1924),
+        ("fem", "Thallid", None, None),
+    }
+    assert index.snnm_to_id[("fem", "Thallid", None, None)] == {
+        UUID("4caaf31b-86a9-485b-8da7-d5b526ed1233"),
+        UUID("80f8f778-ae31-45cd-b27f-f93a07853ede"),
+        UUID("2cf2f3da-9101-439d-8caa-910ff40bfbb3"),
+        UUID("01827286-b104-41c5-bac9-7c38414bc40e"),
+    }

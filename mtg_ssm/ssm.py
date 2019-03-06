@@ -4,7 +4,6 @@
 import argparse
 import datetime as dt
 from pathlib import Path
-import shutil
 import tempfile
 from typing import Dict
 from typing import List
@@ -145,7 +144,7 @@ def write_file(
             print("Writing to temporary file.")
             serializer.write(temp_path, collection)
             print(f"Backing up existing file to: {backup_path}")
-            shutil.copy(str(path), str(backup_path))
+            path.replace(backup_path)
             print(f"Writing collection: {path}")
             temp_path.replace(path)
 

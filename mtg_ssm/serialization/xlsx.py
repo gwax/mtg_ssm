@@ -68,11 +68,11 @@ def style_all_sets(sheet: Worksheet) -> None:
     """Apply styles to the all sets sheet."""
     sheet.freeze_panes = sheet["C3"]
     col_width_hidden = [
-        ("A", 6, False),
-        ("B", 24, False),
+        ("A", 8, False),
+        ("B", 30, False),
         ("C", 12, True),
-        ("D", 16, True),
-        ("E", 12, True),
+        ("D", 22, True),
+        ("E", 15, True),
         ("F", 6, False),
         ("G", 7, False),
         ("H", 8, False),
@@ -125,7 +125,7 @@ def get_references(
     return "=" + "&".join(references)
 
 
-ALL_CARDS_SHEET_HEADER = ["name", "have"]
+ALL_CARDS_SHEET_HEADER = ["name", "have"]  # TODO: add list of sets
 
 
 def create_all_cards(sheet: Worksheet, index: ScryfallDataIndex) -> None:
@@ -190,10 +190,10 @@ def style_set_sheet(sheet: Worksheet) -> None:
     col_width_hidden = [
         ("A", 5, False),
         ("B", 24, False),
-        ("C", 5, True),
+        ("C", 10, True),
         ("D", 8, True),
         ("E", 20, True),
-        ("F", 6, False),
+        ("F", 8, False),
         ("G", 6, False),
         ("H", 10, False),
     ]
@@ -261,5 +261,5 @@ class XlsxDialect(interface.SerializationDialect):
         """Read collection from an xlsx file."""
         workbook = openpyxl.load_workbook(filename=str(path), read_only=True)
         reader = rows_for_workbook(workbook, skip_sheets={"All Sets", "All Cards"})
-        card_counts = counts.aggregate_card_counts(reader)
+        card_counts = counts.aggregate_card_counts(reader, oracle)
         return MagicCollection(oracle=oracle, counts=card_counts)

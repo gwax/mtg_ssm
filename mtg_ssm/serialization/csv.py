@@ -65,7 +65,7 @@ class CsvFullDialect(interface.SerializationDialect):
         """Read collection from file."""
         with path.open("rt") as csv_file:
             reader = csv.DictReader(csv_file)
-            card_counts = counts.aggregate_card_counts(reader)
+            card_counts = counts.aggregate_card_counts(reader, oracle)
         return MagicCollection(oracle=oracle, counts=card_counts)
 
 

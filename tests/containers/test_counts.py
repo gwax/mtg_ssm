@@ -1,4 +1,5 @@
 """Tests for mtg_ssm.mtg.counts"""
+# pylint: disable=redefined-outer-name
 
 from typing import Any
 from typing import Dict
@@ -8,8 +9,17 @@ from uuid import UUID
 import pytest
 
 from mtg_ssm.containers import counts
+from mtg_ssm.containers.bundles import ScryfallDataSet
 from mtg_ssm.containers.counts import CountType
 from mtg_ssm.containers.counts import ScryfallCardCount
+from mtg_ssm.containers.indexes import Oracle
+from mtg_ssm.containers.legacy import UnknownCardError
+
+
+@pytest.fixture(scope="session")
+def oracle(scryfall_data: ScryfallDataSet) -> Oracle:
+    """Oracle fixture."""
+    return Oracle(scryfall_data)
 
 
 @pytest.mark.parametrize(
@@ -95,7 +105,14 @@ def test_diff_card_counts(
     "card_rows, output",
     [
         pytest.param([], {}, id="nothing"),
-        pytest.param([{}], {}, marks=pytest.mark.xfail(raises=KeyError), id="no id"),
+        pytest.param([{}], {}, id="empty"),
+        pytest.param([{"foo": "bar"}], {}, id="no count"),
+        pytest.param(
+            [{"foo": "bar", "foil": "1"}],
+            {},
+            marks=pytest.mark.xfail(raises=UnknownCardError),
+            id="no id",
+        ),
         pytest.param(
             [{"scryfall_id": UUID("00000000-0000-0000-0000-000000000001"), "foil": 1}],
             {UUID("00000000-0000-0000-0000-000000000001"): {counts.CountType.foil: 1}},
@@ -159,6 +176,6 @@ def test_diff_card_counts(
     ],
 )
 def test_aggregate_card_counts(
-    card_rows: List[Dict[str, Any]], output: counts.ScryfallCardCount
+    oracle: Oracle, card_rows: List[Dict[str, Any]], output: counts.ScryfallCardCount
 ) -> None:
-    assert counts.aggregate_card_counts(card_rows) == output
+    assert counts.aggregate_card_counts(card_rows, oracle) == output

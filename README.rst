@@ -124,8 +124,10 @@ Changelog
 TODO:
 
 -   Upgrade feature for existing spreadsheets
--   Write metadata (file version?) to xlsx files (maybe)
--   fix xlsx column widths
+-   do I want to filter some of the sets?
+-   make heads and tails of package layout
+-   explain fetched caches in print output
+-   more info columns for future lookup risk mitigation
 
 1.3.6
 -----

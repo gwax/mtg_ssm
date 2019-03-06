@@ -8,6 +8,9 @@ from typing import Iterable
 from typing import MutableMapping
 from uuid import UUID
 
+from mtg_ssm.containers import legacy
+from mtg_ssm.containers.indexes import Oracle
+
 
 class CountType(enum.Enum):
     """Enum for possible card printing types (nonfoil, foil)."""
@@ -20,10 +23,16 @@ ScryfallCardCount = Dict[UUID, MutableMapping[CountType, int]]
 """Mapping from scryfall id to card printing type to count."""
 
 
-def aggregate_card_counts(card_rows: Iterable[Dict[str, Any]]) -> ScryfallCardCount:
+def aggregate_card_counts(
+    card_rows: Iterable[Dict[str, Any]], oracle: Oracle
+) -> ScryfallCardCount:
     """Extract card counts from card rows."""
     card_counts: ScryfallCardCount = {}
     for card_row in card_rows:
+        if "scryfall_id" not in card_row:
+            card_row = legacy.coerce_row(card_row, oracle)
+        if not card_row:
+            continue
         scryfall_id = card_row["scryfall_id"]
         if not isinstance(scryfall_id, UUID):
             scryfall_id = UUID(scryfall_id)
