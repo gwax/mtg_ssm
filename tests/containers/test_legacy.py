@@ -46,24 +46,29 @@ def test_extract_counts(card_row: Dict[str, Any], expected: Dict[str, int]) -> N
             id="not found",
         ),
         pytest.param(
-            {"set": "FEM", "name": "Thallid", "number": "74a", "multiverseid": 1924},
+            {"set": "FEM", "name": "Thallid", "number": "74a"},
             UUID("4caaf31b-86a9-485b-8da7-d5b526ed1233"),
-            id="snnm",
+            id="snn__",
         ),
         pytest.param(
             {"set": "FEM", "name": "Thallid", "multiverseid": 1924},
             UUID("4caaf31b-86a9-485b-8da7-d5b526ed1233"),
-            id="sn_m",
+            id="sn_m_",
         ),
         pytest.param(
-            {"set": "FEM", "name": "Thallid", "number": "74a"},
+            {"set": "FEM", "name": "Thallid", "artist": "Edward P. Beard, Jr."},
             UUID("4caaf31b-86a9-485b-8da7-d5b526ed1233"),
-            id="snn_",
+            id="sn__a",
         ),
         pytest.param(
             {"set": "MMA", "name": "Thallid"},
             UUID("69d20d28-76e9-4e6e-95c3-f88c51dfabfd"),
-            id="sn__",
+            id="sn___",
+        ),
+        pytest.param(
+            {"name": "Thallid", "artist": "Trevor Claxton"},
+            UUID("69d20d28-76e9-4e6e-95c3-f88c51dfabfd"),
+            id="_n__a",
         ),
         pytest.param(
             {"set": "FEM", "name": "Thallid"},

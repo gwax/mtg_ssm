@@ -28,25 +28,29 @@ def set_card_sort_key(card: ScryCard) -> Tuple[int, str]:
     return (card_num or 0, card_var or "")
 
 
-def build_snnms(
+def build_snnmas(
     card: ScryCard
-) -> Iterable[Tuple[str, str, Optional[str], Optional[int]]]:
+) -> Iterable[Tuple[Optional[str], str, Optional[str], Optional[int], Optional[str]]]:
     """Build set, name, number, multiverse id tuple keys."""
-    mvids: List[Optional[int]] = [None]
-    if card.multiverse_ids is not None:
-        mvids += card.multiverse_ids
-    for mvid in mvids:
-        yield (card.set, card.name, card.collector_number, mvid)
-        yield (card.set, card.name, None, mvid)
-        for i, card_face in enumerate(card.card_faces or ()):
-            yield (card.set, card_face.name, card.collector_number, mvid)
-            yield (
-                card.set,
-                card_face.name,
-                card.collector_number + string.ascii_lowercase[i],
-                mvid,
-            )
-            yield (card.set, card_face.name, None, mvid)
+    names_cnums: Set[Tuple[str, Optional[str]]] = {(card.name, card.collector_number)}
+    for i, card_face in enumerate(card.card_faces or ()):
+        names_cnums |= {
+            (card_face.name, card.collector_number),
+            (card_face.name, card.collector_number + string.ascii_lowercase[i]),
+        }
+    names_cnums |= {(n, None) for n, _ in names_cnums}
+
+    sets: Set[Optional[str]] = {card.set, None}
+
+    mvids: Set[Optional[int]] = {None} | set(card.multiverse_ids or ())
+
+    artists: Set[Optional[str]] = {card.artist, None}
+
+    for name, number in names_cnums:
+        for set_ in sets:
+            for mvid in mvids:
+                for artist in artists:
+                    yield (set_, name, number, mvid, artist)
 
 
 class ScryfallDataIndex:
@@ -58,8 +62,10 @@ class ScryfallDataIndex:
         self.setcode_to_cards: Dict[str, List[ScryCard]] = {}
         self.id_to_setindex: Dict[UUID, int] = {}
         self.setcode_to_set: Dict[str, ScrySet] = {}
-        self.snnm_to_id: Dict[
-            Tuple[str, str, Optional[str], Optional[int]], Set[UUID]
+        # snnma = Set, Name, (Collector) Number, Multiverse ID, Artist
+        self.snnma_to_id: Dict[
+            Tuple[Optional[str], str, Optional[str], Optional[int], Optional[str]],
+            Set[UUID],
         ] = {}
 
     def load_data(self, scrydata: ScryfallDataSet) -> None:
@@ -68,7 +74,7 @@ class ScryfallDataIndex:
         self.id_to_setindex = {}
         self.setcode_to_set = {}
 
-        self.snnm_to_id = collections.defaultdict(set)
+        self.snnma_to_id = collections.defaultdict(set)
 
         name_to_unsorted_cards: Dict[str, List[ScryCard]] = collections.defaultdict(
             list
@@ -81,9 +87,9 @@ class ScryfallDataIndex:
             self.id_to_card[card.id] = card
             name_to_unsorted_cards[card.name].append(card)
             setcode_to_unsorted_cards[card.set].append(card)
-            for snnm in build_snnms(card):
-                self.snnm_to_id[snnm].add(card.id)
-        self.snnm_to_id = dict(self.snnm_to_id)
+            for snnma in build_snnmas(card):
+                self.snnma_to_id[snnma].add(card.id)
+        self.snnma_to_id = dict(self.snnma_to_id)
 
         for set_ in scrydata.sets:
             self.setcode_to_set[set_.code] = set_

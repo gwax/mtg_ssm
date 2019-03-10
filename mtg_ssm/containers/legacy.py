@@ -9,6 +9,7 @@ from typing import Tuple
 from uuid import UUID
 
 from mtg_ssm.containers.indexes import Oracle
+from mtg_ssm.mtg import util
 
 
 class Error(Exception):
@@ -42,7 +43,19 @@ OTHER_SET_CODE_TO_SET_CODE = {
     # TODO: MOAR!
     "HOP": ["phop"],
     "pMBR": ["pmbs"],
-    "pMEI": ["pdrc", "phpr", "pdp11", "pisd", "pdp12", "prtr", "pdp13", "pths"],
+    "pMEI": [
+        "pdrc",
+        "phpr",
+        "pdp11",
+        "pisd",
+        "pdp12",
+        "prtr",
+        "pdp13",
+        "pths",
+        "pbok",
+        "pdtp",
+        "pres",
+    ],
     "pPRE": [
         "proe",
         "psom",
@@ -76,29 +89,36 @@ def find_scryfall_id(card_row: Dict[str, Any], oracle: Oracle) -> UUID:
     name = card_row.get("name", "")
     collector_number = card_row.get("number") or None
     mvid = card_row.get("multiverseid") or None
+    artist = card_row.get("artist") or None
     print(
         f"Searching => Set: {set_code}; Name: {name}; Number: {collector_number}; MVID: {mvid}"
     )
-    snnm_keys: List[Tuple[str, str, Optional[str], Optional[int]]] = []
+    snnma_keys: List[
+        Tuple[Optional[str], str, Optional[str], Optional[int], Optional[str]]
+    ] = []
     for set_ in set_codes:
-        snnm_keys += [
-            (set_, name, collector_number, mvid),
-            (set_, name, None, mvid),
-            (set_, name, collector_number, None),
-            (set_, name, None, None),
+        snnma_keys += [
+            (set_, name, collector_number, None, None),
+            (set_, name, None, mvid, None),
+            (set_, name, None, None, artist),
+            (None, name, None, None, artist),
         ]
     seen = False
-    for snnm_key in snnm_keys:
-        found = oracle.index.snnm_to_id.get(snnm_key)
-        if found and len(found) == 1:
-            [scryfall_id] = found
-            found_card = oracle.index.id_to_card[scryfall_id]
-            print(
-                f"Found ==> Set: {found_card.set}; Name: {found_card.name}; Number: {found_card.collector_number}; MVIDs: {found_card.multiverse_ids}"
-            )
-            return scryfall_id
+    for snnma_key in snnma_keys:
+        found = oracle.index.snnma_to_id.get(snnma_key)
         if found:
             seen = True
+            scryfall_id = None
+            if len(found) == 1:
+                [scryfall_id] = found
+            if util.is_strict_basic(name):
+                scryfall_id = sorted(found)[0]
+            if scryfall_id is not None:
+                found_card = oracle.index.id_to_card[scryfall_id]
+                print(
+                    f"Found ==> Set: {found_card.set}; Name: {found_card.name}; Number: {found_card.collector_number}; MVIDs: {found_card.multiverse_ids}"
+                )
+                return scryfall_id
     if seen:
         raise MultipleMatchError(f"Could not find scryfall card for row: {card_row}")
     raise NoMatchError(f"Could not find scryfall card for row: {card_row}")
