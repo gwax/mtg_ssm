@@ -55,13 +55,15 @@ def _fetch_endpoint(endpoint: str, *, dirty: bool, write_cache: bool = True) -> 
         response = requests.get(endpoint, stream=True)
         response.raise_for_status()
         if write_cache:
-            print(f"Storing {endpoint} in cache: {cache_path}")
+            print(f"Caching {endpoint}")
         else:
             temp_cache = tempfile.NamedTemporaryFile()
             cache_path = temp_cache.name
         with gzip.open(cache_path, "wb") as cache_file:
             for chunk in response.iter_content(chunk_size=1024):
                 cache_file.write(chunk)
+    else:
+        print("Reading cache")
 
     with gzip.open(cache_path, "rt") as cache_file:
         return json.load(cache_file)

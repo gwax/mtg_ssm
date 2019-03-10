@@ -117,17 +117,19 @@ Changelog
 -------
 
 -   Switched from mtgjson to Scryfall as a data source
--   Broke existing spreadsheets (upgrade function will be added before release)
+-   Broke existing spreadsheets (``update`` will rebuild / upgrade existing
+    sheets)
 -   Dropped deckbox serializer
 -   Removed support for Python 3.4, 3.5
+-   Flip / split / DFC now have a single row entry, instead of multiple (you
+    may have duplicate counts after an upgrade)
 
 TODO:
 
--   Upgrade feature for existing spreadsheets
 -   do I want to filter some of the sets?
 -   make heads and tails of package layout
--   explain fetched caches in print output
 -   more info columns for future lookup risk mitigation
+-   docs, versions, etc.
 
 1.3.6
 -----

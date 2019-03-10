@@ -15,8 +15,12 @@ class Error(Exception):
     """Base exception for this module."""
 
 
-class UnknownCardError(Error):
-    """Raised when a card cannot be uniquely identified."""
+class NoMatchError(Error):
+    """Raised when a matchor(Error):ing card cannot be found."""
+
+
+class MultipleMatchError(Error):
+    """Raised when multiple matching cards are found."""
 
 
 COUNT_TYPE_TO_OLD_COUNT_TYPES: Dict[str, Set[str]] = {
@@ -83,6 +87,7 @@ def find_scryfall_id(card_row: Dict[str, Any], oracle: Oracle) -> UUID:
             (set_, name, collector_number, None),
             (set_, name, None, None),
         ]
+    seen = False
     for snnm_key in snnm_keys:
         found = oracle.index.snnm_to_id.get(snnm_key)
         if found and len(found) == 1:
@@ -92,7 +97,11 @@ def find_scryfall_id(card_row: Dict[str, Any], oracle: Oracle) -> UUID:
                 f"Found ==> Set: {found_card.set}; Name: {found_card.name}; Number: {found_card.collector_number}; MVIDs: {found_card.multiverse_ids}"
             )
             return scryfall_id
-    raise UnknownCardError(f"Could not find scryfall card for row: {card_row}")
+        if found:
+            seen = True
+    if seen:
+        raise MultipleMatchError(f"Could not find scryfall card for row: {card_row}")
+    raise NoMatchError(f"Could not find scryfall card for row: {card_row}")
 
 
 def coerce_row(card_row: Dict[str, Any], oracle: Oracle) -> Dict[str, Any]:

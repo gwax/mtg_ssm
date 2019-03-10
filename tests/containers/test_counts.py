@@ -13,7 +13,7 @@ from mtg_ssm.containers.bundles import ScryfallDataSet
 from mtg_ssm.containers.counts import CountType
 from mtg_ssm.containers.counts import ScryfallCardCount
 from mtg_ssm.containers.indexes import Oracle
-from mtg_ssm.containers.legacy import UnknownCardError
+from mtg_ssm.containers.legacy import NoMatchError
 
 
 @pytest.fixture(scope="session")
@@ -110,7 +110,7 @@ def test_diff_card_counts(
         pytest.param(
             [{"foo": "bar", "foil": "1"}],
             {},
-            marks=pytest.mark.xfail(raises=UnknownCardError),
+            marks=pytest.mark.xfail(raises=NoMatchError),
             id="no id",
         ),
         pytest.param(
