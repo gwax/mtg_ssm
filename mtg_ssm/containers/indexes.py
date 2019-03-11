@@ -83,16 +83,17 @@ class ScryfallDataIndex:
             list
         )
 
+        for set_ in scrydata.sets:
+            self.setcode_to_set[set_.code] = set_
+
         for card in scrydata.cards:
             self.id_to_card[card.id] = card
             name_to_unsorted_cards[card.name].append(card)
             setcode_to_unsorted_cards[card.set].append(card)
-            for snnma in build_snnmas(card):
-                self.snnma_to_id[snnma].add(card.id)
+            if not self.setcode_to_set[card.set].digital:
+                for snnma in build_snnmas(card):
+                    self.snnma_to_id[snnma].add(card.id)
         self.snnma_to_id = dict(self.snnma_to_id)
-
-        for set_ in scrydata.sets:
-            self.setcode_to_set[set_.code] = set_
 
         for cards_list in name_to_unsorted_cards.values():
             cards_list.sort(key=name_card_sort_key)

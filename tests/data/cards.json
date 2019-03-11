@@ -11,7 +11,7 @@
       "W"
     ],
     "digital": false,
-    "edhrec_rank": 2362,
+    "edhrec_rank": 2361,
     "flavor_text": "Only leonin clerics who can survive the Razor Fields for one turning of the suns can stand in the Cave of Light.",
     "foil": false,
     "frame": "2003",
@@ -117,7 +117,7 @@
       "W"
     ],
     "digital": false,
-    "edhrec_rank": 13980,
+    "edhrec_rank": 13981,
     "foil": true,
     "frame": "2003",
     "frame_effect": "",
@@ -222,7 +222,7 @@
       "W"
     ],
     "digital": false,
-    "edhrec_rank": 8498,
+    "edhrec_rank": 8483,
     "foil": true,
     "frame": "2003",
     "frame_effect": "",
@@ -304,7 +304,7 @@
       "W"
     ],
     "digital": false,
-    "edhrec_rank": 10451,
+    "edhrec_rank": 10454,
     "foil": true,
     "frame": "2003",
     "frame_effect": "",
@@ -389,7 +389,7 @@
       "G"
     ],
     "digital": false,
-    "edhrec_rank": 5103,
+    "edhrec_rank": 5083,
     "foil": false,
     "frame": "1993",
     "frame_effect": "",
@@ -471,7 +471,7 @@
       "G"
     ],
     "digital": false,
-    "edhrec_rank": 5103,
+    "edhrec_rank": 5083,
     "foil": false,
     "frame": "1993",
     "frame_effect": "",
@@ -553,7 +553,7 @@
       "G"
     ],
     "digital": false,
-    "edhrec_rank": 5103,
+    "edhrec_rank": 5083,
     "foil": false,
     "frame": "1993",
     "frame_effect": "",
@@ -635,7 +635,7 @@
       "G"
     ],
     "digital": false,
-    "edhrec_rank": 5103,
+    "edhrec_rank": 5083,
     "foil": false,
     "frame": "1993",
     "frame_effect": "",
@@ -717,7 +717,7 @@
       "B"
     ],
     "digital": false,
-    "edhrec_rank": 11300,
+    "edhrec_rank": 11299,
     "flavor_text": "\"It keeps some out, yes. It also keeps others in\" —Grandmother Sengir",
     "foil": false,
     "frame": "1993",
@@ -800,7 +800,7 @@
       "B"
     ],
     "digital": false,
-    "edhrec_rank": 11300,
+    "edhrec_rank": 11299,
     "flavor_text": "\"Just the place for a picnic.\" —Murat, Death Speaker",
     "foil": false,
     "frame": "1993",
@@ -883,7 +883,7 @@
       "W"
     ],
     "digital": false,
-    "edhrec_rank": 1364,
+    "edhrec_rank": 1361,
     "flavor_text": "Ixidor had only to imagine their ruin and Akroma made it so.",
     "foil": false,
     "frame": "2003",
@@ -967,7 +967,7 @@
       "B"
     ],
     "digital": false,
-    "edhrec_rank": 361,
+    "edhrec_rank": 360,
     "flavor_text": "\"If there is such a thing as too much power, I have not discovered it.\" —Volrath",
     "foil": false,
     "frame": "2003",
@@ -1051,7 +1051,7 @@
       "B"
     ],
     "digital": false,
-    "edhrec_rank": 361,
+    "edhrec_rank": 360,
     "flavor_text": "\"Leshrac, my liege, grant me the power I am due.\" —Lim-Dûl, the Necromancer",
     "foil": false,
     "frame": "1993",
@@ -1450,7 +1450,7 @@
       "B"
     ],
     "digital": false,
-    "edhrec_rank": 9113,
+    "edhrec_rank": 9121,
     "flavor_text": "Death took his humanity but not his skill with the knife.",
     "foil": true,
     "frame": "2003",
@@ -1583,7 +1583,7 @@
       "U"
     ],
     "digital": false,
-    "edhrec_rank": 6769,
+    "edhrec_rank": 6766,
     "foil": true,
     "frame": "2003",
     "frame_effect": "sunmoondfc",
@@ -1896,7 +1896,7 @@
       "U"
     ],
     "digital": false,
-    "edhrec_rank": 13181,
+    "edhrec_rank": 13185,
     "flavor_text": "These spirits of the air are winsome and wild, and cannot be truly contained. Only marginally intelligent, they often substitute whimsy for strategy, delighting in mischief and mayhem.",
     "foil": false,
     "frame": "1993",
@@ -1979,7 +1979,7 @@
       "B"
     ],
     "digital": false,
-    "edhrec_rank": 361,
+    "edhrec_rank": 360,
     "foil": false,
     "frame": "1993",
     "frame_effect": "",
@@ -2231,7 +2231,7 @@
       "G"
     ],
     "digital": false,
-    "edhrec_rank": 5103,
+    "edhrec_rank": 5083,
     "foil": true,
     "frame": "2003",
     "frame_effect": "",
@@ -2928,7 +2928,7 @@
       "W"
     ],
     "digital": false,
-    "edhrec_rank": 13591,
+    "edhrec_rank": 13599,
     "flavor_text": "When an order for griffin barding comes in, blacksmiths prepare their forges for months of exacting work. They know griffins always detect imperfections and never haggle.",
     "foil": false,
     "frame": "2003",
@@ -3001,6 +3001,168 @@
     "toughness": "3",
     "type_line": "Creature — Griffin",
     "uri": "https://api.scryfall.com/cards/0f638ffc-20b3-4e8c-8f0a-0d034902bddd"
+  },
+  {
+    "artist": "Willian Murai",
+    "border_color": "black",
+    "cmc": "4.0",
+    "collector_number": "11",
+    "color_identity": [
+      "W"
+    ],
+    "colors": [
+      "W"
+    ],
+    "digital": false,
+    "edhrec_rank": 3910,
+    "flavor_text": "\"Dragons seek war. I bring it to them.\"",
+    "foil": true,
+    "frame": "2015",
+    "frame_effect": "",
+    "full_art": false,
+    "games": [
+      "paper"
+    ],
+    "highres_image": true,
+    "id": "6daabdc2-e8a8-41a6-a9f0-1973d9c31d39",
+    "illustration_id": "df13e192-e174-4335-aa66-759bc84bef4e",
+    "image_uris": {
+      "art_crop": "https://img.scryfall.com/cards/art_crop/en/pfrf/11.jpg?1517813031",
+      "border_crop": "https://img.scryfall.com/cards/border_crop/en/pfrf/11.jpg?1517813031",
+      "large": "https://img.scryfall.com/cards/large/en/pfrf/11.jpg?1517813031",
+      "normal": "https://img.scryfall.com/cards/normal/en/pfrf/11.jpg?1517813031",
+      "png": "https://img.scryfall.com/cards/png/en/pfrf/11.png?1517813031",
+      "small": "https://img.scryfall.com/cards/small/en/pfrf/11.jpg?1517813031"
+    },
+    "lang": "en",
+    "layout": "normal",
+    "legalities": {
+      "commander": "legal",
+      "duel": "legal",
+      "frontier": "legal",
+      "future": "not_legal",
+      "legacy": "legal",
+      "modern": "legal",
+      "oldschool": "not_legal",
+      "pauper": "not_legal",
+      "penny": "not_legal",
+      "standard": "not_legal",
+      "vintage": "legal"
+    },
+    "mana_cost": "{3}{W}",
+    "multiverse_ids": [],
+    "name": "Dragonscale General",
+    "nonfoil": false,
+    "object": "card",
+    "oracle_id": "9fc6e1db-cf09-4b8c-be4f-bb02ffe7a188",
+    "oracle_text": "At the beginning of your end step, bolster X, where X is the number of tapped creatures you control. (Choose a creature with the least toughness among creatures you control and put X +1/+1 counters on it.)",
+    "oversized": false,
+    "power": "2",
+    "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A9fc6e1db-cf09-4b8c-be4f-bb02ffe7a188&unique=prints",
+    "promo": true,
+    "rarity": "rare",
+    "related_uris": {
+      "edhrec": "http://edhrec.com/route/?cc=Dragonscale+General",
+      "mtgtop8": "http://mtgtop8.com/search?MD_check=1&SB_check=1&cards=Dragonscale+General",
+      "tcgplayer_decks": "https://decks.tcgplayer.com/magic/deck/search?contains=Dragonscale+General&page=1&partner=Scryfall&utm_campaign=affiliate&utm_medium=scryfall&utm_source=scryfall"
+    },
+    "released_at": "2015-01-22",
+    "reprint": true,
+    "reserved": false,
+    "rulings_uri": "https://api.scryfall.com/cards/6daabdc2-e8a8-41a6-a9f0-1973d9c31d39/rulings",
+    "scryfall_set_uri": "https://scryfall.com/sets/pfrf?utm_source=api",
+    "scryfall_uri": "https://scryfall.com/card/pfrf/11/dragonscale-general?utm_source=api",
+    "set": "pfrf",
+    "set_name": "Fate Reforged Promos",
+    "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Apfrf&unique=prints",
+    "set_uri": "https://api.scryfall.com/sets/aa9f80e3-8d60-46b7-b91e-eb1736fde866",
+    "story_spotlight": false,
+    "tcgplayer_id": 95339,
+    "toughness": "3",
+    "type_line": "Creature — Human Warrior",
+    "uri": "https://api.scryfall.com/cards/6daabdc2-e8a8-41a6-a9f0-1973d9c31d39",
+    "watermark": "abzan"
+  },
+  {
+    "artist": "Volkan Baga",
+    "border_color": "black",
+    "cmc": "4.0",
+    "collector_number": "11s",
+    "color_identity": [
+      "W"
+    ],
+    "colors": [
+      "W"
+    ],
+    "digital": false,
+    "edhrec_rank": 3910,
+    "flavor_text": "\"Dragons seek war. I bring it to them.\"",
+    "foil": true,
+    "frame": "2015",
+    "frame_effect": "",
+    "full_art": false,
+    "games": [
+      "paper"
+    ],
+    "highres_image": true,
+    "id": "dc2d84b1-c6db-43af-ba8f-b9b90ceee1a3",
+    "illustration_id": "b289082a-84c0-45f7-8131-68360d692d1c",
+    "image_uris": {
+      "art_crop": "https://img.scryfall.com/cards/art_crop/en/pfrf/11s.jpg?1529795924",
+      "border_crop": "https://img.scryfall.com/cards/border_crop/en/pfrf/11s.jpg?1529795924",
+      "large": "https://img.scryfall.com/cards/large/en/pfrf/11s.jpg?1529795924",
+      "normal": "https://img.scryfall.com/cards/normal/en/pfrf/11s.jpg?1529795924",
+      "png": "https://img.scryfall.com/cards/png/en/pfrf/11s.png?1529795924",
+      "small": "https://img.scryfall.com/cards/small/en/pfrf/11s.jpg?1529795924"
+    },
+    "lang": "en",
+    "layout": "normal",
+    "legalities": {
+      "commander": "legal",
+      "duel": "legal",
+      "frontier": "legal",
+      "future": "not_legal",
+      "legacy": "legal",
+      "modern": "legal",
+      "oldschool": "not_legal",
+      "pauper": "not_legal",
+      "penny": "not_legal",
+      "standard": "not_legal",
+      "vintage": "legal"
+    },
+    "mana_cost": "{3}{W}",
+    "multiverse_ids": [],
+    "name": "Dragonscale General",
+    "nonfoil": false,
+    "object": "card",
+    "oracle_id": "9fc6e1db-cf09-4b8c-be4f-bb02ffe7a188",
+    "oracle_text": "At the beginning of your end step, bolster X, where X is the number of tapped creatures you control. (Choose a creature with the least toughness among creatures you control and put X +1/+1 counters on it.)",
+    "oversized": false,
+    "power": "2",
+    "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A9fc6e1db-cf09-4b8c-be4f-bb02ffe7a188&unique=prints",
+    "promo": true,
+    "rarity": "rare",
+    "related_uris": {
+      "edhrec": "http://edhrec.com/route/?cc=Dragonscale+General",
+      "mtgtop8": "http://mtgtop8.com/search?MD_check=1&SB_check=1&cards=Dragonscale+General",
+      "tcgplayer_decks": "https://decks.tcgplayer.com/magic/deck/search?contains=Dragonscale+General&page=1&partner=Scryfall&utm_campaign=affiliate&utm_medium=scryfall&utm_source=scryfall"
+    },
+    "released_at": "2015-01-22",
+    "reprint": true,
+    "reserved": false,
+    "rulings_uri": "https://api.scryfall.com/cards/dc2d84b1-c6db-43af-ba8f-b9b90ceee1a3/rulings",
+    "scryfall_set_uri": "https://scryfall.com/sets/pfrf?utm_source=api",
+    "scryfall_uri": "https://scryfall.com/card/pfrf/11s/dragonscale-general?utm_source=api",
+    "set": "pfrf",
+    "set_name": "Fate Reforged Promos",
+    "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Apfrf&unique=prints",
+    "set_uri": "https://api.scryfall.com/sets/aa9f80e3-8d60-46b7-b91e-eb1736fde866",
+    "story_spotlight": false,
+    "tcgplayer_id": 95607,
+    "toughness": "3",
+    "type_line": "Creature — Human Warrior",
+    "uri": "https://api.scryfall.com/cards/dc2d84b1-c6db-43af-ba8f-b9b90ceee1a3",
+    "watermark": "abzan"
   },
   {
     "artist": "Steven Belledin",
@@ -3160,7 +3322,7 @@
     "color_identity": [],
     "colors": [],
     "digital": false,
-    "edhrec_rank": 5703,
+    "edhrec_rank": 5707,
     "foil": false,
     "frame": "1993",
     "frame_effect": "",
@@ -3259,7 +3421,7 @@
       "R"
     ],
     "digital": false,
-    "edhrec_rank": 5168,
+    "edhrec_rank": 5152,
     "foil": true,
     "frame": "2003",
     "frame_effect": "",
@@ -3344,7 +3506,7 @@
       "W"
     ],
     "digital": false,
-    "edhrec_rank": 8779,
+    "edhrec_rank": 8783,
     "flavor_text": "Altered by Phyrexian science, corrupted by black mana, and twisted by rage, Ertai still looked in the mirror and saw only glory.",
     "foil": false,
     "frame": "1997",
@@ -3434,7 +3596,7 @@
       "W"
     ],
     "digital": false,
-    "edhrec_rank": 8779,
+    "edhrec_rank": 8783,
     "flavor_text": "Altered by Phyrexian science, corrupted by black mana, and twisted by rage, Ertai still looked in the mirror and saw only glory.",
     "foil": true,
     "frame": "1997",
@@ -3595,7 +3757,7 @@
       "G"
     ],
     "digital": false,
-    "edhrec_rank": 10126,
+    "edhrec_rank": 10131,
     "foil": true,
     "frame": "1997",
     "frame_effect": "",
@@ -3695,7 +3857,7 @@
       "U"
     ],
     "digital": false,
-    "edhrec_rank": 11889,
+    "edhrec_rank": 11897,
     "foil": true,
     "frame": "2003",
     "frame_effect": "",
@@ -4685,7 +4847,7 @@
       "U"
     ],
     "digital": true,
-    "edhrec_rank": 5770,
+    "edhrec_rank": 5764,
     "foil": true,
     "frame": "2015",
     "frame_effect": "",

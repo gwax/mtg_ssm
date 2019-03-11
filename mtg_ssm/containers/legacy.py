@@ -41,46 +41,70 @@ def extract_counts(card_row: Dict[str, Any]) -> Dict[str, int]:
 
 OTHER_SET_CODE_TO_SET_CODE = {
     # TODO: MOAR!
-    "HOP": ["phop"],
-    "pMBR": ["pmbs"],
-    "pMEI": [
-        "pdrc",
-        "phpr",
-        "pdp11",
-        "pisd",
-        "pdp12",
-        "prtr",
-        "pdp13",
-        "pths",
-        "pbok",
-        "pdtp",
-        "pres",
+    "pMEI": ["phpr", "pdrc", "pbok", "pdtp", "pres", "purl", "pdp10", "pfrf", "pori"],
+    "pPRE": ["psom", "pdgm", "pths", "pm15", "pktk", "pfrf", "pdtk", "pori", "pbfz"],
+    "pJGP": [
+        "jgp",
+        "g99",
+        "g00",
+        "g01",
+        "g02",
+        "g03",
+        "g04",
+        "g05",
+        "g06",
+        "g07",
+        "g08",
+        "g09",
+        "g11",
     ],
-    "pPRE": [
-        "proe",
-        "psom",
-        "pmbs",
-        "pisd",
-        "pdka",
-        "pavr",
-        "pm13",
-        "prtr",
-        "pgtc",
-        "pdgm",
-        "pm14",
-        "pths",
-    ],
-    "pJGP": ["g11"],
     "PO2": ["p02"],
-    "pFNM": ["f08"],
+    "pFNM": [
+        "fnm",
+        "f01",
+        "f02",
+        "f03",
+        "f04",
+        "f05",
+        "f06",
+        "f07",
+        "f08",
+        "f09",
+        "f10",
+        "f11",
+        "f12",
+        "f13",
+        "f14",
+        "f15",
+        "f16",
+        "f17",
+        "f18",
+    ],
     "NMS": ["nem"],
-    "pMPR": ["p11"],
-    "pLPA": ["pm10", "pwwk", "psom", "pisd"],
-    "pWPN": ["pwp10", "pwp11"],
+    "pARL": ["pal99", "pal00", "pal01", "pal02", "pal03", "pal04", "pal05", "pal06"],
+    "VAN": ["pvan"],
+    "pGTW": ["pg07", "pg08"],
+    "pMGD": ["p10e", "pnph", "pori"],
+    "pLPA": ["pmbs", "pavr", "pktk"],
+    "pWPN": ["pwwk", "pwp10", "proe"],
+    "HOP": ["ohop", "phop"],
+    "PC2": ["opc2", "phop"],
+    "pWCQ": ["ppro"],
+    "DD3_JVC": ["jvc"],
+    "DD3_GVL": ["gvl"],
+    "DD3_EVG": ["evg"],
+    "DD3_DVD": ["dvd"],
+    "FRF_UGIN": ["ugin"],
+    "PCA": ["opca"],
+}
+
+PSUDONYM_TO_ARTIST: Dict[Optional[str], str] = {
+    "William Murai": "Willian Murai",
+    "Dave Seeley": "David Seeley",
 }
 
 
-def find_scryfall_id(card_row: Dict[str, Any], oracle: Oracle) -> UUID:
+def find_scryfall_id(card_row: Dict[str, str], oracle: Oracle) -> UUID:
     """Heuristically determine the scryfall id for a given input row."""
     set_code = card_row.get("set", "")
     set_codes = [set_code, set_code.lower()] + OTHER_SET_CODE_TO_SET_CODE.get(
@@ -88,8 +112,9 @@ def find_scryfall_id(card_row: Dict[str, Any], oracle: Oracle) -> UUID:
     )
     name = card_row.get("name", "")
     collector_number = card_row.get("number") or None
-    mvid = card_row.get("multiverseid") or None
+    mvid = int(card_row.get("multiverseid") or -1)
     artist = card_row.get("artist") or None
+    artist = PSUDONYM_TO_ARTIST.get(artist, artist)
     print(
         f"Searching => Set: {set_code}; Name: {name}; Number: {collector_number}; MVID: {mvid}"
     )
@@ -101,6 +126,7 @@ def find_scryfall_id(card_row: Dict[str, Any], oracle: Oracle) -> UUID:
             (set_, name, collector_number, None, None),
             (set_, name, None, mvid, None),
             (set_, name, None, None, artist),
+            (set_, name, None, None, None),
             (None, name, None, None, artist),
         ]
     seen = False

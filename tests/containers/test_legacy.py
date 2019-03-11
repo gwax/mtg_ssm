@@ -81,6 +81,11 @@ def test_extract_counts(card_row: Dict[str, Any], expected: Dict[str, int]) -> N
             UUID("dd88131a-2811-4a1f-bb9a-c82e12c1493b"),
             id="set remap",
         ),
+        pytest.param(
+            {"name": "Dragonscale General", "artist": "William Murai"},
+            UUID("6daabdc2-e8a8-41a6-a9f0-1973d9c31d39"),
+            id="artist remap",
+        ),
     ],
 )
 def test_find_scryfall_id(

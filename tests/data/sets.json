@@ -279,6 +279,24 @@
       "uri": "https://api.scryfall.com/sets/9fb2f83e-7015-4aa9-808f-310ccf0fdb9c"
     },
     {
+      "block": "Khans of Tarkir",
+      "block_code": "ktk",
+      "card_count": 2,
+      "code": "pfrf",
+      "digital": false,
+      "foil_only": false,
+      "icon_svg_uri": "https://img.scryfall.com/sets/frf.svg?1551675600",
+      "id": "aa9f80e3-8d60-46b7-b91e-eb1736fde866",
+      "name": "Fate Reforged Promos",
+      "object": "set",
+      "parent_set_code": "frf",
+      "released_at": "2015-01-22",
+      "scryfall_uri": "https://scryfall.com/sets/pfrf",
+      "search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Apfrf&unique=prints",
+      "set_type": "promo",
+      "uri": "https://api.scryfall.com/sets/aa9f80e3-8d60-46b7-b91e-eb1736fde866"
+    },
+    {
       "card_count": 2,
       "code": "phop",
       "digital": false,

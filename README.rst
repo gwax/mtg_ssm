@@ -117,12 +117,26 @@ Changelog
 -------
 
 -   Switched from mtgjson to Scryfall as a data source
--   Broke existing spreadsheets (``update`` will rebuild / upgrade existing
-    sheets)
+-   Broke existing spreadsheets
+
+    -   ``update`` will rebuild / upgrade existing sheets
+
+    -   rebuild lookup doesn't work very well for basic lands, double check
+        your counts
+
+    -   rebuild lookup may result in double counting for Flip / split / DFC
+        cards, double-check your counts
+
+    -   a number of cards count not reliably be remapped and will raise
+        exceptions; if you have any copies of these cards, you will need
+        to remove them from your existing spreadsheet and re-add them
+        after the update
+
+    -   promo cards are particularly hard hit as Scryfall and MTGJSON model
+        promo sets very differently.
+
 -   Dropped deckbox serializer
 -   Removed support for Python 3.4, 3.5
--   Flip / split / DFC now have a single row entry, instead of multiple (you
-    may have duplicate counts after an upgrade)
 
 TODO:
 
@@ -130,6 +144,13 @@ TODO:
 -   make heads and tails of package layout
 -   more info columns for future lookup risk mitigation
 -   docs, versions, etc.
+-   do we want to group sets? ex. all judge gift sets
+
+    - scryfall promos are so poorly arranged...
+
+-   snnma to per-column bitmap style indexes
+-   can we remove artist correction / renaming?
+-   filter all online sets
 
 1.3.6
 -----

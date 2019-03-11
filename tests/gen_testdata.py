@@ -38,6 +38,7 @@ TEST_SETS_TO_CARDS = {
     "ohop": {"Academy at Tolaria West"},
     "opc2": {"Akoum", "Chaotic Aether"},
     "pc2": {"Armored Griffin"},
+    "pfrf": {"Dragonscale General"},
     "phop": {"Stairs to Infinity", "Tazeem"},
     "phpr": {"Arena"},
     "plc": {"Boom // Bust"},
