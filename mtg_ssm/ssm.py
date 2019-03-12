@@ -9,6 +9,7 @@ from typing import Dict
 from typing import List
 
 import mtg_ssm
+from mtg_ssm.containers import bundles
 from mtg_ssm.containers.collection import MagicCollection
 from mtg_ssm.containers.indexes import Oracle
 from mtg_ssm.scryfall import fetcher
@@ -32,6 +33,13 @@ def get_args(args: List[str] = None) -> argparse.Namespace:
         epilog=epilog(),
     )
     parser.add_argument("--version", action="version", version=mtg_ssm.__version__)
+
+    parser.add_argument(
+        "--include-digital",
+        default=False,
+        action="store_true",
+        help="Include digital only sets (e.g. Vintage Masters)",
+    )
 
     parser.add_argument(
         "-d",
@@ -105,9 +113,11 @@ def get_args(args: List[str] = None) -> argparse.Namespace:
     return parsed_args
 
 
-def get_oracle() -> Oracle:
+def get_oracle(include_digital: bool) -> Oracle:
     """Get a card_db with current mtgjson data."""
     scrydata = fetcher.scryfetch()
+    if not include_digital:
+        scrydata = bundles.remove_digital(scrydata)
     return Oracle(scrydata)
 
 
@@ -149,26 +159,23 @@ def write_file(
             temp_path.replace(path)
 
 
-def create_cmd(args: argparse.Namespace) -> None:
+def create_cmd(args: argparse.Namespace, oracle: Oracle) -> None:
     """Create a new, empty collection."""
-    oracle = get_oracle()
     collection = MagicCollection(oracle=oracle, counts={})
     serializer = get_serializer(args.dialect, args.collection)
     write_file(serializer, collection, args.collection)
 
 
-def update_cmd(args: argparse.Namespace) -> None:
+def update_cmd(args: argparse.Namespace, oracle: Oracle) -> None:
     """Update an existing collection, preserving counts."""
-    oracle = get_oracle()
     serializer = get_serializer(args.dialect, args.collection)
     print(f"Reading counts from {args.collection}")
     collection = serializer.read(args.collection, oracle)
     write_file(serializer, collection, args.collection)
 
 
-def merge_cmd(args: argparse.Namespace) -> None:
+def merge_cmd(args: argparse.Namespace, oracle: Oracle) -> None:
     """Merge counts from one or more inputs into a new/existing collection."""
-    oracle = get_oracle()
     coll_serializer = get_serializer(args.dialect, args.collection)
     collection = MagicCollection(oracle=oracle, counts={})
     if args.collection.exists():
@@ -181,9 +188,8 @@ def merge_cmd(args: argparse.Namespace) -> None:
     write_file(coll_serializer, collection, args.collection)
 
 
-def diff_cmd(args: argparse.Namespace) -> None:
+def diff_cmd(args: argparse.Namespace, oracle: Oracle) -> None:
     """Diff two collections, putting the output in a third."""
-    oracle = get_oracle()
     left_serializer = get_serializer(args.dialect, args.left)
     right_serializer = get_serializer(args.dialect, args.right)
     output_serializer = get_serializer(args.dialect, args.output)
@@ -197,7 +203,8 @@ def diff_cmd(args: argparse.Namespace) -> None:
 def main() -> None:
     """Get args and run the appropriate command."""
     args = get_args()
-    args.func(args)
+    oracle = get_oracle(args.include_digital)
+    args.func(args, oracle)
 
 
 if __name__ == "__main__":

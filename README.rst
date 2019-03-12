@@ -140,7 +140,6 @@ Changelog
 
 TODO:
 
--   do I want to filter some of the sets?
 -   make heads and tails of package layout
 -   more info columns for future lookup risk mitigation
 -   docs, versions, etc.

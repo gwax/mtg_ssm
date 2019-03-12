@@ -47,6 +47,27 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 func=ssm.create_cmd,
                 collection=Path("testfilename"),
                 dialect={},
+                include_digital=False,
+            ),
+        ),
+        (
+            "--include-digital create testfilename",
+            ap.Namespace(
+                action="create",
+                func=ssm.create_cmd,
+                collection=Path("testfilename"),
+                dialect={},
+                include_digital=True,
+            ),
+        ),
+        (
+            "--dialect csv terse create testfilename",
+            ap.Namespace(
+                action="create",
+                func=ssm.create_cmd,
+                collection=Path("testfilename"),
+                dialect={"csv": "terse"},
+                include_digital=False,
             ),
         ),
         (
@@ -56,6 +77,7 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 func=ssm.update_cmd,
                 collection=Path("testfilename"),
                 dialect={},
+                include_digital=False,
             ),
         ),
         (
@@ -66,6 +88,7 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 collection=Path("testfilename"),
                 imports=[Path("otherfile1")],
                 dialect={},
+                include_digital=False,
             ),
         ),
         (
@@ -76,6 +99,7 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 collection=Path("testfilename"),
                 imports=[Path("otherfile1"), Path("otherfile2"), Path("otherfile3")],
                 dialect={},
+                include_digital=False,
             ),
         ),
         (
@@ -87,6 +111,7 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 left=Path("file1"),
                 right=Path("file2"),
                 dialect={},
+                include_digital=False,
             ),
         ),
     ],
@@ -95,11 +120,11 @@ def test_get_args(cmdline: str, expected: ap.Namespace) -> None:
     assert ssm.get_args(args=cmdline.split()) == expected
 
 
-def test_create_cmd(tmp_path: Path) -> None:
+def test_create_cmd(tmp_path: Path, oracle: Oracle) -> None:
     coll_path = tmp_path / "collection.csv"
 
     args = ap.Namespace(collection=coll_path, dialect={})
-    ssm.create_cmd(args)
+    ssm.create_cmd(args, oracle)
 
     assert coll_path.read_text() == textwrap.dedent(
         """\
@@ -111,7 +136,7 @@ def test_create_cmd(tmp_path: Path) -> None:
 
 
 @freezegun.freeze_time("2015-06-28 01:02:03")
-def test_update_cmd(tmp_path: Path) -> None:
+def test_update_cmd(tmp_path: Path, oracle: Oracle) -> None:
     work_path = tmp_path / "work"
     work_path.mkdir()
     coll_path = work_path / "collection.csv"
@@ -127,7 +152,7 @@ def test_update_cmd(tmp_path: Path) -> None:
     )
 
     args = ap.Namespace(collection=coll_path, dialect={})
-    ssm.update_cmd(args)
+    ssm.update_cmd(args, oracle)
 
     assert set(work_path.iterdir()) == {coll_path, expected_backup_path}
     assert coll_path.read_text() == textwrap.dedent(
@@ -145,7 +170,7 @@ def test_update_cmd(tmp_path: Path) -> None:
     )
 
 
-def test_merge_cmd_new(tmp_path: Path) -> None:
+def test_merge_cmd_new(tmp_path: Path, oracle: Oracle) -> None:
     work_path = tmp_path / "work"
     work_path.mkdir()
     coll_path = work_path / "collection.csv"
@@ -161,7 +186,7 @@ def test_merge_cmd_new(tmp_path: Path) -> None:
     )
 
     args = ap.Namespace(collection=coll_path, imports=[import_path], dialect={})
-    ssm.merge_cmd(args)
+    ssm.merge_cmd(args, oracle)
 
     assert set(work_path.iterdir()) == {coll_path, import_path}
     assert coll_path.read_text() == textwrap.dedent(
@@ -180,7 +205,7 @@ def test_merge_cmd_new(tmp_path: Path) -> None:
 
 
 @freezegun.freeze_time("2015-06-28 04:05:06")
-def test_merge_cmd_existing(tmp_path: Path) -> None:
+def test_merge_cmd_existing(tmp_path: Path, oracle: Oracle) -> None:
     work_path = tmp_path / "work"
     work_path.mkdir()
     coll_path = work_path / "collection.csv"
@@ -205,7 +230,7 @@ def test_merge_cmd_existing(tmp_path: Path) -> None:
     )
 
     args = ap.Namespace(collection=coll_path, imports=[import_path], dialect={})
-    ssm.merge_cmd(args)
+    ssm.merge_cmd(args, oracle)
 
     assert set(work_path.iterdir()) == {coll_path, import_path, expected_backup_path}
     assert coll_path.read_text() == textwrap.dedent(
@@ -230,7 +255,7 @@ def test_merge_cmd_existing(tmp_path: Path) -> None:
 
 
 @freezegun.freeze_time("2015-06-28 08:09:10")
-def test_merge_cmd_multiple(tmp_path: Path) -> None:
+def test_merge_cmd_multiple(tmp_path: Path, oracle: Oracle) -> None:
     work_path = tmp_path / "work"
     work_path.mkdir()
     coll_path = work_path / "collection.csv"
@@ -266,7 +291,7 @@ def test_merge_cmd_multiple(tmp_path: Path) -> None:
     args = ap.Namespace(
         collection=coll_path, imports=[import_path1, import_path2], dialect={}
     )
-    ssm.merge_cmd(args)
+    ssm.merge_cmd(args, oracle)
 
     assert set(work_path.iterdir()) == {
         coll_path,
@@ -301,7 +326,7 @@ def test_merge_cmd_multiple(tmp_path: Path) -> None:
     )
 
 
-def test_diff_cmd(tmp_path: Path) -> None:
+def test_diff_cmd(tmp_path: Path, oracle: Oracle) -> None:
     work_path = tmp_path / "work"
     work_path.mkdir()
     left_path = work_path / "left.csv"
@@ -327,7 +352,7 @@ def test_diff_cmd(tmp_path: Path) -> None:
     )
 
     args = ap.Namespace(output=out_path, left=left_path, right=right_path, dialect={})
-    ssm.diff_cmd(args)
+    ssm.diff_cmd(args, oracle)
     assert set(work_path.iterdir()) == {left_path, right_path, out_path}
     assert out_path.read_text() == textwrap.dedent(
         """\
