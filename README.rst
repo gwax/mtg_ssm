@@ -113,8 +113,8 @@ Acknowledgments
 Changelog
 =========
 
-2.0.0a1
--------
+2.0.0
+-----
 
 -   Switched from mtgjson to Scryfall as a data source
 -   Broke existing spreadsheets
