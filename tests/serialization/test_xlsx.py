@@ -2,35 +2,44 @@
 # pylint: disable=redefined-outer-name
 
 import datetime as dt
-import tempfile
+from pathlib import Path
+from typing import Dict
+from typing import List
+from typing import Optional
+from typing import Set
+from typing import Tuple
 from unittest import mock
+from uuid import UUID
 
 import openpyxl
 import pytest
 
-from mtg_ssm.mtg import card_db
-from mtg_ssm.mtg import counts
-from mtg_ssm.serialization import interface
+from mtg_ssm.containers.bundles import ScryfallDataSet
+from mtg_ssm.containers.collection import MagicCollection
+from mtg_ssm.containers.counts import CountType
+from mtg_ssm.containers.counts import ScryfallCardCount
+from mtg_ssm.containers.indexes import Oracle
 from mtg_ssm.serialization import xlsx
 
 
-@pytest.fixture
-def cdb(sets_data):
-    """card_db fixture for testing."""
-    sets_data = {
-        k: v for k, v in sets_data.items() if k in {"LEA", "FEM", "S00", "ICE", "HOP"}
-    }
-    return card_db.CardDb(sets_data)
+@pytest.fixture(scope="session")
+def oracle(scryfall_data: ScryfallDataSet) -> Oracle:
+    """Oracle fixture."""
+    accepted_sets = {"lea", "fem", "s00", "ice", "hop"}
+    scryfall_data2 = ScryfallDataSet(
+        sets=[s for s in scryfall_data.sets if s.code in accepted_sets],
+        cards=[c for c in scryfall_data.cards if c.set in accepted_sets],
+    )
+    return Oracle(scryfall_data2)
 
 
-def test_create_all_sets(cdb):
+def test_create_all_sets(oracle: Oracle) -> None:
     book = openpyxl.Workbook()
     sheet = book.create_sheet()
-    xlsx.create_all_sets(sheet, cdb)
+    xlsx.create_all_sets(sheet, oracle.index)
     assert sheet.title == "All Sets"
     rows = [[cell.value for cell in row] for row in sheet.rows]
     assert rows == [
-        # pylint: disable=line-too-long
         [
             "code",
             "name",
@@ -67,7 +76,7 @@ def test_create_all_sets(cdb):
         [
             "FEM",
             "Fallen Empires",
-            dt.date(1994, 11, 15),
+            dt.date(1994, 11, 1),
             None,
             "expansion",
             4,
@@ -89,7 +98,7 @@ def test_create_all_sets(cdb):
         [
             "S00",
             "Starter 2000",
-            dt.date(2000, 4, 24),
+            dt.date(2000, 4, 1),
             None,
             "starter",
             1,
@@ -103,7 +112,7 @@ def test_create_all_sets(cdb):
             dt.date(2009, 9, 4),
             None,
             "planechase",
-            3,
+            2,
             "=COUNTIF('HOP'!A:A,\">0\")",
             "=COUNTIF('HOP'!A:A,\">=4\")",
             "=SUM('HOP'!A:A)",
@@ -111,69 +120,54 @@ def test_create_all_sets(cdb):
     ]
 
 
-def test_create_haverefs(cdb):
-    fem_thallid_ids = [
-        "3deebffcf4f5152f4a5cc270cfac746a3bd2089d",
-        "bd676ca33f673a6769312e8e9b12e1cf40ae2c84",
-        "f68597b2ddfbd715c5c51b94e3a39e0a307e3f40",
-        "378e47697b1b74df8c901cac23f7402b01da31b2",
-    ]
-    fem_thallids = [cdb.id_to_printing[pid] for pid in fem_thallid_ids]
-    fem_thallids.sort(key=lambda p: p.multiverseid)
-    haverefs = xlsx.create_haverefs(fem_thallids)
+def test_create_haverefs(oracle: Oracle) -> None:
+    fem_thallids = [c for c in oracle.index.name_to_cards["Thallid"] if c.set == "fem"]
+    fem_thallids.sort(key=lambda c: c.collector_number)
+    haverefs = xlsx.create_haverefs(oracle.index, fem_thallids)
     assert haverefs == "'FEM'!A2+'FEM'!A3+'FEM'!A4+'FEM'!A5"
 
 
 @pytest.mark.parametrize(
-    "name,exclude_set_codes,expected",
+    "name, exclude_sets, expected",
     [
-        ("Forest", (), None),
-        ("Rhox", (), '=IF(\'S00\'!A2>0,"S00: "&\'S00\'!A2&", ","")'),
-        ("Rhox", ("S00",), None),
+        ("Forest", None, None),
+        ("Rhox", None, '=IF(\'S00\'!A2>0,"S00: "&\'S00\'!A2&", ","")'),
+        ("Rhox", {"s00"}, None),
         (
             "Dark Ritual",
-            ("LEA",),
-            '=IF(\'ICE\'!A2>0,"ICE: "&\'ICE\'!A2&", ","")'
-            '&IF(\'HOP\'!A4>0,"HOP: "&\'HOP\'!A4&", ","")',
+            {"lea"},
+            '=IF(\'ICE\'!A2>0,"ICE: "&\'ICE\'!A2&", ","")&IF(\'HOP\'!A3>0,"HOP: "&\'HOP\'!A3&", ","")',
         ),
-        (
-            "Dark Ritual",
-            ("LEA", "ICE"),
-            "=IF('HOP'!A4>0,\"HOP: \"" '&\'HOP\'!A4&", ","")',
-        ),
+        ("Dark Ritual", {"lea", "ice"}, '=IF(\'HOP\'!A3>0,"HOP: "&\'HOP\'!A3&", ","")'),
         (
             "Thallid",
-            (),
-            "=IF('FEM'!A2+'FEM'!A3+'FEM'!A4+'FEM'!A5>0,"
-            "\"FEM: \"&'FEM'!A2+'FEM'!A3+'FEM'!A4+'FEM'!A5"
-            '&", ","")',
+            None,
+            "=IF('FEM'!A2+'FEM'!A3+'FEM'!A4+'FEM'!A5>0,\"FEM: \"&'FEM'!A2+'FEM'!A3+'FEM'!A4+'FEM'!A5&\", \",\"\")",
         ),
     ],
 )
-def test_get_references(cdb, name, exclude_set_codes, expected):
-    card = cdb.name_to_card[name]
-    exclude_sets = {cdb.code_to_card_set[set_code] for set_code in exclude_set_codes}
-    print_refs = xlsx.get_references(card, exclude_sets=exclude_sets)
+def test_get_references(
+    oracle: Oracle, name: str, exclude_sets: Optional[Set[str]], expected: str
+) -> None:
+    print_refs = xlsx.get_references(oracle.index, name, exclude_sets=exclude_sets)
     assert print_refs == expected
 
 
-def test_create_all_cards_sheet(cdb):
+def test_create_all_cards_sheet(oracle: Oracle) -> None:
     book = openpyxl.Workbook()
     sheet = book.create_sheet()
-    xlsx.create_all_cards(sheet, cdb)
+    xlsx.create_all_cards(sheet, oracle.index)
     assert sheet.title == "All Cards"
     rows = [[cell.value for cell in row] for row in sheet.rows]
     assert rows == [
-        # pylint: disable=line-too-long
         ["name", "have"],
-        ["Academy at Tolaria West", '=IF(\'HOP\'!A2>0,"HOP: "&\'HOP\'!A2&", ","")'],
-        ["Air Elemental", '=IF(\'LEA\'!A3>0,"LEA: "&\'LEA\'!A3&", ","")'],
-        ["Akroma's Vengeance", '=IF(\'HOP\'!A3>0,"HOP: "&\'HOP\'!A3&", ","")'],
+        ["Air Elemental", '=IF(\'LEA\'!A2>0,"LEA: "&\'LEA\'!A2&", ","")'],
+        ["Akroma's Vengeance", '=IF(\'HOP\'!A2>0,"HOP: "&\'HOP\'!A2&", ","")'],
         [
             "Dark Ritual",
-            '=IF(\'LEA\'!A2>0,"LEA: "&\'LEA\'!A2&", ","")&'
+            '=IF(\'LEA\'!A3>0,"LEA: "&\'LEA\'!A3&", ","")&'
             'IF(\'ICE\'!A2>0,"ICE: "&\'ICE\'!A2&", ","")&'
-            'IF(\'HOP\'!A4>0,"HOP: "&\'HOP\'!A4&", ","")',
+            'IF(\'HOP\'!A3>0,"HOP: "&\'HOP\'!A3&", ","")',
         ],
         ["Forest", None],
         ["Rhox", '=IF(\'S00\'!A2>0,"S00: "&\'S00\'!A2&", ","")'],
@@ -185,84 +179,77 @@ def test_create_all_cards_sheet(cdb):
     ]
 
 
-def test_create_set_sheet(cdb):
-    print_counts = {
-        "676a1f5b64dc03bbb3876840c3ff2ba2c16f99cb": {counts.CountTypes.copies: 1},
-        "d0a4414893bc2f9bd3beea2f8f2693635ef926a4": {counts.CountTypes.foils: 2},
-        "c78d2da78c68c558b1adc734b3f164e885407ffc": {
-            counts.CountTypes.copies: 3,
-            counts.CountTypes.foils: 4,
+def test_create_set_sheet(oracle: Oracle) -> None:
+    card_counts: ScryfallCardCount = {
+        UUID("fbdcbd97-90a9-45ea-94f6-2a1c6faaf965"): {CountType.nonfoil: 1},
+        UUID("b346b784-7bde-49d0-bfa9-56236cbe19d9"): {CountType.foil: 2},
+        UUID("768c4d8f-5700-4f0a-9ff2-58422aeb1dac"): {
+            CountType.nonfoil: 3,
+            CountType.foil: 4,
         },
     }
-    ice_age = cdb.code_to_card_set["ICE"]
+    collection = MagicCollection(oracle=oracle, counts=card_counts)
     book = openpyxl.Workbook()
     sheet = book.create_sheet()
-    xlsx.create_set_sheet(sheet, ice_age, print_counts)
+    xlsx.create_set_sheet(sheet, collection, "ice")
     assert sheet.title == "ICE"
     rows = [[cell.value for cell in row] for row in sheet.rows]
     assert rows == [
-        # pylint: disable=line-too-long
         [
             "have",
             "name",
-            "id",
-            "multiverseid",
-            "number",
+            "scryfall_id",
+            "collector_number",
             "artist",
-            "copies",
-            "foils",
+            "nonfoil",
+            "foil",
             "others",
         ],
         [
-            "=G2+H2",
+            "=F2+G2",
             "Dark Ritual",
-            "2fab0ea29e3bbe8bfbc981a4c8163f3e7d267853",
-            2444,
-            None,
+            "4ebcd681-1871-4914-bcd7-6bd95829f6e0",
+            "120",
             "Justin Hampton",
             None,
             None,
             mock.ANY,
         ],
         [
-            "=G3+H3",
+            "=F3+G3",
             "Forest",
-            "676a1f5b64dc03bbb3876840c3ff2ba2c16f99cb",
-            2746,
-            None,
+            "fbdcbd97-90a9-45ea-94f6-2a1c6faaf965",
+            "380",
             "Pat Morrissey",
             1,
             None,
             mock.ANY,
         ],
         [
-            "=G4+H4",
+            "=F4+G4",
             "Forest",
-            "d0a4414893bc2f9bd3beea2f8f2693635ef926a4",
-            2747,
-            None,
+            "b346b784-7bde-49d0-bfa9-56236cbe19d9",
+            "381",
             "Pat Morrissey",
             None,
             2,
             mock.ANY,
         ],
         [
-            "=G5+H5",
+            "=F5+G5",
             "Forest",
-            "c78d2da78c68c558b1adc734b3f164e885407ffc",
-            2748,
-            None,
+            "768c4d8f-5700-4f0a-9ff2-58422aeb1dac",
+            "382",
             "Pat Morrissey",
             3,
             4,
             mock.ANY,
         ],
         [
-            "=G6+H6",
+            "=F6+G6",
             "Snow-Covered Forest",
-            "5e9f08498a9343b1954103e493da2586be0fe394",
-            2749,
-            None,
+            "4c0ad95c-d62c-4138-ada0-fa39a63a449e",
+            "383",
             "Pat Morrissey",
             None,
             None,
@@ -271,17 +258,20 @@ def test_create_set_sheet(cdb):
     ]
 
 
-def test_write(cdb):
-    print_counts = {
-        "536d407161fa03eddee7da0e823c2042a8fa0262": {
-            counts.CountTypes.copies: 7,
-            counts.CountTypes.foils: 12,
+def test_write(oracle: Oracle, tmp_path: Path) -> None:
+    xlsx_path = tmp_path / "outfile.xlsx"
+    card_counts: ScryfallCardCount = {
+        UUID("5d5f3f57-410f-4ee2-b93c-f5051a068828"): {
+            CountType.nonfoil: 7,
+            CountType.foil: 12,
         }
     }
-    serializer = xlsx.XlsxDialect(cdb)
-    with tempfile.NamedTemporaryFile(mode="rt", suffix=".xlsx") as outfile:
-        serializer.write(outfile.name, print_counts)
-        workbook = openpyxl.load_workbook(filename=outfile.name)
+    collection = MagicCollection(oracle=oracle, counts=card_counts)
+
+    serializer = xlsx.XlsxDialect()
+    serializer.write(xlsx_path, collection)
+
+    workbook = openpyxl.load_workbook(filename=xlsx_path)
     assert workbook.sheetnames == [
         "All Sets",
         "All Cards",
@@ -294,24 +284,21 @@ def test_write(cdb):
 
     s00_rows = [[cell.value for cell in row] for row in workbook["S00"]]
     assert s00_rows == [
-        # pylint: disable=line-too-long
         [
             "have",
             "name",
-            "id",
-            "multiverseid",
-            "number",
+            "scryfall_id",
+            "collector_number",
             "artist",
-            "copies",
-            "foils",
+            "nonfoil",
+            "foil",
             "others",
         ],
         [
-            "=G2+H2",
+            "=F2+G2",
             "Rhox",
-            "536d407161fa03eddee7da0e823c2042a8fa0262",
-            None,
-            None,
+            "5d5f3f57-410f-4ee2-b93c-f5051a068828",
+            "43",
             "Mark Zug",
             7,
             12,
@@ -320,38 +307,69 @@ def test_write(cdb):
     ]
 
 
-def test_counts_from_sheet():
+@pytest.mark.parametrize(
+    "sheets_and_rows, skip_sheets, expected",
+    [
+        pytest.param(
+            [("MySheet", [["A", "B", "C"], ["1", "B", "=5+7"]])],
+            None,
+            [{"set": "MySheet", "A": "1", "B": "B", "C": "=5+7"}],
+        ),
+        pytest.param(
+            [
+                ("MySheet", [["A", "B", "C"], ["1", "B", "=5+7"]]),
+                (
+                    "OtherSheet",
+                    [["D", "E", "F"], ["D1", "E1", "F1"], ["D2", "E2", "F2"]],
+                ),
+            ],
+            None,
+            [
+                {"set": "MySheet", "A": "1", "B": "B", "C": "=5+7"},
+                {"set": "OtherSheet", "D": "D1", "E": "E1", "F": "F1"},
+                {"set": "OtherSheet", "D": "D2", "E": "E2", "F": "F2"},
+            ],
+        ),
+        pytest.param(
+            [
+                ("MySheet", [["A", "B", "C"], ["1", "B", "=5+7"]]),
+                (
+                    "OtherSheet",
+                    [["D", "E", "F"], ["D1", "E1", "F1"], ["D2", "E2", "F2"]],
+                ),
+            ],
+            {"OtherSheet"},
+            [{"set": "MySheet", "A": "1", "B": "B", "C": "=5+7"}],
+        ),
+    ],
+)
+def test_rows_from_workbook(
+    sheets_and_rows: List[Tuple[str, List[List[str]]]],
+    skip_sheets: Optional[Set[str]],
+    expected: List[Dict[str, str]],
+) -> None:
     workbook = openpyxl.Workbook()
-    sheet = workbook["Sheet"]
-    sheet.append(["A", "B", "C"])
-    sheet.append([1, "B", "=5+7"])
-    rows = xlsx.counts_from_sheet(sheet)
-    assert list(rows) == [{"set": "Sheet", "A": 1, "B": "B", "C": "=5+7"}]
+    for sheet, rows in sheets_and_rows:
+        worksheet = workbook.create_sheet(title=sheet)
+        for row in rows:
+            worksheet.append(row)
+    del workbook["Sheet"]
+    assert list(xlsx.rows_for_workbook(workbook, skip_sheets=skip_sheets)) == expected
 
 
-def test_read_bad_set(cdb):
-    serializer = xlsx.XlsxDialect(cdb)
-    workbook = openpyxl.Workbook()
-    workbook["Sheet"].title = "BADSET"
-    with tempfile.NamedTemporaryFile(suffix=".xlsx") as infile:
-        workbook.save(infile.name)
-        with pytest.raises(interface.DeserializationError):
-            serializer.read(infile.name)
-
-
-def test_read_from_file(cdb):
-    serializer = xlsx.XlsxDialect(cdb)
+def test_read_from_file(oracle: Oracle, tmp_path: Path) -> None:
+    xlsx_path = tmp_path / "infile.xlsx"
+    serializer = xlsx.XlsxDialect()
     workbook = openpyxl.Workbook()
     sheet = workbook["Sheet"]
     sheet.title = "S00"
-    sheet.append(["id", "copies", "foils"])
-    sheet.append(["536d407161fa03eddee7da0e823c2042a8fa0262", 3, 7])
-    with tempfile.NamedTemporaryFile(suffix=".xlsx") as infile:
-        workbook.save(infile.name)
-        print_counts = serializer.read(infile.name)
-    assert print_counts == {
-        "536d407161fa03eddee7da0e823c2042a8fa0262": {
-            counts.CountTypes.copies: 3,
-            counts.CountTypes.foils: 7,
+    sheet.append(["scryfall_id", "nonfoil", "foil"])
+    sheet.append(["5d5f3f57-410f-4ee2-b93c-f5051a068828", 3, 7])
+    workbook.save(xlsx_path)
+    collection = serializer.read(xlsx_path, oracle)
+    assert collection.counts == {
+        UUID("5d5f3f57-410f-4ee2-b93c-f5051a068828"): {
+            CountType.nonfoil: 3,
+            CountType.foil: 7,
         }
     }

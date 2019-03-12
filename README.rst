@@ -30,7 +30,7 @@ anywhere.
 Installation
 ============
 
-mtg-ssm is available on PyPI so, if you have python (>=3.3) and pip
+mtg-ssm is available on PyPI so, if you have python (>=3.6) and pip
 installed on your system, you should be able to get mtg-ssm by entering
 the following into a terminal:
 
@@ -86,44 +86,6 @@ spreadsheet:
 
     mtg-ssm merge collection.xlsx input_data.csv
 
-Export / import to deckbox
---------------------------
-
-If you already have your cards entered into `Deckbox`_, you can export a
-csv from deckbox and import the contents into a spreadsheet just as you might
-merge from an existing collection using the "deckbox" import format:
-
-.. _Deckbox: https://deckbox.org
-
-.. code:: bash
-
-    mtg-ssm --dialect csv deckbox merge collection.xlsx Inventory_username_2016.March.10.csv
-
-Alternatively, if you have your collection in a spreadsheet already and would
-like to load your data into deckbox to check prices or share with other people,
-just go the other direction.
-
-.. code:: bash
-
-    mtg-ssm --dialect csv deckbox merge inventory.csv collection.xlsx
-
-Deckbox Warning
-~~~~~~~~~~~~~~~
-
-MTG JSON, which we use for card data doesn't always map 1-to-1 to cards in
-Deckbox. This means that data can lose granularity in going from one form
-to the other, or back. If you intend to use both native mtg-ssm spreadsheets
-and Deckbox, I encourage you to choose one to be authoritative and always
-export to the other; going back and forth is probably not a good idea.
-
-The following conversion issues are known to exist:
-
--   Sets that contain multiple versions of the same card (ex. Thallid in Fallen
-    Empires) may lose track of the specific version when going back and forth.
--   Alternate art cards (ex. Ertai, the Corrupted in Planeshift) may lose track
-    of the art version when going back and forth.
--   Not all Clash Pack cards are available in mtg-ssm.
-
 Contributions
 =============
 
@@ -137,17 +99,44 @@ Acknowledgments
 -   `Wizards of the Coast`_: For making Magic: the Gathering and continuing
     to support it. Off and on, it's been my favorite hobby since the
     early '90s.
+-   `Scryfall`_: Scryfall is a fantastic resource for anyone trying to lookup
+    cards or build software on top of up to date Magic card information.
 -   `MTG JSON`_: MTG JSON is an amazing resource for anyone looking to build
-    tools around magic card data. It is pretty much **THE** source for
-    structured magic card data. Without MTG JSON this project would not have
-    been possible.
+    tools around magic card data. Before Scryfall, MTG JSON was my primary
+    source for card data and, without it, mtg-ssm would not exist.
 
 .. _Wizards of the Coast: http://magic.wizards.com
+.. _Scryfall: https://scryfall.com
 .. _MTG JSON: http://mtgjson.com
 
 
 Changelog
 =========
+
+2.0.0a1
+-------
+
+-   Switched from mtgjson to Scryfall as a data source
+-   Broke existing spreadsheets
+
+    -   ``update`` will rebuild / upgrade existing sheets
+
+    -   rebuild lookup doesn't work very well for basic lands, double check
+        your counts
+
+    -   rebuild lookup may result in double counting for Flip / split / DFC
+        cards, double-check your counts
+
+    -   a number of cards count not reliably be remapped and will raise
+        exceptions; if you have any copies of these cards, you will need
+        to remove them from your existing spreadsheet and re-add them
+        after the update
+
+    -   promo cards are particularly hard hit as Scryfall and MTGJSON model
+        promo sets very differently.
+
+-   Dropped deckbox serializer
+-   Removed support for Python 3.4, 3.5
 
 1.3.6
 -----

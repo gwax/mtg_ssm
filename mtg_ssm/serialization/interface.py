@@ -1,11 +1,17 @@
 """Interface definition for serializers."""
 
 import abc
-import collections
+from pathlib import Path
+from typing import ClassVar
 from typing import Dict
+from typing import List
+from typing import Optional
+from typing import Set
+from typing import Tuple
+from typing import Type
 
-from mtg_ssm.mtg import card_db
-from mtg_ssm.mtg import counts
+from mtg_ssm.containers.collection import MagicCollection
+from mtg_ssm.containers.indexes import Oracle
 
 
 class Error(Exception):
@@ -23,75 +29,50 @@ class DeserializationError(Error):
 class SerializationDialect(metaclass=abc.ABCMeta):
     """Abstract interface for mtg ssm serialization dialect."""
 
-    _dialects = []
-    _dialect_registry = {}
+    _EXT_DIALECT_DOC: ClassVar[Set[Tuple[str, str, str]]] = set()
+    _EXT_DIALECT_TO_IMPL: ClassVar[
+        Dict[Tuple[str, str], Type["SerializationDialect"]]
+    ] = {}
 
-    def __init__(self, cdb: card_db.CardDb) -> None:
-        self.cdb = cdb
+    extension: ClassVar[Optional[str]] = None
+    dialect: ClassVar[Optional[str]] = None
 
-    @property
-    @classmethod
-    @abc.abstractmethod
-    def extension(cls) -> str:
-        """Registered file extension, excluding '.' """
-
-    @property
-    @classmethod
-    @abc.abstractmethod
-    def dialect(cls) -> str:
-        """Registered dialect name.
-
-        Note: a dialect that matches the extension will be considered the
-            default dialect for that extension.
-        """
+    def __init_subclass__(cls: Type["SerializationDialect"]) -> None:
+        super().__init_subclass__()
+        if cls.extension is not None and cls.dialect is not None:
+            cls._EXT_DIALECT_DOC.add(
+                (cls.extension, cls.dialect, cls.__doc__ or cls.__name__)
+            )
+            cls._EXT_DIALECT_TO_IMPL[(cls.extension, cls.dialect)] = cls
 
     @abc.abstractmethod
-    def write(self, filename: str, print_counts) -> None:
+    def write(self, path: Path, collection: MagicCollection) -> None:
         """Write print counts to a file."""
 
     @abc.abstractmethod
-    def read(self, filename: str) -> Dict[str, Dict[counts.CountTypes, int]]:
+    def read(self, path: Path, oracle: Oracle) -> MagicCollection:
         """Read print counts from file."""
 
-    @staticmethod
-    def _register_dialects():
-        """Register dialects for extensions from all subclasses."""
-        dialects = []
-        registry = {}
-        subclasses = collections.deque(SerializationDialect.__subclasses__())
-        while subclasses:
-            klass = subclasses.popleft()
-            if not klass.__abstractmethods__:
-                registry[(klass.extension, klass.dialect)] = klass
-                dialects.append((klass.extension, klass.dialect, klass.__doc__))
-            subclasses.extend(klass.__subclasses__())
-        dialects.sort()
-
-        SerializationDialect._dialects = dialects
-        SerializationDialect._dialect_registry = registry
-
-    @staticmethod
-    def dialects():
+    @classmethod
+    def dialects(
+        cls: Type["SerializationDialect"]
+    ) -> List[Tuple[str, Optional[str], Optional[str]]]:
         """List of (extension, dialect, description) of registered dialects."""
-        if not SerializationDialect._dialects:
-            SerializationDialect._register_dialects()
-        return SerializationDialect._dialects
+        return sorted(
+            (ext, dial or "", doc or "") for ext, dial, doc in cls._EXT_DIALECT_DOC
+        )
 
-    @staticmethod
-    def by_extension(extension, dialect_mappings):
+    @classmethod
+    def by_extension(
+        cls: Type["SerializationDialect"],
+        extension: str,
+        dialect_mappings: Dict[str, str],
+    ) -> Type["SerializationDialect"]:
         """Get a serializer class for a given extension and dialect mapping."""
-        if not extension:
-            raise UnknownDialect(
-                "Filename has no extension, cannot determine output format"
-            )
-        if not SerializationDialect._dialect_registry:
-            SerializationDialect._register_dialects()
         dialect = dialect_mappings.get(extension, extension)
         try:
-            return SerializationDialect._dialect_registry[(extension, dialect)]
+            return cls._EXT_DIALECT_TO_IMPL[(extension, dialect)]
         except KeyError:
             raise UnknownDialect(
-                'File extension: "{ext}" dialect: "{dia}" not found in registry'.format(
-                    ext=extension, dia=dialect
-                )
+                f'File extension: "{extension}" dialect: "{dialect}" not found in registry'
             )

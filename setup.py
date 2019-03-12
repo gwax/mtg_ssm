@@ -4,8 +4,8 @@ import sys
 
 import setuptools
 
-if sys.version_info < (3, 4):
-    raise Exception("Python version < 3.4 are not supported.")
+if sys.version_info < (3, 6):
+    raise Exception("Python version < 3.6 are not supported.")
 
 # Get version information without importing the package
 __version__ = None
@@ -16,12 +16,8 @@ LONG_DESCRIPTION = open("README.rst", "r").read()
 
 DEPENDENCIES = [l.strip() for l in open("requirements.txt", "r")]
 TEST_DEPENDENCIES = [l.strip() for l in open("test_requirements.txt", "r")]
-SETUP_DEPENDENCIES = []
-if {"pytest", "test", "ptr"}.intersection(sys.argv):
-    SETUP_DEPENDENCIES.append("pytest-runner")
-
-if sys.version_info < (3, 5):
-    DEPENDENCIES.append("typing>=3.5.2,<4.0.0")
+if sys.version_info < (3, 7):
+    DEPENDENCIES.append("dataclasses")
 
 CLASSIFIERS = [
     "Development Status :: 5 - Production/Stable",
@@ -36,9 +32,8 @@ CLASSIFIERS = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.4",
-    "Programming Language :: Python :: 3.5",
     "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
     "Topic :: Games/Entertainment",
 ]
 
@@ -53,12 +48,12 @@ setuptools.setup(
     author_email="waksman@gwax.com",
     url="https://github.com/gwax/mtg_ssm",
     packages=setuptools.find_packages(exclude=("tests*",)),
+    package_data={"mtg_ssm": ["py.typed"]},
     license="MIT",
     platforms=["any"],
     keywords="mtg magic collection tracking spreadsheet",
     classifiers=CLASSIFIERS,
     install_requires=DEPENDENCIES,
-    setup_requires=SETUP_DEPENDENCIES,
     tests_require=TEST_DEPENDENCIES,
     extras_require=EXTRAS,
     entry_points={"console_scripts": ["mtg-ssm = mtg_ssm.ssm:main"]},
