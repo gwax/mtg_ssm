@@ -138,19 +138,6 @@ Changelog
 -   Dropped deckbox serializer
 -   Removed support for Python 3.4, 3.5
 
-TODO:
-
--   make heads and tails of package layout
--   more info columns for future lookup risk mitigation
--   docs, versions, etc.
--   do we want to group sets? ex. all judge gift sets
-
-    - scryfall promos are so poorly arranged...
-
--   snnma to per-column bitmap style indexes
--   can we remove artist correction / renaming?
--   filter all online sets
-
 1.3.6
 -----
 

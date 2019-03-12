@@ -63,6 +63,8 @@ class ScryfallDataIndex:
         self.id_to_setindex: Dict[UUID, int] = {}
         self.setcode_to_set: Dict[str, ScrySet] = {}
         # snnma = Set, Name, (Collector) Number, Multiverse ID, Artist
+        # TODO: convert to intersecting bitmap indexes
+        # TODO: do we really need artist?
         self.snnma_to_id: Dict[
             Tuple[Optional[str], str, Optional[str], Optional[int], Optional[str]],
             Set[UUID],
