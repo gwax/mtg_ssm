@@ -66,7 +66,7 @@ def test_create_all_sets(oracle: Oracle) -> None:
             "LEA",
             "Limited Edition Alpha",
             dt.date(1993, 8, 5),
-            None,
+            "Core Set",
             "core",
             4,
             "=COUNTIF('LEA'!A:A,\">0\")",

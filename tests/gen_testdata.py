@@ -100,6 +100,7 @@ def main() -> None:  # pylint: disable=too-many-locals
             id=cset.id,
             code=cset.code,
             mtgo_code=cset.mtgo_code,
+            arena_code=cset.arena_code,
             tcgplayer_id=cset.tcgplayer_id,
             name=cset.name,
             set_type=cset.set_type,

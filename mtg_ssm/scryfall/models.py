@@ -65,6 +65,7 @@ class ScryCardLayout(str, Enum):
     MELD = "meld"
     LEVELER = "leveler"
     SAGA = "saga"
+    ADVENTURE = "adventure"
     PLANAR = "planar"
     SCHEME = "scheme"
     VANGUARD = "vanguard"
@@ -73,6 +74,8 @@ class ScryCardLayout(str, Enum):
     EMBLEM = "emblem"
     AUGMENT = "augment"
     HOST = "host"
+    ART_SERIES = "art_series"
+    DOUBLE_SIDED = "double_sided"
 
 
 class ScryCardFrame(str, Enum):
@@ -132,6 +135,7 @@ class ScryRarity(str, Enum):
 class ScryFormat(str, Enum):
     """Enum for card legalities keys"""
 
+    BRAWL = "brawl"
     COMMANDER = "commander"
     DUEL = "duel"
     FRONTIER = "frontier"
@@ -174,6 +178,7 @@ class ScrySet(ScryObject):
     id: UUID
     code: str
     mtgo_code: Optional[str]
+    arena_code: Optional[str]
     tcgplayer_id: Optional[int]
     name: str
     set_type: ScrySetType
@@ -208,6 +213,8 @@ class ScryCardFace(ScryObject):
 
     object: ClassVar[str] = "card_face"
     artist: Optional[str]
+    artist_id: Optional[UUID]
+    cmc: Decimal
     color_indicator: Optional[Sequence[ScryColor]]
     colors: Optional[Sequence[ScryColor]]
     flavor_text: Optional[str]
@@ -224,6 +231,15 @@ class ScryCardFace(ScryObject):
     toughness: Optional[str]
     type_line: str
     watermark: Optional[str]
+
+
+@dataclass(frozen=True)
+class CardPreviewBlock:
+    """Model for card preview block."""
+
+    source: str
+    source_uri: str  # TODO: should be uri
+    previewed_at: dt.date
 
 
 @dataclass(frozen=True)
@@ -269,11 +285,15 @@ class ScryCard(ScryObject):
     type_line: Optional[str]
     # Print Fields
     artist: Optional[str]
+    artist_ids: Optional[Sequence[UUID]]
+    booster: bool
     border_color: ScryBorderColor
+    card_back_id: UUID
     collector_number: str
     digital: bool
     flavor_text: Optional[str]
-    frame_effect: ScryFrameEffect
+    frame_effect: Optional[ScryFrameEffect]
+    frame_effects: Optional[Sequence[ScryFrameEffect]]
     frame: ScryCardFrame
     full_art: bool
     games: Sequence[ScryGame]
@@ -285,6 +305,7 @@ class ScryCard(ScryObject):
     printed_text: Optional[str]
     printed_type_line: Optional[str]
     promo: bool
+    promo_types: Optional[Sequence[str]]
     purchase_uris: Optional[Dict[str, URI]]
     rarity: ScryRarity
     related_uris: Optional[Dict[str, URI]]
@@ -293,10 +314,15 @@ class ScryCard(ScryObject):
     scryfall_set_uri: URI
     set_name: str
     set_search_uri: URI
+    set_type: str
     set_uri: URI
     set: str
     story_spotlight: bool
+    textless: bool
+    variation: bool
+    variation_of: Optional[UUID]
     watermark: Optional[str]
+    preview: Optional[CardPreviewBlock]
 
 
 @dataclass(frozen=True)

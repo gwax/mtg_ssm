@@ -24,6 +24,8 @@ from mtg_ssm.scryfall.models import ScryObject
 from mtg_ssm.scryfall.models import ScryObjectList
 from mtg_ssm.scryfall.models import ScrySet
 
+DEBUG = os.getenv("DEBUG", "0")
+
 APP_AUTHOR = "gwax"
 APP_NAME = "mtg_ssm"
 CACHE_DIR = appdirs.user_cache_dir(APP_NAME, APP_AUTHOR)
@@ -33,6 +35,7 @@ SETS_ENDPOINT = "https://api.scryfall.com/sets"
 BULK_TYPE = "default_cards"
 OBJECT_CACHE_URL = "file://$CACHE/pickled_object"
 
+CHUNK_SIZE = 8 * 1024 * 1024
 DESERIALIZE_BATCH_SIZE = 50
 _OBJECT_SCHEMA = schema.ScryfallUberSchema()
 
@@ -60,7 +63,7 @@ def _fetch_endpoint(endpoint: str, *, dirty: bool, write_cache: bool = True) -> 
             temp_cache = tempfile.NamedTemporaryFile()
             cache_path = temp_cache.name
         with gzip.open(cache_path, "wb") as cache_file:
-            for chunk in response.iter_content(chunk_size=1024):
+            for chunk in response.iter_content(chunk_size=CHUNK_SIZE):
                 cache_file.write(chunk)
     else:
         print("Reading cache")
@@ -69,8 +72,28 @@ def _fetch_endpoint(endpoint: str, *, dirty: bool, write_cache: bool = True) -> 
         return json.load(cache_file)
 
 
-def _deserialize_object(card_json: JSON) -> Union[ScryObject, List[ScryObject]]:
-    return _OBJECT_SCHEMA.load(card_json).data
+def _deserialize_object(obj_json: JSON) -> Union[ScryObject, List[ScryObject]]:
+    return _OBJECT_SCHEMA.load(obj_json).data
+
+
+def _deserialize_cards(card_jsons: List[JSON]) -> List[ScryCard]:
+    cards_data: List[ScryCard]
+    if DEBUG == "1":
+        print("Process pool disabled")
+        cards_data = []
+        for card_json in card_jsons:
+            try:
+                cards_data.append(cast(ScryCard, _deserialize_object(card_json)))
+            except Exception:
+                print("Failed on: ", repr(card_json))
+                raise
+    else:
+        with ProcessPoolExecutor() as executor:
+            cards_futures = executor.map(
+                _deserialize_object, card_jsons, chunksize=DESERIALIZE_BATCH_SIZE
+            )
+            cards_data = cast(List[ScryCard], list(cards_futures))
+    return cards_data
 
 
 def scryfetch() -> ScryfallDataSet:
@@ -113,11 +136,7 @@ def scryfetch() -> ScryfallDataSet:
         print("Error reading object cache, falling back")
 
     print("Deserializing")
-    with ProcessPoolExecutor() as executor:
-        cards_future = executor.map(
-            _deserialize_object, cards_json, chunksize=DESERIALIZE_BATCH_SIZE
-        )
-        cards_data = cast(List[ScryCard], list(cards_future))
+    cards_data = _deserialize_cards(cards_json)
 
     scryfall_data = ScryfallDataSet(sets=sets_data, cards=cards_data)
     with gzip.open(_cache_path(OBJECT_CACHE_URL), "wb") as object_cache:

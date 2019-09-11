@@ -23,7 +23,7 @@ from marshmallow_oneofschema import OneOfSchema
 from mtg_ssm.scryfall import models
 from mtg_ssm.scryfall.third_party import marshmallow_fields
 
-registry.register_field_for_type(models.URI, fields.URL)
+registry.register_field_for_type(models.URI, fields.Url)
 
 
 @registry.field_factory(Decimal)
@@ -105,8 +105,6 @@ for _str_enum in STR_ENUMS:
 class BaseSchema(AnnotationSchema):
     """Shared marshmallow schema helper class."""
 
-    object = fields.String(dump_only=True)
-
     @marshmallow.validates_schema(pass_original=True)
     def disallow_unknown_fields(
         self, _: Any, original_data: Union[Dict[str, Any], List[Dict[str, Any]]]
@@ -138,6 +136,17 @@ class BaseSchema(AnnotationSchema):
         return {k: v for k, v in data.items() if v is not None}
 
 
+class PreviewBlockSchema(BaseSchema):
+    """Schema for CardPreviewBlock."""
+
+    class Meta:
+        """Marshmallow configuration options."""
+
+        target = models.CardPreviewBlock
+        register_as_scheme = True
+        strict = True
+
+
 @registry.field_factory(models.ScryObject)
 def _scryfall_converter(
     _converter: BaseConverter, _subtypes: Any, opts: Dict[str, Any]
@@ -159,7 +168,11 @@ for _model in MODELS:
     _meta = type(
         "Meta", (), {"target": _model, "register_as_scheme": True, "strict": True}
     )
-    _schema_class = type(f"{_model.__name__}Schema", (BaseSchema,), {"Meta": _meta})
+    _schema_class = type(
+        f"{_model.__name__}Schema",
+        (BaseSchema,),
+        {"Meta": _meta, "object": fields.String(dump_only=True)},
+    )
     globals()[_schema_class.__name__] = _schema_class
     OBJECT_SCHEMAS[_model.object] = _schema_class()
 

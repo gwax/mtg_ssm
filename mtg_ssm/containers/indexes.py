@@ -81,12 +81,11 @@ class ScryfallDataIndex:
         name_to_unsorted_cards: Dict[str, List[ScryCard]] = collections.defaultdict(
             list
         )
-        setcode_to_unsorted_cards: Dict[str, List[ScryCard]] = collections.defaultdict(
-            list
-        )
+        setcode_to_unsorted_cards: Dict[str, List[ScryCard]] = {}
 
         for set_ in scrydata.sets:
             self.setcode_to_set[set_.code] = set_
+            setcode_to_unsorted_cards[set_.code] = []
 
         for card in scrydata.cards:
             self.id_to_card[card.id] = card

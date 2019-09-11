@@ -113,6 +113,11 @@ Acknowledgments
 Changelog
 =========
 
+2.0.1
+-----
+
+-   Updated models to match scryfall as of 2019-09-10
+
 2.0.0
 -----
 
