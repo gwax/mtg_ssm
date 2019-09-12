@@ -229,7 +229,7 @@ class ScryCardFace(ScryObject):
     printed_text: Optional[str]
     printed_type_line: Optional[str]
     toughness: Optional[str]
-    type_line: str
+    type_line: Optional[str]
     watermark: Optional[str]
 
 

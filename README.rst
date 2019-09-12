@@ -113,6 +113,14 @@ Acknowledgments
 Changelog
 =========
 
+2.1.0
+-----
+
+-   Add support for filtering card data by set type
+
+    -   For example, `mtg_ssm --set-types token,emblem create tokens.xlsx` to
+        create a spreadsheet for tracking tokens and emblems.
+
 2.0.1
 -----
 

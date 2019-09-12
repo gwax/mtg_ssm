@@ -7,12 +7,14 @@ from pathlib import Path
 import tempfile
 from typing import Dict
 from typing import List
+from typing import Set
 
 import mtg_ssm
 from mtg_ssm.containers import bundles
 from mtg_ssm.containers.collection import MagicCollection
 from mtg_ssm.containers.indexes import Oracle
 from mtg_ssm.scryfall import fetcher
+from mtg_ssm.scryfall.models import ScrySetType
 import mtg_ssm.serialization.interface as ser_interface
 
 
@@ -23,6 +25,21 @@ def epilog() -> str:
     for extension, dialect, description in ext_dia_desc:
         dialect_docs += f"  {extension:<8} {dialect:<12} {description}\n"
     return dialect_docs
+
+
+def set_type_list(value: str) -> Set[ScrySetType]:
+    """Argparse type to convert a string to a set of Scryfall Set Types."""
+    set_types = set()
+    for set_str in value.split(","):
+        try:
+            set_types.add(ScrySetType(set_str))
+        except ValueError as err:
+            msg = (
+                f"{set_str} in {value} is not a valid set_type, please use a commas separated list of values from: "
+                + ", ".join(ScrySetType)
+            )
+            raise argparse.ArgumentTypeError(msg) from err
+    return set_types
 
 
 def get_args(args: List[str] = None) -> argparse.Namespace:
@@ -50,6 +67,15 @@ def get_args(args: List[str] = None) -> argparse.Namespace:
         default=[],
         help="Mapping of file extensions to serializer dialects. "
         "May be repeated for multiple different extensions.",
+    )
+
+    default_set_types = set(ScrySetType) - {ScrySetType.MEMORABILIA, ScrySetType.TOKEN}
+    parser.add_argument(
+        "--set-types",
+        default=",".join(default_set_types),
+        type=set_type_list,
+        help="List of set types to include as a comma separted list of values from: "
+        + ", ".join(ScrySetType),
     )
 
     # Commands
@@ -113,9 +139,10 @@ def get_args(args: List[str] = None) -> argparse.Namespace:
     return parsed_args
 
 
-def get_oracle(include_digital: bool) -> Oracle:
+def get_oracle(set_types: Set[ScrySetType], include_digital: bool) -> Oracle:
     """Get a card_db with current mtgjson data."""
     scrydata = fetcher.scryfetch()
+    scrydata = bundles.filter_set_types(scrydata, set_types)
     if not include_digital:
         scrydata = bundles.remove_digital(scrydata)
     return Oracle(scrydata)
@@ -203,7 +230,7 @@ def diff_cmd(args: argparse.Namespace, oracle: Oracle) -> None:
 def main() -> None:
     """Get args and run the appropriate command."""
     args = get_args()
-    oracle = get_oracle(args.include_digital)
+    oracle = get_oracle(args.set_types, args.include_digital)
     args.func(args, oracle)
 
 
