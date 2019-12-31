@@ -55,7 +55,7 @@ class SerializationDialect(metaclass=abc.ABCMeta):
 
     @classmethod
     def dialects(
-        cls: Type["SerializationDialect"]
+        cls: Type["SerializationDialect"],
     ) -> List[Tuple[str, Optional[str], Optional[str]]]:
         """List of (extension, dialect, description) of registered dialects."""
         return sorted(

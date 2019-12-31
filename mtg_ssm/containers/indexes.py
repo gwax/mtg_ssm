@@ -29,7 +29,7 @@ def set_card_sort_key(card: ScryCard) -> Tuple[int, str]:
 
 
 def build_snnmas(
-    card: ScryCard
+    card: ScryCard,
 ) -> Iterable[Tuple[Optional[str], str, Optional[str], Optional[int], Optional[str]]]:
     """Build set, name, number, multiverse id tuple keys."""
     names_cnums: Set[Tuple[str, Optional[str]]] = {(card.name, card.collector_number)}
