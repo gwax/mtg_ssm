@@ -10,6 +10,7 @@ disable=
     locally-disabled,
     locally-enabled,
     too-few-public-methods,
+    too-many-instance-attributes,
     wrong-import-order,
 
 [REPORTS]
@@ -19,6 +20,14 @@ disable=
 output-format=colorized
 
 [BASIC]
+# Good variable names which should always be accepted, separated by a comma.
+good-names=
+    _,
+    i,
+    id,
+    j,
+    k,
+
 # Regular expression which should only match function or class names that do
 # not require a docstring.
 no-docstring-rgx=__.*__|_.*|test_.*

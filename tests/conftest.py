@@ -15,6 +15,7 @@ import responses
 from mtg_ssm.containers.bundles import ScryfallDataSet
 from mtg_ssm.scryfall.models import ScryCard
 from mtg_ssm.scryfall.models import ScrySet
+from mtg_ssm.scryfall.schema import ScryfallUberSchema
 
 TEST_DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 SETS_DATA_FILE = os.path.join(TEST_DATA_DIR, "sets.json")
@@ -39,8 +40,6 @@ def requests_mock() -> responses.RequestsMock:
 @pytest.fixture(scope="session")
 def cards_data() -> List[ScryCard]:
     """Fixture containing all test card data."""
-    from mtg_ssm.scryfall.schema import ScryfallUberSchema
-
     schema = ScryfallUberSchema()
     with open(CARDS_DATA_FILE, "rt") as card_data_file:
         return [schema.load(c).data for c in json.load(card_data_file)]
@@ -49,8 +48,6 @@ def cards_data() -> List[ScryCard]:
 @pytest.fixture(scope="session")
 def sets_data() -> List[ScrySet]:
     """Fixture containing all test set data."""
-    from mtg_ssm.scryfall.schema import ScryfallUberSchema
-
     schema = ScryfallUberSchema()
     with open(SETS_DATA_FILE, "rt") as sets_data_file:
         return schema.load(json.load(sets_data_file)).data.data
