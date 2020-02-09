@@ -5,7 +5,6 @@ import gzip
 import json
 import os
 import pickle
-import tempfile
 from typing import Any
 from typing import List
 from typing import Mapping
@@ -57,11 +56,9 @@ def _fetch_endpoint(endpoint: str, *, dirty: bool, write_cache: bool = True) -> 
         print(f"Fetching {endpoint}")
         response = requests.get(endpoint, stream=True)
         response.raise_for_status()
-        if write_cache:
-            print(f"Caching {endpoint}")
-        else:
-            temp_cache = tempfile.NamedTemporaryFile()
-            cache_path = temp_cache.name
+        if not write_cache:
+            return response.json()
+        print(f"Caching {endpoint}")
         with gzip.open(cache_path, "wb") as cache_file:
             for chunk in response.iter_content(chunk_size=CHUNK_SIZE):
                 cache_file.write(chunk)

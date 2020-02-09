@@ -147,6 +147,8 @@ class ScryFormat(str, Enum):
     PENNY = "penny"
     STANDARD = "standard"
     VINTAGE = "vintage"
+    HISTORIC = "historic"
+    PIONEER = "pioneer"
 
 
 class ScryLegality(str, Enum):

@@ -113,6 +113,12 @@ Acknowledgments
 Changelog
 =========
 
+2.1.1
+-----
+
+-   Fix Scryfall data fetching on Windows.
+-   Update models to match scryfall as of 2020-02-08
+
 2.1.0
 -----
 
