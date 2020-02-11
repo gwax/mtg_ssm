@@ -65,7 +65,7 @@ def _fetch_endpoint(endpoint: str, *, dirty: bool, write_cache: bool = True) -> 
     else:
         print("Reading cache")
 
-    with gzip.open(cache_path, "rt") as cache_file:
+    with gzip.open(cache_path, "rt", encoding="utf-8") as cache_file:
         return json.load(cache_file)
 
 

@@ -107,7 +107,7 @@ def test_write_verbose(oracle: Oracle, tmp_path: Path) -> None:
     collection = MagicCollection(oracle=oracle, counts=card_counts)
     serializer = csv.CsvFullDialect()
     serializer.write(csv_path, collection)
-    with csv_path.open("rt") as csv_file:
+    with csv_path.open("rt", encoding="utf-8") as csv_file:
         assert csv_file.read() == textwrap.dedent(
             """\
             set,name,collector_number,scryfall_id,nonfoil,foil
@@ -127,7 +127,7 @@ def test_write_terse(oracle: Oracle, tmp_path: Path) -> None:
 
     serializer = csv.CsvTerseDialect()
     serializer.write(csv_path, collection)
-    with csv_path.open("rt") as csv_file:
+    with csv_path.open("rt", encoding="utf-8") as csv_file:
         assert csv_file.read() == textwrap.dedent(
             """\
             set,name,collector_number,scryfall_id,nonfoil,foil
@@ -138,7 +138,7 @@ def test_write_terse(oracle: Oracle, tmp_path: Path) -> None:
 
 def test_read(oracle: Oracle, tmp_path: Path) -> None:
     csv_path = tmp_path / "infile.csv"
-    with csv_path.open("wt") as csv_file:
+    with csv_path.open("wt", encoding="utf-8") as csv_file:
         csv_file.write(
             textwrap.dedent(
                 """\

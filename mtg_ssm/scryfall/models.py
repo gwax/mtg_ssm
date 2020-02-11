@@ -103,6 +103,11 @@ class ScryFrameEffect(str, Enum):
     COMPASSLANDDFC = "compasslanddfc"
     ORIGINPWDFC = "originpwdfc"
     MOONELDRAZIDFC = "mooneldrazidfc"
+    EXTENDEDART = "extendedart"
+    INVERTED = "inverted"
+    NYXBORN = "nyxborn"
+    SHOWCASE = "showcase"
+    WAXINGANDWANINGMOONDFC = "waxingandwaningmoondfc"
 
 
 class ScryBorderColor(str, Enum):
@@ -216,7 +221,6 @@ class ScryCardFace(ScryObject):
     object: ClassVar[str] = "card_face"
     artist: Optional[str]
     artist_id: Optional[UUID]
-    cmc: Decimal
     color_indicator: Optional[Sequence[ScryColor]]
     colors: Optional[Sequence[ScryColor]]
     flavor_text: Optional[str]

@@ -55,7 +55,7 @@ class CsvFullDialect(interface.SerializationDialect):
 
     def write(self, path: Path, collection: MagicCollection) -> None:
         """Write collection to a file."""
-        with path.open("wt") as csv_file:
+        with path.open("wt", encoding="utf-8") as csv_file:
             writer = csv.DictWriter(csv_file, CSV_HEADER)
             writer.writeheader()
             for row in rows_for_cards(collection, self.verbose):
@@ -63,7 +63,7 @@ class CsvFullDialect(interface.SerializationDialect):
 
     def read(self, path: Path, oracle: Oracle) -> MagicCollection:
         """Read collection from file."""
-        with path.open("rt") as csv_file:
+        with path.open("rt", encoding="utf-8") as csv_file:
             reader = csv.DictReader(csv_file)
             card_counts = counts.aggregate_card_counts(reader, oracle)
         return MagicCollection(oracle=oracle, counts=card_counts)

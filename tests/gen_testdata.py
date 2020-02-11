@@ -44,8 +44,15 @@ TEST_SETS_TO_CARDS = {
     "plc": {"Boom // Bust"},
     "pls": {"Ertai, the Corrupted"},
     "pmbs": {"Black Sun's Zenith"},
+    "ptg": {"Nightmare Moon // Princess Luna"},
     "s00": {"Rhox"},
     "sok": {"Erayo, Soratami Ascendant // Erayo's Essence"},
+    "thb": {
+        "Wolfwillow Haven",
+        "Temple of Plenty",
+        "Nyxbloom Ancient",
+        "Klothys, God of Destiny",
+    },
     "unh": {"Who // What // When // Where // Why"},
     "ust": {"Very Cryptic Command"},
     "vma": {"Academy Elite"},
@@ -142,7 +149,7 @@ def main() -> None:  # pylint: disable=too-many-locals
         warnings=None,
     )
     os.makedirs(TEST_DATA_DIR, exist_ok=True)
-    with open(TARGET_SETS_FILE, "wt") as sets_file:
+    with open(TARGET_SETS_FILE, "wt", encoding="utf-8") as sets_file:
         json.dump(
             _OBJECT_SCHEMA.dump(sets_list).data,
             sets_file,
@@ -151,7 +158,7 @@ def main() -> None:  # pylint: disable=too-many-locals
             sort_keys=True,
         )
         sets_file.write("\n")
-    with open(TARGET_SETS_FILE1, "wt") as sets_file1:
+    with open(TARGET_SETS_FILE1, "wt", encoding="utf-8") as sets_file1:
         json.dump(
             _OBJECT_SCHEMA.dump(sets_list1).data,
             sets_file1,
@@ -160,7 +167,7 @@ def main() -> None:  # pylint: disable=too-many-locals
             sort_keys=True,
         )
         sets_file1.write("\n")
-    with open(TARGET_SETS_FILE2, "wt") as sets_file2:
+    with open(TARGET_SETS_FILE2, "wt", encoding="utf-8") as sets_file2:
         json.dump(
             _OBJECT_SCHEMA.dump(sets_list2).data,
             sets_file2,
@@ -171,7 +178,7 @@ def main() -> None:  # pylint: disable=too-many-locals
         sets_file2.write("\n")
 
     print("Writing cards")
-    with open(TARGET_CARDS_FILE, "wt") as cards_file:
+    with open(TARGET_CARDS_FILE, "wt", encoding="utf-8") as cards_file:
         json.dump(
             [_OBJECT_SCHEMA.dump(c).data for c in accepted_cards],
             cards_file,
@@ -189,7 +196,7 @@ def main() -> None:  # pylint: disable=too-many-locals
         total_cards=None,
         warnings=None,
     )
-    with open(TARGET_BULK_FILE, "wt") as bulk_file:
+    with open(TARGET_BULK_FILE, "wt", encoding="utf-8") as bulk_file:
         json.dump(
             _OBJECT_SCHEMA.dump(bulk_list).data,
             bulk_file,

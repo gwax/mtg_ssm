@@ -149,7 +149,6 @@ SERDE_TESTS = [
             "object": "card_face",
             "artist": "Somebody",
             "artist_id": "00000000-0000-0000-0000-000000000009",
-            "cmc": "0.0",
             "color_indicator": ("W", "B"),
             "colors": ("G", "R"),
             "flavor_text": "flavorful words",
@@ -173,7 +172,6 @@ SERDE_TESTS = [
         models.ScryCardFace(
             artist="Somebody",
             artist_id=uuid.UUID(int=9),
-            cmc=decimal.Decimal("0.0"),
             color_indicator=(models.ScryColor.WHITE, models.ScryColor.BLACK),
             colors=(models.ScryColor.GREEN, models.ScryColor.RED),
             flavor_text="flavorful words",
@@ -199,7 +197,6 @@ SERDE_TESTS = [
     pytest.param(
         {
             "object": "card_face",
-            "cmc": "3.0",
             "mana_cost": "{X}{W}{U}{U}",
             "name": "A card",
             "type_line": "Thing — stuff",
@@ -207,7 +204,6 @@ SERDE_TESTS = [
         models.ScryCardFace(
             artist=None,
             artist_id=None,
-            cmc=decimal.Decimal("3.0"),
             color_indicator=None,
             colors=None,
             flavor_text=None,
@@ -255,7 +251,6 @@ SERDE_TESTS = [
             "card_faces": (
                 {
                     "object": "card_face",
-                    "cmc": "0.0",
                     "mana_cost": "{X}",
                     "name": "A front",
                     "type_line": "Card — Front",
@@ -351,7 +346,6 @@ SERDE_TESTS = [
                 models.ScryCardFace(
                     artist=None,
                     artist_id=None,
-                    cmc=decimal.Decimal("0.0"),
                     color_indicator=None,
                     colors=None,
                     flavor_text=None,

@@ -9,13 +9,17 @@ if sys.version_info < (3, 6):
 
 # Get version information without importing the package
 __version__ = None
-exec(open("mtg_ssm/version.py", "r").read())  # pylint: disable=exec-used
+exec(  # pylint: disable=exec-used
+    open("mtg_ssm/version.py", "rt", encoding="utf-8").read()
+)
 
 SHORT_DESCRIPTION = "A tool to manage Magic: the Gathering collection spreadsheets."
-LONG_DESCRIPTION = open("README.rst", "r").read()
+LONG_DESCRIPTION = open("README.rst", "rt", encoding="utf-8").read()
 
-DEPENDENCIES = [l.strip() for l in open("requirements.txt", "r")]
-TEST_DEPENDENCIES = [l.strip() for l in open("test_requirements.txt", "r")]
+DEPENDENCIES = [l.strip() for l in open("requirements.txt", "rt", encoding="utf-8")]
+TEST_DEPENDENCIES = [
+    l.strip() for l in open("test_requirements.txt", "rt", encoding="utf-8")
+]
 if sys.version_info < (3, 7):
     DEPENDENCIES.append("dataclasses")
 

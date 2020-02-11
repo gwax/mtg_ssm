@@ -41,7 +41,7 @@ def requests_mock() -> responses.RequestsMock:
 def cards_data() -> List[ScryCard]:
     """Fixture containing all test card data."""
     schema = ScryfallUberSchema()
-    with open(CARDS_DATA_FILE, "rt") as card_data_file:
+    with open(CARDS_DATA_FILE, "rt", encoding="utf-8") as card_data_file:
         return [schema.load(c).data for c in json.load(card_data_file)]
 
 
@@ -49,7 +49,7 @@ def cards_data() -> List[ScryCard]:
 def sets_data() -> List[ScrySet]:
     """Fixture containing all test set data."""
     schema = ScryfallUberSchema()
-    with open(SETS_DATA_FILE, "rt") as sets_data_file:
+    with open(SETS_DATA_FILE, "rt", encoding="utf-8") as sets_data_file:
         return schema.load(json.load(sets_data_file)).data.data
 
 
