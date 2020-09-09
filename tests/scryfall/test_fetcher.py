@@ -3,6 +3,7 @@
 
 import gzip
 import pickle
+import re
 from typing import List
 
 import pytest
@@ -14,11 +15,13 @@ from mtg_ssm.scryfall.models import ScryCard
 from mtg_ssm.scryfall.models import ScrySet
 from tests import gen_testdata
 
+BULK_CARDS_REGEX = r"https://[a-z0-9]+\.scryfall.com/file/scryfall-bulk/default-cards/default-cards-\d{14}\.json"
+
 ENDPOINT_TO_FILE = {
     fetcher.BULK_DATA_ENDPOINT: gen_testdata.TARGET_BULK_FILE,
     fetcher.SETS_ENDPOINT: gen_testdata.TARGET_SETS_FILE1,
     gen_testdata.SETS_NEXTPAGE_URL: gen_testdata.TARGET_SETS_FILE2,
-    "https://archive.scryfall.com/json/scryfall-default-cards.json": gen_testdata.TARGET_CARDS_FILE,
+    re.compile(BULK_CARDS_REGEX): gen_testdata.TARGET_CARDS_FILE,
 }
 
 

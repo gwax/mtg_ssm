@@ -113,6 +113,12 @@ Acknowledgments
 Changelog
 =========
 
+2.1.3
+-----
+
+-   Update models to match scryfall as of 2020-09-09
+-   Cache failures on model change fixes
+
 2.1.1
 -----
 

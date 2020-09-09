@@ -117,25 +117,29 @@ def scryfetch() -> ScryfallDataSet:
         sets_data += cast(List[ScrySet], sets_list.data)
 
     bulk_data = cast(List[ScryBulkData], bulk_list.data)
-    [cards_endpoint] = [bd.permalink_uri for bd in bulk_data if bd.type == BULK_TYPE]
+    [cards_endpoint] = [bd.download_uri for bd in bulk_data if bd.type == BULK_TYPE]
     cards_json = cast(List[JSON], _fetch_endpoint(cards_endpoint, dirty=cache_dirty))
 
     _fetch_endpoint(BULK_DATA_ENDPOINT, dirty=cache_dirty, write_cache=True)
 
-    if os.path.exists(_cache_path(OBJECT_CACHE_URL)) and not cache_dirty:
-        try:
-            with gzip.open(_cache_path(OBJECT_CACHE_URL), "rb") as object_cache:
-                loaded_data = pickle.load(object_cache)
-            if isinstance(loaded_data, ScryfallDataSet):
-                return loaded_data
-        except (OSError, pickle.UnpicklingError):
-            pass
-        print("Error reading object cache, falling back")
+    object_cache_path = _cache_path(OBJECT_CACHE_URL)
+    if os.path.exists(object_cache_path):
+        if cache_dirty or DEBUG == "1":
+            os.remove(object_cache_path)
+        else:
+            try:
+                with gzip.open(object_cache_path, "rb") as object_cache:
+                    loaded_data = pickle.load(object_cache)
+                if isinstance(loaded_data, ScryfallDataSet):
+                    return loaded_data
+            except (OSError, pickle.UnpicklingError):
+                pass
+            print("Error reading object cache, falling back")
 
     print("Deserializing")
     cards_data = _deserialize_cards(cards_json)
 
     scryfall_data = ScryfallDataSet(sets=sets_data, cards=cards_data)
-    with gzip.open(_cache_path(OBJECT_CACHE_URL), "wb") as object_cache:
+    with gzip.open(object_cache_path, "wb") as object_cache:
         pickle.dump(scryfall_data, object_cache)
     return scryfall_data

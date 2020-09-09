@@ -72,7 +72,7 @@ class SerializationDialect(metaclass=abc.ABCMeta):
         dialect = dialect_mappings.get(extension, extension)
         try:
             return cls._EXT_DIALECT_TO_IMPL[(extension, dialect)]
-        except KeyError:
+        except KeyError as err:
             raise UnknownDialect(
                 f'File extension: "{extension}" dialect: "{dialect}" not found in registry'
-            )
+            ) from err

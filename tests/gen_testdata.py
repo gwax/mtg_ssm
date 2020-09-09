@@ -3,6 +3,7 @@
 # pylint: disable=protected-access
 
 import copy
+import dataclasses
 import json
 import os
 from typing import List
@@ -103,25 +104,8 @@ def main() -> None:  # pylint: disable=too-many-locals
 
     print("Adjusting sets")
     accepted_sets = [
-        models.ScrySet(
-            id=cset.id,
-            code=cset.code,
-            mtgo_code=cset.mtgo_code,
-            arena_code=cset.arena_code,
-            tcgplayer_id=cset.tcgplayer_id,
-            name=cset.name,
-            set_type=cset.set_type,
-            released_at=cset.released_at,
-            block_code=cset.block_code,
-            block=cset.block,
-            parent_set_code=cset.parent_set_code,
-            card_count=len([c for c in accepted_cards if c.set == cset.code]),
-            digital=cset.digital,
-            foil_only=cset.foil_only,
-            icon_svg_uri=cset.icon_svg_uri,
-            search_uri=cset.search_uri,
-            scryfall_uri=cset.scryfall_uri,
-            uri=cset.uri,
+        dataclasses.replace(
+            cset, card_count=len([c for c in accepted_cards if c.set == cset.code])
         )
         for cset in accepted_sets
     ]

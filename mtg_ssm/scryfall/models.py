@@ -28,6 +28,7 @@ class ScryColor(str, Enum):
     BLACK = "B"
     RED = "R"
     GREEN = "G"
+    COLORLESS = "C"
 
 
 class ScrySetType(str, Enum):
@@ -62,6 +63,7 @@ class ScryCardLayout(str, Enum):
     SPLIT = "split"
     FLIP = "flip"
     TRANSFORM = "transform"
+    MODAL_DFC = "modal_dfc"
     MELD = "meld"
     LEVELER = "leveler"
     SAGA = "saga"
@@ -94,20 +96,23 @@ class ScryFrameEffect(str, Enum):
     NONE = ""
     LEGENDARY = "legendary"
     MIRACLE = "miracle"
+    NYXBORN = "nyxborn"
     NYXTOUCHED = "nyxtouched"
     DRAFT = "draft"
     DEVOID = "devoid"
     TOMBSTONE = "tombstone"
     COLORSHIFTED = "colorshifted"
+    INVERTED = "inverted"
     SUNMOONDFC = "sunmoondfc"
     COMPASSLANDDFC = "compasslanddfc"
     ORIGINPWDFC = "originpwdfc"
     MOONELDRAZIDFC = "mooneldrazidfc"
-    EXTENDEDART = "extendedart"
-    INVERTED = "inverted"
-    NYXBORN = "nyxborn"
-    SHOWCASE = "showcase"
+    MOONREVERSEMOONDFC = "moonreversemoondfc"
     WAXINGANDWANINGMOONDFC = "waxingandwaningmoondfc"
+    SHOWCASE = "showcase"
+    EXTENDEDART = "extendedart"
+    COMPANION = "companion"
+    FULLART = "fullart"
 
 
 class ScryBorderColor(str, Enum):
@@ -126,6 +131,8 @@ class ScryGame(str, Enum):
     PAPER = "paper"
     ARENA = "arena"
     MTGO = "mtgo"
+    SEGA = "sega"
+    ASTRAL = "astral"
 
 
 class ScryRarity(str, Enum):
@@ -196,6 +203,7 @@ class ScrySet(ScryObject):
     card_count: int
     digital: bool
     foil_only: bool
+    nonfoil_only: Optional[bool]
     icon_svg_uri: URI
     search_uri: URI
     scryfall_uri: URI
@@ -276,6 +284,7 @@ class ScryCard(ScryObject):
     edhrec_rank: Optional[int]
     foil: bool
     hand_modifier: Optional[str]
+    keywords: Sequence[str]
     layout: ScryCardLayout
     legalities: Dict[ScryFormat, ScryLegality]
     life_modifier: Optional[str]
@@ -286,6 +295,7 @@ class ScryCard(ScryObject):
     oracle_text: Optional[str]
     oversized: bool
     power: Optional[str]
+    produced_mana: Optional[Sequence[ScryColor]]
     reserved: bool
     toughness: Optional[str]
     type_line: Optional[str]
@@ -296,7 +306,9 @@ class ScryCard(ScryObject):
     border_color: ScryBorderColor
     card_back_id: UUID
     collector_number: str
+    content_warning: Optional[bool]
     digital: bool
+    flavor_name: Optional[str]
     flavor_text: Optional[str]
     frame_effect: Optional[ScryFrameEffect]
     frame_effects: Optional[Sequence[ScryFrameEffect]]
@@ -306,7 +318,7 @@ class ScryCard(ScryObject):
     highres_image: bool
     illustration_id: Optional[UUID]
     image_uris: Optional[Dict[str, URI]]
-    prices: Optional[Dict[str, Decimal]]  # TODO: enum keys
+    prices: Optional[Dict[str, Optional[Decimal]]]  # TODO: enum keys
     printed_name: Optional[str]
     printed_text: Optional[str]
     printed_type_line: Optional[str]
@@ -337,12 +349,12 @@ class ScryBulkData(ScryObject):
 
     object: ClassVar[str] = "bulk_data"
     id: UUID
+    uri: URI
     type: str
     name: str
     description: str
-    permalink_uri: URI
+    download_uri: URI
     updated_at: dt.datetime
-    size: Optional[int]
-    compressed_size: Optional[int]
+    compressed_size: int
     content_type: str
     content_encoding: str
