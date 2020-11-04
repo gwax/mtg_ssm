@@ -113,6 +113,7 @@ class ScryFrameEffect(str, Enum):
     EXTENDEDART = "extendedart"
     COMPANION = "companion"
     FULLART = "fullart"
+    ETCHED = "etched"
 
 
 class ScryBorderColor(str, Enum):
@@ -201,6 +202,7 @@ class ScrySet(ScryObject):
     block: Optional[str]
     parent_set_code: Optional[str]
     card_count: int
+    printed_size: Optional[int]
     digital: bool
     foil_only: bool
     nonfoil_only: Optional[bool]
@@ -269,6 +271,7 @@ class ScryCard(ScryObject):
     mtgo_foil_id: Optional[int]
     multiverse_ids: Optional[Sequence[int]]
     tcgplayer_id: Optional[int]
+    cardmarket_id: Optional[int]
     oracle_id: UUID
     prints_search_uri: URI
     rulings_uri: URI
