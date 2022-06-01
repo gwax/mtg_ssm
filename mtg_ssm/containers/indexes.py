@@ -2,18 +2,12 @@
 
 import collections
 import string
-from typing import Dict
-from typing import Iterable
-from typing import List
-from typing import Optional
-from typing import Set
-from typing import Tuple
+from typing import Dict, Iterable, List, Optional, Set, Tuple
 from uuid import UUID
 
 from mtg_ssm.containers.bundles import ScryfallDataSet
 from mtg_ssm.mtg import util
-from mtg_ssm.scryfall.models import ScryCard
-from mtg_ssm.scryfall.models import ScrySet
+from mtg_ssm.scryfall.models import ScryCard, ScrySet
 
 
 def name_card_sort_key(card: ScryCard) -> Tuple[str, int, str]:

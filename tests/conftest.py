@@ -3,19 +3,16 @@
 
 import json
 import os
-from typing import Dict
-from typing import List
+from typing import Dict, Generator, List, Sequence
 from uuid import UUID
 
-from _pytest.monkeypatch import MonkeyPatch
-from py._path.local import LocalPath
 import pytest
 import responses
+from _pytest.monkeypatch import MonkeyPatch
+from py._path.local import LocalPath
 
 from mtg_ssm.containers.bundles import ScryfallDataSet
-from mtg_ssm.scryfall.models import ScryCard
-from mtg_ssm.scryfall.models import ScrySet
-from mtg_ssm.scryfall.schema import ScryfallUberSchema
+from mtg_ssm.scryfall.models import ScryCard, ScryObjectList, ScryRootList, ScrySet
 
 TEST_DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 SETS_DATA_FILE = os.path.join(TEST_DATA_DIR, "sets.json")
@@ -31,26 +28,26 @@ def fetcher_cache_dir(tmpdir: LocalPath, monkeypatch: MonkeyPatch) -> LocalPath:
 
 
 @pytest.fixture(autouse=True)
-def requests_mock() -> responses.RequestsMock:
+def requests_mock() -> Generator[responses.RequestsMock, None, None]:
     """Auto replace all requests with a mock."""
     with responses.RequestsMock() as rsps:
         yield rsps
 
 
 @pytest.fixture(scope="session")
-def cards_data() -> List[ScryCard]:
+def cards_data() -> Sequence[ScryCard]:
     """Fixture containing all test card data."""
-    schema = ScryfallUberSchema()
     with open(CARDS_DATA_FILE, "rt", encoding="utf-8") as card_data_file:
-        return [schema.load(c).data for c in json.load(card_data_file)]
+        card_json = json.load(card_data_file)
+    return ScryRootList[ScryCard].parse_obj(card_json).__root__
 
 
 @pytest.fixture(scope="session")
-def sets_data() -> List[ScrySet]:
+def sets_data() -> Sequence[ScrySet]:
     """Fixture containing all test set data."""
-    schema = ScryfallUberSchema()
     with open(SETS_DATA_FILE, "rt", encoding="utf-8") as sets_data_file:
-        return schema.load(json.load(sets_data_file)).data.data
+        sets_json = json.load(sets_data_file)
+    return ScryObjectList[ScrySet].parse_obj(sets_json).data
 
 
 @pytest.fixture(scope="session")

@@ -2,13 +2,7 @@
 
 import abc
 from pathlib import Path
-from typing import ClassVar
-from typing import Dict
-from typing import List
-from typing import Optional
-from typing import Set
-from typing import Tuple
-from typing import Type
+from typing import ClassVar, Dict, List, Optional, Set, Tuple, Type
 
 from mtg_ssm.containers.collection import MagicCollection
 from mtg_ssm.containers.indexes import Oracle

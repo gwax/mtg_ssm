@@ -1,23 +1,13 @@
 """Scryfall object models."""
 
-from dataclasses import dataclass
 import datetime as dt
 from decimal import Decimal
 from enum import Enum
-from typing import ClassVar
-from typing import Dict
-from typing import NewType
-from typing import Optional
-from typing import Sequence
+from typing import Dict, Generic, Literal, Optional, Sequence, TypeVar, Union
 from uuid import UUID
 
-URI = NewType("URI", str)
-
-
-class ScryObject:
-    """Base object class for scryfall response objects."""
-
-    object: ClassVar[str] = "object"
+from pydantic import AnyUrl, BaseModel
+from pydantic.generics import GenericModel
 
 
 class ScryColor(str, Enum):
@@ -54,6 +44,8 @@ class ScrySetType(str, Enum):
     PROMO = "promo"
     TOKEN = "token"
     MEMORABILIA = "memorabilia"
+    ALCHEMY = "alchemy"
+    ARSENAL = "arsenal"
 
 
 class ScryCardLayout(str, Enum):
@@ -66,6 +58,7 @@ class ScryCardLayout(str, Enum):
     MODAL_DFC = "modal_dfc"
     MELD = "meld"
     LEVELER = "leveler"
+    CLASS = "class"
     SAGA = "saga"
     ADVENTURE = "adventure"
     PLANAR = "planar"
@@ -78,6 +71,7 @@ class ScryCardLayout(str, Enum):
     HOST = "host"
     ART_SERIES = "art_series"
     DOUBLE_SIDED = "double_sided"
+    REVERSIBLE_CARD = "reversible_card"
 
 
 class ScryCardFrame(str, Enum):
@@ -114,6 +108,9 @@ class ScryFrameEffect(str, Enum):
     COMPANION = "companion"
     FULLART = "fullart"
     ETCHED = "etched"
+    SNOW = "snow"
+    LESSON = "lesson"
+    TEXTLESS = "textless"
 
 
 class ScryBorderColor(str, Enum):
@@ -124,6 +121,24 @@ class ScryBorderColor(str, Enum):
     GOLD = "gold"
     SILVER = "silver"
     WHITE = "white"
+
+
+class ScryFinish(str, Enum):
+    """Enum for card finishes"""
+
+    FOIL = "foil"
+    NONFOIL = "nonfoil"
+    ETCHED = "etched"
+    GLOSSY = "glossy"
+
+
+class ScryImageStatus(str, Enum):
+    """Enum for card image_status"""
+
+    MISSING = "missing"
+    PLACEHOLDER = "placeholder"
+    LOWRES = "lowres"
+    HIGHRES_SCAN = "highres_scan"
 
 
 class ScryGame(str, Enum):
@@ -143,6 +158,17 @@ class ScryRarity(str, Enum):
     UNCOMMON = "uncommon"
     RARE = "rare"
     MYTHIC = "mythic"
+    SPECIAL = "special"
+    BONUS = "bonus"
+
+
+class ScrySecurityStamp(str, Enum):
+    """Enum for card security_stamp"""
+
+    OVAL = "oval"
+    TRIANGLE = "triangle"
+    ACORN = "acorn"
+    ARENA = "arena"
 
 
 class ScryFormat(str, Enum):
@@ -162,6 +188,12 @@ class ScryFormat(str, Enum):
     VINTAGE = "vintage"
     HISTORIC = "historic"
     PIONEER = "pioneer"
+    GLADIATOR = "gladiator"
+    EXPLORER = "explorer"
+    HISTORICBRAWL = "historicbrawl"
+    ALCHEMY = "alchemy"
+    PAUPERCOMMANDER = "paupercommander"
+    PREMODERN = "premodern"
 
 
 class ScryLegality(str, Enum):
@@ -173,23 +205,30 @@ class ScryLegality(str, Enum):
     BANNED = "banned"
 
 
-@dataclass(frozen=True)
-class ScryObjectList(ScryObject):
+T = TypeVar("T")
+
+
+class ScryRootList(GenericModel, Generic[T]):
+    """Model for unstructured list of scryfall objects (e.g. bulk file data)"""
+
+    __root__: Sequence[T]
+
+
+class ScryObjectList(GenericModel, Generic[T]):
     """Model for https://scryfall.com/docs/api/lists"""
 
-    object: ClassVar[str] = "list"
-    data: Sequence[ScryObject]
+    object: Literal["list"] = "list"
+    data: Sequence[T]
     has_more: bool
-    next_page: Optional[URI]
+    next_page: Optional[AnyUrl]
     total_cards: Optional[int]
     warnings: Optional[Sequence[str]]
 
 
-@dataclass(frozen=True)
-class ScrySet(ScryObject):
+class ScrySet(BaseModel):
     """Model for https://scryfall.com/docs/api/sets"""
 
-    object: ClassVar[str] = "set"
+    object: Literal["set"] = "set"
     id: UUID
     code: str
     mtgo_code: Optional[str]
@@ -206,39 +245,41 @@ class ScrySet(ScryObject):
     digital: bool
     foil_only: bool
     nonfoil_only: Optional[bool]
-    icon_svg_uri: URI
-    search_uri: URI
-    scryfall_uri: URI
-    uri: URI
+    icon_svg_uri: AnyUrl
+    search_uri: AnyUrl
+    scryfall_uri: AnyUrl
+    uri: AnyUrl
 
 
-@dataclass(frozen=True)
-class ScryRelatedCard(ScryObject):
+class ScryRelatedCard(BaseModel):
     """Model for https://scryfall.com/docs/api/cards#related-card-objects"""
 
-    object: ClassVar[str] = "related_card"
+    object: Literal["related_card"] = "related_card"
     id: UUID
     component: str
     name: str
     type_line: str
-    uri: URI
+    uri: AnyUrl
 
 
-@dataclass(frozen=True)
-class ScryCardFace(ScryObject):
+class ScryCardFace(BaseModel):
     """Model for https://scryfall.com/docs/api/cards#card-face-objects"""
 
-    object: ClassVar[str] = "card_face"
+    object: Literal["card_face"] = "card_face"
     artist: Optional[str]
     artist_id: Optional[UUID]
+    cmc: Optional[Decimal]
     color_indicator: Optional[Sequence[ScryColor]]
     colors: Optional[Sequence[ScryColor]]
+    flavor_name: Optional[str]
     flavor_text: Optional[str]
     illustration_id: Optional[UUID]
-    image_uris: Optional[Dict[str, URI]]
+    image_uris: Optional[Dict[str, AnyUrl]]
+    layout: Optional[ScryCardLayout]
     loyalty: Optional[str]
     mana_cost: str
     name: str
+    oracle_id: Optional[UUID]
     oracle_text: Optional[str]
     power: Optional[str]
     printed_name: Optional[str]
@@ -249,20 +290,18 @@ class ScryCardFace(ScryObject):
     watermark: Optional[str]
 
 
-@dataclass(frozen=True)
-class CardPreviewBlock:
+class CardPreviewBlock(BaseModel):
     """Model for card preview block."""
 
     source: str
-    source_uri: str  # TODO: should be uri
+    source_uri: Union[AnyUrl, Literal[""], str]
     previewed_at: dt.date
 
 
-@dataclass(frozen=True)
-class ScryCard(ScryObject):
+class ScryCard(BaseModel):
     """Model for https://scryfall.com/docs/api/cards"""
 
-    object: ClassVar[str] = "card"
+    object: Literal["card"] = "card"
     # Core Card Fields
     arena_id: Optional[int]
     id: UUID
@@ -271,16 +310,17 @@ class ScryCard(ScryObject):
     mtgo_foil_id: Optional[int]
     multiverse_ids: Optional[Sequence[int]]
     tcgplayer_id: Optional[int]
+    tcgplayer_etched_id: Optional[int]
     cardmarket_id: Optional[int]
-    oracle_id: UUID
-    prints_search_uri: URI
-    rulings_uri: URI
-    scryfall_uri: URI
-    uri: URI
+    oracle_id: Optional[UUID]
+    prints_search_uri: AnyUrl
+    rulings_uri: AnyUrl
+    scryfall_uri: AnyUrl
+    uri: AnyUrl
     # Gameplay Fields
     all_parts: Optional[Sequence[ScryRelatedCard]]
     card_faces: Optional[Sequence[ScryCardFace]]
-    cmc: Decimal
+    cmc: Optional[Decimal]
     colors: Optional[Sequence[ScryColor]]
     color_identity: Sequence[ScryColor]
     color_indicator: Optional[Sequence[ScryColor]]
@@ -297,6 +337,7 @@ class ScryCard(ScryObject):
     nonfoil: bool
     oracle_text: Optional[str]
     oversized: bool
+    penny_rank: Optional[int]
     power: Optional[str]
     produced_mana: Optional[Sequence[ScryColor]]
     reserved: bool
@@ -307,10 +348,11 @@ class ScryCard(ScryObject):
     artist_ids: Optional[Sequence[UUID]]
     booster: bool
     border_color: ScryBorderColor
-    card_back_id: UUID
+    card_back_id: Optional[UUID]
     collector_number: str
     content_warning: Optional[bool]
     digital: bool
+    finishes: Sequence[ScryFinish]
     flavor_name: Optional[str]
     flavor_text: Optional[str]
     frame_effect: Optional[ScryFrameEffect]
@@ -320,43 +362,45 @@ class ScryCard(ScryObject):
     games: Sequence[ScryGame]
     highres_image: bool
     illustration_id: Optional[UUID]
-    image_uris: Optional[Dict[str, URI]]
+    image_status: ScryImageStatus
+    image_uris: Optional[Dict[str, AnyUrl]]
     prices: Optional[Dict[str, Optional[Decimal]]]  # TODO: enum keys
     printed_name: Optional[str]
     printed_text: Optional[str]
     printed_type_line: Optional[str]
     promo: bool
     promo_types: Optional[Sequence[str]]
-    purchase_uris: Optional[Dict[str, URI]]
+    purchase_uris: Optional[Dict[str, AnyUrl]]
     rarity: ScryRarity
-    related_uris: Optional[Dict[str, URI]]
+    related_uris: Optional[Dict[str, AnyUrl]]
     released_at: dt.date
     reprint: bool
-    scryfall_set_uri: URI
+    scryfall_set_uri: AnyUrl
     set_name: str
-    set_search_uri: URI
+    set_search_uri: AnyUrl
     set_type: str
-    set_uri: URI
+    set_uri: AnyUrl
     set: str
+    set_id: UUID
     story_spotlight: bool
     textless: bool
     variation: bool
     variation_of: Optional[UUID]
+    security_stamp: Optional[ScrySecurityStamp]
     watermark: Optional[str]
     preview: Optional[CardPreviewBlock]
 
 
-@dataclass(frozen=True)
-class ScryBulkData(ScryObject):
+class ScryBulkData(BaseModel):
     """Model for https://scryfall.com/docs/api/bulk-data"""
 
-    object: ClassVar[str] = "bulk_data"
+    object: Literal["bulk_data"] = "bulk_data"
     id: UUID
-    uri: URI
+    uri: AnyUrl
     type: str
     name: str
     description: str
-    download_uri: URI
+    download_uri: AnyUrl
     updated_at: dt.datetime
     compressed_size: int
     content_type: str

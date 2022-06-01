@@ -1,11 +1,6 @@
 """Legacy record lookup capabilities for older file versions."""
 
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Optional
-from typing import Set
-from typing import Tuple
+from typing import Any, Dict, List, Optional, Set, Tuple
 from uuid import UUID
 
 from mtg_ssm.containers.indexes import Oracle

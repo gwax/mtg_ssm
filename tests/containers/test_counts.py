@@ -1,17 +1,14 @@
 """Tests for mtg_ssm.mtg.counts"""
 # pylint: disable=redefined-outer-name
 
-from typing import Any
-from typing import Dict
-from typing import List
+from typing import Any, Dict, List
 from uuid import UUID
 
 import pytest
 
 from mtg_ssm.containers import counts
 from mtg_ssm.containers.bundles import ScryfallDataSet
-from mtg_ssm.containers.counts import CountType
-from mtg_ssm.containers.counts import ScryfallCardCount
+from mtg_ssm.containers.counts import CountType, ScryfallCardCount
 from mtg_ssm.containers.indexes import Oracle
 from mtg_ssm.containers.legacy import NoMatchError
 
@@ -27,27 +24,27 @@ def oracle(scryfall_data: ScryfallDataSet) -> Oracle:
     [
         pytest.param([], {}, id="no inputs"),
         pytest.param(
-            [{UUID(int=1): {CountType.nonfoil: 2}}],
-            {UUID(int=1): {CountType.nonfoil: 2}},
+            [{UUID(int=1): {CountType.NONFOIL: 2}}],
+            {UUID(int=1): {CountType.NONFOIL: 2}},
             id="single input",
         ),
         pytest.param(
             [
-                {UUID(int=1): {CountType.nonfoil: 2}},
-                {UUID(int=1): {CountType.nonfoil: 1, CountType.foil: 4}},
+                {UUID(int=1): {CountType.NONFOIL: 2}},
+                {UUID(int=1): {CountType.NONFOIL: 1, CountType.FOIL: 4}},
             ],
-            {UUID(int=1): {CountType.nonfoil: 3, CountType.foil: 4}},
+            {UUID(int=1): {CountType.NONFOIL: 3, CountType.FOIL: 4}},
             id="mixed types",
         ),
         pytest.param(
             [
-                {UUID(int=1): {CountType.nonfoil: 2}},
-                {UUID(int=1): {CountType.foil: 1}, UUID(int=2): {CountType.nonfoil: 3}},
-                {UUID(int=1): {CountType.foil: 5}},
+                {UUID(int=1): {CountType.NONFOIL: 2}},
+                {UUID(int=1): {CountType.FOIL: 1}, UUID(int=2): {CountType.NONFOIL: 3}},
+                {UUID(int=1): {CountType.FOIL: 5}},
             ],
             {
-                UUID(int=1): {CountType.nonfoil: 2, CountType.foil: 6},
-                UUID(int=2): {CountType.nonfoil: 3},
+                UUID(int=1): {CountType.NONFOIL: 2, CountType.FOIL: 6},
+                UUID(int=2): {CountType.NONFOIL: 3},
             },
             id="multiple inputs",
         ),
@@ -64,33 +61,33 @@ def test_merge_card_counts(
     [
         pytest.param({}, {}, {}, id="no inputs"),
         pytest.param(
-            {UUID(int=1): {CountType.nonfoil: 2}},
-            {UUID(int=1): {CountType.nonfoil: 1}},
-            {UUID(int=1): {CountType.nonfoil: 1}},
+            {UUID(int=1): {CountType.NONFOIL: 2}},
+            {UUID(int=1): {CountType.NONFOIL: 1}},
+            {UUID(int=1): {CountType.NONFOIL: 1}},
             id="positive output",
         ),
         pytest.param(
-            {UUID(int=1): {CountType.nonfoil: 1}},
-            {UUID(int=1): {CountType.nonfoil: 2}},
-            {UUID(int=1): {CountType.nonfoil: -1}},
+            {UUID(int=1): {CountType.NONFOIL: 1}},
+            {UUID(int=1): {CountType.NONFOIL: 2}},
+            {UUID(int=1): {CountType.NONFOIL: -1}},
             id="negative output",
         ),
         pytest.param(
-            {UUID(int=1): {CountType.nonfoil: 1}},
-            {UUID(int=1): {CountType.nonfoil: 1}},
+            {UUID(int=1): {CountType.NONFOIL: 1}},
+            {UUID(int=1): {CountType.NONFOIL: 1}},
             {},
             id="negated",
         ),
         pytest.param(
-            {UUID(int=1): {CountType.nonfoil: 1}},
-            {UUID(int=2): {CountType.nonfoil: 1}},
-            {UUID(int=1): {CountType.nonfoil: 1}, UUID(int=2): {CountType.nonfoil: -1}},
+            {UUID(int=1): {CountType.NONFOIL: 1}},
+            {UUID(int=2): {CountType.NONFOIL: 1}},
+            {UUID(int=1): {CountType.NONFOIL: 1}, UUID(int=2): {CountType.NONFOIL: -1}},
             id="mixed cards",
         ),
         pytest.param(
-            {UUID(int=1): {CountType.nonfoil: 1}},
-            {UUID(int=1): {CountType.foil: 1}},
-            {UUID(int=1): {CountType.nonfoil: 1, CountType.foil: -1}},
+            {UUID(int=1): {CountType.NONFOIL: 1}},
+            {UUID(int=1): {CountType.FOIL: 1}},
+            {UUID(int=1): {CountType.NONFOIL: 1, CountType.FOIL: -1}},
             id="mixed count types",
         ),
     ],
@@ -115,12 +112,12 @@ def test_diff_card_counts(
         ),
         pytest.param(
             [{"scryfall_id": UUID("00000000-0000-0000-0000-000000000001"), "foil": 1}],
-            {UUID("00000000-0000-0000-0000-000000000001"): {counts.CountType.foil: 1}},
+            {UUID("00000000-0000-0000-0000-000000000001"): {counts.CountType.FOIL: 1}},
             id="id and int",
         ),
         pytest.param(
             [{"scryfall_id": "00000000-0000-0000-0000-000000000001", "foil": "1"}],
-            {UUID("00000000-0000-0000-0000-000000000001"): {counts.CountType.foil: 1}},
+            {UUID("00000000-0000-0000-0000-000000000001"): {counts.CountType.FOIL: 1}},
             id="text and text",
         ),
         pytest.param(
@@ -131,7 +128,7 @@ def test_diff_card_counts(
                     "nonfoil": "",
                 }
             ],
-            {UUID("00000000-0000-0000-0000-000000000001"): {counts.CountType.foil: 1}},
+            {UUID("00000000-0000-0000-0000-000000000001"): {counts.CountType.FOIL: 1}},
             id="empty string",
         ),
         pytest.param(
@@ -142,10 +139,10 @@ def test_diff_card_counts(
             ],
             {
                 UUID("00000000-0000-0000-0000-000000000001"): {
-                    counts.CountType.foil: 1
+                    counts.CountType.FOIL: 1
                 },
                 UUID("00000000-0000-0000-0000-000000000003"): {
-                    counts.CountType.nonfoil: 1
+                    counts.CountType.NONFOIL: 1
                 },
             },
             id="multiple",
@@ -167,8 +164,8 @@ def test_diff_card_counts(
             ],
             {
                 UUID("00000000-0000-0000-0000-000000000001"): {
-                    counts.CountType.foil: 2,
-                    counts.CountType.nonfoil: 1,
+                    counts.CountType.FOIL: 2,
+                    counts.CountType.NONFOIL: 1,
                 }
             },
             id="duplicates",

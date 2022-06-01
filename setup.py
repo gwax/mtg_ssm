@@ -4,24 +4,22 @@ import sys
 
 import setuptools
 
-if sys.version_info < (3, 6):
-    raise Exception("Python version < 3.6 are not supported.")
+if sys.version_info < (3, 8):
+    raise Exception("Python version < 3.8 are not supported.")
 
 # Get version information without importing the package
 __version__ = None
-exec(  # pylint: disable=exec-used
-    open("mtg_ssm/version.py", "rt", encoding="utf-8").read()
-)
+with open("mtg_ssm/version.py", "rt", encoding="utf-8") as versionfile:
+    exec(versionfile.read())  # pylint: disable=exec-used
 
 SHORT_DESCRIPTION = "A tool to manage Magic: the Gathering collection spreadsheets."
-LONG_DESCRIPTION = open("README.rst", "rt", encoding="utf-8").read()
+with open("README.rst", "rt", encoding="utf-8") as readmefile:
+    LONG_DESCRIPTION = readmefile.read()
 
-DEPENDENCIES = [l.strip() for l in open("requirements.txt", "rt", encoding="utf-8")]
-TEST_DEPENDENCIES = [
-    l.strip() for l in open("test_requirements.txt", "rt", encoding="utf-8")
-]
-if sys.version_info < (3, 7):
-    DEPENDENCIES.append("dataclasses")
+with open("requirements.txt", "rt", encoding="utf-8") as requirementsfile:
+    DEPENDENCIES = [line.strip() for line in requirementsfile]
+with open("test_requirements.txt", "rt", encoding="utf-8") as testrequirementsfile:
+    TEST_DEPENDENCIES = [line.strip() for line in testrequirementsfile]
 
 CLASSIFIERS = [
     "Development Status :: 5 - Production/Stable",
@@ -36,9 +34,9 @@ CLASSIFIERS = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.6",
-    "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
     "Topic :: Games/Entertainment",
 ]
 

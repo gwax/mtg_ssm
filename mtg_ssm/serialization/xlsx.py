@@ -1,16 +1,10 @@
 """XLSX serializer."""
 
 import collections
-from pathlib import Path
+import datetime as dt
 import string
-from typing import Any
-from typing import ClassVar
-from typing import Dict
-from typing import Iterable
-from typing import List
-from typing import Optional
-from typing import Sequence
-from typing import Set
+from pathlib import Path
+from typing import Any, ClassVar, Dict, Iterable, List, Optional, Sequence, Set, Tuple
 
 import openpyxl
 from openpyxl.workbook.workbook import Workbook
@@ -18,10 +12,9 @@ from openpyxl.worksheet.worksheet import Worksheet
 
 from mtg_ssm.containers import counts
 from mtg_ssm.containers.collection import MagicCollection
-from mtg_ssm.containers.indexes import Oracle
-from mtg_ssm.containers.indexes import ScryfallDataIndex
+from mtg_ssm.containers.indexes import Oracle, ScryfallDataIndex
 from mtg_ssm.mtg import util
-from mtg_ssm.scryfall.models import ScryCard
+from mtg_ssm.scryfall.models import ScryCard, ScrySet
 from mtg_ssm.serialization import interface
 
 ALL_SETS_SHEET_HEADER: Sequence[str] = [
@@ -41,14 +34,17 @@ ALL_SETS_SHEET_TOTALS: Sequence[Optional[str]] = ["Total", None, None, None, Non
 ]
 
 
+def _card_set_sort_key(cset: ScrySet) -> Tuple[dt.date, str]:
+    released_at = cset.released_at or dt.date.min
+    return released_at, cset.code
+
+
 def create_all_sets(sheet: Worksheet, index: ScryfallDataIndex) -> None:
     """Create all sets sheet from card_db."""
     sheet.title = "All Sets"
     sheet.append(ALL_SETS_SHEET_HEADER)
     sheet.append(ALL_SETS_SHEET_TOTALS)
-    for card_set in sorted(
-        index.setcode_to_set.values(), key=lambda cset: cset.released_at
-    ):
+    for card_set in sorted(index.setcode_to_set.values(), key=_card_set_sort_key):
         setcode = card_set.code.upper()
         row = [
             setcode,
@@ -116,7 +112,8 @@ def get_references(
 
     references = []
     for card_set in sorted(
-        set_to_haveref, key=lambda setcode: index.setcode_to_set[setcode].released_at
+        set_to_haveref,
+        key=lambda setcode: _card_set_sort_key(index.setcode_to_set[setcode]),
     ):
         reference = 'IF({count}>0,"{setcode}: "&{count}&", ","")'.format(
             setcode=card_set.upper(), count=set_to_haveref[card_set]
@@ -149,11 +146,11 @@ def style_all_cards(sheet: Worksheet) -> None:
 
 SET_SHEET_HEADER = (
     ["have", "name", "scryfall_id", "collector_number", "artist"]
-    + [ct.name for ct in counts.CountType]
+    + [ct.value for ct in counts.CountType]
     + ["others"]
 )
 COUNT_COLS = [
-    string.ascii_uppercase[SET_SHEET_HEADER.index(ct.name)] for ct in counts.CountType
+    string.ascii_uppercase[SET_SHEET_HEADER.index(ct.value)] for ct in counts.CountType
 ]
 HAVE_TMPL = "=" + "+".join(c + "{rownum}" for c in COUNT_COLS)
 ROW_OFFSET = 2
@@ -246,7 +243,7 @@ class XlsxDialect(interface.SerializationDialect):
             s.code
             for s in sorted(
                 collection.oracle.index.setcode_to_set.values(),
-                key=lambda cset: cset.released_at,
+                key=_card_set_sort_key,
             )
         ]
 

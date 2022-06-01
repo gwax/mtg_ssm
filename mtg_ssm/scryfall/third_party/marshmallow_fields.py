@@ -31,13 +31,9 @@ import numbers
 import uuid
 import warnings
 
-from marshmallow import class_registry
-from marshmallow import utils
-from marshmallow import validate
-from marshmallow.base import FieldABC
-from marshmallow.base import SchemaABC
-from marshmallow.compat import basestring
-from marshmallow.compat import text_type
+from marshmallow import class_registry, utils, validate
+from marshmallow.base import FieldABC, SchemaABC
+from marshmallow.compat import basestring, text_type
 from marshmallow.exceptions import ValidationError
 from marshmallow.fields import Field
 from marshmallow.utils import missing as missing_

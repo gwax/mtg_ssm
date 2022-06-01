@@ -1,8 +1,7 @@
 """Tests for mtg_ssm.containers.legacy."""
 # pylint: disable=redefined-outer-name
 
-from typing import Any
-from typing import Dict
+from typing import Any, Dict
 from uuid import UUID
 
 import pytest

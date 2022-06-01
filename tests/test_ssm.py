@@ -2,17 +2,17 @@
 # pylint: disable=redefined-outer-name
 
 import argparse as ap
-from pathlib import Path
 import textwrap
+from pathlib import Path
 
-from _pytest.monkeypatch import MonkeyPatch
 import freezegun
 import pytest
+from _pytest.monkeypatch import MonkeyPatch
 
+import mtg_ssm.scryfall.fetcher
 from mtg_ssm import ssm
 from mtg_ssm.containers.bundles import ScryfallDataSet
 from mtg_ssm.containers.indexes import Oracle
-import mtg_ssm.scryfall.fetcher
 from mtg_ssm.scryfall.models import ScrySetType
 
 

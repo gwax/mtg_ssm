@@ -3,19 +3,17 @@
 
 import argparse
 import datetime as dt
-from pathlib import Path
 import tempfile
-from typing import Dict
-from typing import List
-from typing import Set
+from pathlib import Path
+from typing import Dict, List, Set
 
 import mtg_ssm
+import mtg_ssm.serialization.interface as ser_interface
 from mtg_ssm.containers import bundles
 from mtg_ssm.containers.collection import MagicCollection
 from mtg_ssm.containers.indexes import Oracle
 from mtg_ssm.scryfall import fetcher
 from mtg_ssm.scryfall.models import ScrySetType
-import mtg_ssm.serialization.interface as ser_interface
 
 
 def epilog() -> str:
