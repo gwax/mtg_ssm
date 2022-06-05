@@ -139,6 +139,14 @@ Development
 
 -   ...
 
+2.2.1
+-----
+
+-   Create temporary file in same folder as target to avoid cross-volume link
+    issues. This solves an issue with storing collection files in Google Drive
+    now that Google Drive uses a mounted virtual volume instead of mirroring
+    files to your local machine.
+
 2.2.0
 -----
 

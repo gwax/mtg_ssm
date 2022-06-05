@@ -3,7 +3,6 @@
 
 import argparse
 import datetime as dt
-import tempfile
 from pathlib import Path
 from typing import Dict, List, Set
 
@@ -163,25 +162,26 @@ def get_backup_path(path: Path) -> Path:
     return path.parent / f"{path.stem}.{now:%Y%m%d_%H%M%S}{path.suffix}"
 
 
+def get_temp_path(path: Path) -> Path:
+    """Given a filename, return a temporary path to use for a new file."""
+    return path.parent / f"{path.stem}.tmp{path.suffix}"
+
+
 def write_file(
     serializer: ser_interface.SerializationDialect,
     collection: MagicCollection,
     path: Path,
 ) -> None:
     """Write print counts to a file, backing up existing target files."""
-    if not path.exists():
-        print(f"Writing collection to file: {path}")
-        serializer.write(path, collection)
-    else:
+    temp_path = get_temp_path(path)
+    print(f"Writing to temporary file: {temp_path}")
+    serializer.write(temp_path, collection)
+    if path.exists():
         backup_path = get_backup_path(path)
-        with tempfile.TemporaryDirectory() as temp_dir:
-            temp_path = Path(temp_dir) / path.name
-            print("Writing to temporary file.")
-            serializer.write(temp_path, collection)
-            print(f"Backing up existing file to: {backup_path}")
-            path.replace(backup_path)
-            print(f"Writing collection: {path}")
-            temp_path.replace(path)
+        print(f"Backing up existing file to: {backup_path}")
+        path.replace(backup_path)
+    print(f"Writing collection: {path}")
+    temp_path.replace(path)
 
 
 def create_cmd(args: argparse.Namespace, oracle: Oracle) -> None:
