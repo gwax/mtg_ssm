@@ -356,6 +356,23 @@
       "uri": "https://api.scryfall.com/sets/1c105623-2564-40d7-a3aa-4134787fb127"
     },
     {
+      "card_count": 1,
+      "code": "sld",
+      "digital": false,
+      "foil_only": false,
+      "icon_svg_uri": "https://c2.scryfall.com/file/scryfall-symbols/sets/star.svg?1653883200",
+      "id": "4d92a8a7-ccb0-437d-abdc-9d70fc5ed672",
+      "name": "Secret Lair Drop",
+      "nonfoil_only": false,
+      "object": "set",
+      "released_at": "2019-12-02",
+      "scryfall_uri": "https://scryfall.com/sets/sld",
+      "search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Asld&unique=prints",
+      "set_type": "box",
+      "tcgplayer_id": 2576,
+      "uri": "https://api.scryfall.com/sets/4d92a8a7-ccb0-437d-abdc-9d70fc5ed672"
+    },
+    {
       "arena_code": "sok",
       "block": "Kamigawa",
       "block_code": "chk",

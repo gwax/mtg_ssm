@@ -45,10 +45,10 @@ def test_is_strict_basic(name: str, expected: bool) -> None:
             "★",
         ),
         pytest.param(
-            "Lathiel, the Bounteous Dawn",
-            UUID("913752eb-b446-41f8-9914-f78f981b042b"),
-            None,
-            "LTBP",
+            "Viscera Seer",
+            UUID("dba1cf83-e13d-401e-b76f-b12a51b307f9"),
+            0,
+            "VS",
         ),
     ],
 )

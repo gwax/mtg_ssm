@@ -5588,6 +5588,118 @@
     "variation": false
   },
   {
+    "artist": "John Stanko",
+    "artist_ids": [
+      "b0f038a0-73b5-4806-918e-9cd11b5f92e1"
+    ],
+    "booster": false,
+    "border_color": "black",
+    "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+    "cmc": 1.0,
+    "collector_number": "VS",
+    "color_identity": [
+      "B"
+    ],
+    "colors": [
+      "B"
+    ],
+    "digital": false,
+    "edhrec_rank": 138,
+    "finishes": [
+      "foil"
+    ],
+    "flavor_text": "In matters of life and death, he trusts his gut.",
+    "foil": true,
+    "frame": "2003",
+    "full_art": false,
+    "games": [
+      "paper"
+    ],
+    "highres_image": true,
+    "id": "dba1cf83-e13d-401e-b76f-b12a51b307f9",
+    "illustration_id": "67f7a210-ad99-4344-a806-5e4b11c88eb9",
+    "image_status": "highres_scan",
+    "image_uris": {
+      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/d/b/dba1cf83-e13d-401e-b76f-b12a51b307f9.jpg?1640811544",
+      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/d/b/dba1cf83-e13d-401e-b76f-b12a51b307f9.jpg?1640811544",
+      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/d/b/dba1cf83-e13d-401e-b76f-b12a51b307f9.jpg?1640811544",
+      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/d/b/dba1cf83-e13d-401e-b76f-b12a51b307f9.jpg?1640811544",
+      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/d/b/dba1cf83-e13d-401e-b76f-b12a51b307f9.png?1640811544",
+      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/d/b/dba1cf83-e13d-401e-b76f-b12a51b307f9.jpg?1640811544"
+    },
+    "keywords": [
+      "Scry"
+    ],
+    "lang": "en",
+    "layout": "normal",
+    "legalities": {
+      "alchemy": "not_legal",
+      "brawl": "not_legal",
+      "commander": "legal",
+      "duel": "legal",
+      "explorer": "not_legal",
+      "future": "not_legal",
+      "gladiator": "not_legal",
+      "historic": "not_legal",
+      "historicbrawl": "not_legal",
+      "legacy": "legal",
+      "modern": "legal",
+      "oldschool": "not_legal",
+      "pauper": "legal",
+      "paupercommander": "legal",
+      "penny": "legal",
+      "pioneer": "not_legal",
+      "premodern": "not_legal",
+      "standard": "not_legal",
+      "vintage": "legal"
+    },
+    "mana_cost": "{B}",
+    "multiverse_ids": [],
+    "name": "Viscera Seer",
+    "nonfoil": false,
+    "object": "card",
+    "oracle_id": "f82a4e85-526d-4456-b700-7760043a31be",
+    "oracle_text": "Sacrifice a creature: Scry 1. (Look at the top card of your library. You may put that card on the bottom of your library.)",
+    "oversized": false,
+    "penny_rank": 734,
+    "power": "1",
+    "prices": {
+      "eur": null,
+      "eur_foil": null,
+      "tix": null,
+      "usd": null,
+      "usd_etched": null,
+      "usd_foil": null
+    },
+    "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Af82a4e85-526d-4456-b700-7760043a31be&unique=prints",
+    "promo": false,
+    "rarity": "common",
+    "related_uris": {
+      "edhrec": "https://edhrec.com/route/?cc=Viscera+Seer",
+      "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Viscera+Seer&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "tcgplayer_infinite_decks": "https://infinite.tcgplayer.com/search?contentMode=deck&game=magic&partner=scryfall&q=Viscera+Seer&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+    },
+    "released_at": "2021-11-08",
+    "reprint": true,
+    "reserved": false,
+    "rulings_uri": "https://api.scryfall.com/cards/dba1cf83-e13d-401e-b76f-b12a51b307f9/rulings",
+    "scryfall_set_uri": "https://scryfall.com/sets/sld?utm_source=api",
+    "scryfall_uri": "https://scryfall.com/card/sld/VS/viscera-seer?utm_source=api",
+    "set": "sld",
+    "set_id": "4d92a8a7-ccb0-437d-abdc-9d70fc5ed672",
+    "set_name": "Secret Lair Drop",
+    "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Asld&unique=prints",
+    "set_type": "box",
+    "set_uri": "https://api.scryfall.com/sets/4d92a8a7-ccb0-437d-abdc-9d70fc5ed672",
+    "story_spotlight": false,
+    "tcgplayer_id": 257331,
+    "textless": false,
+    "toughness": "1",
+    "type_line": "Creature — Vampire Wizard",
+    "uri": "https://api.scryfall.com/cards/dba1cf83-e13d-401e-b76f-b12a51b307f9",
+    "variation": false
+  },
+  {
     "artist": "Matt Cavotta",
     "artist_ids": [
       "2e6a0611-9411-4ba4-98e3-c0e18cbf9f83"

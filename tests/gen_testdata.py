@@ -52,6 +52,7 @@ TEST_SETS_TO_CARDS = {
     "ust": {"Very Cryptic Command"},
     "vma": {"Academy Elite"},
     "w16": {"Serra Angel"},
+    "sld": {"Viscera Seer"},
 }
 
 
