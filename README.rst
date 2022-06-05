@@ -85,25 +85,28 @@ spreadsheet:
 .. code:: bash
 
     mtg-ssm merge collection.xlsx input_data.csv
-    
+
 Troubleshooting
 ===============
+
 Windows 7 and up
 ----------------
+
 Certain unicode characters (such as U+2605 ★) may not be mapped
-correctly on Windows systems, causing errors when mtg-ssm tries 
-to map data from Scryfall.  This can occur in Command Prompt, 
+correctly on Windows systems, causing errors when mtg-ssm tries
+to map data from Scryfall.  This can occur in Command Prompt,
 Powershell, or other terminal emulators that rely on the system
-region settings (Such as MSYS2 MinGW).  The below steps should 
+region settings (Such as MSYS2 MinGW).  The below steps should
 help to resolve this issue.
- - Open up Control panel.
- - Go to Clock and Region.
- - Click Region.
- - Go to the Administrative tab (second tab)
- - Click Change System Locale.
- - Check "Beta: Use Unicode UTF-8 for worldwide language support".
- - Restart your computer.
- 
+
+-   Open up Control panel.
+-   Go to Clock and Region.
+-   Click Region.
+-   Go to the Administrative tab (second tab)
+-   Click Change System Locale.
+-   Check "Beta: Use Unicode UTF-8 for worldwide language support".
+-   Restart your computer.
+
 Contributions
 =============
 
@@ -130,6 +133,12 @@ Acknowledgments
 
 Changelog
 =========
+
+Upcoming
+--------
+
+-   Bug fixes for newer sets that do not include a numeric component to ther
+    collector numbers.
 
 2.1.3
 -----
