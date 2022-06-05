@@ -45,6 +45,12 @@ def test_is_strict_basic(name: str, expected: bool) -> None:
             107,
             "★",
         ),
+        pytest.param(
+            "Lathiel, the Bounteous Dawn",
+            UUID("913752eb-b446-41f8-9914-f78f981b042b"),
+            None,
+            "LTBP",
+        ),
     ],
 )
 def test_collector_int_var(

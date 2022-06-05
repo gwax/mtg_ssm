@@ -20,6 +20,8 @@ def dig_str(collector_number: str) -> Tuple[Optional[int], Optional[str]]:
             digpart.append(char)
         else:
             strpart.append(char)
+    if not digpart:
+        return (None, "".join(strpart))
     return (int("".join(digpart)), "".join(strpart) or None)
 
 
