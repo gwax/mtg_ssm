@@ -1,27 +1,18 @@
 """Scryfall data fetcher."""
 
-from concurrent.futures import ProcessPoolExecutor
 import gzip
 import json
 import os
 import pickle
-from typing import Any
-from typing import List
-from typing import Mapping
-from typing import Union
-from typing import cast
 import uuid
+from concurrent.futures import ProcessPoolExecutor
+from typing import Any, List, Mapping, Union, cast
 
 import appdirs
 import requests
 
 from mtg_ssm.containers.bundles import ScryfallDataSet
-from mtg_ssm.scryfall import schema
-from mtg_ssm.scryfall.models import ScryBulkData
-from mtg_ssm.scryfall.models import ScryCard
-from mtg_ssm.scryfall.models import ScryObject
-from mtg_ssm.scryfall.models import ScryObjectList
-from mtg_ssm.scryfall.models import ScrySet
+from mtg_ssm.scryfall.models import ScryBulkData, ScryCard, ScryObjectList, ScrySet
 
 DEBUG = os.getenv("DEBUG", "0")
 
@@ -36,20 +27,21 @@ OBJECT_CACHE_URL = "file://$CACHE/pickled_object"
 
 CHUNK_SIZE = 8 * 1024 * 1024
 DESERIALIZE_BATCH_SIZE = 50
-_OBJECT_SCHEMA = schema.ScryfallUberSchema()
 
 JSON = Union[str, int, float, bool, None, Mapping[str, Any], List[Any]]
 
 
-def _cache_path(endpoint: str) -> str:
+def _cache_path(endpoint: str, extension: str) -> str:
+    if not extension.startswith("."):
+        extension = "." + extension
     cache_id = uuid.uuid5(uuid.NAMESPACE_URL, endpoint)
-    return os.path.join(CACHE_DIR, str(cache_id))
+    return os.path.join(CACHE_DIR, f"{cache_id}{extension}")
 
 
 def _fetch_endpoint(endpoint: str, *, dirty: bool, write_cache: bool = True) -> JSON:
     print(f"Retrieving {endpoint}")
     os.makedirs(CACHE_DIR, exist_ok=True)
-    cache_path = _cache_path(endpoint)
+    cache_path = _cache_path(endpoint, ".json.gz")
     if not os.path.exists(cache_path):
         dirty = True
     if dirty:
@@ -59,7 +51,7 @@ def _fetch_endpoint(endpoint: str, *, dirty: bool, write_cache: bool = True) -> 
         if not write_cache:
             return response.json()
         print(f"Caching {endpoint}")
-        with gzip.open(cache_path, "wb") as cache_file:
+        with gzip.open(cache_path, "wb", compresslevel=1) as cache_file:
             for chunk in response.iter_content(chunk_size=CHUNK_SIZE):
                 cache_file.write(chunk)
     else:
@@ -69,10 +61,6 @@ def _fetch_endpoint(endpoint: str, *, dirty: bool, write_cache: bool = True) -> 
         return json.load(cache_file)
 
 
-def _deserialize_object(obj_json: JSON) -> Union[ScryObject, List[ScryObject]]:
-    return _OBJECT_SCHEMA.load(obj_json).data
-
-
 def _deserialize_cards(card_jsons: List[JSON]) -> List[ScryCard]:
     cards_data: List[ScryCard]
     if DEBUG == "1":
@@ -80,49 +68,45 @@ def _deserialize_cards(card_jsons: List[JSON]) -> List[ScryCard]:
         cards_data = []
         for card_json in card_jsons:
             try:
-                cards_data.append(cast(ScryCard, _deserialize_object(card_json)))
+                cards_data.append(ScryCard.parse_obj(card_json))
             except Exception:
                 print("Failed on: ", repr(card_json))
                 raise
     else:
         with ProcessPoolExecutor() as executor:
             cards_futures = executor.map(
-                _deserialize_object, card_jsons, chunksize=DESERIALIZE_BATCH_SIZE
+                ScryCard.parse_obj, card_jsons, chunksize=DESERIALIZE_BATCH_SIZE
             )
-            cards_data = cast(List[ScryCard], list(cards_futures))
+            cards_data = list(cards_futures)
     return cards_data
 
 
 def scryfetch() -> ScryfallDataSet:
     """Retrieve and deserialize Scryfall object data."""
     cached_bulk_json = None
-    if os.path.exists(_cache_path(BULK_DATA_ENDPOINT)):
+    if os.path.exists(_cache_path(BULK_DATA_ENDPOINT, ".json.gz")):
         cached_bulk_json = _fetch_endpoint(BULK_DATA_ENDPOINT, dirty=False)
     bulk_json = _fetch_endpoint(BULK_DATA_ENDPOINT, dirty=True, write_cache=False)
     cache_dirty = bulk_json != cached_bulk_json
 
-    bulk_list: ScryObjectList = cast(ScryObjectList, _deserialize_object(bulk_json))
-    sets_list = cast(
-        ScryObjectList,
-        _deserialize_object(_fetch_endpoint(SETS_ENDPOINT, dirty=cache_dirty)),
+    bulk_list = ScryObjectList[ScryBulkData].parse_obj(bulk_json)
+    sets_list = ScryObjectList[ScrySet].parse_obj(
+        _fetch_endpoint(SETS_ENDPOINT, dirty=cache_dirty)
     )
-    sets_data = cast(List[ScrySet], sets_list.data)
+    sets_data = list(sets_list.data)
     while sets_list.has_more:
-        sets_list = cast(
-            ScryObjectList,
-            _deserialize_object(
-                _fetch_endpoint(str(sets_list.next_page), dirty=cache_dirty)
-            ),
+        sets_list = ScryObjectList[ScrySet].parse_obj(
+            _fetch_endpoint(str(sets_list.next_page), dirty=cache_dirty)
         )
-        sets_data += cast(List[ScrySet], sets_list.data)
+        sets_data += sets_list.data
 
-    bulk_data = cast(List[ScryBulkData], bulk_list.data)
+    bulk_data = bulk_list.data
     [cards_endpoint] = [bd.download_uri for bd in bulk_data if bd.type == BULK_TYPE]
     cards_json = cast(List[JSON], _fetch_endpoint(cards_endpoint, dirty=cache_dirty))
 
     _fetch_endpoint(BULK_DATA_ENDPOINT, dirty=cache_dirty, write_cache=True)
 
-    object_cache_path = _cache_path(OBJECT_CACHE_URL)
+    object_cache_path = _cache_path(OBJECT_CACHE_URL, ".pickle.gz")
     if os.path.exists(object_cache_path):
         if cache_dirty or DEBUG == "1":
             os.remove(object_cache_path)
@@ -140,6 +124,6 @@ def scryfetch() -> ScryfallDataSet:
     cards_data = _deserialize_cards(cards_json)
 
     scryfall_data = ScryfallDataSet(sets=sets_data, cards=cards_data)
-    with gzip.open(object_cache_path, "wb") as object_cache:
-        pickle.dump(scryfall_data, object_cache)
+    with gzip.open(object_cache_path, "wb", compresslevel=1) as object_cache:
+        pickle.dump(scryfall_data, object_cache, protocol=pickle.HIGHEST_PROTOCOL)
     return scryfall_data

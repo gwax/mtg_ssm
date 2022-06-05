@@ -1,8 +1,8 @@
 """Tests for mtg_ssm.serialization.csv."""
 # pylint: disable=redefined-outer-name
 
-from pathlib import Path
 import textwrap
+from pathlib import Path
 from typing import Dict
 from uuid import UUID
 
@@ -43,7 +43,7 @@ def test_header() -> None:
 
 def test_row_for_card(id_to_card: Dict[UUID, ScryCard]) -> None:
     card = id_to_card[TEST_CARD_ID]
-    card_counts = {counts.CountType.nonfoil: 3, counts.CountType.foil: 5}
+    card_counts = {counts.CountType.NONFOIL: 3, counts.CountType.FOIL: 5}
     csv_row = csv.row_for_card(card, card_counts)
     assert csv_row == {
         "set": "PHOP",
@@ -56,7 +56,7 @@ def test_row_for_card(id_to_card: Dict[UUID, ScryCard]) -> None:
 
 
 def test_rows_for_cards_verbose(oracle: Oracle) -> None:
-    card_counts: ScryfallCardCount = {TEST_CARD_ID: {counts.CountType.nonfoil: 3}}
+    card_counts: ScryfallCardCount = {TEST_CARD_ID: {counts.CountType.NONFOIL: 3}}
     collection = MagicCollection(oracle=oracle, counts=card_counts)
     rows = csv.rows_for_cards(collection, True)
     assert list(rows) == [
@@ -84,7 +84,7 @@ def test_rows_for_cards_verbose(oracle: Oracle) -> None:
 
 def test_rows_for_cards_terse(oracle: Oracle) -> None:
     card_counts: counts.ScryfallCardCount = {
-        TEST_CARD_ID: {counts.CountType.nonfoil: 3}
+        TEST_CARD_ID: {counts.CountType.NONFOIL: 3}
     }
     collection = MagicCollection(oracle=oracle, counts=card_counts)
     rows = csv.rows_for_cards(collection, False)
@@ -102,7 +102,7 @@ def test_rows_for_cards_terse(oracle: Oracle) -> None:
 def test_write_verbose(oracle: Oracle, tmp_path: Path) -> None:
     csv_path = tmp_path / "outfile.csv"
     card_counts: ScryfallCardCount = {
-        TEST_CARD_ID: {counts.CountType.nonfoil: 3, counts.CountType.foil: 7}
+        TEST_CARD_ID: {counts.CountType.NONFOIL: 3, counts.CountType.FOIL: 7}
     }
     collection = MagicCollection(oracle=oracle, counts=card_counts)
     serializer = csv.CsvFullDialect()
@@ -121,7 +121,7 @@ def test_write_verbose(oracle: Oracle, tmp_path: Path) -> None:
 def test_write_terse(oracle: Oracle, tmp_path: Path) -> None:
     csv_path = tmp_path / "outfile.csv"
     card_counts: counts.ScryfallCardCount = {
-        TEST_CARD_ID: {counts.CountType.nonfoil: 3}
+        TEST_CARD_ID: {counts.CountType.NONFOIL: 3}
     }
     collection = MagicCollection(oracle=oracle, counts=card_counts)
 
@@ -150,5 +150,5 @@ def test_read(oracle: Oracle, tmp_path: Path) -> None:
     serializer = csv.CsvFullDialect()
     collection = serializer.read(csv_path, oracle)
     assert collection.counts == {
-        TEST_CARD_ID: {counts.CountType.nonfoil: 3, counts.CountType.foil: 7}
+        TEST_CARD_ID: {counts.CountType.NONFOIL: 3, counts.CountType.FOIL: 7}
     }

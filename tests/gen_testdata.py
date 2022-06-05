@@ -3,15 +3,9 @@
 # pylint: disable=protected-access
 
 import copy
-import dataclasses
-import json
 import os
-from typing import List
-from typing import cast
 
-from mtg_ssm.scryfall import fetcher
-from mtg_ssm.scryfall import models
-from mtg_ssm.scryfall import schema
+from mtg_ssm.scryfall import fetcher, models
 
 TEST_DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 TARGET_SETS_FILE = os.path.join(TEST_DATA_DIR, "sets.json")
@@ -58,9 +52,8 @@ TEST_SETS_TO_CARDS = {
     "ust": {"Very Cryptic Command"},
     "vma": {"Academy Elite"},
     "w16": {"Serra Angel"},
+    "sld": {"Viscera Seer"},
 }
-
-_OBJECT_SCHEMA = schema.ScryfallUberSchema()
 
 
 def main() -> None:  # pylint: disable=too-many-locals
@@ -70,10 +63,7 @@ def main() -> None:  # pylint: disable=too-many-locals
     bulk_json = fetcher._fetch_endpoint(
         fetcher.BULK_DATA_ENDPOINT, dirty=False, write_cache=False
     )
-    bulk_data = cast(
-        List[models.ScryBulkData],
-        cast(models.ScryObjectList, fetcher._deserialize_object(bulk_json)).data,
-    )
+    bulk_data = models.ScryObjectList[models.ScryBulkData].parse_obj(bulk_json).data
 
     print("Selecting sets")
     accepted_sets = sorted(
@@ -103,29 +93,25 @@ def main() -> None:  # pylint: disable=too-many-locals
     )
 
     print("Adjusting sets")
-    accepted_sets = [
-        dataclasses.replace(
-            cset, card_count=len([c for c in accepted_cards if c.set == cset.code])
-        )
-        for cset in accepted_sets
-    ]
+    for cset in accepted_sets:
+        cset.card_count = len([c for c in accepted_cards if c.set == cset.code])
 
     print("Writing sets")
-    sets_list = models.ScryObjectList(
+    sets_list = models.ScryObjectList[models.ScrySet](
         data=accepted_sets,
         has_more=False,
         next_page=None,
         total_cards=None,
         warnings=None,
     )
-    sets_list1 = models.ScryObjectList(
+    sets_list1 = models.ScryObjectList[models.ScrySet](
         data=accepted_sets[:5],
         has_more=True,
-        next_page=models.URI(SETS_NEXTPAGE_URL),
+        next_page=SETS_NEXTPAGE_URL,
         total_cards=None,
         warnings=None,
     )
-    sets_list2 = models.ScryObjectList(
+    sets_list2 = models.ScryObjectList[models.ScrySet](
         data=accepted_sets[5:],
         has_more=False,
         next_page=None,
@@ -134,46 +120,53 @@ def main() -> None:  # pylint: disable=too-many-locals
     )
     os.makedirs(TEST_DATA_DIR, exist_ok=True)
     with open(TARGET_SETS_FILE, "wt", encoding="utf-8") as sets_file:
-        json.dump(
-            _OBJECT_SCHEMA.dump(sets_list).data,
-            sets_file,
-            ensure_ascii=False,
-            indent=2,
-            sort_keys=True,
+        sets_file.write(
+            sets_list.json(
+                ensure_ascii=False,
+                indent=2,
+                sort_keys=True,
+                exclude_none=True,
+            )
         )
         sets_file.write("\n")
     with open(TARGET_SETS_FILE1, "wt", encoding="utf-8") as sets_file1:
-        json.dump(
-            _OBJECT_SCHEMA.dump(sets_list1).data,
-            sets_file1,
-            ensure_ascii=False,
-            indent=2,
-            sort_keys=True,
+        sets_file1.write(
+            sets_list1.json(
+                ensure_ascii=False,
+                indent=2,
+                sort_keys=True,
+                exclude_none=True,
+            )
         )
         sets_file1.write("\n")
     with open(TARGET_SETS_FILE2, "wt", encoding="utf-8") as sets_file2:
-        json.dump(
-            _OBJECT_SCHEMA.dump(sets_list2).data,
-            sets_file2,
-            ensure_ascii=False,
-            indent=2,
-            sort_keys=True,
+        sets_file2.write(
+            sets_list2.json(
+                ensure_ascii=False,
+                indent=2,
+                sort_keys=True,
+                exclude_none=True,
+            )
         )
         sets_file2.write("\n")
 
     print("Writing cards")
     with open(TARGET_CARDS_FILE, "wt", encoding="utf-8") as cards_file:
-        json.dump(
-            [_OBJECT_SCHEMA.dump(c).data for c in accepted_cards],
-            cards_file,
-            ensure_ascii=False,
-            indent=2,
-            sort_keys=True,
+        root_list: models.ScryRootList[models.ScryCard] = models.ScryRootList(
+            __root__=accepted_cards
+        )
+        cards_file.write(
+            root_list.json(
+                ensure_ascii=False,
+                indent=2,
+                sort_keys=True,
+                exclude_none=True,
+            )
         )
         cards_file.write("\n")
 
     print("Writing bulk data")
-    bulk_list = models.ScryObjectList(
+    bulk_list = models.ScryObjectList[models.ScryBulkData](
         data=accepted_bulk,
         has_more=False,
         next_page=None,
@@ -181,12 +174,13 @@ def main() -> None:  # pylint: disable=too-many-locals
         warnings=None,
     )
     with open(TARGET_BULK_FILE, "wt", encoding="utf-8") as bulk_file:
-        json.dump(
-            _OBJECT_SCHEMA.dump(bulk_list).data,
-            bulk_file,
-            ensure_ascii=False,
-            indent=2,
-            sort_keys=True,
+        bulk_file.write(
+            bulk_list.json(
+                ensure_ascii=False,
+                indent=2,
+                sort_keys=True,
+                exclude_none=True,
+            )
         )
         bulk_file.write("\n")
 

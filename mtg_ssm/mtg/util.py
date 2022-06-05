@@ -2,8 +2,7 @@
 
 import functools
 import string
-from typing import Optional
-from typing import Tuple
+from typing import Optional, Tuple
 
 from mtg_ssm.scryfall.models import ScryCard
 

@@ -12,7 +12,6 @@ repos:
         name: Check import order
         language: system
         entry: isort
-        args: [--apply, --recursive]
         types: [python]
       - id: pylint
         name: Static analysis from pylint

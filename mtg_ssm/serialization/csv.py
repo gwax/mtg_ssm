@@ -1,12 +1,9 @@
 """CSV serializer."""
 
 import csv
+import datetime as dt
 from pathlib import Path
-from typing import Any
-from typing import ClassVar
-from typing import Dict
-from typing import Iterable
-from typing import Mapping
+from typing import Any, ClassVar, Dict, Iterable, Mapping
 
 from mtg_ssm.containers import counts
 from mtg_ssm.containers.collection import MagicCollection
@@ -16,7 +13,7 @@ from mtg_ssm.scryfall.models import ScryCard
 from mtg_ssm.serialization import interface
 
 CSV_HEADER = ["set", "name", "collector_number", "scryfall_id"] + [
-    ct.name for ct in CountType
+    ct.value for ct in CountType
 ]
 
 
@@ -27,7 +24,7 @@ def row_for_card(card: ScryCard, card_count: Mapping[CountType, int]) -> Dict[st
         "name": card.name,
         "collector_number": card.collector_number,
         "scryfall_id": card.id,
-        **{ct.name: cnt for ct, cnt in card_count.items() if cnt},
+        **{ct.value: cnt for ct, cnt in card_count.items() if cnt},
     }
 
 
@@ -37,7 +34,7 @@ def rows_for_cards(
     """Generator that yields csv rows from a collection."""
     for card_set in sorted(
         collection.oracle.index.setcode_to_set.values(),
-        key=lambda cset: cset.released_at,
+        key=lambda cset: (cset.released_at or dt.date.min, cset.code),
     ):
         for card in collection.oracle.index.setcode_to_cards[card_set.code]:
             card_count = collection.counts.get(card.id, {})

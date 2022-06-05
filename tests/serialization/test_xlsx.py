@@ -3,11 +3,7 @@
 
 import datetime as dt
 from pathlib import Path
-from typing import Dict
-from typing import List
-from typing import Optional
-from typing import Set
-from typing import Tuple
+from typing import Dict, List, Optional, Set, Tuple
 from unittest import mock
 from uuid import UUID
 
@@ -16,8 +12,7 @@ import pytest
 
 from mtg_ssm.containers.bundles import ScryfallDataSet
 from mtg_ssm.containers.collection import MagicCollection
-from mtg_ssm.containers.counts import CountType
-from mtg_ssm.containers.counts import ScryfallCardCount
+from mtg_ssm.containers.counts import CountType, ScryfallCardCount
 from mtg_ssm.containers.indexes import Oracle
 from mtg_ssm.serialization import xlsx
 
@@ -87,7 +82,7 @@ def test_create_all_sets(oracle: Oracle) -> None:
         [
             "ICE",
             "Ice Age",
-            dt.date(1995, 6, 1),
+            dt.date(1995, 6, 3),
             "Ice Age",
             "expansion",
             5,
@@ -181,11 +176,11 @@ def test_create_all_cards_sheet(oracle: Oracle) -> None:
 
 def test_create_set_sheet(oracle: Oracle) -> None:
     card_counts: ScryfallCardCount = {
-        UUID("fbdcbd97-90a9-45ea-94f6-2a1c6faaf965"): {CountType.nonfoil: 1},
-        UUID("b346b784-7bde-49d0-bfa9-56236cbe19d9"): {CountType.foil: 2},
+        UUID("fbdcbd97-90a9-45ea-94f6-2a1c6faaf965"): {CountType.NONFOIL: 1},
+        UUID("b346b784-7bde-49d0-bfa9-56236cbe19d9"): {CountType.FOIL: 2},
         UUID("768c4d8f-5700-4f0a-9ff2-58422aeb1dac"): {
-            CountType.nonfoil: 3,
-            CountType.foil: 4,
+            CountType.NONFOIL: 3,
+            CountType.FOIL: 4,
         },
     }
     collection = MagicCollection(oracle=oracle, counts=card_counts)
@@ -262,8 +257,8 @@ def test_write(oracle: Oracle, tmp_path: Path) -> None:
     xlsx_path = tmp_path / "outfile.xlsx"
     card_counts: ScryfallCardCount = {
         UUID("5d5f3f57-410f-4ee2-b93c-f5051a068828"): {
-            CountType.nonfoil: 7,
-            CountType.foil: 12,
+            CountType.NONFOIL: 7,
+            CountType.FOIL: 12,
         }
     }
     collection = MagicCollection(oracle=oracle, counts=card_counts)
@@ -369,7 +364,7 @@ def test_read_from_file(oracle: Oracle, tmp_path: Path) -> None:
     collection = serializer.read(xlsx_path, oracle)
     assert collection.counts == {
         UUID("5d5f3f57-410f-4ee2-b93c-f5051a068828"): {
-            CountType.nonfoil: 3,
-            CountType.foil: 7,
+            CountType.NONFOIL: 3,
+            CountType.FOIL: 7,
         }
     }

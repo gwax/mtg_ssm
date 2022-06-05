@@ -4,6 +4,9 @@
 /*.xlsx
 /*.xlsx.bak*
 
+# Profiling data
+*.prof
+
 # Created by https://www.gitignore.io/api/python
 
 ### Python ###

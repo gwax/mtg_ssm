@@ -4,20 +4,19 @@
 import gzip
 import pickle
 import re
-from typing import List
+from typing import Dict, List, Pattern, Union
 
 import pytest
 from responses import RequestsMock
 
 from mtg_ssm.containers.bundles import ScryfallDataSet
 from mtg_ssm.scryfall import fetcher
-from mtg_ssm.scryfall.models import ScryCard
-from mtg_ssm.scryfall.models import ScrySet
+from mtg_ssm.scryfall.models import ScryCard, ScrySet
 from tests import gen_testdata
 
 BULK_CARDS_REGEX = r"https://[a-z0-9]+\.scryfall.com/file/scryfall-bulk/default-cards/default-cards-\d{14}\.json"
 
-ENDPOINT_TO_FILE = {
+ENDPOINT_TO_FILE: Dict[Union[str, Pattern[str]], str] = {
     fetcher.BULK_DATA_ENDPOINT: gen_testdata.TARGET_BULK_FILE,
     fetcher.SETS_ENDPOINT: gen_testdata.TARGET_SETS_FILE1,
     gen_testdata.SETS_NEXTPAGE_URL: gen_testdata.TARGET_SETS_FILE2,
@@ -64,7 +63,9 @@ def test_scryfetch() -> None:
 @pytest.mark.usefixtures("scryurls")
 def test_break_object_cache(baddata: bytes) -> None:
     scrydata1 = fetcher.scryfetch()
-    with open(fetcher._cache_path(fetcher.OBJECT_CACHE_URL), "wb") as cache_file:
+    with open(
+        fetcher._cache_path(fetcher.OBJECT_CACHE_URL, ".pickle.gz"), "wb"
+    ) as cache_file:
         cache_file.write(baddata)
     scrydata2 = fetcher.scryfetch()
     assert scrydata1 == scrydata2

@@ -1,12 +1,8 @@
 """Data bundle definitions."""
 
-from typing import List
-from typing import NamedTuple
-from typing import Set
+from typing import List, NamedTuple, Set
 
-from mtg_ssm.scryfall.models import ScryCard
-from mtg_ssm.scryfall.models import ScrySet
-from mtg_ssm.scryfall.models import ScrySetType
+from mtg_ssm.scryfall.models import ScryCard, ScrySet, ScrySetType
 
 
 class ScryfallDataSet(NamedTuple):

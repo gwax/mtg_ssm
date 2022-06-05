@@ -2,10 +2,7 @@
 
 import collections
 import enum
-from typing import Any
-from typing import Dict
-from typing import Iterable
-from typing import MutableMapping
+from typing import Any, Dict, Iterable, MutableMapping
 from uuid import UUID
 
 from mtg_ssm.containers import legacy
@@ -15,8 +12,8 @@ from mtg_ssm.containers.indexes import Oracle
 class CountType(enum.Enum):
     """Enum for possible card printing types (nonfoil, foil)."""
 
-    nonfoil = enum.auto()
-    foil = enum.auto()
+    NONFOIL = "nonfoil"
+    FOIL = "foil"
 
 
 ScryfallCardCount = Dict[UUID, MutableMapping[CountType, int]]
@@ -38,7 +35,7 @@ def aggregate_card_counts(
             scryfall_id = UUID(scryfall_id)
         counts = card_counts.get(scryfall_id, {})
         for count_type in CountType:
-            value = int(card_row.get(count_type.name) or 0)
+            value = int(card_row.get(count_type.value) or 0)
             if value:
                 counts[count_type] = value + counts.get(count_type, 0)
         if counts:
