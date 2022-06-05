@@ -7,6 +7,10 @@
 # Profiling data
 *.prof
 
+# Coverage data
+lcov.info
+*.lcov
+
 # Created by https://www.gitignore.io/api/python
 
 ### Python ###

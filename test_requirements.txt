@@ -1,6 +1,6 @@
 attrs>=17.4.0
 black>=18.6b4
-coverage<5.0
+coverage>=5.5
 doc8>=0.8.0
 flake8-bugbear>=17.3.0
 flake8-comprehensions>=1.2.1
@@ -13,6 +13,5 @@ Pygments>=2.3.1
 pylint>=2.3.1
 pytest-cov>=2.6.0
 pytest>=3.0.2
-python-coveralls>=2.9.0
 responses>=0.10.5
 types-requests>=2.27

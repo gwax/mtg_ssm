@@ -1,0 +1,56 @@
+name: pytest
+
+on:
+  pull_request:
+  push:
+    branches:
+      - trunk
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version:
+          - "3.8"
+          - "3.9"
+          - "3.10"
+    name: Python ${{ matrix.python-version }} pytest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        with:
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            test_requirements.txt
+
+      - name: Install requirements
+        run: pip install -r requirements.txt -r test_requirements.txt
+
+      - name: Execute pytest
+        run: pytest tests/
+
+      - name: Convert coverage
+        run: coverage lcov
+
+      - name: Coveralls Parallel
+        uses: coverallsapp/github-action@v1.1.2
+        with:
+          github-token: ${{ secrets.github_token }}
+          flag-name: python-${{ matrix.python-version }}
+          path-to-lcov: coverage.lcov
+          parallel: true
+
+  finish:
+    needs:
+      - pytest
+    runs-on: ubuntu-latest
+    steps:
+      - name: Coveralls Finished
+        uses: coverallsapp/github-action@v1.1.2
+        with:
+          github-token: ${{ secrets.github_token }}
+          path-to-lcov: coverage.lcov
+          parallel-finished: true
