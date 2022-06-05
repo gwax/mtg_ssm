@@ -137,6 +137,7 @@ Changelog
 Upcoming
 --------
 
+-   Build and release using GitHub Actions
 -   Switch over to pydantic for Scryfall data deserialization
 -   Bug fixes for newer sets that do not include a numeric component to ther
     collector numbers.
