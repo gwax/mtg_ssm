@@ -134,8 +134,13 @@ Acknowledgments
 Changelog
 =========
 
-Upcoming
---------
+Development
+-----------
+
+-   ...
+
+2.2.0
+-----
 
 -   Build and release using GitHub Actions
 -   Switch over to pydantic for Scryfall data deserialization
