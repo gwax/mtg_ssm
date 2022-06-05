@@ -47,7 +47,7 @@ def test_is_strict_basic(name: str, expected: bool) -> None:
         pytest.param(
             "Viscera Seer",
             UUID("dba1cf83-e13d-401e-b76f-b12a51b307f9"),
-            0,
+            None,
             "VS",
         ),
     ],
