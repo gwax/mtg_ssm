@@ -206,7 +206,8 @@ def rows_from_sheet(sheet: Worksheet) -> Iterable[Dict[str, str]]:
     header = [cell.value for cell in header_row]
     for row in rows:
         values = [cell.value for cell in row]
-        yield dict(zip(header, values), set=sheet.title)
+        if any(v is not None for v in values):
+            yield dict(zip(header, values), set=sheet.title)
 
 
 def rows_for_workbook(
