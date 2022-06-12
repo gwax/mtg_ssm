@@ -107,6 +107,32 @@ help to resolve this issue.
 -   Check "Beta: Use Unicode UTF-8 for worldwide language support".
 -   Restart your computer.
 
+LibreOffice
+-----------
+
+#NAME?
+~~~~~~
+
+LibreOffice has a different format from Excel for handling cross-worksheet
+cell references (`=LEA.A7` instead of Excel's standard `=LEA!A7`). If you
+open a mtg_ssm spreadsheet in LibreOffice, by default you will see `#NAME?`
+in all of your have references (counts of cards from other sets).
+
+To fix this, you need to tell LibreOffice to use the "Excel A1" format for
+calculating formulas.
+
+Bring up options/preferences
+
+**Tools -> Options**
+
+or on Mac
+
+**LibreOffice -> Preferences**
+
+Then configure the format to Excel A1:
+
+**LibreOffice Calc -> Formula -> Formula syntax = Excel A1**
+
 Contributions
 =============
 
@@ -137,7 +163,7 @@ Changelog
 Development
 -----------
 
--   ...
+-   Fix xlsx haverefs for sets with codes that begin with numbers
 
 2.2.1
 -----
