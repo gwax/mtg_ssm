@@ -53,6 +53,7 @@ TEST_SETS_TO_CARDS = {
     "vma": {"Academy Elite"},
     "w16": {"Serra Angel"},
     "sld": {"Viscera Seer"},
+    "sunf": {"Happy Dead Squirrel"},
 }
 
 

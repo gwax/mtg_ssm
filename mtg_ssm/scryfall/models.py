@@ -339,7 +339,7 @@ class ScryCard(BaseModel):
     oversized: bool
     penny_rank: Optional[int]
     power: Optional[str]
-    produced_mana: Optional[Sequence[ScryColor]]
+    produced_mana: Optional[Sequence[Union[ScryColor, int]]]
     reserved: bool
     toughness: Optional[str]
     type_line: Optional[str]
