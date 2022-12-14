@@ -1,0 +1,6 @@
+have,name,scryfall_id,collector_number,artist,nonfoil,foil,others
+=F2+G2,Dark Ritual,4ebcd681-1871-4914-bcd7-6bd95829f6e0,120,Justin Hampton,,,"=IF('LEA'!A3>0,""LEA: ""&'LEA'!A3&"", "","""")&IF('HOP'!A3>0,""HOP: ""&'HOP'!A3&"", "","""")"
+=F3+G3,Forest,fbdcbd97-90a9-45ea-94f6-2a1c6faaf965,380,Pat Morrissey,1,,
+=F4+G4,Forest,b346b784-7bde-49d0-bfa9-56236cbe19d9,381,Pat Morrissey,,2,
+=F5+G5,Forest,768c4d8f-5700-4f0a-9ff2-58422aeb1dac,382,Pat Morrissey,3,4,
+=F6+G6,Snow-Covered Forest,4c0ad95c-d62c-4138-ada0-fa39a63a449e,383,Pat Morrissey,,,

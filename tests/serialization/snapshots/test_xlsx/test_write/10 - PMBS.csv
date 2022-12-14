@@ -1,0 +1,3 @@
+have,name,scryfall_id,collector_number,artist,nonfoil,foil,others
+=F2+G2,Hero of Bladehold,8829efa0-498a-43ca-91aa-f9caeeafe298,8★,Scott Chou,,,"=IF('MBS'!A2>0,""MBS: ""&'MBS'!A2&"", "","""")"
+=F3+G3,Black Sun's Zenith,dd88131a-2811-4a1f-bb9a-c82e12c1493b,39,James Paick,,,"=IF('MBS'!A3>0,""MBS: ""&'MBS'!A3&"", "","""")"

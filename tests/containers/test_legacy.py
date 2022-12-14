@@ -76,7 +76,7 @@ def test_extract_counts(card_row: Dict[str, Any], expected: Dict[str, int]) -> N
             id="sn__ multiple",
         ),
         pytest.param(
-            {"set": "pMBR", "name": "Black Sun's Zenith"},
+            {"set": "pMBR", "name": "Black Sun's Zenith", "artist": "James Paick"},
             UUID("dd88131a-2811-4a1f-bb9a-c82e12c1493b"),
             id="set remap",
         ),

@@ -7,6 +7,7 @@ from typing import Dict
 from uuid import UUID
 
 import pytest
+from pytest_snapshot.plugin import Snapshot
 
 from mtg_ssm.containers import counts
 from mtg_ssm.containers.bundles import ScryfallDataSet
@@ -75,6 +76,12 @@ def test_rows_for_cards_verbose(oracle: Oracle) -> None:
         },
         {
             "set": "PMBS",
+            "name": "Hero of Bladehold",
+            "collector_number": "8★",
+            "scryfall_id": UUID("8829efa0-498a-43ca-91aa-f9caeeafe298"),
+        },
+        {
+            "set": "PMBS",
             "name": "Black Sun's Zenith",
             "collector_number": "39",
             "scryfall_id": UUID("dd88131a-2811-4a1f-bb9a-c82e12c1493b"),
@@ -99,7 +106,7 @@ def test_rows_for_cards_terse(oracle: Oracle) -> None:
     ]
 
 
-def test_write_verbose(oracle: Oracle, tmp_path: Path) -> None:
+def test_write_verbose(snapshot: Snapshot, oracle: Oracle, tmp_path: Path) -> None:
     csv_path = tmp_path / "outfile.csv"
     card_counts: ScryfallCardCount = {
         TEST_CARD_ID: {counts.CountType.NONFOIL: 3, counts.CountType.FOIL: 7}
@@ -108,17 +115,10 @@ def test_write_verbose(oracle: Oracle, tmp_path: Path) -> None:
     serializer = csv.CsvFullDialect()
     serializer.write(csv_path, collection)
     with csv_path.open("rt", encoding="utf-8") as csv_file:
-        assert csv_file.read() == textwrap.dedent(
-            """\
-            set,name,collector_number,scryfall_id,nonfoil,foil
-            PHOP,Stairs to Infinity,P1,57f25ead-b3ec-4c40-972d-d750ed2f5319,3,7
-            PHOP,Tazeem,41,76e5383d-ac12-4abc-aa30-15e99ded2d6f,,
-            PMBS,Black Sun\'s Zenith,39,dd88131a-2811-4a1f-bb9a-c82e12c1493b,,
-            """
-        )
+        snapshot.assert_match(csv_file.read(), "collection.csv")
 
 
-def test_write_terse(oracle: Oracle, tmp_path: Path) -> None:
+def test_write_terse(snapshot: Snapshot, oracle: Oracle, tmp_path: Path) -> None:
     csv_path = tmp_path / "outfile.csv"
     card_counts: counts.ScryfallCardCount = {
         TEST_CARD_ID: {counts.CountType.NONFOIL: 3}
@@ -128,12 +128,7 @@ def test_write_terse(oracle: Oracle, tmp_path: Path) -> None:
     serializer = csv.CsvTerseDialect()
     serializer.write(csv_path, collection)
     with csv_path.open("rt", encoding="utf-8") as csv_file:
-        assert csv_file.read() == textwrap.dedent(
-            """\
-            set,name,collector_number,scryfall_id,nonfoil,foil
-            PHOP,Stairs to Infinity,P1,57f25ead-b3ec-4c40-972d-d750ed2f5319,3,
-            """
-        )
+        snapshot.assert_match(csv_file.read(), "collection.csv")
 
 
 def test_read(oracle: Oracle, tmp_path: Path) -> None:

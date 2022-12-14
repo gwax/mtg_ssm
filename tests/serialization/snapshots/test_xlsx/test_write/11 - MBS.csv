@@ -1,0 +1,3 @@
+have,name,scryfall_id,collector_number,artist,nonfoil,foil,others
+=F2+G2,Hero of Bladehold,8a3853ec-e307-46e0-96d7-0706b5c45c5e,8,Austin Hsu,,,"=IF('PMBS'!A2>0,""PMBS: ""&'PMBS'!A2&"", "","""")"
+=F3+G3,Black Sun's Zenith,03bdcf52-50b8-42c0-9665-931d83f5f314,39,Daniel Ljunggren,,,"=IF('PMBS'!A3>0,""PMBS: ""&'PMBS'!A3&"", "","""")"

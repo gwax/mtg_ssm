@@ -256,6 +256,119 @@
     "variation": false
   },
   {
+    "artist": "Ralph Horsley",
+    "artist_ids": [
+      "a51444a8-eb4b-4615-a663-d1d418591ccb"
+    ],
+    "booster": true,
+    "border_color": "black",
+    "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+    "cardmarket_id": 11972,
+    "cmc": 0.0,
+    "collector_number": "273",
+    "color_identity": [],
+    "colors": [],
+    "digital": false,
+    "edhrec_rank": 1879,
+    "finishes": [
+      "nonfoil",
+      "foil"
+    ],
+    "foil": true,
+    "frame": "2003",
+    "full_art": false,
+    "games": [
+      "paper",
+      "mtgo"
+    ],
+    "highres_image": true,
+    "id": "0180d9a8-992c-4d55-8ac4-33a587786993",
+    "illustration_id": "4950c556-7a6e-42de-bead-b06defa969dc",
+    "image_status": "highres_scan",
+    "image_uris": {
+      "art_crop": "https://cards.scryfall.io/art_crop/front/0/1/0180d9a8-992c-4d55-8ac4-33a587786993.jpg?1562757082",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/0/1/0180d9a8-992c-4d55-8ac4-33a587786993.jpg?1562757082",
+      "large": "https://cards.scryfall.io/large/front/0/1/0180d9a8-992c-4d55-8ac4-33a587786993.jpg?1562757082",
+      "normal": "https://cards.scryfall.io/normal/front/0/1/0180d9a8-992c-4d55-8ac4-33a587786993.jpg?1562757082",
+      "png": "https://cards.scryfall.io/png/front/0/1/0180d9a8-992c-4d55-8ac4-33a587786993.png?1562757082",
+      "small": "https://cards.scryfall.io/small/front/0/1/0180d9a8-992c-4d55-8ac4-33a587786993.jpg?1562757082"
+    },
+    "keywords": [],
+    "lang": "en",
+    "layout": "normal",
+    "legalities": {
+      "alchemy": "not_legal",
+      "brawl": "not_legal",
+      "commander": "legal",
+      "duel": "legal",
+      "explorer": "not_legal",
+      "future": "not_legal",
+      "gladiator": "not_legal",
+      "historic": "not_legal",
+      "historicbrawl": "not_legal",
+      "legacy": "legal",
+      "modern": "legal",
+      "oldschool": "not_legal",
+      "pauper": "not_legal",
+      "paupercommander": "not_legal",
+      "penny": "not_legal",
+      "pioneer": "not_legal",
+      "premodern": "not_legal",
+      "standard": "not_legal",
+      "vintage": "legal"
+    },
+    "mana_cost": "",
+    "mtgo_foil_id": 21136,
+    "mtgo_id": 21135,
+    "multiverse_ids": [
+      75305
+    ],
+    "name": "Boseiju, Who Shelters All",
+    "nonfoil": true,
+    "object": "card",
+    "oracle_id": "36937483-30cb-449a-8028-75017a124922",
+    "oracle_text": "Boseiju, Who Shelters All enters the battlefield tapped.\n{T}, Pay 2 life: Add {C}. If that mana is spent on an instant or sorcery spell, that spell can't be countered.",
+    "oversized": false,
+    "prices": {
+      "eur": 10.5,
+      "eur_foil": 65.0,
+      "tix": 0.32,
+      "usd": 30.7,
+      "usd_etched": null,
+      "usd_foil": 81.62
+    },
+    "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A36937483-30cb-449a-8028-75017a124922&unique=prints",
+    "produced_mana": [
+      "C"
+    ],
+    "promo": false,
+    "rarity": "rare",
+    "related_uris": {
+      "edhrec": "https://edhrec.com/route/?cc=Boseiju%2C+Who+Shelters+All",
+      "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=75305",
+      "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Boseiju%2C+Who+Shelters+All&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "tcgplayer_infinite_decks": "https://infinite.tcgplayer.com/search?contentMode=deck&game=magic&partner=scryfall&q=Boseiju%2C+Who+Shelters+All&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+    },
+    "released_at": "2004-10-01",
+    "reprint": false,
+    "reserved": false,
+    "rulings_uri": "https://api.scryfall.com/cards/0180d9a8-992c-4d55-8ac4-33a587786993/rulings",
+    "scryfall_set_uri": "https://scryfall.com/sets/chk?utm_source=api",
+    "scryfall_uri": "https://scryfall.com/card/chk/273/boseiju-who-shelters-all?utm_source=api",
+    "set": "chk",
+    "set_id": "6183d21f-a0af-4118-ba58-aca1d8719c01",
+    "set_name": "Champions of Kamigawa",
+    "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Achk&unique=prints",
+    "set_type": "expansion",
+    "set_uri": "https://api.scryfall.com/sets/6183d21f-a0af-4118-ba58-aca1d8719c01",
+    "story_spotlight": false,
+    "tcgplayer_id": 11953,
+    "textless": false,
+    "type_line": "Legendary Land",
+    "uri": "https://api.scryfall.com/cards/0180d9a8-992c-4d55-8ac4-33a587786993",
+    "variation": false
+  },
+  {
     "artist": "Mark Zug",
     "artist_ids": [
       "48e2b98c-5467-4671-bd42-4c3746115117"
@@ -482,7 +595,7 @@
     "penny_rank": 10719,
     "power": "4",
     "prices": {
-      "eur": 0.05,
+      "eur": 0.1,
       "eur_foil": 0.99,
       "tix": 0.02,
       "usd": 0.17,
@@ -1122,7 +1235,7 @@
     "oversized": false,
     "power": "0",
     "prices": {
-      "eur": 0.3,
+      "eur": 0.05,
       "eur_foil": null,
       "tix": null,
       "usd": 0.14,
@@ -1238,7 +1351,7 @@
     "oversized": false,
     "power": "0",
     "prices": {
-      "eur": 0.02,
+      "eur": 0.05,
       "eur_foil": null,
       "tix": null,
       "usd": 0.16,
@@ -1472,7 +1585,7 @@
     "oversized": false,
     "penny_rank": 27,
     "prices": {
-      "eur": 2.03,
+      "eur": 1.0,
       "eur_foil": null,
       "tix": 0.83,
       "usd": 0.66,
@@ -1589,7 +1702,7 @@
     "oversized": false,
     "penny_rank": 27,
     "prices": {
-      "eur": 0.25,
+      "eur": 0.58,
       "eur_foil": null,
       "tix": 1.17,
       "usd": 0.98,
@@ -1701,7 +1814,7 @@
     "oracle_text": "({T}: Add {G}.)",
     "oversized": false,
     "prices": {
-      "eur": 0.2,
+      "eur": 0.66,
       "eur_foil": null,
       "tix": 0.35,
       "usd": 0.8,
@@ -1813,7 +1926,7 @@
     "oracle_text": "({T}: Add {G}.)",
     "oversized": false,
     "prices": {
-      "eur": 0.39,
+      "eur": 0.5,
       "eur_foil": null,
       "tix": 0.8,
       "usd": 1.02,
@@ -1925,7 +2038,7 @@
     "oracle_text": "({T}: Add {G}.)",
     "oversized": false,
     "prices": {
-      "eur": 0.19,
+      "eur": 0.5,
       "eur_foil": null,
       "tix": 3.66,
       "usd": 0.36,
@@ -2037,7 +2150,7 @@
     "oracle_text": "({T}: Add {G}.)",
     "oversized": false,
     "prices": {
-      "eur": 1.73,
+      "eur": 0.92,
       "eur_foil": null,
       "tix": 2.45,
       "usd": 1.65,
@@ -2320,7 +2433,7 @@
     "oversized": false,
     "penny_rank": 102,
     "prices": {
-      "eur": 0.86,
+      "eur": 1.07,
       "eur_foil": 4.5,
       "tix": 0.02,
       "usd": 0.54,
@@ -2431,7 +2544,7 @@
     "oracle_text": "({T}: Add {G}.)",
     "oversized": false,
     "prices": {
-      "eur": 0.1,
+      "eur": 0.11,
       "eur_foil": 0.84,
       "tix": 0.02,
       "usd": 0.17,
@@ -2545,7 +2658,7 @@
     "oracle_text": "({T}: Add {G}.)",
     "oversized": false,
     "prices": {
-      "eur": 0.1,
+      "eur": 0.13,
       "eur_foil": 1.0,
       "tix": 0.03,
       "usd": 0.17,
@@ -3148,6 +3261,260 @@
     "variation": false
   },
   {
+    "artist": "Daniel Ljunggren",
+    "artist_ids": [
+      "0fbd4798-76eb-46d5-a5d4-1e3a25870e34"
+    ],
+    "booster": true,
+    "border_color": "black",
+    "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+    "cardmarket_id": 245365,
+    "cmc": 2.0,
+    "collector_number": "39",
+    "color_identity": [
+      "B"
+    ],
+    "colors": [
+      "B"
+    ],
+    "digital": false,
+    "edhrec_rank": 1565,
+    "finishes": [
+      "nonfoil",
+      "foil"
+    ],
+    "flavor_text": "\"Under the suns, Mirrodin kneels and begs us for perfection.\"\n—Geth, Lord of the Vault",
+    "foil": true,
+    "frame": "2003",
+    "full_art": false,
+    "games": [
+      "paper",
+      "mtgo"
+    ],
+    "highres_image": true,
+    "id": "03bdcf52-50b8-42c0-9665-931d83f5f314",
+    "illustration_id": "c670b7ba-a1a0-483b-9d18-4c464869a294",
+    "image_status": "highres_scan",
+    "image_uris": {
+      "art_crop": "https://cards.scryfall.io/art_crop/front/0/3/03bdcf52-50b8-42c0-9665-931d83f5f314.jpg?1562609329",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/0/3/03bdcf52-50b8-42c0-9665-931d83f5f314.jpg?1562609329",
+      "large": "https://cards.scryfall.io/large/front/0/3/03bdcf52-50b8-42c0-9665-931d83f5f314.jpg?1562609329",
+      "normal": "https://cards.scryfall.io/normal/front/0/3/03bdcf52-50b8-42c0-9665-931d83f5f314.jpg?1562609329",
+      "png": "https://cards.scryfall.io/png/front/0/3/03bdcf52-50b8-42c0-9665-931d83f5f314.png?1562609329",
+      "small": "https://cards.scryfall.io/small/front/0/3/03bdcf52-50b8-42c0-9665-931d83f5f314.jpg?1562609329"
+    },
+    "keywords": [],
+    "lang": "en",
+    "layout": "normal",
+    "legalities": {
+      "alchemy": "not_legal",
+      "brawl": "not_legal",
+      "commander": "legal",
+      "duel": "legal",
+      "explorer": "not_legal",
+      "future": "not_legal",
+      "gladiator": "not_legal",
+      "historic": "not_legal",
+      "historicbrawl": "not_legal",
+      "legacy": "legal",
+      "modern": "legal",
+      "oldschool": "not_legal",
+      "pauper": "not_legal",
+      "paupercommander": "not_legal",
+      "penny": "legal",
+      "pioneer": "not_legal",
+      "premodern": "not_legal",
+      "standard": "not_legal",
+      "vintage": "legal"
+    },
+    "mana_cost": "{X}{B}{B}",
+    "mtgo_foil_id": 39534,
+    "mtgo_id": 39533,
+    "multiverse_ids": [
+      214061
+    ],
+    "name": "Black Sun's Zenith",
+    "nonfoil": true,
+    "object": "card",
+    "oracle_id": "038c0165-32b6-4e81-8180-604b49905207",
+    "oracle_text": "Put X -1/-1 counters on each creature. Shuffle Black Sun's Zenith into its owner's library.",
+    "oversized": false,
+    "penny_rank": 1796,
+    "prices": {
+      "eur": 5.04,
+      "eur_foil": 7.99,
+      "tix": 0.02,
+      "usd": 5.21,
+      "usd_etched": null,
+      "usd_foil": 11.56
+    },
+    "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A038c0165-32b6-4e81-8180-604b49905207&unique=prints",
+    "promo": false,
+    "rarity": "rare",
+    "related_uris": {
+      "edhrec": "https://edhrec.com/route/?cc=Black+Sun%27s+Zenith",
+      "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=214061",
+      "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Black+Sun%27s+Zenith&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "tcgplayer_infinite_decks": "https://infinite.tcgplayer.com/search?contentMode=deck&game=magic&partner=scryfall&q=Black+Sun%27s+Zenith&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+    },
+    "released_at": "2011-02-04",
+    "reprint": false,
+    "reserved": false,
+    "rulings_uri": "https://api.scryfall.com/cards/03bdcf52-50b8-42c0-9665-931d83f5f314/rulings",
+    "scryfall_set_uri": "https://scryfall.com/sets/mbs?utm_source=api",
+    "scryfall_uri": "https://scryfall.com/card/mbs/39/black-suns-zenith?utm_source=api",
+    "set": "mbs",
+    "set_id": "f46c57e3-9301-4006-a6ca-06f3f65961fb",
+    "set_name": "Mirrodin Besieged",
+    "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Ambs&unique=prints",
+    "set_type": "expansion",
+    "set_uri": "https://api.scryfall.com/sets/f46c57e3-9301-4006-a6ca-06f3f65961fb",
+    "story_spotlight": false,
+    "tcgplayer_id": 39086,
+    "textless": false,
+    "type_line": "Sorcery",
+    "uri": "https://api.scryfall.com/cards/03bdcf52-50b8-42c0-9665-931d83f5f314",
+    "variation": false,
+    "watermark": "phyrexian"
+  },
+  {
+    "all_parts": [
+      {
+        "component": "combo_piece",
+        "id": "8a3853ec-e307-46e0-96d7-0706b5c45c5e",
+        "name": "Hero of Bladehold",
+        "object": "related_card",
+        "type_line": "Creature — Human Knight",
+        "uri": "https://api.scryfall.com/cards/8a3853ec-e307-46e0-96d7-0706b5c45c5e"
+      },
+      {
+        "component": "token",
+        "id": "7a563df7-7b9d-4692-ab1b-578be1887b62",
+        "name": "Soldier",
+        "object": "related_card",
+        "type_line": "Token Creature — Soldier",
+        "uri": "https://api.scryfall.com/cards/7a563df7-7b9d-4692-ab1b-578be1887b62"
+      }
+    ],
+    "artist": "Austin Hsu",
+    "artist_ids": [
+      "c5e439d8-b3db-4c13-ae93-4e129e3b9478"
+    ],
+    "booster": true,
+    "border_color": "black",
+    "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+    "cardmarket_id": 245262,
+    "cmc": 4.0,
+    "collector_number": "8",
+    "color_identity": [
+      "W"
+    ],
+    "colors": [
+      "W"
+    ],
+    "digital": false,
+    "edhrec_rank": 2329,
+    "finishes": [
+      "nonfoil",
+      "foil"
+    ],
+    "foil": true,
+    "frame": "2003",
+    "full_art": false,
+    "games": [
+      "paper",
+      "mtgo"
+    ],
+    "highres_image": true,
+    "id": "8a3853ec-e307-46e0-96d7-0706b5c45c5e",
+    "illustration_id": "92988936-3284-4656-9eee-74723504b527",
+    "image_status": "highres_scan",
+    "image_uris": {
+      "art_crop": "https://cards.scryfall.io/art_crop/front/8/a/8a3853ec-e307-46e0-96d7-0706b5c45c5e.jpg?1562612851",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/8/a/8a3853ec-e307-46e0-96d7-0706b5c45c5e.jpg?1562612851",
+      "large": "https://cards.scryfall.io/large/front/8/a/8a3853ec-e307-46e0-96d7-0706b5c45c5e.jpg?1562612851",
+      "normal": "https://cards.scryfall.io/normal/front/8/a/8a3853ec-e307-46e0-96d7-0706b5c45c5e.jpg?1562612851",
+      "png": "https://cards.scryfall.io/png/front/8/a/8a3853ec-e307-46e0-96d7-0706b5c45c5e.png?1562612851",
+      "small": "https://cards.scryfall.io/small/front/8/a/8a3853ec-e307-46e0-96d7-0706b5c45c5e.jpg?1562612851"
+    },
+    "keywords": [
+      "Battle Cry"
+    ],
+    "lang": "en",
+    "layout": "normal",
+    "legalities": {
+      "alchemy": "not_legal",
+      "brawl": "not_legal",
+      "commander": "legal",
+      "duel": "legal",
+      "explorer": "not_legal",
+      "future": "not_legal",
+      "gladiator": "not_legal",
+      "historic": "not_legal",
+      "historicbrawl": "not_legal",
+      "legacy": "legal",
+      "modern": "legal",
+      "oldschool": "not_legal",
+      "pauper": "not_legal",
+      "paupercommander": "not_legal",
+      "penny": "not_legal",
+      "pioneer": "not_legal",
+      "premodern": "not_legal",
+      "standard": "not_legal",
+      "vintage": "legal"
+    },
+    "mana_cost": "{2}{W}{W}",
+    "mtgo_foil_id": 39540,
+    "mtgo_id": 39539,
+    "multiverse_ids": [
+      214064
+    ],
+    "name": "Hero of Bladehold",
+    "nonfoil": true,
+    "object": "card",
+    "oracle_id": "454a8902-8120-4373-96ee-bbf352b04e8d",
+    "oracle_text": "Battle cry (Whenever this creature attacks, each other attacking creature gets +1/+0 until end of turn.)\nWhenever Hero of Bladehold attacks, create two 1/1 white Soldier creature tokens that are tapped and attacking.",
+    "oversized": false,
+    "power": "3",
+    "prices": {
+      "eur": 10.17,
+      "eur_foil": 8.9,
+      "tix": 0.13,
+      "usd": 12.8,
+      "usd_etched": null,
+      "usd_foil": 27.99
+    },
+    "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A454a8902-8120-4373-96ee-bbf352b04e8d&unique=prints",
+    "promo": false,
+    "rarity": "mythic",
+    "related_uris": {
+      "edhrec": "https://edhrec.com/route/?cc=Hero+of+Bladehold",
+      "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=214064",
+      "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Hero+of+Bladehold&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "tcgplayer_infinite_decks": "https://infinite.tcgplayer.com/search?contentMode=deck&game=magic&partner=scryfall&q=Hero+of+Bladehold&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+    },
+    "released_at": "2011-02-04",
+    "reprint": false,
+    "reserved": false,
+    "rulings_uri": "https://api.scryfall.com/cards/8a3853ec-e307-46e0-96d7-0706b5c45c5e/rulings",
+    "scryfall_set_uri": "https://scryfall.com/sets/mbs?utm_source=api",
+    "scryfall_uri": "https://scryfall.com/card/mbs/8/hero-of-bladehold?utm_source=api",
+    "set": "mbs",
+    "set_id": "f46c57e3-9301-4006-a6ca-06f3f65961fb",
+    "set_name": "Mirrodin Besieged",
+    "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Ambs&unique=prints",
+    "set_type": "expansion",
+    "set_uri": "https://api.scryfall.com/sets/f46c57e3-9301-4006-a6ca-06f3f65961fb",
+    "story_spotlight": false,
+    "tcgplayer_id": 39032,
+    "textless": false,
+    "toughness": "4",
+    "type_line": "Creature — Human Knight",
+    "uri": "https://api.scryfall.com/cards/8a3853ec-e307-46e0-96d7-0706b5c45c5e",
+    "variation": false,
+    "watermark": "mirran"
+  },
+  {
     "all_parts": [
       {
         "component": "token",
@@ -3246,7 +3613,7 @@
     "penny_rank": 8816,
     "power": "1",
     "prices": {
-      "eur": 0.25,
+      "eur": 0.15,
       "eur_foil": 0.15,
       "tix": 0.03,
       "usd": 0.24,
@@ -3280,6 +3647,391 @@
     "toughness": "1",
     "type_line": "Creature — Fungus",
     "uri": "https://api.scryfall.com/cards/69d20d28-76e9-4e6e-95c3-f88c51dfabfd",
+    "variation": false
+  },
+  {
+    "arena_id": 79706,
+    "artist": "Chris Ostrowski",
+    "artist_ids": [
+      "b5f1bd34-abee-40c9-99f7-a6ee089fb30b"
+    ],
+    "booster": true,
+    "border_color": "black",
+    "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+    "cardmarket_id": 607040,
+    "cmc": 0.0,
+    "collector_number": "266",
+    "color_identity": [
+      "G"
+    ],
+    "colors": [],
+    "digital": false,
+    "edhrec_rank": 159,
+    "finishes": [
+      "nonfoil",
+      "foil"
+    ],
+    "foil": true,
+    "frame": "2015",
+    "frame_effects": [
+      "legendary"
+    ],
+    "full_art": false,
+    "games": [
+      "paper",
+      "mtgo",
+      "arena"
+    ],
+    "highres_image": true,
+    "id": "2135ac5a-187b-4dc9-8f82-34e8d1603416",
+    "illustration_id": "fecffc00-411c-4e85-b595-2ca0e4cb672b",
+    "image_status": "highres_scan",
+    "image_uris": {
+      "art_crop": "https://cards.scryfall.io/art_crop/front/2/1/2135ac5a-187b-4dc9-8f82-34e8d1603416.jpg?1654568912",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/2/1/2135ac5a-187b-4dc9-8f82-34e8d1603416.jpg?1654568912",
+      "large": "https://cards.scryfall.io/large/front/2/1/2135ac5a-187b-4dc9-8f82-34e8d1603416.jpg?1654568912",
+      "normal": "https://cards.scryfall.io/normal/front/2/1/2135ac5a-187b-4dc9-8f82-34e8d1603416.jpg?1654568912",
+      "png": "https://cards.scryfall.io/png/front/2/1/2135ac5a-187b-4dc9-8f82-34e8d1603416.png?1654568912",
+      "small": "https://cards.scryfall.io/small/front/2/1/2135ac5a-187b-4dc9-8f82-34e8d1603416.jpg?1654568912"
+    },
+    "keywords": [
+      "Channel"
+    ],
+    "lang": "en",
+    "layout": "normal",
+    "legalities": {
+      "alchemy": "legal",
+      "brawl": "legal",
+      "commander": "legal",
+      "duel": "legal",
+      "explorer": "legal",
+      "future": "legal",
+      "gladiator": "legal",
+      "historic": "legal",
+      "historicbrawl": "legal",
+      "legacy": "legal",
+      "modern": "legal",
+      "oldschool": "not_legal",
+      "pauper": "not_legal",
+      "paupercommander": "not_legal",
+      "penny": "not_legal",
+      "pioneer": "legal",
+      "premodern": "not_legal",
+      "standard": "legal",
+      "vintage": "legal"
+    },
+    "mana_cost": "",
+    "mtgo_id": 97482,
+    "multiverse_ids": [
+      548579
+    ],
+    "name": "Boseiju, Who Endures",
+    "nonfoil": true,
+    "object": "card",
+    "oracle_id": "bf1341dd-41a3-49f6-87ec-63170dde4324",
+    "oracle_text": "{T}: Add {G}.\nChannel — {1}{G}, Discard Boseiju, Who Endures: Destroy target artifact, enchantment, or nonbasic land an opponent controls. That player may search their library for a land card with a basic land type, put it onto the battlefield, then shuffle. This ability costs {1} less to activate for each legendary creature you control.",
+    "oversized": false,
+    "preview": {
+      "previewed_at": "2022-01-27",
+      "source": "Wizards of the Coast",
+      "source_uri": "https://www.twitch.tv/videos/1277767538"
+    },
+    "prices": {
+      "eur": 31.78,
+      "eur_foil": 37.68,
+      "tix": 49.07,
+      "usd": 25.3,
+      "usd_etched": null,
+      "usd_foil": 26.17
+    },
+    "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Abf1341dd-41a3-49f6-87ec-63170dde4324&unique=prints",
+    "produced_mana": [
+      "G"
+    ],
+    "promo": false,
+    "rarity": "rare",
+    "related_uris": {
+      "edhrec": "https://edhrec.com/route/?cc=Boseiju%2C+Who+Endures",
+      "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=548579",
+      "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Boseiju%2C+Who+Endures&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "tcgplayer_infinite_decks": "https://infinite.tcgplayer.com/search?contentMode=deck&game=magic&partner=scryfall&q=Boseiju%2C+Who+Endures&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+    },
+    "released_at": "2022-02-18",
+    "reprint": false,
+    "reserved": false,
+    "rulings_uri": "https://api.scryfall.com/cards/2135ac5a-187b-4dc9-8f82-34e8d1603416/rulings",
+    "scryfall_set_uri": "https://scryfall.com/sets/neo?utm_source=api",
+    "scryfall_uri": "https://scryfall.com/card/neo/266/boseiju-who-endures?utm_source=api",
+    "security_stamp": "oval",
+    "set": "neo",
+    "set_id": "59a2059f-5482-433f-8761-eb2e17859b71",
+    "set_name": "Kamigawa: Neon Dynasty",
+    "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aneo&unique=prints",
+    "set_type": "expansion",
+    "set_uri": "https://api.scryfall.com/sets/59a2059f-5482-433f-8761-eb2e17859b71",
+    "story_spotlight": false,
+    "tcgplayer_id": 262050,
+    "textless": false,
+    "type_line": "Legendary Land",
+    "uri": "https://api.scryfall.com/cards/2135ac5a-187b-4dc9-8f82-34e8d1603416",
+    "variation": false
+  },
+  {
+    "arena_id": 79771,
+    "artist": "Esuthio",
+    "artist_ids": [
+      "3d32f438-ba33-4f37-b7ac-9a0cc913ae60"
+    ],
+    "booster": false,
+    "border_color": "borderless",
+    "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+    "cardmarket_id": 607021,
+    "cmc": 0.0,
+    "collector_number": "412",
+    "color_identity": [
+      "G"
+    ],
+    "colors": [],
+    "digital": false,
+    "edhrec_rank": 159,
+    "finishes": [
+      "nonfoil",
+      "foil"
+    ],
+    "foil": true,
+    "frame": "2015",
+    "frame_effects": [
+      "legendary"
+    ],
+    "full_art": false,
+    "games": [
+      "paper",
+      "mtgo",
+      "arena"
+    ],
+    "highres_image": true,
+    "id": "0055ea30-20fb-4324-a632-8fed87628f05",
+    "illustration_id": "b9489921-8c0b-45d0-b54d-df944e3f7e6b",
+    "image_status": "highres_scan",
+    "image_uris": {
+      "art_crop": "https://cards.scryfall.io/art_crop/front/0/0/0055ea30-20fb-4324-a632-8fed87628f05.jpg?1647145068",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/0/0/0055ea30-20fb-4324-a632-8fed87628f05.jpg?1647145068",
+      "large": "https://cards.scryfall.io/large/front/0/0/0055ea30-20fb-4324-a632-8fed87628f05.jpg?1647145068",
+      "normal": "https://cards.scryfall.io/normal/front/0/0/0055ea30-20fb-4324-a632-8fed87628f05.jpg?1647145068",
+      "png": "https://cards.scryfall.io/png/front/0/0/0055ea30-20fb-4324-a632-8fed87628f05.png?1647145068",
+      "small": "https://cards.scryfall.io/small/front/0/0/0055ea30-20fb-4324-a632-8fed87628f05.jpg?1647145068"
+    },
+    "keywords": [
+      "Channel"
+    ],
+    "lang": "en",
+    "layout": "normal",
+    "legalities": {
+      "alchemy": "legal",
+      "brawl": "legal",
+      "commander": "legal",
+      "duel": "legal",
+      "explorer": "legal",
+      "future": "legal",
+      "gladiator": "legal",
+      "historic": "legal",
+      "historicbrawl": "legal",
+      "legacy": "legal",
+      "modern": "legal",
+      "oldschool": "not_legal",
+      "pauper": "not_legal",
+      "paupercommander": "not_legal",
+      "penny": "not_legal",
+      "pioneer": "legal",
+      "premodern": "not_legal",
+      "standard": "legal",
+      "vintage": "legal"
+    },
+    "mana_cost": "",
+    "multiverse_ids": [
+      552122
+    ],
+    "name": "Boseiju, Who Endures",
+    "nonfoil": true,
+    "object": "card",
+    "oracle_id": "bf1341dd-41a3-49f6-87ec-63170dde4324",
+    "oracle_text": "{T}: Add {G}.\nChannel — {1}{G}, Discard Boseiju, Who Endures: Destroy target artifact, enchantment, or nonbasic land an opponent controls. That player may search their library for a land card with a basic land type, put it onto the battlefield, then shuffle. This ability costs {1} less to activate for each legendary creature you control.",
+    "oversized": false,
+    "preview": {
+      "previewed_at": "2022-01-27",
+      "source": "Wizards of the Coast",
+      "source_uri": "https://www.twitch.tv/videos/1277767538"
+    },
+    "prices": {
+      "eur": 37.72,
+      "eur_foil": 58.99,
+      "tix": null,
+      "usd": 33.72,
+      "usd_etched": null,
+      "usd_foil": 64.69
+    },
+    "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Abf1341dd-41a3-49f6-87ec-63170dde4324&unique=prints",
+    "produced_mana": [
+      "G"
+    ],
+    "promo": false,
+    "promo_types": [
+      "boosterfun"
+    ],
+    "rarity": "rare",
+    "related_uris": {
+      "edhrec": "https://edhrec.com/route/?cc=Boseiju%2C+Who+Endures",
+      "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=552122",
+      "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Boseiju%2C+Who+Endures&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "tcgplayer_infinite_decks": "https://infinite.tcgplayer.com/search?contentMode=deck&game=magic&partner=scryfall&q=Boseiju%2C+Who+Endures&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+    },
+    "released_at": "2022-02-18",
+    "reprint": false,
+    "reserved": false,
+    "rulings_uri": "https://api.scryfall.com/cards/0055ea30-20fb-4324-a632-8fed87628f05/rulings",
+    "scryfall_set_uri": "https://scryfall.com/sets/neo?utm_source=api",
+    "scryfall_uri": "https://scryfall.com/card/neo/412/boseiju-who-endures?utm_source=api",
+    "security_stamp": "oval",
+    "set": "neo",
+    "set_id": "59a2059f-5482-433f-8761-eb2e17859b71",
+    "set_name": "Kamigawa: Neon Dynasty",
+    "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aneo&unique=prints",
+    "set_type": "expansion",
+    "set_uri": "https://api.scryfall.com/sets/59a2059f-5482-433f-8761-eb2e17859b71",
+    "story_spotlight": false,
+    "tcgplayer_id": 262051,
+    "textless": false,
+    "type_line": "Legendary Land",
+    "uri": "https://api.scryfall.com/cards/0055ea30-20fb-4324-a632-8fed87628f05",
+    "variation": false
+  },
+  {
+    "artist": "Chris Ostrowski",
+    "artist_ids": [
+      "b5f1bd34-abee-40c9-99f7-a6ee089fb30b"
+    ],
+    "booster": false,
+    "border_color": "black",
+    "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+    "cardmarket_id": 607186,
+    "cmc": 0.0,
+    "collector_number": "501",
+    "color_identity": [
+      "G"
+    ],
+    "colors": [],
+    "digital": false,
+    "edhrec_rank": 159,
+    "finishes": [
+      "nonfoil",
+      "foil"
+    ],
+    "foil": true,
+    "frame": "2015",
+    "frame_effects": [
+      "legendary",
+      "extendedart"
+    ],
+    "full_art": false,
+    "games": [
+      "paper",
+      "mtgo",
+      "arena"
+    ],
+    "highres_image": true,
+    "id": "2488a80b-6882-4b59-8232-f02f800204a9",
+    "illustration_id": "fecffc00-411c-4e85-b595-2ca0e4cb672b",
+    "image_status": "highres_scan",
+    "image_uris": {
+      "art_crop": "https://cards.scryfall.io/art_crop/front/2/4/2488a80b-6882-4b59-8232-f02f800204a9.jpg?1647809455",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/2/4/2488a80b-6882-4b59-8232-f02f800204a9.jpg?1647809455",
+      "large": "https://cards.scryfall.io/large/front/2/4/2488a80b-6882-4b59-8232-f02f800204a9.jpg?1647809455",
+      "normal": "https://cards.scryfall.io/normal/front/2/4/2488a80b-6882-4b59-8232-f02f800204a9.jpg?1647809455",
+      "png": "https://cards.scryfall.io/png/front/2/4/2488a80b-6882-4b59-8232-f02f800204a9.png?1647809455",
+      "small": "https://cards.scryfall.io/small/front/2/4/2488a80b-6882-4b59-8232-f02f800204a9.jpg?1647809455"
+    },
+    "keywords": [
+      "Channel"
+    ],
+    "lang": "en",
+    "layout": "normal",
+    "legalities": {
+      "alchemy": "legal",
+      "brawl": "legal",
+      "commander": "legal",
+      "duel": "legal",
+      "explorer": "legal",
+      "future": "legal",
+      "gladiator": "legal",
+      "historic": "legal",
+      "historicbrawl": "legal",
+      "legacy": "legal",
+      "modern": "legal",
+      "oldschool": "not_legal",
+      "pauper": "not_legal",
+      "paupercommander": "not_legal",
+      "penny": "not_legal",
+      "pioneer": "legal",
+      "premodern": "not_legal",
+      "standard": "legal",
+      "vintage": "legal"
+    },
+    "mana_cost": "",
+    "multiverse_ids": [
+      551783
+    ],
+    "name": "Boseiju, Who Endures",
+    "nonfoil": true,
+    "object": "card",
+    "oracle_id": "bf1341dd-41a3-49f6-87ec-63170dde4324",
+    "oracle_text": "{T}: Add {G}.\nChannel — {1}{G}, Discard Boseiju, Who Endures: Destroy target artifact, enchantment, or nonbasic land an opponent controls. That player may search their library for a land card with a basic land type, put it onto the battlefield, then shuffle. This ability costs {1} less to activate for each legendary creature you control.",
+    "oversized": false,
+    "preview": {
+      "previewed_at": "2022-01-28",
+      "source": "Wizards of the Coast",
+      "source_uri": "https://www.twitch.tv/videos/1277767538"
+    },
+    "prices": {
+      "eur": 37.93,
+      "eur_foil": 47.47,
+      "tix": null,
+      "usd": 27.26,
+      "usd_etched": null,
+      "usd_foil": 33.41
+    },
+    "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Abf1341dd-41a3-49f6-87ec-63170dde4324&unique=prints",
+    "produced_mana": [
+      "G"
+    ],
+    "promo": false,
+    "promo_types": [
+      "boosterfun"
+    ],
+    "rarity": "rare",
+    "related_uris": {
+      "edhrec": "https://edhrec.com/route/?cc=Boseiju%2C+Who+Endures",
+      "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=551783",
+      "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Boseiju%2C+Who+Endures&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "tcgplayer_infinite_decks": "https://infinite.tcgplayer.com/search?contentMode=deck&game=magic&partner=scryfall&q=Boseiju%2C+Who+Endures&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+    },
+    "released_at": "2022-02-18",
+    "reprint": false,
+    "reserved": false,
+    "rulings_uri": "https://api.scryfall.com/cards/2488a80b-6882-4b59-8232-f02f800204a9/rulings",
+    "scryfall_set_uri": "https://scryfall.com/sets/neo?utm_source=api",
+    "scryfall_uri": "https://scryfall.com/card/neo/501/boseiju-who-endures?utm_source=api",
+    "security_stamp": "oval",
+    "set": "neo",
+    "set_id": "59a2059f-5482-433f-8761-eb2e17859b71",
+    "set_name": "Kamigawa: Neon Dynasty",
+    "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aneo&unique=prints",
+    "set_type": "expansion",
+    "set_uri": "https://api.scryfall.com/sets/59a2059f-5482-433f-8761-eb2e17859b71",
+    "story_spotlight": false,
+    "tcgplayer_id": 262439,
+    "textless": false,
+    "type_line": "Legendary Land",
+    "uri": "https://api.scryfall.com/cards/2488a80b-6882-4b59-8232-f02f800204a9",
     "variation": false
   },
   {
@@ -3462,10 +4214,10 @@
     "oracle_text": "{T}: Add {C}.",
     "oversized": false,
     "prices": {
-      "eur": 0.32,
+      "eur": 0.59,
       "eur_foil": 4.95,
       "tix": 0.02,
-      "usd": 0.8,
+      "usd": 0.81,
       "usd_etched": null,
       "usd_foil": 7.37
     },
@@ -3571,10 +4323,10 @@
     "oracle_text": "{T}: Add {C}.",
     "oversized": false,
     "prices": {
-      "eur": 1.09,
+      "eur": 0.8,
       "eur_foil": null,
       "tix": null,
-      "usd": 2.34,
+      "usd": 2.31,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -3683,10 +4435,10 @@
     "oracle_text": "{T}: Add {C}.",
     "oversized": false,
     "prices": {
-      "eur": 0.35,
+      "eur": 0.33,
       "eur_foil": 7.99,
       "tix": 0.02,
-      "usd": 0.94,
+      "usd": 0.93,
       "usd_etched": null,
       "usd_foil": 12.09
     },
@@ -3792,7 +4544,7 @@
     "oracle_text": "{T}: Add {C}.",
     "oversized": false,
     "prices": {
-      "eur": 1.09,
+      "eur": 0.6,
       "eur_foil": null,
       "tix": null,
       "usd": 0.79,
@@ -4936,9 +5688,9 @@
     "oversized": false,
     "penny_rank": 786,
     "prices": {
-      "eur": 0.65,
+      "eur": 1.75,
       "eur_foil": 8.9,
-      "tix": 0.36,
+      "tix": 0.34,
       "usd": 1.52,
       "usd_etched": null,
       "usd_foil": 11.31
@@ -5325,6 +6077,378 @@
     "variation": false
   },
   {
+    "all_parts": [
+      {
+        "component": "combo_piece",
+        "id": "8829efa0-498a-43ca-91aa-f9caeeafe298",
+        "name": "Hero of Bladehold",
+        "object": "related_card",
+        "type_line": "Creature — Human Knight",
+        "uri": "https://api.scryfall.com/cards/8829efa0-498a-43ca-91aa-f9caeeafe298"
+      },
+      {
+        "component": "token",
+        "id": "7a563df7-7b9d-4692-ab1b-578be1887b62",
+        "name": "Soldier",
+        "object": "related_card",
+        "type_line": "Token Creature — Soldier",
+        "uri": "https://api.scryfall.com/cards/7a563df7-7b9d-4692-ab1b-578be1887b62"
+      }
+    ],
+    "artist": "Scott Chou",
+    "artist_ids": [
+      "9e048547-f9c3-4958-9c2c-91e45df7c6ae"
+    ],
+    "booster": false,
+    "border_color": "black",
+    "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+    "cardmarket_id": 245268,
+    "cmc": 4.0,
+    "collector_number": "8★",
+    "color_identity": [
+      "W"
+    ],
+    "colors": [
+      "W"
+    ],
+    "digital": false,
+    "edhrec_rank": 2329,
+    "finishes": [
+      "foil"
+    ],
+    "foil": true,
+    "frame": "2003",
+    "full_art": false,
+    "games": [
+      "paper"
+    ],
+    "highres_image": true,
+    "id": "8829efa0-498a-43ca-91aa-f9caeeafe298",
+    "illustration_id": "bdef2378-b1b2-46fc-81df-b066da385026",
+    "image_status": "highres_scan",
+    "image_uris": {
+      "art_crop": "https://cards.scryfall.io/art_crop/front/8/8/8829efa0-498a-43ca-91aa-f9caeeafe298.jpg?1605370731",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/8/8/8829efa0-498a-43ca-91aa-f9caeeafe298.jpg?1605370731",
+      "large": "https://cards.scryfall.io/large/front/8/8/8829efa0-498a-43ca-91aa-f9caeeafe298.jpg?1605370731",
+      "normal": "https://cards.scryfall.io/normal/front/8/8/8829efa0-498a-43ca-91aa-f9caeeafe298.jpg?1605370731",
+      "png": "https://cards.scryfall.io/png/front/8/8/8829efa0-498a-43ca-91aa-f9caeeafe298.png?1605370731",
+      "small": "https://cards.scryfall.io/small/front/8/8/8829efa0-498a-43ca-91aa-f9caeeafe298.jpg?1605370731"
+    },
+    "keywords": [
+      "Battle Cry"
+    ],
+    "lang": "en",
+    "layout": "normal",
+    "legalities": {
+      "alchemy": "not_legal",
+      "brawl": "not_legal",
+      "commander": "legal",
+      "duel": "legal",
+      "explorer": "not_legal",
+      "future": "not_legal",
+      "gladiator": "not_legal",
+      "historic": "not_legal",
+      "historicbrawl": "not_legal",
+      "legacy": "legal",
+      "modern": "legal",
+      "oldschool": "not_legal",
+      "pauper": "not_legal",
+      "paupercommander": "not_legal",
+      "penny": "not_legal",
+      "pioneer": "not_legal",
+      "premodern": "not_legal",
+      "standard": "not_legal",
+      "vintage": "legal"
+    },
+    "mana_cost": "{2}{W}{W}",
+    "multiverse_ids": [],
+    "name": "Hero of Bladehold",
+    "nonfoil": false,
+    "object": "card",
+    "oracle_id": "454a8902-8120-4373-96ee-bbf352b04e8d",
+    "oracle_text": "Battle cry (Whenever this creature attacks, each other attacking creature gets +1/+0 until end of turn.)\nWhenever Hero of Bladehold attacks, create two 1/1 white Soldier creature tokens that are tapped and attacking.",
+    "oversized": false,
+    "power": "3",
+    "prices": {
+      "eur": null,
+      "eur_foil": 8.5,
+      "tix": null,
+      "usd": null,
+      "usd_etched": null,
+      "usd_foil": 13.98
+    },
+    "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A454a8902-8120-4373-96ee-bbf352b04e8d&unique=prints",
+    "promo": true,
+    "promo_types": [
+      "setpromo",
+      "datestamped",
+      "prerelease"
+    ],
+    "rarity": "mythic",
+    "related_uris": {
+      "edhrec": "https://edhrec.com/route/?cc=Hero+of+Bladehold",
+      "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Hero+of+Bladehold&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "tcgplayer_infinite_decks": "https://infinite.tcgplayer.com/search?contentMode=deck&game=magic&partner=scryfall&q=Hero+of+Bladehold&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+    },
+    "released_at": "2011-02-03",
+    "reprint": true,
+    "reserved": false,
+    "rulings_uri": "https://api.scryfall.com/cards/8829efa0-498a-43ca-91aa-f9caeeafe298/rulings",
+    "scryfall_set_uri": "https://scryfall.com/sets/pmbs?utm_source=api",
+    "scryfall_uri": "https://scryfall.com/card/pmbs/8%E2%98%85/hero-of-bladehold?utm_source=api",
+    "set": "pmbs",
+    "set_id": "8a59d98a-4e13-4943-b06c-b35868e954ba",
+    "set_name": "Mirrodin Besieged Promos",
+    "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Apmbs&unique=prints",
+    "set_type": "promo",
+    "set_uri": "https://api.scryfall.com/sets/8a59d98a-4e13-4943-b06c-b35868e954ba",
+    "story_spotlight": false,
+    "tcgplayer_id": 48140,
+    "textless": false,
+    "toughness": "4",
+    "type_line": "Creature — Human Knight",
+    "uri": "https://api.scryfall.com/cards/8829efa0-498a-43ca-91aa-f9caeeafe298",
+    "variation": false,
+    "watermark": "mirran"
+  },
+  {
+    "artist": "Chris Ostrowski",
+    "artist_ids": [
+      "b5f1bd34-abee-40c9-99f7-a6ee089fb30b"
+    ],
+    "booster": false,
+    "border_color": "black",
+    "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+    "cardmarket_id": 609431,
+    "cmc": 0.0,
+    "collector_number": "266p",
+    "color_identity": [
+      "G"
+    ],
+    "colors": [],
+    "digital": false,
+    "edhrec_rank": 159,
+    "finishes": [
+      "nonfoil",
+      "foil"
+    ],
+    "foil": true,
+    "frame": "2015",
+    "frame_effects": [
+      "legendary"
+    ],
+    "full_art": false,
+    "games": [
+      "paper"
+    ],
+    "highres_image": true,
+    "id": "dda82840-1f3f-4be7-9bc7-66ff551ef5c0",
+    "illustration_id": "fecffc00-411c-4e85-b595-2ca0e4cb672b",
+    "image_status": "highres_scan",
+    "image_uris": {
+      "art_crop": "https://cards.scryfall.io/art_crop/front/d/d/dda82840-1f3f-4be7-9bc7-66ff551ef5c0.jpg?1645041338",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/d/d/dda82840-1f3f-4be7-9bc7-66ff551ef5c0.jpg?1645041338",
+      "large": "https://cards.scryfall.io/large/front/d/d/dda82840-1f3f-4be7-9bc7-66ff551ef5c0.jpg?1645041338",
+      "normal": "https://cards.scryfall.io/normal/front/d/d/dda82840-1f3f-4be7-9bc7-66ff551ef5c0.jpg?1645041338",
+      "png": "https://cards.scryfall.io/png/front/d/d/dda82840-1f3f-4be7-9bc7-66ff551ef5c0.png?1645041338",
+      "small": "https://cards.scryfall.io/small/front/d/d/dda82840-1f3f-4be7-9bc7-66ff551ef5c0.jpg?1645041338"
+    },
+    "keywords": [
+      "Channel"
+    ],
+    "lang": "en",
+    "layout": "normal",
+    "legalities": {
+      "alchemy": "legal",
+      "brawl": "legal",
+      "commander": "legal",
+      "duel": "legal",
+      "explorer": "legal",
+      "future": "legal",
+      "gladiator": "legal",
+      "historic": "legal",
+      "historicbrawl": "legal",
+      "legacy": "legal",
+      "modern": "legal",
+      "oldschool": "not_legal",
+      "pauper": "not_legal",
+      "paupercommander": "not_legal",
+      "penny": "not_legal",
+      "pioneer": "legal",
+      "premodern": "not_legal",
+      "standard": "legal",
+      "vintage": "legal"
+    },
+    "mana_cost": "",
+    "multiverse_ids": [],
+    "name": "Boseiju, Who Endures",
+    "nonfoil": true,
+    "object": "card",
+    "oracle_id": "bf1341dd-41a3-49f6-87ec-63170dde4324",
+    "oracle_text": "{T}: Add {G}.\nChannel — {1}{G}, Discard Boseiju, Who Endures: Destroy target artifact, enchantment, or nonbasic land an opponent controls. That player may search their library for a land card with a basic land type, put it onto the battlefield, then shuffle. This ability costs {1} less to activate for each legendary creature you control.",
+    "oversized": false,
+    "prices": {
+      "eur": 30.77,
+      "eur_foil": 35.0,
+      "tix": null,
+      "usd": 27.17,
+      "usd_etched": null,
+      "usd_foil": 28.93
+    },
+    "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Abf1341dd-41a3-49f6-87ec-63170dde4324&unique=prints",
+    "produced_mana": [
+      "G"
+    ],
+    "promo": true,
+    "promo_types": [
+      "promopack",
+      "stamped"
+    ],
+    "rarity": "rare",
+    "related_uris": {
+      "edhrec": "https://edhrec.com/route/?cc=Boseiju%2C+Who+Endures",
+      "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Boseiju%2C+Who+Endures&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "tcgplayer_infinite_decks": "https://infinite.tcgplayer.com/search?contentMode=deck&game=magic&partner=scryfall&q=Boseiju%2C+Who+Endures&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+    },
+    "released_at": "2022-02-18",
+    "reprint": true,
+    "reserved": false,
+    "rulings_uri": "https://api.scryfall.com/cards/dda82840-1f3f-4be7-9bc7-66ff551ef5c0/rulings",
+    "scryfall_set_uri": "https://scryfall.com/sets/pneo?utm_source=api",
+    "scryfall_uri": "https://scryfall.com/card/pneo/266p/boseiju-who-endures?utm_source=api",
+    "security_stamp": "oval",
+    "set": "pneo",
+    "set_id": "b3161020-d74f-48cc-bc9d-d7233e64e524",
+    "set_name": "Kamigawa: Neon Dynasty Promos",
+    "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Apneo&unique=prints",
+    "set_type": "promo",
+    "set_uri": "https://api.scryfall.com/sets/b3161020-d74f-48cc-bc9d-d7233e64e524",
+    "story_spotlight": false,
+    "tcgplayer_id": 263926,
+    "textless": false,
+    "type_line": "Legendary Land",
+    "uri": "https://api.scryfall.com/cards/dda82840-1f3f-4be7-9bc7-66ff551ef5c0",
+    "variation": false
+  },
+  {
+    "artist": "Chris Ostrowski",
+    "artist_ids": [
+      "b5f1bd34-abee-40c9-99f7-a6ee089fb30b"
+    ],
+    "booster": false,
+    "border_color": "black",
+    "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+    "cardmarket_id": 609064,
+    "cmc": 0.0,
+    "collector_number": "266s",
+    "color_identity": [
+      "G"
+    ],
+    "colors": [],
+    "digital": false,
+    "edhrec_rank": 159,
+    "finishes": [
+      "foil"
+    ],
+    "foil": true,
+    "frame": "2015",
+    "frame_effects": [
+      "legendary"
+    ],
+    "full_art": false,
+    "games": [
+      "paper"
+    ],
+    "highres_image": true,
+    "id": "2a2f63b7-c33c-41d0-9c8f-7bddd1821f15",
+    "illustration_id": "fecffc00-411c-4e85-b595-2ca0e4cb672b",
+    "image_status": "highres_scan",
+    "image_uris": {
+      "art_crop": "https://cards.scryfall.io/art_crop/front/2/a/2a2f63b7-c33c-41d0-9c8f-7bddd1821f15.jpg?1644856646",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/2/a/2a2f63b7-c33c-41d0-9c8f-7bddd1821f15.jpg?1644856646",
+      "large": "https://cards.scryfall.io/large/front/2/a/2a2f63b7-c33c-41d0-9c8f-7bddd1821f15.jpg?1644856646",
+      "normal": "https://cards.scryfall.io/normal/front/2/a/2a2f63b7-c33c-41d0-9c8f-7bddd1821f15.jpg?1644856646",
+      "png": "https://cards.scryfall.io/png/front/2/a/2a2f63b7-c33c-41d0-9c8f-7bddd1821f15.png?1644856646",
+      "small": "https://cards.scryfall.io/small/front/2/a/2a2f63b7-c33c-41d0-9c8f-7bddd1821f15.jpg?1644856646"
+    },
+    "keywords": [
+      "Channel"
+    ],
+    "lang": "en",
+    "layout": "normal",
+    "legalities": {
+      "alchemy": "legal",
+      "brawl": "legal",
+      "commander": "legal",
+      "duel": "legal",
+      "explorer": "legal",
+      "future": "legal",
+      "gladiator": "legal",
+      "historic": "legal",
+      "historicbrawl": "legal",
+      "legacy": "legal",
+      "modern": "legal",
+      "oldschool": "not_legal",
+      "pauper": "not_legal",
+      "paupercommander": "not_legal",
+      "penny": "not_legal",
+      "pioneer": "legal",
+      "premodern": "not_legal",
+      "standard": "legal",
+      "vintage": "legal"
+    },
+    "mana_cost": "",
+    "multiverse_ids": [],
+    "name": "Boseiju, Who Endures",
+    "nonfoil": false,
+    "object": "card",
+    "oracle_id": "bf1341dd-41a3-49f6-87ec-63170dde4324",
+    "oracle_text": "{T}: Add {G}.\nChannel — {1}{G}, Discard Boseiju, Who Endures: Destroy target artifact, enchantment, or nonbasic land an opponent controls. That player may search their library for a land card with a basic land type, put it onto the battlefield, then shuffle. This ability costs {1} less to activate for each legendary creature you control.",
+    "oversized": false,
+    "prices": {
+      "eur": null,
+      "eur_foil": 37.73,
+      "tix": null,
+      "usd": null,
+      "usd_etched": null,
+      "usd_foil": 32.33
+    },
+    "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Abf1341dd-41a3-49f6-87ec-63170dde4324&unique=prints",
+    "produced_mana": [
+      "G"
+    ],
+    "promo": true,
+    "promo_types": [
+      "prerelease",
+      "datestamped"
+    ],
+    "rarity": "rare",
+    "related_uris": {
+      "edhrec": "https://edhrec.com/route/?cc=Boseiju%2C+Who+Endures",
+      "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Boseiju%2C+Who+Endures&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "tcgplayer_infinite_decks": "https://infinite.tcgplayer.com/search?contentMode=deck&game=magic&partner=scryfall&q=Boseiju%2C+Who+Endures&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+    },
+    "released_at": "2022-02-18",
+    "reprint": true,
+    "reserved": false,
+    "rulings_uri": "https://api.scryfall.com/cards/2a2f63b7-c33c-41d0-9c8f-7bddd1821f15/rulings",
+    "scryfall_set_uri": "https://scryfall.com/sets/pneo?utm_source=api",
+    "scryfall_uri": "https://scryfall.com/card/pneo/266s/boseiju-who-endures?utm_source=api",
+    "security_stamp": "oval",
+    "set": "pneo",
+    "set_id": "b3161020-d74f-48cc-bc9d-d7233e64e524",
+    "set_name": "Kamigawa: Neon Dynasty Promos",
+    "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Apneo&unique=prints",
+    "set_type": "promo",
+    "set_uri": "https://api.scryfall.com/sets/b3161020-d74f-48cc-bc9d-d7233e64e524",
+    "story_spotlight": false,
+    "tcgplayer_id": 263174,
+    "textless": false,
+    "type_line": "Legendary Land",
+    "uri": "https://api.scryfall.com/cards/2a2f63b7-c33c-41d0-9c8f-7bddd1821f15",
+    "variation": false
+  },
+  {
     "artist": "John Thacker",
     "artist_ids": [
       "38ee615a-e59f-4e2e-b894-2b74c6e75541"
@@ -5447,7 +6571,7 @@
       "tix": null,
       "usd": null,
       "usd_etched": null,
-      "usd_foil": 67.81
+      "usd_foil": 67.97
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Ae724bddb-6195-4943-b9c6-decc96717998&unique=prints",
     "promo": true,
@@ -6044,12 +7168,12 @@
       "source_uri": "https://twitter.com/MTG_Arena/status/1209549655878422529"
     },
     "prices": {
-      "eur": 6.7,
-      "eur_foil": 13.5,
-      "tix": 0.96,
+      "eur": 10.59,
+      "eur_foil": 13.48,
+      "tix": 1.05,
       "usd": 5.4,
       "usd_etched": null,
-      "usd_foil": 5.94
+      "usd_foil": 5.96
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Ae8473969-195f-41ee-a84d-463cc8c0ef02&unique=prints",
     "produced_mana": [
@@ -6178,10 +7302,10 @@
       "source_uri": "https://magic.wizards.com/en/articles/archive/card-image-gallery/theros-beyond-death-variants"
     },
     "prices": {
-      "eur": 6.99,
-      "eur_foil": 18.5,
+      "eur": 10.48,
+      "eur_foil": 10.88,
       "tix": null,
-      "usd": 4.02,
+      "usd": 3.99,
       "usd_etched": null,
       "usd_foil": 6.87
     },
@@ -6313,10 +7437,10 @@
       "source_uri": "https://www.youtube.com/watch?v=FrSbBMp45rg"
     },
     "prices": {
-      "eur": 10.61,
-      "eur_foil": 12.5,
-      "tix": 0.39,
-      "usd": 17.85,
+      "eur": 10.74,
+      "eur_foil": 13.9,
+      "tix": 0.31,
+      "usd": 17.98,
       "usd_etched": null,
       "usd_foil": 20.36
     },
@@ -6436,7 +7560,7 @@
       "eur": 11.9,
       "eur_foil": 55.0,
       "tix": null,
-      "usd": 28.01,
+      "usd": 28.3,
       "usd_etched": null,
       "usd_foil": 70.64
     },
@@ -6559,10 +7683,10 @@
       "source_uri": "https://www.channelfireball.com/all-strategy/articles/3-point/theros-beyond-death-exclusive-preview/"
     },
     "prices": {
-      "eur": 0.57,
+      "eur": 0.73,
       "eur_foil": 1.45,
       "tix": 0.02,
-      "usd": 1.19,
+      "usd": 1.17,
       "usd_etched": null,
       "usd_foil": 1.24
     },
@@ -6833,10 +7957,10 @@
       "source_uri": "https://www.twitch.tv/drawza"
     },
     "prices": {
-      "eur": 0.37,
-      "eur_foil": 0.12,
+      "eur": 0.27,
+      "eur_foil": 0.62,
       "tix": 0.03,
-      "usd": 0.3,
+      "usd": 0.31,
       "usd_etched": null,
       "usd_foil": 0.56
     },

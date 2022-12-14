@@ -1,0 +1,5 @@
+have,name,scryfall_id,collector_number,artist,nonfoil,foil,others
+=F2+G2,Air Elemental,69c3b2a3-0daa-4d42-832d-fcdfda6555ea,46,Richard Thomas,,,
+=F3+G3,Dark Ritual,ebb6664d-23ca-456e-9916-afcd6f26aa7f,98,Sandra Everingham,,,"=IF('ICE'!A2>0,""ICE: ""&'ICE'!A2&"", "","""")&IF('HOP'!A3>0,""HOP: ""&'HOP'!A3&"", "","""")"
+=F4+G4,Forest,6f1c8cb0-38eb-408b-94e8-16db83999b3b,294,Christopher Rush,,,
+=F5+G5,Forest,f20c89d9-71c9-45f5-a9cb-6e253b0a7cca,295,Christopher Rush,,,

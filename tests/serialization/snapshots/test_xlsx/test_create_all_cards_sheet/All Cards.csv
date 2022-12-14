@@ -1,0 +1,15 @@
+name,have
+Air Elemental,"=IF('LEA'!A2>0,""LEA: ""&'LEA'!A2&"", "","""")"
+Akroma's Vengeance,"=IF('HOP'!A2>0,""HOP: ""&'HOP'!A2&"", "","""")"
+Black Sun's Zenith,"=IF('PMBS'!A3>0,""PMBS: ""&'PMBS'!A3&"", "","""")&IF('MBS'!A3>0,""MBS: ""&'MBS'!A3&"", "","""")"
+"Boseiju, Who Endures","=IF('NEO'!A2+'NEO'!A3+'NEO'!A4>0,""NEO: ""&'NEO'!A2+'NEO'!A3+'NEO'!A4&"", "","""")&IF('PNEO'!A2+'PNEO'!A3>0,""PNEO: ""&'PNEO'!A2+'PNEO'!A3&"", "","""")"
+"Boseiju, Who Shelters All","=IF('CHK'!A3>0,""CHK: ""&'CHK'!A3&"", "","""")"
+Bushi Tenderfoot // Kenzo the Hardhearted,"=IF('CHK'!A2>0,""CHK: ""&'CHK'!A2&"", "","""")"
+Dark Ritual,"=IF('LEA'!A3>0,""LEA: ""&'LEA'!A3&"", "","""")&IF('ICE'!A2>0,""ICE: ""&'ICE'!A2&"", "","""")&IF('HOP'!A3>0,""HOP: ""&'HOP'!A3&"", "","""")"
+"Erayo, Soratami Ascendant // Erayo's Essence","=IF('SOK'!A2>0,""SOK: ""&'SOK'!A2&"", "","""")"
+"Faithful Squire // Kaiso, Memory of Loyalty","=IF('BOK'!A2>0,""BOK: ""&'BOK'!A2&"", "","""")"
+Forest,
+Hero of Bladehold,"=IF('PMBS'!A2>0,""PMBS: ""&'PMBS'!A2&"", "","""")&IF('MBS'!A2>0,""MBS: ""&'MBS'!A2&"", "","""")"
+Rhox,"=IF('S00'!A2>0,""S00: ""&'S00'!A2&"", "","""")"
+Snow-Covered Forest,"=IF('ICE'!A6>0,""ICE: ""&'ICE'!A6&"", "","""")"
+Thallid,"=IF('FEM'!A2+'FEM'!A3+'FEM'!A4+'FEM'!A5>0,""FEM: ""&'FEM'!A2+'FEM'!A3+'FEM'!A4+'FEM'!A5&"", "","""")"

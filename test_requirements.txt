@@ -124,7 +124,10 @@ pytest==7.2.0
     # via
     #   -r test_requirements.in
     #   pytest-cov
+    #   pytest-snapshot
 pytest-cov==4.0.0
+    # via -r test_requirements.in
+pytest-snapshot==0.9.0
     # via -r test_requirements.in
 python-dateutil==2.8.2
     # via freezegun

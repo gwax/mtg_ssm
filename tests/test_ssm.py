@@ -155,6 +155,7 @@ def test_create_cmd(tmp_path: Path, oracle: Oracle) -> None:
     assert coll_path.read_text() == textwrap.dedent(
         """\
         set,name,collector_number,scryfall_id,nonfoil,foil
+        PMBS,Hero of Bladehold,8★,8829efa0-498a-43ca-91aa-f9caeeafe298,,
         PMBS,Black Sun's Zenith,39,dd88131a-2811-4a1f-bb9a-c82e12c1493b,,
         MMA,Thallid,167,69d20d28-76e9-4e6e-95c3-f88c51dfabfd,,
         """
@@ -184,6 +185,7 @@ def test_update_cmd(tmp_path: Path, oracle: Oracle) -> None:
     assert coll_path.read_text() == textwrap.dedent(
         """\
         set,name,collector_number,scryfall_id,nonfoil,foil
+        PMBS,Hero of Bladehold,8★,8829efa0-498a-43ca-91aa-f9caeeafe298,,
         PMBS,Black Sun's Zenith,39,dd88131a-2811-4a1f-bb9a-c82e12c1493b,,
         MMA,Thallid,167,69d20d28-76e9-4e6e-95c3-f88c51dfabfd,4,9
         """
@@ -218,6 +220,7 @@ def test_merge_cmd_new(tmp_path: Path, oracle: Oracle) -> None:
     assert coll_path.read_text() == textwrap.dedent(
         """\
         set,name,collector_number,scryfall_id,nonfoil,foil
+        PMBS,Hero of Bladehold,8★,8829efa0-498a-43ca-91aa-f9caeeafe298,,
         PMBS,Black Sun's Zenith,39,dd88131a-2811-4a1f-bb9a-c82e12c1493b,,
         MMA,Thallid,167,69d20d28-76e9-4e6e-95c3-f88c51dfabfd,4,9
         """
@@ -262,6 +265,7 @@ def test_merge_cmd_existing(tmp_path: Path, oracle: Oracle) -> None:
     assert coll_path.read_text() == textwrap.dedent(
         """\
         set,name,collector_number,scryfall_id,nonfoil,foil
+        PMBS,Hero of Bladehold,8★,8829efa0-498a-43ca-91aa-f9caeeafe298,,
         PMBS,Black Sun's Zenith,39,dd88131a-2811-4a1f-bb9a-c82e12c1493b,,
         MMA,Thallid,167,69d20d28-76e9-4e6e-95c3-f88c51dfabfd,6,10
         """
@@ -328,6 +332,7 @@ def test_merge_cmd_multiple(tmp_path: Path, oracle: Oracle) -> None:
     assert coll_path.read_text() == textwrap.dedent(
         """\
         set,name,collector_number,scryfall_id,nonfoil,foil
+        PMBS,Hero of Bladehold,8★,8829efa0-498a-43ca-91aa-f9caeeafe298,,
         PMBS,Black Sun's Zenith,39,dd88131a-2811-4a1f-bb9a-c82e12c1493b,19,23
         MMA,Thallid,167,69d20d28-76e9-4e6e-95c3-f88c51dfabfd,6,10
         """
@@ -383,6 +388,7 @@ def test_diff_cmd(tmp_path: Path, oracle: Oracle) -> None:
     assert out_path.read_text() == textwrap.dedent(
         """\
         set,name,collector_number,scryfall_id,nonfoil,foil
+        PMBS,Hero of Bladehold,8★,8829efa0-498a-43ca-91aa-f9caeeafe298,,
         PMBS,Black Sun's Zenith,39,dd88131a-2811-4a1f-bb9a-c82e12c1493b,-4,
         MMA,Thallid,167,69d20d28-76e9-4e6e-95c3-f88c51dfabfd,7,-3
         """

@@ -19,7 +19,7 @@ SETS_NEXTPAGE_URL = "https://api.scryfall.com/sets?page=2"
 TEST_SETS_TO_CARDS = {
     "arc": {"Leonin Abunas"},
     "bok": {"Faithful Squire // Kaiso, Memory of Loyalty"},
-    "chk": {"Bushi Tenderfoot // Kenzo the Hardhearted"},
+    "chk": {"Bushi Tenderfoot // Kenzo the Hardhearted", "Boseiju, Who Shelters All"},
     "csp": {"Jötun Grunt"},
     "fem": {"Thallid"},
     "hml": {"Cemetery Gate"},
@@ -28,6 +28,9 @@ TEST_SETS_TO_CARDS = {
     "isd": {"Abattoir Ghoul", "Delver of Secrets // Insectile Aberration", "Forest"},
     "lea": {"Air Elemental", "Dark Ritual", "Forest"},
     "mma": {"Thallid"},
+    "mbs": {"Hero of Bladehold", "Black Sun's Zenith"},
+    "neo": {"Boseiju, Who Endures"},
+    "pneo": {"Boseiju, Who Endures"},
     "oarc": {"All in Good Time"},
     "ogw": {"Wastes"},
     "ohop": {"Academy at Tolaria West"},
@@ -38,7 +41,7 @@ TEST_SETS_TO_CARDS = {
     "phpr": {"Arena"},
     "plc": {"Boom // Bust"},
     "pls": {"Ertai, the Corrupted"},
-    "pmbs": {"Black Sun's Zenith"},
+    "pmbs": {"Hero of Bladehold", "Black Sun's Zenith"},
     "ptg": {"Nightmare Moon // Princess Luna"},
     "s00": {"Rhox"},
     "sok": {"Erayo, Soratami Ascendant // Erayo's Essence"},
@@ -106,14 +109,14 @@ def main() -> None:  # pylint: disable=too-many-locals
         warnings=None,
     )
     sets_list1 = models.ScryObjectList[models.ScrySet](
-        data=accepted_sets[:5],
+        data=accepted_sets[: len(accepted_sets) // 2],
         has_more=True,
         next_page=SETS_NEXTPAGE_URL,
         total_cards=None,
         warnings=None,
     )
     sets_list2 = models.ScryObjectList[models.ScrySet](
-        data=accepted_sets[5:],
+        data=accepted_sets[len(accepted_sets) // 2 :],
         has_more=False,
         next_page=None,
         total_cards=None,

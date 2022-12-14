@@ -1,14 +1,15 @@
 """Tests for mtg_ssm.serialization.xlsx."""
 # pylint: disable=redefined-outer-name
 
-import datetime as dt
+import csv
+import io
 from pathlib import Path
-from typing import Dict, List, Optional, Set, Tuple
-from unittest import mock
+from typing import Any, Dict, List, Optional, Sequence, Set, Tuple
 from uuid import UUID
 
 import openpyxl
 import pytest
+from pytest_snapshot.plugin import Snapshot
 
 from mtg_ssm.containers.bundles import ScryfallDataSet
 from mtg_ssm.containers.collection import MagicCollection
@@ -20,7 +21,20 @@ from mtg_ssm.serialization import xlsx
 @pytest.fixture(scope="session")
 def oracle(scryfall_data: ScryfallDataSet) -> Oracle:
     """Oracle fixture."""
-    accepted_sets = {"lea", "fem", "s00", "ice", "hop"}
+    accepted_sets = {
+        "lea",
+        "fem",
+        "s00",
+        "ice",
+        "hop",
+        "mbs",
+        "pmbs",
+        "chk",
+        "bok",
+        "sok",
+        "neo",
+        "pneo",
+    }
     scryfall_data2 = ScryfallDataSet(
         sets=[s for s in scryfall_data.sets if s.code in accepted_sets],
         cards=[c for c in scryfall_data.cards if c.set in accepted_sets],
@@ -28,91 +42,21 @@ def oracle(scryfall_data: ScryfallDataSet) -> Oracle:
     return Oracle(scryfall_data2)
 
 
-def test_create_all_sets(oracle: Oracle) -> None:
+def _csv_dump(rows: Sequence[Any]) -> str:
+    buf = io.StringIO()
+    writer = csv.writer(buf)
+    writer.writerows(rows)
+    return buf.getvalue().replace("\r", "")
+
+
+def test_create_all_sets(snapshot: Snapshot, oracle: Oracle) -> None:
     book = openpyxl.Workbook()
     sheet = book.create_sheet()
     xlsx.create_all_sets(sheet, oracle.index)
-    assert sheet.title == "All Sets"
-    rows = [[cell.value for cell in row] for row in sheet.rows]
-    assert rows == [
-        [
-            "code",
-            "name",
-            "release",
-            "block",
-            "type",
-            "cards",
-            "unique",
-            "playsets",
-            "count",
-        ],
-        [
-            "Total",
-            None,
-            None,
-            None,
-            None,
-            "=SUM(F3:F65535)",
-            "=SUM(G3:G65535)",
-            "=SUM(H3:H65535)",
-            "=SUM(I3:I65535)",
-        ],
-        [
-            "LEA",
-            "Limited Edition Alpha",
-            dt.date(1993, 8, 5),
-            "Core Set",
-            "core",
-            4,
-            "=COUNTIF('LEA'!A:A,\">0\")",
-            "=COUNTIF('LEA'!A:A,\">=4\")",
-            "=SUM('LEA'!A:A)",
-        ],
-        [
-            "FEM",
-            "Fallen Empires",
-            dt.date(1994, 11, 1),
-            None,
-            "expansion",
-            4,
-            "=COUNTIF('FEM'!A:A,\">0\")",
-            "=COUNTIF('FEM'!A:A,\">=4\")",
-            "=SUM('FEM'!A:A)",
-        ],
-        [
-            "ICE",
-            "Ice Age",
-            dt.date(1995, 6, 3),
-            "Ice Age",
-            "expansion",
-            5,
-            "=COUNTIF('ICE'!A:A,\">0\")",
-            "=COUNTIF('ICE'!A:A,\">=4\")",
-            "=SUM('ICE'!A:A)",
-        ],
-        [
-            "S00",
-            "Starter 2000",
-            dt.date(2000, 4, 1),
-            None,
-            "starter",
-            1,
-            "=COUNTIF('S00'!A:A,\">0\")",
-            "=COUNTIF('S00'!A:A,\">=4\")",
-            "=SUM('S00'!A:A)",
-        ],
-        [
-            "HOP",
-            "Planechase",
-            dt.date(2009, 9, 4),
-            None,
-            "planechase",
-            2,
-            "=COUNTIF('HOP'!A:A,\">0\")",
-            "=COUNTIF('HOP'!A:A,\">=4\")",
-            "=SUM('HOP'!A:A)",
-        ],
-    ]
+    snapshot.assert_match(
+        _csv_dump([[cell.value for cell in row] for row in sheet.rows]),
+        f"{sheet.title}.csv",
+    )
 
 
 def test_create_haverefs(oracle: Oracle) -> None:
@@ -148,33 +92,17 @@ def test_get_references(
     assert print_refs == expected
 
 
-def test_create_all_cards_sheet(oracle: Oracle) -> None:
+def test_create_all_cards_sheet(snapshot: Snapshot, oracle: Oracle) -> None:
     book = openpyxl.Workbook()
     sheet = book.create_sheet()
     xlsx.create_all_cards(sheet, oracle.index)
-    assert sheet.title == "All Cards"
-    rows = [[cell.value for cell in row] for row in sheet.rows]
-    assert rows == [
-        ["name", "have"],
-        ["Air Elemental", '=IF(\'LEA\'!A2>0,"LEA: "&\'LEA\'!A2&", ","")'],
-        ["Akroma's Vengeance", '=IF(\'HOP\'!A2>0,"HOP: "&\'HOP\'!A2&", ","")'],
-        [
-            "Dark Ritual",
-            '=IF(\'LEA\'!A3>0,"LEA: "&\'LEA\'!A3&", ","")&'
-            'IF(\'ICE\'!A2>0,"ICE: "&\'ICE\'!A2&", ","")&'
-            'IF(\'HOP\'!A3>0,"HOP: "&\'HOP\'!A3&", ","")',
-        ],
-        ["Forest", None],
-        ["Rhox", '=IF(\'S00\'!A2>0,"S00: "&\'S00\'!A2&", ","")'],
-        ["Snow-Covered Forest", '=IF(\'ICE\'!A6>0,"ICE: "&\'ICE\'!A6&", ","")'],
-        [
-            "Thallid",
-            "=IF('FEM'!A2+'FEM'!A3+'FEM'!A4+'FEM'!A5>0,\"FEM: \"&'FEM'!A2+'FEM'!A3+'FEM'!A4+'FEM'!A5&\", \",\"\")",
-        ],
-    ]
+    snapshot.assert_match(
+        _csv_dump([[cell.value for cell in row] for row in sheet.rows]),
+        f"{sheet.title}.csv",
+    )
 
 
-def test_create_set_sheet(oracle: Oracle) -> None:
+def test_create_set_sheet(snapshot: Snapshot, oracle: Oracle) -> None:
     card_counts: ScryfallCardCount = {
         UUID("fbdcbd97-90a9-45ea-94f6-2a1c6faaf965"): {CountType.NONFOIL: 1},
         UUID("b346b784-7bde-49d0-bfa9-56236cbe19d9"): {CountType.FOIL: 2},
@@ -187,73 +115,13 @@ def test_create_set_sheet(oracle: Oracle) -> None:
     book = openpyxl.Workbook()
     sheet = book.create_sheet()
     xlsx.create_set_sheet(sheet, collection, "ice")
-    assert sheet.title == "ICE"
-    rows = [[cell.value for cell in row] for row in sheet.rows]
-    assert rows == [
-        [
-            "have",
-            "name",
-            "scryfall_id",
-            "collector_number",
-            "artist",
-            "nonfoil",
-            "foil",
-            "others",
-        ],
-        [
-            "=F2+G2",
-            "Dark Ritual",
-            "4ebcd681-1871-4914-bcd7-6bd95829f6e0",
-            "120",
-            "Justin Hampton",
-            None,
-            None,
-            mock.ANY,
-        ],
-        [
-            "=F3+G3",
-            "Forest",
-            "fbdcbd97-90a9-45ea-94f6-2a1c6faaf965",
-            "380",
-            "Pat Morrissey",
-            1,
-            None,
-            mock.ANY,
-        ],
-        [
-            "=F4+G4",
-            "Forest",
-            "b346b784-7bde-49d0-bfa9-56236cbe19d9",
-            "381",
-            "Pat Morrissey",
-            None,
-            2,
-            mock.ANY,
-        ],
-        [
-            "=F5+G5",
-            "Forest",
-            "768c4d8f-5700-4f0a-9ff2-58422aeb1dac",
-            "382",
-            "Pat Morrissey",
-            3,
-            4,
-            mock.ANY,
-        ],
-        [
-            "=F6+G6",
-            "Snow-Covered Forest",
-            "4c0ad95c-d62c-4138-ada0-fa39a63a449e",
-            "383",
-            "Pat Morrissey",
-            None,
-            None,
-            mock.ANY,
-        ],
-    ]
+    snapshot.assert_match(
+        _csv_dump([[cell.value for cell in row] for row in sheet.rows]),
+        f"{sheet.title}.csv",
+    )
 
 
-def test_write(oracle: Oracle, tmp_path: Path) -> None:
+def test_write(snapshot: Snapshot, oracle: Oracle, tmp_path: Path) -> None:
     xlsx_path = tmp_path / "outfile.xlsx"
     card_counts: ScryfallCardCount = {
         UUID("5d5f3f57-410f-4ee2-b93c-f5051a068828"): {
@@ -267,39 +135,11 @@ def test_write(oracle: Oracle, tmp_path: Path) -> None:
     serializer.write(xlsx_path, collection)
 
     workbook = openpyxl.load_workbook(filename=xlsx_path)
-    assert workbook.sheetnames == [
-        "All Sets",
-        "All Cards",
-        "LEA",
-        "FEM",
-        "ICE",
-        "S00",
-        "HOP",
-    ]
-
-    s00_rows = [[cell.value for cell in row] for row in workbook["S00"]]
-    assert s00_rows == [
-        [
-            "have",
-            "name",
-            "scryfall_id",
-            "collector_number",
-            "artist",
-            "nonfoil",
-            "foil",
-            "others",
-        ],
-        [
-            "=F2+G2",
-            "Rhox",
-            "5d5f3f57-410f-4ee2-b93c-f5051a068828",
-            "43",
-            "Mark Zug",
-            7,
-            12,
-            None,
-        ],
-    ]
+    for i, sheet in enumerate(workbook.worksheets):
+        snapshot.assert_match(
+            _csv_dump([[cell.value for cell in row] for row in sheet.rows]),
+            f"{i:02d} - {sheet.title}.csv",
+        )
 
 
 @pytest.mark.parametrize(

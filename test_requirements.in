@@ -19,6 +19,7 @@ Pygments
 pylint
 pytest
 pytest-cov
+pytest-snapshot
 responses
 setuptools
 types-requests
