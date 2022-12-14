@@ -4,7 +4,7 @@
 import argparse
 import datetime as dt
 from pathlib import Path
-from typing import Dict, List, Set
+from typing import Dict, List, Optional, Set
 
 import mtg_ssm
 import mtg_ssm.serialization.interface as ser_interface
@@ -39,7 +39,7 @@ def set_type_list(value: str) -> Set[ScrySetType]:
     return set_types
 
 
-def get_args(args: List[str] = None) -> argparse.Namespace:
+def get_args(args: Optional[List[str]] = None) -> argparse.Namespace:
     """Parse and return application arguments."""
     parser = argparse.ArgumentParser(
         formatter_class=argparse.RawDescriptionHelpFormatter,

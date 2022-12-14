@@ -4,12 +4,14 @@ import gzip
 import json
 import os
 import pickle
+import pprint
 import uuid
 from concurrent.futures import ProcessPoolExecutor
-from typing import Any, List, Mapping, Union, cast
+from typing import Any, Dict, List, Mapping, Union, cast
 
 import appdirs
 import requests
+from pydantic import ValidationError
 
 from mtg_ssm.containers.bundles import ScryfallDataSet
 from mtg_ssm.scryfall.models import ScryBulkData, ScryCard, ScryObjectList, ScrySet
@@ -27,8 +29,25 @@ OBJECT_CACHE_URL = "file://$CACHE/pickled_object"
 
 CHUNK_SIZE = 8 * 1024 * 1024
 DESERIALIZE_BATCH_SIZE = 50
+REQUESTS_TIMEOUT_SECONDS = 10
 
 JSON = Union[str, int, float, bool, None, Mapping[str, Any], List[Any]]
+
+
+def _value_from_validation_error(data: JSON, verr: ValidationError) -> Dict[str, Any]:
+    values = {}
+    for error in verr.errors():
+        loc = error["loc"]
+        value = data
+        for field in loc:
+            if field == "__root__":
+                break
+            if isinstance(value, Mapping) and isinstance(field, str):
+                value = value[field]
+            if isinstance(value, List) and isinstance(field, int):
+                value = value[field]
+        values[".".join([str(location) for location in loc])] = value
+    return values
 
 
 def _cache_path(endpoint: str, extension: str) -> str:
@@ -46,7 +65,7 @@ def _fetch_endpoint(endpoint: str, *, dirty: bool, write_cache: bool = True) -> 
         dirty = True
     if dirty:
         print(f"Fetching {endpoint}")
-        response = requests.get(endpoint, stream=True)
+        response = requests.get(endpoint, stream=True, timeout=REQUESTS_TIMEOUT_SECONDS)
         response.raise_for_status()
         if not write_cache:
             return response.json()
@@ -69,8 +88,15 @@ def _deserialize_cards(card_jsons: List[JSON]) -> List[ScryCard]:
         for card_json in card_jsons:
             try:
                 cards_data.append(ScryCard.parse_obj(card_json))
+            except ValidationError as err:
+                print("Failed with pydantic errors on values:")
+                pprint.pp(_value_from_validation_error(card_json, err))
+                print("Failed on:")
+                pprint.pp(card_json)
+                raise
             except Exception:
-                print("Failed on: ", repr(card_json))
+                print("Failed on:")
+                pprint.pp(card_json)
                 raise
     else:
         with ProcessPoolExecutor() as executor:

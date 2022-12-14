@@ -17,7 +17,7 @@
       "W"
     ],
     "digital": false,
-    "edhrec_rank": 3785,
+    "edhrec_rank": 4052,
     "finishes": [
       "nonfoil"
     ],
@@ -33,12 +33,12 @@
     "illustration_id": "44748599-6238-4ace-bd20-ffe80f2a5c73",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/9/d/9d26f171-5bb6-463c-8473-53b6cc27ed66.jpg?1562928153",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/9/d/9d26f171-5bb6-463c-8473-53b6cc27ed66.jpg?1562928153",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/9/d/9d26f171-5bb6-463c-8473-53b6cc27ed66.jpg?1562928153",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/9/d/9d26f171-5bb6-463c-8473-53b6cc27ed66.jpg?1562928153",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/9/d/9d26f171-5bb6-463c-8473-53b6cc27ed66.png?1562928153",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/9/d/9d26f171-5bb6-463c-8473-53b6cc27ed66.jpg?1562928153"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/9/d/9d26f171-5bb6-463c-8473-53b6cc27ed66.jpg?1562928153",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/9/d/9d26f171-5bb6-463c-8473-53b6cc27ed66.jpg?1562928153",
+      "large": "https://cards.scryfall.io/large/front/9/d/9d26f171-5bb6-463c-8473-53b6cc27ed66.jpg?1562928153",
+      "normal": "https://cards.scryfall.io/normal/front/9/d/9d26f171-5bb6-463c-8473-53b6cc27ed66.jpg?1562928153",
+      "png": "https://cards.scryfall.io/png/front/9/d/9d26f171-5bb6-463c-8473-53b6cc27ed66.png?1562928153",
+      "small": "https://cards.scryfall.io/small/front/9/d/9d26f171-5bb6-463c-8473-53b6cc27ed66.jpg?1562928153"
     },
     "keywords": [],
     "lang": "en",
@@ -74,13 +74,13 @@
     "oracle_id": "10064324-34a0-47eb-a58e-01db10234ed9",
     "oracle_text": "Artifacts you control have hexproof. (They can't be the targets of spells or abilities your opponents control.)",
     "oversized": false,
-    "penny_rank": 8701,
+    "penny_rank": 8858,
     "power": "2",
     "prices": {
-      "eur": 1.12,
+      "eur": 0.49,
       "eur_foil": null,
       "tix": null,
-      "usd": 1.02,
+      "usd": 0.88,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -173,12 +173,12 @@
     "illustration_id": "70eec478-45ae-4ce8-8199-720209599e2e",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/7/5/758abd53-6ad2-406e-8615-8e48678405b4.jpg?1562877848",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/7/5/758abd53-6ad2-406e-8615-8e48678405b4.jpg?1562877848",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/7/5/758abd53-6ad2-406e-8615-8e48678405b4.jpg?1562877848",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/7/5/758abd53-6ad2-406e-8615-8e48678405b4.jpg?1562877848",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/7/5/758abd53-6ad2-406e-8615-8e48678405b4.png?1562877848",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/7/5/758abd53-6ad2-406e-8615-8e48678405b4.jpg?1562877848"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/7/5/758abd53-6ad2-406e-8615-8e48678405b4.jpg?1562877848",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/7/5/758abd53-6ad2-406e-8615-8e48678405b4.jpg?1562877848",
+      "large": "https://cards.scryfall.io/large/front/7/5/758abd53-6ad2-406e-8615-8e48678405b4.jpg?1562877848",
+      "normal": "https://cards.scryfall.io/normal/front/7/5/758abd53-6ad2-406e-8615-8e48678405b4.jpg?1562877848",
+      "png": "https://cards.scryfall.io/png/front/7/5/758abd53-6ad2-406e-8615-8e48678405b4.png?1562877848",
+      "small": "https://cards.scryfall.io/small/front/7/5/758abd53-6ad2-406e-8615-8e48678405b4.jpg?1562877848"
     },
     "keywords": [
       "Flying"
@@ -219,10 +219,10 @@
     "oversized": false,
     "power": "2",
     "prices": {
-      "eur": 0.05,
-      "eur_foil": 0.49,
+      "eur": 0.16,
+      "eur_foil": 0.45,
       "tix": 0.03,
-      "usd": 0.12,
+      "usd": 0.13,
       "usd_etched": null,
       "usd_foil": 0.31
     },
@@ -315,12 +315,12 @@
     "illustration_id": "e8672d31-de00-4f84-b188-a89470816b6e",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/8/6/864ad989-19a6-4930-8efc-bbc077a18c32.jpg?1562762069",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/8/6/864ad989-19a6-4930-8efc-bbc077a18c32.jpg?1562762069",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/8/6/864ad989-19a6-4930-8efc-bbc077a18c32.jpg?1562762069",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/8/6/864ad989-19a6-4930-8efc-bbc077a18c32.jpg?1562762069",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/8/6/864ad989-19a6-4930-8efc-bbc077a18c32.png?1562762069",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/8/6/864ad989-19a6-4930-8efc-bbc077a18c32.jpg?1562762069"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/8/6/864ad989-19a6-4930-8efc-bbc077a18c32.jpg?1562762069",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/8/6/864ad989-19a6-4930-8efc-bbc077a18c32.jpg?1562762069",
+      "large": "https://cards.scryfall.io/large/front/8/6/864ad989-19a6-4930-8efc-bbc077a18c32.jpg?1562762069",
+      "normal": "https://cards.scryfall.io/normal/front/8/6/864ad989-19a6-4930-8efc-bbc077a18c32.jpg?1562762069",
+      "png": "https://cards.scryfall.io/png/front/8/6/864ad989-19a6-4930-8efc-bbc077a18c32.png?1562762069",
+      "small": "https://cards.scryfall.io/small/front/8/6/864ad989-19a6-4930-8efc-bbc077a18c32.jpg?1562762069"
     },
     "keywords": [
       "Bushido",
@@ -360,15 +360,15 @@
     "object": "card",
     "oracle_id": "82959ca2-cd96-4cca-9ce0-afb8db209860",
     "oversized": false,
-    "penny_rank": 8751,
+    "penny_rank": 9486,
     "power": "1",
     "prices": {
-      "eur": 0.14,
-      "eur_foil": 1.45,
+      "eur": 0.1,
+      "eur_foil": 3.99,
       "tix": 0.02,
-      "usd": 0.31,
+      "usd": 0.22,
       "usd_etched": null,
-      "usd_foil": 9.21
+      "usd_foil": 7.79
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A82959ca2-cd96-4cca-9ce0-afb8db209860&unique=prints",
     "promo": false,
@@ -417,7 +417,7 @@
       "W"
     ],
     "digital": false,
-    "edhrec_rank": 15336,
+    "edhrec_rank": 16369,
     "finishes": [
       "nonfoil",
       "foil"
@@ -434,12 +434,12 @@
     "illustration_id": "b60ade37-5f46-44b3-8114-d752084d9e5d",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/5/5/5526c510-bd33-4fac-8941-f19bd0997557.jpg?1593274750",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/5/5/5526c510-bd33-4fac-8941-f19bd0997557.jpg?1593274750",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/5/5/5526c510-bd33-4fac-8941-f19bd0997557.jpg?1593274750",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/5/5/5526c510-bd33-4fac-8941-f19bd0997557.jpg?1593274750",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/5/5/5526c510-bd33-4fac-8941-f19bd0997557.png?1593274750",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/5/5/5526c510-bd33-4fac-8941-f19bd0997557.jpg?1593274750"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/5/5/5526c510-bd33-4fac-8941-f19bd0997557.jpg?1593274750",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/5/5/5526c510-bd33-4fac-8941-f19bd0997557.jpg?1593274750",
+      "large": "https://cards.scryfall.io/large/front/5/5/5526c510-bd33-4fac-8941-f19bd0997557.jpg?1593274750",
+      "normal": "https://cards.scryfall.io/normal/front/5/5/5526c510-bd33-4fac-8941-f19bd0997557.jpg?1593274750",
+      "png": "https://cards.scryfall.io/png/front/5/5/5526c510-bd33-4fac-8941-f19bd0997557.png?1593274750",
+      "small": "https://cards.scryfall.io/small/front/5/5/5526c510-bd33-4fac-8941-f19bd0997557.jpg?1593274750"
     },
     "keywords": [
       "Cumulative upkeep"
@@ -479,7 +479,7 @@
     "oracle_id": "43fbfeec-bcaf-48b8-befe-b7346fec5a3a",
     "oracle_text": "Cumulative upkeep—Put two cards from a single graveyard on the bottom of their owner's library. (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)",
     "oversized": false,
-    "penny_rank": 10611,
+    "penny_rank": 10719,
     "power": "4",
     "prices": {
       "eur": 0.05,
@@ -487,7 +487,7 @@
       "tix": 0.02,
       "usd": 0.17,
       "usd_etched": null,
-      "usd_foil": 4.41
+      "usd_foil": 6.99
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A43fbfeec-bcaf-48b8-befe-b7346fec5a3a&unique=prints",
     "promo": false,
@@ -521,20 +521,20 @@
   {
     "all_parts": [
       {
-        "component": "combo_piece",
-        "id": "4caaf31b-86a9-485b-8da7-d5b526ed1233",
-        "name": "Thallid",
-        "object": "related_card",
-        "type_line": "Creature — Fungus",
-        "uri": "https://api.scryfall.com/cards/4caaf31b-86a9-485b-8da7-d5b526ed1233"
-      },
-      {
         "component": "token",
-        "id": "006c118e-b5c7-4726-acee-59132f23e4fc",
+        "id": "5a88aa73-baca-49c2-a6c3-0a1624b6078b",
         "name": "Saproling",
         "object": "related_card",
         "type_line": "Token Creature — Saproling",
-        "uri": "https://api.scryfall.com/cards/006c118e-b5c7-4726-acee-59132f23e4fc"
+        "uri": "https://api.scryfall.com/cards/5a88aa73-baca-49c2-a6c3-0a1624b6078b"
+      },
+      {
+        "component": "combo_piece",
+        "id": "01827286-b104-41c5-bac9-7c38414bc40e",
+        "name": "Thallid",
+        "object": "related_card",
+        "type_line": "Creature — Fungus",
+        "uri": "https://api.scryfall.com/cards/01827286-b104-41c5-bac9-7c38414bc40e"
       }
     ],
     "artist": "Edward P. Beard, Jr.",
@@ -554,7 +554,7 @@
       "G"
     ],
     "digital": false,
-    "edhrec_rank": 6473,
+    "edhrec_rank": 6572,
     "finishes": [
       "nonfoil"
     ],
@@ -569,12 +569,12 @@
     "illustration_id": "4b06bf5b-59dc-4524-a023-33bad9e1eee4",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/4/c/4caaf31b-86a9-485b-8da7-d5b526ed1233.jpg?1562909047",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/4/c/4caaf31b-86a9-485b-8da7-d5b526ed1233.jpg?1562909047",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/4/c/4caaf31b-86a9-485b-8da7-d5b526ed1233.jpg?1562909047",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/4/c/4caaf31b-86a9-485b-8da7-d5b526ed1233.jpg?1562909047",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/4/c/4caaf31b-86a9-485b-8da7-d5b526ed1233.png?1562909047",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/4/c/4caaf31b-86a9-485b-8da7-d5b526ed1233.jpg?1562909047"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/4/c/4caaf31b-86a9-485b-8da7-d5b526ed1233.jpg?1562909047",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/4/c/4caaf31b-86a9-485b-8da7-d5b526ed1233.jpg?1562909047",
+      "large": "https://cards.scryfall.io/large/front/4/c/4caaf31b-86a9-485b-8da7-d5b526ed1233.jpg?1562909047",
+      "normal": "https://cards.scryfall.io/normal/front/4/c/4caaf31b-86a9-485b-8da7-d5b526ed1233.jpg?1562909047",
+      "png": "https://cards.scryfall.io/png/front/4/c/4caaf31b-86a9-485b-8da7-d5b526ed1233.png?1562909047",
+      "small": "https://cards.scryfall.io/small/front/4/c/4caaf31b-86a9-485b-8da7-d5b526ed1233.jpg?1562909047"
     },
     "keywords": [],
     "lang": "en",
@@ -610,13 +610,13 @@
     "oracle_id": "46abaabe-7015-4d82-a5aa-2706b1f51bed",
     "oracle_text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Create a 1/1 green Saproling creature token.",
     "oversized": false,
-    "penny_rank": 8412,
+    "penny_rank": 8816,
     "power": "1",
     "prices": {
-      "eur": 0.2,
+      "eur": 0.15,
       "eur_foil": null,
       "tix": null,
-      "usd": 0.22,
+      "usd": 0.24,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -652,20 +652,20 @@
   {
     "all_parts": [
       {
-        "component": "combo_piece",
-        "id": "4caaf31b-86a9-485b-8da7-d5b526ed1233",
-        "name": "Thallid",
-        "object": "related_card",
-        "type_line": "Creature — Fungus",
-        "uri": "https://api.scryfall.com/cards/4caaf31b-86a9-485b-8da7-d5b526ed1233"
-      },
-      {
         "component": "token",
-        "id": "006c118e-b5c7-4726-acee-59132f23e4fc",
+        "id": "5a88aa73-baca-49c2-a6c3-0a1624b6078b",
         "name": "Saproling",
         "object": "related_card",
         "type_line": "Token Creature — Saproling",
-        "uri": "https://api.scryfall.com/cards/006c118e-b5c7-4726-acee-59132f23e4fc"
+        "uri": "https://api.scryfall.com/cards/5a88aa73-baca-49c2-a6c3-0a1624b6078b"
+      },
+      {
+        "component": "combo_piece",
+        "id": "01827286-b104-41c5-bac9-7c38414bc40e",
+        "name": "Thallid",
+        "object": "related_card",
+        "type_line": "Creature — Fungus",
+        "uri": "https://api.scryfall.com/cards/01827286-b104-41c5-bac9-7c38414bc40e"
       }
     ],
     "artist": "Jesper Myrfors",
@@ -685,7 +685,7 @@
       "G"
     ],
     "digital": false,
-    "edhrec_rank": 6473,
+    "edhrec_rank": 6572,
     "finishes": [
       "nonfoil"
     ],
@@ -700,12 +700,12 @@
     "illustration_id": "f3935373-6fec-4f52-b6b3-672b01a004e2",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/8/0/80f8f778-ae31-45cd-b27f-f93a07853ede.jpg?1562918912",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/8/0/80f8f778-ae31-45cd-b27f-f93a07853ede.jpg?1562918912",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/8/0/80f8f778-ae31-45cd-b27f-f93a07853ede.jpg?1562918912",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/8/0/80f8f778-ae31-45cd-b27f-f93a07853ede.jpg?1562918912",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/8/0/80f8f778-ae31-45cd-b27f-f93a07853ede.png?1562918912",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/8/0/80f8f778-ae31-45cd-b27f-f93a07853ede.jpg?1562918912"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/8/0/80f8f778-ae31-45cd-b27f-f93a07853ede.jpg?1562918912",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/8/0/80f8f778-ae31-45cd-b27f-f93a07853ede.jpg?1562918912",
+      "large": "https://cards.scryfall.io/large/front/8/0/80f8f778-ae31-45cd-b27f-f93a07853ede.jpg?1562918912",
+      "normal": "https://cards.scryfall.io/normal/front/8/0/80f8f778-ae31-45cd-b27f-f93a07853ede.jpg?1562918912",
+      "png": "https://cards.scryfall.io/png/front/8/0/80f8f778-ae31-45cd-b27f-f93a07853ede.png?1562918912",
+      "small": "https://cards.scryfall.io/small/front/8/0/80f8f778-ae31-45cd-b27f-f93a07853ede.jpg?1562918912"
     },
     "keywords": [],
     "lang": "en",
@@ -741,10 +741,10 @@
     "oracle_id": "46abaabe-7015-4d82-a5aa-2706b1f51bed",
     "oracle_text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Create a 1/1 green Saproling creature token.",
     "oversized": false,
-    "penny_rank": 8412,
+    "penny_rank": 8816,
     "power": "1",
     "prices": {
-      "eur": 0.1,
+      "eur": 0.25,
       "eur_foil": null,
       "tix": null,
       "usd": 0.19,
@@ -783,20 +783,20 @@
   {
     "all_parts": [
       {
-        "component": "combo_piece",
-        "id": "4caaf31b-86a9-485b-8da7-d5b526ed1233",
-        "name": "Thallid",
-        "object": "related_card",
-        "type_line": "Creature — Fungus",
-        "uri": "https://api.scryfall.com/cards/4caaf31b-86a9-485b-8da7-d5b526ed1233"
-      },
-      {
         "component": "token",
-        "id": "006c118e-b5c7-4726-acee-59132f23e4fc",
+        "id": "5a88aa73-baca-49c2-a6c3-0a1624b6078b",
         "name": "Saproling",
         "object": "related_card",
         "type_line": "Token Creature — Saproling",
-        "uri": "https://api.scryfall.com/cards/006c118e-b5c7-4726-acee-59132f23e4fc"
+        "uri": "https://api.scryfall.com/cards/5a88aa73-baca-49c2-a6c3-0a1624b6078b"
+      },
+      {
+        "component": "combo_piece",
+        "id": "01827286-b104-41c5-bac9-7c38414bc40e",
+        "name": "Thallid",
+        "object": "related_card",
+        "type_line": "Creature — Fungus",
+        "uri": "https://api.scryfall.com/cards/01827286-b104-41c5-bac9-7c38414bc40e"
       }
     ],
     "artist": "Ron Spencer",
@@ -816,7 +816,7 @@
       "G"
     ],
     "digital": false,
-    "edhrec_rank": 6473,
+    "edhrec_rank": 6572,
     "finishes": [
       "nonfoil"
     ],
@@ -831,12 +831,12 @@
     "illustration_id": "7f219b9f-5e6a-468b-86f8-5160dcdae849",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/2/c/2cf2f3da-9101-439d-8caa-910ff40bfbb3.jpg?1562903271",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/2/c/2cf2f3da-9101-439d-8caa-910ff40bfbb3.jpg?1562903271",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/2/c/2cf2f3da-9101-439d-8caa-910ff40bfbb3.jpg?1562903271",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/2/c/2cf2f3da-9101-439d-8caa-910ff40bfbb3.jpg?1562903271",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/2/c/2cf2f3da-9101-439d-8caa-910ff40bfbb3.png?1562903271",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/2/c/2cf2f3da-9101-439d-8caa-910ff40bfbb3.jpg?1562903271"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/2/c/2cf2f3da-9101-439d-8caa-910ff40bfbb3.jpg?1562903271",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/2/c/2cf2f3da-9101-439d-8caa-910ff40bfbb3.jpg?1562903271",
+      "large": "https://cards.scryfall.io/large/front/2/c/2cf2f3da-9101-439d-8caa-910ff40bfbb3.jpg?1562903271",
+      "normal": "https://cards.scryfall.io/normal/front/2/c/2cf2f3da-9101-439d-8caa-910ff40bfbb3.jpg?1562903271",
+      "png": "https://cards.scryfall.io/png/front/2/c/2cf2f3da-9101-439d-8caa-910ff40bfbb3.png?1562903271",
+      "small": "https://cards.scryfall.io/small/front/2/c/2cf2f3da-9101-439d-8caa-910ff40bfbb3.jpg?1562903271"
     },
     "keywords": [],
     "lang": "en",
@@ -872,13 +872,13 @@
     "oracle_id": "46abaabe-7015-4d82-a5aa-2706b1f51bed",
     "oracle_text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Create a 1/1 green Saproling creature token.",
     "oversized": false,
-    "penny_rank": 8412,
+    "penny_rank": 8816,
     "power": "1",
     "prices": {
-      "eur": 0.15,
+      "eur": 0.27,
       "eur_foil": null,
       "tix": null,
-      "usd": 0.22,
+      "usd": 0.24,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -914,20 +914,20 @@
   {
     "all_parts": [
       {
-        "component": "combo_piece",
-        "id": "4caaf31b-86a9-485b-8da7-d5b526ed1233",
-        "name": "Thallid",
-        "object": "related_card",
-        "type_line": "Creature — Fungus",
-        "uri": "https://api.scryfall.com/cards/4caaf31b-86a9-485b-8da7-d5b526ed1233"
-      },
-      {
         "component": "token",
-        "id": "006c118e-b5c7-4726-acee-59132f23e4fc",
+        "id": "5a88aa73-baca-49c2-a6c3-0a1624b6078b",
         "name": "Saproling",
         "object": "related_card",
         "type_line": "Token Creature — Saproling",
-        "uri": "https://api.scryfall.com/cards/006c118e-b5c7-4726-acee-59132f23e4fc"
+        "uri": "https://api.scryfall.com/cards/5a88aa73-baca-49c2-a6c3-0a1624b6078b"
+      },
+      {
+        "component": "combo_piece",
+        "id": "01827286-b104-41c5-bac9-7c38414bc40e",
+        "name": "Thallid",
+        "object": "related_card",
+        "type_line": "Creature — Fungus",
+        "uri": "https://api.scryfall.com/cards/01827286-b104-41c5-bac9-7c38414bc40e"
       }
     ],
     "artist": "Daniel Gelon",
@@ -947,7 +947,7 @@
       "G"
     ],
     "digital": false,
-    "edhrec_rank": 6473,
+    "edhrec_rank": 6572,
     "finishes": [
       "nonfoil"
     ],
@@ -962,12 +962,12 @@
     "illustration_id": "a4fa384d-5327-4022-b8e5-1b74cb84d7db",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/0/1/01827286-b104-41c5-bac9-7c38414bc40e.jpg?1562895253",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/0/1/01827286-b104-41c5-bac9-7c38414bc40e.jpg?1562895253",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/0/1/01827286-b104-41c5-bac9-7c38414bc40e.jpg?1562895253",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/0/1/01827286-b104-41c5-bac9-7c38414bc40e.jpg?1562895253",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/0/1/01827286-b104-41c5-bac9-7c38414bc40e.png?1562895253",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/0/1/01827286-b104-41c5-bac9-7c38414bc40e.jpg?1562895253"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/0/1/01827286-b104-41c5-bac9-7c38414bc40e.jpg?1562895253",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/0/1/01827286-b104-41c5-bac9-7c38414bc40e.jpg?1562895253",
+      "large": "https://cards.scryfall.io/large/front/0/1/01827286-b104-41c5-bac9-7c38414bc40e.jpg?1562895253",
+      "normal": "https://cards.scryfall.io/normal/front/0/1/01827286-b104-41c5-bac9-7c38414bc40e.jpg?1562895253",
+      "png": "https://cards.scryfall.io/png/front/0/1/01827286-b104-41c5-bac9-7c38414bc40e.png?1562895253",
+      "small": "https://cards.scryfall.io/small/front/0/1/01827286-b104-41c5-bac9-7c38414bc40e.jpg?1562895253"
     },
     "keywords": [],
     "lang": "en",
@@ -1003,13 +1003,13 @@
     "oracle_id": "46abaabe-7015-4d82-a5aa-2706b1f51bed",
     "oracle_text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Create a 1/1 green Saproling creature token.",
     "oversized": false,
-    "penny_rank": 8412,
+    "penny_rank": 8816,
     "power": "1",
     "prices": {
-      "eur": 0.14,
+      "eur": 0.39,
       "eur_foil": null,
       "tix": null,
-      "usd": 0.15,
+      "usd": 0.17,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -1060,7 +1060,7 @@
       "B"
     ],
     "digital": false,
-    "edhrec_rank": 17470,
+    "edhrec_rank": 18188,
     "finishes": [
       "nonfoil"
     ],
@@ -1076,12 +1076,12 @@
     "illustration_id": "838191d3-7740-435f-9286-9c6fc9788704",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/0/c/0c6f0614-06dc-4bd2-b8b9-d951ae27db21.jpg?1575874678",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/0/c/0c6f0614-06dc-4bd2-b8b9-d951ae27db21.jpg?1575874678",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/0/c/0c6f0614-06dc-4bd2-b8b9-d951ae27db21.jpg?1575874678",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/0/c/0c6f0614-06dc-4bd2-b8b9-d951ae27db21.jpg?1575874678",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/0/c/0c6f0614-06dc-4bd2-b8b9-d951ae27db21.png?1575874678",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/0/c/0c6f0614-06dc-4bd2-b8b9-d951ae27db21.jpg?1575874678"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/0/c/0c6f0614-06dc-4bd2-b8b9-d951ae27db21.jpg?1575874678",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/0/c/0c6f0614-06dc-4bd2-b8b9-d951ae27db21.jpg?1575874678",
+      "large": "https://cards.scryfall.io/large/front/0/c/0c6f0614-06dc-4bd2-b8b9-d951ae27db21.jpg?1575874678",
+      "normal": "https://cards.scryfall.io/normal/front/0/c/0c6f0614-06dc-4bd2-b8b9-d951ae27db21.jpg?1575874678",
+      "png": "https://cards.scryfall.io/png/front/0/c/0c6f0614-06dc-4bd2-b8b9-d951ae27db21.png?1575874678",
+      "small": "https://cards.scryfall.io/small/front/0/c/0c6f0614-06dc-4bd2-b8b9-d951ae27db21.jpg?1575874678"
     },
     "keywords": [
       "Protection",
@@ -1122,10 +1122,10 @@
     "oversized": false,
     "power": "0",
     "prices": {
-      "eur": 0.05,
+      "eur": 0.3,
       "eur_foil": null,
       "tix": null,
-      "usd": 0.09,
+      "usd": 0.14,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -1176,7 +1176,7 @@
       "B"
     ],
     "digital": false,
-    "edhrec_rank": 17470,
+    "edhrec_rank": 18188,
     "finishes": [
       "nonfoil"
     ],
@@ -1192,12 +1192,12 @@
     "illustration_id": "91b840e3-27dc-4782-bf35-eed48631a971",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/4/a/4a7b2cc1-cb0b-4cb8-963f-453a1d5b0e3c.jpg?1562587268",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/4/a/4a7b2cc1-cb0b-4cb8-963f-453a1d5b0e3c.jpg?1562587268",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/4/a/4a7b2cc1-cb0b-4cb8-963f-453a1d5b0e3c.jpg?1562587268",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/4/a/4a7b2cc1-cb0b-4cb8-963f-453a1d5b0e3c.jpg?1562587268",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/4/a/4a7b2cc1-cb0b-4cb8-963f-453a1d5b0e3c.png?1562587268",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/4/a/4a7b2cc1-cb0b-4cb8-963f-453a1d5b0e3c.jpg?1562587268"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/4/a/4a7b2cc1-cb0b-4cb8-963f-453a1d5b0e3c.jpg?1562587268",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/4/a/4a7b2cc1-cb0b-4cb8-963f-453a1d5b0e3c.jpg?1562587268",
+      "large": "https://cards.scryfall.io/large/front/4/a/4a7b2cc1-cb0b-4cb8-963f-453a1d5b0e3c.jpg?1562587268",
+      "normal": "https://cards.scryfall.io/normal/front/4/a/4a7b2cc1-cb0b-4cb8-963f-453a1d5b0e3c.jpg?1562587268",
+      "png": "https://cards.scryfall.io/png/front/4/a/4a7b2cc1-cb0b-4cb8-963f-453a1d5b0e3c.png?1562587268",
+      "small": "https://cards.scryfall.io/small/front/4/a/4a7b2cc1-cb0b-4cb8-963f-453a1d5b0e3c.jpg?1562587268"
     },
     "keywords": [
       "Protection",
@@ -1238,7 +1238,7 @@
     "oversized": false,
     "power": "0",
     "prices": {
-      "eur": 0.49,
+      "eur": 0.02,
       "eur_foil": null,
       "tix": null,
       "usd": 0.16,
@@ -1293,7 +1293,7 @@
       "W"
     ],
     "digital": false,
-    "edhrec_rank": 2141,
+    "edhrec_rank": 2404,
     "finishes": [
       "nonfoil"
     ],
@@ -1310,12 +1310,12 @@
     "illustration_id": "0cf7d49d-80e5-4da1-88c7-d34427fe0916",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/b/8/b8f5e276-d7c3-4b4b-ac5b-9bb1aeeca8d0.jpg?1562842869",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/b/8/b8f5e276-d7c3-4b4b-ac5b-9bb1aeeca8d0.jpg?1562842869",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/b/8/b8f5e276-d7c3-4b4b-ac5b-9bb1aeeca8d0.jpg?1562842869",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/b/8/b8f5e276-d7c3-4b4b-ac5b-9bb1aeeca8d0.jpg?1562842869",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/b/8/b8f5e276-d7c3-4b4b-ac5b-9bb1aeeca8d0.png?1562842869",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/b/8/b8f5e276-d7c3-4b4b-ac5b-9bb1aeeca8d0.jpg?1562842869"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/b/8/b8f5e276-d7c3-4b4b-ac5b-9bb1aeeca8d0.jpg?1562842869",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/b/8/b8f5e276-d7c3-4b4b-ac5b-9bb1aeeca8d0.jpg?1562842869",
+      "large": "https://cards.scryfall.io/large/front/b/8/b8f5e276-d7c3-4b4b-ac5b-9bb1aeeca8d0.jpg?1562842869",
+      "normal": "https://cards.scryfall.io/normal/front/b/8/b8f5e276-d7c3-4b4b-ac5b-9bb1aeeca8d0.jpg?1562842869",
+      "png": "https://cards.scryfall.io/png/front/b/8/b8f5e276-d7c3-4b4b-ac5b-9bb1aeeca8d0.png?1562842869",
+      "small": "https://cards.scryfall.io/small/front/b/8/b8f5e276-d7c3-4b4b-ac5b-9bb1aeeca8d0.jpg?1562842869"
     },
     "keywords": [
       "Cycling"
@@ -1355,12 +1355,12 @@
     "oracle_id": "ae19dce5-c9fc-4fbe-99b5-dc6a12124a68",
     "oracle_text": "Destroy all artifacts, creatures, and enchantments.\nCycling {3} ({3}, Discard this card: Draw a card.)",
     "oversized": false,
-    "penny_rank": 127,
+    "penny_rank": 135,
     "prices": {
-      "eur": 0.5,
+      "eur": 0.29,
       "eur_foil": null,
-      "tix": 0.57,
-      "usd": 0.47,
+      "tix": 0.6,
+      "usd": 0.42,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -1410,7 +1410,7 @@
       "B"
     ],
     "digital": false,
-    "edhrec_rank": 86,
+    "edhrec_rank": 75,
     "finishes": [
       "nonfoil"
     ],
@@ -1427,12 +1427,12 @@
     "illustration_id": "d2b19b06-705f-40e4-aace-072885238f4c",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/c/8/c8c774f2-110e-476c-a4ff-cc86d31c6ae7.jpg?1562842886",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/c/8/c8c774f2-110e-476c-a4ff-cc86d31c6ae7.jpg?1562842886",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/c/8/c8c774f2-110e-476c-a4ff-cc86d31c6ae7.jpg?1562842886",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/c/8/c8c774f2-110e-476c-a4ff-cc86d31c6ae7.jpg?1562842886",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/c/8/c8c774f2-110e-476c-a4ff-cc86d31c6ae7.png?1562842886",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/c/8/c8c774f2-110e-476c-a4ff-cc86d31c6ae7.jpg?1562842886"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/c/8/c8c774f2-110e-476c-a4ff-cc86d31c6ae7.jpg?1562842886",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/c/8/c8c774f2-110e-476c-a4ff-cc86d31c6ae7.jpg?1562842886",
+      "large": "https://cards.scryfall.io/large/front/c/8/c8c774f2-110e-476c-a4ff-cc86d31c6ae7.jpg?1562842886",
+      "normal": "https://cards.scryfall.io/normal/front/c/8/c8c774f2-110e-476c-a4ff-cc86d31c6ae7.jpg?1562842886",
+      "png": "https://cards.scryfall.io/png/front/c/8/c8c774f2-110e-476c-a4ff-cc86d31c6ae7.png?1562842886",
+      "small": "https://cards.scryfall.io/small/front/c/8/c8c774f2-110e-476c-a4ff-cc86d31c6ae7.jpg?1562842886"
     },
     "keywords": [],
     "lang": "en",
@@ -1470,12 +1470,12 @@
     "oracle_id": "53f7c868-b03e-4fc2-8dcf-a75bbfa3272b",
     "oracle_text": "Add {B}{B}{B}.",
     "oversized": false,
-    "penny_rank": 26,
+    "penny_rank": 27,
     "prices": {
-      "eur": 1.0,
+      "eur": 2.03,
       "eur_foil": null,
-      "tix": 0.74,
-      "usd": 0.9,
+      "tix": 0.83,
+      "usd": 0.66,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -1528,7 +1528,7 @@
       "B"
     ],
     "digital": false,
-    "edhrec_rank": 86,
+    "edhrec_rank": 75,
     "finishes": [
       "nonfoil"
     ],
@@ -1545,12 +1545,12 @@
     "illustration_id": "2836a448-e4b5-4274-921b-1c19747be426",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/4/e/4ebcd681-1871-4914-bcd7-6bd95829f6e0.jpg?1562909407",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/4/e/4ebcd681-1871-4914-bcd7-6bd95829f6e0.jpg?1562909407",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/4/e/4ebcd681-1871-4914-bcd7-6bd95829f6e0.jpg?1562909407",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/4/e/4ebcd681-1871-4914-bcd7-6bd95829f6e0.jpg?1562909407",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/4/e/4ebcd681-1871-4914-bcd7-6bd95829f6e0.png?1562909407",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/4/e/4ebcd681-1871-4914-bcd7-6bd95829f6e0.jpg?1562909407"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/4/e/4ebcd681-1871-4914-bcd7-6bd95829f6e0.jpg?1562909407",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/4/e/4ebcd681-1871-4914-bcd7-6bd95829f6e0.jpg?1562909407",
+      "large": "https://cards.scryfall.io/large/front/4/e/4ebcd681-1871-4914-bcd7-6bd95829f6e0.jpg?1562909407",
+      "normal": "https://cards.scryfall.io/normal/front/4/e/4ebcd681-1871-4914-bcd7-6bd95829f6e0.jpg?1562909407",
+      "png": "https://cards.scryfall.io/png/front/4/e/4ebcd681-1871-4914-bcd7-6bd95829f6e0.png?1562909407",
+      "small": "https://cards.scryfall.io/small/front/4/e/4ebcd681-1871-4914-bcd7-6bd95829f6e0.jpg?1562909407"
     },
     "keywords": [],
     "lang": "en",
@@ -1587,12 +1587,12 @@
     "oracle_id": "53f7c868-b03e-4fc2-8dcf-a75bbfa3272b",
     "oracle_text": "Add {B}{B}{B}.",
     "oversized": false,
-    "penny_rank": 26,
+    "penny_rank": 27,
     "prices": {
-      "eur": 0.65,
+      "eur": 0.25,
       "eur_foil": null,
-      "tix": 1.0,
-      "usd": 0.72,
+      "tix": 1.17,
+      "usd": 0.98,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -1658,12 +1658,12 @@
     "illustration_id": "85f80888-e516-48a6-81c5-28631517c198",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/f/b/fbdcbd97-90a9-45ea-94f6-2a1c6faaf965.jpg?1562942481",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/f/b/fbdcbd97-90a9-45ea-94f6-2a1c6faaf965.jpg?1562942481",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/f/b/fbdcbd97-90a9-45ea-94f6-2a1c6faaf965.jpg?1562942481",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/f/b/fbdcbd97-90a9-45ea-94f6-2a1c6faaf965.jpg?1562942481",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/f/b/fbdcbd97-90a9-45ea-94f6-2a1c6faaf965.png?1562942481",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/f/b/fbdcbd97-90a9-45ea-94f6-2a1c6faaf965.jpg?1562942481"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/f/b/fbdcbd97-90a9-45ea-94f6-2a1c6faaf965.jpg?1562942481",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/f/b/fbdcbd97-90a9-45ea-94f6-2a1c6faaf965.jpg?1562942481",
+      "large": "https://cards.scryfall.io/large/front/f/b/fbdcbd97-90a9-45ea-94f6-2a1c6faaf965.jpg?1562942481",
+      "normal": "https://cards.scryfall.io/normal/front/f/b/fbdcbd97-90a9-45ea-94f6-2a1c6faaf965.jpg?1562942481",
+      "png": "https://cards.scryfall.io/png/front/f/b/fbdcbd97-90a9-45ea-94f6-2a1c6faaf965.png?1562942481",
+      "small": "https://cards.scryfall.io/small/front/f/b/fbdcbd97-90a9-45ea-94f6-2a1c6faaf965.jpg?1562942481"
     },
     "keywords": [],
     "lang": "en",
@@ -1701,10 +1701,10 @@
     "oracle_text": "({T}: Add {G}.)",
     "oversized": false,
     "prices": {
-      "eur": 0.3,
+      "eur": 0.2,
       "eur_foil": null,
-      "tix": 0.23,
-      "usd": 0.42,
+      "tix": 0.35,
+      "usd": 0.8,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -1770,12 +1770,12 @@
     "illustration_id": "3216ffd5-663a-4b43-9d76-e8bf423c104c",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/b/3/b346b784-7bde-49d0-bfa9-56236cbe19d9.jpg?1562928391",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/b/3/b346b784-7bde-49d0-bfa9-56236cbe19d9.jpg?1562928391",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/b/3/b346b784-7bde-49d0-bfa9-56236cbe19d9.jpg?1562928391",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/b/3/b346b784-7bde-49d0-bfa9-56236cbe19d9.jpg?1562928391",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/b/3/b346b784-7bde-49d0-bfa9-56236cbe19d9.png?1562928391",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/b/3/b346b784-7bde-49d0-bfa9-56236cbe19d9.jpg?1562928391"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/b/3/b346b784-7bde-49d0-bfa9-56236cbe19d9.jpg?1562928391",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/b/3/b346b784-7bde-49d0-bfa9-56236cbe19d9.jpg?1562928391",
+      "large": "https://cards.scryfall.io/large/front/b/3/b346b784-7bde-49d0-bfa9-56236cbe19d9.jpg?1562928391",
+      "normal": "https://cards.scryfall.io/normal/front/b/3/b346b784-7bde-49d0-bfa9-56236cbe19d9.jpg?1562928391",
+      "png": "https://cards.scryfall.io/png/front/b/3/b346b784-7bde-49d0-bfa9-56236cbe19d9.png?1562928391",
+      "small": "https://cards.scryfall.io/small/front/b/3/b346b784-7bde-49d0-bfa9-56236cbe19d9.jpg?1562928391"
     },
     "keywords": [],
     "lang": "en",
@@ -1813,10 +1813,10 @@
     "oracle_text": "({T}: Add {G}.)",
     "oversized": false,
     "prices": {
-      "eur": 0.23,
+      "eur": 0.39,
       "eur_foil": null,
       "tix": 0.8,
-      "usd": 0.71,
+      "usd": 1.02,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -1882,12 +1882,12 @@
     "illustration_id": "ffee21ee-58f9-4713-888c-a3dfdc96dda3",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/7/6/768c4d8f-5700-4f0a-9ff2-58422aeb1dac.jpg?1562916916",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/7/6/768c4d8f-5700-4f0a-9ff2-58422aeb1dac.jpg?1562916916",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/7/6/768c4d8f-5700-4f0a-9ff2-58422aeb1dac.jpg?1562916916",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/7/6/768c4d8f-5700-4f0a-9ff2-58422aeb1dac.jpg?1562916916",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/7/6/768c4d8f-5700-4f0a-9ff2-58422aeb1dac.png?1562916916",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/7/6/768c4d8f-5700-4f0a-9ff2-58422aeb1dac.jpg?1562916916"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/7/6/768c4d8f-5700-4f0a-9ff2-58422aeb1dac.jpg?1562916916",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/7/6/768c4d8f-5700-4f0a-9ff2-58422aeb1dac.jpg?1562916916",
+      "large": "https://cards.scryfall.io/large/front/7/6/768c4d8f-5700-4f0a-9ff2-58422aeb1dac.jpg?1562916916",
+      "normal": "https://cards.scryfall.io/normal/front/7/6/768c4d8f-5700-4f0a-9ff2-58422aeb1dac.jpg?1562916916",
+      "png": "https://cards.scryfall.io/png/front/7/6/768c4d8f-5700-4f0a-9ff2-58422aeb1dac.png?1562916916",
+      "small": "https://cards.scryfall.io/small/front/7/6/768c4d8f-5700-4f0a-9ff2-58422aeb1dac.jpg?1562916916"
     },
     "keywords": [],
     "lang": "en",
@@ -1925,10 +1925,10 @@
     "oracle_text": "({T}: Add {G}.)",
     "oversized": false,
     "prices": {
-      "eur": 0.2,
+      "eur": 0.19,
       "eur_foil": null,
-      "tix": 4.44,
-      "usd": 0.32,
+      "tix": 3.66,
+      "usd": 0.36,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -1994,19 +1994,19 @@
     "illustration_id": "c8eee05b-31a6-4bf8-b0b8-c8b4db5de96a",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/4/c/4c0ad95c-d62c-4138-ada0-fa39a63a449e.jpg?1562908930",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/4/c/4c0ad95c-d62c-4138-ada0-fa39a63a449e.jpg?1562908930",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/4/c/4c0ad95c-d62c-4138-ada0-fa39a63a449e.jpg?1562908930",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/4/c/4c0ad95c-d62c-4138-ada0-fa39a63a449e.jpg?1562908930",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/4/c/4c0ad95c-d62c-4138-ada0-fa39a63a449e.png?1562908930",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/4/c/4c0ad95c-d62c-4138-ada0-fa39a63a449e.jpg?1562908930"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/4/c/4c0ad95c-d62c-4138-ada0-fa39a63a449e.jpg?1562908930",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/4/c/4c0ad95c-d62c-4138-ada0-fa39a63a449e.jpg?1562908930",
+      "large": "https://cards.scryfall.io/large/front/4/c/4c0ad95c-d62c-4138-ada0-fa39a63a449e.jpg?1562908930",
+      "normal": "https://cards.scryfall.io/normal/front/4/c/4c0ad95c-d62c-4138-ada0-fa39a63a449e.jpg?1562908930",
+      "png": "https://cards.scryfall.io/png/front/4/c/4c0ad95c-d62c-4138-ada0-fa39a63a449e.png?1562908930",
+      "small": "https://cards.scryfall.io/small/front/4/c/4c0ad95c-d62c-4138-ada0-fa39a63a449e.jpg?1562908930"
     },
     "keywords": [],
     "lang": "en",
     "layout": "normal",
     "legalities": {
-      "alchemy": "legal",
-      "brawl": "legal",
+      "alchemy": "not_legal",
+      "brawl": "not_legal",
       "commander": "legal",
       "duel": "legal",
       "explorer": "legal",
@@ -2019,10 +2019,10 @@
       "oldschool": "not_legal",
       "pauper": "legal",
       "paupercommander": "legal",
-      "penny": "legal",
+      "penny": "not_legal",
       "pioneer": "legal",
       "premodern": "legal",
-      "standard": "legal",
+      "standard": "not_legal",
       "vintage": "legal"
     },
     "mana_cost": "",
@@ -2037,10 +2037,10 @@
     "oracle_text": "({T}: Add {G}.)",
     "oversized": false,
     "prices": {
-      "eur": 0.83,
+      "eur": 1.73,
       "eur_foil": null,
-      "tix": 2.37,
-      "usd": 1.81,
+      "tix": 2.45,
+      "usd": 1.65,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -2093,7 +2093,7 @@
       "B"
     ],
     "digital": false,
-    "edhrec_rank": 14943,
+    "edhrec_rank": 15344,
     "finishes": [
       "nonfoil",
       "foil"
@@ -2111,12 +2111,12 @@
     "illustration_id": "6eb1c27b-7376-4e2c-aad2-9d69f3fbcdc1",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/5/9/59cf0906-04fa-4b30-a7a6-3d117931154f.jpg?1562830661",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/5/9/59cf0906-04fa-4b30-a7a6-3d117931154f.jpg?1562830661",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/5/9/59cf0906-04fa-4b30-a7a6-3d117931154f.jpg?1562830661",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/5/9/59cf0906-04fa-4b30-a7a6-3d117931154f.jpg?1562830661",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/5/9/59cf0906-04fa-4b30-a7a6-3d117931154f.png?1562830661",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/5/9/59cf0906-04fa-4b30-a7a6-3d117931154f.jpg?1562830661"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/5/9/59cf0906-04fa-4b30-a7a6-3d117931154f.jpg?1562830661",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/5/9/59cf0906-04fa-4b30-a7a6-3d117931154f.jpg?1562830661",
+      "large": "https://cards.scryfall.io/large/front/5/9/59cf0906-04fa-4b30-a7a6-3d117931154f.jpg?1562830661",
+      "normal": "https://cards.scryfall.io/normal/front/5/9/59cf0906-04fa-4b30-a7a6-3d117931154f.jpg?1562830661",
+      "png": "https://cards.scryfall.io/png/front/5/9/59cf0906-04fa-4b30-a7a6-3d117931154f.png?1562830661",
+      "small": "https://cards.scryfall.io/small/front/5/9/59cf0906-04fa-4b30-a7a6-3d117931154f.jpg?1562830661"
     },
     "keywords": [
       "First strike"
@@ -2156,15 +2156,15 @@
     "oracle_id": "2b211adb-de44-4468-b65d-907a09aa7e9d",
     "oracle_text": "First strike\nWhenever a creature dealt damage by Abattoir Ghoul this turn dies, you gain life equal to that creature's toughness.",
     "oversized": false,
-    "penny_rank": 4617,
+    "penny_rank": 4742,
     "power": "3",
     "prices": {
       "eur": 0.05,
       "eur_foil": 0.15,
       "tix": 0.04,
-      "usd": 0.06,
+      "usd": 0.07,
       "usd_etched": null,
-      "usd_foil": 0.25
+      "usd_foil": 0.29
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A2b211adb-de44-4468-b65d-907a09aa7e9d&unique=prints",
     "promo": false,
@@ -2211,12 +2211,12 @@
         ],
         "illustration_id": "1c2fee9b-89ea-4ab1-a751-451c3cd65a88",
         "image_uris": {
-          "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/1/1/11bf83bb-c95b-4b4f-9a56-ce7a1816307a.jpg?1562826346",
-          "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/1/1/11bf83bb-c95b-4b4f-9a56-ce7a1816307a.jpg?1562826346",
-          "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/1/1/11bf83bb-c95b-4b4f-9a56-ce7a1816307a.jpg?1562826346",
-          "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/1/1/11bf83bb-c95b-4b4f-9a56-ce7a1816307a.jpg?1562826346",
-          "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/1/1/11bf83bb-c95b-4b4f-9a56-ce7a1816307a.png?1562826346",
-          "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/1/1/11bf83bb-c95b-4b4f-9a56-ce7a1816307a.jpg?1562826346"
+          "art_crop": "https://cards.scryfall.io/art_crop/front/1/1/11bf83bb-c95b-4b4f-9a56-ce7a1816307a.jpg?1562826346",
+          "border_crop": "https://cards.scryfall.io/border_crop/front/1/1/11bf83bb-c95b-4b4f-9a56-ce7a1816307a.jpg?1562826346",
+          "large": "https://cards.scryfall.io/large/front/1/1/11bf83bb-c95b-4b4f-9a56-ce7a1816307a.jpg?1562826346",
+          "normal": "https://cards.scryfall.io/normal/front/1/1/11bf83bb-c95b-4b4f-9a56-ce7a1816307a.jpg?1562826346",
+          "png": "https://cards.scryfall.io/png/front/1/1/11bf83bb-c95b-4b4f-9a56-ce7a1816307a.png?1562826346",
+          "small": "https://cards.scryfall.io/small/front/1/1/11bf83bb-c95b-4b4f-9a56-ce7a1816307a.jpg?1562826346"
         },
         "mana_cost": "{U}",
         "name": "Delver of Secrets",
@@ -2239,12 +2239,12 @@
         "flavor_text": "\"Unfortunately, all my test animals have died or escaped, so I shall be the final subject. I feel no fear. This is a momentous night.\"\n—Laboratory notes, final entry",
         "illustration_id": "c2b5f731-771b-4949-90f3-0ad40d676100",
         "image_uris": {
-          "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/back/1/1/11bf83bb-c95b-4b4f-9a56-ce7a1816307a.jpg?1562826346",
-          "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/back/1/1/11bf83bb-c95b-4b4f-9a56-ce7a1816307a.jpg?1562826346",
-          "large": "https://c1.scryfall.com/file/scryfall-cards/large/back/1/1/11bf83bb-c95b-4b4f-9a56-ce7a1816307a.jpg?1562826346",
-          "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/back/1/1/11bf83bb-c95b-4b4f-9a56-ce7a1816307a.jpg?1562826346",
-          "png": "https://c1.scryfall.com/file/scryfall-cards/png/back/1/1/11bf83bb-c95b-4b4f-9a56-ce7a1816307a.png?1562826346",
-          "small": "https://c1.scryfall.com/file/scryfall-cards/small/back/1/1/11bf83bb-c95b-4b4f-9a56-ce7a1816307a.jpg?1562826346"
+          "art_crop": "https://cards.scryfall.io/art_crop/back/1/1/11bf83bb-c95b-4b4f-9a56-ce7a1816307a.jpg?1562826346",
+          "border_crop": "https://cards.scryfall.io/border_crop/back/1/1/11bf83bb-c95b-4b4f-9a56-ce7a1816307a.jpg?1562826346",
+          "large": "https://cards.scryfall.io/large/back/1/1/11bf83bb-c95b-4b4f-9a56-ce7a1816307a.jpg?1562826346",
+          "normal": "https://cards.scryfall.io/normal/back/1/1/11bf83bb-c95b-4b4f-9a56-ce7a1816307a.jpg?1562826346",
+          "png": "https://cards.scryfall.io/png/back/1/1/11bf83bb-c95b-4b4f-9a56-ce7a1816307a.png?1562826346",
+          "small": "https://cards.scryfall.io/small/back/1/1/11bf83bb-c95b-4b4f-9a56-ce7a1816307a.jpg?1562826346"
         },
         "mana_cost": "",
         "name": "Insectile Aberration",
@@ -2262,7 +2262,7 @@
       "U"
     ],
     "digital": false,
-    "edhrec_rank": 11096,
+    "edhrec_rank": 11404,
     "finishes": [
       "nonfoil",
       "foil"
@@ -2318,14 +2318,14 @@
     "object": "card",
     "oracle_id": "edd531b9-f615-4399-8c8c-1c5e18c4acbf",
     "oversized": false,
-    "penny_rank": 96,
+    "penny_rank": 102,
     "prices": {
-      "eur": 0.8,
-      "eur_foil": 6.1,
+      "eur": 0.86,
+      "eur_foil": 4.5,
       "tix": 0.02,
-      "usd": 0.45,
+      "usd": 0.54,
       "usd_etched": null,
-      "usd_foil": 6.39
+      "usd_foil": 6.69
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Aedd531b9-f615-4399-8c8c-1c5e18c4acbf&unique=prints",
     "promo": false,
@@ -2387,12 +2387,12 @@
     "illustration_id": "761757ff-d26d-4aee-910e-1bc597a82569",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/b/6/b606f644-1728-4cb3-90ed-121838875de1.jpg?1562835915",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/b/6/b606f644-1728-4cb3-90ed-121838875de1.jpg?1562835915",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/b/6/b606f644-1728-4cb3-90ed-121838875de1.jpg?1562835915",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/b/6/b606f644-1728-4cb3-90ed-121838875de1.jpg?1562835915",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/b/6/b606f644-1728-4cb3-90ed-121838875de1.png?1562835915",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/b/6/b606f644-1728-4cb3-90ed-121838875de1.jpg?1562835915"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/b/6/b606f644-1728-4cb3-90ed-121838875de1.jpg?1562835915",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/b/6/b606f644-1728-4cb3-90ed-121838875de1.jpg?1562835915",
+      "large": "https://cards.scryfall.io/large/front/b/6/b606f644-1728-4cb3-90ed-121838875de1.jpg?1562835915",
+      "normal": "https://cards.scryfall.io/normal/front/b/6/b606f644-1728-4cb3-90ed-121838875de1.jpg?1562835915",
+      "png": "https://cards.scryfall.io/png/front/b/6/b606f644-1728-4cb3-90ed-121838875de1.png?1562835915",
+      "small": "https://cards.scryfall.io/small/front/b/6/b606f644-1728-4cb3-90ed-121838875de1.jpg?1562835915"
     },
     "keywords": [],
     "lang": "en",
@@ -2431,12 +2431,12 @@
     "oracle_text": "({T}: Add {G}.)",
     "oversized": false,
     "prices": {
-      "eur": 0.15,
-      "eur_foil": 1.0,
-      "tix": 0.03,
-      "usd": 0.14,
+      "eur": 0.1,
+      "eur_foil": 0.84,
+      "tix": 0.02,
+      "usd": 0.17,
       "usd_etched": null,
-      "usd_foil": 3.41
+      "usd_foil": 3.17
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Ab34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6&unique=prints",
     "produced_mana": [
@@ -2501,12 +2501,12 @@
     "illustration_id": "c070ced7-22af-4965-988a-b3cb9c0e5395",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/1/6/16f52885-1f01-4f06-90a8-1a0ecf291ab5.jpg?1562826752",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/1/6/16f52885-1f01-4f06-90a8-1a0ecf291ab5.jpg?1562826752",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/1/6/16f52885-1f01-4f06-90a8-1a0ecf291ab5.jpg?1562826752",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/1/6/16f52885-1f01-4f06-90a8-1a0ecf291ab5.jpg?1562826752",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/1/6/16f52885-1f01-4f06-90a8-1a0ecf291ab5.png?1562826752",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/1/6/16f52885-1f01-4f06-90a8-1a0ecf291ab5.jpg?1562826752"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/1/6/16f52885-1f01-4f06-90a8-1a0ecf291ab5.jpg?1562826752",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/1/6/16f52885-1f01-4f06-90a8-1a0ecf291ab5.jpg?1562826752",
+      "large": "https://cards.scryfall.io/large/front/1/6/16f52885-1f01-4f06-90a8-1a0ecf291ab5.jpg?1562826752",
+      "normal": "https://cards.scryfall.io/normal/front/1/6/16f52885-1f01-4f06-90a8-1a0ecf291ab5.jpg?1562826752",
+      "png": "https://cards.scryfall.io/png/front/1/6/16f52885-1f01-4f06-90a8-1a0ecf291ab5.png?1562826752",
+      "small": "https://cards.scryfall.io/small/front/1/6/16f52885-1f01-4f06-90a8-1a0ecf291ab5.jpg?1562826752"
     },
     "keywords": [],
     "lang": "en",
@@ -2545,12 +2545,12 @@
     "oracle_text": "({T}: Add {G}.)",
     "oversized": false,
     "prices": {
-      "eur": 0.09,
-      "eur_foil": 1.49,
+      "eur": 0.1,
+      "eur_foil": 1.0,
       "tix": 0.03,
-      "usd": 0.14,
+      "usd": 0.17,
       "usd_etched": null,
-      "usd_foil": 1.52
+      "usd_foil": 1.09
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Ab34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6&unique=prints",
     "produced_mana": [
@@ -2615,12 +2615,12 @@
     "illustration_id": "f989d490-7ebb-417d-bb24-ed455160414e",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/4/d/4dea3762-c6ae-4304-aee4-6c3f56685319.jpg?1562829937",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/4/d/4dea3762-c6ae-4304-aee4-6c3f56685319.jpg?1562829937",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/4/d/4dea3762-c6ae-4304-aee4-6c3f56685319.jpg?1562829937",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/4/d/4dea3762-c6ae-4304-aee4-6c3f56685319.jpg?1562829937",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/4/d/4dea3762-c6ae-4304-aee4-6c3f56685319.png?1562829937",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/4/d/4dea3762-c6ae-4304-aee4-6c3f56685319.jpg?1562829937"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/4/d/4dea3762-c6ae-4304-aee4-6c3f56685319.jpg?1562829937",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/4/d/4dea3762-c6ae-4304-aee4-6c3f56685319.jpg?1562829937",
+      "large": "https://cards.scryfall.io/large/front/4/d/4dea3762-c6ae-4304-aee4-6c3f56685319.jpg?1562829937",
+      "normal": "https://cards.scryfall.io/normal/front/4/d/4dea3762-c6ae-4304-aee4-6c3f56685319.jpg?1562829937",
+      "png": "https://cards.scryfall.io/png/front/4/d/4dea3762-c6ae-4304-aee4-6c3f56685319.png?1562829937",
+      "small": "https://cards.scryfall.io/small/front/4/d/4dea3762-c6ae-4304-aee4-6c3f56685319.jpg?1562829937"
     },
     "keywords": [],
     "lang": "en",
@@ -2659,12 +2659,12 @@
     "oracle_text": "({T}: Add {G}.)",
     "oversized": false,
     "prices": {
-      "eur": 0.15,
-      "eur_foil": 0.84,
+      "eur": 0.1,
+      "eur_foil": 0.48,
       "tix": 0.03,
-      "usd": 0.21,
+      "usd": 0.22,
       "usd_etched": null,
-      "usd_foil": 0.76
+      "usd_foil": 0.6
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Ab34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6&unique=prints",
     "produced_mana": [
@@ -2715,7 +2715,7 @@
       "U"
     ],
     "digital": false,
-    "edhrec_rank": 16165,
+    "edhrec_rank": 16941,
     "finishes": [
       "nonfoil"
     ],
@@ -2731,12 +2731,12 @@
     "illustration_id": "67f66b28-3ee8-4ce0-a184-cb3d7c8fdb4f",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/6/9/69c3b2a3-0daa-4d42-832d-fcdfda6555ea.jpg?1559591522",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/6/9/69c3b2a3-0daa-4d42-832d-fcdfda6555ea.jpg?1559591522",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/6/9/69c3b2a3-0daa-4d42-832d-fcdfda6555ea.jpg?1559591522",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/6/9/69c3b2a3-0daa-4d42-832d-fcdfda6555ea.jpg?1559591522",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/6/9/69c3b2a3-0daa-4d42-832d-fcdfda6555ea.png?1559591522",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/6/9/69c3b2a3-0daa-4d42-832d-fcdfda6555ea.jpg?1559591522"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/6/9/69c3b2a3-0daa-4d42-832d-fcdfda6555ea.jpg?1559591522",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/6/9/69c3b2a3-0daa-4d42-832d-fcdfda6555ea.jpg?1559591522",
+      "large": "https://cards.scryfall.io/large/front/6/9/69c3b2a3-0daa-4d42-832d-fcdfda6555ea.jpg?1559591522",
+      "normal": "https://cards.scryfall.io/normal/front/6/9/69c3b2a3-0daa-4d42-832d-fcdfda6555ea.jpg?1559591522",
+      "png": "https://cards.scryfall.io/png/front/6/9/69c3b2a3-0daa-4d42-832d-fcdfda6555ea.png?1559591522",
+      "small": "https://cards.scryfall.io/small/front/6/9/69c3b2a3-0daa-4d42-832d-fcdfda6555ea.jpg?1559591522"
     },
     "keywords": [
       "Flying"
@@ -2744,7 +2744,7 @@
     "lang": "en",
     "layout": "normal",
     "legalities": {
-      "alchemy": "legal",
+      "alchemy": "not_legal",
       "brawl": "not_legal",
       "commander": "legal",
       "duel": "legal",
@@ -2774,10 +2774,10 @@
     "oracle_id": "7744bae4-a8b7-44a5-9b4c-0048ad4cc448",
     "oracle_text": "Flying",
     "oversized": false,
-    "penny_rank": 6388,
+    "penny_rank": 6499,
     "power": "4",
     "prices": {
-      "eur": 449.95,
+      "eur": 369.0,
       "eur_foil": null,
       "tix": null,
       "usd": null,
@@ -2831,7 +2831,7 @@
       "B"
     ],
     "digital": false,
-    "edhrec_rank": 86,
+    "edhrec_rank": 75,
     "finishes": [
       "nonfoil"
     ],
@@ -2846,12 +2846,12 @@
     "illustration_id": "827c7f7b-1c5b-4bc0-91d7-b9894f7a2674",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/e/b/ebb6664d-23ca-456e-9916-afcd6f26aa7f.jpg?1559591495",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/e/b/ebb6664d-23ca-456e-9916-afcd6f26aa7f.jpg?1559591495",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/e/b/ebb6664d-23ca-456e-9916-afcd6f26aa7f.jpg?1559591495",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/e/b/ebb6664d-23ca-456e-9916-afcd6f26aa7f.jpg?1559591495",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/e/b/ebb6664d-23ca-456e-9916-afcd6f26aa7f.png?1559591495",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/e/b/ebb6664d-23ca-456e-9916-afcd6f26aa7f.jpg?1559591495"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/e/b/ebb6664d-23ca-456e-9916-afcd6f26aa7f.jpg?1559591495",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/e/b/ebb6664d-23ca-456e-9916-afcd6f26aa7f.jpg?1559591495",
+      "large": "https://cards.scryfall.io/large/front/e/b/ebb6664d-23ca-456e-9916-afcd6f26aa7f.jpg?1559591495",
+      "normal": "https://cards.scryfall.io/normal/front/e/b/ebb6664d-23ca-456e-9916-afcd6f26aa7f.jpg?1559591495",
+      "png": "https://cards.scryfall.io/png/front/e/b/ebb6664d-23ca-456e-9916-afcd6f26aa7f.png?1559591495",
+      "small": "https://cards.scryfall.io/small/front/e/b/ebb6664d-23ca-456e-9916-afcd6f26aa7f.jpg?1559591495"
     },
     "keywords": [],
     "lang": "en",
@@ -2887,12 +2887,12 @@
     "oracle_id": "53f7c868-b03e-4fc2-8dcf-a75bbfa3272b",
     "oracle_text": "Add {B}{B}{B}.",
     "oversized": false,
-    "penny_rank": 26,
+    "penny_rank": 27,
     "prices": {
-      "eur": 399.99,
+      "eur": 309.0,
       "eur_foil": null,
       "tix": null,
-      "usd": 244.82,
+      "usd": null,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -2957,12 +2957,12 @@
     "illustration_id": "a65460f1-5185-4bae-94bd-ed49a330d505",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/6/f/6f1c8cb0-38eb-408b-94e8-16db83999b3b.jpg?1559591465",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/6/f/6f1c8cb0-38eb-408b-94e8-16db83999b3b.jpg?1559591465",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/6/f/6f1c8cb0-38eb-408b-94e8-16db83999b3b.jpg?1559591465",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/6/f/6f1c8cb0-38eb-408b-94e8-16db83999b3b.jpg?1559591465",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/6/f/6f1c8cb0-38eb-408b-94e8-16db83999b3b.png?1559591465",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/6/f/6f1c8cb0-38eb-408b-94e8-16db83999b3b.jpg?1559591465"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/6/f/6f1c8cb0-38eb-408b-94e8-16db83999b3b.jpg?1559591465",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/6/f/6f1c8cb0-38eb-408b-94e8-16db83999b3b.jpg?1559591465",
+      "large": "https://cards.scryfall.io/large/front/6/f/6f1c8cb0-38eb-408b-94e8-16db83999b3b.jpg?1559591465",
+      "normal": "https://cards.scryfall.io/normal/front/6/f/6f1c8cb0-38eb-408b-94e8-16db83999b3b.jpg?1559591465",
+      "png": "https://cards.scryfall.io/png/front/6/f/6f1c8cb0-38eb-408b-94e8-16db83999b3b.png?1559591465",
+      "small": "https://cards.scryfall.io/small/front/6/f/6f1c8cb0-38eb-408b-94e8-16db83999b3b.jpg?1559591465"
     },
     "keywords": [],
     "lang": "en",
@@ -2999,10 +2999,10 @@
     "oracle_text": "({T}: Add {G}.)",
     "oversized": false,
     "prices": {
-      "eur": 39.99,
+      "eur": 99.95,
       "eur_foil": null,
       "tix": null,
-      "usd": 84.99,
+      "usd": 63.38,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -3067,12 +3067,12 @@
     "illustration_id": "3b022529-b95d-4338-b4be-0d26fc37f2df",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/f/2/f20c89d9-71c9-45f5-a9cb-6e253b0a7cca.jpg?1559591510",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/f/2/f20c89d9-71c9-45f5-a9cb-6e253b0a7cca.jpg?1559591510",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/f/2/f20c89d9-71c9-45f5-a9cb-6e253b0a7cca.jpg?1559591510",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/f/2/f20c89d9-71c9-45f5-a9cb-6e253b0a7cca.jpg?1559591510",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/f/2/f20c89d9-71c9-45f5-a9cb-6e253b0a7cca.png?1559591510",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/f/2/f20c89d9-71c9-45f5-a9cb-6e253b0a7cca.jpg?1559591510"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/f/2/f20c89d9-71c9-45f5-a9cb-6e253b0a7cca.jpg?1559591510",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/f/2/f20c89d9-71c9-45f5-a9cb-6e253b0a7cca.jpg?1559591510",
+      "large": "https://cards.scryfall.io/large/front/f/2/f20c89d9-71c9-45f5-a9cb-6e253b0a7cca.jpg?1559591510",
+      "normal": "https://cards.scryfall.io/normal/front/f/2/f20c89d9-71c9-45f5-a9cb-6e253b0a7cca.jpg?1559591510",
+      "png": "https://cards.scryfall.io/png/front/f/2/f20c89d9-71c9-45f5-a9cb-6e253b0a7cca.png?1559591510",
+      "small": "https://cards.scryfall.io/small/front/f/2/f20c89d9-71c9-45f5-a9cb-6e253b0a7cca.jpg?1559591510"
     },
     "keywords": [],
     "lang": "en",
@@ -3109,10 +3109,10 @@
     "oracle_text": "({T}: Add {G}.)",
     "oversized": false,
     "prices": {
-      "eur": 36.04,
+      "eur": 40.0,
       "eur_foil": null,
       "tix": null,
-      "usd": 87.12,
+      "usd": 84.35,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -3150,20 +3150,20 @@
   {
     "all_parts": [
       {
-        "component": "combo_piece",
-        "id": "69d20d28-76e9-4e6e-95c3-f88c51dfabfd",
-        "name": "Thallid",
-        "object": "related_card",
-        "type_line": "Creature — Fungus",
-        "uri": "https://api.scryfall.com/cards/69d20d28-76e9-4e6e-95c3-f88c51dfabfd"
-      },
-      {
         "component": "token",
         "id": "15854c49-14fd-4947-8444-c5ab614cb416",
         "name": "Saproling",
         "object": "related_card",
         "type_line": "Token Creature — Saproling",
         "uri": "https://api.scryfall.com/cards/15854c49-14fd-4947-8444-c5ab614cb416"
+      },
+      {
+        "component": "combo_piece",
+        "id": "69d20d28-76e9-4e6e-95c3-f88c51dfabfd",
+        "name": "Thallid",
+        "object": "related_card",
+        "type_line": "Creature — Fungus",
+        "uri": "https://api.scryfall.com/cards/69d20d28-76e9-4e6e-95c3-f88c51dfabfd"
       }
     ],
     "artist": "Trevor Claxton",
@@ -3183,7 +3183,7 @@
       "G"
     ],
     "digital": false,
-    "edhrec_rank": 6473,
+    "edhrec_rank": 6572,
     "finishes": [
       "nonfoil",
       "foil"
@@ -3200,12 +3200,12 @@
     "illustration_id": "c5e63c9c-3c6d-473a-8af9-ac3260ea6a24",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/6/9/69d20d28-76e9-4e6e-95c3-f88c51dfabfd.jpg?1561967373",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/6/9/69d20d28-76e9-4e6e-95c3-f88c51dfabfd.jpg?1561967373",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/6/9/69d20d28-76e9-4e6e-95c3-f88c51dfabfd.jpg?1561967373",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/6/9/69d20d28-76e9-4e6e-95c3-f88c51dfabfd.jpg?1561967373",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/6/9/69d20d28-76e9-4e6e-95c3-f88c51dfabfd.png?1561967373",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/6/9/69d20d28-76e9-4e6e-95c3-f88c51dfabfd.jpg?1561967373"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/6/9/69d20d28-76e9-4e6e-95c3-f88c51dfabfd.jpg?1561967373",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/6/9/69d20d28-76e9-4e6e-95c3-f88c51dfabfd.jpg?1561967373",
+      "large": "https://cards.scryfall.io/large/front/6/9/69d20d28-76e9-4e6e-95c3-f88c51dfabfd.jpg?1561967373",
+      "normal": "https://cards.scryfall.io/normal/front/6/9/69d20d28-76e9-4e6e-95c3-f88c51dfabfd.jpg?1561967373",
+      "png": "https://cards.scryfall.io/png/front/6/9/69d20d28-76e9-4e6e-95c3-f88c51dfabfd.png?1561967373",
+      "small": "https://cards.scryfall.io/small/front/6/9/69d20d28-76e9-4e6e-95c3-f88c51dfabfd.jpg?1561967373"
     },
     "keywords": [],
     "lang": "en",
@@ -3243,15 +3243,15 @@
     "oracle_id": "46abaabe-7015-4d82-a5aa-2706b1f51bed",
     "oracle_text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Create a 1/1 green Saproling creature token.",
     "oversized": false,
-    "penny_rank": 8412,
+    "penny_rank": 8816,
     "power": "1",
     "prices": {
-      "eur": 0.17,
-      "eur_foil": 0.49,
+      "eur": 0.25,
+      "eur_foil": 0.15,
       "tix": 0.03,
-      "usd": 0.27,
+      "usd": 0.24,
       "usd_etched": null,
-      "usd_foil": 0.38
+      "usd_foil": 0.4
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A46abaabe-7015-4d82-a5aa-2706b1f51bed&unique=prints",
     "promo": false,
@@ -3311,12 +3311,12 @@
     "illustration_id": "3ab0dfe8-ae12-4327-aae6-0d8708d4efd8",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/1/7/17b941e9-5dcc-473e-a461-709d74e32a3c.jpg?1562252328",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/1/7/17b941e9-5dcc-473e-a461-709d74e32a3c.jpg?1562252328",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/1/7/17b941e9-5dcc-473e-a461-709d74e32a3c.jpg?1562252328",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/1/7/17b941e9-5dcc-473e-a461-709d74e32a3c.jpg?1562252328",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/1/7/17b941e9-5dcc-473e-a461-709d74e32a3c.png?1562252328",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/1/7/17b941e9-5dcc-473e-a461-709d74e32a3c.jpg?1562252328"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/1/7/17b941e9-5dcc-473e-a461-709d74e32a3c.jpg?1562252328",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/1/7/17b941e9-5dcc-473e-a461-709d74e32a3c.jpg?1562252328",
+      "large": "https://cards.scryfall.io/large/front/1/7/17b941e9-5dcc-473e-a461-709d74e32a3c.jpg?1562252328",
+      "normal": "https://cards.scryfall.io/normal/front/1/7/17b941e9-5dcc-473e-a461-709d74e32a3c.jpg?1562252328",
+      "png": "https://cards.scryfall.io/png/front/1/7/17b941e9-5dcc-473e-a461-709d74e32a3c.png?1562252328",
+      "small": "https://cards.scryfall.io/small/front/1/7/17b941e9-5dcc-473e-a461-709d74e32a3c.jpg?1562252328"
     },
     "keywords": [],
     "lang": "en",
@@ -3353,10 +3353,10 @@
     "oracle_text": "When you set this scheme in motion, take an extra turn after this one. Schemes can't be set in motion that turn.",
     "oversized": true,
     "prices": {
-      "eur": 11.99,
+      "eur": 12.0,
       "eur_foil": null,
       "tix": null,
-      "usd": 23.94,
+      "usd": 24.81,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -3418,12 +3418,12 @@
     "illustration_id": "27777a6f-cf59-4515-bcc4-8a6020d0d865",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/7/0/7019912c-bd9b-4b96-9388-400794909aa1.jpg?1562917413",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/7/0/7019912c-bd9b-4b96-9388-400794909aa1.jpg?1562917413",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/7/0/7019912c-bd9b-4b96-9388-400794909aa1.jpg?1562917413",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/7/0/7019912c-bd9b-4b96-9388-400794909aa1.jpg?1562917413",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/7/0/7019912c-bd9b-4b96-9388-400794909aa1.png?1562917413",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/7/0/7019912c-bd9b-4b96-9388-400794909aa1.jpg?1562917413"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/7/0/7019912c-bd9b-4b96-9388-400794909aa1.jpg?1562917413",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/7/0/7019912c-bd9b-4b96-9388-400794909aa1.jpg?1562917413",
+      "large": "https://cards.scryfall.io/large/front/7/0/7019912c-bd9b-4b96-9388-400794909aa1.jpg?1562917413",
+      "normal": "https://cards.scryfall.io/normal/front/7/0/7019912c-bd9b-4b96-9388-400794909aa1.jpg?1562917413",
+      "png": "https://cards.scryfall.io/png/front/7/0/7019912c-bd9b-4b96-9388-400794909aa1.png?1562917413",
+      "small": "https://cards.scryfall.io/small/front/7/0/7019912c-bd9b-4b96-9388-400794909aa1.jpg?1562917413"
     },
     "keywords": [],
     "lang": "en",
@@ -3433,11 +3433,11 @@
       "brawl": "not_legal",
       "commander": "legal",
       "duel": "legal",
-      "explorer": "not_legal",
+      "explorer": "legal",
       "future": "not_legal",
-      "gladiator": "not_legal",
-      "historic": "not_legal",
-      "historicbrawl": "not_legal",
+      "gladiator": "legal",
+      "historic": "legal",
+      "historicbrawl": "legal",
       "legacy": "legal",
       "modern": "legal",
       "oldschool": "not_legal",
@@ -3462,12 +3462,12 @@
     "oracle_text": "{T}: Add {C}.",
     "oversized": false,
     "prices": {
-      "eur": 0.24,
-      "eur_foil": 5.09,
+      "eur": 0.32,
+      "eur_foil": 4.95,
       "tix": 0.02,
-      "usd": 0.71,
+      "usd": 0.8,
       "usd_etched": null,
-      "usd_foil": 6.89
+      "usd_foil": 7.37
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A05d24b0c-904a-46b6-b42a-96a4d91a0dd4&unique=prints",
     "produced_mana": [
@@ -3529,12 +3529,12 @@
     "illustration_id": "27777a6f-cf59-4515-bcc4-8a6020d0d865",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/9/c/9cc070d3-4b83-4684-9caf-063e5c473a77.jpg?1657725364",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/9/c/9cc070d3-4b83-4684-9caf-063e5c473a77.jpg?1657725364",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/9/c/9cc070d3-4b83-4684-9caf-063e5c473a77.jpg?1657725364",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/9/c/9cc070d3-4b83-4684-9caf-063e5c473a77.jpg?1657725364",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/9/c/9cc070d3-4b83-4684-9caf-063e5c473a77.png?1657725364",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/9/c/9cc070d3-4b83-4684-9caf-063e5c473a77.jpg?1657725364"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/9/c/9cc070d3-4b83-4684-9caf-063e5c473a77.jpg?1657725364",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/9/c/9cc070d3-4b83-4684-9caf-063e5c473a77.jpg?1657725364",
+      "large": "https://cards.scryfall.io/large/front/9/c/9cc070d3-4b83-4684-9caf-063e5c473a77.jpg?1657725364",
+      "normal": "https://cards.scryfall.io/normal/front/9/c/9cc070d3-4b83-4684-9caf-063e5c473a77.jpg?1657725364",
+      "png": "https://cards.scryfall.io/png/front/9/c/9cc070d3-4b83-4684-9caf-063e5c473a77.png?1657725364",
+      "small": "https://cards.scryfall.io/small/front/9/c/9cc070d3-4b83-4684-9caf-063e5c473a77.jpg?1657725364"
     },
     "keywords": [],
     "lang": "en",
@@ -3544,11 +3544,11 @@
       "brawl": "not_legal",
       "commander": "legal",
       "duel": "legal",
-      "explorer": "not_legal",
+      "explorer": "legal",
       "future": "not_legal",
-      "gladiator": "not_legal",
-      "historic": "not_legal",
-      "historicbrawl": "not_legal",
+      "gladiator": "legal",
+      "historic": "legal",
+      "historicbrawl": "legal",
       "legacy": "legal",
       "modern": "legal",
       "oldschool": "not_legal",
@@ -3571,10 +3571,10 @@
     "oracle_text": "{T}: Add {C}.",
     "oversized": false,
     "prices": {
-      "eur": 0.5,
+      "eur": 1.09,
       "eur_foil": null,
       "tix": null,
-      "usd": 1.89,
+      "usd": 2.34,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -3639,12 +3639,12 @@
     "illustration_id": "8b1f166f-fbc9-42da-8dcd-5a5ea38652c3",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/6/9/69b215fe-0d97-4ca1-9490-174220fd454b.jpg?1562916234",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/6/9/69b215fe-0d97-4ca1-9490-174220fd454b.jpg?1562916234",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/6/9/69b215fe-0d97-4ca1-9490-174220fd454b.jpg?1562916234",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/6/9/69b215fe-0d97-4ca1-9490-174220fd454b.jpg?1562916234",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/6/9/69b215fe-0d97-4ca1-9490-174220fd454b.png?1562916234",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/6/9/69b215fe-0d97-4ca1-9490-174220fd454b.jpg?1562916234"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/6/9/69b215fe-0d97-4ca1-9490-174220fd454b.jpg?1562916234",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/6/9/69b215fe-0d97-4ca1-9490-174220fd454b.jpg?1562916234",
+      "large": "https://cards.scryfall.io/large/front/6/9/69b215fe-0d97-4ca1-9490-174220fd454b.jpg?1562916234",
+      "normal": "https://cards.scryfall.io/normal/front/6/9/69b215fe-0d97-4ca1-9490-174220fd454b.jpg?1562916234",
+      "png": "https://cards.scryfall.io/png/front/6/9/69b215fe-0d97-4ca1-9490-174220fd454b.png?1562916234",
+      "small": "https://cards.scryfall.io/small/front/6/9/69b215fe-0d97-4ca1-9490-174220fd454b.jpg?1562916234"
     },
     "keywords": [],
     "lang": "en",
@@ -3654,11 +3654,11 @@
       "brawl": "not_legal",
       "commander": "legal",
       "duel": "legal",
-      "explorer": "not_legal",
+      "explorer": "legal",
       "future": "not_legal",
-      "gladiator": "not_legal",
-      "historic": "not_legal",
-      "historicbrawl": "not_legal",
+      "gladiator": "legal",
+      "historic": "legal",
+      "historicbrawl": "legal",
       "legacy": "legal",
       "modern": "legal",
       "oldschool": "not_legal",
@@ -3683,12 +3683,12 @@
     "oracle_text": "{T}: Add {C}.",
     "oversized": false,
     "prices": {
-      "eur": 0.42,
-      "eur_foil": 6.8,
+      "eur": 0.35,
+      "eur_foil": 7.99,
       "tix": 0.02,
-      "usd": 0.72,
+      "usd": 0.94,
       "usd_etched": null,
-      "usd_foil": 16.58
+      "usd_foil": 12.09
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A05d24b0c-904a-46b6-b42a-96a4d91a0dd4&unique=prints",
     "produced_mana": [
@@ -3750,12 +3750,12 @@
     "illustration_id": "8b1f166f-fbc9-42da-8dcd-5a5ea38652c3",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/6/0/60682c00-c661-4a9d-8326-f3f014a04e3e.jpg?1562914528",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/6/0/60682c00-c661-4a9d-8326-f3f014a04e3e.jpg?1562914528",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/6/0/60682c00-c661-4a9d-8326-f3f014a04e3e.jpg?1562914528",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/6/0/60682c00-c661-4a9d-8326-f3f014a04e3e.jpg?1562914528",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/6/0/60682c00-c661-4a9d-8326-f3f014a04e3e.png?1562914528",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/6/0/60682c00-c661-4a9d-8326-f3f014a04e3e.jpg?1562914528"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/6/0/60682c00-c661-4a9d-8326-f3f014a04e3e.jpg?1562914528",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/6/0/60682c00-c661-4a9d-8326-f3f014a04e3e.jpg?1562914528",
+      "large": "https://cards.scryfall.io/large/front/6/0/60682c00-c661-4a9d-8326-f3f014a04e3e.jpg?1562914528",
+      "normal": "https://cards.scryfall.io/normal/front/6/0/60682c00-c661-4a9d-8326-f3f014a04e3e.jpg?1562914528",
+      "png": "https://cards.scryfall.io/png/front/6/0/60682c00-c661-4a9d-8326-f3f014a04e3e.png?1562914528",
+      "small": "https://cards.scryfall.io/small/front/6/0/60682c00-c661-4a9d-8326-f3f014a04e3e.jpg?1562914528"
     },
     "keywords": [],
     "lang": "en",
@@ -3765,11 +3765,11 @@
       "brawl": "not_legal",
       "commander": "legal",
       "duel": "legal",
-      "explorer": "not_legal",
+      "explorer": "legal",
       "future": "not_legal",
-      "gladiator": "not_legal",
-      "historic": "not_legal",
-      "historicbrawl": "not_legal",
+      "gladiator": "legal",
+      "historic": "legal",
+      "historicbrawl": "legal",
       "legacy": "legal",
       "modern": "legal",
       "oldschool": "not_legal",
@@ -3792,10 +3792,10 @@
     "oracle_text": "{T}: Add {C}.",
     "oversized": false,
     "prices": {
-      "eur": 0.98,
+      "eur": 1.09,
       "eur_foil": null,
       "tix": null,
-      "usd": 0.63,
+      "usd": 0.79,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -3859,12 +3859,12 @@
     "illustration_id": "8d617a18-0f09-4471-8ac6-f0928f1f9912",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/3/f/3f770c56-58ea-4b70-b9b6-9b2cb13e2234.jpg?1547434215",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/3/f/3f770c56-58ea-4b70-b9b6-9b2cb13e2234.jpg?1547434215",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/3/f/3f770c56-58ea-4b70-b9b6-9b2cb13e2234.jpg?1547434215",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/3/f/3f770c56-58ea-4b70-b9b6-9b2cb13e2234.jpg?1547434215",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/3/f/3f770c56-58ea-4b70-b9b6-9b2cb13e2234.png?1547434215",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/3/f/3f770c56-58ea-4b70-b9b6-9b2cb13e2234.jpg?1547434215"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/3/f/3f770c56-58ea-4b70-b9b6-9b2cb13e2234.jpg?1547434215",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/3/f/3f770c56-58ea-4b70-b9b6-9b2cb13e2234.jpg?1547434215",
+      "large": "https://cards.scryfall.io/large/front/3/f/3f770c56-58ea-4b70-b9b6-9b2cb13e2234.jpg?1547434215",
+      "normal": "https://cards.scryfall.io/normal/front/3/f/3f770c56-58ea-4b70-b9b6-9b2cb13e2234.jpg?1547434215",
+      "png": "https://cards.scryfall.io/png/front/3/f/3f770c56-58ea-4b70-b9b6-9b2cb13e2234.png?1547434215",
+      "small": "https://cards.scryfall.io/small/front/3/f/3f770c56-58ea-4b70-b9b6-9b2cb13e2234.jpg?1547434215"
     },
     "keywords": [],
     "lang": "en",
@@ -3904,7 +3904,7 @@
       "eur": 1.46,
       "eur_foil": null,
       "tix": null,
-      "usd": 3.54,
+      "usd": 2.95,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -3965,12 +3965,12 @@
     "illustration_id": "0d0681f8-ecba-4289-ac18-2292b9dc9c0b",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/f/a/fabef637-fb4b-41b5-8d12-5568e84c6d11.jpg?1658417480",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/f/a/fabef637-fb4b-41b5-8d12-5568e84c6d11.jpg?1658417480",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/f/a/fabef637-fb4b-41b5-8d12-5568e84c6d11.jpg?1658417480",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/f/a/fabef637-fb4b-41b5-8d12-5568e84c6d11.jpg?1658417480",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/f/a/fabef637-fb4b-41b5-8d12-5568e84c6d11.png?1658417480",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/f/a/fabef637-fb4b-41b5-8d12-5568e84c6d11.jpg?1658417480"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/f/a/fabef637-fb4b-41b5-8d12-5568e84c6d11.jpg?1658417480",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/f/a/fabef637-fb4b-41b5-8d12-5568e84c6d11.jpg?1658417480",
+      "large": "https://cards.scryfall.io/large/front/f/a/fabef637-fb4b-41b5-8d12-5568e84c6d11.jpg?1658417480",
+      "normal": "https://cards.scryfall.io/normal/front/f/a/fabef637-fb4b-41b5-8d12-5568e84c6d11.jpg?1658417480",
+      "png": "https://cards.scryfall.io/png/front/f/a/fabef637-fb4b-41b5-8d12-5568e84c6d11.png?1658417480",
+      "small": "https://cards.scryfall.io/small/front/f/a/fabef637-fb4b-41b5-8d12-5568e84c6d11.jpg?1658417480"
     },
     "keywords": [],
     "lang": "en",
@@ -4008,10 +4008,10 @@
     "oracle_text": "Players may cast enchantment spells as though they had flash.\nWhenever you roll {CHAOS}, destroy target creature that isn't enchanted.",
     "oversized": true,
     "prices": {
-      "eur": 0.25,
+      "eur": 0.64,
       "eur_foil": null,
       "tix": 0.03,
-      "usd": 1.31,
+      "usd": 1.19,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -4072,12 +4072,12 @@
     "illustration_id": "375c30bc-2186-433f-a201-759ac76388ba",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/3/6/36ab24d3-ca9d-4b9c-8c28-4dd1f05a2314.jpg?1547434158",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/3/6/36ab24d3-ca9d-4b9c-8c28-4dd1f05a2314.jpg?1547434158",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/3/6/36ab24d3-ca9d-4b9c-8c28-4dd1f05a2314.jpg?1547434158",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/3/6/36ab24d3-ca9d-4b9c-8c28-4dd1f05a2314.jpg?1547434158",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/3/6/36ab24d3-ca9d-4b9c-8c28-4dd1f05a2314.png?1547434158",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/3/6/36ab24d3-ca9d-4b9c-8c28-4dd1f05a2314.jpg?1547434158"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/3/6/36ab24d3-ca9d-4b9c-8c28-4dd1f05a2314.jpg?1547434158",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/3/6/36ab24d3-ca9d-4b9c-8c28-4dd1f05a2314.jpg?1547434158",
+      "large": "https://cards.scryfall.io/large/front/3/6/36ab24d3-ca9d-4b9c-8c28-4dd1f05a2314.jpg?1547434158",
+      "normal": "https://cards.scryfall.io/normal/front/3/6/36ab24d3-ca9d-4b9c-8c28-4dd1f05a2314.jpg?1547434158",
+      "png": "https://cards.scryfall.io/png/front/3/6/36ab24d3-ca9d-4b9c-8c28-4dd1f05a2314.png?1547434158",
+      "small": "https://cards.scryfall.io/small/front/3/6/36ab24d3-ca9d-4b9c-8c28-4dd1f05a2314.jpg?1547434158"
     },
     "keywords": [],
     "lang": "en",
@@ -4114,10 +4114,10 @@
     "oracle_text": "When you encounter Chaotic Aether, each blank roll of the planar die is a {CHAOS} roll until a player planeswalks away from a plane. (Then planeswalk away from this phenomenon.)",
     "oversized": true,
     "prices": {
-      "eur": 0.25,
+      "eur": 1.0,
       "eur_foil": null,
       "tix": null,
-      "usd": 1.75,
+      "usd": 1.12,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -4167,7 +4167,7 @@
       "W"
     ],
     "digital": false,
-    "edhrec_rank": 18600,
+    "edhrec_rank": 16850,
     "finishes": [
       "nonfoil"
     ],
@@ -4184,12 +4184,12 @@
     "illustration_id": "3b5d36c9-2fc0-43b1-8878-ec476a6feaf4",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/0/f/0f638ffc-20b3-4e8c-8f0a-0d034902bddd.jpg?1575571386",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/0/f/0f638ffc-20b3-4e8c-8f0a-0d034902bddd.jpg?1575571386",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/0/f/0f638ffc-20b3-4e8c-8f0a-0d034902bddd.jpg?1575571386",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/0/f/0f638ffc-20b3-4e8c-8f0a-0d034902bddd.jpg?1575571386",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/0/f/0f638ffc-20b3-4e8c-8f0a-0d034902bddd.png?1575571386",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/0/f/0f638ffc-20b3-4e8c-8f0a-0d034902bddd.jpg?1575571386"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/0/f/0f638ffc-20b3-4e8c-8f0a-0d034902bddd.jpg?1575571386",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/0/f/0f638ffc-20b3-4e8c-8f0a-0d034902bddd.jpg?1575571386",
+      "large": "https://cards.scryfall.io/large/front/0/f/0f638ffc-20b3-4e8c-8f0a-0d034902bddd.jpg?1575571386",
+      "normal": "https://cards.scryfall.io/normal/front/0/f/0f638ffc-20b3-4e8c-8f0a-0d034902bddd.jpg?1575571386",
+      "png": "https://cards.scryfall.io/png/front/0/f/0f638ffc-20b3-4e8c-8f0a-0d034902bddd.png?1575571386",
+      "small": "https://cards.scryfall.io/small/front/0/f/0f638ffc-20b3-4e8c-8f0a-0d034902bddd.jpg?1575571386"
     },
     "keywords": [
       "Flying",
@@ -4232,10 +4232,10 @@
     "oversized": false,
     "power": "2",
     "prices": {
-      "eur": 0.05,
+      "eur": 0.07,
       "eur_foil": null,
       "tix": 0.05,
-      "usd": 0.1,
+      "usd": 0.22,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -4286,7 +4286,7 @@
       "W"
     ],
     "digital": false,
-    "edhrec_rank": 9625,
+    "edhrec_rank": 10182,
     "finishes": [
       "foil"
     ],
@@ -4302,12 +4302,12 @@
     "illustration_id": "df13e192-e174-4335-aa66-759bc84bef4e",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/6/d/6daabdc2-e8a8-41a6-a9f0-1973d9c31d39.jpg?1562920845",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/6/d/6daabdc2-e8a8-41a6-a9f0-1973d9c31d39.jpg?1562920845",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/6/d/6daabdc2-e8a8-41a6-a9f0-1973d9c31d39.jpg?1562920845",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/6/d/6daabdc2-e8a8-41a6-a9f0-1973d9c31d39.jpg?1562920845",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/6/d/6daabdc2-e8a8-41a6-a9f0-1973d9c31d39.png?1562920845",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/6/d/6daabdc2-e8a8-41a6-a9f0-1973d9c31d39.jpg?1562920845"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/6/d/6daabdc2-e8a8-41a6-a9f0-1973d9c31d39.jpg?1562920845",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/6/d/6daabdc2-e8a8-41a6-a9f0-1973d9c31d39.jpg?1562920845",
+      "large": "https://cards.scryfall.io/large/front/6/d/6daabdc2-e8a8-41a6-a9f0-1973d9c31d39.jpg?1562920845",
+      "normal": "https://cards.scryfall.io/normal/front/6/d/6daabdc2-e8a8-41a6-a9f0-1973d9c31d39.jpg?1562920845",
+      "png": "https://cards.scryfall.io/png/front/6/d/6daabdc2-e8a8-41a6-a9f0-1973d9c31d39.png?1562920845",
+      "small": "https://cards.scryfall.io/small/front/6/d/6daabdc2-e8a8-41a6-a9f0-1973d9c31d39.jpg?1562920845"
     },
     "keywords": [
       "Bolster"
@@ -4343,15 +4343,15 @@
     "oracle_id": "9fc6e1db-cf09-4b8c-be4f-bb02ffe7a188",
     "oracle_text": "At the beginning of your end step, bolster X, where X is the number of tapped creatures you control. (Choose a creature with the least toughness among creatures you control and put X +1/+1 counters on it.)",
     "oversized": false,
-    "penny_rank": 4999,
+    "penny_rank": 5088,
     "power": "2",
     "prices": {
       "eur": null,
-      "eur_foil": 0.2,
+      "eur_foil": 0.17,
       "tix": null,
       "usd": null,
       "usd_etched": null,
-      "usd_foil": 0.74
+      "usd_foil": 0.83
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A9fc6e1db-cf09-4b8c-be4f-bb02ffe7a188&unique=prints",
     "promo": true,
@@ -4405,7 +4405,7 @@
       "W"
     ],
     "digital": false,
-    "edhrec_rank": 9625,
+    "edhrec_rank": 10182,
     "finishes": [
       "foil"
     ],
@@ -4421,12 +4421,12 @@
     "illustration_id": "b289082a-84c0-45f7-8131-68360d692d1c",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/d/c/dc2d84b1-c6db-43af-ba8f-b9b90ceee1a3.jpg?1562947407",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/d/c/dc2d84b1-c6db-43af-ba8f-b9b90ceee1a3.jpg?1562947407",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/d/c/dc2d84b1-c6db-43af-ba8f-b9b90ceee1a3.jpg?1562947407",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/d/c/dc2d84b1-c6db-43af-ba8f-b9b90ceee1a3.jpg?1562947407",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/d/c/dc2d84b1-c6db-43af-ba8f-b9b90ceee1a3.png?1562947407",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/d/c/dc2d84b1-c6db-43af-ba8f-b9b90ceee1a3.jpg?1562947407"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/d/c/dc2d84b1-c6db-43af-ba8f-b9b90ceee1a3.jpg?1562947407",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/d/c/dc2d84b1-c6db-43af-ba8f-b9b90ceee1a3.jpg?1562947407",
+      "large": "https://cards.scryfall.io/large/front/d/c/dc2d84b1-c6db-43af-ba8f-b9b90ceee1a3.jpg?1562947407",
+      "normal": "https://cards.scryfall.io/normal/front/d/c/dc2d84b1-c6db-43af-ba8f-b9b90ceee1a3.jpg?1562947407",
+      "png": "https://cards.scryfall.io/png/front/d/c/dc2d84b1-c6db-43af-ba8f-b9b90ceee1a3.png?1562947407",
+      "small": "https://cards.scryfall.io/small/front/d/c/dc2d84b1-c6db-43af-ba8f-b9b90ceee1a3.jpg?1562947407"
     },
     "keywords": [
       "Bolster"
@@ -4462,15 +4462,15 @@
     "oracle_id": "9fc6e1db-cf09-4b8c-be4f-bb02ffe7a188",
     "oracle_text": "At the beginning of your end step, bolster X, where X is the number of tapped creatures you control. (Choose a creature with the least toughness among creatures you control and put X +1/+1 counters on it.)",
     "oversized": false,
-    "penny_rank": 4999,
+    "penny_rank": 5088,
     "power": "2",
     "prices": {
       "eur": null,
-      "eur_foil": 1.24,
+      "eur_foil": 0.82,
       "tix": null,
       "usd": null,
       "usd_etched": null,
-      "usd_foil": 0.44
+      "usd_foil": 0.6
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A9fc6e1db-cf09-4b8c-be4f-bb02ffe7a188&unique=prints",
     "promo": true,
@@ -4536,12 +4536,12 @@
     "illustration_id": "85527664-3aa4-4e96-9ba1-b8e233f7442a",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/5/7/57f25ead-b3ec-4c40-972d-d750ed2f5319.jpg?1549805757",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/5/7/57f25ead-b3ec-4c40-972d-d750ed2f5319.jpg?1549805757",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/5/7/57f25ead-b3ec-4c40-972d-d750ed2f5319.jpg?1549805757",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/5/7/57f25ead-b3ec-4c40-972d-d750ed2f5319.jpg?1549805757",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/5/7/57f25ead-b3ec-4c40-972d-d750ed2f5319.png?1549805757",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/5/7/57f25ead-b3ec-4c40-972d-d750ed2f5319.jpg?1549805757"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/5/7/57f25ead-b3ec-4c40-972d-d750ed2f5319.jpg?1549805757",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/5/7/57f25ead-b3ec-4c40-972d-d750ed2f5319.jpg?1549805757",
+      "large": "https://cards.scryfall.io/large/front/5/7/57f25ead-b3ec-4c40-972d-d750ed2f5319.jpg?1549805757",
+      "normal": "https://cards.scryfall.io/normal/front/5/7/57f25ead-b3ec-4c40-972d-d750ed2f5319.jpg?1549805757",
+      "png": "https://cards.scryfall.io/png/front/5/7/57f25ead-b3ec-4c40-972d-d750ed2f5319.png?1549805757",
+      "small": "https://cards.scryfall.io/small/front/5/7/57f25ead-b3ec-4c40-972d-d750ed2f5319.jpg?1549805757"
     },
     "keywords": [],
     "lang": "en",
@@ -4578,10 +4578,10 @@
     "oracle_text": "Players have no maximum hand size.\nWhenever you roll the planar die, draw a card.\nWhenever you roll {CHAOS}, reveal the top card of your planar deck. You may put it on the bottom of your planar deck.",
     "oversized": true,
     "prices": {
-      "eur": 0.2,
+      "eur": 1.0,
       "eur_foil": null,
       "tix": null,
-      "usd": 2.9,
+      "usd": 4.1,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -4644,12 +4644,12 @@
     "illustration_id": "b1188b1e-7a18-47b7-a9b3-1d91445369a9",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/7/6/76e5383d-ac12-4abc-aa30-15e99ded2d6f.jpg?1547432249",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/7/6/76e5383d-ac12-4abc-aa30-15e99ded2d6f.jpg?1547432249",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/7/6/76e5383d-ac12-4abc-aa30-15e99ded2d6f.jpg?1547432249",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/7/6/76e5383d-ac12-4abc-aa30-15e99ded2d6f.jpg?1547432249",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/7/6/76e5383d-ac12-4abc-aa30-15e99ded2d6f.png?1547432249",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/7/6/76e5383d-ac12-4abc-aa30-15e99ded2d6f.jpg?1547432249"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/7/6/76e5383d-ac12-4abc-aa30-15e99ded2d6f.jpg?1547432249",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/7/6/76e5383d-ac12-4abc-aa30-15e99ded2d6f.jpg?1547432249",
+      "large": "https://cards.scryfall.io/large/front/7/6/76e5383d-ac12-4abc-aa30-15e99ded2d6f.jpg?1547432249",
+      "normal": "https://cards.scryfall.io/normal/front/7/6/76e5383d-ac12-4abc-aa30-15e99ded2d6f.jpg?1547432249",
+      "png": "https://cards.scryfall.io/png/front/7/6/76e5383d-ac12-4abc-aa30-15e99ded2d6f.png?1547432249",
+      "small": "https://cards.scryfall.io/small/front/7/6/76e5383d-ac12-4abc-aa30-15e99ded2d6f.jpg?1547432249"
     },
     "keywords": [],
     "lang": "en",
@@ -4686,10 +4686,10 @@
     "oracle_text": "Creatures can't block.\nWhenever you roll {CHAOS}, draw a card for each land you control.",
     "oversized": true,
     "prices": {
-      "eur": 9.99,
+      "eur": 9.0,
       "eur_foil": null,
       "tix": null,
-      "usd": 11.53,
+      "usd": 10.97,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -4738,7 +4738,7 @@
     "color_identity": [],
     "colors": [],
     "digital": false,
-    "edhrec_rank": 7757,
+    "edhrec_rank": 8153,
     "finishes": [
       "nonfoil"
     ],
@@ -4753,12 +4753,12 @@
     "illustration_id": "5de809a1-34f1-44ef-856d-dc2fa1db6b98",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/2/f/2f989fda-2e54-427c-9154-4820c48abb02.jpg?1561756864",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/2/f/2f989fda-2e54-427c-9154-4820c48abb02.jpg?1561756864",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/2/f/2f989fda-2e54-427c-9154-4820c48abb02.jpg?1561756864",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/2/f/2f989fda-2e54-427c-9154-4820c48abb02.jpg?1561756864",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/2/f/2f989fda-2e54-427c-9154-4820c48abb02.png?1561756864",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/2/f/2f989fda-2e54-427c-9154-4820c48abb02.jpg?1561756864"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/2/f/2f989fda-2e54-427c-9154-4820c48abb02.jpg?1561756864",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/2/f/2f989fda-2e54-427c-9154-4820c48abb02.jpg?1561756864",
+      "large": "https://cards.scryfall.io/large/front/2/f/2f989fda-2e54-427c-9154-4820c48abb02.jpg?1561756864",
+      "normal": "https://cards.scryfall.io/normal/front/2/f/2f989fda-2e54-427c-9154-4820c48abb02.jpg?1561756864",
+      "png": "https://cards.scryfall.io/png/front/2/f/2f989fda-2e54-427c-9154-4820c48abb02.png?1561756864",
+      "small": "https://cards.scryfall.io/small/front/2/f/2f989fda-2e54-427c-9154-4820c48abb02.jpg?1561756864"
     },
     "keywords": [
       "Fight"
@@ -4780,7 +4780,7 @@
       "oldschool": "legal",
       "pauper": "not_legal",
       "paupercommander": "not_legal",
-      "penny": "not_legal",
+      "penny": "legal",
       "pioneer": "not_legal",
       "premodern": "not_legal",
       "standard": "not_legal",
@@ -4796,9 +4796,9 @@
     "oracle_id": "12326d23-1fb5-4084-a23a-d6e2c90ea36c",
     "oracle_text": "{3}, {T}: Tap target creature you control and target creature of an opponent's choice they control. Those creatures fight each other. (Each deals damage equal to its power to the other.)",
     "oversized": false,
-    "penny_rank": 5030,
+    "penny_rank": 5142,
     "prices": {
-      "eur": 4.5,
+      "eur": 3.0,
       "eur_foil": null,
       "tix": null,
       "usd": 10.32,
@@ -4876,7 +4876,7 @@
       "R"
     ],
     "digital": false,
-    "edhrec_rank": 8047,
+    "edhrec_rank": 8174,
     "finishes": [
       "nonfoil",
       "foil"
@@ -4893,12 +4893,12 @@
     "illustration_id": "0ec34103-b2f5-4dd0-9451-4a7585301da9",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/7/c/7ce986a4-5f82-4e7e-bef5-b49f05bf96a6.jpg?1562575287",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/7/c/7ce986a4-5f82-4e7e-bef5-b49f05bf96a6.jpg?1562575287",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/7/c/7ce986a4-5f82-4e7e-bef5-b49f05bf96a6.jpg?1562575287",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/7/c/7ce986a4-5f82-4e7e-bef5-b49f05bf96a6.jpg?1562575287",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/7/c/7ce986a4-5f82-4e7e-bef5-b49f05bf96a6.png?1562575287",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/7/c/7ce986a4-5f82-4e7e-bef5-b49f05bf96a6.jpg?1562575287"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/7/c/7ce986a4-5f82-4e7e-bef5-b49f05bf96a6.jpg?1562575287",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/7/c/7ce986a4-5f82-4e7e-bef5-b49f05bf96a6.jpg?1562575287",
+      "large": "https://cards.scryfall.io/large/front/7/c/7ce986a4-5f82-4e7e-bef5-b49f05bf96a6.jpg?1562575287",
+      "normal": "https://cards.scryfall.io/normal/front/7/c/7ce986a4-5f82-4e7e-bef5-b49f05bf96a6.jpg?1562575287",
+      "png": "https://cards.scryfall.io/png/front/7/c/7ce986a4-5f82-4e7e-bef5-b49f05bf96a6.png?1562575287",
+      "small": "https://cards.scryfall.io/small/front/7/c/7ce986a4-5f82-4e7e-bef5-b49f05bf96a6.jpg?1562575287"
     },
     "keywords": [],
     "lang": "en",
@@ -4918,7 +4918,7 @@
       "oldschool": "not_legal",
       "pauper": "not_legal",
       "paupercommander": "not_legal",
-      "penny": "not_legal",
+      "penny": "legal",
       "pioneer": "not_legal",
       "premodern": "not_legal",
       "standard": "not_legal",
@@ -4934,14 +4934,14 @@
     "object": "card",
     "oracle_id": "514fdac0-95f4-4034-b891-283fe0fb6da6",
     "oversized": false,
-    "penny_rank": 1304,
+    "penny_rank": 786,
     "prices": {
-      "eur": 0.35,
-      "eur_foil": 4.25,
-      "tix": 0.02,
-      "usd": 1.31,
+      "eur": 0.65,
+      "eur_foil": 8.9,
+      "tix": 0.36,
+      "usd": 1.52,
       "usd_etched": null,
-      "usd_foil": 5.7
+      "usd_foil": 11.31
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A514fdac0-95f4-4034-b891-283fe0fb6da6&unique=prints",
     "promo": false,
@@ -4993,7 +4993,7 @@
       "W"
     ],
     "digital": false,
-    "edhrec_rank": 10755,
+    "edhrec_rank": 11135,
     "finishes": [
       "nonfoil",
       "foil"
@@ -5011,12 +5011,12 @@
     "illustration_id": "c09a61fc-11a2-4601-a7bc-79474b33819d",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/6/6/66b950d9-8fef-4deb-b51b-26edb90abc56.jpg?1586450720",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/6/6/66b950d9-8fef-4deb-b51b-26edb90abc56.jpg?1586450720",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/6/6/66b950d9-8fef-4deb-b51b-26edb90abc56.jpg?1586450720",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/6/6/66b950d9-8fef-4deb-b51b-26edb90abc56.jpg?1586450720",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/6/6/66b950d9-8fef-4deb-b51b-26edb90abc56.png?1586450720",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/6/6/66b950d9-8fef-4deb-b51b-26edb90abc56.jpg?1586450720"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/6/6/66b950d9-8fef-4deb-b51b-26edb90abc56.jpg?1586450720",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/6/6/66b950d9-8fef-4deb-b51b-26edb90abc56.jpg?1586450720",
+      "large": "https://cards.scryfall.io/large/front/6/6/66b950d9-8fef-4deb-b51b-26edb90abc56.jpg?1586450720",
+      "normal": "https://cards.scryfall.io/normal/front/6/6/66b950d9-8fef-4deb-b51b-26edb90abc56.jpg?1586450720",
+      "png": "https://cards.scryfall.io/png/front/6/6/66b950d9-8fef-4deb-b51b-26edb90abc56.png?1586450720",
+      "small": "https://cards.scryfall.io/small/front/6/6/66b950d9-8fef-4deb-b51b-26edb90abc56.jpg?1586450720"
     },
     "keywords": [],
     "lang": "en",
@@ -5054,13 +5054,13 @@
     "oracle_id": "36934bd0-b275-4222-926c-b5a74cf0967d",
     "oracle_text": "{U}, {T}, Sacrifice a creature or enchantment: Counter target spell.",
     "oversized": false,
-    "penny_rank": 10916,
+    "penny_rank": 11018,
     "power": "3",
     "prices": {
-      "eur": 1.72,
-      "eur_foil": 130.0,
-      "tix": 0.03,
-      "usd": 4.29,
+      "eur": 2.99,
+      "eur_foil": 45.97,
+      "tix": 0.07,
+      "usd": 4.93,
       "usd_etched": null,
       "usd_foil": 124.97
     },
@@ -5115,7 +5115,7 @@
       "W"
     ],
     "digital": false,
-    "edhrec_rank": 10755,
+    "edhrec_rank": 11135,
     "finishes": [
       "foil"
     ],
@@ -5132,12 +5132,12 @@
     "illustration_id": "6ebcb06f-33ee-45e8-ac59-3ac1d143dfe6",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/f/b/fbbfeb32-1654-4bf6-9a38-891f1a03e02b.jpg?1562948333",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/f/b/fbbfeb32-1654-4bf6-9a38-891f1a03e02b.jpg?1562948333",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/f/b/fbbfeb32-1654-4bf6-9a38-891f1a03e02b.jpg?1562948333",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/f/b/fbbfeb32-1654-4bf6-9a38-891f1a03e02b.jpg?1562948333",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/f/b/fbbfeb32-1654-4bf6-9a38-891f1a03e02b.png?1562948333",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/f/b/fbbfeb32-1654-4bf6-9a38-891f1a03e02b.jpg?1562948333"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/f/b/fbbfeb32-1654-4bf6-9a38-891f1a03e02b.jpg?1562948333",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/f/b/fbbfeb32-1654-4bf6-9a38-891f1a03e02b.jpg?1562948333",
+      "large": "https://cards.scryfall.io/large/front/f/b/fbbfeb32-1654-4bf6-9a38-891f1a03e02b.jpg?1562948333",
+      "normal": "https://cards.scryfall.io/normal/front/f/b/fbbfeb32-1654-4bf6-9a38-891f1a03e02b.jpg?1562948333",
+      "png": "https://cards.scryfall.io/png/front/f/b/fbbfeb32-1654-4bf6-9a38-891f1a03e02b.png?1562948333",
+      "small": "https://cards.scryfall.io/small/front/f/b/fbbfeb32-1654-4bf6-9a38-891f1a03e02b.jpg?1562948333"
     },
     "keywords": [],
     "lang": "en",
@@ -5173,11 +5173,11 @@
     "oracle_id": "36934bd0-b275-4222-926c-b5a74cf0967d",
     "oracle_text": "{U}, {T}, Sacrifice a creature or enchantment: Counter target spell.",
     "oversized": false,
-    "penny_rank": 10916,
+    "penny_rank": 11018,
     "power": "3",
     "prices": {
       "eur": null,
-      "eur_foil": 444.9,
+      "eur_foil": 119.95,
       "tix": null,
       "usd": null,
       "usd_etched": null,
@@ -5230,7 +5230,7 @@
       "B"
     ],
     "digital": false,
-    "edhrec_rank": 1416,
+    "edhrec_rank": 1565,
     "finishes": [
       "foil"
     ],
@@ -5245,12 +5245,12 @@
     "illustration_id": "275a74e3-c403-4c45-a6af-58ed98627589",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/d/d/dd88131a-2811-4a1f-bb9a-c82e12c1493b.jpg?1561758222",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/d/d/dd88131a-2811-4a1f-bb9a-c82e12c1493b.jpg?1561758222",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/d/d/dd88131a-2811-4a1f-bb9a-c82e12c1493b.jpg?1561758222",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/d/d/dd88131a-2811-4a1f-bb9a-c82e12c1493b.jpg?1561758222",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/d/d/dd88131a-2811-4a1f-bb9a-c82e12c1493b.png?1561758222",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/d/d/dd88131a-2811-4a1f-bb9a-c82e12c1493b.jpg?1561758222"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/d/d/dd88131a-2811-4a1f-bb9a-c82e12c1493b.jpg?1561758222",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/d/d/dd88131a-2811-4a1f-bb9a-c82e12c1493b.jpg?1561758222",
+      "large": "https://cards.scryfall.io/large/front/d/d/dd88131a-2811-4a1f-bb9a-c82e12c1493b.jpg?1561758222",
+      "normal": "https://cards.scryfall.io/normal/front/d/d/dd88131a-2811-4a1f-bb9a-c82e12c1493b.jpg?1561758222",
+      "png": "https://cards.scryfall.io/png/front/d/d/dd88131a-2811-4a1f-bb9a-c82e12c1493b.png?1561758222",
+      "small": "https://cards.scryfall.io/small/front/d/d/dd88131a-2811-4a1f-bb9a-c82e12c1493b.jpg?1561758222"
     },
     "keywords": [],
     "lang": "en",
@@ -5284,14 +5284,14 @@
     "oracle_id": "038c0165-32b6-4e81-8180-604b49905207",
     "oracle_text": "Put X -1/-1 counters on each creature. Shuffle Black Sun's Zenith into its owner's library.",
     "oversized": false,
-    "penny_rank": 1879,
+    "penny_rank": 1796,
     "prices": {
       "eur": null,
-      "eur_foil": 24.95,
+      "eur_foil": 11.39,
       "tix": null,
       "usd": null,
       "usd_etched": null,
-      "usd_foil": 27.29
+      "usd_foil": 26.42
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A038c0165-32b6-4e81-8180-604b49905207&unique=prints",
     "promo": true,
@@ -5341,12 +5341,12 @@
         "flavor_text": "\"The night. . . will last. . .forever!\"",
         "illustration_id": "587b0f05-3512-4e2d-9569-2f5f70bc0c92",
         "image_uris": {
-          "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/5/6/5646ea19-0025-4f88-ad22-36968a1d3b89.jpg?1623834384",
-          "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/5/6/5646ea19-0025-4f88-ad22-36968a1d3b89.jpg?1623834384",
-          "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/5/6/5646ea19-0025-4f88-ad22-36968a1d3b89.jpg?1623834384",
-          "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/5/6/5646ea19-0025-4f88-ad22-36968a1d3b89.jpg?1623834384",
-          "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/5/6/5646ea19-0025-4f88-ad22-36968a1d3b89.png?1623834384",
-          "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/5/6/5646ea19-0025-4f88-ad22-36968a1d3b89.jpg?1623834384"
+          "art_crop": "https://cards.scryfall.io/art_crop/front/5/6/5646ea19-0025-4f88-ad22-36968a1d3b89.jpg?1660203798",
+          "border_crop": "https://cards.scryfall.io/border_crop/front/5/6/5646ea19-0025-4f88-ad22-36968a1d3b89.jpg?1660203798",
+          "large": "https://cards.scryfall.io/large/front/5/6/5646ea19-0025-4f88-ad22-36968a1d3b89.jpg?1660203798",
+          "normal": "https://cards.scryfall.io/normal/front/5/6/5646ea19-0025-4f88-ad22-36968a1d3b89.jpg?1660203798",
+          "png": "https://cards.scryfall.io/png/front/5/6/5646ea19-0025-4f88-ad22-36968a1d3b89.png?1660203798",
+          "small": "https://cards.scryfall.io/small/front/5/6/5646ea19-0025-4f88-ad22-36968a1d3b89.jpg?1660203798"
         },
         "mana_cost": "{4}{B}{B}",
         "name": "Nightmare Moon",
@@ -5369,12 +5369,12 @@
         "flavor_name": "",
         "illustration_id": "a18eb5e3-0043-4d97-ba49-163db9e70df3",
         "image_uris": {
-          "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/back/5/6/5646ea19-0025-4f88-ad22-36968a1d3b89.jpg?1623834384",
-          "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/back/5/6/5646ea19-0025-4f88-ad22-36968a1d3b89.jpg?1623834384",
-          "large": "https://c1.scryfall.com/file/scryfall-cards/large/back/5/6/5646ea19-0025-4f88-ad22-36968a1d3b89.jpg?1623834384",
-          "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/back/5/6/5646ea19-0025-4f88-ad22-36968a1d3b89.jpg?1623834384",
-          "png": "https://c1.scryfall.com/file/scryfall-cards/png/back/5/6/5646ea19-0025-4f88-ad22-36968a1d3b89.png?1623834384",
-          "small": "https://c1.scryfall.com/file/scryfall-cards/small/back/5/6/5646ea19-0025-4f88-ad22-36968a1d3b89.jpg?1623834384"
+          "art_crop": "https://cards.scryfall.io/art_crop/back/5/6/5646ea19-0025-4f88-ad22-36968a1d3b89.jpg?1660203798",
+          "border_crop": "https://cards.scryfall.io/border_crop/back/5/6/5646ea19-0025-4f88-ad22-36968a1d3b89.jpg?1660203798",
+          "large": "https://cards.scryfall.io/large/back/5/6/5646ea19-0025-4f88-ad22-36968a1d3b89.jpg?1660203798",
+          "normal": "https://cards.scryfall.io/normal/back/5/6/5646ea19-0025-4f88-ad22-36968a1d3b89.jpg?1660203798",
+          "png": "https://cards.scryfall.io/png/back/5/6/5646ea19-0025-4f88-ad22-36968a1d3b89.png?1660203798",
+          "small": "https://cards.scryfall.io/small/back/5/6/5646ea19-0025-4f88-ad22-36968a1d3b89.jpg?1660203798"
         },
         "mana_cost": "",
         "name": "Princess Luna",
@@ -5382,8 +5382,7 @@
         "oracle_text": "Flying\nWhen this creature transforms into Princess Luna, choose up to six cards you own from outside the game with a moon in their art, then exile those cards. As long as those cards remain exiled, you may cast them, and your friends may cast them with your permission. (Gifts are appreciated.)",
         "power": "4",
         "toughness": "4",
-        "type_line": "Legendary Creature — Alicorn",
-        "watermark": "mlpwaxingmoon"
+        "type_line": "Legendary Creature — Alicorn"
       }
     ],
     "cardmarket_id": 405599,
@@ -5444,11 +5443,11 @@
     "oversized": false,
     "prices": {
       "eur": null,
-      "eur_foil": 69.9,
+      "eur_foil": 64.9,
       "tix": null,
       "usd": null,
       "usd_etched": null,
-      "usd_foil": 70.45
+      "usd_foil": 67.81
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Ae724bddb-6195-4943-b9c6-decc96717998&unique=prints",
     "promo": true,
@@ -5464,7 +5463,7 @@
     "rulings_uri": "https://api.scryfall.com/cards/5646ea19-0025-4f88-ad22-36968a1d3b89/rulings",
     "scryfall_set_uri": "https://scryfall.com/sets/ptg?utm_source=api",
     "scryfall_uri": "https://scryfall.com/card/ptg/1/nightmare-moon-princess-luna?utm_source=api",
-    "security_stamp": "oval",
+    "security_stamp": "heart",
     "set": "ptg",
     "set_id": "d264b61b-bfb3-4388-be42-e34a1eaa00c2",
     "set_name": "Ponies: The Galloping",
@@ -5496,7 +5495,7 @@
       "G"
     ],
     "digital": false,
-    "edhrec_rank": 13378,
+    "edhrec_rank": 14354,
     "finishes": [
       "foil"
     ],
@@ -5511,12 +5510,12 @@
     "illustration_id": "88652d14-abd8-414e-bea8-9705e7cd85ab",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/5/d/5d5f3f57-410f-4ee2-b93c-f5051a068828.jpg?1655270060",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/5/d/5d5f3f57-410f-4ee2-b93c-f5051a068828.jpg?1655270060",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/5/d/5d5f3f57-410f-4ee2-b93c-f5051a068828.jpg?1655270060",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/5/d/5d5f3f57-410f-4ee2-b93c-f5051a068828.jpg?1655270060",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/5/d/5d5f3f57-410f-4ee2-b93c-f5051a068828.png?1655270060",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/5/d/5d5f3f57-410f-4ee2-b93c-f5051a068828.jpg?1655270060"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/5/d/5d5f3f57-410f-4ee2-b93c-f5051a068828.jpg?1655270060",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/5/d/5d5f3f57-410f-4ee2-b93c-f5051a068828.jpg?1655270060",
+      "large": "https://cards.scryfall.io/large/front/5/d/5d5f3f57-410f-4ee2-b93c-f5051a068828.jpg?1655270060",
+      "normal": "https://cards.scryfall.io/normal/front/5/d/5d5f3f57-410f-4ee2-b93c-f5051a068828.jpg?1655270060",
+      "png": "https://cards.scryfall.io/png/front/5/d/5d5f3f57-410f-4ee2-b93c-f5051a068828.png?1655270060",
+      "small": "https://cards.scryfall.io/small/front/5/d/5d5f3f57-410f-4ee2-b93c-f5051a068828.jpg?1655270060"
     },
     "keywords": [],
     "lang": "en",
@@ -5550,15 +5549,15 @@
     "oracle_id": "f6f4c684-2915-4a58-9c4b-487387f7cf73",
     "oracle_text": "You may have Rhox assign its combat damage as though it weren't blocked.\n{2}{G}: Regenerate Rhox. (The next time this creature would be destroyed this turn, it isn't. Instead tap it, remove all damage from it, and remove it from combat.)",
     "oversized": false,
-    "penny_rank": 10335,
+    "penny_rank": 10417,
     "power": "5",
     "prices": {
       "eur": null,
-      "eur_foil": 0.95,
+      "eur_foil": 0.88,
       "tix": null,
       "usd": null,
       "usd_etched": null,
-      "usd_foil": 0.64
+      "usd_foil": 0.78
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Af6f4c684-2915-4a58-9c4b-487387f7cf73&unique=prints",
     "promo": true,
@@ -5605,7 +5604,7 @@
       "B"
     ],
     "digital": false,
-    "edhrec_rank": 132,
+    "edhrec_rank": 133,
     "finishes": [
       "foil"
     ],
@@ -5621,12 +5620,12 @@
     "illustration_id": "67f7a210-ad99-4344-a806-5e4b11c88eb9",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/d/b/dba1cf83-e13d-401e-b76f-b12a51b307f9.jpg?1640811544",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/d/b/dba1cf83-e13d-401e-b76f-b12a51b307f9.jpg?1640811544",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/d/b/dba1cf83-e13d-401e-b76f-b12a51b307f9.jpg?1640811544",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/d/b/dba1cf83-e13d-401e-b76f-b12a51b307f9.jpg?1640811544",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/d/b/dba1cf83-e13d-401e-b76f-b12a51b307f9.png?1640811544",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/d/b/dba1cf83-e13d-401e-b76f-b12a51b307f9.jpg?1640811544"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/d/b/dba1cf83-e13d-401e-b76f-b12a51b307f9.jpg?1640811544",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/d/b/dba1cf83-e13d-401e-b76f-b12a51b307f9.jpg?1640811544",
+      "large": "https://cards.scryfall.io/large/front/d/b/dba1cf83-e13d-401e-b76f-b12a51b307f9.jpg?1640811544",
+      "normal": "https://cards.scryfall.io/normal/front/d/b/dba1cf83-e13d-401e-b76f-b12a51b307f9.jpg?1640811544",
+      "png": "https://cards.scryfall.io/png/front/d/b/dba1cf83-e13d-401e-b76f-b12a51b307f9.png?1640811544",
+      "small": "https://cards.scryfall.io/small/front/d/b/dba1cf83-e13d-401e-b76f-b12a51b307f9.jpg?1640811544"
     },
     "keywords": [
       "Scry"
@@ -5662,7 +5661,7 @@
     "oracle_id": "f82a4e85-526d-4456-b700-7760043a31be",
     "oracle_text": "Sacrifice a creature: Scry 1. (Look at the top card of your library. You may put that card on the bottom of your library.)",
     "oversized": false,
-    "penny_rank": 722,
+    "penny_rank": 758,
     "power": "1",
     "prices": {
       "eur": null,
@@ -5670,7 +5669,7 @@
       "tix": null,
       "usd": null,
       "usd_etched": null,
-      "usd_foil": null
+      "usd_foil": 3500.0
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Af82a4e85-526d-4456-b700-7760043a31be&unique=prints",
     "promo": false,
@@ -5758,12 +5757,12 @@
     "illustration_id": "99cab97a-9861-4a5a-8578-6c742d192183",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/0/b/0b61d772-2d8b-4acf-9dd2-b2e8b03538c8.jpg?1610664131",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/0/b/0b61d772-2d8b-4acf-9dd2-b2e8b03538c8.jpg?1610664131",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/0/b/0b61d772-2d8b-4acf-9dd2-b2e8b03538c8.jpg?1610664131",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/0/b/0b61d772-2d8b-4acf-9dd2-b2e8b03538c8.jpg?1610664131",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/0/b/0b61d772-2d8b-4acf-9dd2-b2e8b03538c8.png?1610664131",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/0/b/0b61d772-2d8b-4acf-9dd2-b2e8b03538c8.jpg?1610664131"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/0/b/0b61d772-2d8b-4acf-9dd2-b2e8b03538c8.jpg?1610664131",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/0/b/0b61d772-2d8b-4acf-9dd2-b2e8b03538c8.jpg?1610664131",
+      "large": "https://cards.scryfall.io/large/front/0/b/0b61d772-2d8b-4acf-9dd2-b2e8b03538c8.jpg?1610664131",
+      "normal": "https://cards.scryfall.io/normal/front/0/b/0b61d772-2d8b-4acf-9dd2-b2e8b03538c8.jpg?1610664131",
+      "png": "https://cards.scryfall.io/png/front/0/b/0b61d772-2d8b-4acf-9dd2-b2e8b03538c8.png?1610664131",
+      "small": "https://cards.scryfall.io/small/front/0/b/0b61d772-2d8b-4acf-9dd2-b2e8b03538c8.jpg?1610664131"
     },
     "keywords": [
       "Flying"
@@ -5802,15 +5801,15 @@
     "object": "card",
     "oracle_id": "d83bb32d-f409-421a-9d93-bd7ea3240b47",
     "oversized": false,
-    "penny_rank": 2361,
+    "penny_rank": 2358,
     "power": "1",
     "prices": {
-      "eur": 4.0,
-      "eur_foil": 36.99,
-      "tix": 0.04,
-      "usd": 8.32,
+      "eur": 2.87,
+      "eur_foil": 28.0,
+      "tix": 0.02,
+      "usd": 6.92,
       "usd_etched": null,
-      "usd_foil": 48.02
+      "usd_foil": 57.38
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Ad83bb32d-f409-421a-9d93-bd7ea3240b47&unique=prints",
     "promo": false,
@@ -5842,10 +5841,15 @@
     "variation": false
   },
   {
-    "artist": "",
+    "artist": "Larissa Hasenheit & Mina Jeon",
+    "artist_ids": [
+      "3de12ff8-3701-4154-8407-f102f44670dd",
+      "d58fedc9-b2a8-4a12-a942-fd1efceacb9c"
+    ],
     "booster": false,
     "border_color": "black",
     "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+    "cardmarket_id": 677517,
     "cmc": 0.0,
     "collector_number": "8",
     "color_identity": [],
@@ -5863,63 +5867,67 @@
     ],
     "highres_image": false,
     "id": "20a67ee2-0137-458d-b381-430a2494357f",
+    "illustration_id": "2bc400fb-6a3b-4be3-bb51-d3ac78d09e50",
     "image_status": "lowres",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/2/0/20a67ee2-0137-458d-b381-430a2494357f.jpg?1658632821",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/2/0/20a67ee2-0137-458d-b381-430a2494357f.jpg?1658632821",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/2/0/20a67ee2-0137-458d-b381-430a2494357f.jpg?1658632821",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/2/0/20a67ee2-0137-458d-b381-430a2494357f.jpg?1658632821",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/2/0/20a67ee2-0137-458d-b381-430a2494357f.png?1658632821",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/2/0/20a67ee2-0137-458d-b381-430a2494357f.jpg?1658632821"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/2/0/20a67ee2-0137-458d-b381-430a2494357f.jpg?1667767632",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/2/0/20a67ee2-0137-458d-b381-430a2494357f.jpg?1667767632",
+      "large": "https://cards.scryfall.io/large/front/2/0/20a67ee2-0137-458d-b381-430a2494357f.jpg?1667767632",
+      "normal": "https://cards.scryfall.io/normal/front/2/0/20a67ee2-0137-458d-b381-430a2494357f.jpg?1667767632",
+      "png": "https://cards.scryfall.io/png/front/2/0/20a67ee2-0137-458d-b381-430a2494357f.png?1667767632",
+      "small": "https://cards.scryfall.io/small/front/2/0/20a67ee2-0137-458d-b381-430a2494357f.jpg?1667767632"
     },
     "keywords": [],
     "lang": "en",
-    "layout": "token",
+    "layout": "normal",
     "legalities": {
       "alchemy": "not_legal",
       "brawl": "not_legal",
-      "commander": "not_legal",
-      "duel": "not_legal",
+      "commander": "legal",
+      "duel": "legal",
       "explorer": "not_legal",
       "future": "not_legal",
       "gladiator": "not_legal",
       "historic": "not_legal",
       "historicbrawl": "not_legal",
-      "legacy": "not_legal",
+      "legacy": "legal",
       "modern": "not_legal",
       "oldschool": "not_legal",
-      "pauper": "not_legal",
-      "paupercommander": "not_legal",
+      "pauper": "legal",
+      "paupercommander": "legal",
       "penny": "not_legal",
       "pioneer": "not_legal",
       "premodern": "not_legal",
       "standard": "not_legal",
-      "vintage": "not_legal"
+      "vintage": "legal"
     },
     "mana_cost": "",
-    "multiverse_ids": [],
+    "multiverse_ids": [
+      583545
+    ],
     "name": "Happy Dead Squirrel",
     "nonfoil": true,
     "object": "card",
     "oracle_id": "c3e5d355-fbfb-4489-aeea-8b0ea5de6fcd",
-    "oracle_text": "{TIX}{TIX}: {T}: Add {2}. Spend this mana only to cast noncreature spells.\n{TIX}{TIX}{TIX}: Infect (This permanent deals damage to creatures in the form of -1/1 counters and to players in the form of poison counters.)\n{TIX}{TIX}: 3/2\n{TIX}{TIX}{TIX}{TIX}: 4/7",
+    "oracle_text": "{TK}{TK} — {T}: Add {C}{C}. Spend this mana only to cast noncreature spells.\n{TK}{TK}{TK} — Infect (This permanent deals damage to creatures in the form of -1/1 counters and to players in the form of poison counters.)\n{TK}{TK} — 3/2\n{TK}{TK}{TK}{TK} — 4/7",
     "oversized": false,
     "prices": {
-      "eur": null,
+      "eur": 0.18,
       "eur_foil": null,
       "tix": null,
-      "usd": null,
+      "usd": 0.23,
       "usd_etched": null,
       "usd_foil": null
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Ac3e5d355-fbfb-4489-aeea-8b0ea5de6fcd&unique=prints",
     "produced_mana": [
-      2
+      "C"
     ],
     "promo": false,
     "rarity": "common",
     "related_uris": {
       "edhrec": "https://edhrec.com/route/?cc=Happy+Dead+Squirrel",
+      "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=583545",
       "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Happy+Dead+Squirrel&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
       "tcgplayer_infinite_decks": "https://infinite.tcgplayer.com/search?contentMode=deck&game=magic&partner=scryfall&q=Happy+Dead+Squirrel&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
     },
@@ -5933,11 +5941,12 @@
     "set_id": "565e3302-2fed-487e-a0f7-7f8037d25030",
     "set_name": "Unfinity Sticker Sheets",
     "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Asunf&unique=prints",
-    "set_type": "token",
+    "set_type": "funny",
     "set_uri": "https://api.scryfall.com/sets/565e3302-2fed-487e-a0f7-7f8037d25030",
     "story_spotlight": false,
+    "tcgplayer_id": 288179,
     "textless": false,
-    "type_line": "Sticker",
+    "type_line": "Stickers",
     "uri": "https://api.scryfall.com/cards/20a67ee2-0137-458d-b381-430a2494357f",
     "variation": false
   },
@@ -5962,7 +5971,7 @@
       "R"
     ],
     "digital": false,
-    "edhrec_rank": 2575,
+    "edhrec_rank": 2850,
     "finishes": [
       "nonfoil",
       "foil"
@@ -5984,12 +5993,12 @@
     "illustration_id": "1e321242-000b-442e-bc3e-a68750e03766",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/5/b/5b3c393c-3596-4bd9-a553-e0b03c2eb950.jpg?1581481087",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/5/b/5b3c393c-3596-4bd9-a553-e0b03c2eb950.jpg?1581481087",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/5/b/5b3c393c-3596-4bd9-a553-e0b03c2eb950.jpg?1581481087",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/5/b/5b3c393c-3596-4bd9-a553-e0b03c2eb950.jpg?1581481087",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/5/b/5b3c393c-3596-4bd9-a553-e0b03c2eb950.png?1581481087",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/5/b/5b3c393c-3596-4bd9-a553-e0b03c2eb950.jpg?1581481087"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/5/b/5b3c393c-3596-4bd9-a553-e0b03c2eb950.jpg?1581481087",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/5/b/5b3c393c-3596-4bd9-a553-e0b03c2eb950.jpg?1581481087",
+      "large": "https://cards.scryfall.io/large/front/5/b/5b3c393c-3596-4bd9-a553-e0b03c2eb950.jpg?1581481087",
+      "normal": "https://cards.scryfall.io/normal/front/5/b/5b3c393c-3596-4bd9-a553-e0b03c2eb950.jpg?1581481087",
+      "png": "https://cards.scryfall.io/png/front/5/b/5b3c393c-3596-4bd9-a553-e0b03c2eb950.png?1581481087",
+      "small": "https://cards.scryfall.io/small/front/5/b/5b3c393c-3596-4bd9-a553-e0b03c2eb950.jpg?1581481087"
     },
     "keywords": [
       "Indestructible"
@@ -6035,12 +6044,12 @@
       "source_uri": "https://twitter.com/MTG_Arena/status/1209549655878422529"
     },
     "prices": {
-      "eur": 8.5,
-      "eur_foil": 11.41,
-      "tix": 1.23,
-      "usd": 5.42,
+      "eur": 6.7,
+      "eur_foil": 13.5,
+      "tix": 0.96,
+      "usd": 5.4,
       "usd_etched": null,
-      "usd_foil": 6.71
+      "usd_foil": 5.94
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Ae8473969-195f-41ee-a84d-463cc8c0ef02&unique=prints",
     "produced_mana": [
@@ -6097,7 +6106,7 @@
       "R"
     ],
     "digital": false,
-    "edhrec_rank": 2575,
+    "edhrec_rank": 2850,
     "finishes": [
       "nonfoil",
       "foil"
@@ -6121,12 +6130,12 @@
     "illustration_id": "24343437-32f3-4f4f-be5d-5ad7a4314895",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/4/d/4d747889-04db-4e7a-ad4c-7549514b5112.jpg?1654049968",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/4/d/4d747889-04db-4e7a-ad4c-7549514b5112.jpg?1654049968",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/4/d/4d747889-04db-4e7a-ad4c-7549514b5112.jpg?1654049968",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/4/d/4d747889-04db-4e7a-ad4c-7549514b5112.jpg?1654049968",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/4/d/4d747889-04db-4e7a-ad4c-7549514b5112.png?1654049968",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/4/d/4d747889-04db-4e7a-ad4c-7549514b5112.jpg?1654049968"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/4/d/4d747889-04db-4e7a-ad4c-7549514b5112.jpg?1654049968",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/4/d/4d747889-04db-4e7a-ad4c-7549514b5112.jpg?1654049968",
+      "large": "https://cards.scryfall.io/large/front/4/d/4d747889-04db-4e7a-ad4c-7549514b5112.jpg?1654049968",
+      "normal": "https://cards.scryfall.io/normal/front/4/d/4d747889-04db-4e7a-ad4c-7549514b5112.jpg?1654049968",
+      "png": "https://cards.scryfall.io/png/front/4/d/4d747889-04db-4e7a-ad4c-7549514b5112.png?1654049968",
+      "small": "https://cards.scryfall.io/small/front/4/d/4d747889-04db-4e7a-ad4c-7549514b5112.jpg?1654049968"
     },
     "keywords": [
       "Indestructible"
@@ -6169,12 +6178,12 @@
       "source_uri": "https://magic.wizards.com/en/articles/archive/card-image-gallery/theros-beyond-death-variants"
     },
     "prices": {
-      "eur": 8.99,
-      "eur_foil": 14.55,
+      "eur": 6.99,
+      "eur_foil": 18.5,
       "tix": null,
-      "usd": 4.33,
+      "usd": 4.02,
       "usd_etched": null,
-      "usd_foil": 8.05
+      "usd_foil": 6.87
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Ae8473969-195f-41ee-a84d-463cc8c0ef02&unique=prints",
     "produced_mana": [
@@ -6231,7 +6240,7 @@
       "G"
     ],
     "digital": false,
-    "edhrec_rank": 601,
+    "edhrec_rank": 674,
     "finishes": [
       "nonfoil",
       "foil"
@@ -6253,12 +6262,12 @@
     "illustration_id": "295bfead-06c8-4d04-8bce-ffe80dfa02ce",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/a/3/a391da36-0b40-46ea-b771-50d2b920207e.jpg?1581480808",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/a/3/a391da36-0b40-46ea-b771-50d2b920207e.jpg?1581480808",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/a/3/a391da36-0b40-46ea-b771-50d2b920207e.jpg?1581480808",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/a/3/a391da36-0b40-46ea-b771-50d2b920207e.jpg?1581480808",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/a/3/a391da36-0b40-46ea-b771-50d2b920207e.png?1581480808",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/a/3/a391da36-0b40-46ea-b771-50d2b920207e.jpg?1581480808"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/a/3/a391da36-0b40-46ea-b771-50d2b920207e.jpg?1581480808",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/a/3/a391da36-0b40-46ea-b771-50d2b920207e.jpg?1581480808",
+      "large": "https://cards.scryfall.io/large/front/a/3/a391da36-0b40-46ea-b771-50d2b920207e.jpg?1581480808",
+      "normal": "https://cards.scryfall.io/normal/front/a/3/a391da36-0b40-46ea-b771-50d2b920207e.jpg?1581480808",
+      "png": "https://cards.scryfall.io/png/front/a/3/a391da36-0b40-46ea-b771-50d2b920207e.png?1581480808",
+      "small": "https://cards.scryfall.io/small/front/a/3/a391da36-0b40-46ea-b771-50d2b920207e.jpg?1581480808"
     },
     "keywords": [
       "Trample"
@@ -6304,12 +6313,12 @@
       "source_uri": "https://www.youtube.com/watch?v=FrSbBMp45rg"
     },
     "prices": {
-      "eur": 8.71,
-      "eur_foil": 7.7,
-      "tix": 0.45,
-      "usd": 18.82,
+      "eur": 10.61,
+      "eur_foil": 12.5,
+      "tix": 0.39,
+      "usd": 17.85,
       "usd_etched": null,
-      "usd_foil": 19.42
+      "usd_foil": 20.36
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A8b610f8f-c8dd-4eeb-bc6e-3bc706d5f63e&unique=prints",
     "promo": false,
@@ -6359,7 +6368,7 @@
       "G"
     ],
     "digital": false,
-    "edhrec_rank": 601,
+    "edhrec_rank": 674,
     "finishes": [
       "nonfoil",
       "foil"
@@ -6381,12 +6390,12 @@
     "illustration_id": "295bfead-06c8-4d04-8bce-ffe80dfa02ce",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/c/8/c8a8e37b-0b97-4355-8e00-169a82c38ea0.jpg?1634466744",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/c/8/c8a8e37b-0b97-4355-8e00-169a82c38ea0.jpg?1634466744",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/c/8/c8a8e37b-0b97-4355-8e00-169a82c38ea0.jpg?1634466744",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/c/8/c8a8e37b-0b97-4355-8e00-169a82c38ea0.jpg?1634466744",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/c/8/c8a8e37b-0b97-4355-8e00-169a82c38ea0.png?1634466744",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/c/8/c8a8e37b-0b97-4355-8e00-169a82c38ea0.jpg?1634466744"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/c/8/c8a8e37b-0b97-4355-8e00-169a82c38ea0.jpg?1634466744",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/c/8/c8a8e37b-0b97-4355-8e00-169a82c38ea0.jpg?1634466744",
+      "large": "https://cards.scryfall.io/large/front/c/8/c8a8e37b-0b97-4355-8e00-169a82c38ea0.jpg?1634466744",
+      "normal": "https://cards.scryfall.io/normal/front/c/8/c8a8e37b-0b97-4355-8e00-169a82c38ea0.jpg?1634466744",
+      "png": "https://cards.scryfall.io/png/front/c/8/c8a8e37b-0b97-4355-8e00-169a82c38ea0.png?1634466744",
+      "small": "https://cards.scryfall.io/small/front/c/8/c8a8e37b-0b97-4355-8e00-169a82c38ea0.jpg?1634466744"
     },
     "keywords": [
       "Trample"
@@ -6424,12 +6433,12 @@
     "oversized": false,
     "power": "5",
     "prices": {
-      "eur": 11.83,
-      "eur_foil": 49.9,
+      "eur": 11.9,
+      "eur_foil": 55.0,
       "tix": null,
-      "usd": 30.23,
+      "usd": 28.01,
       "usd_etched": null,
-      "usd_foil": 74.49
+      "usd_foil": 70.64
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A8b610f8f-c8dd-4eeb-bc6e-3bc706d5f63e&unique=prints",
     "promo": false,
@@ -6481,7 +6490,7 @@
     ],
     "colors": [],
     "digital": false,
-    "edhrec_rank": 524,
+    "edhrec_rank": 561,
     "finishes": [
       "nonfoil",
       "foil"
@@ -6499,12 +6508,12 @@
     "illustration_id": "846b14b7-34e8-4f0c-86bb-8bf5dc45bd00",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/6/e/6e6256ea-ccb5-4595-8278-44266f922e31.jpg?1581481279",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/6/e/6e6256ea-ccb5-4595-8278-44266f922e31.jpg?1581481279",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/6/e/6e6256ea-ccb5-4595-8278-44266f922e31.jpg?1581481279",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/6/e/6e6256ea-ccb5-4595-8278-44266f922e31.jpg?1581481279",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/6/e/6e6256ea-ccb5-4595-8278-44266f922e31.png?1581481279",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/6/e/6e6256ea-ccb5-4595-8278-44266f922e31.jpg?1581481279"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/6/e/6e6256ea-ccb5-4595-8278-44266f922e31.jpg?1581481279",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/6/e/6e6256ea-ccb5-4595-8278-44266f922e31.jpg?1581481279",
+      "large": "https://cards.scryfall.io/large/front/6/e/6e6256ea-ccb5-4595-8278-44266f922e31.jpg?1581481279",
+      "normal": "https://cards.scryfall.io/normal/front/6/e/6e6256ea-ccb5-4595-8278-44266f922e31.jpg?1581481279",
+      "png": "https://cards.scryfall.io/png/front/6/e/6e6256ea-ccb5-4595-8278-44266f922e31.png?1581481279",
+      "small": "https://cards.scryfall.io/small/front/6/e/6e6256ea-ccb5-4595-8278-44266f922e31.jpg?1581481279"
     },
     "keywords": [
       "Scry"
@@ -6543,19 +6552,19 @@
     "oracle_id": "e521322b-0e83-458c-8936-7021a80ee279",
     "oracle_text": "Temple of Plenty enters the battlefield tapped.\nWhen Temple of Plenty enters the battlefield, scry 1.\n{T}: Add {G} or {W}.",
     "oversized": false,
-    "penny_rank": 887,
+    "penny_rank": 974,
     "preview": {
       "previewed_at": "2019-12-30",
       "source": "ChannelFireball",
       "source_uri": "https://www.channelfireball.com/all-strategy/articles/3-point/theros-beyond-death-exclusive-preview/"
     },
     "prices": {
-      "eur": 0.82,
-      "eur_foil": 1.48,
+      "eur": 0.57,
+      "eur_foil": 1.45,
       "tix": 0.02,
-      "usd": 0.94,
+      "usd": 1.19,
       "usd_etched": null,
-      "usd_foil": 1.02
+      "usd_foil": 1.24
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Ae521322b-0e83-458c-8936-7021a80ee279&unique=prints",
     "produced_mana": [
@@ -6607,7 +6616,7 @@
     ],
     "colors": [],
     "digital": false,
-    "edhrec_rank": 524,
+    "edhrec_rank": 561,
     "finishes": [
       "nonfoil",
       "foil"
@@ -6628,12 +6637,12 @@
     "illustration_id": "846b14b7-34e8-4f0c-86bb-8bf5dc45bd00",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/6/1/61dc9a80-850c-4945-b84a-85381cc3ee85.jpg?1580351273",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/6/1/61dc9a80-850c-4945-b84a-85381cc3ee85.jpg?1580351273",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/6/1/61dc9a80-850c-4945-b84a-85381cc3ee85.jpg?1580351273",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/6/1/61dc9a80-850c-4945-b84a-85381cc3ee85.jpg?1580351273",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/6/1/61dc9a80-850c-4945-b84a-85381cc3ee85.png?1580351273",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/6/1/61dc9a80-850c-4945-b84a-85381cc3ee85.jpg?1580351273"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/6/1/61dc9a80-850c-4945-b84a-85381cc3ee85.jpg?1580351273",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/6/1/61dc9a80-850c-4945-b84a-85381cc3ee85.jpg?1580351273",
+      "large": "https://cards.scryfall.io/large/front/6/1/61dc9a80-850c-4945-b84a-85381cc3ee85.jpg?1580351273",
+      "normal": "https://cards.scryfall.io/normal/front/6/1/61dc9a80-850c-4945-b84a-85381cc3ee85.jpg?1580351273",
+      "png": "https://cards.scryfall.io/png/front/6/1/61dc9a80-850c-4945-b84a-85381cc3ee85.png?1580351273",
+      "small": "https://cards.scryfall.io/small/front/6/1/61dc9a80-850c-4945-b84a-85381cc3ee85.jpg?1580351273"
     },
     "keywords": [
       "Scry"
@@ -6669,19 +6678,19 @@
     "oracle_id": "e521322b-0e83-458c-8936-7021a80ee279",
     "oracle_text": "Temple of Plenty enters the battlefield tapped.\nWhen Temple of Plenty enters the battlefield, scry 1.\n{T}: Add {G} or {W}.",
     "oversized": false,
-    "penny_rank": 887,
+    "penny_rank": 974,
     "preview": {
       "previewed_at": "2019-12-30",
       "source": "ChannelFireball",
       "source_uri": "https://www.channelfireball.com/all-strategy/articles/3-point/theros-beyond-death-exclusive-preview/"
     },
     "prices": {
-      "eur": 1.99,
-      "eur_foil": 5.2,
+      "eur": 3.47,
+      "eur_foil": 3.87,
       "tix": null,
-      "usd": 2.57,
+      "usd": 2.28,
       "usd_etched": null,
-      "usd_foil": 11.81
+      "usd_foil": 10.86
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Ae521322b-0e83-458c-8936-7021a80ee279&unique=prints",
     "produced_mana": [
@@ -6722,11 +6731,11 @@
     "all_parts": [
       {
         "component": "combo_piece",
-        "id": "72b886c3-234c-49ce-9a11-456c1e8f092f",
+        "id": "cfc4be7b-a948-464d-8327-575ccb7dccf3",
         "name": "Wolfwillow Haven",
         "object": "related_card",
         "type_line": "Enchantment — Aura",
-        "uri": "https://api.scryfall.com/cards/72b886c3-234c-49ce-9a11-456c1e8f092f"
+        "uri": "https://api.scryfall.com/cards/cfc4be7b-a948-464d-8327-575ccb7dccf3"
       },
       {
         "component": "token",
@@ -6755,7 +6764,7 @@
       "G"
     ],
     "digital": false,
-    "edhrec_rank": 2673,
+    "edhrec_rank": 2864,
     "finishes": [
       "nonfoil",
       "foil"
@@ -6773,12 +6782,12 @@
     "illustration_id": "fe910acf-4de3-429b-b1be-9f5b4402facc",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/7/2/72b886c3-234c-49ce-9a11-456c1e8f092f.jpg?1581480945",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/7/2/72b886c3-234c-49ce-9a11-456c1e8f092f.jpg?1581480945",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/7/2/72b886c3-234c-49ce-9a11-456c1e8f092f.jpg?1581480945",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/7/2/72b886c3-234c-49ce-9a11-456c1e8f092f.jpg?1581480945",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/7/2/72b886c3-234c-49ce-9a11-456c1e8f092f.png?1581480945",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/7/2/72b886c3-234c-49ce-9a11-456c1e8f092f.jpg?1581480945"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/7/2/72b886c3-234c-49ce-9a11-456c1e8f092f.jpg?1581480945",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/7/2/72b886c3-234c-49ce-9a11-456c1e8f092f.jpg?1581480945",
+      "large": "https://cards.scryfall.io/large/front/7/2/72b886c3-234c-49ce-9a11-456c1e8f092f.jpg?1581480945",
+      "normal": "https://cards.scryfall.io/normal/front/7/2/72b886c3-234c-49ce-9a11-456c1e8f092f.jpg?1581480945",
+      "png": "https://cards.scryfall.io/png/front/7/2/72b886c3-234c-49ce-9a11-456c1e8f092f.png?1581480945",
+      "small": "https://cards.scryfall.io/small/front/7/2/72b886c3-234c-49ce-9a11-456c1e8f092f.jpg?1581480945"
     },
     "keywords": [
       "Enchant"
@@ -6817,19 +6826,19 @@
     "oracle_id": "7579f57d-c76e-4703-a030-34fb7160cb23",
     "oracle_text": "Enchant land\nWhenever enchanted land is tapped for mana, its controller adds an additional {G}.\n{4}{G}, Sacrifice Wolfwillow Haven: Create a 2/2 green Wolf creature token. Activate only during your turn.",
     "oversized": false,
-    "penny_rank": 2233,
+    "penny_rank": 2287,
     "preview": {
       "previewed_at": "2020-01-09",
       "source": "Drawza",
       "source_uri": "https://www.twitch.tv/drawza"
     },
     "prices": {
-      "eur": 0.49,
-      "eur_foil": 0.15,
+      "eur": 0.37,
+      "eur_foil": 0.12,
       "tix": 0.03,
-      "usd": 0.34,
+      "usd": 0.3,
       "usd_etched": null,
-      "usd_foil": 0.53
+      "usd_foil": 0.56
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A7579f57d-c76e-4703-a030-34fb7160cb23&unique=prints",
     "produced_mana": [
@@ -6866,11 +6875,11 @@
     "all_parts": [
       {
         "component": "combo_piece",
-        "id": "72b886c3-234c-49ce-9a11-456c1e8f092f",
+        "id": "cfc4be7b-a948-464d-8327-575ccb7dccf3",
         "name": "Wolfwillow Haven",
         "object": "related_card",
         "type_line": "Enchantment — Aura",
-        "uri": "https://api.scryfall.com/cards/72b886c3-234c-49ce-9a11-456c1e8f092f"
+        "uri": "https://api.scryfall.com/cards/cfc4be7b-a948-464d-8327-575ccb7dccf3"
       },
       {
         "component": "token",
@@ -6898,7 +6907,7 @@
       "G"
     ],
     "digital": false,
-    "edhrec_rank": 2673,
+    "edhrec_rank": 2864,
     "finishes": [
       "nonfoil",
       "foil"
@@ -6919,12 +6928,12 @@
     "illustration_id": "fe910acf-4de3-429b-b1be-9f5b4402facc",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/c/f/cfc4be7b-a948-464d-8327-575ccb7dccf3.jpg?1586187338",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/c/f/cfc4be7b-a948-464d-8327-575ccb7dccf3.jpg?1586187338",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/c/f/cfc4be7b-a948-464d-8327-575ccb7dccf3.jpg?1586187338",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/c/f/cfc4be7b-a948-464d-8327-575ccb7dccf3.jpg?1586187338",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/c/f/cfc4be7b-a948-464d-8327-575ccb7dccf3.png?1586187338",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/c/f/cfc4be7b-a948-464d-8327-575ccb7dccf3.jpg?1586187338"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/c/f/cfc4be7b-a948-464d-8327-575ccb7dccf3.jpg?1586187338",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/c/f/cfc4be7b-a948-464d-8327-575ccb7dccf3.jpg?1586187338",
+      "large": "https://cards.scryfall.io/large/front/c/f/cfc4be7b-a948-464d-8327-575ccb7dccf3.jpg?1586187338",
+      "normal": "https://cards.scryfall.io/normal/front/c/f/cfc4be7b-a948-464d-8327-575ccb7dccf3.jpg?1586187338",
+      "png": "https://cards.scryfall.io/png/front/c/f/cfc4be7b-a948-464d-8327-575ccb7dccf3.png?1586187338",
+      "small": "https://cards.scryfall.io/small/front/c/f/cfc4be7b-a948-464d-8327-575ccb7dccf3.jpg?1586187338"
     },
     "keywords": [
       "Enchant"
@@ -6960,14 +6969,14 @@
     "oracle_id": "7579f57d-c76e-4703-a030-34fb7160cb23",
     "oracle_text": "Enchant land\nWhenever enchanted land is tapped for mana, its controller adds an additional {G}.\n{4}{G}, Sacrifice Wolfwillow Haven: Create a 2/2 green Wolf creature token. Activate only during your turn.",
     "oversized": false,
-    "penny_rank": 2233,
+    "penny_rank": 2287,
     "prices": {
-      "eur": 0.37,
-      "eur_foil": 0.55,
+      "eur": 0.1,
+      "eur_foil": 0.5,
       "tix": null,
-      "usd": 0.83,
+      "usd": 1.11,
       "usd_etched": null,
-      "usd_foil": 2.08
+      "usd_foil": 2.16
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A7579f57d-c76e-4703-a030-34fb7160cb23&unique=prints",
     "produced_mana": [
@@ -6989,6 +6998,7 @@
     "rulings_uri": "https://api.scryfall.com/cards/cfc4be7b-a948-464d-8327-575ccb7dccf3/rulings",
     "scryfall_set_uri": "https://scryfall.com/sets/thb?utm_source=api",
     "scryfall_uri": "https://scryfall.com/card/thb/357/wolfwillow-haven?utm_source=api",
+    "security_stamp": "oval",
     "set": "thb",
     "set_id": "5f23a78d-cda1-462a-8be3-a62b40c34913",
     "set_name": "Theros Beyond Death",
@@ -7081,12 +7091,12 @@
     "illustration_id": "4d1ca4ab-db58-4280-b854-e8bf22a964cb",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/8/9/8987644d-5a31-4a4e-9a8a-3d6260ed0fd6.jpg?1562488870",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/8/9/8987644d-5a31-4a4e-9a8a-3d6260ed0fd6.jpg?1562488870",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/8/9/8987644d-5a31-4a4e-9a8a-3d6260ed0fd6.jpg?1562488870",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/8/9/8987644d-5a31-4a4e-9a8a-3d6260ed0fd6.jpg?1562488870",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/8/9/8987644d-5a31-4a4e-9a8a-3d6260ed0fd6.png?1562488870",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/8/9/8987644d-5a31-4a4e-9a8a-3d6260ed0fd6.jpg?1562488870"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/8/9/8987644d-5a31-4a4e-9a8a-3d6260ed0fd6.jpg?1562488870",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/8/9/8987644d-5a31-4a4e-9a8a-3d6260ed0fd6.jpg?1562488870",
+      "large": "https://cards.scryfall.io/large/front/8/9/8987644d-5a31-4a4e-9a8a-3d6260ed0fd6.jpg?1562488870",
+      "normal": "https://cards.scryfall.io/normal/front/8/9/8987644d-5a31-4a4e-9a8a-3d6260ed0fd6.jpg?1562488870",
+      "png": "https://cards.scryfall.io/png/front/8/9/8987644d-5a31-4a4e-9a8a-3d6260ed0fd6.png?1562488870",
+      "small": "https://cards.scryfall.io/small/front/8/9/8987644d-5a31-4a4e-9a8a-3d6260ed0fd6.jpg?1562488870"
     },
     "keywords": [],
     "lang": "en",
@@ -7122,12 +7132,12 @@
     "oracle_id": "adfe1b07-dd82-4c39-a7a6-ded0b1c39761",
     "oversized": false,
     "prices": {
-      "eur": 0.8,
+      "eur": 1.41,
       "eur_foil": 49.99,
       "tix": null,
-      "usd": 1.69,
+      "usd": 1.48,
       "usd_etched": null,
-      "usd_foil": 60.95
+      "usd_foil": null
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Aadfe1b07-dd82-4c39-a7a6-ded0b1c39761&unique=prints",
     "promo": false,
@@ -7161,11 +7171,11 @@
     "all_parts": [
       {
         "component": "combo_piece",
-        "id": "d8e84dd2-01f9-4fad-8a24-cc86424d09a2",
+        "id": "2a90b2b6-d96e-4c13-83be-849d2ec1d845",
         "name": "Very Cryptic Command",
         "object": "related_card",
         "type_line": "Instant",
-        "uri": "https://api.scryfall.com/cards/d8e84dd2-01f9-4fad-8a24-cc86424d09a2"
+        "uri": "https://api.scryfall.com/cards/2a90b2b6-d96e-4c13-83be-849d2ec1d845"
       },
       {
         "component": "combo_piece",
@@ -7177,11 +7187,11 @@
       },
       {
         "component": "combo_piece",
-        "id": "12272ce6-ab1f-4576-9e50-21d324263c44",
+        "id": "9a650610-20e2-4f16-b59c-2ea7779f6e47",
         "name": "Very Cryptic Command",
         "object": "related_card",
         "type_line": "Instant",
-        "uri": "https://api.scryfall.com/cards/12272ce6-ab1f-4576-9e50-21d324263c44"
+        "uri": "https://api.scryfall.com/cards/9a650610-20e2-4f16-b59c-2ea7779f6e47"
       },
       {
         "component": "combo_piece",
@@ -7193,19 +7203,19 @@
       },
       {
         "component": "combo_piece",
-        "id": "9a650610-20e2-4f16-b59c-2ea7779f6e47",
+        "id": "12272ce6-ab1f-4576-9e50-21d324263c44",
         "name": "Very Cryptic Command",
         "object": "related_card",
         "type_line": "Instant",
-        "uri": "https://api.scryfall.com/cards/9a650610-20e2-4f16-b59c-2ea7779f6e47"
+        "uri": "https://api.scryfall.com/cards/12272ce6-ab1f-4576-9e50-21d324263c44"
       },
       {
         "component": "combo_piece",
-        "id": "2a90b2b6-d96e-4c13-83be-849d2ec1d845",
+        "id": "d8e84dd2-01f9-4fad-8a24-cc86424d09a2",
         "name": "Very Cryptic Command",
         "object": "related_card",
         "type_line": "Instant",
-        "uri": "https://api.scryfall.com/cards/2a90b2b6-d96e-4c13-83be-849d2ec1d845"
+        "uri": "https://api.scryfall.com/cards/d8e84dd2-01f9-4fad-8a24-cc86424d09a2"
       }
     ],
     "artist": "Wayne England",
@@ -7240,12 +7250,12 @@
     "illustration_id": "f5f56b3d-a7ba-4c06-a2e9-b3bacbb4f952",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/9/a/9a650610-20e2-4f16-b59c-2ea7779f6e47.jpg?1562927634",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/9/a/9a650610-20e2-4f16-b59c-2ea7779f6e47.jpg?1562927634",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/9/a/9a650610-20e2-4f16-b59c-2ea7779f6e47.jpg?1562927634",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/9/a/9a650610-20e2-4f16-b59c-2ea7779f6e47.jpg?1562927634",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/9/a/9a650610-20e2-4f16-b59c-2ea7779f6e47.png?1562927634",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/9/a/9a650610-20e2-4f16-b59c-2ea7779f6e47.jpg?1562927634"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/9/a/9a650610-20e2-4f16-b59c-2ea7779f6e47.jpg?1562927634",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/9/a/9a650610-20e2-4f16-b59c-2ea7779f6e47.jpg?1562927634",
+      "large": "https://cards.scryfall.io/large/front/9/a/9a650610-20e2-4f16-b59c-2ea7779f6e47.jpg?1562927634",
+      "normal": "https://cards.scryfall.io/normal/front/9/a/9a650610-20e2-4f16-b59c-2ea7779f6e47.jpg?1562927634",
+      "png": "https://cards.scryfall.io/png/front/9/a/9a650610-20e2-4f16-b59c-2ea7779f6e47.png?1562927634",
+      "small": "https://cards.scryfall.io/small/front/9/a/9a650610-20e2-4f16-b59c-2ea7779f6e47.jpg?1562927634"
     },
     "keywords": [
       "Assemble"
@@ -7285,11 +7295,11 @@
     "oversized": false,
     "prices": {
       "eur": 2.64,
-      "eur_foil": 33.52,
+      "eur_foil": 25.99,
       "tix": null,
-      "usd": 1.42,
+      "usd": 1.58,
       "usd_etched": null,
-      "usd_foil": 22.75
+      "usd_foil": 22.07
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A5d0fd8ee-2cc1-4ed8-9395-1660d15cc9f3&unique=prints",
     "promo": false,
@@ -7324,11 +7334,11 @@
     "all_parts": [
       {
         "component": "combo_piece",
-        "id": "d8e84dd2-01f9-4fad-8a24-cc86424d09a2",
+        "id": "2a90b2b6-d96e-4c13-83be-849d2ec1d845",
         "name": "Very Cryptic Command",
         "object": "related_card",
         "type_line": "Instant",
-        "uri": "https://api.scryfall.com/cards/d8e84dd2-01f9-4fad-8a24-cc86424d09a2"
+        "uri": "https://api.scryfall.com/cards/2a90b2b6-d96e-4c13-83be-849d2ec1d845"
       },
       {
         "component": "combo_piece",
@@ -7340,11 +7350,11 @@
       },
       {
         "component": "combo_piece",
-        "id": "12272ce6-ab1f-4576-9e50-21d324263c44",
+        "id": "9a650610-20e2-4f16-b59c-2ea7779f6e47",
         "name": "Very Cryptic Command",
         "object": "related_card",
         "type_line": "Instant",
-        "uri": "https://api.scryfall.com/cards/12272ce6-ab1f-4576-9e50-21d324263c44"
+        "uri": "https://api.scryfall.com/cards/9a650610-20e2-4f16-b59c-2ea7779f6e47"
       },
       {
         "component": "combo_piece",
@@ -7356,19 +7366,19 @@
       },
       {
         "component": "combo_piece",
-        "id": "9a650610-20e2-4f16-b59c-2ea7779f6e47",
+        "id": "12272ce6-ab1f-4576-9e50-21d324263c44",
         "name": "Very Cryptic Command",
         "object": "related_card",
         "type_line": "Instant",
-        "uri": "https://api.scryfall.com/cards/9a650610-20e2-4f16-b59c-2ea7779f6e47"
+        "uri": "https://api.scryfall.com/cards/12272ce6-ab1f-4576-9e50-21d324263c44"
       },
       {
         "component": "combo_piece",
-        "id": "2a90b2b6-d96e-4c13-83be-849d2ec1d845",
+        "id": "d8e84dd2-01f9-4fad-8a24-cc86424d09a2",
         "name": "Very Cryptic Command",
         "object": "related_card",
         "type_line": "Instant",
-        "uri": "https://api.scryfall.com/cards/2a90b2b6-d96e-4c13-83be-849d2ec1d845"
+        "uri": "https://api.scryfall.com/cards/d8e84dd2-01f9-4fad-8a24-cc86424d09a2"
       }
     ],
     "artist": "Zoltan Boros",
@@ -7403,12 +7413,12 @@
     "illustration_id": "2345d8b0-e090-4b12-8a0a-40d98970f6ba",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/2/a/2a90b2b6-d96e-4c13-83be-849d2ec1d845.jpg?1562904026",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/2/a/2a90b2b6-d96e-4c13-83be-849d2ec1d845.jpg?1562904026",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/2/a/2a90b2b6-d96e-4c13-83be-849d2ec1d845.jpg?1562904026",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/2/a/2a90b2b6-d96e-4c13-83be-849d2ec1d845.jpg?1562904026",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/2/a/2a90b2b6-d96e-4c13-83be-849d2ec1d845.png?1562904026",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/2/a/2a90b2b6-d96e-4c13-83be-849d2ec1d845.jpg?1562904026"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/2/a/2a90b2b6-d96e-4c13-83be-849d2ec1d845.jpg?1562904026",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/2/a/2a90b2b6-d96e-4c13-83be-849d2ec1d845.jpg?1562904026",
+      "large": "https://cards.scryfall.io/large/front/2/a/2a90b2b6-d96e-4c13-83be-849d2ec1d845.jpg?1562904026",
+      "normal": "https://cards.scryfall.io/normal/front/2/a/2a90b2b6-d96e-4c13-83be-849d2ec1d845.jpg?1562904026",
+      "png": "https://cards.scryfall.io/png/front/2/a/2a90b2b6-d96e-4c13-83be-849d2ec1d845.png?1562904026",
+      "small": "https://cards.scryfall.io/small/front/2/a/2a90b2b6-d96e-4c13-83be-849d2ec1d845.jpg?1562904026"
     },
     "keywords": [],
     "lang": "en",
@@ -7445,12 +7455,12 @@
     "oracle_text": "Choose two —\n• Untap two target permanents.\n• Tap each permanent target player controls with exactly one word in its name.\n• Discard all the cards in your hand, then draw that many cards.\n• Return target instant or sorcery card from your graveyard to your hand.",
     "oversized": false,
     "prices": {
-      "eur": 2.22,
+      "eur": 2.0,
       "eur_foil": 9.99,
       "tix": null,
-      "usd": 1.76,
+      "usd": 1.64,
       "usd_etched": null,
-      "usd_foil": 6.0
+      "usd_foil": 8.95
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A48d94218-a460-4974-82b9-d3a9cba9998e&unique=prints",
     "promo": false,
@@ -7484,12 +7494,20 @@
   {
     "all_parts": [
       {
+        "component": "token",
+        "id": "dbf33cc3-254f-4c5c-be22-3a2d96f29b80",
+        "name": "Gnome",
+        "object": "related_card",
+        "type_line": "Token Artifact Creature — Gnome",
+        "uri": "https://api.scryfall.com/cards/dbf33cc3-254f-4c5c-be22-3a2d96f29b80"
+      },
+      {
         "component": "combo_piece",
-        "id": "d8e84dd2-01f9-4fad-8a24-cc86424d09a2",
+        "id": "2a90b2b6-d96e-4c13-83be-849d2ec1d845",
         "name": "Very Cryptic Command",
         "object": "related_card",
         "type_line": "Instant",
-        "uri": "https://api.scryfall.com/cards/d8e84dd2-01f9-4fad-8a24-cc86424d09a2"
+        "uri": "https://api.scryfall.com/cards/2a90b2b6-d96e-4c13-83be-849d2ec1d845"
       },
       {
         "component": "combo_piece",
@@ -7501,11 +7519,11 @@
       },
       {
         "component": "combo_piece",
-        "id": "12272ce6-ab1f-4576-9e50-21d324263c44",
+        "id": "9a650610-20e2-4f16-b59c-2ea7779f6e47",
         "name": "Very Cryptic Command",
         "object": "related_card",
         "type_line": "Instant",
-        "uri": "https://api.scryfall.com/cards/12272ce6-ab1f-4576-9e50-21d324263c44"
+        "uri": "https://api.scryfall.com/cards/9a650610-20e2-4f16-b59c-2ea7779f6e47"
       },
       {
         "component": "combo_piece",
@@ -7517,27 +7535,19 @@
       },
       {
         "component": "combo_piece",
-        "id": "9a650610-20e2-4f16-b59c-2ea7779f6e47",
+        "id": "12272ce6-ab1f-4576-9e50-21d324263c44",
         "name": "Very Cryptic Command",
         "object": "related_card",
         "type_line": "Instant",
-        "uri": "https://api.scryfall.com/cards/9a650610-20e2-4f16-b59c-2ea7779f6e47"
+        "uri": "https://api.scryfall.com/cards/12272ce6-ab1f-4576-9e50-21d324263c44"
       },
       {
         "component": "combo_piece",
-        "id": "2a90b2b6-d96e-4c13-83be-849d2ec1d845",
+        "id": "d8e84dd2-01f9-4fad-8a24-cc86424d09a2",
         "name": "Very Cryptic Command",
         "object": "related_card",
         "type_line": "Instant",
-        "uri": "https://api.scryfall.com/cards/2a90b2b6-d96e-4c13-83be-849d2ec1d845"
-      },
-      {
-        "component": "token",
-        "id": "dbf33cc3-254f-4c5c-be22-3a2d96f29b80",
-        "name": "Gnome",
-        "object": "related_card",
-        "type_line": "Token Artifact Creature — Gnome",
-        "uri": "https://api.scryfall.com/cards/dbf33cc3-254f-4c5c-be22-3a2d96f29b80"
+        "uri": "https://api.scryfall.com/cards/d8e84dd2-01f9-4fad-8a24-cc86424d09a2"
       }
     ],
     "artist": "Zoltan Boros",
@@ -7572,12 +7582,12 @@
     "illustration_id": "2345d8b0-e090-4b12-8a0a-40d98970f6ba",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/2/d/2dfc9416-06d6-40af-8b3d-62371b3da7c5.jpg?1562904665",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/2/d/2dfc9416-06d6-40af-8b3d-62371b3da7c5.jpg?1562904665",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/2/d/2dfc9416-06d6-40af-8b3d-62371b3da7c5.jpg?1562904665",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/2/d/2dfc9416-06d6-40af-8b3d-62371b3da7c5.jpg?1562904665",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/2/d/2dfc9416-06d6-40af-8b3d-62371b3da7c5.png?1562904665",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/2/d/2dfc9416-06d6-40af-8b3d-62371b3da7c5.jpg?1562904665"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/2/d/2dfc9416-06d6-40af-8b3d-62371b3da7c5.jpg?1562904665",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/2/d/2dfc9416-06d6-40af-8b3d-62371b3da7c5.jpg?1562904665",
+      "large": "https://cards.scryfall.io/large/front/2/d/2dfc9416-06d6-40af-8b3d-62371b3da7c5.jpg?1562904665",
+      "normal": "https://cards.scryfall.io/normal/front/2/d/2dfc9416-06d6-40af-8b3d-62371b3da7c5.jpg?1562904665",
+      "png": "https://cards.scryfall.io/png/front/2/d/2dfc9416-06d6-40af-8b3d-62371b3da7c5.png?1562904665",
+      "small": "https://cards.scryfall.io/small/front/2/d/2dfc9416-06d6-40af-8b3d-62371b3da7c5.jpg?1562904665"
     },
     "keywords": [],
     "lang": "en",
@@ -7614,12 +7624,12 @@
     "oracle_text": "Choose two —\n• Draw a card from an opponent's library.\n• Copy target instant or sorcery spell. You may choose new targets for the copy.\n• Until end of turn, target creature loses all abilities and becomes a blue Frog with base power and toughness 1/1.\n• Create a 1/1 colorless Gnome artifact creature token.",
     "oversized": false,
     "prices": {
-      "eur": 2.0,
-      "eur_foil": 23.66,
+      "eur": 2.2,
+      "eur_foil": 14.94,
       "tix": null,
-      "usd": 2.7,
+      "usd": 2.22,
       "usd_etched": null,
-      "usd_foil": 7.73
+      "usd_foil": 9.0
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A5063f840-0aed-4e2d-98d8-65b39e95e3c9&unique=prints",
     "promo": false,
@@ -7654,11 +7664,11 @@
     "all_parts": [
       {
         "component": "combo_piece",
-        "id": "d8e84dd2-01f9-4fad-8a24-cc86424d09a2",
+        "id": "2a90b2b6-d96e-4c13-83be-849d2ec1d845",
         "name": "Very Cryptic Command",
         "object": "related_card",
         "type_line": "Instant",
-        "uri": "https://api.scryfall.com/cards/d8e84dd2-01f9-4fad-8a24-cc86424d09a2"
+        "uri": "https://api.scryfall.com/cards/2a90b2b6-d96e-4c13-83be-849d2ec1d845"
       },
       {
         "component": "combo_piece",
@@ -7670,11 +7680,11 @@
       },
       {
         "component": "combo_piece",
-        "id": "12272ce6-ab1f-4576-9e50-21d324263c44",
+        "id": "9a650610-20e2-4f16-b59c-2ea7779f6e47",
         "name": "Very Cryptic Command",
         "object": "related_card",
         "type_line": "Instant",
-        "uri": "https://api.scryfall.com/cards/12272ce6-ab1f-4576-9e50-21d324263c44"
+        "uri": "https://api.scryfall.com/cards/9a650610-20e2-4f16-b59c-2ea7779f6e47"
       },
       {
         "component": "combo_piece",
@@ -7686,19 +7696,19 @@
       },
       {
         "component": "combo_piece",
-        "id": "9a650610-20e2-4f16-b59c-2ea7779f6e47",
+        "id": "12272ce6-ab1f-4576-9e50-21d324263c44",
         "name": "Very Cryptic Command",
         "object": "related_card",
         "type_line": "Instant",
-        "uri": "https://api.scryfall.com/cards/9a650610-20e2-4f16-b59c-2ea7779f6e47"
+        "uri": "https://api.scryfall.com/cards/12272ce6-ab1f-4576-9e50-21d324263c44"
       },
       {
         "component": "combo_piece",
-        "id": "2a90b2b6-d96e-4c13-83be-849d2ec1d845",
+        "id": "d8e84dd2-01f9-4fad-8a24-cc86424d09a2",
         "name": "Very Cryptic Command",
         "object": "related_card",
         "type_line": "Instant",
-        "uri": "https://api.scryfall.com/cards/2a90b2b6-d96e-4c13-83be-849d2ec1d845"
+        "uri": "https://api.scryfall.com/cards/d8e84dd2-01f9-4fad-8a24-cc86424d09a2"
       }
     ],
     "artist": "Zoltan Boros",
@@ -7733,12 +7743,12 @@
     "illustration_id": "2345d8b0-e090-4b12-8a0a-40d98970f6ba",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/1/2/12272ce6-ab1f-4576-9e50-21d324263c44.jpg?1562898766",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/1/2/12272ce6-ab1f-4576-9e50-21d324263c44.jpg?1562898766",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/1/2/12272ce6-ab1f-4576-9e50-21d324263c44.jpg?1562898766",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/1/2/12272ce6-ab1f-4576-9e50-21d324263c44.jpg?1562898766",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/1/2/12272ce6-ab1f-4576-9e50-21d324263c44.png?1562898766",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/1/2/12272ce6-ab1f-4576-9e50-21d324263c44.jpg?1562898766"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/1/2/12272ce6-ab1f-4576-9e50-21d324263c44.jpg?1562898766",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/1/2/12272ce6-ab1f-4576-9e50-21d324263c44.jpg?1562898766",
+      "large": "https://cards.scryfall.io/large/front/1/2/12272ce6-ab1f-4576-9e50-21d324263c44.jpg?1562898766",
+      "normal": "https://cards.scryfall.io/normal/front/1/2/12272ce6-ab1f-4576-9e50-21d324263c44.jpg?1562898766",
+      "png": "https://cards.scryfall.io/png/front/1/2/12272ce6-ab1f-4576-9e50-21d324263c44.png?1562898766",
+      "small": "https://cards.scryfall.io/small/front/1/2/12272ce6-ab1f-4576-9e50-21d324263c44.jpg?1562898766"
     },
     "keywords": [],
     "lang": "en",
@@ -7775,12 +7785,12 @@
     "oracle_text": "Choose two —\n• Return target permanent to its controller's hand.\n• Draw two cards, then discard a card.\n• Change the target of target spell with a single target.\n• Turn over target nontoken creature.",
     "oversized": false,
     "prices": {
-      "eur": 3.13,
+      "eur": 1.55,
       "eur_foil": 26.08,
       "tix": null,
-      "usd": 2.58,
+      "usd": 3.27,
       "usd_etched": null,
-      "usd_foil": 10.25
+      "usd_foil": 18.95
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A9dc00e2b-73a3-42d5-95c9-d86094a6e455&unique=prints",
     "promo": false,
@@ -7815,11 +7825,11 @@
     "all_parts": [
       {
         "component": "combo_piece",
-        "id": "d8e84dd2-01f9-4fad-8a24-cc86424d09a2",
+        "id": "2a90b2b6-d96e-4c13-83be-849d2ec1d845",
         "name": "Very Cryptic Command",
         "object": "related_card",
         "type_line": "Instant",
-        "uri": "https://api.scryfall.com/cards/d8e84dd2-01f9-4fad-8a24-cc86424d09a2"
+        "uri": "https://api.scryfall.com/cards/2a90b2b6-d96e-4c13-83be-849d2ec1d845"
       },
       {
         "component": "combo_piece",
@@ -7831,11 +7841,11 @@
       },
       {
         "component": "combo_piece",
-        "id": "12272ce6-ab1f-4576-9e50-21d324263c44",
+        "id": "9a650610-20e2-4f16-b59c-2ea7779f6e47",
         "name": "Very Cryptic Command",
         "object": "related_card",
         "type_line": "Instant",
-        "uri": "https://api.scryfall.com/cards/12272ce6-ab1f-4576-9e50-21d324263c44"
+        "uri": "https://api.scryfall.com/cards/9a650610-20e2-4f16-b59c-2ea7779f6e47"
       },
       {
         "component": "combo_piece",
@@ -7847,19 +7857,19 @@
       },
       {
         "component": "combo_piece",
-        "id": "9a650610-20e2-4f16-b59c-2ea7779f6e47",
+        "id": "12272ce6-ab1f-4576-9e50-21d324263c44",
         "name": "Very Cryptic Command",
         "object": "related_card",
         "type_line": "Instant",
-        "uri": "https://api.scryfall.com/cards/9a650610-20e2-4f16-b59c-2ea7779f6e47"
+        "uri": "https://api.scryfall.com/cards/12272ce6-ab1f-4576-9e50-21d324263c44"
       },
       {
         "component": "combo_piece",
-        "id": "2a90b2b6-d96e-4c13-83be-849d2ec1d845",
+        "id": "d8e84dd2-01f9-4fad-8a24-cc86424d09a2",
         "name": "Very Cryptic Command",
         "object": "related_card",
         "type_line": "Instant",
-        "uri": "https://api.scryfall.com/cards/2a90b2b6-d96e-4c13-83be-849d2ec1d845"
+        "uri": "https://api.scryfall.com/cards/d8e84dd2-01f9-4fad-8a24-cc86424d09a2"
       }
     ],
     "artist": "Zoltan Boros",
@@ -7894,12 +7904,12 @@
     "illustration_id": "2345d8b0-e090-4b12-8a0a-40d98970f6ba",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/d/8/d8e84dd2-01f9-4fad-8a24-cc86424d09a2.jpg?1562940811",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/d/8/d8e84dd2-01f9-4fad-8a24-cc86424d09a2.jpg?1562940811",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/d/8/d8e84dd2-01f9-4fad-8a24-cc86424d09a2.jpg?1562940811",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/d/8/d8e84dd2-01f9-4fad-8a24-cc86424d09a2.jpg?1562940811",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/d/8/d8e84dd2-01f9-4fad-8a24-cc86424d09a2.png?1562940811",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/d/8/d8e84dd2-01f9-4fad-8a24-cc86424d09a2.jpg?1562940811"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/d/8/d8e84dd2-01f9-4fad-8a24-cc86424d09a2.jpg?1562940811",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/d/8/d8e84dd2-01f9-4fad-8a24-cc86424d09a2.jpg?1562940811",
+      "large": "https://cards.scryfall.io/large/front/d/8/d8e84dd2-01f9-4fad-8a24-cc86424d09a2.jpg?1562940811",
+      "normal": "https://cards.scryfall.io/normal/front/d/8/d8e84dd2-01f9-4fad-8a24-cc86424d09a2.jpg?1562940811",
+      "png": "https://cards.scryfall.io/png/front/d/8/d8e84dd2-01f9-4fad-8a24-cc86424d09a2.png?1562940811",
+      "small": "https://cards.scryfall.io/small/front/d/8/d8e84dd2-01f9-4fad-8a24-cc86424d09a2.jpg?1562940811"
     },
     "keywords": [
       "Mill"
@@ -7938,12 +7948,12 @@
     "oracle_text": "Choose two —\n• Counter target black-bordered spell.\n• Return target creature to its owner's hand.\n• Untap each permanent you control with a watermark.\n• Roll two six-sided dice. Target player mills X cards, where X is the total of those results.",
     "oversized": false,
     "prices": {
-      "eur": 2.47,
-      "eur_foil": 9.26,
+      "eur": 2.5,
+      "eur_foil": 9.99,
       "tix": null,
-      "usd": 3.12,
+      "usd": 3.05,
       "usd_etched": null,
-      "usd_foil": 9.35
+      "usd_foil": 13.9
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Aa84f0b11-5c59-4bab-81ef-a84470fb2ade&unique=prints",
     "promo": false,
@@ -7978,11 +7988,11 @@
     "all_parts": [
       {
         "component": "combo_piece",
-        "id": "d8e84dd2-01f9-4fad-8a24-cc86424d09a2",
+        "id": "2a90b2b6-d96e-4c13-83be-849d2ec1d845",
         "name": "Very Cryptic Command",
         "object": "related_card",
         "type_line": "Instant",
-        "uri": "https://api.scryfall.com/cards/d8e84dd2-01f9-4fad-8a24-cc86424d09a2"
+        "uri": "https://api.scryfall.com/cards/2a90b2b6-d96e-4c13-83be-849d2ec1d845"
       },
       {
         "component": "combo_piece",
@@ -7994,11 +8004,11 @@
       },
       {
         "component": "combo_piece",
-        "id": "12272ce6-ab1f-4576-9e50-21d324263c44",
+        "id": "9a650610-20e2-4f16-b59c-2ea7779f6e47",
         "name": "Very Cryptic Command",
         "object": "related_card",
         "type_line": "Instant",
-        "uri": "https://api.scryfall.com/cards/12272ce6-ab1f-4576-9e50-21d324263c44"
+        "uri": "https://api.scryfall.com/cards/9a650610-20e2-4f16-b59c-2ea7779f6e47"
       },
       {
         "component": "combo_piece",
@@ -8010,19 +8020,19 @@
       },
       {
         "component": "combo_piece",
-        "id": "9a650610-20e2-4f16-b59c-2ea7779f6e47",
+        "id": "12272ce6-ab1f-4576-9e50-21d324263c44",
         "name": "Very Cryptic Command",
         "object": "related_card",
         "type_line": "Instant",
-        "uri": "https://api.scryfall.com/cards/9a650610-20e2-4f16-b59c-2ea7779f6e47"
+        "uri": "https://api.scryfall.com/cards/12272ce6-ab1f-4576-9e50-21d324263c44"
       },
       {
         "component": "combo_piece",
-        "id": "2a90b2b6-d96e-4c13-83be-849d2ec1d845",
+        "id": "d8e84dd2-01f9-4fad-8a24-cc86424d09a2",
         "name": "Very Cryptic Command",
         "object": "related_card",
         "type_line": "Instant",
-        "uri": "https://api.scryfall.com/cards/2a90b2b6-d96e-4c13-83be-849d2ec1d845"
+        "uri": "https://api.scryfall.com/cards/d8e84dd2-01f9-4fad-8a24-cc86424d09a2"
       },
       {
         "component": "token",
@@ -8065,12 +8075,12 @@
     "illustration_id": "2345d8b0-e090-4b12-8a0a-40d98970f6ba",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/d/4/d41e6c51-d96a-436f-94c5-5d1e19c5e0d5.jpg?1562939866",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/d/4/d41e6c51-d96a-436f-94c5-5d1e19c5e0d5.jpg?1562939866",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/d/4/d41e6c51-d96a-436f-94c5-5d1e19c5e0d5.jpg?1562939866",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/d/4/d41e6c51-d96a-436f-94c5-5d1e19c5e0d5.jpg?1562939866",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/d/4/d41e6c51-d96a-436f-94c5-5d1e19c5e0d5.png?1562939866",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/d/4/d41e6c51-d96a-436f-94c5-5d1e19c5e0d5.jpg?1562939866"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/d/4/d41e6c51-d96a-436f-94c5-5d1e19c5e0d5.jpg?1562939866",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/d/4/d41e6c51-d96a-436f-94c5-5d1e19c5e0d5.jpg?1562939866",
+      "large": "https://cards.scryfall.io/large/front/d/4/d41e6c51-d96a-436f-94c5-5d1e19c5e0d5.jpg?1562939866",
+      "normal": "https://cards.scryfall.io/normal/front/d/4/d41e6c51-d96a-436f-94c5-5d1e19c5e0d5.jpg?1562939866",
+      "png": "https://cards.scryfall.io/png/front/d/4/d41e6c51-d96a-436f-94c5-5d1e19c5e0d5.png?1562939866",
+      "small": "https://cards.scryfall.io/small/front/d/4/d41e6c51-d96a-436f-94c5-5d1e19c5e0d5.jpg?1562939866"
     },
     "keywords": [
       "Scry"
@@ -8109,12 +8119,12 @@
     "oracle_text": "Choose two —\n• Scry 3.\n• Create a 2/2 black Rogue creature token with menace.\n• Add or subtract 1 or one from a number or number word on target spell or permanent until end of turn.\n• Return all artifacts target player controls to their owner's hand.",
     "oversized": false,
     "prices": {
-      "eur": 2.89,
+      "eur": 2.49,
       "eur_foil": 12.09,
       "tix": null,
-      "usd": 1.75,
+      "usd": 1.53,
       "usd_etched": null,
-      "usd_foil": 7.23
+      "usd_foil": 5.72
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A684dfe99-c957-4b91-bd14-867c20b4b3db&unique=prints",
     "promo": false,
@@ -8162,7 +8172,7 @@
       "U"
     ],
     "digital": true,
-    "edhrec_rank": 13506,
+    "edhrec_rank": 14228,
     "finishes": [
       "nonfoil",
       "foil"
@@ -8178,12 +8188,12 @@
     "illustration_id": "d10469ab-1902-4505-8618-f576b18830a4",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/1/1/116ec16c-3b4b-45be-83c8-333bccc29e35.jpg?1562898511",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/1/1/116ec16c-3b4b-45be-83c8-333bccc29e35.jpg?1562898511",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/1/1/116ec16c-3b4b-45be-83c8-333bccc29e35.jpg?1562898511",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/1/1/116ec16c-3b4b-45be-83c8-333bccc29e35.jpg?1562898511",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/1/1/116ec16c-3b4b-45be-83c8-333bccc29e35.png?1562898511",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/1/1/116ec16c-3b4b-45be-83c8-333bccc29e35.jpg?1562898511"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/1/1/116ec16c-3b4b-45be-83c8-333bccc29e35.jpg?1562898511",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/1/1/116ec16c-3b4b-45be-83c8-333bccc29e35.jpg?1562898511",
+      "large": "https://cards.scryfall.io/large/front/1/1/116ec16c-3b4b-45be-83c8-333bccc29e35.jpg?1562898511",
+      "normal": "https://cards.scryfall.io/normal/front/1/1/116ec16c-3b4b-45be-83c8-333bccc29e35.jpg?1562898511",
+      "png": "https://cards.scryfall.io/png/front/1/1/116ec16c-3b4b-45be-83c8-333bccc29e35.png?1562898511",
+      "small": "https://cards.scryfall.io/small/front/1/1/116ec16c-3b4b-45be-83c8-333bccc29e35.jpg?1562898511"
     },
     "keywords": [],
     "lang": "en",
@@ -8221,7 +8231,7 @@
     "oracle_id": "ba6c3c72-c014-45c6-a0b4-59eb9a65303e",
     "oracle_text": "Academy Elite enters the battlefield with X +1/+1 counters on it, where X is the number of instant and sorcery cards in all graveyards.\n{2}{U}, Remove a +1/+1 counter from Academy Elite: Draw a card, then discard a card.",
     "oversized": false,
-    "penny_rank": 3577,
+    "penny_rank": 3774,
     "power": "0",
     "prices": {
       "eur": null,
@@ -8278,7 +8288,7 @@
       "W"
     ],
     "digital": false,
-    "edhrec_rank": 8048,
+    "edhrec_rank": 8308,
     "finishes": [
       "nonfoil"
     ],
@@ -8295,12 +8305,12 @@
     "illustration_id": "5f5651af-22fb-4fb8-a04c-1f34b5104bd9",
     "image_status": "highres_scan",
     "image_uris": {
-      "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/8/7/8752c1db-b924-4dda-8b71-4c254d0ef2de.jpg?1562923563",
-      "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/8/7/8752c1db-b924-4dda-8b71-4c254d0ef2de.jpg?1562923563",
-      "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/8/7/8752c1db-b924-4dda-8b71-4c254d0ef2de.jpg?1562923563",
-      "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/8/7/8752c1db-b924-4dda-8b71-4c254d0ef2de.jpg?1562923563",
-      "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/8/7/8752c1db-b924-4dda-8b71-4c254d0ef2de.png?1562923563",
-      "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/8/7/8752c1db-b924-4dda-8b71-4c254d0ef2de.jpg?1562923563"
+      "art_crop": "https://cards.scryfall.io/art_crop/front/8/7/8752c1db-b924-4dda-8b71-4c254d0ef2de.jpg?1562923563",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/8/7/8752c1db-b924-4dda-8b71-4c254d0ef2de.jpg?1562923563",
+      "large": "https://cards.scryfall.io/large/front/8/7/8752c1db-b924-4dda-8b71-4c254d0ef2de.jpg?1562923563",
+      "normal": "https://cards.scryfall.io/normal/front/8/7/8752c1db-b924-4dda-8b71-4c254d0ef2de.jpg?1562923563",
+      "png": "https://cards.scryfall.io/png/front/8/7/8752c1db-b924-4dda-8b71-4c254d0ef2de.png?1562923563",
+      "small": "https://cards.scryfall.io/small/front/8/7/8752c1db-b924-4dda-8b71-4c254d0ef2de.jpg?1562923563"
     },
     "keywords": [
       "Flying",
@@ -8309,7 +8319,7 @@
     "lang": "en",
     "layout": "normal",
     "legalities": {
-      "alchemy": "legal",
+      "alchemy": "not_legal",
       "brawl": "not_legal",
       "commander": "legal",
       "duel": "legal",
@@ -8341,13 +8351,13 @@
     "oracle_id": "4b7ac066-e5c7-43e6-9e7e-2739b24a905d",
     "oracle_text": "Flying, vigilance",
     "oversized": false,
-    "penny_rank": 8441,
+    "penny_rank": 8626,
     "power": "4",
     "prices": {
-      "eur": 0.17,
+      "eur": 0.02,
       "eur_foil": null,
       "tix": 0.05,
-      "usd": 0.09,
+      "usd": 0.11,
       "usd_etched": null,
       "usd_foil": null
     },

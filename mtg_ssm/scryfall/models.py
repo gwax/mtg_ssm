@@ -19,6 +19,7 @@ class ScryColor(str, Enum):
     RED = "R"
     GREEN = "G"
     COLORLESS = "C"
+    TAP = "T"
 
 
 class ScrySetType(str, Enum):
@@ -111,6 +112,11 @@ class ScryFrameEffect(str, Enum):
     SNOW = "snow"
     LESSON = "lesson"
     TEXTLESS = "textless"
+    SHATTEREDGLASS = "shatteredglass"
+    CONVERTDFC = "convertdfc"
+    FANDFC = "fandfc"
+    UPSIDEDOWNDFC = "upsidedowndfc"
+    GILDED = "gilded"
 
 
 class ScryBorderColor(str, Enum):
@@ -169,6 +175,8 @@ class ScrySecurityStamp(str, Enum):
     TRIANGLE = "triangle"
     ACORN = "acorn"
     ARENA = "arena"
+    CIRCLE = "circle"
+    HEART = "heart"
 
 
 class ScryFormat(str, Enum):

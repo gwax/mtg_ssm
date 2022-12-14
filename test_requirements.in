@@ -1,0 +1,24 @@
+-c requirements.txt
+-r requirements.txt
+
+black
+coverage
+doc8
+flake8
+flake8-bugbear
+flake8-comprehensions
+flake8-mutable
+freezegun
+isort
+lxml
+mypy
+pip
+pip-tools
+Pygments
+pylint
+pytest
+pytest-cov
+responses
+setuptools
+types-requests
+wheel

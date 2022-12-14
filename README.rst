@@ -165,6 +165,11 @@ Development
 
 - ...
 
+2.2.4
+-----
+
+-   Fixes for Scryfall model changes
+
 2.2.3
 -----
 

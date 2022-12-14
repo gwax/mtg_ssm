@@ -14,7 +14,9 @@ from mtg_ssm.scryfall import fetcher
 from mtg_ssm.scryfall.models import ScryCard, ScrySet
 from tests import gen_testdata
 
-BULK_CARDS_REGEX = r"https://[a-z0-9]+\.scryfall.com/file/scryfall-bulk/default-cards/default-cards-\d{14}\.json"
+BULK_CARDS_REGEX = (
+    r"https://data\.scryfall\.io/default-cards/default-cards-\d{14}\.json"
+)
 
 ENDPOINT_TO_FILE: Dict[Union[str, Pattern[str]], str] = {
     fetcher.BULK_DATA_ENDPOINT: gen_testdata.TARGET_BULK_FILE,
