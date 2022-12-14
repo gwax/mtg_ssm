@@ -4,8 +4,11 @@ mtg-ssm - Magic: the Gathering Spreadsheet Manager
 .. image:: https://img.shields.io/coveralls/gwax/mtg_ssm.svg
     :target: https://coveralls.io/r/gwax/mtg_ssm
 
-.. image:: https://img.shields.io/travis/gwax/mtg_ssm/master.svg
-    :target: https://travis-ci.org/gwax/mtg_ssm
+.. image:: https://github.com/gwax/mtg_ssm/actions/workflows/run-tests.yml/badge.svg?branch=trunk
+    :target: https://github.com/gwax/mtg_ssm/actions/workflows/run-tests.yml
+
+.. image:: https://github.com/gwax/mtg_ssm/actions/workflows/pre-commit.yml/badge.svg?branch=trunk
+    :target: https://github.com/gwax/mtg_ssm/actions/workflows/pre-commit.yml
 
 .. image:: https://img.shields.io/pypi/v/mtg-ssm.svg
     :target: https://pypi.python.org/pypi/mtg-ssm/
@@ -164,6 +167,11 @@ Development
 -----------
 
 - ...
+
+2.2.5
+-----
+
+-   Officially support Python 3.11
 
 2.2.4
 -----
