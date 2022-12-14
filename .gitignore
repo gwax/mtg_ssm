@@ -3,6 +3,7 @@
 /*.csv.bak*
 /*.xlsx
 /*.xlsx.bak*
+/.~lock.*
 
 # Profiling data
 *.prof

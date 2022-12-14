@@ -34,9 +34,14 @@ ALL_SETS_SHEET_TOTALS: Sequence[Optional[str]] = ["Total", None, None, None, Non
 ]
 
 
-def _card_set_sort_key(cset: ScrySet) -> Tuple[dt.date, str]:
+def _card_set_sort_key(cset: ScrySet) -> Tuple[dt.date, str, int, str]:
     released_at = cset.released_at or dt.date.min
-    return released_at, cset.code
+    return (
+        released_at,
+        cset.parent_set_code or cset.code,
+        0 if cset.parent_set_code is None else 1,
+        cset.code,
+    )
 
 
 def create_all_sets(sheet: Worksheet, index: ScryfallDataIndex) -> None:
