@@ -15,6 +15,7 @@ jobs:
           - "3.8"
           - "3.9"
           - "3.10"
+          - "3.11"
     name: Python ${{ matrix.python-version }} pytest
     steps:
       - uses: actions/checkout@v2
