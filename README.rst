@@ -166,6 +166,11 @@ Changelog
 Development
 -----------
 
+- ...
+
+2.3.0
+-----
+
 -   Add card prices and totals
 
 2.2.5
