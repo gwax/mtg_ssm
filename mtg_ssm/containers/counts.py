@@ -9,7 +9,7 @@ from mtg_ssm.containers import legacy
 from mtg_ssm.containers.indexes import Oracle
 
 
-class CountType(enum.Enum):
+class CountType(str, enum.Enum):
     """Enum for possible card printing types (nonfoil, foil)."""
 
     NONFOIL = "nonfoil"

@@ -12,6 +12,7 @@ freezegun
 isort
 lxml
 mypy
+openpyxl-stubs
 pip
 pip-tools
 py
@@ -22,5 +23,6 @@ pytest-cov
 pytest-snapshot
 responses
 setuptools
+types-freezegun
 types-requests
 wheel

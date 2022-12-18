@@ -1,5 +1,5 @@
-have,name,scryfall_id,collector_number,artist,nonfoil,foil,others
-=F2+G2,Thallid,4caaf31b-86a9-485b-8da7-d5b526ed1233,74a,"Edward P. Beard, Jr.",,,
-=F3+G3,Thallid,80f8f778-ae31-45cd-b27f-f93a07853ede,74b,Jesper Myrfors,,,
-=F4+G4,Thallid,2cf2f3da-9101-439d-8caa-910ff40bfbb3,74c,Ron Spencer,,,
-=F5+G5,Thallid,01827286-b104-41c5-bac9-7c38414bc40e,74d,Daniel Gelon,,,
+have,value,name,scryfall_id,collector_number,artist,price,foil_price,nonfoil,foil,others
+=I2+J2,=I2*G2+J2*H2,Thallid,4caaf31b-86a9-485b-8da7-d5b526ed1233,74a,"Edward P. Beard, Jr.",0.24,,,,
+=I3+J3,=I3*G3+J3*H3,Thallid,80f8f778-ae31-45cd-b27f-f93a07853ede,74b,Jesper Myrfors,0.19,,,,
+=I4+J4,=I4*G4+J4*H4,Thallid,2cf2f3da-9101-439d-8caa-910ff40bfbb3,74c,Ron Spencer,0.24,,,,
+=I5+J5,=I5*G5+J5*H5,Thallid,01827286-b104-41c5-bac9-7c38414bc40e,74d,Daniel Gelon,0.17,,,,

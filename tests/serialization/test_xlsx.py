@@ -55,7 +55,7 @@ def test_create_all_sets(snapshot: Snapshot, oracle: Oracle) -> None:
     xlsx.create_all_sets(sheet, oracle.index)
     snapshot.assert_match(
         _csv_dump([[cell.value for cell in row] for row in sheet.rows]),
-        f"{sheet.title}.csv",
+        f"{str(sheet.title)}.csv",
     )
 
 
@@ -98,7 +98,7 @@ def test_create_all_cards_sheet(snapshot: Snapshot, oracle: Oracle) -> None:
     xlsx.create_all_cards(sheet, oracle.index)
     snapshot.assert_match(
         _csv_dump([[cell.value for cell in row] for row in sheet.rows]),
-        f"{sheet.title}.csv",
+        f"{str(sheet.title)}.csv",
     )
 
 
@@ -117,7 +117,7 @@ def test_create_set_sheet(snapshot: Snapshot, oracle: Oracle) -> None:
     xlsx.create_set_sheet(sheet, collection, "ice")
     snapshot.assert_match(
         _csv_dump([[cell.value for cell in row] for row in sheet.rows]),
-        f"{sheet.title}.csv",
+        f"{str(sheet.title)}.csv",
     )
 
 

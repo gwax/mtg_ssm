@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any, ClassVar, Dict, Iterable, List, Optional, Sequence, Set, Tuple
 
 import openpyxl
+from openpyxl.styles.numbers import FORMAT_CURRENCY_USD_SIMPLE
 from openpyxl.workbook.workbook import Workbook
 from openpyxl.worksheet.worksheet import Worksheet
 
@@ -27,10 +28,12 @@ ALL_SETS_SHEET_HEADER: Sequence[str] = [
     "unique",
     "playsets",
     "count",
+    "value",
+    "nonbulk",
 ]
 
 ALL_SETS_SHEET_TOTALS: Sequence[Optional[str]] = ["Total", None, None, None, None] + [
-    f"=SUM({c}3:{c}65535)" for c in "FGHI"
+    f"=SUM({c}3:{c}65535)" for c in "FGHIJK"
 ]
 
 
@@ -61,6 +64,8 @@ def create_all_sets(sheet: Worksheet, index: ScryfallDataIndex) -> None:
             f"=COUNTIF('{setcode}'!A:A,\">0\")",
             f"=COUNTIF('{setcode}'!A:A,\">=4\")",
             f"=SUM('{setcode}'!A:A)",
+            f"=SUM('{setcode}'!B:B)",
+            f"=SUMIF('{setcode}'!B:B,\">=5\")",
         ]
         sheet.append(row)
 
@@ -68,21 +73,25 @@ def create_all_sets(sheet: Worksheet, index: ScryfallDataIndex) -> None:
 def style_all_sets(sheet: Worksheet) -> None:
     """Apply styles to the all sets sheet."""
     sheet.freeze_panes = sheet["C3"]
-    col_width_hidden = [
-        ("A", 8, False),
-        ("B", 30, False),
-        ("C", 12, True),
-        ("D", 22, True),
-        ("E", 15, True),
-        ("F", 6, False),
-        ("G", 7, False),
-        ("H", 8, False),
-        ("I", 7, False),
+    col_width_hidden_format = [
+        ("A", 8, False, None),
+        ("B", 30, False, None),
+        ("C", 12, True, None),
+        ("D", 22, True, None),
+        ("E", 15, True, None),
+        ("F", 6, False, None),
+        ("G", 7, False, None),
+        ("H", 8, False, None),
+        ("I", 7, False, None),
+        ("J", 10, False, FORMAT_CURRENCY_USD_SIMPLE),
+        ("K", 10, False, FORMAT_CURRENCY_USD_SIMPLE),
     ]
-    for col, width, hidden in col_width_hidden:
+    for col, width, hidden, number_format in col_width_hidden_format:
         cdim = sheet.column_dimensions[col]
         cdim.width = width
         cdim.hidden = hidden
+        if number_format is not None:
+            cdim.number_format = number_format
 
 
 def create_haverefs(index: ScryfallDataIndex, cards: Sequence[ScryCard]) -> str:
@@ -150,14 +159,44 @@ def style_all_cards(sheet: Worksheet) -> None:
 
 
 SET_SHEET_HEADER = (
-    ["have", "name", "scryfall_id", "collector_number", "artist"]
+    [
+        "have",
+        "value",
+        "name",
+        "scryfall_id",
+        "collector_number",
+        "artist",
+        "price",
+        "foil_price",
+    ]
     + [ct.value for ct in counts.CountType]
     + ["others"]
 )
 COUNT_COLS = [
     string.ascii_uppercase[SET_SHEET_HEADER.index(ct.value)] for ct in counts.CountType
 ]
-HAVE_TMPL = "=" + "+".join(c + "{rownum}" for c in COUNT_COLS)
+HAVE_TMPL = (
+    "="
+    + string.ascii_uppercase[SET_SHEET_HEADER.index(counts.CountType.NONFOIL)]
+    + "{rownum}"
+    + "+"
+    + string.ascii_uppercase[SET_SHEET_HEADER.index(counts.CountType.FOIL)]
+    + "{rownum}"
+)
+VALUE_TMPL = (
+    "="
+    + string.ascii_uppercase[SET_SHEET_HEADER.index(counts.CountType.NONFOIL)]
+    + "{rownum}"
+    + "*"
+    + string.ascii_uppercase[SET_SHEET_HEADER.index("price")]
+    + "{rownum}"
+    + "+"
+    + string.ascii_uppercase[SET_SHEET_HEADER.index(counts.CountType.FOIL)]
+    + "{rownum}"
+    + "*"
+    + string.ascii_uppercase[SET_SHEET_HEADER.index("foil_price")]
+    + "{rownum}"
+)
 ROW_OFFSET = 2
 
 
@@ -174,10 +213,13 @@ def create_set_sheet(
         rownum = ROW_OFFSET + index.id_to_setindex[card.id]
         row: List[Optional[Any]] = [
             HAVE_TMPL.format(rownum=rownum),
+            VALUE_TMPL.format(rownum=rownum),
             card.name,
             str(card.id),
             card.collector_number,
             card.artist,
+            (card.prices or {}).get("usd", None),
+            (card.prices or {}).get("usd_foil", None),
         ]
         card_counts = collection.counts.get(card.id, {})
         for count_type in counts.CountType:
@@ -189,20 +231,25 @@ def create_set_sheet(
 def style_set_sheet(sheet: Worksheet) -> None:
     """Apply styles to a set sheet."""
     sheet.freeze_panes = sheet["C2"]
-    col_width_hidden = [
-        ("A", 5, False),
-        ("B", 24, False),
-        ("C", 10, True),
-        ("D", 8, True),
-        ("E", 20, True),
-        ("F", 8, False),
-        ("G", 6, False),
-        ("H", 10, False),
+    col_width_hidden_format = [
+        ("A", 5, False, None),
+        ("B", 9, False, FORMAT_CURRENCY_USD_SIMPLE),
+        ("C", 24, False, None),
+        ("D", 10, True, None),
+        ("E", 8, True, None),
+        ("F", 20, True, None),
+        ("G", 9, True, FORMAT_CURRENCY_USD_SIMPLE),
+        ("H", 9, True, FORMAT_CURRENCY_USD_SIMPLE),
+        ("I", 8, False, None),
+        ("J", 6, False, None),
+        ("K", 10, False, None),
     ]
-    for col, width, hidden in col_width_hidden:
+    for col, width, hidden, number_format in col_width_hidden_format:
         cdim = sheet.column_dimensions[col]
         cdim.width = width
         cdim.hidden = hidden
+        if number_format is not None:
+            cdim.number_format = number_format
 
 
 def rows_from_sheet(sheet: Worksheet) -> Iterable[Dict[str, str]]:
@@ -212,7 +259,7 @@ def rows_from_sheet(sheet: Worksheet) -> Iterable[Dict[str, str]]:
     for row in rows:
         values = [cell.value for cell in row]
         if any(v is not None for v in values):
-            yield dict(zip(header, values), set=sheet.title)
+            yield dict(zip(header, values), set=str(sheet.title))
 
 
 def rows_for_workbook(

@@ -1,3 +1,3 @@
-have,name,scryfall_id,collector_number,artist,nonfoil,foil,others
-=F2+G2,Akroma's Vengeance,b8f5e276-d7c3-4b4b-ac5b-9bb1aeeca8d0,1,Greg Hildebrandt & Tim Hildebrandt,,,
-=F3+G3,Dark Ritual,c8c774f2-110e-476c-a4ff-cc86d31c6ae7,24,Clint Langley,,,"=IF('LEA'!A3>0,""LEA: ""&'LEA'!A3&"", "","""")&IF('ICE'!A2>0,""ICE: ""&'ICE'!A2&"", "","""")"
+have,value,name,scryfall_id,collector_number,artist,price,foil_price,nonfoil,foil,others
+=I2+J2,=I2*G2+J2*H2,Akroma's Vengeance,b8f5e276-d7c3-4b4b-ac5b-9bb1aeeca8d0,1,Greg Hildebrandt & Tim Hildebrandt,0.42,,,,
+=I3+J3,=I3*G3+J3*H3,Dark Ritual,c8c774f2-110e-476c-a4ff-cc86d31c6ae7,24,Clint Langley,0.66,,,,"=IF('LEA'!A3>0,""LEA: ""&'LEA'!A3&"", "","""")&IF('ICE'!A2>0,""ICE: ""&'ICE'!A2&"", "","""")"
