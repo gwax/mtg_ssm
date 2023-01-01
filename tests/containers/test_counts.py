@@ -8,7 +8,7 @@ import pytest
 
 from mtg_ssm.containers import counts
 from mtg_ssm.containers.bundles import ScryfallDataSet
-from mtg_ssm.containers.counts import CountType, ScryfallCardCount
+from mtg_ssm.containers.counts import CardNotFoundError, CountType, ScryfallCardCount
 from mtg_ssm.containers.indexes import Oracle
 from mtg_ssm.containers.legacy import NoMatchError
 
@@ -111,37 +111,48 @@ def test_diff_card_counts(
             id="no id",
         ),
         pytest.param(
-            [{"scryfall_id": UUID("00000000-0000-0000-0000-000000000001"), "foil": 1}],
-            {UUID("00000000-0000-0000-0000-000000000001"): {counts.CountType.FOIL: 1}},
+            [{"scryfall_id": UUID("9d26f171-5bb6-463c-8473-53b6cc27ed66"), "foil": 1}],
+            {UUID("9d26f171-5bb6-463c-8473-53b6cc27ed66"): {counts.CountType.FOIL: 1}},
             id="id and int",
         ),
         pytest.param(
-            [{"scryfall_id": "00000000-0000-0000-0000-000000000001", "foil": "1"}],
-            {UUID("00000000-0000-0000-0000-000000000001"): {counts.CountType.FOIL: 1}},
+            [{"scryfall_id": "9d26f171-5bb6-463c-8473-53b6cc27ed66", "foil": "1"}],
+            {UUID("9d26f171-5bb6-463c-8473-53b6cc27ed66"): {counts.CountType.FOIL: 1}},
             id="text and text",
+        ),
+        pytest.param(
+            [{"scryfall_id": "00000000-0000-0000-0000-000000000001", "nonfoil": "1"}],
+            {},
+            marks=pytest.mark.xfail(raises=CardNotFoundError),
+            id="count with bad id",
+        ),
+        pytest.param(
+            [{"scryfall_id": "00000000-0000-0000-0000-000000000001", "nonfoil": ""}],
+            {},
+            id="no count with bad id",
         ),
         pytest.param(
             [
                 {
-                    "scryfall_id": "00000000-0000-0000-0000-000000000001",
+                    "scryfall_id": "9d26f171-5bb6-463c-8473-53b6cc27ed66",
                     "foil": "1",
                     "nonfoil": "",
                 }
             ],
-            {UUID("00000000-0000-0000-0000-000000000001"): {counts.CountType.FOIL: 1}},
+            {UUID("9d26f171-5bb6-463c-8473-53b6cc27ed66"): {counts.CountType.FOIL: 1}},
             id="empty string",
         ),
         pytest.param(
             [
-                {"scryfall_id": "00000000-0000-0000-0000-000000000001", "foil": "1"},
-                {"scryfall_id": "00000000-0000-0000-0000-000000000002", "foil": "0"},
-                {"scryfall_id": "00000000-0000-0000-0000-000000000003", "nonfoil": "1"},
+                {"scryfall_id": "9d26f171-5bb6-463c-8473-53b6cc27ed66", "foil": "1"},
+                {"scryfall_id": "758abd53-6ad2-406e-8615-8e48678405b4", "foil": "0"},
+                {"scryfall_id": "0180d9a8-992c-4d55-8ac4-33a587786993", "nonfoil": "1"},
             ],
             {
-                UUID("00000000-0000-0000-0000-000000000001"): {
+                UUID("9d26f171-5bb6-463c-8473-53b6cc27ed66"): {
                     counts.CountType.FOIL: 1
                 },
-                UUID("00000000-0000-0000-0000-000000000003"): {
+                UUID("0180d9a8-992c-4d55-8ac4-33a587786993"): {
                     counts.CountType.NONFOIL: 1
                 },
             },
@@ -150,20 +161,20 @@ def test_diff_card_counts(
         pytest.param(
             [
                 {
-                    "scryfall_id": UUID("00000000-0000-0000-0000-000000000001"),
+                    "scryfall_id": UUID("9d26f171-5bb6-463c-8473-53b6cc27ed66"),
                     "foil": 1,
                 },
                 {
-                    "scryfall_id": UUID("00000000-0000-0000-0000-000000000001"),
+                    "scryfall_id": UUID("9d26f171-5bb6-463c-8473-53b6cc27ed66"),
                     "nonfoil": 1,
                 },
                 {
-                    "scryfall_id": UUID("00000000-0000-0000-0000-000000000001"),
+                    "scryfall_id": UUID("9d26f171-5bb6-463c-8473-53b6cc27ed66"),
                     "foil": 1,
                 },
             ],
             {
-                UUID("00000000-0000-0000-0000-000000000001"): {
+                UUID("9d26f171-5bb6-463c-8473-53b6cc27ed66"): {
                     counts.CountType.FOIL: 2,
                     counts.CountType.NONFOIL: 1,
                 }
