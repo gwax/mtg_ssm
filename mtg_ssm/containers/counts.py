@@ -9,6 +9,14 @@ from mtg_ssm.containers import legacy
 from mtg_ssm.containers.indexes import Oracle
 
 
+class Error(Exception):
+    """Base exception for this module."""
+
+
+class CardNotFoundError(Error):
+    """Raised when we attempt to add a card to a count but cannot find it in the oracle."""
+
+
 class CountType(str, enum.Enum):
     """Enum for possible card printing types (nonfoil, foil)."""
 
@@ -39,6 +47,10 @@ def aggregate_card_counts(
             if value:
                 counts[count_type] = value + counts.get(count_type, 0)
         if counts:
+            if scryfall_id not in oracle.index.id_to_card:
+                raise CardNotFoundError(
+                    f"Found counts for card={scryfall_id} not found scryfall data"
+                )
             card_counts[scryfall_id] = counts
     return card_counts
 
