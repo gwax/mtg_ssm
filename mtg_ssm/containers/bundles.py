@@ -1,8 +1,8 @@
 """Data bundle definitions."""
 
-from typing import List, NamedTuple, Set
+from typing import List, NamedTuple, Optional, Set
 
-from mtg_ssm.scryfall.models import ScryCard, ScrySet, ScrySetType
+from mtg_ssm.scryfall.models import ScryCard, ScryCardLayout, ScrySet, ScrySetType
 
 
 class ScryfallDataSet(NamedTuple):
@@ -12,32 +12,37 @@ class ScryfallDataSet(NamedTuple):
     cards: List[ScryCard]
 
 
-def remove_digital(scryfall_data: ScryfallDataSet) -> ScryfallDataSet:
-    """Filter a ScryfallDataSet to remove all digital only sets and cards."""
-    accepted_sets = []
+def filter_cards_and_sets(
+    scryfall_data: ScryfallDataSet,
+    *,
+    exclude_set_types: Optional[Set[ScrySetType]] = None,
+    exclude_card_layouts: Optional[Set[ScryCardLayout]] = None,
+    exclude_digital: bool = False,
+) -> ScryfallDataSet:
+    """Filter a ScryfallDataSet to exclude desired set types, card layouts, and digital only products."""
     accepted_setcodes = set()
     for set_ in scryfall_data.sets:
-        if set_.digital:
+        if exclude_set_types and set_.set_type in exclude_set_types:
             continue
-        accepted_sets.append(set_)
+        if exclude_digital and set_.digital:
+            continue
         accepted_setcodes.add(set_.code)
 
-    accepted_cards = [
-        c for c in scryfall_data.cards if c.set in accepted_setcodes and not c.digital
+    accepted_cards = []
+    nonempty_setcodes = set()
+    for card in scryfall_data.cards:
+        if card.set not in accepted_setcodes:
+            continue
+        if exclude_card_layouts and card.layout in exclude_card_layouts:
+            continue
+        if exclude_digital and card.digital:
+            continue
+        accepted_cards.append(card)
+        nonempty_setcodes.add(card.set)
+
+    accepted_sets = [
+        s
+        for s in scryfall_data.sets
+        if s.code in accepted_setcodes and s.code in nonempty_setcodes
     ]
-    return ScryfallDataSet(sets=accepted_sets, cards=accepted_cards)
-
-
-def filter_set_types(
-    scryfall_data: ScryfallDataSet, set_types: Set[ScrySetType]
-) -> ScryfallDataSet:
-    """Filter a ScryfallDataSet to include only specified set types."""
-    rejected_setcodes = set()
-    accepted_sets = []
-    for set_ in scryfall_data.sets:
-        if set_.set_type in set_types:
-            accepted_sets.append(set_)
-        else:
-            rejected_setcodes.add(set_.code)
-    accepted_cards = [c for c in scryfall_data.cards if c.set not in rejected_setcodes]
     return ScryfallDataSet(sets=accepted_sets, cards=accepted_cards)

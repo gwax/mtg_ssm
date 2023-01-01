@@ -166,7 +166,9 @@ Changelog
 Development
 -----------
 
-- ...
+-   Fix filtering of digital only cards
+-   Switch from inclusion to exclusion for set types
+-   Add exclusion of card layouts (to catch tokens in non-token sets)
 
 2.3.0
 -----
