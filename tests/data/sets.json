@@ -174,6 +174,25 @@
       "uri": "https://api.scryfall.com/sets/d1026945-2969-42b9-be53-f941405a58cb"
     },
     {
+      "arena_code": "khm",
+      "card_count": 3,
+      "code": "khm",
+      "digital": false,
+      "foil_only": false,
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/khm.svg?1672030800",
+      "id": "43057fad-b1c1-437f-bc48-0045bce6d8c9",
+      "mtgo_code": "khm",
+      "name": "Kaldheim",
+      "nonfoil_only": false,
+      "object": "set",
+      "released_at": "2021-02-05",
+      "scryfall_uri": "https://scryfall.com/sets/khm",
+      "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Akhm&unique=prints",
+      "set_type": "expansion",
+      "tcgplayer_id": 2750,
+      "uri": "https://api.scryfall.com/sets/43057fad-b1c1-437f-bc48-0045bce6d8c9"
+    },
+    {
       "block": "Core Set",
       "block_code": "lea",
       "card_count": 4,
