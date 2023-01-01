@@ -12,7 +12,7 @@ from mtg_ssm.containers import bundles
 from mtg_ssm.containers.collection import MagicCollection
 from mtg_ssm.containers.indexes import Oracle
 from mtg_ssm.scryfall import fetcher
-from mtg_ssm.scryfall.models import ScrySetType
+from mtg_ssm.scryfall.models import ScryCardLayout, ScrySetType
 
 
 def epilog() -> str:
@@ -32,11 +32,26 @@ def set_type_list(value: str) -> Set[ScrySetType]:
             set_types.add(ScrySetType(set_str))
         except ValueError as err:
             msg = (
-                f"{set_str} in {value} is not a valid set_type, please use a commas separated list of values from: "
+                f"{set_str} in {value} is not a valid set_type, please use a comma separated list of values from: "
                 + ", ".join(ScrySetType)
             )
             raise argparse.ArgumentTypeError(msg) from err
     return set_types
+
+
+def card_layout_list(value: str) -> Set[ScryCardLayout]:
+    """Argparse type to convert a string to a set of Scryfall Card Layouts."""
+    card_layouts = set()
+    for layout_str in value.split(","):
+        try:
+            card_layouts.add(ScryCardLayout(layout_str))
+        except ValueError as err:
+            msg = (
+                f"{layout_str} in {value} is not a valid layout_type, please use a comma separated list of values from: "
+                + ", ".join(ScryCardLayout)
+            )
+            raise argparse.ArgumentTypeError(msg) from err
+    return card_layouts
 
 
 def get_args(args: Optional[List[str]] = None) -> argparse.Namespace:
@@ -66,13 +81,27 @@ def get_args(args: Optional[List[str]] = None) -> argparse.Namespace:
         "May be repeated for multiple different extensions.",
     )
 
-    default_set_types = set(ScrySetType) - {ScrySetType.MEMORABILIA, ScrySetType.TOKEN}
+    default_exclude_set_types = {ScrySetType.MEMORABILIA, ScrySetType.TOKEN}
     parser.add_argument(
-        "--set-types",
-        default=",".join(default_set_types),
+        "--exclude-set-types",
+        default=",".join(default_exclude_set_types),
         type=set_type_list,
-        help="List of set types to include as a comma separted list of values from: "
+        help="List of set types to exclude from data as a comma separated list of values from: "
         + ", ".join(ScrySetType),
+    )
+
+    default_exclude_card_layouts = {
+        ScryCardLayout.ART_SERIES,
+        ScryCardLayout.DOUBLE_FACED_TOKEN,
+        ScryCardLayout.EMBLEM,
+        ScryCardLayout.TOKEN,
+    }
+    parser.add_argument(
+        "--exclude-card-layouts",
+        default=",".join(default_exclude_card_layouts),
+        type=card_layout_list,
+        help="List of card layouts to exclude from data as a comma separated list of values from: "
+        + ", ".join(ScryCardLayout),
     )
 
     # Commands
@@ -136,12 +165,20 @@ def get_args(args: Optional[List[str]] = None) -> argparse.Namespace:
     return parsed_args
 
 
-def get_oracle(set_types: Set[ScrySetType], include_digital: bool) -> Oracle:
+def get_oracle(
+    *,
+    exclude_set_types: Set[ScrySetType],
+    exclude_card_layouts: Set[ScryCardLayout],
+    include_digital: bool,
+) -> Oracle:
     """Get a card_db with current mtgjson data."""
     scrydata = fetcher.scryfetch()
-    scrydata = bundles.filter_set_types(scrydata, set_types)
-    if not include_digital:
-        scrydata = bundles.remove_digital(scrydata)
+    scrydata = bundles.filter_cards_and_sets(
+        scrydata,
+        exclude_set_types=exclude_set_types,
+        exclude_card_layouts=exclude_card_layouts,
+        exclude_digital=not include_digital,
+    )
     return Oracle(scrydata)
 
 
@@ -228,7 +265,11 @@ def diff_cmd(args: argparse.Namespace, oracle: Oracle) -> None:
 def main() -> None:
     """Get args and run the appropriate command."""
     args = get_args()
-    oracle = get_oracle(args.set_types, args.include_digital)
+    oracle = get_oracle(
+        exclude_set_types=args.exclude_set_types,
+        exclude_card_layouts=args.exclude_card_layouts,
+        include_digital=args.include_digital,
+    )
     args.func(args, oracle)
 
 

@@ -13,7 +13,7 @@ import mtg_ssm.scryfall.fetcher
 from mtg_ssm import ssm
 from mtg_ssm.containers.bundles import ScryfallDataSet
 from mtg_ssm.containers.indexes import Oracle
-from mtg_ssm.scryfall.models import ScrySetType
+from mtg_ssm.scryfall.models import ScryCardLayout, ScrySetType
 
 
 @pytest.fixture(scope="session")
@@ -49,8 +49,13 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 collection=Path("testfilename"),
                 dialect={},
                 include_digital=False,
-                set_types=set(ScrySetType)
-                - {ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
+                exclude_set_types={ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
+                exclude_card_layouts={
+                    ScryCardLayout.ART_SERIES,
+                    ScryCardLayout.DOUBLE_FACED_TOKEN,
+                    ScryCardLayout.EMBLEM,
+                    ScryCardLayout.TOKEN,
+                },
             ),
         ),
         (
@@ -61,8 +66,13 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 collection=Path("testfilename"),
                 dialect={},
                 include_digital=True,
-                set_types=set(ScrySetType)
-                - {ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
+                exclude_set_types={ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
+                exclude_card_layouts={
+                    ScryCardLayout.ART_SERIES,
+                    ScryCardLayout.DOUBLE_FACED_TOKEN,
+                    ScryCardLayout.EMBLEM,
+                    ScryCardLayout.TOKEN,
+                },
             ),
         ),
         (
@@ -73,19 +83,34 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 collection=Path("testfilename"),
                 dialect={"csv": "terse"},
                 include_digital=False,
-                set_types=set(ScrySetType)
-                - {ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
+                exclude_set_types={ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
+                exclude_card_layouts={
+                    ScryCardLayout.ART_SERIES,
+                    ScryCardLayout.DOUBLE_FACED_TOKEN,
+                    ScryCardLayout.EMBLEM,
+                    ScryCardLayout.TOKEN,
+                },
             ),
         ),
         (
-            "--set-types=token,memorabilia create testfilename",
+            "--exclude-set-types=token,memorabilia,vanguard create testfilename",
             ap.Namespace(
                 action="create",
                 func=ssm.create_cmd,
                 collection=Path("testfilename"),
                 dialect={},
                 include_digital=False,
-                set_types={ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
+                exclude_set_types={
+                    ScrySetType.TOKEN,
+                    ScrySetType.MEMORABILIA,
+                    ScrySetType.VANGUARD,
+                },
+                exclude_card_layouts={
+                    ScryCardLayout.ART_SERIES,
+                    ScryCardLayout.DOUBLE_FACED_TOKEN,
+                    ScryCardLayout.EMBLEM,
+                    ScryCardLayout.TOKEN,
+                },
             ),
         ),
         (
@@ -96,8 +121,13 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 collection=Path("testfilename"),
                 dialect={},
                 include_digital=False,
-                set_types=set(ScrySetType)
-                - {ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
+                exclude_set_types={ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
+                exclude_card_layouts={
+                    ScryCardLayout.ART_SERIES,
+                    ScryCardLayout.DOUBLE_FACED_TOKEN,
+                    ScryCardLayout.EMBLEM,
+                    ScryCardLayout.TOKEN,
+                },
             ),
         ),
         (
@@ -109,8 +139,13 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 imports=[Path("otherfile1")],
                 dialect={},
                 include_digital=False,
-                set_types=set(ScrySetType)
-                - {ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
+                exclude_set_types={ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
+                exclude_card_layouts={
+                    ScryCardLayout.ART_SERIES,
+                    ScryCardLayout.DOUBLE_FACED_TOKEN,
+                    ScryCardLayout.EMBLEM,
+                    ScryCardLayout.TOKEN,
+                },
             ),
         ),
         (
@@ -122,8 +157,13 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 imports=[Path("otherfile1"), Path("otherfile2"), Path("otherfile3")],
                 dialect={},
                 include_digital=False,
-                set_types=set(ScrySetType)
-                - {ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
+                exclude_set_types={ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
+                exclude_card_layouts={
+                    ScryCardLayout.ART_SERIES,
+                    ScryCardLayout.DOUBLE_FACED_TOKEN,
+                    ScryCardLayout.EMBLEM,
+                    ScryCardLayout.TOKEN,
+                },
             ),
         ),
         (
@@ -136,8 +176,13 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 right=Path("file2"),
                 dialect={},
                 include_digital=False,
-                set_types=set(ScrySetType)
-                - {ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
+                exclude_set_types={ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
+                exclude_card_layouts={
+                    ScryCardLayout.ART_SERIES,
+                    ScryCardLayout.DOUBLE_FACED_TOKEN,
+                    ScryCardLayout.EMBLEM,
+                    ScryCardLayout.TOKEN,
+                },
             ),
         ),
     ],

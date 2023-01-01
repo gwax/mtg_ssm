@@ -28,14 +28,14 @@ TEST_SETS_TO_CARDS = {
     "isd": {"Abattoir Ghoul", "Delver of Secrets // Insectile Aberration", "Forest"},
     "khm": {"Cosmos Elixir", "A-Cosmos Elixir"},
     "lea": {"Air Elemental", "Dark Ritual", "Forest"},
-    "mma": {"Thallid"},
     "mbs": {"Hero of Bladehold", "Black Sun's Zenith"},
+    "mma": {"Thallid"},
     "neo": {"Boseiju, Who Endures"},
-    "pneo": {"Boseiju, Who Endures"},
     "oarc": {"All in Good Time"},
     "ogw": {"Wastes"},
     "ohop": {"Academy at Tolaria West"},
     "opc2": {"Akoum", "Chaotic Aether"},
+    "p03": {"Goblin"},
     "pc2": {"Armored Griffin"},
     "pfrf": {"Dragonscale General"},
     "phop": {"Stairs to Infinity", "Tazeem"},
@@ -43,9 +43,12 @@ TEST_SETS_TO_CARDS = {
     "plc": {"Boom // Bust"},
     "pls": {"Ertai, the Corrupted"},
     "pmbs": {"Hero of Bladehold", "Black Sun's Zenith"},
+    "pneo": {"Boseiju, Who Endures"},
     "ptg": {"Nightmare Moon // Princess Luna"},
     "s00": {"Rhox"},
+    "sld": {"Goblin", "Viscera Seer"},
     "sok": {"Erayo, Soratami Ascendant // Erayo's Essence"},
+    "sunf": {"Happy Dead Squirrel"},
     "thb": {
         "Wolfwillow Haven",
         "Temple of Plenty",
@@ -56,8 +59,6 @@ TEST_SETS_TO_CARDS = {
     "ust": {"Very Cryptic Command"},
     "vma": {"Academy Elite"},
     "w16": {"Serra Angel"},
-    "sld": {"Viscera Seer"},
-    "sunf": {"Happy Dead Squirrel"},
 }
 
 
