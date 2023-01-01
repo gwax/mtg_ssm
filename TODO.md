@@ -3,7 +3,6 @@
 -   Group sets by parent set is xlsx output
     -   Block? probably not
     -   At the very least, merge promos into somewhere?
--   Ditch the "A-" Alchemy cards when filtering digital only
 -   Filter card types as well as set types to remove tokens and such in promo sets
 -   Option to filter out non-English sets / cards
 -   diffs to stdout

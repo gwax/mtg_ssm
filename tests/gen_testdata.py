@@ -26,6 +26,7 @@ TEST_SETS_TO_CARDS = {
     "hop": {"Akroma's Vengeance", "Dark Ritual"},
     "ice": {"Dark Ritual", "Forest", "Snow-Covered Forest"},
     "isd": {"Abattoir Ghoul", "Delver of Secrets // Insectile Aberration", "Forest"},
+    "khm": {"Cosmos Elixir", "A-Cosmos Elixir"},
     "lea": {"Air Elemental", "Dark Ritual", "Forest"},
     "mma": {"Thallid"},
     "mbs": {"Hero of Bladehold", "Black Sun's Zenith"},

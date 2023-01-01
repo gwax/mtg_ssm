@@ -2811,6 +2811,404 @@
     "variation": false
   },
   {
+    "all_parts": [
+      {
+        "component": "combo_piece",
+        "id": "f7f1ce0b-6668-4d16-8fe0-07c65ce4bc82",
+        "name": "A-Cosmos Elixir",
+        "object": "related_card",
+        "type_line": "Artifact",
+        "uri": "https://api.scryfall.com/cards/f7f1ce0b-6668-4d16-8fe0-07c65ce4bc82"
+      },
+      {
+        "component": "combo_piece",
+        "id": "ea524e81-4898-4a41-8b34-06defd26e4c7",
+        "name": "Cosmos Elixir",
+        "object": "related_card",
+        "type_line": "Artifact",
+        "uri": "https://api.scryfall.com/cards/ea524e81-4898-4a41-8b34-06defd26e4c7"
+      }
+    ],
+    "artist": "Volkan Baǵa",
+    "artist_ids": [
+      "93bec3c0-0260-4d31-8064-5d01efb4153f"
+    ],
+    "booster": false,
+    "border_color": "black",
+    "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+    "cmc": 4.0,
+    "collector_number": "A-237",
+    "color_identity": [],
+    "colors": [],
+    "digital": true,
+    "finishes": [
+      "nonfoil"
+    ],
+    "foil": false,
+    "frame": "2015",
+    "full_art": false,
+    "games": [
+      "arena"
+    ],
+    "highres_image": false,
+    "id": "f7f1ce0b-6668-4d16-8fe0-07c65ce4bc82",
+    "illustration_id": "3fdda697-59d6-4f46-91d8-7a13cd697603",
+    "image_status": "lowres",
+    "image_uris": {
+      "art_crop": "https://cards.scryfall.io/art_crop/front/f/7/f7f1ce0b-6668-4d16-8fe0-07c65ce4bc82.jpg?1645415589",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/f/7/f7f1ce0b-6668-4d16-8fe0-07c65ce4bc82.jpg?1645415589",
+      "large": "https://cards.scryfall.io/large/front/f/7/f7f1ce0b-6668-4d16-8fe0-07c65ce4bc82.jpg?1645415589",
+      "normal": "https://cards.scryfall.io/normal/front/f/7/f7f1ce0b-6668-4d16-8fe0-07c65ce4bc82.jpg?1645415589",
+      "png": "https://cards.scryfall.io/png/front/f/7/f7f1ce0b-6668-4d16-8fe0-07c65ce4bc82.png?1645415589",
+      "small": "https://cards.scryfall.io/small/front/f/7/f7f1ce0b-6668-4d16-8fe0-07c65ce4bc82.jpg?1645415589"
+    },
+    "keywords": [
+      "Scry"
+    ],
+    "lang": "en",
+    "layout": "normal",
+    "legalities": {
+      "alchemy": "not_legal",
+      "brawl": "not_legal",
+      "commander": "not_legal",
+      "duel": "not_legal",
+      "explorer": "not_legal",
+      "future": "not_legal",
+      "gladiator": "legal",
+      "historic": "legal",
+      "historicbrawl": "legal",
+      "legacy": "not_legal",
+      "modern": "not_legal",
+      "oldschool": "not_legal",
+      "pauper": "not_legal",
+      "paupercommander": "not_legal",
+      "penny": "not_legal",
+      "pioneer": "not_legal",
+      "premodern": "not_legal",
+      "standard": "not_legal",
+      "vintage": "not_legal"
+    },
+    "mana_cost": "{4}",
+    "multiverse_ids": [],
+    "name": "A-Cosmos Elixir",
+    "nonfoil": true,
+    "object": "card",
+    "oracle_id": "5d945383-e854-4d46-a420-158517348164",
+    "oracle_text": "At the beginning of your end step, draw a card if your life total is greater than your starting life total. Otherwise, you gain 2 life and scry 1.",
+    "oversized": false,
+    "prices": {
+      "eur": null,
+      "eur_foil": null,
+      "tix": null,
+      "usd": null,
+      "usd_etched": null,
+      "usd_foil": null
+    },
+    "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A5d945383-e854-4d46-a420-158517348164&unique=prints",
+    "promo": false,
+    "rarity": "rare",
+    "related_uris": {
+      "edhrec": "https://edhrec.com/route/?cc=A-Cosmos+Elixir",
+      "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=A-Cosmos+Elixir&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "tcgplayer_infinite_decks": "https://infinite.tcgplayer.com/search?contentMode=deck&game=magic&partner=scryfall&q=A-Cosmos+Elixir&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+    },
+    "released_at": "2021-02-05",
+    "reprint": false,
+    "reserved": false,
+    "rulings_uri": "https://api.scryfall.com/cards/f7f1ce0b-6668-4d16-8fe0-07c65ce4bc82/rulings",
+    "scryfall_set_uri": "https://scryfall.com/sets/khm?utm_source=api",
+    "scryfall_uri": "https://scryfall.com/card/khm/A-237/a-cosmos-elixir?utm_source=api",
+    "security_stamp": "arena",
+    "set": "khm",
+    "set_id": "43057fad-b1c1-437f-bc48-0045bce6d8c9",
+    "set_name": "Kaldheim",
+    "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Akhm&unique=prints",
+    "set_type": "expansion",
+    "set_uri": "https://api.scryfall.com/sets/43057fad-b1c1-437f-bc48-0045bce6d8c9",
+    "story_spotlight": false,
+    "textless": false,
+    "type_line": "Artifact",
+    "uri": "https://api.scryfall.com/cards/f7f1ce0b-6668-4d16-8fe0-07c65ce4bc82",
+    "variation": false
+  },
+  {
+    "all_parts": [
+      {
+        "component": "combo_piece",
+        "id": "f7f1ce0b-6668-4d16-8fe0-07c65ce4bc82",
+        "name": "A-Cosmos Elixir",
+        "object": "related_card",
+        "type_line": "Artifact",
+        "uri": "https://api.scryfall.com/cards/f7f1ce0b-6668-4d16-8fe0-07c65ce4bc82"
+      },
+      {
+        "component": "combo_piece",
+        "id": "ea524e81-4898-4a41-8b34-06defd26e4c7",
+        "name": "Cosmos Elixir",
+        "object": "related_card",
+        "type_line": "Artifact",
+        "uri": "https://api.scryfall.com/cards/ea524e81-4898-4a41-8b34-06defd26e4c7"
+      }
+    ],
+    "arena_id": 75284,
+    "artist": "Volkan Baǵa",
+    "artist_ids": [
+      "93bec3c0-0260-4d31-8064-5d01efb4153f"
+    ],
+    "booster": true,
+    "border_color": "black",
+    "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+    "cardmarket_id": 532177,
+    "cmc": 4.0,
+    "collector_number": "237",
+    "color_identity": [],
+    "colors": [],
+    "digital": false,
+    "edhrec_rank": 1359,
+    "finishes": [
+      "nonfoil",
+      "foil"
+    ],
+    "flavor_text": "The Skoti owe their immortality to the elixir, and the manner of its creation is their most closely guarded secret.",
+    "foil": true,
+    "frame": "2015",
+    "full_art": false,
+    "games": [
+      "arena",
+      "paper",
+      "mtgo"
+    ],
+    "highres_image": true,
+    "id": "6bf084fe-7762-49c5-974a-cdecc10666b3",
+    "illustration_id": "06cf6a73-f000-4a7d-bd1e-e57ed1800dde",
+    "image_status": "highres_scan",
+    "image_uris": {
+      "art_crop": "https://cards.scryfall.io/art_crop/front/6/b/6bf084fe-7762-49c5-974a-cdecc10666b3.jpg?1639436665",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/6/b/6bf084fe-7762-49c5-974a-cdecc10666b3.jpg?1639436665",
+      "large": "https://cards.scryfall.io/large/front/6/b/6bf084fe-7762-49c5-974a-cdecc10666b3.jpg?1639436665",
+      "normal": "https://cards.scryfall.io/normal/front/6/b/6bf084fe-7762-49c5-974a-cdecc10666b3.jpg?1639436665",
+      "png": "https://cards.scryfall.io/png/front/6/b/6bf084fe-7762-49c5-974a-cdecc10666b3.png?1639436665",
+      "small": "https://cards.scryfall.io/small/front/6/b/6bf084fe-7762-49c5-974a-cdecc10666b3.jpg?1639436665"
+    },
+    "keywords": [],
+    "lang": "en",
+    "layout": "normal",
+    "legalities": {
+      "alchemy": "not_legal",
+      "brawl": "not_legal",
+      "commander": "legal",
+      "duel": "legal",
+      "explorer": "legal",
+      "future": "not_legal",
+      "gladiator": "legal",
+      "historic": "not_legal",
+      "historicbrawl": "not_legal",
+      "legacy": "legal",
+      "modern": "legal",
+      "oldschool": "not_legal",
+      "pauper": "not_legal",
+      "paupercommander": "not_legal",
+      "penny": "legal",
+      "pioneer": "legal",
+      "premodern": "not_legal",
+      "standard": "not_legal",
+      "vintage": "legal"
+    },
+    "mana_cost": "{4}",
+    "mtgo_id": 87817,
+    "multiverse_ids": [
+      503853
+    ],
+    "name": "Cosmos Elixir",
+    "nonfoil": true,
+    "object": "card",
+    "oracle_id": "ed7300f4-831a-4ba4-b5e6-ceba8d079eaa",
+    "oracle_text": "At the beginning of your end step, draw a card if your life total is greater than your starting life total. Otherwise, you gain 2 life.",
+    "oversized": false,
+    "penny_rank": 770,
+    "preview": {
+      "previewed_at": "2021-01-16",
+      "source": "Luca Van Deun",
+      "source_uri": "https://twitter.com/LegenVD/status/1350493142966013952"
+    },
+    "prices": {
+      "eur": 1.61,
+      "eur_foil": 0.6,
+      "tix": 0.02,
+      "usd": 1.26,
+      "usd_etched": null,
+      "usd_foil": 1.56
+    },
+    "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Aed7300f4-831a-4ba4-b5e6-ceba8d079eaa&unique=prints",
+    "promo": false,
+    "rarity": "rare",
+    "related_uris": {
+      "edhrec": "https://edhrec.com/route/?cc=Cosmos+Elixir",
+      "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=503853",
+      "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Cosmos+Elixir&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "tcgplayer_infinite_decks": "https://infinite.tcgplayer.com/search?contentMode=deck&game=magic&partner=scryfall&q=Cosmos+Elixir&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+    },
+    "released_at": "2021-02-05",
+    "reprint": false,
+    "reserved": false,
+    "rulings_uri": "https://api.scryfall.com/cards/6bf084fe-7762-49c5-974a-cdecc10666b3/rulings",
+    "scryfall_set_uri": "https://scryfall.com/sets/khm?utm_source=api",
+    "scryfall_uri": "https://scryfall.com/card/khm/237/cosmos-elixir?utm_source=api",
+    "security_stamp": "oval",
+    "set": "khm",
+    "set_id": "43057fad-b1c1-437f-bc48-0045bce6d8c9",
+    "set_name": "Kaldheim",
+    "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Akhm&unique=prints",
+    "set_type": "expansion",
+    "set_uri": "https://api.scryfall.com/sets/43057fad-b1c1-437f-bc48-0045bce6d8c9",
+    "story_spotlight": false,
+    "tcgplayer_id": 230731,
+    "textless": false,
+    "type_line": "Artifact",
+    "uri": "https://api.scryfall.com/cards/6bf084fe-7762-49c5-974a-cdecc10666b3",
+    "variation": false
+  },
+  {
+    "all_parts": [
+      {
+        "component": "combo_piece",
+        "id": "f7f1ce0b-6668-4d16-8fe0-07c65ce4bc82",
+        "name": "A-Cosmos Elixir",
+        "object": "related_card",
+        "type_line": "Artifact",
+        "uri": "https://api.scryfall.com/cards/f7f1ce0b-6668-4d16-8fe0-07c65ce4bc82"
+      },
+      {
+        "component": "combo_piece",
+        "id": "ea524e81-4898-4a41-8b34-06defd26e4c7",
+        "name": "Cosmos Elixir",
+        "object": "related_card",
+        "type_line": "Artifact",
+        "uri": "https://api.scryfall.com/cards/ea524e81-4898-4a41-8b34-06defd26e4c7"
+      }
+    ],
+    "artist": "Volkan Baǵa",
+    "artist_ids": [
+      "93bec3c0-0260-4d31-8064-5d01efb4153f"
+    ],
+    "booster": false,
+    "border_color": "black",
+    "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+    "cardmarket_id": 532412,
+    "cmc": 4.0,
+    "collector_number": "368",
+    "color_identity": [],
+    "colors": [],
+    "digital": false,
+    "edhrec_rank": 1359,
+    "finishes": [
+      "nonfoil",
+      "foil"
+    ],
+    "foil": true,
+    "frame": "2015",
+    "frame_effects": [
+      "extendedart"
+    ],
+    "full_art": false,
+    "games": [
+      "arena",
+      "paper",
+      "mtgo"
+    ],
+    "highres_image": true,
+    "id": "ea524e81-4898-4a41-8b34-06defd26e4c7",
+    "illustration_id": "06cf6a73-f000-4a7d-bd1e-e57ed1800dde",
+    "image_status": "highres_scan",
+    "image_uris": {
+      "art_crop": "https://cards.scryfall.io/art_crop/front/e/a/ea524e81-4898-4a41-8b34-06defd26e4c7.jpg?1631056797",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/e/a/ea524e81-4898-4a41-8b34-06defd26e4c7.jpg?1631056797",
+      "large": "https://cards.scryfall.io/large/front/e/a/ea524e81-4898-4a41-8b34-06defd26e4c7.jpg?1631056797",
+      "normal": "https://cards.scryfall.io/normal/front/e/a/ea524e81-4898-4a41-8b34-06defd26e4c7.jpg?1631056797",
+      "png": "https://cards.scryfall.io/png/front/e/a/ea524e81-4898-4a41-8b34-06defd26e4c7.png?1631056797",
+      "small": "https://cards.scryfall.io/small/front/e/a/ea524e81-4898-4a41-8b34-06defd26e4c7.jpg?1631056797"
+    },
+    "keywords": [],
+    "lang": "en",
+    "layout": "normal",
+    "legalities": {
+      "alchemy": "not_legal",
+      "brawl": "not_legal",
+      "commander": "legal",
+      "duel": "legal",
+      "explorer": "legal",
+      "future": "not_legal",
+      "gladiator": "legal",
+      "historic": "not_legal",
+      "historicbrawl": "not_legal",
+      "legacy": "legal",
+      "modern": "legal",
+      "oldschool": "not_legal",
+      "pauper": "not_legal",
+      "paupercommander": "not_legal",
+      "penny": "legal",
+      "pioneer": "legal",
+      "premodern": "not_legal",
+      "standard": "not_legal",
+      "vintage": "legal"
+    },
+    "mana_cost": "{4}",
+    "multiverse_ids": [
+      507236
+    ],
+    "name": "Cosmos Elixir",
+    "nonfoil": true,
+    "object": "card",
+    "oracle_id": "ed7300f4-831a-4ba4-b5e6-ceba8d079eaa",
+    "oracle_text": "At the beginning of your end step, draw a card if your life total is greater than your starting life total. Otherwise, you gain 2 life.",
+    "oversized": false,
+    "penny_rank": 770,
+    "preview": {
+      "previewed_at": "2021-01-20",
+      "source": "Luca Van Deun",
+      "source_uri": "https://twitter.com/LegenVD/status/1350493142966013952"
+    },
+    "prices": {
+      "eur": 1.65,
+      "eur_foil": 2.5,
+      "tix": null,
+      "usd": 1.38,
+      "usd_etched": null,
+      "usd_foil": 1.39
+    },
+    "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Aed7300f4-831a-4ba4-b5e6-ceba8d079eaa&unique=prints",
+    "promo": false,
+    "promo_types": [
+      "boosterfun"
+    ],
+    "rarity": "rare",
+    "related_uris": {
+      "edhrec": "https://edhrec.com/route/?cc=Cosmos+Elixir",
+      "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=507236",
+      "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Cosmos+Elixir&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "tcgplayer_infinite_decks": "https://infinite.tcgplayer.com/search?contentMode=deck&game=magic&partner=scryfall&q=Cosmos+Elixir&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+    },
+    "released_at": "2021-02-05",
+    "reprint": false,
+    "reserved": false,
+    "rulings_uri": "https://api.scryfall.com/cards/ea524e81-4898-4a41-8b34-06defd26e4c7/rulings",
+    "scryfall_set_uri": "https://scryfall.com/sets/khm?utm_source=api",
+    "scryfall_uri": "https://scryfall.com/card/khm/368/cosmos-elixir?utm_source=api",
+    "security_stamp": "oval",
+    "set": "khm",
+    "set_id": "43057fad-b1c1-437f-bc48-0045bce6d8c9",
+    "set_name": "Kaldheim",
+    "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Akhm&unique=prints",
+    "set_type": "expansion",
+    "set_uri": "https://api.scryfall.com/sets/43057fad-b1c1-437f-bc48-0045bce6d8c9",
+    "story_spotlight": false,
+    "tcgplayer_id": 230919,
+    "textless": false,
+    "type_line": "Artifact",
+    "uri": "https://api.scryfall.com/cards/ea524e81-4898-4a41-8b34-06defd26e4c7",
+    "variation": false
+  },
+  {
     "artist": "Richard Thomas",
     "artist_ids": [
       "596b3aac-b331-4e1e-ae41-9ec2d3b653e1"
