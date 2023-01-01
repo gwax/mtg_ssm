@@ -410,6 +410,6 @@ class ScryBulkData(BaseModel):
     description: str
     download_uri: AnyUrl
     updated_at: dt.datetime
-    compressed_size: int
+    compressed_size: Optional[int]
     content_type: str
     content_encoding: str
