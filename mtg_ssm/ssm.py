@@ -77,6 +77,13 @@ def get_args(args: Optional[List[str]] = None) -> argparse.Namespace:
         help="Include foreign only cards/sets (e.g. Renaissance)",
     )
 
+    parser.add_argument(
+        "--separate-promos",
+        default=False,
+        action="store_true",
+        help="Treat set promos as a separate set/tab",
+    )
+
     default_exclude_set_types = {ScrySetType.MEMORABILIA, ScrySetType.TOKEN}
     parser.add_argument(
         "--exclude-set-types",
@@ -178,6 +185,7 @@ def get_oracle(
     exclude_card_layouts: Set[ScryCardLayout],
     include_digital: bool,
     include_foreign_only: bool,
+    separate_promos: bool,
 ) -> Oracle:
     """Get a card_db with current mtgjson data."""
     scrydata = fetcher.scryfetch()
@@ -187,6 +195,7 @@ def get_oracle(
         exclude_card_layouts=exclude_card_layouts,
         exclude_digital=not include_digital,
         exclude_foreing_only=not include_foreign_only,
+        merge_promos=not separate_promos,
     )
     return Oracle(scrydata)
 
@@ -279,6 +288,7 @@ def main() -> None:
         exclude_card_layouts=args.exclude_card_layouts,
         include_digital=args.include_digital,
         include_foreign_only=args.include_foreign_only,
+        separate_promos=args.separate_promos,
     )
     args.func(args, oracle)
 

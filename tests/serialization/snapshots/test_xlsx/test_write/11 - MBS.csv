@@ -1,3 +1,3 @@
-have,value,name,scryfall_id,collector_number,artist,price,foil_price,nonfoil,foil,others
-=I2+J2,=I2*G2+J2*H2,Hero of Bladehold,8a3853ec-e307-46e0-96d7-0706b5c45c5e,8,Austin Hsu,13.76,26.96,,,"=IF('PMBS'!A2>0,""PMBS: ""&'PMBS'!A2&"", "","""")"
-=I3+J3,=I3*G3+J3*H3,Black Sun's Zenith,03bdcf52-50b8-42c0-9665-931d83f5f314,39,Daniel Ljunggren,5.09,11.67,,,"=IF('PMBS'!A3>0,""PMBS: ""&'PMBS'!A3&"", "","""")"
+have,value,name,number,scryfall_id,artist,price,foil_price,nonfoil,foil,others
+=I2+J2,=I2*G2+J2*H2,Hero of Bladehold,8,8a3853ec-e307-46e0-96d7-0706b5c45c5e,Austin Hsu,13.76,26.96,,,"=IF('PMBS'!A2>0,""PMBS: ""&'PMBS'!A2&"", "","""")"
+=I3+J3,=I3*G3+J3*H3,Black Sun's Zenith,39,03bdcf52-50b8-42c0-9665-931d83f5f314,Daniel Ljunggren,5.09,11.67,,,"=IF('PMBS'!A3>0,""PMBS: ""&'PMBS'!A3&"", "","""")"
