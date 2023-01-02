@@ -71,14 +71,10 @@ def get_args(args: Optional[List[str]] = None) -> argparse.Namespace:
     )
 
     parser.add_argument(
-        "-d",
-        "--dialect",
-        nargs=2,
-        metavar=("EXTENSION", "DIALECT"),
-        action="append",
-        default=[],
-        help="Mapping of file extensions to serializer dialects. "
-        "May be repeated for multiple different extensions.",
+        "--include-foreign-only",
+        default=False,
+        action="store_true",
+        help="Include foreign only cards/sets (e.g. Renaissance)",
     )
 
     default_exclude_set_types = {ScrySetType.MEMORABILIA, ScrySetType.TOKEN}
@@ -102,6 +98,17 @@ def get_args(args: Optional[List[str]] = None) -> argparse.Namespace:
         type=card_layout_list,
         help="List of card layouts to exclude from data as a comma separated list of values from: "
         + ", ".join(ScryCardLayout),
+    )
+
+    parser.add_argument(
+        "-d",
+        "--dialect",
+        nargs=2,
+        metavar=("EXTENSION", "DIALECT"),
+        action="append",
+        default=[],
+        help="Mapping of file extensions to serializer dialects. "
+        "May be repeated for multiple different extensions.",
     )
 
     # Commands
@@ -170,6 +177,7 @@ def get_oracle(
     exclude_set_types: Set[ScrySetType],
     exclude_card_layouts: Set[ScryCardLayout],
     include_digital: bool,
+    include_foreign_only: bool,
 ) -> Oracle:
     """Get a card_db with current mtgjson data."""
     scrydata = fetcher.scryfetch()
@@ -178,6 +186,7 @@ def get_oracle(
         exclude_set_types=exclude_set_types,
         exclude_card_layouts=exclude_card_layouts,
         exclude_digital=not include_digital,
+        exclude_foreing_only=not include_foreign_only,
     )
     return Oracle(scrydata)
 
@@ -269,6 +278,7 @@ def main() -> None:
         exclude_set_types=args.exclude_set_types,
         exclude_card_layouts=args.exclude_card_layouts,
         include_digital=args.include_digital,
+        include_foreign_only=args.include_foreign_only,
     )
     args.func(args, oracle)
 

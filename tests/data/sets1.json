@@ -345,6 +345,24 @@
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Aopc2&unique=prints",
       "set_type": "planechase",
       "uri": "https://api.scryfall.com/sets/7079031b-c5b0-4353-87af-a63a0f204f47"
+    },
+    {
+      "block": "Magic Player Rewards",
+      "block_code": "mpr",
+      "card_count": 1,
+      "code": "p03",
+      "digital": false,
+      "foil_only": false,
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/dci.svg?1672030800",
+      "id": "dfa906ff-63d8-4065-abef-809988337288",
+      "name": "Magic Player Rewards 2003",
+      "nonfoil_only": true,
+      "object": "set",
+      "released_at": "2003-01-01",
+      "scryfall_uri": "https://scryfall.com/sets/p03",
+      "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Ap03&unique=prints",
+      "set_type": "promo",
+      "uri": "https://api.scryfall.com/sets/dfa906ff-63d8-4065-abef-809988337288"
     }
   ],
   "has_more": true,

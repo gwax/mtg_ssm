@@ -1,5 +1,5 @@
 have,value,name,scryfall_id,collector_number,artist,price,foil_price,nonfoil,foil,others
-=I2+J2,=I2*G2+J2*H2,Dark Ritual,4ebcd681-1871-4914-bcd7-6bd95829f6e0,120,Justin Hampton,1.06,,,,"=IF('LEA'!A3>0,""LEA: ""&'LEA'!A3&"", "","""")&IF('HOP'!A3>0,""HOP: ""&'HOP'!A3&"", "","""")"
+=I2+J2,=I2*G2+J2*H2,Dark Ritual,4ebcd681-1871-4914-bcd7-6bd95829f6e0,120,Justin Hampton,1.05,,,,"=IF('LEA'!A3>0,""LEA: ""&'LEA'!A3&"", "","""")&IF('HOP'!A3>0,""HOP: ""&'HOP'!A3&"", "","""")"
 =I3+J3,=I3*G3+J3*H3,Forest,fbdcbd97-90a9-45ea-94f6-2a1c6faaf965,380,Pat Morrissey,0.88,,1,,
 =I4+J4,=I4*G4+J4*H4,Forest,b346b784-7bde-49d0-bfa9-56236cbe19d9,381,Pat Morrissey,1.01,,,2,
 =I5+J5,=I5*G5+J5*H5,Forest,768c4d8f-5700-4f0a-9ff2-58422aeb1dac,382,Pat Morrissey,0.4,,3,4,

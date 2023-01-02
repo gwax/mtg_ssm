@@ -169,6 +169,8 @@ Development
 -   Fix filtering of digital only cards
 -   Switch from inclusion to exclusion for set types
 -   Add exclusion of card layouts (to catch tokens in non-token sets)
+-   Add (optional, default) exclusion of non-English cards/sets
+    (e.g. Renaissance)
 
 2.3.0
 -----

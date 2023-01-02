@@ -18,6 +18,7 @@ def filter_cards_and_sets(
     exclude_set_types: Optional[Set[ScrySetType]] = None,
     exclude_card_layouts: Optional[Set[ScryCardLayout]] = None,
     exclude_digital: bool = False,
+    exclude_foreing_only: bool = False,
 ) -> ScryfallDataSet:
     """Filter a ScryfallDataSet to exclude desired set types, card layouts, and digital only products."""
     accepted_setcodes = set()
@@ -36,6 +37,8 @@ def filter_cards_and_sets(
         if exclude_card_layouts and card.layout in exclude_card_layouts:
             continue
         if exclude_digital and card.digital:
+            continue
+        if exclude_foreing_only and card.lang != "en":
             continue
         accepted_cards.append(card)
         nonempty_setcodes.add(card.set)

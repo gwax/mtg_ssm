@@ -330,7 +330,7 @@
     "oracle_text": "Boseiju, Who Shelters All enters the battlefield tapped.\n{T}, Pay 2 life: Add {C}. If that mana is spent on an instant or sorcery spell, that spell can't be countered.",
     "oversized": false,
     "prices": {
-      "eur": 14.57,
+      "eur": 10.99,
       "eur_foil": 63.99,
       "tix": 0.15,
       "usd": 28.15,
@@ -1235,7 +1235,7 @@
     "oversized": false,
     "power": "0",
     "prices": {
-      "eur": 0.4,
+      "eur": 0.03,
       "eur_foil": null,
       "tix": null,
       "usd": 0.15,
@@ -1351,7 +1351,7 @@
     "oversized": false,
     "power": "0",
     "prices": {
-      "eur": 0.5,
+      "eur": 0.04,
       "eur_foil": null,
       "tix": null,
       "usd": 0.17,
@@ -1702,10 +1702,10 @@
     "oversized": false,
     "penny_rank": 27,
     "prices": {
-      "eur": 0.61,
+      "eur": 0.48,
       "eur_foil": null,
       "tix": 1.22,
-      "usd": 1.06,
+      "usd": 1.05,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -1814,7 +1814,7 @@
     "oracle_text": "({T}: Add {G}.)",
     "oversized": false,
     "prices": {
-      "eur": 0.25,
+      "eur": 0.46,
       "eur_foil": null,
       "tix": 0.38,
       "usd": 0.88,
@@ -1926,7 +1926,7 @@
     "oracle_text": "({T}: Add {G}.)",
     "oversized": false,
     "prices": {
-      "eur": 0.19,
+      "eur": 0.45,
       "eur_foil": null,
       "tix": 0.8,
       "usd": 1.01,
@@ -2038,7 +2038,7 @@
     "oracle_text": "({T}: Add {G}.)",
     "oversized": false,
     "prices": {
-      "eur": 0.19,
+      "eur": 0.42,
       "eur_foil": null,
       "tix": 3.38,
       "usd": 0.4,
@@ -2150,7 +2150,7 @@
     "oracle_text": "({T}: Add {G}.)",
     "oversized": false,
     "prices": {
-      "eur": 1.04,
+      "eur": 2.2,
       "eur_foil": null,
       "tix": 2.45,
       "usd": 1.88,
@@ -2433,9 +2433,9 @@
     "oversized": false,
     "penny_rank": 102,
     "prices": {
-      "eur": 0.89,
+      "eur": 0.39,
       "eur_foil": 5.62,
-      "tix": 0.03,
+      "tix": 0.02,
       "usd": 0.51,
       "usd_etched": null,
       "usd_foil": 6.75
@@ -3032,12 +3032,12 @@
       "source_uri": "https://twitter.com/LegenVD/status/1350493142966013952"
     },
     "prices": {
-      "eur": 1.61,
-      "eur_foil": 0.6,
-      "tix": 0.02,
+      "eur": 1.16,
+      "eur_foil": 1.2,
+      "tix": 0.03,
       "usd": 1.26,
       "usd_etched": null,
-      "usd_foil": 1.56
+      "usd_foil": 1.52
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Aed7300f4-831a-4ba4-b5e6-ceba8d079eaa&unique=prints",
     "promo": false,
@@ -3169,7 +3169,7 @@
       "source_uri": "https://twitter.com/LegenVD/status/1350493142966013952"
     },
     "prices": {
-      "eur": 1.65,
+      "eur": 2.11,
       "eur_foil": 2.5,
       "tix": null,
       "usd": 1.38,
@@ -3739,7 +3739,7 @@
     "oversized": false,
     "penny_rank": 1796,
     "prices": {
-      "eur": 4.66,
+      "eur": 5.25,
       "eur_foil": 9.99,
       "tix": 0.02,
       "usd": 5.09,
@@ -3875,7 +3875,7 @@
     "oversized": false,
     "power": "3",
     "prices": {
-      "eur": 7.0,
+      "eur": 6.94,
       "eur_foil": 23.0,
       "tix": 0.07,
       "usd": 13.76,
@@ -4135,10 +4135,10 @@
       "source_uri": "https://www.twitch.tv/videos/1277767538"
     },
     "prices": {
-      "eur": 31.87,
+      "eur": 32.07,
       "eur_foil": 37.32,
       "tix": 37.88,
-      "usd": 26.42,
+      "usd": 27.01,
       "usd_etched": null,
       "usd_foil": 29.23
     },
@@ -4261,7 +4261,7 @@
       "source_uri": "https://www.twitch.tv/videos/1277767538"
     },
     "prices": {
-      "eur": 40.47,
+      "eur": 40.0,
       "eur_foil": 71.95,
       "tix": null,
       "usd": 37.66,
@@ -4393,9 +4393,9 @@
       "eur": 35.0,
       "eur_foil": 45.5,
       "tix": null,
-      "usd": 28.32,
+      "usd": 28.8,
       "usd_etched": null,
-      "usd_foil": 34.57
+      "usd_foil": 34.56
     },
     "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Abf1341dd-41a3-49f6-87ec-63170dde4324&unique=prints",
     "produced_mana": [
@@ -4612,10 +4612,10 @@
     "oracle_text": "{T}: Add {C}.",
     "oversized": false,
     "prices": {
-      "eur": 0.47,
+      "eur": 0.17,
       "eur_foil": 4.5,
       "tix": 0.02,
-      "usd": 0.8,
+      "usd": 0.89,
       "usd_etched": null,
       "usd_foil": 7.53
     },
@@ -4833,10 +4833,10 @@
     "oracle_text": "{T}: Add {C}.",
     "oversized": false,
     "prices": {
-      "eur": 0.25,
+      "eur": 0.2,
       "eur_foil": 7.7,
       "tix": 0.02,
-      "usd": 0.89,
+      "usd": 0.9,
       "usd_etched": null,
       "usd_foil": 10.32
     },
@@ -4945,7 +4945,7 @@
       "eur": 0.85,
       "eur_foil": null,
       "tix": null,
-      "usd": 0.99,
+      "usd": 1.04,
       "usd_etched": null,
       "usd_foil": null
     },
@@ -6145,7 +6145,7 @@
     "power": "2",
     "prices": {
       "eur": null,
-      "eur_foil": 0.8,
+      "eur_foil": 1.79,
       "tix": null,
       "usd": null,
       "usd_etched": null,
@@ -6615,7 +6615,7 @@
     "oversized": false,
     "penny_rank": 786,
     "prices": {
-      "eur": 0.4,
+      "eur": 1.3,
       "eur_foil": 4.99,
       "tix": 0.35,
       "usd": 1.48,
@@ -6736,7 +6736,7 @@
     "penny_rank": 11044,
     "power": "3",
     "prices": {
-      "eur": 1.49,
+      "eur": 1.1,
       "eur_foil": 45.97,
       "tix": 0.11,
       "usd": 4.93,
@@ -7098,7 +7098,7 @@
     "power": "3",
     "prices": {
       "eur": null,
-      "eur_foil": 6.9,
+      "eur_foil": 6.62,
       "tix": null,
       "usd": null,
       "usd_etched": null,
@@ -7529,6 +7529,115 @@
     "variation": false
   },
   {
+    "artist": "Harold McNeill",
+    "artist_ids": [
+      "8aadc8a8-df50-45b3-bd88-449e709df482"
+    ],
+    "booster": true,
+    "border_color": "black",
+    "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+    "cardmarket_id": 15674,
+    "cmc": 2.0,
+    "collector_number": "158",
+    "color_identity": [
+      "G"
+    ],
+    "colors": [
+      "G"
+    ],
+    "digital": false,
+    "edhrec_rank": 108,
+    "finishes": [
+      "nonfoil"
+    ],
+    "foil": false,
+    "frame": "1993",
+    "full_art": false,
+    "games": [
+      "paper"
+    ],
+    "highres_image": true,
+    "id": "81917a2b-9bf6-4aa6-947d-36b0f45d6fe3",
+    "illustration_id": "05fc2d1a-8646-4bae-8af3-6ebde4c64967",
+    "image_status": "highres_scan",
+    "image_uris": {
+      "art_crop": "https://cards.scryfall.io/art_crop/front/8/1/81917a2b-9bf6-4aa6-947d-36b0f45d6fe3.jpg?1562919020",
+      "border_crop": "https://cards.scryfall.io/border_crop/front/8/1/81917a2b-9bf6-4aa6-947d-36b0f45d6fe3.jpg?1562919020",
+      "large": "https://cards.scryfall.io/large/front/8/1/81917a2b-9bf6-4aa6-947d-36b0f45d6fe3.jpg?1562919020",
+      "normal": "https://cards.scryfall.io/normal/front/8/1/81917a2b-9bf6-4aa6-947d-36b0f45d6fe3.jpg?1562919020",
+      "png": "https://cards.scryfall.io/png/front/8/1/81917a2b-9bf6-4aa6-947d-36b0f45d6fe3.png?1562919020",
+      "small": "https://cards.scryfall.io/small/front/8/1/81917a2b-9bf6-4aa6-947d-36b0f45d6fe3.jpg?1562919020"
+    },
+    "keywords": [],
+    "lang": "fr",
+    "layout": "normal",
+    "legalities": {
+      "alchemy": "not_legal",
+      "brawl": "not_legal",
+      "commander": "legal",
+      "duel": "legal",
+      "explorer": "not_legal",
+      "future": "not_legal",
+      "gladiator": "not_legal",
+      "historic": "not_legal",
+      "historicbrawl": "not_legal",
+      "legacy": "legal",
+      "modern": "not_legal",
+      "oldschool": "legal",
+      "pauper": "not_legal",
+      "paupercommander": "not_legal",
+      "penny": "legal",
+      "pioneer": "not_legal",
+      "premodern": "legal",
+      "standard": "not_legal",
+      "vintage": "legal"
+    },
+    "mana_cost": "{1}{G}",
+    "multiverse_ids": [],
+    "name": "Sylvan Library",
+    "nonfoil": true,
+    "object": "card",
+    "oracle_id": "92eed395-62ca-4293-882b-8565c40daab5",
+    "oracle_text": "At the beginning of your draw step, you may draw two additional cards. If you do, choose two cards in your hand drawn this turn. For each of those cards, pay 4 life or put the card on top of your library.",
+    "oversized": false,
+    "penny_rank": 80,
+    "prices": {
+      "eur": 54.73,
+      "eur_foil": null,
+      "tix": null,
+      "usd": 86.05,
+      "usd_etched": null,
+      "usd_foil": null
+    },
+    "printed_name": "Bibliothèque sylvestre",
+    "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A92eed395-62ca-4293-882b-8565c40daab5&unique=prints",
+    "promo": false,
+    "rarity": "uncommon",
+    "related_uris": {
+      "edhrec": "https://edhrec.com/route/?cc=Sylvan+Library",
+      "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Sylvan+Library&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "tcgplayer_infinite_decks": "https://infinite.tcgplayer.com/search?contentMode=deck&game=magic&partner=scryfall&q=Sylvan+Library&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+    },
+    "released_at": "1995-08-01",
+    "reprint": true,
+    "reserved": false,
+    "rulings_uri": "https://api.scryfall.com/cards/81917a2b-9bf6-4aa6-947d-36b0f45d6fe3/rulings",
+    "scryfall_set_uri": "https://scryfall.com/sets/ren?utm_source=api",
+    "scryfall_uri": "https://scryfall.com/card/ren/158/fr/biblioth%C3%A8que-sylvestre?utm_source=api",
+    "set": "ren",
+    "set_id": "bec33d25-cf6f-460f-918d-29b3009686bb",
+    "set_name": "Renaissance",
+    "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aren&unique=prints",
+    "set_type": "masters",
+    "set_uri": "https://api.scryfall.com/sets/bec33d25-cf6f-460f-918d-29b3009686bb",
+    "story_spotlight": false,
+    "tcgplayer_id": 182169,
+    "textless": false,
+    "type_line": "Enchantment",
+    "uri": "https://api.scryfall.com/cards/81917a2b-9bf6-4aa6-947d-36b0f45d6fe3",
+    "variation": false
+  },
+  {
     "artist": "Mark Zug",
     "artist_ids": [
       "48e2b98c-5467-4671-bd42-4c3746115117"
@@ -7604,7 +7713,7 @@
     "power": "5",
     "prices": {
       "eur": null,
-      "eur_foil": 0.99,
+      "eur_foil": 0.35,
       "tix": null,
       "usd": null,
       "usd_etched": null,
@@ -8382,8 +8491,8 @@
     "penny_rank": 2360,
     "power": "1",
     "prices": {
-      "eur": 3.6,
-      "eur_foil": 28.0,
+      "eur": 9.99,
+      "eur_foil": 25.49,
       "tix": 0.01,
       "usd": 6.2,
       "usd_etched": null,
@@ -8622,10 +8731,10 @@
       "source_uri": "https://twitter.com/MTG_Arena/status/1209549655878422529"
     },
     "prices": {
-      "eur": 7.34,
+      "eur": 7.75,
       "eur_foil": 9.95,
       "tix": 1.68,
-      "usd": 5.5,
+      "usd": 5.48,
       "usd_etched": null,
       "usd_foil": 5.62
     },
@@ -8756,7 +8865,7 @@
       "source_uri": "https://magic.wizards.com/en/articles/archive/card-image-gallery/theros-beyond-death-variants"
     },
     "prices": {
-      "eur": 6.58,
+      "eur": 6.39,
       "eur_foil": 12.0,
       "tix": null,
       "usd": 3.54,
@@ -8891,10 +9000,10 @@
       "source_uri": "https://www.youtube.com/watch?v=FrSbBMp45rg"
     },
     "prices": {
-      "eur": 8.75,
+      "eur": 8.95,
       "eur_foil": 14.5,
       "tix": 0.29,
-      "usd": 18.1,
+      "usd": 17.74,
       "usd_etched": null,
       "usd_foil": 20.91
     },
@@ -9014,7 +9123,7 @@
       "eur": 19.99,
       "eur_foil": 51.99,
       "tix": null,
-      "usd": 28.82,
+      "usd": 29.04,
       "usd_etched": null,
       "usd_foil": 70.69
     },
@@ -9137,7 +9246,7 @@
       "source_uri": "https://www.channelfireball.com/all-strategy/articles/3-point/theros-beyond-death-exclusive-preview/"
     },
     "prices": {
-      "eur": 0.55,
+      "eur": 0.69,
       "eur_foil": 1.04,
       "tix": 0.02,
       "usd": 1.23,
@@ -9411,10 +9520,10 @@
       "source_uri": "https://www.twitch.tv/drawza"
     },
     "prices": {
-      "eur": 0.18,
+      "eur": 0.1,
       "eur_foil": 0.39,
       "tix": 0.03,
-      "usd": 0.39,
+      "usd": 0.4,
       "usd_etched": null,
       "usd_foil": 0.58
     },
@@ -10363,7 +10472,7 @@
     "oracle_text": "Choose two —\n• Return target permanent to its controller's hand.\n• Draw two cards, then discard a card.\n• Change the target of target spell with a single target.\n• Turn over target nontoken creature.",
     "oversized": false,
     "prices": {
-      "eur": 1.3,
+      "eur": 2.43,
       "eur_foil": 26.08,
       "tix": null,
       "usd": 3.35,
@@ -10526,7 +10635,7 @@
     "oracle_text": "Choose two —\n• Counter target black-bordered spell.\n• Return target creature to its owner's hand.\n• Untap each permanent you control with a watermark.\n• Roll two six-sided dice. Target player mills X cards, where X is the total of those results.",
     "oversized": false,
     "prices": {
-      "eur": 2.15,
+      "eur": 2.19,
       "eur_foil": 9.99,
       "tix": null,
       "usd": 3.36,
@@ -10697,7 +10806,7 @@
     "oracle_text": "Choose two —\n• Scry 3.\n• Create a 2/2 black Rogue creature token with menace.\n• Add or subtract 1 or one from a number or number word on target spell or permanent until end of turn.\n• Return all artifacts target player controls to their owner's hand.",
     "oversized": false,
     "prices": {
-      "eur": 2.48,
+      "eur": 2.19,
       "eur_foil": 12.09,
       "tix": null,
       "usd": 1.53,

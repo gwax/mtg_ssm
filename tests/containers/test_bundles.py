@@ -45,3 +45,19 @@ def test_exclude_token_layout(scryfall_data: bundles.ScryfallDataSet) -> None:
     card_names2 = {c.name for c in tokens_removed.cards}
     assert "p03" not in set_codes2 and "sld" in set_codes2
     assert "Goblin" not in card_names2
+
+
+def test_exclude_foreign_only(scryfall_data: bundles.ScryfallDataSet) -> None:
+    set_codes = {s.code for s in scryfall_data.sets}
+    card_ids = {c.id for c in scryfall_data.cards}
+
+    assert "ren" in set_codes
+    assert UUID("81917a2b-9bf6-4aa6-947d-36b0f45d6fe3") in card_ids
+
+    tokens_removed = bundles.filter_cards_and_sets(
+        scryfall_data, exclude_foreing_only=True
+    )
+    set_codes2 = {s.code for s in tokens_removed.sets}
+    card_ids2 = {c.id for c in tokens_removed.cards}
+    assert "ren" not in set_codes2
+    assert UUID("81917a2b-9bf6-4aa6-947d-36b0f45d6fe3") not in card_ids2

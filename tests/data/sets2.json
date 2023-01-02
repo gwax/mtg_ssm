@@ -1,24 +1,6 @@
 {
   "data": [
     {
-      "block": "Magic Player Rewards",
-      "block_code": "mpr",
-      "card_count": 1,
-      "code": "p03",
-      "digital": false,
-      "foil_only": false,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/dci.svg?1672030800",
-      "id": "dfa906ff-63d8-4065-abef-809988337288",
-      "name": "Magic Player Rewards 2003",
-      "nonfoil_only": true,
-      "object": "set",
-      "released_at": "2003-01-01",
-      "scryfall_uri": "https://scryfall.com/sets/p03",
-      "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Ap03&unique=prints",
-      "set_type": "promo",
-      "uri": "https://api.scryfall.com/sets/dfa906ff-63d8-4065-abef-809988337288"
-    },
-    {
       "arena_code": "pc2",
       "card_count": 1,
       "code": "pc2",
@@ -182,6 +164,23 @@
       "set_type": "funny",
       "tcgplayer_id": 2552,
       "uri": "https://api.scryfall.com/sets/d264b61b-bfb3-4388-be42-e34a1eaa00c2"
+    },
+    {
+      "card_count": 1,
+      "code": "ren",
+      "digital": false,
+      "foil_only": false,
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/ren.svg?1672030800",
+      "id": "bec33d25-cf6f-460f-918d-29b3009686bb",
+      "name": "Renaissance",
+      "nonfoil_only": true,
+      "object": "set",
+      "released_at": "1995-08-01",
+      "scryfall_uri": "https://scryfall.com/sets/ren",
+      "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Aren&unique=prints",
+      "set_type": "masters",
+      "tcgplayer_id": 2379,
+      "uri": "https://api.scryfall.com/sets/bec33d25-cf6f-460f-918d-29b3009686bb"
     },
     {
       "card_count": 1,
