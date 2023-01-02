@@ -49,6 +49,7 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 collection=Path("testfilename"),
                 dialect={},
                 include_digital=False,
+                include_foreign_only=False,
                 exclude_set_types={ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
                 exclude_card_layouts={
                     ScryCardLayout.ART_SERIES,
@@ -66,6 +67,7 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 collection=Path("testfilename"),
                 dialect={},
                 include_digital=True,
+                include_foreign_only=False,
                 exclude_set_types={ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
                 exclude_card_layouts={
                     ScryCardLayout.ART_SERIES,
@@ -83,6 +85,7 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 collection=Path("testfilename"),
                 dialect={"csv": "terse"},
                 include_digital=False,
+                include_foreign_only=False,
                 exclude_set_types={ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
                 exclude_card_layouts={
                     ScryCardLayout.ART_SERIES,
@@ -100,6 +103,7 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 collection=Path("testfilename"),
                 dialect={},
                 include_digital=False,
+                include_foreign_only=False,
                 exclude_set_types={
                     ScrySetType.TOKEN,
                     ScrySetType.MEMORABILIA,
@@ -121,6 +125,7 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 collection=Path("testfilename"),
                 dialect={},
                 include_digital=False,
+                include_foreign_only=False,
                 exclude_set_types={ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
                 exclude_card_layouts={
                     ScryCardLayout.ART_SERIES,
@@ -139,6 +144,7 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 imports=[Path("otherfile1")],
                 dialect={},
                 include_digital=False,
+                include_foreign_only=False,
                 exclude_set_types={ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
                 exclude_card_layouts={
                     ScryCardLayout.ART_SERIES,
@@ -157,6 +163,7 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 imports=[Path("otherfile1"), Path("otherfile2"), Path("otherfile3")],
                 dialect={},
                 include_digital=False,
+                include_foreign_only=False,
                 exclude_set_types={ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
                 exclude_card_layouts={
                     ScryCardLayout.ART_SERIES,
@@ -176,6 +183,7 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 right=Path("file2"),
                 dialect={},
                 include_digital=False,
+                include_foreign_only=False,
                 exclude_set_types={ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
                 exclude_card_layouts={
                     ScryCardLayout.ART_SERIES,

@@ -45,6 +45,7 @@ TEST_SETS_TO_CARDS = {
     "pmbs": {"Hero of Bladehold", "Black Sun's Zenith"},
     "pneo": {"Boseiju, Who Endures"},
     "ptg": {"Nightmare Moon // Princess Luna"},
+    "ren": {"Sylvan Library"},
     "s00": {"Rhox"},
     "sld": {"Goblin", "Viscera Seer"},
     "sok": {"Erayo, Soratami Ascendant // Erayo's Essence"},

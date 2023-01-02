@@ -531,6 +531,23 @@
     },
     {
       "card_count": 1,
+      "code": "ren",
+      "digital": false,
+      "foil_only": false,
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/ren.svg?1672030800",
+      "id": "bec33d25-cf6f-460f-918d-29b3009686bb",
+      "name": "Renaissance",
+      "nonfoil_only": true,
+      "object": "set",
+      "released_at": "1995-08-01",
+      "scryfall_uri": "https://scryfall.com/sets/ren",
+      "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Aren&unique=prints",
+      "set_type": "masters",
+      "tcgplayer_id": 2379,
+      "uri": "https://api.scryfall.com/sets/bec33d25-cf6f-460f-918d-29b3009686bb"
+    },
+    {
+      "card_count": 1,
       "code": "s00",
       "digital": false,
       "foil_only": false,
