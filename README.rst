@@ -171,6 +171,8 @@ Development
 -   Add exclusion of card layouts (to catch tokens in non-token sets)
 -   Add (optional, default) exclusion of non-English cards/sets
     (e.g. Renaissance)
+-   Add (optional, default) merging of set promos into their respective
+    sets
 
 2.3.0
 -----

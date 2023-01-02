@@ -1,2 +1,2 @@
-have,value,name,scryfall_id,collector_number,artist,price,foil_price,nonfoil,foil,others
-=I2+J2,=I2*G2+J2*H2,Rhox,5d5f3f57-410f-4ee2-b93c-f5051a068828,43,Mark Zug,,0.76,7,12,
+have,value,name,number,scryfall_id,artist,price,foil_price,nonfoil,foil,others
+=I2+J2,=I2*G2+J2*H2,Rhox,43,5d5f3f57-410f-4ee2-b93c-f5051a068828,Mark Zug,,0.76,7,12,

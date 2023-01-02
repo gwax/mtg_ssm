@@ -50,6 +50,7 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 dialect={},
                 include_digital=False,
                 include_foreign_only=False,
+                separate_promos=False,
                 exclude_set_types={ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
                 exclude_card_layouts={
                     ScryCardLayout.ART_SERIES,
@@ -68,6 +69,7 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 dialect={},
                 include_digital=True,
                 include_foreign_only=False,
+                separate_promos=False,
                 exclude_set_types={ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
                 exclude_card_layouts={
                     ScryCardLayout.ART_SERIES,
@@ -86,6 +88,7 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 dialect={"csv": "terse"},
                 include_digital=False,
                 include_foreign_only=False,
+                separate_promos=False,
                 exclude_set_types={ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
                 exclude_card_layouts={
                     ScryCardLayout.ART_SERIES,
@@ -104,6 +107,7 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 dialect={},
                 include_digital=False,
                 include_foreign_only=False,
+                separate_promos=False,
                 exclude_set_types={
                     ScrySetType.TOKEN,
                     ScrySetType.MEMORABILIA,
@@ -126,6 +130,7 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 dialect={},
                 include_digital=False,
                 include_foreign_only=False,
+                separate_promos=False,
                 exclude_set_types={ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
                 exclude_card_layouts={
                     ScryCardLayout.ART_SERIES,
@@ -145,6 +150,7 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 dialect={},
                 include_digital=False,
                 include_foreign_only=False,
+                separate_promos=False,
                 exclude_set_types={ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
                 exclude_card_layouts={
                     ScryCardLayout.ART_SERIES,
@@ -164,6 +170,7 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 dialect={},
                 include_digital=False,
                 include_foreign_only=False,
+                separate_promos=False,
                 exclude_set_types={ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
                 exclude_card_layouts={
                     ScryCardLayout.ART_SERIES,
@@ -184,6 +191,7 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
                 dialect={},
                 include_digital=False,
                 include_foreign_only=False,
+                separate_promos=False,
                 exclude_set_types={ScrySetType.TOKEN, ScrySetType.MEMORABILIA},
                 exclude_card_layouts={
                     ScryCardLayout.ART_SERIES,

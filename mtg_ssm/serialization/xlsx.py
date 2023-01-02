@@ -163,8 +163,8 @@ SET_SHEET_HEADER = (
         "have",
         "value",
         "name",
+        "number",
         "scryfall_id",
-        "collector_number",
         "artist",
         "price",
         "foil_price",
@@ -215,8 +215,8 @@ def create_set_sheet(
             HAVE_TMPL.format(rownum=rownum),
             VALUE_TMPL.format(rownum=rownum),
             card.name,
-            str(card.id),
             card.collector_number,
+            str(card.id),
             card.artist,
             (card.prices or {}).get("usd", None),
             (card.prices or {}).get("usd_foil", None),
@@ -230,17 +230,17 @@ def create_set_sheet(
 
 def style_set_sheet(sheet: Worksheet) -> None:
     """Apply styles to a set sheet."""
-    sheet.freeze_panes = sheet["C2"]
+    sheet.freeze_panes = sheet["E2"]
     col_width_hidden_format = [
         ("A", 5, False, None),
         ("B", 9, False, FORMAT_CURRENCY_USD_SIMPLE),
         ("C", 24, False, None),
-        ("D", 10, True, None),
-        ("E", 8, True, None),
+        ("D", 7, False, None),
+        ("E", 10, True, None),
         ("F", 20, True, None),
         ("G", 9, True, FORMAT_CURRENCY_USD_SIMPLE),
         ("H", 9, True, FORMAT_CURRENCY_USD_SIMPLE),
-        ("I", 8, False, None),
+        ("I", 7, False, None),
         ("J", 6, False, None),
         ("K", 10, False, None),
     ]
