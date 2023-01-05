@@ -166,6 +166,11 @@ Changelog
 Development
 -----------
 
+-   ...
+
+2.4.0
+-----
+
 -   Fix filtering of digital only cards
 -   Switch from inclusion to exclusion for set types
 -   Add exclusion of card layouts (to catch tokens in non-token sets)
@@ -173,6 +178,7 @@ Development
     (e.g. Renaissance)
 -   Add (optional, default) merging of set promos into their respective
     sets
+-   Add support for Scryfall data migrations
 
 2.3.0
 -----
