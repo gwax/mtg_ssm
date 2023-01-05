@@ -7,7 +7,7 @@ from uuid import UUID
 
 from mtg_ssm.containers.bundles import ScryfallDataSet
 from mtg_ssm.mtg import util
-from mtg_ssm.scryfall.models import ScryCard, ScrySet
+from mtg_ssm.scryfall.models import ScryCard, ScryMigrationStrategy, ScrySet
 
 
 def name_card_sort_key(card: ScryCard) -> Tuple[str, int, str]:
@@ -56,6 +56,7 @@ class ScryfallDataIndex:
         self.setcode_to_cards: Dict[str, List[ScryCard]] = {}
         self.id_to_setindex: Dict[UUID, int] = {}
         self.setcode_to_set: Dict[str, ScrySet] = {}
+        self.migrate_old_id_to_new_id: Dict[UUID, UUID] = {}
         # snnma = Set, Name, (Collector) Number, Multiverse ID, Artist
         # TODO: convert to intersecting bitmap indexes
         # TODO: do we really need artist?
@@ -98,6 +99,15 @@ class ScryfallDataIndex:
             cards_list.sort(key=set_card_sort_key)
             self.id_to_setindex.update({c.id: i for i, c in enumerate(cards_list)})
         self.setcode_to_cards = dict(setcode_to_unsorted_cards)
+
+        for migration in scrydata.migrations:
+            if (
+                migration.migration_strategy == ScryMigrationStrategy.MERGE
+                and migration.new_scryfall_id
+            ):
+                self.migrate_old_id_to_new_id[
+                    migration.old_scryfall_id
+                ] = migration.new_scryfall_id
 
 
 class Oracle:
