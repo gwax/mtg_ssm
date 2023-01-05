@@ -2,7 +2,13 @@
 
 from typing import List, NamedTuple, Optional, Set
 
-from mtg_ssm.scryfall.models import ScryCard, ScryCardLayout, ScrySet, ScrySetType
+from mtg_ssm.scryfall.models import (
+    ScryCard,
+    ScryCardLayout,
+    ScryMigration,
+    ScrySet,
+    ScrySetType,
+)
 
 
 class ScryfallDataSet(NamedTuple):
@@ -10,6 +16,7 @@ class ScryfallDataSet(NamedTuple):
 
     sets: List[ScrySet]
     cards: List[ScryCard]
+    migrations: List[ScryMigration]
 
 
 def filter_cards_and_sets(
@@ -67,4 +74,9 @@ def filter_cards_and_sets(
         for s in scryfall_data.sets
         if s.code in accepted_setcodes and s.code in nonempty_setcodes
     ]
-    return ScryfallDataSet(sets=accepted_sets, cards=accepted_cards)
+
+    return ScryfallDataSet(
+        sets=accepted_sets,
+        cards=accepted_cards,
+        migrations=scryfall_data.migrations,
+    )

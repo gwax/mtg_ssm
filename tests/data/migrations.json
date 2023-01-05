@@ -1,0 +1,26 @@
+{
+  "data": [
+    {
+      "id": "3f5b89fc-1b33-40a0-87d4-ea6f2e9515bb",
+      "migration_strategy": "merge",
+      "new_scryfall_id": "9052f5c7-ee3b-457d-97ca-ac6b4518997c",
+      "note": "Actually a reverisble card",
+      "object": "migration",
+      "old_scryfall_id": "585fa2cc-4f77-47ab-8d2c-c68258ced283",
+      "performed_at": "2022-12-03",
+      "uri": "https://api.scryfall.com/migrations/3f5b89fc-1b33-40a0-87d4-ea6f2e9515bb"
+    },
+    {
+      "id": "5c2e7c73-5f6f-4db1-a6ba-4fcec57068b8",
+      "migration_strategy": "merge",
+      "new_scryfall_id": "9052f5c7-ee3b-457d-97ca-ac6b4518997c",
+      "note": "Actually a reverisble card",
+      "object": "migration",
+      "old_scryfall_id": "d361aded-4aa6-415b-bdd4-7f19b1102de4",
+      "performed_at": "2022-12-03",
+      "uri": "https://api.scryfall.com/migrations/5c2e7c73-5f6f-4db1-a6ba-4fcec57068b8"
+    }
+  ],
+  "has_more": false,
+  "object": "list"
+}

@@ -14,7 +14,13 @@ import requests
 from pydantic import ValidationError
 
 from mtg_ssm.containers.bundles import ScryfallDataSet
-from mtg_ssm.scryfall.models import ScryBulkData, ScryCard, ScryObjectList, ScrySet
+from mtg_ssm.scryfall.models import (
+    ScryBulkData,
+    ScryCard,
+    ScryMigration,
+    ScryObjectList,
+    ScrySet,
+)
 
 DEBUG = 0
 try:
@@ -28,8 +34,9 @@ CACHE_DIR = appdirs.user_cache_dir(APP_NAME, APP_AUTHOR)
 
 BULK_DATA_ENDPOINT = "https://api.scryfall.com/bulk-data"
 SETS_ENDPOINT = "https://api.scryfall.com/sets"
+MIGRATIONS_ENDPOINT = "https://api.scryfall.com/migrations"
 BULK_TYPE = "default_cards"
-OBJECT_CACHE_URL = "file://$CACHE/pickled_object"
+OBJECT_CACHE_URL = "file:///$CACHE/pickled_object?v2"
 
 CHUNK_SIZE = 8 * 1024 * 1024
 DESERIALIZE_BATCH_SIZE = 50
@@ -110,7 +117,7 @@ def _deserialize_cards(card_jsons: List[JSON]) -> List[ScryCard]:
     return cards_data
 
 
-def scryfetch() -> ScryfallDataSet:
+def scryfetch() -> ScryfallDataSet:  # pylint: disable=too-many-locals
     """Retrieve and deserialize Scryfall object data."""
     cached_bulk_json = None
     if os.path.exists(_cache_path(BULK_DATA_ENDPOINT, ".json.gz")):
@@ -134,7 +141,6 @@ def scryfetch() -> ScryfallDataSet:
                     return loaded_data
             print("Error reading object cache, falling back")
 
-    bulk_list = ScryObjectList[ScryBulkData].parse_obj(bulk_json)
     sets_list = ScryObjectList[ScrySet].parse_obj(
         _fetch_endpoint(SETS_ENDPOINT, dirty=cache_dirty)
     )
@@ -145,6 +151,17 @@ def scryfetch() -> ScryfallDataSet:
         )
         sets_data += sets_list.data
 
+    migrations_list = ScryObjectList[ScryMigration].parse_obj(
+        _fetch_endpoint(MIGRATIONS_ENDPOINT, dirty=cache_dirty)
+    )
+    migrations_data = list(migrations_list.data)
+    while migrations_list.has_more:
+        migrations_list = ScryObjectList[ScryMigration].parse_obj(
+            _fetch_endpoint(str(migrations_list.next_page), dirty=cache_dirty)
+        )
+        migrations_data += migrations_list.data
+
+    bulk_list = ScryObjectList[ScryBulkData].parse_obj(bulk_json)
     bulk_data = bulk_list.data
     [cards_endpoint] = [bd.download_uri for bd in bulk_data if bd.type == BULK_TYPE]
 
@@ -152,10 +169,12 @@ def scryfetch() -> ScryfallDataSet:
 
     _fetch_endpoint(BULK_DATA_ENDPOINT, dirty=cache_dirty, write_cache=True)
 
-    print("Deserializing")
+    print("Deserializing cards")
     cards_data = _deserialize_cards(cards_json)
 
-    scryfall_data = ScryfallDataSet(sets=sets_data, cards=cards_data)
+    scryfall_data = ScryfallDataSet(
+        sets=sets_data, cards=cards_data, migrations=migrations_data
+    )
     with gzip.open(object_cache_path, "wb", compresslevel=1) as object_cache:
         pickle.dump(scryfall_data, object_cache, protocol=pickle.HIGHEST_PROTOCOL)
     return scryfall_data

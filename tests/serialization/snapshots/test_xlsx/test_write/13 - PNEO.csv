@@ -1,3 +1,3 @@
 have,value,name,number,scryfall_id,artist,price,foil_price,nonfoil,foil,others
-=I2+J2,=I2*G2+J2*H2,"Boseiju, Who Endures",266p,dda82840-1f3f-4be7-9bc7-66ff551ef5c0,Chris Ostrowski,26.5,27.55,,,"=IF('NEO'!A2+'NEO'!A3+'NEO'!A4>0,""NEO: ""&'NEO'!A2+'NEO'!A3+'NEO'!A4&"", "","""")"
-=I3+J3,=I3*G3+J3*H3,"Boseiju, Who Endures",266s,2a2f63b7-c33c-41d0-9c8f-7bddd1821f15,Chris Ostrowski,,32.17,,,"=IF('NEO'!A2+'NEO'!A3+'NEO'!A4>0,""NEO: ""&'NEO'!A2+'NEO'!A3+'NEO'!A4&"", "","""")"
+=I2+J2,=I2*G2+J2*H2,"Boseiju, Who Endures",266p,dda82840-1f3f-4be7-9bc7-66ff551ef5c0,Chris Ostrowski,26.41,27.55,,,"=IF('NEO'!A2+'NEO'!A3+'NEO'!A4>0,""NEO: ""&'NEO'!A2+'NEO'!A3+'NEO'!A4&"", "","""")"
+=I3+J3,=I3*G3+J3*H3,"Boseiju, Who Endures",266s,2a2f63b7-c33c-41d0-9c8f-7bddd1821f15,Chris Ostrowski,,32.66,,,"=IF('NEO'!A2+'NEO'!A3+'NEO'!A4>0,""NEO: ""&'NEO'!A2+'NEO'!A3+'NEO'!A4&"", "","""")"
