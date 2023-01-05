@@ -27,6 +27,7 @@ def oracle(scryfall_data: ScryfallDataSet) -> Oracle:
     scryfall_data2 = ScryfallDataSet(
         sets=[s for s in scryfall_data.sets if s.code in accepted_sets],
         cards=[c for c in scryfall_data.cards if c.set in accepted_sets],
+        migrations=[],
     )
     return Oracle(scryfall_data2)
 

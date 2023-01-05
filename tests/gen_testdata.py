@@ -13,6 +13,7 @@ TARGET_SETS_FILE1 = os.path.join(TEST_DATA_DIR, "sets1.json")
 TARGET_SETS_FILE2 = os.path.join(TEST_DATA_DIR, "sets2.json")
 TARGET_BULK_FILE = os.path.join(TEST_DATA_DIR, "bulk_data.json")
 TARGET_CARDS_FILE = os.path.join(TEST_DATA_DIR, "cards.json")
+TARGET_MIGRATIONS_FILE = os.path.join(TEST_DATA_DIR, "migrations.json")
 
 SETS_NEXTPAGE_URL = "https://api.scryfall.com/sets?page=2"
 
@@ -47,7 +48,7 @@ TEST_SETS_TO_CARDS = {
     "ptg": {"Nightmare Moon // Princess Luna"},
     "ren": {"Sylvan Library"},
     "s00": {"Rhox"},
-    "sld": {"Goblin", "Viscera Seer"},
+    "sld": {"Goblin", "Viscera Seer", "Doubling Cube // Doubling Cube"},
     "sok": {"Erayo, Soratami Ascendant // Erayo's Essence"},
     "sunf": {"Happy Dead Squirrel"},
     "thb": {
@@ -63,7 +64,7 @@ TEST_SETS_TO_CARDS = {
 }
 
 
-def main() -> None:  # pylint: disable=too-many-locals
+def main() -> None:  # pylint: disable=too-many-locals,too-many-statements
     """Read scryfall data and write a subset for use as test data."""
     print("Fetching scryfall data")
     scrydata = fetcher.scryfetch()
@@ -86,6 +87,7 @@ def main() -> None:  # pylint: disable=too-many-locals
         (c for c in scrydata.cards if c.name in TEST_SETS_TO_CARDS.get(c.set, set())),
         key=lambda card: (card.set, card.name, card.collector_number, card.id),
     )
+    accepted_card_ids = {c.id for c in accepted_cards}
     missing_cards = copy.deepcopy(TEST_SETS_TO_CARDS)
     for card in accepted_cards:
         missing_cards[card.set].discard(card.name)
@@ -156,6 +158,29 @@ def main() -> None:  # pylint: disable=too-many-locals
             )
         )
         sets_file2.write("\n")
+
+    print("Writing migrations")
+    accepted_migrations = sorted(
+        (m for m in scrydata.migrations if m.new_scryfall_id in accepted_card_ids),
+        key=lambda migr: migr.id,
+    )
+    migrations_list = models.ScryObjectList[models.ScryMigration](
+        data=accepted_migrations,
+        has_more=False,
+        next_page=None,
+        total_cards=None,
+        warnings=None,
+    )
+    with open(TARGET_MIGRATIONS_FILE, "wt", encoding="utf-8") as migrations_file:
+        migrations_file.write(
+            migrations_list.json(
+                ensure_ascii=False,
+                indent=2,
+                sort_keys=True,
+                exclude_none=True,
+            )
+        )
+        migrations_file.write("\n")
 
     print("Writing cards")
     with open(TARGET_CARDS_FILE, "wt", encoding="utf-8") as cards_file:

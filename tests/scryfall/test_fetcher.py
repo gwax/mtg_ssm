@@ -11,7 +11,7 @@ from responses import RequestsMock
 
 from mtg_ssm.containers.bundles import ScryfallDataSet
 from mtg_ssm.scryfall import fetcher
-from mtg_ssm.scryfall.models import ScryCard, ScrySet
+from mtg_ssm.scryfall.models import ScryCard, ScryMigration, ScrySet
 from tests import gen_testdata
 
 BULK_CARDS_REGEX = (
@@ -22,6 +22,7 @@ ENDPOINT_TO_FILE: Dict[Union[str, Pattern[str]], str] = {
     fetcher.BULK_DATA_ENDPOINT: gen_testdata.TARGET_BULK_FILE,
     fetcher.SETS_ENDPOINT: gen_testdata.TARGET_SETS_FILE1,
     gen_testdata.SETS_NEXTPAGE_URL: gen_testdata.TARGET_SETS_FILE2,
+    fetcher.MIGRATIONS_ENDPOINT: gen_testdata.TARGET_MIGRATIONS_FILE,
     re.compile(BULK_CARDS_REGEX): gen_testdata.TARGET_CARDS_FILE,
 }
 
@@ -75,9 +76,13 @@ def test_break_object_cache(baddata: bytes) -> None:
 
 @pytest.mark.usefixtures("scryurls")
 def test_data_fixtures(
-    scryfall_data: ScryfallDataSet, sets_data: List[ScrySet], cards_data: List[ScryCard]
+    scryfall_data: ScryfallDataSet,
+    sets_data: List[ScrySet],
+    cards_data: List[ScryCard],
+    migrations_data: List[ScryMigration],
 ) -> None:
     scrydata = fetcher.scryfetch()
     assert scrydata == scryfall_data
     assert scrydata.sets == sets_data
     assert scrydata.cards == cards_data
+    assert scrydata.migrations == migrations_data

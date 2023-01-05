@@ -3,7 +3,7 @@
 
 import json
 import os
-from typing import Dict, Generator, List, Sequence
+from typing import Dict, Generator, List
 from uuid import UUID
 
 import pytest
@@ -12,11 +12,18 @@ from _pytest.monkeypatch import MonkeyPatch
 from py._path.local import LocalPath
 
 from mtg_ssm.containers.bundles import ScryfallDataSet
-from mtg_ssm.scryfall.models import ScryCard, ScryObjectList, ScryRootList, ScrySet
+from mtg_ssm.scryfall.models import (
+    ScryCard,
+    ScryMigration,
+    ScryObjectList,
+    ScryRootList,
+    ScrySet,
+)
 
 TEST_DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 SETS_DATA_FILE = os.path.join(TEST_DATA_DIR, "sets.json")
 CARDS_DATA_FILE = os.path.join(TEST_DATA_DIR, "cards.json")
+MIGRATIONS_DATA_FILE = os.path.join(TEST_DATA_DIR, "migrations.json")
 
 
 @pytest.fixture(autouse=True)
@@ -35,7 +42,7 @@ def requests_mock() -> Generator[responses.RequestsMock, None, None]:
 
 
 @pytest.fixture(scope="session")
-def cards_data() -> Sequence[ScryCard]:
+def cards_data() -> List[ScryCard]:
     """Fixture containing all test card data."""
     with open(CARDS_DATA_FILE, "rt", encoding="utf-8") as card_data_file:
         card_json = json.load(card_data_file)
@@ -43,11 +50,19 @@ def cards_data() -> Sequence[ScryCard]:
 
 
 @pytest.fixture(scope="session")
-def sets_data() -> Sequence[ScrySet]:
+def sets_data() -> List[ScrySet]:
     """Fixture containing all test set data."""
     with open(SETS_DATA_FILE, "rt", encoding="utf-8") as sets_data_file:
         sets_json = json.load(sets_data_file)
     return ScryObjectList[ScrySet].parse_obj(sets_json).data
+
+
+@pytest.fixture(scope="session")
+def migrations_data() -> List[ScryMigration]:
+    """Fixture containing all test migrations data."""
+    with open(MIGRATIONS_DATA_FILE, "rt", encoding="utf-8") as migrations_data_file:
+        migrations_json = json.load(migrations_data_file)
+    return ScryObjectList[ScryMigration].parse_obj(migrations_json).data
 
 
 @pytest.fixture(scope="session")
@@ -58,7 +73,9 @@ def id_to_card(cards_data: List[ScryCard]) -> Dict[UUID, ScryCard]:
 
 @pytest.fixture(scope="session")
 def scryfall_data(
-    cards_data: List[ScryCard], sets_data: List[ScrySet]
+    cards_data: List[ScryCard],
+    sets_data: List[ScrySet],
+    migrations_data: List[ScryMigration],
 ) -> ScryfallDataSet:
     """Fixture containing all scryfall test data."""
-    return ScryfallDataSet(sets=sets_data, cards=cards_data)
+    return ScryfallDataSet(sets=sets_data, cards=cards_data, migrations=migrations_data)

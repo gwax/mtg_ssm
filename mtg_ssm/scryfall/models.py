@@ -3,7 +3,7 @@
 import datetime as dt
 from decimal import Decimal
 from enum import Enum
-from typing import Dict, Generic, Literal, Optional, Sequence, TypeVar, Union
+from typing import Dict, Generic, List, Literal, Optional, TypeVar, Union
 from uuid import UUID
 
 from pydantic import AnyUrl, BaseModel
@@ -213,24 +213,31 @@ class ScryLegality(str, Enum):
     BANNED = "banned"
 
 
+class ScryMigrationStrategy(str, Enum):
+    """Enum for migration strategy values"""
+
+    MERGE = "merge"
+    DELETE = "delete"
+
+
 T = TypeVar("T")
 
 
 class ScryRootList(GenericModel, Generic[T]):
     """Model for unstructured list of scryfall objects (e.g. bulk file data)"""
 
-    __root__: Sequence[T]
+    __root__: List[T]
 
 
 class ScryObjectList(GenericModel, Generic[T]):
     """Model for https://scryfall.com/docs/api/lists"""
 
     object: Literal["list"] = "list"
-    data: Sequence[T]
+    data: List[T]
     has_more: bool
     next_page: Optional[AnyUrl]
     total_cards: Optional[int]
-    warnings: Optional[Sequence[str]]
+    warnings: Optional[List[str]]
 
 
 class ScrySet(BaseModel):
@@ -277,8 +284,8 @@ class ScryCardFace(BaseModel):
     artist: Optional[str]
     artist_id: Optional[UUID]
     cmc: Optional[Decimal]
-    color_indicator: Optional[Sequence[ScryColor]]
-    colors: Optional[Sequence[ScryColor]]
+    color_indicator: Optional[List[ScryColor]]
+    colors: Optional[List[ScryColor]]
     flavor_name: Optional[str]
     flavor_text: Optional[str]
     illustration_id: Optional[UUID]
@@ -316,7 +323,7 @@ class ScryCard(BaseModel):
     lang: str
     mtgo_id: Optional[int]
     mtgo_foil_id: Optional[int]
-    multiverse_ids: Optional[Sequence[int]]
+    multiverse_ids: Optional[List[int]]
     tcgplayer_id: Optional[int]
     tcgplayer_etched_id: Optional[int]
     cardmarket_id: Optional[int]
@@ -326,16 +333,16 @@ class ScryCard(BaseModel):
     scryfall_uri: AnyUrl
     uri: AnyUrl
     # Gameplay Fields
-    all_parts: Optional[Sequence[ScryRelatedCard]]
-    card_faces: Optional[Sequence[ScryCardFace]]
+    all_parts: Optional[List[ScryRelatedCard]]
+    card_faces: Optional[List[ScryCardFace]]
     cmc: Optional[Decimal]
-    colors: Optional[Sequence[ScryColor]]
-    color_identity: Sequence[ScryColor]
-    color_indicator: Optional[Sequence[ScryColor]]
+    colors: Optional[List[ScryColor]]
+    color_identity: List[ScryColor]
+    color_indicator: Optional[List[ScryColor]]
     edhrec_rank: Optional[int]
     foil: bool
     hand_modifier: Optional[str]
-    keywords: Sequence[str]
+    keywords: List[str]
     layout: ScryCardLayout
     legalities: Dict[ScryFormat, ScryLegality]
     life_modifier: Optional[str]
@@ -347,27 +354,27 @@ class ScryCard(BaseModel):
     oversized: bool
     penny_rank: Optional[int]
     power: Optional[str]
-    produced_mana: Optional[Sequence[Union[ScryColor, int]]]
+    produced_mana: Optional[List[Union[ScryColor, int]]]
     reserved: bool
     toughness: Optional[str]
     type_line: Optional[str]
     # Print Fields
     artist: Optional[str]
-    artist_ids: Optional[Sequence[UUID]]
+    artist_ids: Optional[List[UUID]]
     booster: bool
     border_color: ScryBorderColor
     card_back_id: Optional[UUID]
     collector_number: str
     content_warning: Optional[bool]
     digital: bool
-    finishes: Sequence[ScryFinish]
+    finishes: List[ScryFinish]
     flavor_name: Optional[str]
     flavor_text: Optional[str]
     frame_effect: Optional[ScryFrameEffect]
-    frame_effects: Optional[Sequence[ScryFrameEffect]]
+    frame_effects: Optional[List[ScryFrameEffect]]
     frame: ScryCardFrame
     full_art: bool
-    games: Sequence[ScryGame]
+    games: List[ScryGame]
     highres_image: bool
     illustration_id: Optional[UUID]
     image_status: ScryImageStatus
@@ -377,7 +384,7 @@ class ScryCard(BaseModel):
     printed_text: Optional[str]
     printed_type_line: Optional[str]
     promo: bool
-    promo_types: Optional[Sequence[str]]
+    promo_types: Optional[List[str]]
     purchase_uris: Optional[Dict[str, AnyUrl]]
     rarity: ScryRarity
     related_uris: Optional[Dict[str, AnyUrl]]
@@ -413,3 +420,16 @@ class ScryBulkData(BaseModel):
     compressed_size: Optional[int]
     content_type: str
     content_encoding: str
+
+
+class ScryMigration(BaseModel):
+    """Model for https://scryfall.com/docs/api/migrations"""
+
+    object: Literal["migration"] = "migration"
+    id: UUID
+    uri: AnyUrl
+    performed_at: dt.date
+    migration_strategy: ScryMigrationStrategy
+    old_scryfall_id: UUID
+    new_scryfall_id: Optional[UUID]
+    note: Optional[str]
