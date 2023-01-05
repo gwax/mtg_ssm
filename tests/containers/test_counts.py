@@ -181,6 +181,20 @@ def test_diff_card_counts(
             },
             id="duplicates",
         ),
+        pytest.param(
+            [
+                {
+                    "scryfall_id": UUID("585fa2cc-4f77-47ab-8d2c-c68258ced283"),
+                    "foil": 1,
+                },
+            ],
+            {
+                UUID("9052f5c7-ee3b-457d-97ca-ac6b4518997c"): {
+                    counts.CountType.FOIL: 1,
+                }
+            },
+            id="migration",
+        ),
     ],
 )
 def test_aggregate_card_counts(

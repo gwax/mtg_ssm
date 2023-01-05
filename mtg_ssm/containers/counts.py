@@ -47,6 +47,8 @@ def aggregate_card_counts(
             if value:
                 counts[count_type] = value + counts.get(count_type, 0)
         if counts:
+            while scryfall_id in oracle.index.migrate_old_id_to_new_id:
+                scryfall_id = oracle.index.migrate_old_id_to_new_id[scryfall_id]
             if scryfall_id not in oracle.index.id_to_card:
                 raise CardNotFoundError(
                     f"Found counts for card={scryfall_id} not found scryfall data"
