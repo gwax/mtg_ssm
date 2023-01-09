@@ -2,14 +2,13 @@
 # pylint: disable=redefined-outer-name
 
 import json
-import os
+from pathlib import Path
 from typing import Dict, Generator, List
 from uuid import UUID
 
 import pytest
 import responses
 from _pytest.monkeypatch import MonkeyPatch
-from py._path.local import LocalPath
 
 from mtg_ssm.containers.bundles import ScryfallDataSet
 from mtg_ssm.scryfall.models import (
@@ -20,17 +19,17 @@ from mtg_ssm.scryfall.models import (
     ScrySet,
 )
 
-TEST_DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
-SETS_DATA_FILE = os.path.join(TEST_DATA_DIR, "sets.json")
-CARDS_DATA_FILE = os.path.join(TEST_DATA_DIR, "cards.json")
-MIGRATIONS_DATA_FILE = os.path.join(TEST_DATA_DIR, "migrations.json")
+TEST_DATA_DIR = Path(__file__).parent / "data"
+SETS_DATA_FILE = TEST_DATA_DIR / "sets.json"
+CARDS_DATA_FILE = TEST_DATA_DIR / "cards.json"
+MIGRATIONS_DATA_FILE = TEST_DATA_DIR / "migrations.json"
 
 
 @pytest.fixture(autouse=True)
-def fetcher_cache_dir(tmpdir: LocalPath, monkeypatch: MonkeyPatch) -> LocalPath:
+def fetcher_cache_dir(tmp_path: Path, monkeypatch: MonkeyPatch) -> Path:
     """Patch fetcher cache dirs for testing."""
-    cache_path = tmpdir.mkdir("cache")
-    monkeypatch.setattr("mtg_ssm.scryfall.fetcher.CACHE_DIR", str(cache_path))
+    cache_path = tmp_path / "cache"
+    monkeypatch.setattr("mtg_ssm.scryfall.fetcher.CACHE_DIR", cache_path)
     return cache_path
 
 
@@ -44,7 +43,7 @@ def requests_mock() -> Generator[responses.RequestsMock, None, None]:
 @pytest.fixture(scope="session")
 def cards_data() -> List[ScryCard]:
     """Fixture containing all test card data."""
-    with open(CARDS_DATA_FILE, "rt", encoding="utf-8") as card_data_file:
+    with CARDS_DATA_FILE.open("rt", encoding="utf-8") as card_data_file:
         card_json = json.load(card_data_file)
     return ScryRootList[ScryCard].parse_obj(card_json).__root__
 
@@ -52,7 +51,7 @@ def cards_data() -> List[ScryCard]:
 @pytest.fixture(scope="session")
 def sets_data() -> List[ScrySet]:
     """Fixture containing all test set data."""
-    with open(SETS_DATA_FILE, "rt", encoding="utf-8") as sets_data_file:
+    with SETS_DATA_FILE.open("rt", encoding="utf-8") as sets_data_file:
         sets_json = json.load(sets_data_file)
     return ScryObjectList[ScrySet].parse_obj(sets_json).data
 
@@ -60,7 +59,7 @@ def sets_data() -> List[ScrySet]:
 @pytest.fixture(scope="session")
 def migrations_data() -> List[ScryMigration]:
     """Fixture containing all test migrations data."""
-    with open(MIGRATIONS_DATA_FILE, "rt", encoding="utf-8") as migrations_data_file:
+    with MIGRATIONS_DATA_FILE.open("rt", encoding="utf-8") as migrations_data_file:
         migrations_json = json.load(migrations_data_file)
     return ScryObjectList[ScryMigration].parse_obj(migrations_json).data
 

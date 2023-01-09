@@ -7,6 +7,7 @@ import pickle
 import pprint
 import uuid
 from concurrent.futures import ProcessPoolExecutor
+from pathlib import Path
 from typing import Any, Dict, List, Mapping, Union, cast
 
 import appdirs
@@ -30,7 +31,7 @@ except ValueError:
 
 APP_AUTHOR = "gwax"
 APP_NAME = "mtg_ssm"
-CACHE_DIR = appdirs.user_cache_dir(APP_NAME, APP_AUTHOR)
+CACHE_DIR = Path(appdirs.user_cache_dir(APP_NAME, APP_AUTHOR))
 
 BULK_DATA_ENDPOINT = "https://api.scryfall.com/bulk-data"
 SETS_ENDPOINT = "https://api.scryfall.com/sets"
@@ -61,17 +62,17 @@ def _value_from_validation_error(data: JSON, verr: ValidationError) -> Dict[str,
     return values
 
 
-def _cache_path(endpoint: str, extension: str) -> str:
+def _cache_path(endpoint: str, extension: str) -> Path:
     if not extension.startswith("."):
         extension = "." + extension
     cache_id = uuid.uuid5(uuid.NAMESPACE_URL, endpoint)
-    return os.path.join(CACHE_DIR, f"{cache_id}{extension}")
+    return CACHE_DIR / f"{cache_id}{extension}"
 
 
 def _fetch_endpoint(endpoint: str, *, dirty: bool, write_cache: bool = True) -> JSON:
-    os.makedirs(CACHE_DIR, exist_ok=True)
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
     cache_path = _cache_path(endpoint, ".json.gz")
-    if not os.path.exists(cache_path):
+    if not cache_path.exists():
         dirty = True
     if dirty:
         print(f"Fetching {endpoint}")
@@ -120,15 +121,15 @@ def _deserialize_cards(card_jsons: List[JSON]) -> List[ScryCard]:
 def scryfetch() -> ScryfallDataSet:  # pylint: disable=too-many-locals
     """Retrieve and deserialize Scryfall object data."""
     cached_bulk_json = None
-    if os.path.exists(_cache_path(BULK_DATA_ENDPOINT, ".json.gz")):
+    if _cache_path(BULK_DATA_ENDPOINT, ".json.gz").exists():
         cached_bulk_json = _fetch_endpoint(BULK_DATA_ENDPOINT, dirty=False)
     bulk_json = _fetch_endpoint(BULK_DATA_ENDPOINT, dirty=True, write_cache=False)
     cache_dirty = bulk_json != cached_bulk_json
 
     object_cache_path = _cache_path(OBJECT_CACHE_URL, ".pickle.gz")
-    if os.path.exists(object_cache_path):
+    if object_cache_path.exists():
         if cache_dirty or DEBUG:
-            os.remove(object_cache_path)
+            object_cache_path.unlink()
         else:
             print("Loading cached scryfall data objects")
             try:
@@ -144,20 +145,20 @@ def scryfetch() -> ScryfallDataSet:  # pylint: disable=too-many-locals
     sets_list = ScryObjectList[ScrySet].parse_obj(
         _fetch_endpoint(SETS_ENDPOINT, dirty=cache_dirty)
     )
-    sets_data = list(sets_list.data)
-    while sets_list.has_more:
+    sets_data = sets_list.data
+    while sets_list.has_more and sets_list.next_page is not None:
         sets_list = ScryObjectList[ScrySet].parse_obj(
-            _fetch_endpoint(str(sets_list.next_page), dirty=cache_dirty)
+            _fetch_endpoint(sets_list.next_page, dirty=cache_dirty)
         )
         sets_data += sets_list.data
 
     migrations_list = ScryObjectList[ScryMigration].parse_obj(
         _fetch_endpoint(MIGRATIONS_ENDPOINT, dirty=cache_dirty)
     )
-    migrations_data = list(migrations_list.data)
-    while migrations_list.has_more:
+    migrations_data = migrations_list.data
+    while migrations_list.has_more and migrations_list.next_page is not None:
         migrations_list = ScryObjectList[ScryMigration].parse_obj(
-            _fetch_endpoint(str(migrations_list.next_page), dirty=cache_dirty)
+            _fetch_endpoint(migrations_list.next_page, dirty=cache_dirty)
         )
         migrations_data += migrations_list.data
 

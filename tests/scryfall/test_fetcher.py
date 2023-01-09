@@ -4,6 +4,7 @@
 import gzip
 import pickle
 import re
+from pathlib import Path
 from typing import Dict, List, Pattern, Union
 
 import pytest
@@ -18,7 +19,7 @@ BULK_CARDS_REGEX = (
     r"https://data\.scryfall\.io/default-cards/default-cards-\d{14}\.json"
 )
 
-ENDPOINT_TO_FILE: Dict[Union[str, Pattern[str]], str] = {
+ENDPOINT_TO_FILE: Dict[Union[str, Pattern[str]], Path] = {
     fetcher.BULK_DATA_ENDPOINT: gen_testdata.TARGET_BULK_FILE,
     fetcher.SETS_ENDPOINT: gen_testdata.TARGET_SETS_FILE1,
     gen_testdata.SETS_NEXTPAGE_URL: gen_testdata.TARGET_SETS_FILE2,
