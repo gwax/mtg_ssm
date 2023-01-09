@@ -1,2 +1,6 @@
 """Establish mtg_ssm package."""
-from mtg_ssm.version import __version__
+
+try:
+    from ._version import __version__
+except ImportError:
+    __version__ = "unknown"

@@ -12,6 +12,9 @@
 lcov.info
 *.lcov
 
+# setuptools_scm generated files
+mtg_ssm/_version.py
+
 # Created by https://www.gitignore.io/api/python
 
 ### Python ###
