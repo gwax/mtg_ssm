@@ -6,7 +6,7 @@ from enum import Enum
 from typing import Dict, Generic, List, Literal, Optional, TypeVar, Union
 from uuid import UUID
 
-from pydantic import AnyUrl, BaseModel
+from pydantic import BaseModel, HttpUrl
 from pydantic.generics import GenericModel
 
 
@@ -235,7 +235,7 @@ class ScryObjectList(GenericModel, Generic[T]):
     object: Literal["list"] = "list"
     data: List[T]
     has_more: bool
-    next_page: Optional[AnyUrl]
+    next_page: Optional[HttpUrl]
     total_cards: Optional[int]
     warnings: Optional[List[str]]
 
@@ -260,10 +260,10 @@ class ScrySet(BaseModel):
     digital: bool
     foil_only: bool
     nonfoil_only: Optional[bool]
-    icon_svg_uri: AnyUrl
-    search_uri: AnyUrl
-    scryfall_uri: AnyUrl
-    uri: AnyUrl
+    icon_svg_uri: HttpUrl
+    search_uri: HttpUrl
+    scryfall_uri: HttpUrl
+    uri: HttpUrl
 
 
 class ScryRelatedCard(BaseModel):
@@ -274,7 +274,7 @@ class ScryRelatedCard(BaseModel):
     component: str
     name: str
     type_line: str
-    uri: AnyUrl
+    uri: HttpUrl
 
 
 class ScryCardFace(BaseModel):
@@ -289,7 +289,7 @@ class ScryCardFace(BaseModel):
     flavor_name: Optional[str]
     flavor_text: Optional[str]
     illustration_id: Optional[UUID]
-    image_uris: Optional[Dict[str, AnyUrl]]
+    image_uris: Optional[Dict[str, HttpUrl]]
     layout: Optional[ScryCardLayout]
     loyalty: Optional[str]
     mana_cost: str
@@ -309,7 +309,7 @@ class CardPreviewBlock(BaseModel):
     """Model for card preview block."""
 
     source: str
-    source_uri: Union[AnyUrl, Literal[""], str]
+    source_uri: Union[HttpUrl, Literal[""], str]
     previewed_at: dt.date
 
 
@@ -328,10 +328,10 @@ class ScryCard(BaseModel):
     tcgplayer_etched_id: Optional[int]
     cardmarket_id: Optional[int]
     oracle_id: Optional[UUID]
-    prints_search_uri: AnyUrl
-    rulings_uri: AnyUrl
-    scryfall_uri: AnyUrl
-    uri: AnyUrl
+    prints_search_uri: HttpUrl
+    rulings_uri: HttpUrl
+    scryfall_uri: HttpUrl
+    uri: HttpUrl
     # Gameplay Fields
     all_parts: Optional[List[ScryRelatedCard]]
     card_faces: Optional[List[ScryCardFace]]
@@ -378,23 +378,23 @@ class ScryCard(BaseModel):
     highres_image: bool
     illustration_id: Optional[UUID]
     image_status: ScryImageStatus
-    image_uris: Optional[Dict[str, AnyUrl]]
+    image_uris: Optional[Dict[str, HttpUrl]]
     prices: Optional[Dict[str, Optional[Decimal]]]  # TODO: enum keys
     printed_name: Optional[str]
     printed_text: Optional[str]
     printed_type_line: Optional[str]
     promo: bool
     promo_types: Optional[List[str]]
-    purchase_uris: Optional[Dict[str, AnyUrl]]
+    purchase_uris: Optional[Dict[str, HttpUrl]]
     rarity: ScryRarity
-    related_uris: Optional[Dict[str, AnyUrl]]
+    related_uris: Optional[Dict[str, HttpUrl]]
     released_at: dt.date
     reprint: bool
-    scryfall_set_uri: AnyUrl
+    scryfall_set_uri: HttpUrl
     set_name: str
-    set_search_uri: AnyUrl
+    set_search_uri: HttpUrl
     set_type: str
-    set_uri: AnyUrl
+    set_uri: HttpUrl
     set: str
     set_id: UUID
     story_spotlight: bool
@@ -411,11 +411,11 @@ class ScryBulkData(BaseModel):
 
     object: Literal["bulk_data"] = "bulk_data"
     id: UUID
-    uri: AnyUrl
+    uri: HttpUrl
     type: str
     name: str
     description: str
-    download_uri: AnyUrl
+    download_uri: HttpUrl
     updated_at: dt.datetime
     compressed_size: Optional[int]
     content_type: str
@@ -427,7 +427,7 @@ class ScryMigration(BaseModel):
 
     object: Literal["migration"] = "migration"
     id: UUID
-    uri: AnyUrl
+    uri: HttpUrl
     performed_at: dt.date
     migration_strategy: ScryMigrationStrategy
     old_scryfall_id: UUID

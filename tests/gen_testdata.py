@@ -3,17 +3,17 @@
 # pylint: disable=protected-access
 
 import copy
-import os
+from pathlib import Path
 
 from mtg_ssm.scryfall import fetcher, models
 
-TEST_DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
-TARGET_SETS_FILE = os.path.join(TEST_DATA_DIR, "sets.json")
-TARGET_SETS_FILE1 = os.path.join(TEST_DATA_DIR, "sets1.json")
-TARGET_SETS_FILE2 = os.path.join(TEST_DATA_DIR, "sets2.json")
-TARGET_BULK_FILE = os.path.join(TEST_DATA_DIR, "bulk_data.json")
-TARGET_CARDS_FILE = os.path.join(TEST_DATA_DIR, "cards.json")
-TARGET_MIGRATIONS_FILE = os.path.join(TEST_DATA_DIR, "migrations.json")
+TEST_DATA_DIR = Path(__file__).parent / "data"
+TARGET_SETS_FILE = TEST_DATA_DIR / "sets.json"
+TARGET_SETS_FILE1 = TEST_DATA_DIR / "sets1.json"
+TARGET_SETS_FILE2 = TEST_DATA_DIR / "sets2.json"
+TARGET_BULK_FILE = TEST_DATA_DIR / "bulk_data.json"
+TARGET_CARDS_FILE = TEST_DATA_DIR / "cards.json"
+TARGET_MIGRATIONS_FILE = TEST_DATA_DIR / "migrations.json"
 
 SETS_NEXTPAGE_URL = "https://api.scryfall.com/sets?page=2"
 
@@ -127,8 +127,8 @@ def main() -> None:  # pylint: disable=too-many-locals,too-many-statements
         total_cards=None,
         warnings=None,
     )
-    os.makedirs(TEST_DATA_DIR, exist_ok=True)
-    with open(TARGET_SETS_FILE, "wt", encoding="utf-8") as sets_file:
+    TEST_DATA_DIR.mkdir(exist_ok=True)
+    with TARGET_SETS_FILE.open("wt", encoding="utf-8") as sets_file:
         sets_file.write(
             sets_list.json(
                 ensure_ascii=False,
@@ -138,7 +138,7 @@ def main() -> None:  # pylint: disable=too-many-locals,too-many-statements
             )
         )
         sets_file.write("\n")
-    with open(TARGET_SETS_FILE1, "wt", encoding="utf-8") as sets_file1:
+    with TARGET_SETS_FILE1.open("wt", encoding="utf-8") as sets_file1:
         sets_file1.write(
             sets_list1.json(
                 ensure_ascii=False,
@@ -148,7 +148,7 @@ def main() -> None:  # pylint: disable=too-many-locals,too-many-statements
             )
         )
         sets_file1.write("\n")
-    with open(TARGET_SETS_FILE2, "wt", encoding="utf-8") as sets_file2:
+    with TARGET_SETS_FILE2.open("wt", encoding="utf-8") as sets_file2:
         sets_file2.write(
             sets_list2.json(
                 ensure_ascii=False,
@@ -171,7 +171,7 @@ def main() -> None:  # pylint: disable=too-many-locals,too-many-statements
         total_cards=None,
         warnings=None,
     )
-    with open(TARGET_MIGRATIONS_FILE, "wt", encoding="utf-8") as migrations_file:
+    with TARGET_MIGRATIONS_FILE.open("wt", encoding="utf-8") as migrations_file:
         migrations_file.write(
             migrations_list.json(
                 ensure_ascii=False,
@@ -183,7 +183,7 @@ def main() -> None:  # pylint: disable=too-many-locals,too-many-statements
         migrations_file.write("\n")
 
     print("Writing cards")
-    with open(TARGET_CARDS_FILE, "wt", encoding="utf-8") as cards_file:
+    with TARGET_CARDS_FILE.open("wt", encoding="utf-8") as cards_file:
         root_list: models.ScryRootList[models.ScryCard] = models.ScryRootList(
             __root__=accepted_cards
         )
@@ -205,7 +205,7 @@ def main() -> None:  # pylint: disable=too-many-locals,too-many-statements
         total_cards=None,
         warnings=None,
     )
-    with open(TARGET_BULK_FILE, "wt", encoding="utf-8") as bulk_file:
+    with TARGET_BULK_FILE.open("wt", encoding="utf-8") as bulk_file:
         bulk_file.write(
             bulk_list.json(
                 ensure_ascii=False,
