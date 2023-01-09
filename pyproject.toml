@@ -1,0 +1,138 @@
+[build-system]
+requires = ["setuptools>=45", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mtg_ssm"
+description = "A tool to manage Magic: the Gathering collection spreadsheets"
+readme = "README.rst"
+authors = [
+    {name = "George Leslie-Waksman", email ="waksman@gmail.com"},
+    ]
+requires-python = ">=3.8"
+keywords = [
+    "mtg",
+    "magic",
+    "collection",
+    "tracking",
+    "spreadsheet",
+]
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: OS Independent",
+    "Operating System :: POSIX",
+    "Operating System :: Unix",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Games/Entertainment",
+]
+
+dependencies = [
+    "appdirs~=1.4",
+    "openpyxl~=3.0",
+    "pydantic~=1.9",
+    "requests~=2.27",
+]
+dynamic = ["version"]
+
+[project.urls]
+"Homepage" = "https://github.com/gwax/mtg_ssm"
+"Bug Tracker" = "https://github.com/gwax/mtg_ssm/issues"
+
+[project.scripts]
+mtg-ssm = "mtg_ssm.ssm:main"
+
+[project.optional-dependencies]
+lxml = [
+    "lxml>=3.7.2",
+]
+dev = [
+    "black",
+    "coverage[toml]",
+    "doc8",
+    "flake8",
+    "flake8-bugbear",
+    "flake8-comprehensions",
+    "flake8-mutable",
+    "flake8-pyproject",
+    "freezegun",
+    "isort",
+    "lxml",
+    "mypy",
+    "openpyxl-stubs",
+    "pip",
+    "pip-tools",
+    "Pygments",
+    "pylint",
+    "pytest>=6.0",
+    "pytest-cov",
+    "pytest-snapshot",
+    "responses",
+    "setuptools>=45",
+    "setuptools-scm[toml]>=6.2",
+    "types-freezegun",
+    "types-requests",
+    "wheel",
+]
+
+[tool.setuptools]
+packages = ["mtg_ssm"]
+
+[tool.setuptools_scm]
+write_to = "mtg_ssm/_version.py"
+local_scheme = "no-local-version"
+
+[tool.mypy]
+python_version = "3.8"
+plugins = "pydantic.mypy"
+
+ignore_missing_imports = true
+follow_imports = "normal"
+disallow_untyped_defs = true
+allow_untyped_globals = false
+
+[tool.flake8]
+ignore = ["E203", "E501", "F401", "W503"]
+max_complexity = 10
+exclude = [".git", "__pycache__", "build", "dist"]
+
+[tool.pytest.ini_options]
+xfail_strict = true
+addopts = "--cov mtg_ssm --cov-report term-missing"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+omit = ["tests/**"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "def __repr__",
+    "def __str__",
+    "if __name__ = .__main__.:",
+]
+
+[tool.isort]
+profile = "black"
+atomic = true
+line_length = 88
+known_first_party = [
+    "mtg_ssm",
+    "tests",
+]
+known_third_party = [
+    "freezegun",
+    "openpyxl",
+    "pytest",
+    "requests",
+]

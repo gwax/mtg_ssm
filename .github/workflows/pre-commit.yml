@@ -9,6 +9,7 @@ on:
 jobs:
   pre-commit:
     runs-on: ubuntu-latest
+    name: Run all pre-commit checks
     steps:
       - uses: actions/checkout@v3
 
@@ -17,12 +18,8 @@ jobs:
           python-version: "3.8"
           cache: pip
           cache-dependency-path: |
-            requirements.txt
-            test_requirements.txt
+            pyproject.toml
 
-      - run: >-
-          pip install
-          -r requirements.txt
-          -r test_requirements.txt
+      - run: pip install -e .[lxml,dev]
 
       - uses: pre-commit/action@v3.0.0
