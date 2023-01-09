@@ -61,11 +61,11 @@ def create_all_sets(sheet: Worksheet, index: ScryfallDataIndex) -> None:
             card_set.block,
             card_set.set_type.value,
             len(index.setcode_to_cards[card_set.code]),
-            f"=COUNTIF('{setcode}'!A:A,\">0\")",
-            f"=COUNTIF('{setcode}'!A:A,\">=4\")",
-            f"=SUM('{setcode}'!A:A)",
-            f"=SUM('{setcode}'!B:B)",
-            f"=SUMIF('{setcode}'!B:B,\">=5\")",
+            f"=COUNTIF('{setcode}'!{_setsheet_col('have')}:{_setsheet_col('have')},\">0\")",
+            f"=COUNTIF('{setcode}'!{_setsheet_col('have')}:{_setsheet_col('have')},\">=4\")",
+            f"=SUM('{setcode}'!{_setsheet_col('have')}:{_setsheet_col('have')})",
+            f"=SUM('{setcode}'!{_setsheet_col('value')}:{_setsheet_col('value')})",
+            f"=SUMIFS('{setcode}'!{_setsheet_col('value')}:{_setsheet_col('value')},'{setcode}'!{_setsheet_col('price')}:{_setsheet_col('price')},\">=1\")",
         ]
         sheet.append(row)
 
@@ -172,29 +172,34 @@ SET_SHEET_HEADER = (
     + [ct.value for ct in counts.CountType]
     + ["others"]
 )
-COUNT_COLS = [
-    string.ascii_uppercase[SET_SHEET_HEADER.index(ct.value)] for ct in counts.CountType
-]
+
+
+def _setsheet_col(column_header: str) -> str:
+    return string.ascii_uppercase[SET_SHEET_HEADER.index(column_header)]
+
+
+COUNT_COLS = [_setsheet_col(ct) for ct in counts.CountType]
+HAVE_TMPL = "=" + "+".join(col + "{rownum}" for col in COUNT_COLS)
 HAVE_TMPL = (
     "="
-    + string.ascii_uppercase[SET_SHEET_HEADER.index(counts.CountType.NONFOIL)]
+    + _setsheet_col(counts.CountType.NONFOIL)
     + "{rownum}"
     + "+"
-    + string.ascii_uppercase[SET_SHEET_HEADER.index(counts.CountType.FOIL)]
+    + _setsheet_col(counts.CountType.FOIL)
     + "{rownum}"
 )
 VALUE_TMPL = (
     "="
-    + string.ascii_uppercase[SET_SHEET_HEADER.index(counts.CountType.NONFOIL)]
+    + _setsheet_col(counts.CountType.NONFOIL)
     + "{rownum}"
     + "*"
-    + string.ascii_uppercase[SET_SHEET_HEADER.index("price")]
+    + _setsheet_col("price")
     + "{rownum}"
     + "+"
-    + string.ascii_uppercase[SET_SHEET_HEADER.index(counts.CountType.FOIL)]
+    + _setsheet_col(counts.CountType.FOIL)
     + "{rownum}"
     + "*"
-    + string.ascii_uppercase[SET_SHEET_HEADER.index("foil_price")]
+    + _setsheet_col("foil_price")
     + "{rownum}"
 )
 ROW_OFFSET = 2

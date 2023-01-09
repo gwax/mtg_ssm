@@ -166,7 +166,8 @@ Changelog
 Development
 -----------
 
--   ...
+-   Fix the calculation for non-bulk in all-sets sheet to now be based on
+    the price of a single card being >=$1.
 
 2.4.0
 -----
