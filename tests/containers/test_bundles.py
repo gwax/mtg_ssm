@@ -61,3 +61,26 @@ def test_exclude_foreign_only(scryfall_data: bundles.ScryfallDataSet) -> None:
     card_ids2 = {c.id for c in tokens_removed.cards}
     assert "ren" not in set_codes2
     assert UUID("81917a2b-9bf6-4aa6-947d-36b0f45d6fe3") not in card_ids2
+
+
+def test_merge_promos(scryfall_data: bundles.ScryfallDataSet) -> None:
+    card_ids_and_sets = {(c.id, c.set) for c in scryfall_data.cards}
+
+    # Promo Tithe Taker
+    assert (UUID("848d4dae-1e51-446f-bad0-cdf852970486"), "prna") in card_ids_and_sets
+    assert (UUID("4d7969a1-afae-4076-bb1f-fb52014badea"), "prna") in card_ids_and_sets
+    # Main set Tithe Taker
+    assert (UUID("bd26b7b1-992d-4b8c-bc33-51aab5abdf98"), "rna") in card_ids_and_sets
+    # Separate promo set Plains that should not be interleaved
+    assert (UUID("8004052e-cb88-4ca6-a563-5396f13f7c6d"), "prw2") in card_ids_and_sets
+
+    promos_merged = bundles.filter_cards_and_sets(scryfall_data, merge_promos=True)
+    card_ids_and_sets2 = {(c.id, c.set) for c in promos_merged.cards}
+
+    # Promo Tithe Taker
+    assert (UUID("848d4dae-1e51-446f-bad0-cdf852970486"), "rna") in card_ids_and_sets2
+    assert (UUID("4d7969a1-afae-4076-bb1f-fb52014badea"), "rna") in card_ids_and_sets2
+    # Main set Tithe Taker
+    assert (UUID("bd26b7b1-992d-4b8c-bc33-51aab5abdf98"), "rna") in card_ids_and_sets2
+    # Separate promo set Plains that should not be interleaved
+    assert (UUID("8004052e-cb88-4ca6-a563-5396f13f7c6d"), "prw2") in card_ids_and_sets2

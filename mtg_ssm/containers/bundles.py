@@ -40,6 +40,7 @@ def filter_cards_and_sets(
             merge_promos
             and set_.set_type == ScrySetType.PROMO
             and set_.parent_set_code is not None
+            and set_.code == f"p{set_.parent_set_code}"
         ):
             remapped_setcodes[set_.code] = set_.parent_set_code
             continue
