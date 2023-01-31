@@ -168,6 +168,12 @@ Development
 
 -   ...
 
+2.4.3
+-----
+
+-   Fix issue where a number of promo sets with different card number
+    systems were being merged into an inappropriate parent set.
+
 2.4.1
 -----
 
