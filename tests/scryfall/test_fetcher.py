@@ -4,6 +4,7 @@
 import gzip
 import pickle
 import re
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from typing import Dict, List, Pattern, Union
 
@@ -26,6 +27,16 @@ ENDPOINT_TO_FILE: Dict[Union[str, Pattern[str]], Path] = {
     fetcher.MIGRATIONS_ENDPOINT: gen_testdata.TARGET_MIGRATIONS_FILE,
     re.compile(BULK_CARDS_REGEX): gen_testdata.TARGET_CARDS_FILE,
 }
+
+
+@pytest.fixture(autouse=True)
+def thread_pool_executor(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Replace the ProcessPoolExecutor with ThreadPoolExecutor in tests.
+
+    The added performance of the ProcessPoolExecutor is not worth the
+    overhead of spawning new processes for the reduced test dataset.
+    """
+    monkeypatch.setattr(fetcher, "ProcessPoolExecutor", ThreadPoolExecutor)
 
 
 @pytest.fixture
