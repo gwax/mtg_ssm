@@ -168,7 +168,7 @@ Development
 
 -   ...
 
-2.4.3
+2.4.4
 -----
 
 -   Fix issue where a number of promo sets with different card number
