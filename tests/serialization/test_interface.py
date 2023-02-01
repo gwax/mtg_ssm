@@ -14,6 +14,7 @@ def test_all_dialects() -> None:
     assert sorted(all_formats) == [
         ("csv", "csv", mock.ANY),
         ("csv", "terse", mock.ANY),
+        ("xlsx", "terse", mock.ANY),
         ("xlsx", "xlsx", mock.ANY),
     ]
 

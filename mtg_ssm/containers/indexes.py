@@ -114,7 +114,7 @@ class Oracle:
     """Container for an indexed Scryfall data set."""
 
     def __init__(self, scrydata: ScryfallDataSet) -> None:
-        self._scrydata = scrydata
+        self.scrydata = scrydata
         self.cards = scrydata.cards
         self.sets = scrydata.sets
         self.index = ScryfallDataIndex()

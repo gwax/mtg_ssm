@@ -12,6 +12,7 @@ from openpyxl.workbook.workbook import Workbook
 from openpyxl.worksheet.worksheet import Worksheet
 
 from mtg_ssm.containers import counts
+from mtg_ssm.containers.bundles import ScryfallDataSet
 from mtg_ssm.containers.collection import MagicCollection
 from mtg_ssm.containers.indexes import Oracle, ScryfallDataIndex
 from mtg_ssm.mtg import util
@@ -318,3 +319,32 @@ class XlsxDialect(interface.SerializationDialect):
         reader = rows_for_workbook(workbook, skip_sheets={"All Sets", "All Cards"})
         card_counts = counts.aggregate_card_counts(reader, oracle)
         return MagicCollection(oracle=oracle, counts=card_counts)
+
+
+class XlsxTerseDialect(XlsxDialect):
+    """excel xlsx collection that omits empty sets"""
+
+    extension: ClassVar[str] = "xlsx"
+    dialect: ClassVar[str] = "terse"
+
+    def write(self, path: Path, collection: MagicCollection) -> None:
+        # Include all sets that have non-zero counts.
+        included_setcodes = set()
+        for card_id, card_count in collection.counts.items():
+            if any(card_count.values()):
+                card = collection.oracle.index.id_to_card[card_id]
+                included_setcodes.add(card.set)
+
+        # Create new scrydata with only the included sets and their cards.
+        scrydata = collection.oracle.scrydata
+        included_sets = [s for s in scrydata.sets if s.code in included_setcodes]
+        included_cards = [c for c in scrydata.cards if c.set in included_setcodes]
+
+        # Build a new collection with only the included sets and their cards.
+        terse_collection = MagicCollection(
+            oracle=Oracle(
+                ScryfallDataSet(sets=included_sets, cards=included_cards, migrations=[])
+            ),
+            counts=collection.counts,
+        )
+        return super().write(path, terse_collection)
