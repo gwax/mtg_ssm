@@ -41,7 +41,7 @@ OBJECT_CACHE_URL = "file:///$CACHE/pickled_object?v2"
 
 CHUNK_SIZE = 8 * 1024 * 1024
 DESERIALIZE_BATCH_SIZE = 50
-REQUESTS_TIMEOUT_SECONDS = 10
+REQUESTS_TIMEOUT_SECONDS = 30
 
 JSON = Union[str, int, float, bool, None, Mapping[str, Any], List[Any]]
 
