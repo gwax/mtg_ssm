@@ -7,6 +7,15 @@ from pathlib import Path
 
 from mtg_ssm.scryfall import fetcher, models
 
+
+class Error(Exception):
+    """Base class for exceptions in this module."""
+
+
+class MissingScryfallDataError(Error):
+    """Exception raised for missing Scryfall data."""
+
+
 TEST_DATA_DIR = Path(__file__).parent / "data"
 TARGET_SETS_FILE = TEST_DATA_DIR / "sets.json"
 TARGET_SETS_FILE1 = TEST_DATA_DIR / "sets1.json"
@@ -83,7 +92,7 @@ def main() -> None:  # pylint: disable=too-many-locals,too-many-statements
     )
     missing_sets = set(TEST_SETS_TO_CARDS.keys()) - {s.code for s in accepted_sets}
     if missing_sets:
-        raise Exception("Missing sets: " + str(missing_sets))
+        raise MissingScryfallDataError("Missing sets: " + str(missing_sets))
 
     print("Selecting cards")
     accepted_cards = sorted(
@@ -96,7 +105,7 @@ def main() -> None:  # pylint: disable=too-many-locals,too-many-statements
         missing_cards[card.set].discard(card.name)
     missing_cards = {k: v for k, v in missing_cards.items() if v}
     if missing_cards:
-        raise Exception("Missing cards: " + str(missing_cards))
+        raise MissingScryfallDataError("Missing cards: " + str(missing_cards))
 
     print("Selecting bulk data")
     accepted_bulk = sorted(
