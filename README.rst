@@ -166,6 +166,8 @@ Changelog
 Development
 -----------
 
+-   Drop the "non-bulk" column from the All Sets page due to issues with
+    the calculation when accounting for foil/non-foil cards.
 -   Modify the xlsx writer to use TEXTJOIN and SUM to calculate haverefs. This
     should make the sheets slightly easier to read and resolve an annoying
     trailing comma in the other card reference cells.

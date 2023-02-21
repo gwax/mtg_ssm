@@ -30,7 +30,6 @@ ALL_SETS_SHEET_HEADER: Sequence[str] = [
     "playsets",
     "count",
     "value",
-    "nonbulk",
 ]
 
 ALL_SETS_SHEET_TOTALS: Sequence[Optional[str]] = ["Total", None, None, None, None] + [
@@ -66,7 +65,6 @@ def create_all_sets(sheet: Worksheet, index: ScryfallDataIndex) -> None:
             f"=COUNTIF('{setcode}'!{_setsheet_col('have')}:{_setsheet_col('have')},\">=4\")",
             f"=SUM('{setcode}'!{_setsheet_col('have')}:{_setsheet_col('have')})",
             f"=SUM('{setcode}'!{_setsheet_col('value')}:{_setsheet_col('value')})",
-            f"=SUMIFS('{setcode}'!{_setsheet_col('value')}:{_setsheet_col('value')},'{setcode}'!{_setsheet_col('price')}:{_setsheet_col('price')},\">=1\")",
         ]
         sheet.append(row)
 
@@ -85,7 +83,6 @@ def style_all_sets(sheet: Worksheet) -> None:
         ("H", 8, False, None),
         ("I", 7, False, None),
         ("J", 10, False, FORMAT_CURRENCY_USD_SIMPLE),
-        ("K", 10, False, FORMAT_CURRENCY_USD_SIMPLE),
     ]
     for col, width, hidden, number_format in col_width_hidden_format:
         cdim = sheet.column_dimensions[col]
