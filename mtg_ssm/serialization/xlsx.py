@@ -2,6 +2,7 @@
 
 import collections
 import datetime as dt
+import itertools
 import string
 from pathlib import Path
 from typing import Any, ClassVar, Dict, Iterable, List, Optional, Sequence, Set, Tuple
@@ -94,15 +95,24 @@ def style_all_sets(sheet: Worksheet) -> None:
             cdim.number_format = number_format
 
 
-def create_haverefs(index: ScryfallDataIndex, cards: Sequence[ScryCard]) -> str:
-    """Create a reference to the have cells for printings in a single set."""
-    setcodes_and_rownums = sorted(
-        (c.set, index.id_to_setindex[c.id] + ROW_OFFSET) for c in cards
-    )
-    haverefs = [
-        f"'{setcode.upper()}'!A{rownum}" for setcode, rownum in setcodes_and_rownums
-    ]
-    return "+".join(haverefs)
+def create_haverefs(
+    index: ScryfallDataIndex, setcode: str, cards: Sequence[ScryCard]
+) -> str:
+    """Create a reference to or sum of the have cell(s) for printings in a single set."""
+    setcode = setcode.upper()
+    rownums = sorted(index.id_to_setindex[card.id] + ROW_OFFSET for card in cards)
+    haverefs = []
+    # cluster contiguous rownums
+    for _, group in itertools.groupby(enumerate(rownums), lambda x: x[0] - x[1]):
+        cluster = [g[1] for g in group]
+        cells = [_setsheet_col("have") + str(r) for r in cluster]
+        if cells[0] == cells[-1]:
+            haverefs.append(f"'{setcode}'!{cells[0]}")
+        else:
+            haverefs.append(f"'{setcode}'!{cells[0]}:{cells[-1]}")
+    if len(haverefs) == 1 and ":" not in haverefs[0]:
+        return haverefs[0]
+    return f"SUM({','.join(haverefs)})"
 
 
 def get_references(
@@ -120,7 +130,7 @@ def get_references(
         if other_card.set not in exclude_sets:
             set_to_cards[other_card.set].append(other_card)
 
-    set_to_haveref = {k: create_haverefs(index, v) for k, v in set_to_cards.items()}
+    set_to_haveref = {k: create_haverefs(index, k, v) for k, v in set_to_cards.items()}
     if not set_to_haveref:
         return None
 
@@ -129,11 +139,15 @@ def get_references(
         set_to_haveref,
         key=lambda setcode: _card_set_sort_key(index.setcode_to_set[setcode]),
     ):
-        reference = 'IF({count}>0,"{setcode}: "&{count}&", ","")'.format(
+        reference = 'IF({count}>0,"{setcode}:"&{count},"")'.format(
             setcode=card_set.upper(), count=set_to_haveref[card_set]
         )
         references.append(reference)
-    return "=" + "&".join(references)
+    if not references:
+        return None
+    if len(references) == 1:
+        return "=" + references[0]
+    return f'=_xlfn.TEXTJOIN(", ",1,{",".join(references)})'
 
 
 ALL_CARDS_SHEET_HEADER = ["name", "have"]  # TODO: add list of sets

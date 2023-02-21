@@ -166,7 +166,9 @@ Changelog
 Development
 -----------
 
--   ...
+-   Modify the xlsx writer to use TEXTJOIN and SUM to calculate haverefs. This
+    should make the sheets slightly easier to read and resolve an annoying
+    trailing comma in the other card reference cells.
 
 2.4.4
 -----

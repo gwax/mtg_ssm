@@ -63,26 +63,26 @@ def test_create_all_sets(snapshot: Snapshot, oracle: Oracle) -> None:
 def test_create_haverefs(oracle: Oracle) -> None:
     fem_thallids = [c for c in oracle.index.name_to_cards["Thallid"] if c.set == "fem"]
     fem_thallids.sort(key=lambda c: c.collector_number)
-    haverefs = xlsx.create_haverefs(oracle.index, fem_thallids)
-    assert haverefs == "'FEM'!A2+'FEM'!A3+'FEM'!A4+'FEM'!A5"
+    haverefs = xlsx.create_haverefs(oracle.index, "fem", fem_thallids)
+    assert haverefs == "SUM('FEM'!A2:A5)"
 
 
 @pytest.mark.parametrize(
     "name, exclude_sets, expected",
     [
         ("Forest", None, None),
-        ("Rhox", None, '=IF(\'S00\'!A2>0,"S00: "&\'S00\'!A2&", ","")'),
+        ("Rhox", None, "=IF('S00'!A2>0,\"S00:\"&'S00'!A2,\"\")"),
         ("Rhox", {"s00"}, None),
         (
             "Dark Ritual",
             {"lea"},
-            '=IF(\'ICE\'!A2>0,"ICE: "&\'ICE\'!A2&", ","")&IF(\'HOP\'!A3>0,"HOP: "&\'HOP\'!A3&", ","")',
+            '=_xlfn.TEXTJOIN(", ",1,IF(\'ICE\'!A2>0,"ICE:"&\'ICE\'!A2,""),IF(\'HOP\'!A3>0,"HOP:"&\'HOP\'!A3,""))',
         ),
-        ("Dark Ritual", {"lea", "ice"}, '=IF(\'HOP\'!A3>0,"HOP: "&\'HOP\'!A3&", ","")'),
+        ("Dark Ritual", {"lea", "ice"}, "=IF('HOP'!A3>0,\"HOP:\"&'HOP'!A3,\"\")"),
         (
             "Thallid",
             None,
-            "=IF('FEM'!A2+'FEM'!A3+'FEM'!A4+'FEM'!A5>0,\"FEM: \"&'FEM'!A2+'FEM'!A3+'FEM'!A4+'FEM'!A5&\", \",\"\")",
+            "=IF(SUM('FEM'!A2:A5)>0,\"FEM:\"&SUM('FEM'!A2:A5),\"\")",
         ),
     ],
 )
