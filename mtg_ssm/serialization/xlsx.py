@@ -2,6 +2,7 @@
 
 import collections
 import datetime as dt
+import importlib.util
 import itertools
 import string
 from pathlib import Path
@@ -18,6 +19,8 @@ from mtg_ssm.containers.indexes import Oracle, ScryfallDataIndex
 from mtg_ssm.mtg import util
 from mtg_ssm.scryfall.models import ScryCard, ScrySet
 from mtg_ssm.serialization import interface
+
+HAS_LXML = importlib.util.find_spec("lxml") is not None
 
 ALL_SETS_SHEET_HEADER: Sequence[str] = [
     "code",
@@ -301,7 +304,7 @@ class XlsxDialect(interface.SerializationDialect):
 
     def write(self, path: Path, collection: MagicCollection) -> None:
         """Write collection to an xlsx file."""
-        workbook = openpyxl.Workbook(write_only=True)
+        workbook = openpyxl.Workbook(write_only=HAS_LXML)
 
         all_sets_sheet = workbook.create_sheet()
         style_all_sets(all_sets_sheet)
@@ -323,6 +326,12 @@ class XlsxDialect(interface.SerializationDialect):
             set_sheet = workbook.create_sheet()
             style_set_sheet(set_sheet)
             create_set_sheet(set_sheet, collection, setcode)
+
+        if not HAS_LXML:
+            # write_only mode does no create a default sheet but read/write mode does
+            # if we do not have lxml, we are in read/write mode and must delete the
+            # default sheet
+            del workbook["Sheet"]
         workbook.save(str(path))
 
     def read(self, path: Path, oracle: Oracle) -> MagicCollection:

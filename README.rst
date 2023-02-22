@@ -166,11 +166,23 @@ Changelog
 Development
 -----------
 
+-   ...
+
+2.5.1
+-----
+
+-   Modify write behavior to return lxml to optional.
+
+2.5.0
+-----
+
 -   Drop the "non-bulk" column from the All Sets page due to issues with
     the calculation when accounting for foil/non-foil cards.
 -   Modify the xlsx writer to use TEXTJOIN and SUM to calculate haverefs. This
     should make the sheets slightly easier to read and resolve an annoying
     trailing comma in the other card reference cells.
+-   Improve xlsx write performance via openpyxl write_only mode. As a side
+    effect, we now require lxml to be installed.
 
 2.4.4
 -----
