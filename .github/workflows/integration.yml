@@ -1,0 +1,50 @@
+name: integration
+concurrency: integration
+
+on:
+  push:
+    branches:
+      # Run on every push to trunk
+      - trunk
+  schedule:
+    # Run every Saturday at 4:05 AM UTC
+    - cron: "5 4 * * SAT"
+
+jobs:
+  end-to-end:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        extras:
+          - ""
+          - "[lxml]"
+    name: End-to-end tests
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.8"
+          cache: pip
+          cache-dependency-path: |
+            pyproject.toml
+
+      - name: Install project
+        run: |
+          pip install -U pip setuptools wheel
+          pip install -e .${{ matrix.extras }}
+
+      - name: Create csv
+        run: mtg-ssm create collection1.csv
+
+      - name: Update csv
+        run: mtg-ssm update collection1.csv
+
+      - name: Create xlsx
+        run: mtg-ssm create collection2.xlsx
+
+      - name: Update xlsx
+        run: mtg-ssm update collection2.xlsx
+
+      - name: Merge csv and xlsx
+        run: mtg-ssm merge collection3.xlsx collection1.csv collection2.xlsx
