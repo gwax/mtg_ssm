@@ -20,6 +20,8 @@ jobs:
           cache-dependency-path: |
             pyproject.toml
 
-      - run: pip install -e .[lxml,dev]
+      - run: |
+          pip install -U pip setuptools wheel
+          pip install -e .[lxml,dev]
 
       - uses: pre-commit/action@v3.0.0

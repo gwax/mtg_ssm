@@ -28,7 +28,9 @@ jobs:
             pyproject.toml
 
       - name: Install project
-        run: pip install -e .[lmxl,dev]
+        run: |
+          pip install -U pip setuptools wheel
+          pip install -e .[lxml,dev]
 
       - name: Execute pytest
         run: pytest tests/
