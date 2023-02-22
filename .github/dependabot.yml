@@ -4,3 +4,10 @@ updates:
     directory: /
     schedule:
       interval: weekly
+
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: daily
+    # Disable non-security updates
+    open-pull-requests-limit: 0
