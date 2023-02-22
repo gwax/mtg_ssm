@@ -1,15 +1,13 @@
 """Tests for mtg_ssm.serialization.xlsx."""
 # pylint: disable=redefined-outer-name
 
-import csv
-import io
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Sequence, Set, Tuple
+from typing import Dict, List, Optional, Set, Tuple
 from uuid import UUID
 
 import openpyxl
 import pytest
-from pytest_snapshot.plugin import Snapshot
+from syrupy.assertion import SnapshotAssertion
 
 from mtg_ssm.containers.bundles import ScryfallDataSet
 from mtg_ssm.containers.collection import MagicCollection
@@ -43,20 +41,12 @@ def oracle(scryfall_data: ScryfallDataSet) -> Oracle:
     return Oracle(scryfall_data2)
 
 
-def _csv_dump(rows: Sequence[Any]) -> str:
-    buf = io.StringIO()
-    writer = csv.writer(buf)
-    writer.writerows(rows)
-    return buf.getvalue().replace("\r", "")
-
-
-def test_create_all_sets(snapshot: Snapshot, oracle: Oracle) -> None:
+def test_create_all_sets(snapshot: SnapshotAssertion, oracle: Oracle) -> None:
     book = openpyxl.Workbook()
     sheet = book.create_sheet()
     xlsx.create_all_sets(sheet, oracle.index)
-    snapshot.assert_match(
-        _csv_dump([[cell.value for cell in row] for row in sheet.rows]),
-        f"{str(sheet.title)}.csv",
+    assert [[cell.value for cell in row] for row in sheet.rows] == snapshot(
+        name=str(sheet.title)
     )
 
 
@@ -93,17 +83,16 @@ def test_get_references(
     assert print_refs == expected
 
 
-def test_create_all_cards_sheet(snapshot: Snapshot, oracle: Oracle) -> None:
+def test_create_all_cards_sheet(snapshot: SnapshotAssertion, oracle: Oracle) -> None:
     book = openpyxl.Workbook()
     sheet = book.create_sheet()
     xlsx.create_all_cards(sheet, oracle.index)
-    snapshot.assert_match(
-        _csv_dump([[cell.value for cell in row] for row in sheet.rows]),
-        f"{str(sheet.title)}.csv",
+    assert [[cell.value for cell in row] for row in sheet.rows] == snapshot(
+        name=str(sheet.title)
     )
 
 
-def test_create_set_sheet(snapshot: Snapshot, oracle: Oracle) -> None:
+def test_create_set_sheet(snapshot: SnapshotAssertion, oracle: Oracle) -> None:
     card_counts: ScryfallCardCount = {
         UUID("fbdcbd97-90a9-45ea-94f6-2a1c6faaf965"): {CountType.NONFOIL: 1},
         UUID("b346b784-7bde-49d0-bfa9-56236cbe19d9"): {CountType.FOIL: 2},
@@ -116,13 +105,12 @@ def test_create_set_sheet(snapshot: Snapshot, oracle: Oracle) -> None:
     book = openpyxl.Workbook()
     sheet = book.create_sheet()
     xlsx.create_set_sheet(sheet, collection, "ice")
-    snapshot.assert_match(
-        _csv_dump([[cell.value for cell in row] for row in sheet.rows]),
-        f"{str(sheet.title)}.csv",
+    assert [[cell.value for cell in row] for row in sheet.rows] == snapshot(
+        name=str(sheet.title)
     )
 
 
-def test_write(snapshot: Snapshot, oracle: Oracle, tmp_path: Path) -> None:
+def test_write(snapshot: SnapshotAssertion, oracle: Oracle, tmp_path: Path) -> None:
     xlsx_path = tmp_path / "outfile.xlsx"
     card_counts: ScryfallCardCount = {
         UUID("5d5f3f57-410f-4ee2-b93c-f5051a068828"): {
@@ -137,9 +125,8 @@ def test_write(snapshot: Snapshot, oracle: Oracle, tmp_path: Path) -> None:
 
     workbook = openpyxl.load_workbook(filename=xlsx_path)
     for i, sheet in enumerate(workbook.worksheets):
-        snapshot.assert_match(
-            _csv_dump([[cell.value for cell in row] for row in sheet.rows]),
-            f"{i:02d} - {sheet.title}.csv",
+        assert [[cell.value for cell in row] for row in sheet.rows] == snapshot(
+            name=f"{i:02d} - {sheet.title}"
         )
 
 

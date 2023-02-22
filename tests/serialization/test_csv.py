@@ -7,7 +7,7 @@ from typing import Dict
 from uuid import UUID
 
 import pytest
-from pytest_snapshot.plugin import Snapshot
+from syrupy.assertion import SnapshotAssertion
 
 from mtg_ssm.containers import counts
 from mtg_ssm.containers.bundles import ScryfallDataSet
@@ -107,7 +107,9 @@ def test_rows_for_cards_terse(oracle: Oracle) -> None:
     ]
 
 
-def test_write_verbose(snapshot: Snapshot, oracle: Oracle, tmp_path: Path) -> None:
+def test_write_verbose(
+    snapshot: SnapshotAssertion, oracle: Oracle, tmp_path: Path
+) -> None:
     csv_path = tmp_path / "outfile.csv"
     card_counts: ScryfallCardCount = {
         TEST_CARD_ID: {counts.CountType.NONFOIL: 3, counts.CountType.FOIL: 7}
@@ -116,10 +118,12 @@ def test_write_verbose(snapshot: Snapshot, oracle: Oracle, tmp_path: Path) -> No
     serializer = csv.CsvFullDialect()
     serializer.write(csv_path, collection)
     with csv_path.open("rt", encoding="utf-8") as csv_file:
-        snapshot.assert_match(csv_file.read(), "collection.csv")
+        assert csv_file.read() == snapshot
 
 
-def test_write_terse(snapshot: Snapshot, oracle: Oracle, tmp_path: Path) -> None:
+def test_write_terse(
+    snapshot: SnapshotAssertion, oracle: Oracle, tmp_path: Path
+) -> None:
     csv_path = tmp_path / "outfile.csv"
     card_counts: counts.ScryfallCardCount = {
         TEST_CARD_ID: {counts.CountType.NONFOIL: 3}
@@ -129,7 +133,7 @@ def test_write_terse(snapshot: Snapshot, oracle: Oracle, tmp_path: Path) -> None
     serializer = csv.CsvTerseDialect()
     serializer.write(csv_path, collection)
     with csv_path.open("rt", encoding="utf-8") as csv_file:
-        snapshot.assert_match(csv_file.read(), "collection.csv")
+        assert csv_file.read() == snapshot
 
 
 def test_read(oracle: Oracle, tmp_path: Path) -> None:
