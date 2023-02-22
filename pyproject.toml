@@ -81,6 +81,7 @@ dev = [
     "setuptools>=45",
     "setuptools-scm[toml]>=6.2",
     "syrupy>=4.0",
+    "types-appdirs",
     "types-freezegun",
     "types-requests",
     "wheel",
@@ -97,7 +98,6 @@ local_scheme = "no-local-version"
 python_version = "3.8"
 plugins = "pydantic.mypy"
 
-ignore_missing_imports = true
 follow_imports = "normal"
 disallow_untyped_defs = true
 allow_untyped_globals = false
