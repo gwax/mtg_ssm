@@ -33,7 +33,7 @@ ALL_SETS_SHEET_HEADER: Sequence[str] = [
 ]
 
 ALL_SETS_SHEET_TOTALS: Sequence[Optional[str]] = ["Total", None, None, None, None] + [
-    f"=SUM({c}3:{c}65535)" for c in "FGHIJK"
+    f"=SUM({c}3:{c}65535)" for c in "FGHIJ"
 ]
 
 
