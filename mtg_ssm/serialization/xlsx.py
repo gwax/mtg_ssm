@@ -71,7 +71,7 @@ def create_all_sets(sheet: Worksheet, index: ScryfallDataIndex) -> None:
 
 def style_all_sets(sheet: Worksheet) -> None:
     """Apply styles to the all sets sheet."""
-    sheet.freeze_panes = sheet["C3"]
+    sheet.freeze_panes = "C3"
     col_width_hidden_format = [
         ("A", 8, False, None),
         ("B", 30, False, None),
@@ -161,8 +161,11 @@ def create_all_cards(sheet: Worksheet, index: ScryfallDataIndex) -> None:
 
 def style_all_cards(sheet: Worksheet) -> None:
     """Apply styles to the all cards sheet."""
-    sheet.freeze_panes = sheet["B2"]
-    col_width_hidden = [("A", 24, False), ("B", 32, False)]
+    sheet.freeze_panes = "A2"
+    col_width_hidden = [
+        ("A", 28, False),
+        ("B", 48, False),
+    ]
     for col, width, hidden in col_width_hidden:
         cdim = sheet.column_dimensions[col]
         cdim.width = width
@@ -246,7 +249,7 @@ def create_set_sheet(
 
 def style_set_sheet(sheet: Worksheet) -> None:
     """Apply styles to a set sheet."""
-    sheet.freeze_panes = sheet["E2"]
+    sheet.freeze_panes = "E2"
     col_width_hidden_format = [
         ("A", 5, False, None),
         ("B", 9, False, FORMAT_CURRENCY_USD_SIMPLE),
@@ -298,15 +301,15 @@ class XlsxDialect(interface.SerializationDialect):
 
     def write(self, path: Path, collection: MagicCollection) -> None:
         """Write collection to an xlsx file."""
-        workbook = openpyxl.Workbook()
+        workbook = openpyxl.Workbook(write_only=True)
 
         all_sets_sheet = workbook.create_sheet()
-        create_all_sets(all_sets_sheet, collection.oracle.index)
         style_all_sets(all_sets_sheet)
+        create_all_sets(all_sets_sheet, collection.oracle.index)
 
         all_cards_sheet = workbook.create_sheet()
-        create_all_cards(all_cards_sheet, collection.oracle.index)
         style_all_cards(all_cards_sheet)
+        create_all_cards(all_cards_sheet, collection.oracle.index)
 
         setcodes = [
             s.code
@@ -318,9 +321,8 @@ class XlsxDialect(interface.SerializationDialect):
 
         for setcode in setcodes:
             set_sheet = workbook.create_sheet()
-            create_set_sheet(set_sheet, collection, setcode)
             style_set_sheet(set_sheet)
-        del workbook["Sheet"]
+            create_set_sheet(set_sheet, collection, setcode)
         workbook.save(str(path))
 
     def read(self, path: Path, oracle: Oracle) -> MagicCollection:

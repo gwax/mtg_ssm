@@ -43,6 +43,7 @@ dependencies = [
     "openpyxl~=3.0",
     "pydantic~=1.9",
     "requests~=2.27",
+    "lxml~=4.9"
 ]
 dynamic = ["version"]
 
@@ -54,9 +55,6 @@ dynamic = ["version"]
 mtg-ssm = "mtg_ssm.ssm:main"
 
 [project.optional-dependencies]
-lxml = [
-    "lxml>=3.7.2",
-]
 dev = [
     "black",
     "coverage[toml]",
