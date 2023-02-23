@@ -5,6 +5,8 @@ import datetime as dt
 from pathlib import Path
 from typing import Any, ClassVar, Dict, Iterable, Mapping
 
+from tqdm import tqdm
+
 from mtg_ssm.containers import counts
 from mtg_ssm.containers.collection import MagicCollection
 from mtg_ssm.containers.counts import CountType
@@ -61,7 +63,7 @@ class CsvFullDialect(interface.SerializationDialect):
     def read(self, path: Path, oracle: Oracle) -> MagicCollection:
         """Read collection from file."""
         with path.open("rt", encoding="utf-8") as csv_file:
-            reader = csv.DictReader(csv_file)
+            reader = tqdm(csv.DictReader(csv_file), desc="Reading collection")
             card_counts = counts.aggregate_card_counts(reader, oracle)
         return MagicCollection(oracle=oracle, counts=card_counts)
 

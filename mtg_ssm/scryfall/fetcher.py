@@ -13,6 +13,7 @@ from typing import Any, Dict, List, Mapping, Union, cast
 import appdirs
 import requests
 from pydantic import ValidationError
+from tqdm import tqdm
 
 from mtg_ssm.containers.bundles import ScryfallDataSet
 from mtg_ssm.scryfall.models import (
@@ -96,7 +97,7 @@ def _deserialize_cards(card_jsons: List[JSON]) -> List[ScryCard]:
     if DEBUG:
         print("Process pool disabled")
         cards_data = []
-        for card_json in card_jsons:
+        for card_json in tqdm(card_jsons, desc="Deserializing cards"):
             try:
                 cards_data.append(ScryCard.parse_obj(card_json))
             except ValidationError as err:
@@ -115,7 +116,9 @@ def _deserialize_cards(card_jsons: List[JSON]) -> List[ScryCard]:
             cards_futures = executor.map(
                 ScryCard.parse_obj, card_jsons, chunksize=DESERIALIZE_BATCH_SIZE
             )
-            cards_data = list(cards_futures)
+            cards_data = list(
+                tqdm(cards_futures, desc="Deserializing cards", total=len(card_jsons))
+            )
     return cards_data
 
 
@@ -171,7 +174,6 @@ def scryfetch() -> ScryfallDataSet:  # pylint: disable=too-many-locals
 
     _fetch_endpoint(BULK_DATA_ENDPOINT, dirty=cache_dirty, write_cache=True)
 
-    print("Deserializing cards")
     cards_data = _deserialize_cards(cards_json)
 
     scryfall_data = ScryfallDataSet(

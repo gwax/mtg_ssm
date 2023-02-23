@@ -12,6 +12,7 @@ import openpyxl
 from openpyxl.styles.numbers import FORMAT_CURRENCY_USD_SIMPLE
 from openpyxl.workbook.workbook import Workbook
 from openpyxl.worksheet.worksheet import Worksheet
+from tqdm import tqdm
 
 from mtg_ssm.containers import counts
 from mtg_ssm.containers.collection import MagicCollection
@@ -290,7 +291,7 @@ def rows_for_workbook(
     """Read rows from an xlsx workbook as dicts."""
     if skip_sheets is None:
         skip_sheets = set()
-    for sheet in book.worksheets:
+    for sheet in tqdm(book.worksheets, desc="Reading sheets"):
         if sheet.title in skip_sheets:
             continue
         yield from rows_from_sheet(sheet)
@@ -322,7 +323,7 @@ class XlsxDialect(interface.SerializationDialect):
             )
         ]
 
-        for setcode in setcodes:
+        for setcode in tqdm(setcodes, desc="Writing sheets"):
             set_sheet = workbook.create_sheet()
             style_set_sheet(set_sheet)
             create_set_sheet(set_sheet, collection, setcode)

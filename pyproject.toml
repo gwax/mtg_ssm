@@ -43,6 +43,7 @@ dependencies = [
     "openpyxl~=3.0",
     "pydantic~=1.9",
     "requests~=2.27",
+    "tqdm~=4.64",
 ]
 dynamic = ["version"]
 
@@ -84,6 +85,7 @@ dev = [
     "types-appdirs",
     "types-freezegun",
     "types-requests",
+    "types-tqdm",
     "wheel",
 ]
 
