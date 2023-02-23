@@ -202,6 +202,7 @@ class ScryFormat(str, Enum):
     ALCHEMY = "alchemy"
     PAUPERCOMMANDER = "paupercommander"
     PREMODERN = "premodern"
+    PREDH = "predh"
 
 
 class ScryLegality(str, Enum):

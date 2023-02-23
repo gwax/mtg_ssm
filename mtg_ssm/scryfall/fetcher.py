@@ -52,7 +52,7 @@ def _value_from_validation_error(data: JSON, verr: ValidationError) -> Dict[str,
         loc = error["loc"]
         value = data
         for field in loc:
-            if field == "__root__":
+            if field in {"__root__", "__key__"}:
                 break
             if isinstance(value, Mapping) and isinstance(field, str):
                 value = value[field]
@@ -100,10 +100,11 @@ def _deserialize_cards(card_jsons: List[JSON]) -> List[ScryCard]:
             try:
                 cards_data.append(ScryCard.parse_obj(card_json))
             except ValidationError as err:
-                print("Failed with pydantic errors on values:")
-                pprint.pp(_value_from_validation_error(card_json, err))
+                print("Failed with pydantic errors")
                 print("Failed on:")
                 pprint.pp(card_json)
+                print("Failed on values:")
+                pprint.pp(_value_from_validation_error(card_json, err))
                 raise
             except Exception:
                 print("Failed on:")

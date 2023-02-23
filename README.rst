@@ -168,6 +168,11 @@ Development
 
 -   ...
 
+2.5.2
+-----
+
+-   Add prEDH legality to models.
+
 2.5.1
 -----
 
