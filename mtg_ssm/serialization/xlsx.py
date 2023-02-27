@@ -115,6 +115,27 @@ def create_haverefs(
     return f"SUM({','.join(haverefs)})"
 
 
+def create_valuerefs(index: ScryfallDataIndex, card_name: str) -> Optional[str]:
+    """Create a reference to or sum of the value cell(s) for all printings of a card."""
+    set_to_cards = collections.defaultdict(list)
+    for card in index.name_to_cards[card_name]:
+        set_to_cards[card.set].append(card)
+
+    set_valuerefs = []
+    for setcode, cards in set_to_cards.items():
+        rownums = sorted(index.id_to_setindex[card.id] + ROW_OFFSET for card in cards)
+        for _, group in itertools.groupby(enumerate(rownums), lambda x: x[0] - x[1]):
+            cluster = [g[1] for g in group]
+            cells = [_setsheet_col("value") + str(r) for r in cluster]
+            if cells[0] == cells[-1]:
+                set_valuerefs.append(f"'{setcode}'!{cells[0]}")
+            else:
+                set_valuerefs.append(f"'{setcode}'!{cells[0]}:{cells[-1]}")
+    if len(set_valuerefs) == 1 and ":" not in set_valuerefs[0]:
+        return f"={set_valuerefs[0]}"
+    return f'=SUM({",".join(set_valuerefs)})'
+
+
 def get_references(
     index: ScryfallDataIndex, card_name: str, exclude_sets: Optional[Set[str]] = None
 ) -> Optional[str]:
@@ -150,7 +171,7 @@ def get_references(
     return f'=_xlfn.TEXTJOIN(", ",1,{",".join(references)})'
 
 
-ALL_CARDS_SHEET_HEADER = ["name", "have"]  # TODO: add list of sets
+ALL_CARDS_SHEET_HEADER = ["name", "value", "have"]  # TODO: add list of sets
 
 
 def create_all_cards(sheet: Worksheet, index: ScryfallDataIndex) -> None:
@@ -158,21 +179,24 @@ def create_all_cards(sheet: Worksheet, index: ScryfallDataIndex) -> None:
     sheet.title = "All Cards"
     sheet.append(ALL_CARDS_SHEET_HEADER)
     for name in sorted(index.name_to_cards):
-        row = [name, get_references(index, name)]
+        row = [name, create_valuerefs(index, name), get_references(index, name)]
         sheet.append(row)
 
 
 def style_all_cards(sheet: Worksheet) -> None:
     """Apply styles to the all cards sheet."""
     sheet.freeze_panes = "A2"
-    col_width_hidden = [
-        ("A", 28, False),
-        ("B", 48, False),
+    col_width_hidden_format = [
+        ("A", 28, False, None),
+        ("B", 10, False, FORMAT_CURRENCY_USD_SIMPLE),
+        ("C", 48, False, None),
     ]
-    for col, width, hidden in col_width_hidden:
+    for col, width, hidden, number_format in col_width_hidden_format:
         cdim = sheet.column_dimensions[col]
         cdim.width = width
         cdim.hidden = hidden
+        if number_format is not None:
+            cdim.number_format = number_format
 
 
 SET_SHEET_HEADER = (
