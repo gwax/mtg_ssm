@@ -1,5 +1,6 @@
 """Data bundle definitions."""
 
+import copy
 from typing import List, NamedTuple, Optional, Set
 
 from mtg_ssm.scryfall.models import (
@@ -53,12 +54,9 @@ def filter_cards_and_sets(
             collector_number = card.collector_number
             if collector_number.isdigit():
                 collector_number += "p"
-            card = card.copy(
-                update={
-                    "set": remapped_setcodes[card.set],
-                    "collector_number": collector_number,
-                }
-            )
+            card = copy.copy(card)
+            card.set = remapped_setcodes[card.set]
+            card.collector_number = collector_number
         if card.set not in accepted_setcodes:
             continue
         if exclude_card_layouts and card.layout in exclude_card_layouts:

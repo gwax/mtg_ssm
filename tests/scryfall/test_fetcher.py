@@ -1,8 +1,6 @@
 """Tests for mtg_ssm.scryfall.fetcher."""
 # pylint: disable=protected-access
 
-import gzip
-import pickle
 import re
 from pathlib import Path
 from typing import Dict, List, Pattern, Union
@@ -54,25 +52,6 @@ def test_scryfetch() -> None:
         for key, value in gen_testdata.TEST_SETS_TO_CARDS.items()
         for card in value
     }
-
-
-@pytest.mark.parametrize(
-    "baddata",
-    [
-        pytest.param(b"garbage", id="not gzipped"),
-        pytest.param(gzip.compress(b"garbage"), id="not pickled"),
-        pytest.param(gzip.compress(pickle.dumps("garbage")), id="not scrydata"),
-    ],
-)
-@pytest.mark.usefixtures("scryurls")
-def test_break_object_cache(baddata: bytes) -> None:
-    scrydata1 = fetcher.scryfetch()
-    with open(
-        fetcher._cache_path(fetcher.OBJECT_CACHE_URL, ".pickle.gz"), "wb"
-    ) as cache_file:
-        cache_file.write(baddata)
-    scrydata2 = fetcher.scryfetch()
-    assert scrydata1 == scrydata2
 
 
 @pytest.mark.usefixtures("scryurls")

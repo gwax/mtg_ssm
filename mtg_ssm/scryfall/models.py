@@ -3,11 +3,10 @@
 import datetime as dt
 from decimal import Decimal
 from enum import Enum
-from typing import Dict, Generic, List, Literal, Optional, TypeVar, Union
+from typing import Dict, List, Literal, Optional, Union
 from uuid import UUID
 
-from pydantic import BaseModel, HttpUrl
-from pydantic.generics import GenericModel
+from msgspec import Struct
 
 
 class ScryColor(str, Enum):
@@ -221,216 +220,242 @@ class ScryMigrationStrategy(str, Enum):
     DELETE = "delete"
 
 
-T = TypeVar("T")
-
-
-class ScryRootList(GenericModel, Generic[T]):
-    """Model for unstructured list of scryfall objects (e.g. bulk file data)"""
-
-    __root__: List[T]
-
-
-class ScryObjectList(GenericModel, Generic[T]):
-    """Model for https://scryfall.com/docs/api/lists"""
-
-    object: Literal["list"] = "list"
-    data: List[T]
-    has_more: bool
-    next_page: Optional[HttpUrl]
-    total_cards: Optional[int]
-    warnings: Optional[List[str]]
-
-
-class ScrySet(BaseModel):
+class ScrySet(
+    Struct,
+    tag_field="object",
+    tag="set",
+    kw_only=True,
+    omit_defaults=True,
+):
     """Model for https://scryfall.com/docs/api/sets"""
 
-    object: Literal["set"] = "set"
     id: UUID
     code: str
-    mtgo_code: Optional[str]
-    arena_code: Optional[str]
-    tcgplayer_id: Optional[int]
+    mtgo_code: Optional[str] = None
+    arena_code: Optional[str] = None
+    tcgplayer_id: Optional[int] = None
     name: str
     set_type: ScrySetType
-    released_at: Optional[dt.date]
-    block_code: Optional[str]
-    block: Optional[str]
-    parent_set_code: Optional[str]
+    released_at: Optional[dt.date] = None
+    block_code: Optional[str] = None
+    block: Optional[str] = None
+    parent_set_code: Optional[str] = None
     card_count: int
-    printed_size: Optional[int]
+    printed_size: Optional[int] = None
     digital: bool
     foil_only: bool
-    nonfoil_only: Optional[bool]
-    icon_svg_uri: HttpUrl
-    search_uri: HttpUrl
-    scryfall_uri: HttpUrl
-    uri: HttpUrl
+    nonfoil_only: Optional[bool] = None
+    icon_svg_uri: str
+    search_uri: str
+    scryfall_uri: str
+    uri: str
 
 
-class ScryRelatedCard(BaseModel):
+class ScryRelatedCard(
+    Struct,
+    tag_field="object",
+    tag="related_card",
+    kw_only=True,
+    omit_defaults=True,
+):
     """Model for https://scryfall.com/docs/api/cards#related-card-objects"""
 
-    object: Literal["related_card"] = "related_card"
     id: UUID
     component: str
     name: str
     type_line: str
-    uri: HttpUrl
+    uri: str
 
 
-class ScryCardFace(BaseModel):
+class ScryCardFace(
+    Struct,
+    tag_field="object",
+    tag="card_face",
+    kw_only=True,
+    omit_defaults=True,
+):
     """Model for https://scryfall.com/docs/api/cards#card-face-objects"""
 
-    object: Literal["card_face"] = "card_face"
-    artist: Optional[str]
-    artist_id: Optional[UUID]
-    cmc: Optional[Decimal]
-    color_indicator: Optional[List[ScryColor]]
-    colors: Optional[List[ScryColor]]
-    flavor_name: Optional[str]
-    flavor_text: Optional[str]
-    illustration_id: Optional[UUID]
-    image_uris: Optional[Dict[str, HttpUrl]]
-    layout: Optional[ScryCardLayout]
-    loyalty: Optional[str]
+    artist: Optional[str] = None
+    artist_id: Optional[UUID] = None
+    cmc: Optional[float] = None
+    color_indicator: Optional[List[ScryColor]] = None
+    colors: Optional[List[ScryColor]] = None
+    flavor_name: Optional[str] = None
+    flavor_text: Optional[str] = None
+    illustration_id: Optional[UUID] = None
+    image_uris: Optional[Dict[str, str]] = None
+    layout: Optional[ScryCardLayout] = None
+    loyalty: Optional[str] = None
     mana_cost: str
     name: str
-    oracle_id: Optional[UUID]
-    oracle_text: Optional[str]
-    power: Optional[str]
-    printed_name: Optional[str]
-    printed_text: Optional[str]
-    printed_type_line: Optional[str]
-    toughness: Optional[str]
-    type_line: Optional[str]
-    watermark: Optional[str]
+    oracle_id: Optional[UUID] = None
+    oracle_text: Optional[str] = None
+    power: Optional[str] = None
+    printed_name: Optional[str] = None
+    printed_text: Optional[str] = None
+    printed_type_line: Optional[str] = None
+    toughness: Optional[str] = None
+    type_line: Optional[str] = None
+    watermark: Optional[str] = None
 
 
-class CardPreviewBlock(BaseModel):
+class CardPreviewBlock(Struct):
     """Model for card preview block."""
 
     source: str
-    source_uri: Union[HttpUrl, Literal[""], str]
+    source_uri: Union[str, Literal[""], str]
     previewed_at: dt.date
 
 
-class ScryCard(BaseModel):
+class ScryCard(
+    Struct,
+    tag_field="object",
+    tag="card",
+    kw_only=True,
+    omit_defaults=True,
+):
     """Model for https://scryfall.com/docs/api/cards"""
 
-    object: Literal["card"] = "card"
     # Core Card Fields
-    arena_id: Optional[int]
+    arena_id: Optional[int] = None
     id: UUID
     lang: str
-    mtgo_id: Optional[int]
-    mtgo_foil_id: Optional[int]
-    multiverse_ids: Optional[List[int]]
-    tcgplayer_id: Optional[int]
-    tcgplayer_etched_id: Optional[int]
-    cardmarket_id: Optional[int]
-    oracle_id: Optional[UUID]
-    prints_search_uri: HttpUrl
-    rulings_uri: HttpUrl
-    scryfall_uri: HttpUrl
-    uri: HttpUrl
+    mtgo_id: Optional[int] = None
+    mtgo_foil_id: Optional[int] = None
+    multiverse_ids: Optional[List[int]] = None
+    tcgplayer_id: Optional[int] = None
+    tcgplayer_etched_id: Optional[int] = None
+    cardmarket_id: Optional[int] = None
+    oracle_id: Optional[UUID] = None
+    prints_search_uri: str
+    rulings_uri: str
+    scryfall_uri: str
+    uri: str
     # Gameplay Fields
-    all_parts: Optional[List[ScryRelatedCard]]
-    card_faces: Optional[List[ScryCardFace]]
-    cmc: Optional[Decimal]
-    colors: Optional[List[ScryColor]]
+    all_parts: Optional[List[ScryRelatedCard]] = None
+    card_faces: Optional[List[ScryCardFace]] = None
+    cmc: Optional[float] = None
+    colors: Optional[List[ScryColor]] = None
     color_identity: List[ScryColor]
-    color_indicator: Optional[List[ScryColor]]
-    edhrec_rank: Optional[int]
+    color_indicator: Optional[List[ScryColor]] = None
+    edhrec_rank: Optional[int] = None
     foil: bool
-    hand_modifier: Optional[str]
+    hand_modifier: Optional[str] = None
     keywords: List[str]
     layout: ScryCardLayout
     legalities: Dict[ScryFormat, ScryLegality]
-    life_modifier: Optional[str]
-    loyalty: Optional[str]
-    mana_cost: Optional[str]
+    life_modifier: Optional[str] = None
+    loyalty: Optional[str] = None
+    mana_cost: Optional[str] = None
     name: str
     nonfoil: bool
-    oracle_text: Optional[str]
+    oracle_text: Optional[str] = None
     oversized: bool
-    penny_rank: Optional[int]
-    power: Optional[str]
-    produced_mana: Optional[List[Union[ScryColor, int]]]
+    penny_rank: Optional[int] = None
+    power: Optional[str] = None
+    produced_mana: Optional[List[str]] = None
     reserved: bool
-    toughness: Optional[str]
-    type_line: Optional[str]
+    toughness: Optional[str] = None
+    type_line: Optional[str] = None
     # Print Fields
-    artist: Optional[str]
-    artist_ids: Optional[List[UUID]]
+    artist: Optional[str] = None
+    artist_ids: Optional[List[UUID]] = None
     booster: bool
     border_color: ScryBorderColor
-    card_back_id: Optional[UUID]
+    card_back_id: Optional[UUID] = None
     collector_number: str
-    content_warning: Optional[bool]
+    content_warning: Optional[bool] = None
     digital: bool
     finishes: List[ScryFinish]
-    flavor_name: Optional[str]
-    flavor_text: Optional[str]
-    frame_effect: Optional[ScryFrameEffect]
-    frame_effects: Optional[List[ScryFrameEffect]]
+    flavor_name: Optional[str] = None
+    flavor_text: Optional[str] = None
+    frame_effect: Optional[ScryFrameEffect] = None
+    frame_effects: Optional[List[ScryFrameEffect]] = None
     frame: ScryCardFrame
     full_art: bool
     games: List[ScryGame]
     highres_image: bool
-    illustration_id: Optional[UUID]
+    illustration_id: Optional[UUID] = None
     image_status: ScryImageStatus
-    image_uris: Optional[Dict[str, HttpUrl]]
-    prices: Optional[Dict[str, Optional[Decimal]]]  # TODO: enum keys
-    printed_name: Optional[str]
-    printed_text: Optional[str]
-    printed_type_line: Optional[str]
+    image_uris: Optional[Dict[str, str]] = None
+    prices: Optional[Dict[str, Optional[Decimal]]]  # TODO: enum keys=None
+    printed_name: Optional[str] = None
+    printed_text: Optional[str] = None
+    printed_type_line: Optional[str] = None
     promo: bool
-    promo_types: Optional[List[str]]
-    purchase_uris: Optional[Dict[str, HttpUrl]]
+    promo_types: Optional[List[str]] = None
+    purchase_uris: Optional[Dict[str, str]] = None
     rarity: ScryRarity
-    related_uris: Optional[Dict[str, HttpUrl]]
+    related_uris: Optional[Dict[str, str]] = None
     released_at: dt.date
     reprint: bool
-    scryfall_set_uri: HttpUrl
+    scryfall_set_uri: str
     set_name: str
-    set_search_uri: HttpUrl
+    set_search_uri: str
     set_type: str
-    set_uri: HttpUrl
+    set_uri: str
     set: str
     set_id: UUID
     story_spotlight: bool
     textless: bool
     variation: bool
-    variation_of: Optional[UUID]
-    security_stamp: Optional[ScrySecurityStamp]
-    watermark: Optional[str]
-    preview: Optional[CardPreviewBlock]
+    variation_of: Optional[UUID] = None
+    security_stamp: Optional[ScrySecurityStamp] = None
+    watermark: Optional[str] = None
+    preview: Optional[CardPreviewBlock] = None
 
 
-class ScryBulkData(BaseModel):
+class ScryBulkData(
+    Struct,
+    tag_field="object",
+    tag="bulk_data",
+    kw_only=True,
+    omit_defaults=True,
+):
     """Model for https://scryfall.com/docs/api/bulk-data"""
 
-    object: Literal["bulk_data"] = "bulk_data"
     id: UUID
-    uri: HttpUrl
+    uri: str
     type: str
     name: str
     description: str
-    download_uri: HttpUrl
+    download_uri: str
     updated_at: dt.datetime
-    compressed_size: Optional[int]
+    compressed_size: Optional[int] = None
     content_type: str
     content_encoding: str
 
 
-class ScryMigration(BaseModel):
+class ScryMigration(
+    Struct,
+    tag_field="object",
+    tag="migration",
+    kw_only=True,
+    omit_defaults=True,
+):
     """Model for https://scryfall.com/docs/api/migrations"""
 
-    object: Literal["migration"] = "migration"
     id: UUID
-    uri: HttpUrl
+    uri: str
     performed_at: dt.date
     migration_strategy: ScryMigrationStrategy
     old_scryfall_id: UUID
-    new_scryfall_id: Optional[UUID]
-    note: Optional[str]
+    new_scryfall_id: Optional[UUID] = None
+    note: Optional[str] = None
+
+
+class ScryList(
+    Struct,
+    tag_field="object",
+    tag="list",
+    kw_only=True,
+    omit_defaults=True,
+):
+    """Model for https://scryfall.com/docs/api/lists"""
+
+    data: List[Union[ScrySet, ScryCard, ScryBulkData, ScryMigration]]
+    has_more: bool
+    next_page: Optional[str] = None
+    total_cards: Optional[int] = None
+    warnings: Optional[List[str]] = None

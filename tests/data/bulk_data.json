@@ -1,18 +1,18 @@
 {
+  "object": "list",
   "data": [
     {
-      "content_encoding": "gzip",
-      "content_type": "application/json",
-      "description": "A JSON file containing every card object on Scryfall in English or the printed language if the card is only available in one language.",
-      "download_uri": "https://data.scryfall.io/default-cards/default-cards-20230219100623.json",
-      "id": "e2ef41e3-5778-4bc2-af3f-78eca4dd9c23",
-      "name": "Default Cards",
       "object": "bulk_data",
+      "id": "e2ef41e3-5778-4bc2-af3f-78eca4dd9c23",
+      "uri": "https://api.scryfall.com/bulk-data/e2ef41e3-5778-4bc2-af3f-78eca4dd9c23",
       "type": "default_cards",
-      "updated_at": "2023-02-19T10:06:23.553000+00:00",
-      "uri": "https://api.scryfall.com/bulk-data/e2ef41e3-5778-4bc2-af3f-78eca4dd9c23"
+      "name": "Default Cards",
+      "description": "A JSON file containing every card object on Scryfall in English or the printed language if the card is only available in one language.",
+      "download_uri": "https://data.scryfall.io/default-cards/default-cards-20230227220950.json",
+      "updated_at": "2023-02-27T22:09:50.254000Z",
+      "content_type": "application/json",
+      "content_encoding": "gzip"
     }
   ],
-  "has_more": false,
-  "object": "list"
+  "has_more": false
 }

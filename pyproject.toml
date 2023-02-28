@@ -40,9 +40,10 @@ classifiers = [
 
 dependencies = [
     "appdirs~=1.4",
+    "msgspec~=0.13",
     "openpyxl~=3.0",
-    "pydantic~=1.9",
     "requests~=2.27",
+    'requests-cache~=0.9.8',
 ]
 dynamic = ["version"]
 
@@ -96,7 +97,6 @@ local_scheme = "no-local-version"
 
 [tool.mypy]
 python_version = "3.8"
-plugins = "pydantic.mypy"
 
 follow_imports = "normal"
 disallow_untyped_defs = true

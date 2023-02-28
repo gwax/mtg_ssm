@@ -166,7 +166,10 @@ Changelog
 Development
 -----------
 
--   ...
+-   Improved scryfall caching performance and decreased cache folder size
+    by moving to requests-cache from manual caching.
+-   Huge scryfall read performance improvements by converting deserialization
+    and validation to msgspec (previously pydantic).
 
 2.5.2
 -----

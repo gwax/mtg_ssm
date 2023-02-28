@@ -4,6 +4,9 @@
 
 import copy
 from pathlib import Path
+from typing import List, cast
+
+import msgspec
 
 from mtg_ssm.scryfall import fetcher, models
 
@@ -80,10 +83,10 @@ def main() -> None:  # pylint: disable=too-many-locals,too-many-statements
     """Read scryfall data and write a subset for use as test data."""
     print("Fetching scryfall data")
     scrydata = fetcher.scryfetch()
-    bulk_json = fetcher._fetch_endpoint(
-        fetcher.BULK_DATA_ENDPOINT, dirty=False, write_cache=False
+    bulk_data_list = msgspec.json.decode(
+        fetcher._fetch_endpoint(fetcher.BULK_DATA_ENDPOINT), type=models.ScryList
     )
-    bulk_data = models.ScryObjectList[models.ScryBulkData].parse_obj(bulk_json).data
+    bulk_data = cast(List[models.ScryBulkData], bulk_data_list.data)
 
     print("Selecting sets")
     accepted_sets = sorted(
@@ -118,21 +121,21 @@ def main() -> None:  # pylint: disable=too-many-locals,too-many-statements
         cset.card_count = len([c for c in accepted_cards if c.set == cset.code])
 
     print("Writing sets")
-    sets_list = models.ScryObjectList[models.ScrySet](
+    sets_list = models.ScryList(
         data=accepted_sets,
         has_more=False,
         next_page=None,
         total_cards=None,
         warnings=None,
     )
-    sets_list1 = models.ScryObjectList[models.ScrySet](
+    sets_list1 = models.ScryList(
         data=accepted_sets[: len(accepted_sets) // 2],
         has_more=True,
         next_page=SETS_NEXTPAGE_URL,
         total_cards=None,
         warnings=None,
     )
-    sets_list2 = models.ScryObjectList[models.ScrySet](
+    sets_list2 = models.ScryList(
         data=accepted_sets[len(accepted_sets) // 2 :],
         has_more=False,
         next_page=None,
@@ -140,93 +143,52 @@ def main() -> None:  # pylint: disable=too-many-locals,too-many-statements
         warnings=None,
     )
     TEST_DATA_DIR.mkdir(exist_ok=True)
-    with TARGET_SETS_FILE.open("wt", encoding="utf-8") as sets_file:
-        sets_file.write(
-            sets_list.json(
-                ensure_ascii=False,
-                indent=2,
-                sort_keys=True,
-                exclude_none=True,
-            )
-        )
-        sets_file.write("\n")
-    with TARGET_SETS_FILE1.open("wt", encoding="utf-8") as sets_file1:
-        sets_file1.write(
-            sets_list1.json(
-                ensure_ascii=False,
-                indent=2,
-                sort_keys=True,
-                exclude_none=True,
-            )
-        )
-        sets_file1.write("\n")
-    with TARGET_SETS_FILE2.open("wt", encoding="utf-8") as sets_file2:
-        sets_file2.write(
-            sets_list2.json(
-                ensure_ascii=False,
-                indent=2,
-                sort_keys=True,
-                exclude_none=True,
-            )
-        )
-        sets_file2.write("\n")
+    with TARGET_SETS_FILE.open("wb") as sets_file:
+        sets_file.write(msgspec.json.format(msgspec.json.encode(sets_list), indent=2))
+        sets_file.write(b"\n")
+    with TARGET_SETS_FILE1.open("wb") as sets_file1:
+        sets_file1.write(msgspec.json.format(msgspec.json.encode(sets_list1), indent=2))
+        sets_file1.write(b"\n")
+    with TARGET_SETS_FILE2.open("wb") as sets_file2:
+        sets_file2.write(msgspec.json.format(msgspec.json.encode(sets_list2), indent=2))
+        sets_file2.write(b"\n")
 
     print("Writing migrations")
     accepted_migrations = sorted(
         (m for m in scrydata.migrations if m.new_scryfall_id in accepted_card_ids),
         key=lambda migr: migr.id,
     )
-    migrations_list = models.ScryObjectList[models.ScryMigration](
+    migrations_list = models.ScryList(
         data=accepted_migrations,
         has_more=False,
         next_page=None,
         total_cards=None,
         warnings=None,
     )
-    with TARGET_MIGRATIONS_FILE.open("wt", encoding="utf-8") as migrations_file:
+    with TARGET_MIGRATIONS_FILE.open("wb") as migrations_file:
         migrations_file.write(
-            migrations_list.json(
-                ensure_ascii=False,
-                indent=2,
-                sort_keys=True,
-                exclude_none=True,
-            )
+            msgspec.json.format(msgspec.json.encode(migrations_list), indent=2)
         )
-        migrations_file.write("\n")
+        migrations_file.write(b"\n")
 
     print("Writing cards")
-    with TARGET_CARDS_FILE.open("wt", encoding="utf-8") as cards_file:
-        root_list: models.ScryRootList[models.ScryCard] = models.ScryRootList(
-            __root__=accepted_cards
-        )
+    with TARGET_CARDS_FILE.open("wb") as cards_file:
         cards_file.write(
-            root_list.json(
-                ensure_ascii=False,
-                indent=2,
-                sort_keys=True,
-                exclude_none=True,
-            )
+            msgspec.json.format(msgspec.json.encode(accepted_cards), indent=2)
         )
-        cards_file.write("\n")
+        cards_file.write(b"\n")
 
     print("Writing bulk data")
-    bulk_list = models.ScryObjectList[models.ScryBulkData](
+    bulk_list = models.ScryList(
         data=accepted_bulk,
         has_more=False,
         next_page=None,
         total_cards=None,
         warnings=None,
     )
-    with TARGET_BULK_FILE.open("wt", encoding="utf-8") as bulk_file:
-        bulk_file.write(
-            bulk_list.json(
-                ensure_ascii=False,
-                indent=2,
-                sort_keys=True,
-                exclude_none=True,
-            )
-        )
-        bulk_file.write("\n")
+    with TARGET_BULK_FILE.open("wb") as bulk_file:
+        bulk_file.write(msgspec.json.format(msgspec.json.encode(bulk_list), indent=2))
+        bulk_file.write(b"\n")
 
     print("Done")
 
