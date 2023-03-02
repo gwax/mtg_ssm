@@ -276,12 +276,10 @@ def style_set_sheet(sheet: Worksheet) -> None:
 
 def rows_from_sheet(sheet: Worksheet) -> Iterable[Dict[str, str]]:
     """Read rows from an xlsx worksheet as dicts."""
-    header_row, *rows = iter(sheet.rows)
-    header = [cell.value for cell in header_row]
+    header, *rows = sheet.iter_rows(values_only=True)
     for row in rows:
-        values = [cell.value for cell in row]
-        if any(v is not None for v in values):
-            yield dict(zip(header, values), set=str(sheet.title))
+        if any(v is not None for v in row):
+            yield dict(zip(header, row), set=str(sheet.title))
 
 
 def rows_for_workbook(
@@ -336,7 +334,16 @@ class XlsxDialect(interface.SerializationDialect):
 
     def read(self, path: Path, oracle: Oracle) -> MagicCollection:
         """Read collection from an xlsx file."""
-        workbook = openpyxl.load_workbook(filename=str(path), read_only=True)
-        reader = rows_for_workbook(workbook, skip_sheets={"All Sets", "All Cards"})
-        card_counts = counts.aggregate_card_counts(reader, oracle)
+        workbook = openpyxl.load_workbook(
+            filename=str(path),
+            read_only=True,
+            data_only=True,
+            keep_links=False,
+            keep_vba=False,
+        )
+        try:
+            reader = rows_for_workbook(workbook, skip_sheets={"All Sets", "All Cards"})
+            card_counts = counts.aggregate_card_counts(reader, oracle)
+        finally:
+            workbook.close()
         return MagicCollection(oracle=oracle, counts=card_counts)
