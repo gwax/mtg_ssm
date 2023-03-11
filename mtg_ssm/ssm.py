@@ -84,7 +84,11 @@ def get_args(args: Optional[List[str]] = None) -> argparse.Namespace:
         help="Treat set promos as a separate set/tab",
     )
 
-    default_exclude_set_types = {ScrySetType.MEMORABILIA, ScrySetType.TOKEN}
+    default_exclude_set_types = {
+        ScrySetType.MEMORABILIA,
+        ScrySetType.TOKEN,
+        ScrySetType.MINIGAME,
+    }
     parser.add_argument(
         "--exclude-set-types",
         default=",".join(default_exclude_set_types),

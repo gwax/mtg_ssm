@@ -8,8 +8,8 @@
       "type": "default_cards",
       "name": "Default Cards",
       "description": "A JSON file containing every card object on Scryfall in English or the printed language if the card is only available in one language.",
-      "download_uri": "https://data.scryfall.io/default-cards/default-cards-20230227220950.json",
-      "updated_at": "2023-02-27T22:09:50.254000Z",
+      "download_uri": "https://data.scryfall.io/default-cards/default-cards-20230310220757.json",
+      "updated_at": "2023-03-10T22:07:57.155000Z",
       "content_type": "application/json",
       "content_encoding": "gzip"
     }

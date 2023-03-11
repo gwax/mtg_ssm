@@ -166,6 +166,9 @@ Changelog
 Development
 -----------
 
+-   Fix a bunch of tests for scryfall data changes, which change a number of
+    promo set card assignments.
+-   Add "minigame" to scryfall set type.
 -   Improved scryfall caching performance and decreased cache folder size
     by moving to requests-cache from manual caching.
 -   Huge scryfall read performance improvements by converting deserialization

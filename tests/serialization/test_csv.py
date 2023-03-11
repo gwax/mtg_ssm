@@ -23,7 +23,7 @@ TEST_CARD_ID = UUID("57f25ead-b3ec-4c40-972d-d750ed2f5319")
 @pytest.fixture(scope="session")
 def oracle(scryfall_data: ScryfallDataSet) -> Oracle:
     """Test fixture Oracle with limited data."""
-    accepted_sets = {"phop", "pmbs"}
+    accepted_sets = {"phop", "pmbs", "pdci"}
     scryfall_data2 = ScryfallDataSet(
         sets=[s for s in scryfall_data.sets if s.code in accepted_sets],
         cards=[c for c in scryfall_data.cards if c.set in accepted_sets],
@@ -63,6 +63,18 @@ def test_rows_for_cards_verbose(oracle: Oracle) -> None:
     rows = csv.rows_for_cards(collection, True)
     assert list(rows) == [
         {
+            "set": "PDCI",
+            "name": "Tazeem",
+            "collector_number": "41",
+            "scryfall_id": UUID("76e5383d-ac12-4abc-aa30-15e99ded2d6f"),
+        },
+        {
+            "set": "PDCI",
+            "name": "Black Sun's Zenith",
+            "collector_number": "68",
+            "scryfall_id": UUID("dd88131a-2811-4a1f-bb9a-c82e12c1493b"),
+        },
+        {
             "set": "PHOP",
             "name": "Stairs to Infinity",
             "collector_number": "P1",
@@ -70,22 +82,10 @@ def test_rows_for_cards_verbose(oracle: Oracle) -> None:
             "nonfoil": 3,
         },
         {
-            "collector_number": "41",
-            "name": "Tazeem",
-            "scryfall_id": UUID("76e5383d-ac12-4abc-aa30-15e99ded2d6f"),
-            "set": "PHOP",
-        },
-        {
             "set": "PMBS",
             "name": "Hero of Bladehold",
             "collector_number": "8★",
             "scryfall_id": UUID("8829efa0-498a-43ca-91aa-f9caeeafe298"),
-        },
-        {
-            "set": "PMBS",
-            "name": "Black Sun's Zenith",
-            "collector_number": "39",
-            "scryfall_id": UUID("dd88131a-2811-4a1f-bb9a-c82e12c1493b"),
         },
     ]
 

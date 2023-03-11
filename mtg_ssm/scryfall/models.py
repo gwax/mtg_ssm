@@ -46,6 +46,7 @@ class ScrySetType(str, Enum):
     MEMORABILIA = "memorabilia"
     ALCHEMY = "alchemy"
     ARSENAL = "arsenal"
+    MINIGAME = "minigame"
 
 
 class ScryCardLayout(str, Enum):
