@@ -166,6 +166,11 @@ Changelog
 Development
 -----------
 
+-   ...
+
+2.6.0
+-----
+
 -   Fix a bunch of tests for scryfall data changes, which change a number of
     promo set card assignments.
 -   Add "minigame" to scryfall set type.
