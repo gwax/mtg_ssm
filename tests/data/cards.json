@@ -20,7 +20,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 4159,
+    "edhrec_rank": 4168,
     "foil": false,
     "keywords": [],
     "layout": "normal",
@@ -37,6 +37,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -51,7 +52,7 @@
     "nonfoil": true,
     "oracle_text": "Artifacts you control have hexproof. (They can't be the targets of spells or abilities your opponents control.)",
     "oversized": false,
-    "penny_rank": 8836,
+    "penny_rank": 8902,
     "power": "2",
     "reserved": false,
     "toughness": "5",
@@ -89,7 +90,7 @@
       "usd": "0.77",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.74",
+      "eur": "0.40",
       "eur_foil": null,
       "tix": null
     },
@@ -163,7 +164,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 20541,
+    "edhrec_rank": 20524,
     "foil": true,
     "keywords": [
       "Flying"
@@ -182,6 +183,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -233,7 +235,7 @@
       "usd": "0.11",
       "usd_foil": "0.28",
       "usd_etched": null,
-      "eur": "0.05",
+      "eur": "0.09",
       "eur_foil": "0.59",
       "tix": "0.02"
     },
@@ -277,7 +279,7 @@
     "cmc": 0.0,
     "colors": [],
     "color_identity": [],
-    "edhrec_rank": 1976,
+    "edhrec_rank": 1979,
     "foil": true,
     "keywords": [],
     "layout": "normal",
@@ -294,6 +296,7 @@
       "vintage": "legal",
       "penny": "not_legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -344,12 +347,12 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/0/1/0180d9a8-992c-4d55-8ac4-33a587786993.jpg?1562757082"
     },
     "prices": {
-      "usd": "22.91",
+      "usd": "22.68",
       "usd_foil": "108.88",
       "usd_etched": null,
-      "eur": "9.50",
-      "eur_foil": "67.00",
-      "tix": "0.20"
+      "eur": "15.90",
+      "eur_foil": "37.50",
+      "tix": "0.22"
     },
     "promo": false,
     "rarity": "rare",
@@ -421,7 +424,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 12440,
+    "edhrec_rank": 12469,
     "foil": true,
     "keywords": [
       "Bushido",
@@ -441,6 +444,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -454,7 +458,7 @@
     "name": "Bushi Tenderfoot // Kenzo the Hardhearted",
     "nonfoil": true,
     "oversized": false,
-    "penny_rank": 9462,
+    "penny_rank": 9564,
     "power": "1",
     "reserved": false,
     "toughness": "1",
@@ -490,10 +494,10 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/8/6/864ad989-19a6-4930-8efc-bbc077a18c32.jpg?1562762069"
     },
     "prices": {
-      "usd": "0.23",
+      "usd": "0.24",
       "usd_foil": "6.85",
       "usd_etched": null,
-      "eur": "0.02",
+      "eur": "0.05",
       "eur_foil": "4.95",
       "tix": "0.02"
     },
@@ -541,7 +545,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 16801,
+    "edhrec_rank": 16876,
     "foil": true,
     "keywords": [
       "Cumulative upkeep"
@@ -560,6 +564,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -574,7 +579,7 @@
     "nonfoil": true,
     "oracle_text": "Cumulative upkeep—Put two cards from a single graveyard on the bottom of their owner's library. (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)",
     "oversized": false,
-    "penny_rank": 10706,
+    "penny_rank": 10808,
     "power": "4",
     "reserved": false,
     "toughness": "4",
@@ -677,7 +682,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 6571,
+    "edhrec_rank": 6581,
     "foil": false,
     "keywords": [],
     "layout": "normal",
@@ -694,6 +699,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -708,7 +714,7 @@
     "nonfoil": true,
     "oracle_text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Create a 1/1 green Saproling creature token.",
     "oversized": false,
-    "penny_rank": 8874,
+    "penny_rank": 8836,
     "power": "1",
     "reserved": false,
     "toughness": "1",
@@ -745,7 +751,7 @@
       "usd": "0.20",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.12",
+      "eur": "0.05",
       "eur_foil": null,
       "tix": null
     },
@@ -809,7 +815,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 6571,
+    "edhrec_rank": 6581,
     "foil": false,
     "keywords": [],
     "layout": "normal",
@@ -826,6 +832,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -840,7 +847,7 @@
     "nonfoil": true,
     "oracle_text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Create a 1/1 green Saproling creature token.",
     "oversized": false,
-    "penny_rank": 8874,
+    "penny_rank": 8836,
     "power": "1",
     "reserved": false,
     "toughness": "1",
@@ -877,7 +884,7 @@
       "usd": "0.18",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.04",
+      "eur": "0.05",
       "eur_foil": null,
       "tix": null
     },
@@ -941,7 +948,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 6571,
+    "edhrec_rank": 6581,
     "foil": false,
     "keywords": [],
     "layout": "normal",
@@ -958,6 +965,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -972,7 +980,7 @@
     "nonfoil": true,
     "oracle_text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Create a 1/1 green Saproling creature token.",
     "oversized": false,
-    "penny_rank": 8874,
+    "penny_rank": 8836,
     "power": "1",
     "reserved": false,
     "toughness": "1",
@@ -1009,7 +1017,7 @@
       "usd": "0.21",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.10",
+      "eur": "0.05",
       "eur_foil": null,
       "tix": null
     },
@@ -1073,7 +1081,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 6571,
+    "edhrec_rank": 6581,
     "foil": false,
     "keywords": [],
     "layout": "normal",
@@ -1090,6 +1098,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -1104,7 +1113,7 @@
     "nonfoil": true,
     "oracle_text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Create a 1/1 green Saproling creature token.",
     "oversized": false,
-    "penny_rank": 8874,
+    "penny_rank": 8836,
     "power": "1",
     "reserved": false,
     "toughness": "1",
@@ -1141,7 +1150,7 @@
       "usd": "0.19",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.10",
+      "eur": "0.15",
       "eur_foil": null,
       "tix": null
     },
@@ -1187,7 +1196,7 @@
     "color_identity": [
       "B"
     ],
-    "edhrec_rank": 18662,
+    "edhrec_rank": 18712,
     "foil": false,
     "keywords": [
       "Protection",
@@ -1207,6 +1216,7 @@
       "vintage": "legal",
       "penny": "not_legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -1258,7 +1268,7 @@
       "usd": "0.18",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.02",
+      "eur": "0.15",
       "eur_foil": null,
       "tix": null
     },
@@ -1304,7 +1314,7 @@
     "color_identity": [
       "B"
     ],
-    "edhrec_rank": 18662,
+    "edhrec_rank": 18712,
     "foil": false,
     "keywords": [
       "Protection",
@@ -1324,6 +1334,7 @@
       "vintage": "legal",
       "penny": "not_legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -1375,7 +1386,7 @@
       "usd": "0.18",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.03",
+      "eur": "0.05",
       "eur_foil": null,
       "tix": null
     },
@@ -1423,7 +1434,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 2581,
+    "edhrec_rank": 2592,
     "foil": false,
     "keywords": [
       "Cycling"
@@ -1442,6 +1453,7 @@
       "vintage": "legal",
       "penny": "not_legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -1559,6 +1571,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "banned",
       "brawl": "not_legal",
       "historicbrawl": "legal",
       "alchemy": "not_legal",
@@ -1677,6 +1690,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "banned",
       "brawl": "not_legal",
       "historicbrawl": "legal",
       "alchemy": "not_legal",
@@ -1728,12 +1742,12 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/4/e/4ebcd681-1871-4914-bcd7-6bd95829f6e0.jpg?1562909407"
     },
     "prices": {
-      "usd": "1.03",
+      "usd": "1.04",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.76",
+      "eur": "0.46",
       "eur_foil": null,
-      "tix": "1.46"
+      "tix": "1.85"
     },
     "promo": false,
     "rarity": "common",
@@ -1792,6 +1806,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "legal",
       "historicbrawl": "legal",
       "alchemy": "legal",
@@ -1844,7 +1859,7 @@
       "usd": "0.91",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.45",
+      "eur": "0.20",
       "eur_foil": null,
       "tix": "0.11"
     },
@@ -1905,6 +1920,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "legal",
       "historicbrawl": "legal",
       "alchemy": "legal",
@@ -1954,10 +1970,10 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/b/3/b346b784-7bde-49d0-bfa9-56236cbe19d9.jpg?1562928391"
     },
     "prices": {
-      "usd": "1.03",
+      "usd": "1.01",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.15",
+      "eur": "0.30",
       "eur_foil": null,
       "tix": "0.80"
     },
@@ -2018,6 +2034,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "legal",
       "historicbrawl": "legal",
       "alchemy": "legal",
@@ -2067,10 +2084,10 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/7/6/768c4d8f-5700-4f0a-9ff2-58422aeb1dac.jpg?1562916916"
     },
     "prices": {
-      "usd": "0.45",
+      "usd": "0.48",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.37",
+      "eur": "0.19",
       "eur_foil": null,
       "tix": "2.85"
     },
@@ -2131,6 +2148,7 @@
       "vintage": "legal",
       "penny": "not_legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "legal",
       "alchemy": "not_legal",
@@ -2180,12 +2198,12 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/4/c/4c0ad95c-d62c-4138-ada0-fa39a63a449e.jpg?1562908930"
     },
     "prices": {
-      "usd": "2.00",
+      "usd": "2.07",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "1.11",
+      "eur": "2.75",
       "eur_foil": null,
-      "tix": "2.25"
+      "tix": "2.09"
     },
     "promo": false,
     "rarity": "common",
@@ -2231,7 +2249,7 @@
     "color_identity": [
       "B"
     ],
-    "edhrec_rank": 15642,
+    "edhrec_rank": 15621,
     "foil": true,
     "keywords": [
       "First strike"
@@ -2250,6 +2268,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -2264,7 +2283,7 @@
     "nonfoil": true,
     "oracle_text": "First strike\nWhenever a creature dealt damage by Abattoir Ghoul this turn dies, you gain life equal to that creature's toughness.",
     "oversized": false,
-    "penny_rank": 4728,
+    "penny_rank": 4727,
     "power": "3",
     "reserved": false,
     "toughness": "2",
@@ -2403,7 +2422,7 @@
     "color_identity": [
       "U"
     ],
-    "edhrec_rank": 11715,
+    "edhrec_rank": 11722,
     "foil": true,
     "keywords": [
       "Flying",
@@ -2423,6 +2442,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "legal",
       "historicbrawl": "legal",
       "alchemy": "legal",
@@ -2462,11 +2482,11 @@
     "highres_image": true,
     "image_status": "highres_scan",
     "prices": {
-      "usd": "0.56",
+      "usd": "0.61",
       "usd_foil": "6.68",
       "usd_etched": null,
-      "eur": "0.91",
-      "eur_foil": "4.65",
+      "eur": "0.53",
+      "eur_foil": "5.75",
       "tix": "0.02"
     },
     "promo": false,
@@ -2527,6 +2547,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "legal",
       "historicbrawl": "legal",
       "alchemy": "legal",
@@ -2580,8 +2601,8 @@
       "usd": "0.17",
       "usd_foil": "1.44",
       "usd_etched": null,
-      "eur": "0.10",
-      "eur_foil": "0.39",
+      "eur": "0.09",
+      "eur_foil": "1.00",
       "tix": "0.02"
     },
     "promo": false,
@@ -2642,6 +2663,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "legal",
       "historicbrawl": "legal",
       "alchemy": "legal",
@@ -2695,8 +2717,8 @@
       "usd": "0.18",
       "usd_foil": "1.37",
       "usd_etched": null,
-      "eur": "0.10",
-      "eur_foil": "0.30",
+      "eur": "0.09",
+      "eur_foil": "0.80",
       "tix": "0.03"
     },
     "promo": false,
@@ -2757,6 +2779,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "legal",
       "historicbrawl": "legal",
       "alchemy": "legal",
@@ -2810,7 +2833,7 @@
       "usd": "0.20",
       "usd_foil": "0.61",
       "usd_etched": null,
-      "eur": "0.15",
+      "eur": "0.09",
       "eur_foil": "0.99",
       "tix": "0.03"
     },
@@ -2884,6 +2907,7 @@
       "vintage": "not_legal",
       "penny": "not_legal",
       "commander": "not_legal",
+      "oathbreaker": "not_legal",
       "brawl": "not_legal",
       "historicbrawl": "legal",
       "alchemy": "not_legal",
@@ -2998,7 +3022,7 @@
     "cmc": 4.0,
     "colors": [],
     "color_identity": [],
-    "edhrec_rank": 1388,
+    "edhrec_rank": 1393,
     "foil": true,
     "keywords": [],
     "layout": "normal",
@@ -3015,6 +3039,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -3065,11 +3090,11 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/6/b/6bf084fe-7762-49c5-974a-cdecc10666b3.jpg?1639436665"
     },
     "prices": {
-      "usd": "1.83",
-      "usd_foil": "2.06",
+      "usd": "1.66",
+      "usd_foil": "1.97",
       "usd_etched": null,
-      "eur": "0.85",
-      "eur_foil": "1.43",
+      "eur": "0.94",
+      "eur_foil": "1.50",
       "tix": "0.02"
     },
     "promo": false,
@@ -3134,7 +3159,7 @@
     "cmc": 4.0,
     "colors": [],
     "color_identity": [],
-    "edhrec_rank": 1388,
+    "edhrec_rank": 1393,
     "foil": true,
     "keywords": [],
     "layout": "normal",
@@ -3151,6 +3176,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -3203,10 +3229,10 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/e/a/ea524e81-4898-4a41-8b34-06defd26e4c7.jpg?1631056797"
     },
     "prices": {
-      "usd": "1.33",
-      "usd_foil": "1.67",
+      "usd": "1.42",
+      "usd_foil": "1.73",
       "usd_etched": null,
-      "eur": "2.00",
+      "eur": "1.90",
       "eur_foil": "1.80",
       "tix": null
     },
@@ -3261,7 +3287,7 @@
     "color_identity": [
       "U"
     ],
-    "edhrec_rank": 17640,
+    "edhrec_rank": 17698,
     "foil": false,
     "keywords": [
       "Flying"
@@ -3280,6 +3306,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "legal",
       "alchemy": "legal",
@@ -3294,7 +3321,7 @@
     "nonfoil": true,
     "oracle_text": "Flying",
     "oversized": false,
-    "penny_rank": 6504,
+    "penny_rank": 6499,
     "power": "4",
     "reserved": false,
     "toughness": "4",
@@ -3395,6 +3422,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "banned",
       "brawl": "not_legal",
       "historicbrawl": "legal",
       "alchemy": "not_legal",
@@ -3507,6 +3535,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "legal",
       "historicbrawl": "legal",
       "alchemy": "legal",
@@ -3618,6 +3647,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "legal",
       "historicbrawl": "legal",
       "alchemy": "legal",
@@ -3666,7 +3696,7 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/f/2/f20c89d9-71c9-45f5-a9cb-6e253b0a7cca.jpg?1559591510"
     },
     "prices": {
-      "usd": "78.29",
+      "usd": "76.63",
       "usd_foil": null,
       "usd_etched": null,
       "eur": "29.99",
@@ -3717,7 +3747,7 @@
     "color_identity": [
       "B"
     ],
-    "edhrec_rank": 1635,
+    "edhrec_rank": 1638,
     "foil": true,
     "keywords": [],
     "layout": "normal",
@@ -3734,6 +3764,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -3783,11 +3814,11 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/0/3/03bdcf52-50b8-42c0-9665-931d83f5f314.jpg?1562609329"
     },
     "prices": {
-      "usd": "5.45",
-      "usd_foil": "11.56",
+      "usd": "5.58",
+      "usd_foil": "11.92",
       "usd_etched": null,
-      "eur": "5.06",
-      "eur_foil": "3.95",
+      "eur": "4.61",
+      "eur_foil": "9.49",
       "tix": "0.02"
     },
     "promo": false,
@@ -3853,7 +3884,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 2265,
+    "edhrec_rank": 2268,
     "foil": true,
     "keywords": [
       "Battle Cry"
@@ -3872,6 +3903,7 @@
       "vintage": "legal",
       "penny": "not_legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -3921,12 +3953,12 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/8/a/8a3853ec-e307-46e0-96d7-0706b5c45c5e.jpg?1562612851"
     },
     "prices": {
-      "usd": "15.61",
-      "usd_foil": "25.93",
+      "usd": "15.49",
+      "usd_foil": "26.66",
       "usd_etched": null,
-      "eur": "6.31",
+      "eur": "8.15",
       "eur_foil": "11.00",
-      "tix": "0.09"
+      "tix": "0.10"
     },
     "promo": false,
     "rarity": "mythic",
@@ -3991,7 +4023,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 6571,
+    "edhrec_rank": 6581,
     "foil": true,
     "keywords": [],
     "layout": "normal",
@@ -4008,6 +4040,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -4022,7 +4055,7 @@
     "nonfoil": true,
     "oracle_text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Create a 1/1 green Saproling creature token.",
     "oversized": false,
-    "penny_rank": 8874,
+    "penny_rank": 8836,
     "power": "1",
     "reserved": false,
     "toughness": "1",
@@ -4059,10 +4092,10 @@
     },
     "prices": {
       "usd": "0.28",
-      "usd_foil": "0.50",
+      "usd_foil": "0.51",
       "usd_etched": null,
       "eur": "0.15",
-      "eur_foil": "0.98",
+      "eur_foil": "1.27",
       "tix": "0.03"
     },
     "promo": false,
@@ -4107,7 +4140,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 129,
+    "edhrec_rank": 127,
     "foil": true,
     "keywords": [
       "Channel"
@@ -4126,6 +4159,7 @@
       "vintage": "legal",
       "penny": "not_legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "legal",
       "historicbrawl": "legal",
       "alchemy": "legal",
@@ -4180,12 +4214,12 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/2/1/2135ac5a-187b-4dc9-8f82-34e8d1603416.jpg?1654568912"
     },
     "prices": {
-      "usd": "39.26",
-      "usd_foil": "38.71",
+      "usd": "37.02",
+      "usd_foil": "40.06",
       "usd_etched": null,
-      "eur": "38.23",
-      "eur_foil": "38.43",
-      "tix": "59.90"
+      "eur": "38.97",
+      "eur_foil": "37.72",
+      "tix": "54.84"
     },
     "promo": false,
     "rarity": "rare",
@@ -4234,7 +4268,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 129,
+    "edhrec_rank": 127,
     "foil": true,
     "keywords": [
       "Channel"
@@ -4253,6 +4287,7 @@
       "vintage": "legal",
       "penny": "not_legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "legal",
       "historicbrawl": "legal",
       "alchemy": "legal",
@@ -4307,11 +4342,11 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/0/0/0055ea30-20fb-4324-a632-8fed87628f05.jpg?1647145068"
     },
     "prices": {
-      "usd": "44.99",
-      "usd_foil": "73.69",
+      "usd": "42.43",
+      "usd_foil": "73.67",
       "usd_etched": null,
-      "eur": "46.54",
-      "eur_foil": "64.45",
+      "eur": "48.97",
+      "eur_foil": "69.00",
       "tix": null
     },
     "promo": false,
@@ -4363,7 +4398,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 129,
+    "edhrec_rank": 127,
     "foil": true,
     "keywords": [
       "Channel"
@@ -4382,6 +4417,7 @@
       "vintage": "legal",
       "penny": "not_legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "legal",
       "historicbrawl": "legal",
       "alchemy": "legal",
@@ -4437,11 +4473,11 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/2/4/2488a80b-6882-4b59-8232-f02f800204a9.jpg?1647809455"
     },
     "prices": {
-      "usd": "39.76",
-      "usd_foil": "44.39",
+      "usd": "40.90",
+      "usd_foil": "45.41",
       "usd_etched": null,
-      "eur": "44.88",
-      "eur_foil": "49.94",
+      "eur": "41.65",
+      "eur_foil": "54.67",
       "tix": null
     },
     "promo": false,
@@ -4507,6 +4543,7 @@
       "vintage": "not_legal",
       "penny": "not_legal",
       "commander": "not_legal",
+      "oathbreaker": "not_legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -4553,10 +4590,10 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/1/7/17b941e9-5dcc-473e-a461-709d74e32a3c.jpg?1562252328"
     },
     "prices": {
-      "usd": "20.61",
+      "usd": "18.08",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "13.91",
+      "eur": "15.00",
       "eur_foil": null,
       "tix": null
     },
@@ -4616,6 +4653,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "legal",
       "alchemy": "not_legal",
@@ -4666,11 +4704,11 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/7/0/7019912c-bd9b-4b96-9388-400794909aa1.jpg?1562917413"
     },
     "prices": {
-      "usd": "1.05",
-      "usd_foil": "7.64",
+      "usd": "1.04",
+      "usd_foil": "7.66",
       "usd_etched": null,
-      "eur": "0.34",
-      "eur_foil": "4.99",
+      "eur": "0.28",
+      "eur_foil": "6.20",
       "tix": "0.02"
     },
     "promo": false,
@@ -4727,6 +4765,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "legal",
       "alchemy": "not_legal",
@@ -4779,7 +4818,7 @@
       "usd": "2.69",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.99",
+      "eur": "1.24",
       "eur_foil": null,
       "tix": null
     },
@@ -4839,6 +4878,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "legal",
       "alchemy": "not_legal",
@@ -4892,9 +4932,9 @@
       "usd": "1.10",
       "usd_foil": "10.49",
       "usd_etched": null,
-      "eur": "0.34",
-      "eur_foil": "10.98",
-      "tix": "0.02"
+      "eur": "0.26",
+      "eur_foil": "10.99",
+      "tix": "0.03"
     },
     "promo": false,
     "rarity": "common",
@@ -4950,6 +4990,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "legal",
       "alchemy": "not_legal",
@@ -4999,10 +5040,10 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/6/0/60682c00-c661-4a9d-8326-f3f014a04e3e.jpg?1562914528"
     },
     "prices": {
-      "usd": "1.29",
+      "usd": "1.28",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "1.50",
+      "eur": "0.55",
       "eur_foil": null,
       "tix": null
     },
@@ -5060,6 +5101,7 @@
       "vintage": "not_legal",
       "penny": "not_legal",
       "commander": "not_legal",
+      "oathbreaker": "not_legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -5168,6 +5210,7 @@
       "vintage": "not_legal",
       "penny": "not_legal",
       "commander": "not_legal",
+      "oathbreaker": "not_legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -5214,10 +5257,10 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/f/a/fabef637-fb4b-41b5-8d12-5568e84c6d11.jpg?1658417480"
     },
     "prices": {
-      "usd": "1.18",
+      "usd": "1.22",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.75",
+      "eur": "1.04",
       "eur_foil": null,
       "tix": "0.03"
     },
@@ -5275,6 +5318,7 @@
       "vintage": "not_legal",
       "penny": "not_legal",
       "commander": "not_legal",
+      "oathbreaker": "not_legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -5321,10 +5365,10 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/3/6/36ab24d3-ca9d-4b9c-8c28-4dd1f05a2314.jpg?1547434158"
     },
     "prices": {
-      "usd": "4.75",
+      "usd": "3.24",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.75",
+      "eur": "1.02",
       "eur_foil": null,
       "tix": null
     },
@@ -5809,6 +5853,7 @@
       "vintage": "not_legal",
       "penny": "not_legal",
       "commander": "not_legal",
+      "oathbreaker": "not_legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -5910,7 +5955,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 16624,
+    "edhrec_rank": 16532,
     "foil": false,
     "keywords": [
       "Flying",
@@ -5930,6 +5975,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -5982,7 +6028,7 @@
       "usd": "0.22",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.29",
+      "eur": "0.15",
       "eur_foil": null,
       "tix": "0.05"
     },
@@ -6026,7 +6072,7 @@
     "color_identity": [
       "B"
     ],
-    "edhrec_rank": 1635,
+    "edhrec_rank": 1638,
     "foil": true,
     "keywords": [],
     "layout": "normal",
@@ -6043,6 +6089,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -6090,7 +6137,7 @@
     },
     "prices": {
       "usd": null,
-      "usd_foil": "28.58",
+      "usd_foil": "28.73",
       "usd_etched": null,
       "eur": null,
       "eur_foil": "13.99",
@@ -6152,6 +6199,7 @@
       "vintage": "not_legal",
       "penny": "not_legal",
       "commander": "not_legal",
+      "oathbreaker": "not_legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -6197,7 +6245,7 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/7/6/76e5383d-ac12-4abc-aa30-15e99ded2d6f.jpg?1677544167"
     },
     "prices": {
-      "usd": "7.90",
+      "usd": "8.47",
       "usd_foil": null,
       "usd_etched": null,
       "eur": "15.00",
@@ -6244,7 +6292,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 10535,
+    "edhrec_rank": 10559,
     "foil": true,
     "keywords": [
       "Bolster"
@@ -6263,6 +6311,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -6277,7 +6326,7 @@
     "nonfoil": false,
     "oracle_text": "At the beginning of your end step, bolster X, where X is the number of tapped creatures you control. (Choose a creature with the least toughness among creatures you control and put X +1/+1 counters on it.)",
     "oversized": false,
-    "penny_rank": 5088,
+    "penny_rank": 5110,
     "power": "2",
     "reserved": false,
     "toughness": "3",
@@ -6364,7 +6413,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 10535,
+    "edhrec_rank": 10559,
     "foil": true,
     "keywords": [
       "Bolster"
@@ -6383,6 +6432,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -6397,7 +6447,7 @@
     "nonfoil": false,
     "oracle_text": "At the beginning of your end step, bolster X, where X is the number of tapped creatures you control. (Choose a creature with the least toughness among creatures you control and put X +1/+1 counters on it.)",
     "oversized": false,
-    "penny_rank": 5088,
+    "penny_rank": 5110,
     "power": "2",
     "reserved": false,
     "toughness": "3",
@@ -6433,7 +6483,7 @@
     },
     "prices": {
       "usd": null,
-      "usd_foil": "0.51",
+      "usd_foil": "0.44",
       "usd_etched": null,
       "eur": null,
       "eur_foil": "0.95",
@@ -6499,6 +6549,7 @@
       "vintage": "not_legal",
       "penny": "not_legal",
       "commander": "not_legal",
+      "oathbreaker": "not_legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -6545,10 +6596,10 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/5/7/57f25ead-b3ec-4c40-972d-d750ed2f5319.jpg?1549805757"
     },
     "prices": {
-      "usd": "3.80",
+      "usd": "3.70",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.75",
+      "eur": "1.99",
       "eur_foil": null,
       "tix": null
     },
@@ -6593,7 +6644,7 @@
     "cmc": 0.0,
     "colors": [],
     "color_identity": [],
-    "edhrec_rank": 8319,
+    "edhrec_rank": 8334,
     "foil": false,
     "keywords": [
       "Fight"
@@ -6612,6 +6663,7 @@
       "vintage": "legal",
       "penny": "not_legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -6626,7 +6678,7 @@
     "nonfoil": true,
     "oracle_text": "{3}, {T}: Tap target creature you control and target creature of an opponent's choice they control. Those creatures fight each other. (Each deals damage equal to its power to the other.)",
     "oversized": false,
-    "penny_rank": 5142,
+    "penny_rank": 5125,
     "reserved": false,
     "type_line": "Land",
     "artist": "Rob Alexander",
@@ -6658,10 +6710,10 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/2/f/2f989fda-2e54-427c-9154-4820c48abb02.jpg?1561756864"
     },
     "prices": {
-      "usd": "8.46",
+      "usd": "8.48",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "4.50",
+      "eur": "5.00",
       "eur_foil": null,
       "tix": null
     },
@@ -6733,7 +6785,7 @@
     "color_identity": [
       "R"
     ],
-    "edhrec_rank": 8405,
+    "edhrec_rank": 8392,
     "foil": true,
     "keywords": [],
     "layout": "split",
@@ -6750,6 +6802,7 @@
       "vintage": "legal",
       "penny": "not_legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -6800,9 +6853,9 @@
       "usd": "1.64",
       "usd_foil": "13.05",
       "usd_etched": null,
-      "eur": "0.50",
+      "eur": "0.20",
       "eur_foil": "2.45",
-      "tix": "0.15"
+      "tix": "0.16"
     },
     "promo": false,
     "rarity": "rare",
@@ -6852,7 +6905,7 @@
       "U",
       "W"
     ],
-    "edhrec_rank": 11385,
+    "edhrec_rank": 11400,
     "foil": true,
     "keywords": [],
     "layout": "normal",
@@ -6869,6 +6922,7 @@
       "vintage": "legal",
       "penny": "not_legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -6883,7 +6937,7 @@
     "nonfoil": true,
     "oracle_text": "{U}, {T}, Sacrifice a creature or enchantment: Counter target spell.",
     "oversized": false,
-    "penny_rank": 11155,
+    "penny_rank": 11108,
     "power": "3",
     "reserved": false,
     "toughness": "4",
@@ -6920,10 +6974,10 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/6/6/66b950d9-8fef-4deb-b51b-26edb90abc56.jpg?1586450720"
     },
     "prices": {
-      "usd": "4.01",
+      "usd": "3.92",
       "usd_foil": "106.39",
       "usd_etched": null,
-      "eur": "1.76",
+      "eur": "1.28",
       "eur_foil": "45.97",
       "tix": "0.14"
     },
@@ -6973,7 +7027,7 @@
       "U",
       "W"
     ],
-    "edhrec_rank": 11385,
+    "edhrec_rank": 11400,
     "foil": true,
     "keywords": [],
     "layout": "normal",
@@ -6990,6 +7044,7 @@
       "vintage": "legal",
       "penny": "not_legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -7004,7 +7059,7 @@
     "nonfoil": false,
     "oracle_text": "{U}, {T}, Sacrifice a creature or enchantment: Counter target spell.",
     "oversized": false,
-    "penny_rank": 11155,
+    "penny_rank": 11108,
     "power": "3",
     "reserved": false,
     "toughness": "4",
@@ -7044,7 +7099,7 @@
       "usd_foil": null,
       "usd_etched": null,
       "eur": null,
-      "eur_foil": "115.00",
+      "eur_foil": "434.99",
       "tix": null
     },
     "promo": false,
@@ -7105,7 +7160,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 2265,
+    "edhrec_rank": 2268,
     "foil": true,
     "keywords": [
       "Battle Cry"
@@ -7124,6 +7179,7 @@
       "vintage": "legal",
       "penny": "not_legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -7172,10 +7228,10 @@
     },
     "prices": {
       "usd": null,
-      "usd_foil": "16.36",
+      "usd_foil": "16.62",
       "usd_etched": null,
       "eur": null,
-      "eur_foil": "1.50",
+      "eur_foil": "5.12",
       "tix": null
     },
     "promo": true,
@@ -7221,7 +7277,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 129,
+    "edhrec_rank": 127,
     "foil": true,
     "keywords": [
       "Channel"
@@ -7240,6 +7296,7 @@
       "vintage": "legal",
       "penny": "not_legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "legal",
       "historicbrawl": "legal",
       "alchemy": "legal",
@@ -7292,11 +7349,11 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/d/d/dda82840-1f3f-4be7-9bc7-66ff551ef5c0.jpg?1675617053"
     },
     "prices": {
-      "usd": "32.95",
-      "usd_foil": "31.24",
+      "usd": "34.25",
+      "usd_foil": "32.17",
       "usd_etched": null,
-      "eur": "33.00",
-      "eur_foil": "34.50",
+      "eur": "31.67",
+      "eur_foil": "40.00",
       "tix": null
     },
     "promo": true,
@@ -7341,7 +7398,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 129,
+    "edhrec_rank": 127,
     "foil": true,
     "keywords": [
       "Channel"
@@ -7360,6 +7417,7 @@
       "vintage": "legal",
       "penny": "not_legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "legal",
       "historicbrawl": "legal",
       "alchemy": "legal",
@@ -7415,7 +7473,7 @@
       "usd_foil": "33.84",
       "usd_etched": null,
       "eur": null,
-      "eur_foil": "33.99",
+      "eur_foil": "40.00",
       "tix": null
     },
     "promo": true,
@@ -7480,7 +7538,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 3899,
+    "edhrec_rank": 3910,
     "foil": true,
     "keywords": [
       "Afterlife"
@@ -7499,6 +7557,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "legal",
       "alchemy": "not_legal",
@@ -7513,7 +7572,7 @@
     "nonfoil": true,
     "oracle_text": "During your turn, spells your opponents cast cost {1} more to cast and abilities your opponents activate cost {1} more to activate unless they're mana abilities.\nAfterlife 1 (When this creature dies, create a 1/1 white and black Spirit creature token with flying.)",
     "oversized": false,
-    "penny_rank": 1662,
+    "penny_rank": 1661,
     "power": "2",
     "reserved": false,
     "toughness": "1",
@@ -7549,10 +7608,10 @@
     },
     "prices": {
       "usd": "0.79",
-      "usd_foil": "1.44",
+      "usd_foil": "1.43",
       "usd_etched": null,
-      "eur": "0.58",
-      "eur_foil": "1.40",
+      "eur": "0.50",
+      "eur_foil": "1.25",
       "tix": null
     },
     "promo": true,
@@ -7619,7 +7678,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 3899,
+    "edhrec_rank": 3910,
     "foil": true,
     "keywords": [
       "Afterlife"
@@ -7638,6 +7697,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "legal",
       "alchemy": "not_legal",
@@ -7652,7 +7712,7 @@
     "nonfoil": false,
     "oracle_text": "During your turn, spells your opponents cast cost {1} more to cast and abilities your opponents activate cost {1} more to activate unless they're mana abilities.\nAfterlife 1 (When this creature dies, create a 1/1 white and black Spirit creature token with flying.)",
     "oversized": false,
-    "penny_rank": 1662,
+    "penny_rank": 1661,
     "power": "2",
     "reserved": false,
     "toughness": "1",
@@ -7753,6 +7813,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "legal",
       "historicbrawl": "legal",
       "alchemy": "legal",
@@ -7867,6 +7928,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "legal",
       "historicbrawl": "legal",
       "alchemy": "legal",
@@ -7919,7 +7981,7 @@
       "usd_foil": "3.44",
       "usd_etched": null,
       "eur": null,
-      "eur_foil": "1.96",
+      "eur_foil": "1.58",
       "tix": null
     },
     "promo": true,
@@ -8037,6 +8099,7 @@
       "vintage": "not_legal",
       "penny": "not_legal",
       "commander": "not_legal",
+      "oathbreaker": "not_legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -8138,6 +8201,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -8187,7 +8251,7 @@
       "usd": "140.40",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "32.00",
+      "eur": "22.90",
       "eur_foil": null,
       "tix": null
     },
@@ -8253,7 +8317,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 3899,
+    "edhrec_rank": 3910,
     "foil": true,
     "keywords": [
       "Afterlife"
@@ -8272,6 +8336,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "legal",
       "alchemy": "not_legal",
@@ -8286,7 +8351,7 @@
     "nonfoil": true,
     "oracle_text": "During your turn, spells your opponents cast cost {1} more to cast and abilities your opponents activate cost {1} more to activate unless they're mana abilities.\nAfterlife 1 (When this creature dies, create a 1/1 white and black Spirit creature token with flying.)",
     "oversized": false,
-    "penny_rank": 1662,
+    "penny_rank": 1661,
     "power": "2",
     "reserved": false,
     "toughness": "1",
@@ -8323,11 +8388,11 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/b/d/bd26b7b1-992d-4b8c-bc33-51aab5abdf98.jpg?1584830069"
     },
     "prices": {
-      "usd": "0.74",
+      "usd": "0.70",
       "usd_foil": "1.77",
       "usd_etched": null,
-      "eur": "0.43",
-      "eur_foil": "0.70",
+      "eur": "0.42",
+      "eur_foil": "1.00",
       "tix": "0.02"
     },
     "promo": false,
@@ -8377,7 +8442,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 14823,
+    "edhrec_rank": 14847,
     "foil": true,
     "keywords": [],
     "layout": "normal",
@@ -8394,6 +8459,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -8408,7 +8474,7 @@
     "nonfoil": false,
     "oracle_text": "You may have Rhox assign its combat damage as though it weren't blocked.\n{2}{G}: Regenerate Rhox. (The next time this creature would be destroyed this turn, it isn't. Instead tap it, remove all damage from it, and remove it from combat.)",
     "oversized": false,
-    "penny_rank": 10329,
+    "penny_rank": 10455,
     "power": "5",
     "reserved": false,
     "toughness": "5",
@@ -8530,7 +8596,7 @@
       }
     ],
     "color_identity": [],
-    "edhrec_rank": 3160,
+    "edhrec_rank": 3149,
     "foil": true,
     "keywords": [],
     "layout": "reversible_card",
@@ -8547,6 +8613,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -8559,7 +8626,7 @@
     "name": "Doubling Cube // Doubling Cube",
     "nonfoil": true,
     "oversized": false,
-    "penny_rank": 11392,
+    "penny_rank": 11549,
     "reserved": false,
     "artist": "Volta Creation",
     "artist_ids": [
@@ -8581,8 +8648,8 @@
     "highres_image": true,
     "image_status": "highres_scan",
     "prices": {
-      "usd": "7.15",
-      "usd_foil": "7.43",
+      "usd": "7.13",
+      "usd_foil": "7.37",
       "usd_etched": null,
       "eur": null,
       "eur_foil": null,
@@ -9072,6 +9139,7 @@
       "vintage": "not_legal",
       "penny": "not_legal",
       "commander": "not_legal",
+      "oathbreaker": "not_legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -9123,8 +9191,8 @@
       "usd": "1.72",
       "usd_foil": "1.75",
       "usd_etched": null,
-      "eur": "0.74",
-      "eur_foil": "1.25",
+      "eur": "0.75",
+      "eur_foil": "1.50",
       "tix": null
     },
     "promo": false,
@@ -9185,6 +9253,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -9326,6 +9395,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "banned",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -9339,7 +9409,7 @@
     "name": "Erayo, Soratami Ascendant // Erayo's Essence",
     "nonfoil": true,
     "oversized": false,
-    "penny_rank": 2358,
+    "penny_rank": 2357,
     "power": "1",
     "reserved": false,
     "toughness": "1",
@@ -9375,12 +9445,12 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/0/b/0b61d772-2d8b-4acf-9dd2-b2e8b03538c8.jpg?1610664131"
     },
     "prices": {
-      "usd": "5.77",
+      "usd": "5.76",
       "usd_foil": "40.28",
       "usd_etched": null,
-      "eur": "4.70",
+      "eur": "3.99",
       "eur_foil": "25.00",
-      "tix": "0.01"
+      "tix": "0.02"
     },
     "promo": false,
     "rarity": "rare",
@@ -9436,6 +9506,7 @@
       "vintage": "legal",
       "penny": "not_legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -9485,7 +9556,7 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/2/0/20a67ee2-0137-458d-b381-430a2494357f.jpg?1675457009"
     },
     "prices": {
-      "usd": "0.18",
+      "usd": "0.21",
       "usd_foil": null,
       "usd_etched": null,
       "eur": "0.19",
@@ -9538,7 +9609,7 @@
       "G",
       "R"
     ],
-    "edhrec_rank": 3026,
+    "edhrec_rank": 3035,
     "foil": true,
     "keywords": [
       "Indestructible"
@@ -9557,6 +9628,7 @@
       "vintage": "legal",
       "penny": "not_legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "legal",
       "alchemy": "not_legal",
@@ -9615,12 +9687,12 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/5/b/5b3c393c-3596-4bd9-a553-e0b03c2eb950.jpg?1581481087"
     },
     "prices": {
-      "usd": "4.10",
+      "usd": "4.12",
       "usd_foil": "5.42",
       "usd_etched": null,
-      "eur": "6.88",
-      "eur_foil": "8.90",
-      "tix": "1.42"
+      "eur": "7.22",
+      "eur_foil": "6.00",
+      "tix": "1.50"
     },
     "promo": false,
     "rarity": "mythic",
@@ -9671,7 +9743,7 @@
       "G",
       "R"
     ],
-    "edhrec_rank": 3026,
+    "edhrec_rank": 3035,
     "foil": true,
     "keywords": [
       "Indestructible"
@@ -9690,6 +9762,7 @@
       "vintage": "legal",
       "penny": "not_legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "legal",
       "alchemy": "not_legal",
@@ -9750,11 +9823,11 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/4/d/4d747889-04db-4e7a-ad4c-7549514b5112.jpg?1654049968"
     },
     "prices": {
-      "usd": "2.98",
-      "usd_foil": "3.94",
+      "usd": "3.00",
+      "usd_foil": "4.06",
       "usd_etched": null,
-      "eur": "5.50",
-      "eur_foil": "14.99",
+      "eur": "6.98",
+      "eur_foil": "9.90",
       "tix": null
     },
     "promo": false,
@@ -9809,7 +9882,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 725,
+    "edhrec_rank": 727,
     "foil": true,
     "keywords": [
       "Trample"
@@ -9828,6 +9901,7 @@
       "vintage": "legal",
       "penny": "not_legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "legal",
       "alchemy": "not_legal",
@@ -9882,12 +9956,12 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/a/3/a391da36-0b40-46ea-b771-50d2b920207e.jpg?1581480808"
     },
     "prices": {
-      "usd": "19.68",
-      "usd_foil": "22.09",
+      "usd": "19.34",
+      "usd_foil": "22.35",
       "usd_etched": null,
-      "eur": "9.98",
+      "eur": "9.11",
       "eur_foil": "14.45",
-      "tix": "0.37"
+      "tix": "0.45"
     },
     "promo": false,
     "rarity": "mythic",
@@ -9935,7 +10009,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 725,
+    "edhrec_rank": 727,
     "foil": true,
     "keywords": [
       "Trample"
@@ -9954,6 +10028,7 @@
       "vintage": "legal",
       "penny": "not_legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "legal",
       "alchemy": "not_legal",
@@ -10008,11 +10083,11 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/c/8/c8a8e37b-0b97-4355-8e00-169a82c38ea0.jpg?1634466744"
     },
     "prices": {
-      "usd": "27.35",
-      "usd_foil": "70.20",
+      "usd": "27.06",
+      "usd_foil": "70.43",
       "usd_etched": null,
-      "eur": "17.50",
-      "eur_foil": "57.35",
+      "eur": "15.46",
+      "eur_foil": "55.00",
       "tix": null
     },
     "promo": false,
@@ -10080,6 +10155,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "legal",
       "alchemy": "not_legal",
@@ -10094,7 +10170,7 @@
     "nonfoil": true,
     "oracle_text": "Temple of Plenty enters the battlefield tapped.\nWhen Temple of Plenty enters the battlefield, scry 1.\n{T}: Add {G} or {W}.",
     "oversized": false,
-    "penny_rank": 974,
+    "penny_rank": 976,
     "produced_mana": [
       "G",
       "W"
@@ -10133,11 +10209,11 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/6/e/6e6256ea-ccb5-4595-8278-44266f922e31.jpg?1581481279"
     },
     "prices": {
-      "usd": "0.70",
-      "usd_foil": "0.93",
+      "usd": "0.65",
+      "usd_foil": "0.94",
       "usd_etched": null,
-      "eur": "0.32",
-      "eur_foil": "1.49",
+      "eur": "0.23",
+      "eur_foil": "0.30",
       "tix": "0.02"
     },
     "promo": false,
@@ -10204,6 +10280,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "legal",
       "alchemy": "not_legal",
@@ -10218,7 +10295,7 @@
     "nonfoil": true,
     "oracle_text": "Temple of Plenty enters the battlefield tapped.\nWhen Temple of Plenty enters the battlefield, scry 1.\n{T}: Add {G} or {W}.",
     "oversized": false,
-    "penny_rank": 974,
+    "penny_rank": 976,
     "produced_mana": [
       "G",
       "W"
@@ -10260,10 +10337,10 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/6/1/61dc9a80-850c-4945-b84a-85381cc3ee85.jpg?1580351273"
     },
     "prices": {
-      "usd": "2.23",
+      "usd": "2.21",
       "usd_foil": "10.28",
       "usd_etched": null,
-      "eur": "2.10",
+      "eur": "2.99",
       "eur_foil": "3.40",
       "tix": null
     },
@@ -10337,7 +10414,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 2945,
+    "edhrec_rank": 2949,
     "foil": true,
     "keywords": [
       "Enchant"
@@ -10356,6 +10433,7 @@
       "vintage": "legal",
       "penny": "not_legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "legal",
       "alchemy": "not_legal",
@@ -10370,7 +10448,7 @@
     "nonfoil": true,
     "oracle_text": "Enchant land\nWhenever enchanted land is tapped for mana, its controller adds an additional {G}.\n{4}{G}, Sacrifice Wolfwillow Haven: Create a 2/2 green Wolf creature token. Activate only during your turn.",
     "oversized": false,
-    "penny_rank": 2290,
+    "penny_rank": 2289,
     "produced_mana": [
       "G"
     ],
@@ -10408,11 +10486,11 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/7/2/72b886c3-234c-49ce-9a11-456c1e8f092f.jpg?1581480945"
     },
     "prices": {
-      "usd": "0.35",
-      "usd_foil": "0.51",
+      "usd": "0.36",
+      "usd_foil": "0.50",
       "usd_etched": null,
-      "eur": "0.14",
-      "eur_foil": "0.75",
+      "eur": "0.21",
+      "eur_foil": "0.49",
       "tix": "0.03"
     },
     "promo": false,
@@ -10478,7 +10556,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 2945,
+    "edhrec_rank": 2949,
     "foil": true,
     "keywords": [
       "Enchant"
@@ -10497,6 +10575,7 @@
       "vintage": "legal",
       "penny": "not_legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "legal",
       "alchemy": "not_legal",
@@ -10511,7 +10590,7 @@
     "nonfoil": true,
     "oracle_text": "Enchant land\nWhenever enchanted land is tapped for mana, its controller adds an additional {G}.\n{4}{G}, Sacrifice Wolfwillow Haven: Create a 2/2 green Wolf creature token. Activate only during your turn.",
     "oversized": false,
-    "penny_rank": 2290,
+    "penny_rank": 2289,
     "produced_mana": [
       "G"
     ],
@@ -10552,11 +10631,11 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/c/f/cfc4be7b-a948-464d-8327-575ccb7dccf3.jpg?1586187338"
     },
     "prices": {
-      "usd": "1.07",
-      "usd_foil": "3.73",
+      "usd": "1.03",
+      "usd_foil": "3.94",
       "usd_etched": null,
-      "eur": "0.05",
-      "eur_foil": "0.40",
+      "eur": "0.84",
+      "eur_foil": "0.09",
       "tix": null
     },
     "promo": true,
@@ -10666,6 +10745,7 @@
       "vintage": "not_legal",
       "penny": "not_legal",
       "commander": "not_legal",
+      "oathbreaker": "not_legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -10711,10 +10791,10 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/8/9/8987644d-5a31-4a4e-9a8a-3d6260ed0fd6.jpg?1562488870"
     },
     "prices": {
-      "usd": "1.60",
+      "usd": "1.59",
       "usd_foil": "51.92",
       "usd_etched": null,
-      "eur": "1.95",
+      "eur": "2.99",
       "eur_foil": "50.00",
       "tix": null
     },
@@ -10828,6 +10908,7 @@
       "vintage": "not_legal",
       "penny": "not_legal",
       "commander": "not_legal",
+      "oathbreaker": "not_legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -10877,7 +10958,7 @@
       "usd": "1.61",
       "usd_foil": "24.99",
       "usd_etched": null,
-      "eur": "1.85",
+      "eur": "2.99",
       "eur_foil": "25.99",
       "tix": null
     },
@@ -10990,6 +11071,7 @@
       "vintage": "not_legal",
       "penny": "not_legal",
       "commander": "not_legal",
+      "oathbreaker": "not_legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -11039,7 +11121,7 @@
       "usd": "1.53",
       "usd_foil": "8.94",
       "usd_etched": null,
-      "eur": "1.75",
+      "eur": "2.50",
       "eur_foil": "7.99",
       "tix": null
     },
@@ -11160,6 +11242,7 @@
       "vintage": "not_legal",
       "penny": "not_legal",
       "commander": "not_legal",
+      "oathbreaker": "not_legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -11206,10 +11289,10 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/2/d/2dfc9416-06d6-40af-8b3d-62371b3da7c5.jpg?1562904665"
     },
     "prices": {
-      "usd": "2.16",
+      "usd": "2.15",
       "usd_foil": "9.00",
       "usd_etched": null,
-      "eur": "2.90",
+      "eur": "3.50",
       "eur_foil": "9.99",
       "tix": null
     },
@@ -11322,6 +11405,7 @@
       "vintage": "not_legal",
       "penny": "not_legal",
       "commander": "not_legal",
+      "oathbreaker": "not_legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -11368,10 +11452,10 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/1/2/12272ce6-ab1f-4576-9e50-21d324263c44.jpg?1562898766"
     },
     "prices": {
-      "usd": "3.32",
+      "usd": "3.28",
       "usd_foil": "18.95",
       "usd_etched": null,
-      "eur": "2.49",
+      "eur": "2.75",
       "eur_foil": "26.08",
       "tix": null
     },
@@ -11486,6 +11570,7 @@
       "vintage": "not_legal",
       "penny": "not_legal",
       "commander": "not_legal",
+      "oathbreaker": "not_legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -11532,10 +11617,10 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/d/8/d8e84dd2-01f9-4fad-8a24-cc86424d09a2.jpg?1562940811"
     },
     "prices": {
-      "usd": "3.36",
+      "usd": "3.38",
       "usd_foil": "15.37",
       "usd_etched": null,
-      "eur": "2.01",
+      "eur": "2.75",
       "eur_foil": "9.99",
       "tix": null
     },
@@ -11658,6 +11743,7 @@
       "vintage": "not_legal",
       "penny": "not_legal",
       "commander": "not_legal",
+      "oathbreaker": "not_legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -11707,7 +11793,7 @@
       "usd": "1.53",
       "usd_foil": "6.49",
       "usd_etched": null,
-      "eur": "2.49",
+      "eur": "2.47",
       "eur_foil": "9.00",
       "tix": null
     },
@@ -11754,7 +11840,7 @@
     "color_identity": [
       "U"
     ],
-    "edhrec_rank": 14697,
+    "edhrec_rank": 14751,
     "foil": true,
     "keywords": [],
     "layout": "normal",
@@ -11771,6 +11857,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "not_legal",
       "alchemy": "not_legal",
@@ -11785,7 +11872,7 @@
     "nonfoil": true,
     "oracle_text": "Academy Elite enters the battlefield with X +1/+1 counters on it, where X is the number of instant and sorcery cards in all graveyards.\n{2}{U}, Remove a +1/+1 counter from Academy Elite: Draw a card, then discard a card.",
     "oversized": false,
-    "penny_rank": 3774,
+    "penny_rank": 3771,
     "power": "0",
     "reserved": false,
     "toughness": "0",
@@ -11872,7 +11959,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 8454,
+    "edhrec_rank": 8442,
     "foil": false,
     "keywords": [
       "Flying",
@@ -11892,6 +11979,7 @@
       "vintage": "legal",
       "penny": "legal",
       "commander": "legal",
+      "oathbreaker": "legal",
       "brawl": "not_legal",
       "historicbrawl": "legal",
       "alchemy": "legal",
@@ -11906,7 +11994,7 @@
     "nonfoil": true,
     "oracle_text": "Flying, vigilance",
     "oversized": false,
-    "penny_rank": 8569,
+    "penny_rank": 8528,
     "power": "4",
     "reserved": false,
     "toughness": "4",

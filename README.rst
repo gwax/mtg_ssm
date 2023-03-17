@@ -168,6 +168,11 @@ Development
 
 -   ...
 
+2.6.1
+-----
+
+-   Minor Scryfall data changes.
+
 2.6.0
 -----
 

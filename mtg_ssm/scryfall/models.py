@@ -203,6 +203,7 @@ class ScryFormat(str, Enum):
     PAUPERCOMMANDER = "paupercommander"
     PREMODERN = "premodern"
     PREDH = "predh"
+    OATHBREAKER = "oathbreaker"
 
 
 class ScryLegality(str, Enum):
