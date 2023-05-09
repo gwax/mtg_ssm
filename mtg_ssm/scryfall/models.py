@@ -117,6 +117,7 @@ class ScryFrameEffect(str, Enum):
     FANDFC = "fandfc"
     UPSIDEDOWNDFC = "upsidedowndfc"
     GILDED = "gilded"
+    THICK = "thick"
 
 
 class ScryBorderColor(str, Enum):
