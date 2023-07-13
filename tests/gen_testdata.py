@@ -4,7 +4,6 @@
 
 import copy
 from pathlib import Path
-from typing import List, cast
 
 import msgspec
 
@@ -85,9 +84,10 @@ def main() -> None:  # pylint: disable=too-many-locals,too-many-statements
     print("Fetching scryfall data")
     scrydata = fetcher.scryfetch()
     bulk_data_list = msgspec.json.decode(
-        fetcher._fetch_endpoint(fetcher.BULK_DATA_ENDPOINT), type=models.ScryList
+        fetcher._fetch_endpoint(fetcher.BULK_DATA_ENDPOINT),
+        type=models.ScryList[models.ScryBulkData],
     )
-    bulk_data = cast(List[models.ScryBulkData], bulk_data_list.data)
+    bulk_data = bulk_data_list.data
 
     print("Selecting sets")
     accepted_sets = sorted(

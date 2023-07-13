@@ -2,7 +2,7 @@
 
 import gzip
 import os
-from typing import List, cast
+from typing import List
 
 import appdirs
 import msgspec
@@ -54,24 +54,27 @@ def _fetch_endpoint(endpoint: str) -> bytes:
 def scryfetch() -> ScryfallDataSet:  # pylint: disable=too-many-locals
     """Retrieve and deserialize Scryfall object data."""
     print("Reading data from scryfall")
-    scrylist_decoder = msgspec.json.Decoder(ScryList)
+    bulk_data = msgspec.json.decode(
+        _fetch_endpoint(BULK_DATA_ENDPOINT), type=ScryList[ScryBulkData]
+    ).data
 
-    bulk_data_list = scrylist_decoder.decode(_fetch_endpoint(BULK_DATA_ENDPOINT))
-    bulk_data = cast(List[ScryBulkData], bulk_data_list.data)
-
-    sets_list = scrylist_decoder.decode(_fetch_endpoint(SETS_ENDPOINT))
-    sets_data = cast(List[ScrySet], sets_list.data)
+    scrylistset_decoder = msgspec.json.Decoder(ScryList[ScrySet])
+    sets_list = scrylistset_decoder.decode(_fetch_endpoint(SETS_ENDPOINT))
+    sets_data = sets_list.data
     while sets_list.has_more and sets_list.next_page is not None:
-        sets_list = scrylist_decoder.decode(_fetch_endpoint(sets_list.next_page))
-        sets_data += cast(List[ScrySet], sets_list.data)
+        sets_list = scrylistset_decoder.decode(_fetch_endpoint(sets_list.next_page))
+        sets_data += sets_list.data
 
-    migrations_list = scrylist_decoder.decode(_fetch_endpoint(MIGRATIONS_ENDPOINT))
-    migrations_data = cast(List[ScryMigration], migrations_list.data)
+    scrylistmigration_decoder = msgspec.json.Decoder(ScryList[ScryMigration])
+    migrations_list = scrylistmigration_decoder.decode(
+        _fetch_endpoint(MIGRATIONS_ENDPOINT)
+    )
+    migrations_data = migrations_list.data
     while migrations_list.has_more and migrations_list.next_page is not None:
-        migrations_list = scrylist_decoder.decode(
+        migrations_list = scrylistmigration_decoder.decode(
             _fetch_endpoint(migrations_list.next_page)
         )
-        migrations_data += cast(List[ScryMigration], migrations_list.data)
+        migrations_data += migrations_list.data
 
     [cards_endpoint] = [bd.download_uri for bd in bulk_data if bd.type == BULK_TYPE]
     cards_data = msgspec.json.decode(

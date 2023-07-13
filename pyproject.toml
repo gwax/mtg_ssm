@@ -40,7 +40,7 @@ classifiers = [
 
 dependencies = [
     "appdirs~=1.4",
-    "msgspec~=0.13",
+    "msgspec~=0.15",
     "openpyxl~=3.0",
     "requests~=2.27",
     'requests-cache~=0.9.8',

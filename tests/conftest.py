@@ -2,7 +2,7 @@
 # pylint: disable=redefined-outer-name
 
 from pathlib import Path
-from typing import Dict, Generator, List, cast
+from typing import Dict, Generator, List
 from uuid import UUID
 
 import msgspec
@@ -44,8 +44,8 @@ def cards_data() -> List[ScryCard]:
 def sets_data() -> List[ScrySet]:
     """Fixture containing all test set data."""
     with SETS_DATA_FILE.open("rb") as sets_data_file:
-        sets_list = msgspec.json.decode(sets_data_file.read(), type=ScryList)
-    return cast(List[ScrySet], sets_list.data)
+        sets_list = msgspec.json.decode(sets_data_file.read(), type=ScryList[ScrySet])
+    return sets_list.data
 
 
 @pytest.fixture(scope="session")
@@ -53,9 +53,9 @@ def migrations_data() -> List[ScryMigration]:
     """Fixture containing all test migrations data."""
     with MIGRATIONS_DATA_FILE.open("rb") as migrations_data_file:
         migrations_list = msgspec.json.decode(
-            migrations_data_file.read(), type=ScryList
+            migrations_data_file.read(), type=ScryList[ScryMigration]
         )
-    return cast(List[ScryMigration], migrations_list.data)
+    return migrations_list.data
 
 
 @pytest.fixture(scope="session")

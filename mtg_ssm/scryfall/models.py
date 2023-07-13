@@ -3,10 +3,11 @@
 import datetime as dt
 from decimal import Decimal
 from enum import Enum
-from typing import Dict, List, Literal, Optional, Union
+from typing import Dict, Generic, List, Literal, Optional, TypeVar, Union
 from uuid import UUID
 
 from msgspec import Struct
+from typing_extensions import TypeAlias
 
 
 class ScryColor(str, Enum):
@@ -451,8 +452,19 @@ class ScryMigration(
     note: Optional[str] = None
 
 
+ScryListable: TypeAlias = Union[
+    ScryBulkData,
+    ScryCard,
+    ScryMigration,
+    ScrySet,
+]
+
+_ScryListableT = TypeVar("_ScryListableT", bound=ScryListable)
+
+
 class ScryList(
     Struct,
+    Generic[_ScryListableT],
     tag_field="object",
     tag="list",
     kw_only=True,
@@ -460,7 +472,7 @@ class ScryList(
 ):
     """Model for https://scryfall.com/docs/api/lists"""
 
-    data: List[Union[ScrySet, ScryCard, ScryBulkData, ScryMigration]]
+    data: List[_ScryListableT]
     has_more: bool
     next_page: Optional[str] = None
     total_cards: Optional[int] = None
