@@ -73,6 +73,8 @@ class ScryCardLayout(str, Enum):
     ART_SERIES = "art_series"
     DOUBLE_SIDED = "double_sided"
     REVERSIBLE_CARD = "reversible_card"
+    MUTATE = "mutate"
+    PROTOTYPE = "prototype"
 
 
 class ScryCardFrame(str, Enum):
@@ -117,6 +119,8 @@ class ScryFrameEffect(str, Enum):
     FANDFC = "fandfc"
     UPSIDEDOWNDFC = "upsidedowndfc"
     GILDED = "gilded"
+    BORDERLESS = "borderless"
+    THICK = "thick"
 
 
 class ScryBorderColor(str, Enum):
