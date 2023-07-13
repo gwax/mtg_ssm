@@ -89,7 +89,13 @@ dev = [
 ]
 
 [tool.setuptools]
-packages = ["mtg_ssm"]
+packages = [
+    "mtg_ssm",
+    "mtg_ssm.containers",
+    "mtg_ssm.mtg",
+    "mtg_ssm.scryfall",
+    "mtg_ssm.serialization",
+]
 
 [tool.setuptools_scm]
 write_to = "mtg_ssm/_version.py"
