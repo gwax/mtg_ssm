@@ -39,7 +39,7 @@ jobs:
         run: coverage lcov
 
       - name: Coveralls Parallel
-        uses: coverallsapp/github-action@v1.2.4
+        uses: coverallsapp/github-action@v2.2.1
         with:
           github-token: ${{ secrets.github_token }}
           flag-name: python-${{ matrix.python-version }}
@@ -52,7 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Coveralls Finished
-        uses: coverallsapp/github-action@v1.2.4
+        uses: coverallsapp/github-action@v2.2.1
         with:
           github-token: ${{ secrets.github_token }}
           path-to-lcov: coverage.lcov
