@@ -20,7 +20,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 4512,
+    "edhrec_rank": 4670,
     "foil": false,
     "keywords": [],
     "layout": "normal",
@@ -52,7 +52,7 @@
     "nonfoil": true,
     "oracle_text": "Artifacts you control have hexproof. (They can't be the targets of spells or abilities your opponents control.)",
     "oversized": false,
-    "penny_rank": 9108,
+    "penny_rank": 9086,
     "power": "2",
     "reserved": false,
     "toughness": "5",
@@ -87,14 +87,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/9/d/9d26f171-5bb6-463c-8473-53b6cc27ed66.jpg?1562928153"
     },
     "prices": {
-      "usd": "1.27",
+      "usd": "1.61",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "1.00",
+      "eur": "1.01",
       "eur_foil": null,
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/37173?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Leonin+Abunas&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Leonin+Abunas&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=220527",
@@ -164,7 +169,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 21468,
+    "edhrec_rank": 21713,
     "foil": true,
     "keywords": [
       "Flying"
@@ -232,14 +237,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/7/5/758abd53-6ad2-406e-8615-8e48678405b4.jpg?1562877848"
     },
     "prices": {
-      "usd": "0.15",
+      "usd": "0.18",
       "usd_foil": "0.20",
       "usd_etched": null,
-      "eur": "0.02",
-      "eur_foil": "0.59",
+      "eur": "0.15",
+      "eur_foil": "0.34",
       "tix": "0.02"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/12253?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Faithful+Squire&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/21661?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "uncommon",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=74093",
@@ -279,7 +289,7 @@
     "cmc": 0.0,
     "colors": [],
     "color_identity": [],
-    "edhrec_rank": 2077,
+    "edhrec_rank": 2071,
     "foil": true,
     "keywords": [],
     "layout": "normal",
@@ -347,14 +357,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/0/1/0180d9a8-992c-4d55-8ac4-33a587786993.jpg?1562757082"
     },
     "prices": {
-      "usd": "19.05",
+      "usd": "15.61",
       "usd_foil": "102.45",
       "usd_etched": null,
-      "eur": "6.95",
-      "eur_foil": "41.00",
-      "tix": "0.02"
+      "eur": "8.10",
+      "eur_foil": "29.85",
+      "tix": "0.11"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/11953?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Boseiju%2C+Who+Shelters+All&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/21135?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=75305",
@@ -424,7 +439,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 13194,
+    "edhrec_rank": 13422,
     "foil": true,
     "keywords": [
       "Bushido",
@@ -458,7 +473,7 @@
     "name": "Bushi Tenderfoot // Kenzo the Hardhearted",
     "nonfoil": true,
     "oversized": false,
-    "penny_rank": 9815,
+    "penny_rank": 9859,
     "power": "1",
     "reserved": false,
     "toughness": "1",
@@ -494,14 +509,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/8/6/864ad989-19a6-4930-8efc-bbc077a18c32.jpg?1562762069"
     },
     "prices": {
-      "usd": "0.27",
-      "usd_foil": "6.70",
+      "usd": "0.26",
+      "usd_foil": "6.69",
       "usd_etched": null,
-      "eur": "0.08",
+      "eur": "0.04",
       "eur_foil": "0.20",
       "tix": "0.02"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/11958?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Bushi+Tenderfoot&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/21205?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "uncommon",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=78600",
@@ -545,7 +565,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 17787,
+    "edhrec_rank": 18031,
     "foil": true,
     "keywords": [
       "Cumulative upkeep"
@@ -579,7 +599,7 @@
     "nonfoil": true,
     "oracle_text": "Cumulative upkeep—Put two cards from a single graveyard on the bottom of their owner's library. (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)",
     "oversized": false,
-    "penny_rank": 11340,
+    "penny_rank": 11349,
     "power": "4",
     "reserved": false,
     "toughness": "4",
@@ -616,13 +636,18 @@
     },
     "prices": {
       "usd": "0.20",
-      "usd_foil": "6.99",
+      "usd_foil": "7.47",
       "usd_etched": null,
-      "eur": "0.13",
-      "eur_foil": "2.00",
+      "eur": "0.10",
+      "eur_foil": "1.44",
       "tix": "0.02"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/14058?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=J%C3%B6tun+Grunt&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/24805?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "uncommon",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=122075",
@@ -660,11 +685,11 @@
     "all_parts": [
       {
         "object": "related_card",
-        "id": "c7bb00e4-7eb0-4f7d-b2c3-8995959a6e6a",
+        "id": "34e5ec9e-8e9c-4396-86b3-c9ca99eaf2fa",
         "component": "token",
         "name": "Saproling",
         "type_line": "Token Creature — Saproling",
-        "uri": "https://api.scryfall.com/cards/c7bb00e4-7eb0-4f7d-b2c3-8995959a6e6a"
+        "uri": "https://api.scryfall.com/cards/34e5ec9e-8e9c-4396-86b3-c9ca99eaf2fa"
       },
       {
         "object": "related_card",
@@ -682,7 +707,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 6794,
+    "edhrec_rank": 6875,
     "foil": false,
     "keywords": [],
     "layout": "normal",
@@ -714,7 +739,7 @@
     "nonfoil": true,
     "oracle_text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Create a 1/1 green Saproling creature token.",
     "oversized": false,
-    "penny_rank": 9290,
+    "penny_rank": 9165,
     "power": "1",
     "reserved": false,
     "toughness": "1",
@@ -748,14 +773,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/4/c/4caaf31b-86a9-485b-8da7-d5b526ed1233.jpg?1562909047"
     },
     "prices": {
-      "usd": "0.18",
+      "usd": "0.19",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.10",
+      "eur": "0.05",
       "eur_foil": null,
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/3751?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Thallid&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Thallid&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=1924",
@@ -793,11 +823,11 @@
     "all_parts": [
       {
         "object": "related_card",
-        "id": "c7bb00e4-7eb0-4f7d-b2c3-8995959a6e6a",
+        "id": "34e5ec9e-8e9c-4396-86b3-c9ca99eaf2fa",
         "component": "token",
         "name": "Saproling",
         "type_line": "Token Creature — Saproling",
-        "uri": "https://api.scryfall.com/cards/c7bb00e4-7eb0-4f7d-b2c3-8995959a6e6a"
+        "uri": "https://api.scryfall.com/cards/34e5ec9e-8e9c-4396-86b3-c9ca99eaf2fa"
       },
       {
         "object": "related_card",
@@ -815,7 +845,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 6794,
+    "edhrec_rank": 6875,
     "foil": false,
     "keywords": [],
     "layout": "normal",
@@ -847,7 +877,7 @@
     "nonfoil": true,
     "oracle_text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Create a 1/1 green Saproling creature token.",
     "oversized": false,
-    "penny_rank": 9290,
+    "penny_rank": 9165,
     "power": "1",
     "reserved": false,
     "toughness": "1",
@@ -881,14 +911,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/8/0/80f8f778-ae31-45cd-b27f-f93a07853ede.jpg?1562918912"
     },
     "prices": {
-      "usd": "0.20",
+      "usd": "0.21",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.04",
+      "eur": "0.02",
       "eur_foil": null,
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/18253?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Thallid&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Thallid&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=1926",
@@ -926,11 +961,11 @@
     "all_parts": [
       {
         "object": "related_card",
-        "id": "c7bb00e4-7eb0-4f7d-b2c3-8995959a6e6a",
+        "id": "34e5ec9e-8e9c-4396-86b3-c9ca99eaf2fa",
         "component": "token",
         "name": "Saproling",
         "type_line": "Token Creature — Saproling",
-        "uri": "https://api.scryfall.com/cards/c7bb00e4-7eb0-4f7d-b2c3-8995959a6e6a"
+        "uri": "https://api.scryfall.com/cards/34e5ec9e-8e9c-4396-86b3-c9ca99eaf2fa"
       },
       {
         "object": "related_card",
@@ -948,7 +983,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 6794,
+    "edhrec_rank": 6875,
     "foil": false,
     "keywords": [],
     "layout": "normal",
@@ -980,7 +1015,7 @@
     "nonfoil": true,
     "oracle_text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Create a 1/1 green Saproling creature token.",
     "oversized": false,
-    "penny_rank": 9290,
+    "penny_rank": 9165,
     "power": "1",
     "reserved": false,
     "toughness": "1",
@@ -1014,14 +1049,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/2/c/2cf2f3da-9101-439d-8caa-910ff40bfbb3.jpg?1562903271"
     },
     "prices": {
-      "usd": "0.16",
+      "usd": "0.17",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.10",
+      "eur": "0.07",
       "eur_foil": null,
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/18254?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Thallid&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Thallid&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=1927",
@@ -1059,11 +1099,11 @@
     "all_parts": [
       {
         "object": "related_card",
-        "id": "c7bb00e4-7eb0-4f7d-b2c3-8995959a6e6a",
+        "id": "34e5ec9e-8e9c-4396-86b3-c9ca99eaf2fa",
         "component": "token",
         "name": "Saproling",
         "type_line": "Token Creature — Saproling",
-        "uri": "https://api.scryfall.com/cards/c7bb00e4-7eb0-4f7d-b2c3-8995959a6e6a"
+        "uri": "https://api.scryfall.com/cards/34e5ec9e-8e9c-4396-86b3-c9ca99eaf2fa"
       },
       {
         "object": "related_card",
@@ -1081,7 +1121,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 6794,
+    "edhrec_rank": 6875,
     "foil": false,
     "keywords": [],
     "layout": "normal",
@@ -1113,7 +1153,7 @@
     "nonfoil": true,
     "oracle_text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Create a 1/1 green Saproling creature token.",
     "oversized": false,
-    "penny_rank": 9290,
+    "penny_rank": 9165,
     "power": "1",
     "reserved": false,
     "toughness": "1",
@@ -1150,11 +1190,16 @@
       "usd": "0.20",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.10",
+      "eur": "0.15",
       "eur_foil": null,
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/18255?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Thallid&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Thallid&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=1925",
@@ -1196,7 +1241,7 @@
     "color_identity": [
       "B"
     ],
-    "edhrec_rank": 19494,
+    "edhrec_rank": 19758,
     "foil": false,
     "keywords": [
       "Protection",
@@ -1268,11 +1313,16 @@
       "usd": "0.22",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.09",
+      "eur": "0.05",
       "eur_foil": null,
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/4468?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Cemetery+Gate&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Cemetery+Gate&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=2913",
@@ -1314,7 +1364,7 @@
     "color_identity": [
       "B"
     ],
-    "edhrec_rank": 19494,
+    "edhrec_rank": 19758,
     "foil": false,
     "keywords": [
       "Protection",
@@ -1383,14 +1433,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/4/a/4a7b2cc1-cb0b-4cb8-963f-453a1d5b0e3c.jpg?1562587268"
     },
     "prices": {
-      "usd": "0.17",
+      "usd": "0.14",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.02",
+      "eur": "0.05",
       "eur_foil": null,
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/18273?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Cemetery+Gate&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Cemetery+Gate&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=2914",
@@ -1434,7 +1489,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 2875,
+    "edhrec_rank": 3006,
     "foil": false,
     "keywords": [
       "Cycling"
@@ -1468,7 +1523,7 @@
     "nonfoil": true,
     "oracle_text": "Destroy all artifacts, creatures, and enchantments.\nCycling {3} ({3}, Discard this card: Draw a card.)",
     "oversized": false,
-    "penny_rank": 126,
+    "penny_rank": 128,
     "reserved": false,
     "type_line": "Sorcery",
     "artist": "Greg Hildebrandt & Tim Hildebrandt",
@@ -1503,14 +1558,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/b/8/b8f5e276-d7c3-4b4b-ac5b-9bb1aeeca8d0.jpg?1562842869"
     },
     "prices": {
-      "usd": "0.42",
+      "usd": "0.44",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.35",
+      "eur": "0.20",
       "eur_foil": null,
-      "tix": "0.59"
+      "tix": "0.57"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/37313?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Akroma%27s+Vengeance&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/44608?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=205366",
@@ -1554,7 +1614,7 @@
     "color_identity": [
       "B"
     ],
-    "edhrec_rank": 66,
+    "edhrec_rank": 65,
     "foil": false,
     "keywords": [],
     "layout": "normal",
@@ -1623,14 +1683,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/c/8/c8c774f2-110e-476c-a4ff-cc86d31c6ae7.jpg?1562842886"
     },
     "prices": {
-      "usd": "1.47",
+      "usd": "1.34",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "1.00",
+      "eur": "1.75",
       "eur_foil": null,
-      "tix": "0.69"
+      "tix": "0.47"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/37351?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Dark+Ritual&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/44358?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=205422",
@@ -1673,7 +1738,7 @@
     "color_identity": [
       "B"
     ],
-    "edhrec_rank": 66,
+    "edhrec_rank": 65,
     "foil": false,
     "keywords": [],
     "layout": "normal",
@@ -1742,14 +1807,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/4/e/4ebcd681-1871-4914-bcd7-6bd95829f6e0.jpg?1562909407"
     },
     "prices": {
-      "usd": "1.24",
+      "usd": "1.20",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.70",
+      "eur": "0.59",
       "eur_foil": null,
-      "tix": "1.39"
+      "tix": "1.38"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/4641?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Dark+Ritual&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/24405?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=2444",
@@ -1856,14 +1926,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/f/b/fbdcbd97-90a9-45ea-94f6-2a1c6faaf965.jpg?1562942481"
     },
     "prices": {
-      "usd": "0.85",
+      "usd": "0.83",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.72",
+      "eur": "0.40",
       "eur_foil": null,
       "tix": "0.20"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/4679?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Forest&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/24443?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=2748",
@@ -1970,14 +2045,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/b/3/b346b784-7bde-49d0-bfa9-56236cbe19d9.jpg?1562928391"
     },
     "prices": {
-      "usd": "0.92",
+      "usd": "0.88",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.52",
+      "eur": "0.47",
       "eur_foil": null,
       "tix": "0.80"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/18372?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Forest&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/24415?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=2747",
@@ -2084,14 +2164,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/7/6/768c4d8f-5700-4f0a-9ff2-58422aeb1dac.jpg?1562916916"
     },
     "prices": {
-      "usd": "0.52",
+      "usd": "0.50",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.21",
+      "eur": "0.31",
       "eur_foil": null,
-      "tix": "2.53"
+      "tix": "1.81"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/18373?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Forest&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/24417?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=2746",
@@ -2198,14 +2283,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/4/c/4c0ad95c-d62c-4138-ada0-fa39a63a449e.jpg?1562908930"
     },
     "prices": {
-      "usd": "2.18",
+      "usd": "1.70",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.75",
+      "eur": "0.89",
       "eur_foil": null,
-      "tix": "1.80"
+      "tix": "1.44"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/4880?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Snow-Covered+Forest&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/24413?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=2749",
@@ -2249,7 +2339,7 @@
     "color_identity": [
       "B"
     ],
-    "edhrec_rank": 16280,
+    "edhrec_rank": 16488,
     "foil": true,
     "keywords": [
       "First strike"
@@ -2283,7 +2373,7 @@
     "nonfoil": true,
     "oracle_text": "First strike\nWhenever a creature dealt damage by Abattoir Ghoul this turn dies, you gain life equal to that creature's toughness.",
     "oversized": false,
-    "penny_rank": 4764,
+    "penny_rank": 4759,
     "power": "3",
     "reserved": false,
     "toughness": "2",
@@ -2320,14 +2410,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/5/9/59cf0906-04fa-4b30-a7a6-3d117931154f.jpg?1562830661"
     },
     "prices": {
-      "usd": "0.05",
-      "usd_foil": "0.32",
+      "usd": "0.07",
+      "usd_foil": "0.25",
       "usd_etched": null,
-      "eur": "0.05",
+      "eur": "0.02",
       "eur_foil": "0.15",
       "tix": "0.04"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/56263?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Abattoir+Ghoul&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/42418?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "uncommon",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=222911",
@@ -2422,7 +2517,7 @@
     "color_identity": [
       "U"
     ],
-    "edhrec_rank": 12106,
+    "edhrec_rank": 12235,
     "foil": true,
     "keywords": [
       "Flying",
@@ -2455,7 +2550,7 @@
     "name": "Delver of Secrets // Insectile Aberration",
     "nonfoil": true,
     "oversized": false,
-    "penny_rank": 94,
+    "penny_rank": 92,
     "reserved": false,
     "type_line": "Creature — Human Wizard // Creature — Human Insect",
     "artist": "Nils Hamm",
@@ -2482,14 +2577,19 @@
     "highres_image": true,
     "image_status": "highres_scan",
     "prices": {
-      "usd": "0.41",
-      "usd_foil": "5.02",
+      "usd": "0.44",
+      "usd_foil": "4.82",
       "usd_etched": null,
-      "eur": "0.84",
-      "eur_foil": "4.85",
+      "eur": "0.76",
+      "eur_foil": "7.00",
       "tix": "0.03"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/56246?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Delver+of+Secrets&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/42436?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=226749",
@@ -2598,14 +2698,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/b/6/b606f644-1728-4cb3-90ed-121838875de1.jpg?1562835915"
     },
     "prices": {
-      "usd": "0.16",
-      "usd_foil": "1.65",
+      "usd": "0.15",
+      "usd_foil": "1.67",
       "usd_etched": null,
-      "eur": "0.15",
-      "eur_foil": "0.77",
+      "eur": "0.20",
+      "eur_foil": "1.75",
       "tix": "0.02"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/56358?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Forest&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/42740?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=245247",
@@ -2715,13 +2820,18 @@
     },
     "prices": {
       "usd": "0.17",
-      "usd_foil": "1.22",
+      "usd_foil": "1.44",
       "usd_etched": null,
-      "eur": "0.15",
-      "eur_foil": "0.80",
+      "eur": "0.20",
+      "eur_foil": "1.00",
       "tix": "0.03"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/56359?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Forest&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/42742?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=245248",
@@ -2831,13 +2941,18 @@
     },
     "prices": {
       "usd": "0.20",
-      "usd_foil": "0.53",
+      "usd_foil": "0.54",
       "usd_etched": null,
-      "eur": "0.30",
-      "eur_foil": "0.75",
+      "eur": "0.20",
+      "eur_foil": "1.20",
       "tix": "0.03"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/56360?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Forest&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/42738?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=245246",
@@ -3022,7 +3137,7 @@
     "cmc": 4.0,
     "colors": [],
     "color_identity": [],
-    "edhrec_rank": 1473,
+    "edhrec_rank": 1492,
     "foil": true,
     "keywords": [],
     "layout": "normal",
@@ -3054,7 +3169,7 @@
     "nonfoil": true,
     "oracle_text": "At the beginning of your end step, draw a card if your life total is greater than your starting life total. Otherwise, you gain 2 life.",
     "oversized": false,
-    "penny_rank": 859,
+    "penny_rank": 894,
     "reserved": false,
     "type_line": "Artifact",
     "artist": "Volkan Baǵa",
@@ -3090,14 +3205,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/6/b/6bf084fe-7762-49c5-974a-cdecc10666b3.jpg?1639436665"
     },
     "prices": {
-      "usd": "0.89",
-      "usd_foil": "0.99",
+      "usd": "1.12",
+      "usd_foil": "1.22",
       "usd_etched": null,
-      "eur": "1.03",
-      "eur_foil": "1.39",
+      "eur": "2.55",
+      "eur_foil": "1.77",
       "tix": "0.02"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/230731?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Cosmos+Elixir&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/87817?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=503853",
@@ -3159,7 +3279,7 @@
     "cmc": 4.0,
     "colors": [],
     "color_identity": [],
-    "edhrec_rank": 1473,
+    "edhrec_rank": 1492,
     "foil": true,
     "keywords": [],
     "layout": "normal",
@@ -3191,7 +3311,7 @@
     "nonfoil": true,
     "oracle_text": "At the beginning of your end step, draw a card if your life total is greater than your starting life total. Otherwise, you gain 2 life.",
     "oversized": false,
-    "penny_rank": 859,
+    "penny_rank": 894,
     "reserved": false,
     "type_line": "Artifact",
     "artist": "Volkan Baǵa",
@@ -3229,17 +3349,22 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/e/a/ea524e81-4898-4a41-8b34-06defd26e4c7.jpg?1631056797"
     },
     "prices": {
-      "usd": "1.32",
-      "usd_foil": "1.58",
+      "usd": "1.12",
+      "usd_foil": "1.54",
       "usd_etched": null,
-      "eur": "1.80",
-      "eur_foil": "1.90",
+      "eur": "2.14",
+      "eur_foil": "3.49",
       "tix": null
     },
     "promo": false,
     "promo_types": [
       "boosterfun"
     ],
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/230919?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Cosmos+Elixir&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Cosmos+Elixir&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=507236",
@@ -3287,7 +3412,7 @@
     "color_identity": [
       "U"
     ],
-    "edhrec_rank": 18560,
+    "edhrec_rank": 18775,
     "foil": false,
     "keywords": [
       "Flying"
@@ -3321,7 +3446,7 @@
     "nonfoil": true,
     "oracle_text": "Flying",
     "oversized": false,
-    "penny_rank": 6681,
+    "penny_rank": 6573,
     "power": "4",
     "reserved": false,
     "toughness": "4",
@@ -3364,6 +3489,11 @@
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/1025?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Air+Elemental&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Air+Elemental&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "uncommon",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=94",
@@ -3405,7 +3535,7 @@
     "color_identity": [
       "B"
     ],
-    "edhrec_rank": 66,
+    "edhrec_rank": 65,
     "foil": false,
     "keywords": [],
     "layout": "normal",
@@ -3472,7 +3602,7 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/e/b/ebb6664d-23ca-456e-9916-afcd6f26aa7f.jpg?1559591495"
     },
     "prices": {
-      "usd": "336.99",
+      "usd": "357.99",
       "usd_foil": null,
       "usd_etched": null,
       "eur": "172.99",
@@ -3480,6 +3610,11 @@
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/1080?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Dark+Ritual&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Dark+Ritual&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=54",
@@ -3584,14 +3719,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/6/f/6f1c8cb0-38eb-408b-94e8-16db83999b3b.jpg?1559591465"
     },
     "prices": {
-      "usd": "45.04",
+      "usd": "42.75",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "30.00",
+      "eur": "20.00",
       "eur_foil": null,
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/21707?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Forest&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Forest&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=289",
@@ -3696,14 +3836,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/f/2/f20c89d9-71c9-45f5-a9cb-6e253b0a7cca.jpg?1559591510"
     },
     "prices": {
-      "usd": "59.85",
+      "usd": "56.67",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "32.67",
+      "eur": "37.76",
       "eur_foil": null,
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/91371?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Forest&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Forest&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=288",
@@ -3747,7 +3892,7 @@
     "color_identity": [
       "B"
     ],
-    "edhrec_rank": 1817,
+    "edhrec_rank": 1914,
     "foil": true,
     "keywords": [],
     "layout": "normal",
@@ -3779,7 +3924,7 @@
     "nonfoil": true,
     "oracle_text": "Put X -1/-1 counters on each creature. Shuffle Black Sun's Zenith into its owner's library.",
     "oversized": false,
-    "penny_rank": 1740,
+    "penny_rank": 1693,
     "reserved": false,
     "type_line": "Sorcery",
     "artist": "Daniel Ljunggren",
@@ -3814,14 +3959,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/0/3/03bdcf52-50b8-42c0-9665-931d83f5f314.jpg?1562609329"
     },
     "prices": {
-      "usd": "4.68",
-      "usd_foil": "12.75",
+      "usd": "3.68",
+      "usd_foil": "13.00",
       "usd_etched": null,
-      "eur": "4.72",
+      "eur": "3.60",
       "eur_foil": "10.00",
       "tix": "0.02"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/39086?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Black+Sun%27s+Zenith&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/39533?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=214061",
@@ -3884,7 +4034,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 1891,
+    "edhrec_rank": 1878,
     "foil": true,
     "keywords": [
       "Battle Cry"
@@ -3918,7 +4068,7 @@
     "nonfoil": true,
     "oracle_text": "Battle cry (Whenever this creature attacks, each other attacking creature gets +1/+0 until end of turn.)\nWhenever Hero of Bladehold attacks, create two 1/1 white Soldier creature tokens that are tapped and attacking.",
     "oversized": false,
-    "penny_rank": 2167,
+    "penny_rank": 2421,
     "power": "3",
     "reserved": false,
     "toughness": "4",
@@ -3954,14 +4104,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/8/a/8a3853ec-e307-46e0-96d7-0706b5c45c5e.jpg?1562612851"
     },
     "prices": {
-      "usd": "11.17",
-      "usd_foil": "29.49",
+      "usd": "6.44",
+      "usd_foil": "32.48",
       "usd_etched": null,
-      "eur": "2.00",
-      "eur_foil": "9.94",
+      "eur": "7.49",
+      "eur_foil": "19.00",
       "tix": "0.02"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/39032?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Hero+of+Bladehold&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/39539?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "mythic",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=214064",
@@ -4024,7 +4179,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 6794,
+    "edhrec_rank": 6875,
     "foil": true,
     "keywords": [],
     "layout": "normal",
@@ -4056,7 +4211,7 @@
     "nonfoil": true,
     "oracle_text": "At the beginning of your upkeep, put a spore counter on Thallid.\nRemove three spore counters from Thallid: Create a 1/1 green Saproling creature token.",
     "oversized": false,
-    "penny_rank": 9290,
+    "penny_rank": 9165,
     "power": "1",
     "reserved": false,
     "toughness": "1",
@@ -4092,14 +4247,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/6/9/69d20d28-76e9-4e6e-95c3-f88c51dfabfd.jpg?1561967373"
     },
     "prices": {
-      "usd": "0.30",
-      "usd_foil": "0.51",
+      "usd": "0.32",
+      "usd_foil": "0.55",
       "usd_etched": null,
-      "eur": "0.49",
-      "eur_foil": "0.15",
+      "eur": "0.27",
+      "eur_foil": "0.24",
       "tix": "0.03"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/68236?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Thallid&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/48878?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=370352",
@@ -4141,7 +4301,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 106,
+    "edhrec_rank": 103,
     "foil": true,
     "keywords": [
       "Channel"
@@ -4215,14 +4375,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/2/1/2135ac5a-187b-4dc9-8f82-34e8d1603416.jpg?1654568912"
     },
     "prices": {
-      "usd": "28.93",
-      "usd_foil": "29.73",
+      "usd": "31.74",
+      "usd_foil": "31.88",
       "usd_etched": null,
-      "eur": "34.99",
-      "eur_foil": "48.96",
-      "tix": "21.80"
+      "eur": "37.85",
+      "eur_foil": "42.99",
+      "tix": "25.85"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/262050?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Boseiju%2C+Who+Endures&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/97482?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=548579",
@@ -4269,7 +4434,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 106,
+    "edhrec_rank": 103,
     "foil": true,
     "keywords": [
       "Channel"
@@ -4343,17 +4508,22 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/0/0/0055ea30-20fb-4324-a632-8fed87628f05.jpg?1647145068"
     },
     "prices": {
-      "usd": "35.95",
-      "usd_foil": "63.14",
+      "usd": "38.84",
+      "usd_foil": "72.52",
       "usd_etched": null,
-      "eur": "47.14",
-      "eur_foil": "72.49",
+      "eur": "42.50",
+      "eur_foil": "84.95",
       "tix": null
     },
     "promo": false,
     "promo_types": [
       "boosterfun"
     ],
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/262051?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Boseiju%2C+Who+Endures&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Boseiju%2C+Who+Endures&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=552122",
@@ -4399,7 +4569,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 106,
+    "edhrec_rank": 103,
     "foil": true,
     "keywords": [
       "Channel"
@@ -4474,17 +4644,22 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/2/4/2488a80b-6882-4b59-8232-f02f800204a9.jpg?1647809455"
     },
     "prices": {
-      "usd": "29.77",
-      "usd_foil": "38.64",
+      "usd": "32.18",
+      "usd_foil": "38.36",
       "usd_etched": null,
-      "eur": "37.00",
-      "eur_foil": "59.62",
+      "eur": "45.99",
+      "eur_foil": "59.95",
       "tix": null
     },
     "promo": false,
     "promo_types": [
       "boosterfun"
     ],
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/262439?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Boseiju%2C+Who+Endures&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Boseiju%2C+Who+Endures&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=551783",
@@ -4591,7 +4766,7 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/1/7/17b941e9-5dcc-473e-a461-709d74e32a3c.jpg?1562252328"
     },
     "prices": {
-      "usd": "20.67",
+      "usd": "21.55",
       "usd_foil": null,
       "usd_etched": null,
       "eur": "12.99",
@@ -4599,6 +4774,11 @@
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/37089?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=All+in+Good+Time&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=All+in+Good+Time&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=212648",
@@ -4705,14 +4885,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/7/0/7019912c-bd9b-4b96-9388-400794909aa1.jpg?1562917413"
     },
     "prices": {
-      "usd": "0.92",
-      "usd_foil": "7.88",
+      "usd": "0.83",
+      "usd_foil": "7.20",
       "usd_etched": null,
-      "eur": "0.42",
-      "eur_foil": "3.97",
+      "eur": "0.30",
+      "eur_foil": "5.00",
       "tix": "0.03"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/110546?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Wastes&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/59605?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=407694",
@@ -4816,14 +5001,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/9/c/9cc070d3-4b83-4684-9caf-063e5c473a77.jpg?1657725364"
     },
     "prices": {
-      "usd": "2.72",
+      "usd": "2.47",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "2.74",
+      "eur": "1.80",
       "eur_foil": null,
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/110703?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Wastes&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Wastes&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=407693",
@@ -4930,14 +5120,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/6/9/69b215fe-0d97-4ca1-9490-174220fd454b.jpg?1562916234"
     },
     "prices": {
-      "usd": "1.22",
-      "usd_foil": "11.49",
+      "usd": "1.15",
+      "usd_foil": "11.03",
       "usd_etched": null,
-      "eur": "0.58",
-      "eur_foil": "7.50",
+      "eur": "0.50",
+      "eur_foil": "6.90",
       "tix": "0.03"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/110547?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Wastes&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/59323?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=407696",
@@ -5041,14 +5236,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/6/0/60682c00-c661-4a9d-8326-f3f014a04e3e.jpg?1562914528"
     },
     "prices": {
-      "usd": "1.36",
+      "usd": "1.21",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "1.58",
+      "eur": "1.00",
       "eur_foil": null,
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/110704?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Wastes&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Wastes&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=407695",
@@ -5149,14 +5349,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/3/f/3f770c56-58ea-4b70-b9b6-9b2cb13e2234.jpg?1547434215"
     },
     "prices": {
-      "usd": "7.86",
+      "usd": "8.34",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "1.50",
+      "eur": "2.50",
       "eur_foil": null,
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/37272?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Academy+at+Tolaria+West&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Academy+at+Tolaria+West&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=198073",
@@ -5258,14 +5463,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/f/a/fabef637-fb4b-41b5-8d12-5568e84c6d11.jpg?1658417480"
     },
     "prices": {
-      "usd": "1.29",
+      "usd": "1.53",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.98",
+      "eur": "1.05",
       "eur_foil": null,
-      "tix": "0.16"
+      "tix": "0.13"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/81898?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Akoum&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/45090?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=226512",
@@ -5366,14 +5576,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/3/6/36ab24d3-ca9d-4b9c-8c28-4dd1f05a2314.jpg?1547434158"
     },
     "prices": {
-      "usd": "4.33",
+      "usd": "4.24",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.50",
+      "eur": "0.88",
       "eur_foil": null,
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/81890?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Chaotic+Aether&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Chaotic+Aether&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=226509",
@@ -5576,11 +5791,11 @@
       },
       {
         "object": "related_card",
-        "id": "ae883514-2e5f-4ea3-bccc-3c475f70121a",
+        "id": "e6cc97d2-6ad7-45fc-8766-d7297f911057",
         "component": "combo_piece",
         "name": "Krenko, Mob Boss",
         "type_line": "Legendary Creature — Goblin Warrior",
-        "uri": "https://api.scryfall.com/cards/ae883514-2e5f-4ea3-bccc-3c475f70121a"
+        "uri": "https://api.scryfall.com/cards/e6cc97d2-6ad7-45fc-8766-d7297f911057"
       },
       {
         "object": "related_card",
@@ -5728,11 +5943,11 @@
       },
       {
         "object": "related_card",
-        "id": "27238e0e-c676-44f5-841c-6e4a3a3f6374",
+        "id": "41f4777d-ea0e-408c-961e-eef7b3ffe51d",
         "component": "combo_piece",
         "name": "Dragon Fodder",
         "type_line": "Sorcery",
-        "uri": "https://api.scryfall.com/cards/27238e0e-c676-44f5-841c-6e4a3a3f6374"
+        "uri": "https://api.scryfall.com/cards/41f4777d-ea0e-408c-961e-eef7b3ffe51d"
       },
       {
         "object": "related_card",
@@ -5903,7 +6118,7 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/0/8/08ca3900-3845-40ac-8581-d4aebc2850a0.jpg?1561756620"
     },
     "prices": {
-      "usd": "23.44",
+      "usd": "24.19",
       "usd_foil": null,
       "usd_etched": null,
       "eur": null,
@@ -5914,6 +6129,11 @@
     "promo_types": [
       "playerrewards"
     ],
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/78623?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Goblin&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Goblin&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Goblin&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
@@ -5956,7 +6176,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 16717,
+    "edhrec_rank": 16809,
     "foil": false,
     "keywords": [
       "Flying",
@@ -6026,14 +6246,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/0/f/0f638ffc-20b3-4e8c-8f0a-0d034902bddd.jpg?1575571386"
     },
     "prices": {
-      "usd": "0.18",
+      "usd": "0.16",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.10",
+      "eur": "0.15",
       "eur_foil": null,
       "tix": "0.05"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/59533?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Armored+Griffin&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/45096?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "uncommon",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=271234",
@@ -6073,7 +6298,7 @@
     "color_identity": [
       "B"
     ],
-    "edhrec_rank": 1817,
+    "edhrec_rank": 1914,
     "foil": true,
     "keywords": [],
     "layout": "normal",
@@ -6105,7 +6330,7 @@
     "nonfoil": false,
     "oracle_text": "Put X -1/-1 counters on each creature. Shuffle Black Sun's Zenith into its owner's library.",
     "oversized": false,
-    "penny_rank": 1740,
+    "penny_rank": 1693,
     "reserved": false,
     "type_line": "Sorcery",
     "artist": "James Paick",
@@ -6138,16 +6363,21 @@
     },
     "prices": {
       "usd": null,
-      "usd_foil": "27.59",
+      "usd_foil": "24.34",
       "usd_etched": null,
       "eur": null,
-      "eur_foil": "12.00",
+      "eur_foil": "7.49",
       "tix": null
     },
     "promo": true,
     "promo_types": [
       "gameday"
     ],
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/48129?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Black+Sun%27s+Zenith&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Black+Sun%27s+Zenith&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Black+Sun%27s+Zenith&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
@@ -6246,14 +6476,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/7/6/76e5383d-ac12-4abc-aa30-15e99ded2d6f.jpg?1677544167"
     },
     "prices": {
-      "usd": "9.62",
+      "usd": "10.83",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "12.50",
+      "eur": "12.00",
       "eur_foil": null,
       "tix": null
     },
     "promo": true,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/37302?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Tazeem&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Tazeem&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=198069",
@@ -6293,7 +6528,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 11161,
+    "edhrec_rank": 11377,
     "foil": true,
     "keywords": [
       "Bolster"
@@ -6327,7 +6562,7 @@
     "nonfoil": false,
     "oracle_text": "At the beginning of your end step, bolster X, where X is the number of tapped creatures you control. (Choose a creature with the least toughness among creatures you control and put X +1/+1 counters on it.)",
     "oversized": false,
-    "penny_rank": 5183,
+    "penny_rank": 5141,
     "power": "2",
     "reserved": false,
     "toughness": "3",
@@ -6363,10 +6598,10 @@
     },
     "prices": {
       "usd": null,
-      "usd_foil": "0.59",
+      "usd_foil": "0.64",
       "usd_etched": null,
       "eur": null,
-      "eur_foil": "0.95",
+      "eur_foil": "0.94",
       "tix": null
     },
     "promo": true,
@@ -6374,6 +6609,11 @@
       "setpromo",
       "intropack"
     ],
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/95339?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Dragonscale+General&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Dragonscale+General&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Dragonscale+General&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
@@ -6414,7 +6654,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 11161,
+    "edhrec_rank": 11377,
     "foil": true,
     "keywords": [
       "Bolster"
@@ -6448,7 +6688,7 @@
     "nonfoil": false,
     "oracle_text": "At the beginning of your end step, bolster X, where X is the number of tapped creatures you control. (Choose a creature with the least toughness among creatures you control and put X +1/+1 counters on it.)",
     "oversized": false,
-    "penny_rank": 5183,
+    "penny_rank": 5141,
     "power": "2",
     "reserved": false,
     "toughness": "3",
@@ -6496,6 +6736,11 @@
       "prerelease",
       "datestamped"
     ],
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/95607?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Dragonscale+General&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Dragonscale+General&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Dragonscale+General&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
@@ -6600,7 +6845,7 @@
       "usd": "5.20",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "1.11",
+      "eur": "1.26",
       "eur_foil": null,
       "tix": null
     },
@@ -6608,6 +6853,11 @@
     "promo_types": [
       "instore"
     ],
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/91387?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Stairs+to+Infinity&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Stairs+to+Infinity&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=226521",
@@ -6645,7 +6895,7 @@
     "cmc": 0.0,
     "colors": [],
     "color_identity": [],
-    "edhrec_rank": 8271,
+    "edhrec_rank": 8354,
     "foil": false,
     "keywords": [
       "Fight"
@@ -6679,7 +6929,7 @@
     "nonfoil": true,
     "oracle_text": "{3}, {T}: Tap target creature you control and target creature of an opponent's choice they control. Those creatures fight each other. (Each deals damage equal to its power to the other.)",
     "oversized": false,
-    "penny_rank": 5240,
+    "penny_rank": 5204,
     "reserved": false,
     "type_line": "Land",
     "artist": "Rob Alexander",
@@ -6711,10 +6961,10 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/2/f/2f989fda-2e54-427c-9154-4820c48abb02.jpg?1561756864"
     },
     "prices": {
-      "usd": "7.83",
+      "usd": "7.94",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "4.99",
+      "eur": "8.18",
       "eur_foil": null,
       "tix": null
     },
@@ -6722,6 +6972,11 @@
     "promo_types": [
       "mediainsert"
     ],
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/21465?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Arena&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Arena&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=97042",
@@ -6786,7 +7041,7 @@
     "color_identity": [
       "R"
     ],
-    "edhrec_rank": 8767,
+    "edhrec_rank": 8922,
     "foil": true,
     "keywords": [],
     "layout": "split",
@@ -6817,7 +7072,7 @@
     "name": "Boom // Bust",
     "nonfoil": true,
     "oversized": false,
-    "penny_rank": 233,
+    "penny_rank": 232,
     "reserved": false,
     "type_line": "Sorcery // Sorcery",
     "artist": "John Avon",
@@ -6851,14 +7106,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/7/c/7ce986a4-5f82-4e7e-bef5-b49f05bf96a6.jpg?1562575287"
     },
     "prices": {
-      "usd": "2.13",
-      "usd_foil": "16.54",
+      "usd": "1.88",
+      "usd_foil": "16.34",
       "usd_etched": null,
-      "eur": "0.30",
-      "eur_foil": "2.00",
-      "tix": "0.03"
+      "eur": "0.78",
+      "eur_foil": "5.00",
+      "tix": "0.02"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/14692?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Boom+%2F%2F+Bust&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/26515?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=126218",
@@ -6906,7 +7166,7 @@
       "U",
       "W"
     ],
-    "edhrec_rank": 11936,
+    "edhrec_rank": 12113,
     "foil": true,
     "keywords": [],
     "layout": "normal",
@@ -6938,7 +7198,7 @@
     "nonfoil": true,
     "oracle_text": "{U}, {T}, Sacrifice a creature or enchantment: Counter target spell.",
     "oversized": false,
-    "penny_rank": 11443,
+    "penny_rank": 11437,
     "power": "3",
     "reserved": false,
     "toughness": "4",
@@ -6975,14 +7235,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/6/6/66b950d9-8fef-4deb-b51b-26edb90abc56.jpg?1586450720"
     },
     "prices": {
-      "usd": "2.58",
-      "usd_foil": "106.39",
+      "usd": "2.12",
+      "usd_foil": null,
       "usd_etched": null,
-      "eur": "1.30",
-      "eur_foil": "89.99",
-      "tix": "0.07"
+      "eur": "0.46",
+      "eur_foil": "64.99",
+      "tix": "0.03"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/7793?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Ertai%2C+the+Corrupted&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/15115?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=25614",
@@ -7028,7 +7293,7 @@
       "U",
       "W"
     ],
-    "edhrec_rank": 11936,
+    "edhrec_rank": 12113,
     "foil": true,
     "keywords": [],
     "layout": "normal",
@@ -7060,7 +7325,7 @@
     "nonfoil": false,
     "oracle_text": "{U}, {T}, Sacrifice a creature or enchantment: Counter target spell.",
     "oversized": false,
-    "penny_rank": 11443,
+    "penny_rank": 11437,
     "power": "3",
     "reserved": false,
     "toughness": "4",
@@ -7104,6 +7369,11 @@
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/77304?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Ertai%2C+the+Corrupted&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Ertai%2C+the+Corrupted&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=29292",
@@ -7161,7 +7431,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 1891,
+    "edhrec_rank": 1878,
     "foil": true,
     "keywords": [
       "Battle Cry"
@@ -7195,7 +7465,7 @@
     "nonfoil": false,
     "oracle_text": "Battle cry (Whenever this creature attacks, each other attacking creature gets +1/+0 until end of turn.)\nWhenever Hero of Bladehold attacks, create two 1/1 white Soldier creature tokens that are tapped and attacking.",
     "oversized": false,
-    "penny_rank": 2167,
+    "penny_rank": 2421,
     "power": "3",
     "reserved": false,
     "toughness": "4",
@@ -7230,10 +7500,10 @@
     },
     "prices": {
       "usd": null,
-      "usd_foil": "6.62",
+      "usd_foil": "5.26",
       "usd_etched": null,
       "eur": null,
-      "eur_foil": "1.49",
+      "eur_foil": "1.95",
       "tix": null
     },
     "promo": true,
@@ -7242,6 +7512,11 @@
       "datestamped",
       "prerelease"
     ],
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/48140?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Hero+of+Bladehold&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Hero+of+Bladehold&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "mythic",
     "related_uris": {
       "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Hero+of+Bladehold&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
@@ -7279,7 +7554,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 106,
+    "edhrec_rank": 103,
     "foil": true,
     "keywords": [
       "Channel"
@@ -7351,10 +7626,10 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/d/d/dda82840-1f3f-4be7-9bc7-66ff551ef5c0.jpg?1675617053"
     },
     "prices": {
-      "usd": "29.38",
-      "usd_foil": "32.49",
+      "usd": "29.39",
+      "usd_foil": "28.90",
       "usd_etched": null,
-      "eur": "33.53",
+      "eur": "35.45",
       "eur_foil": "35.50",
       "tix": null
     },
@@ -7363,6 +7638,11 @@
       "promopack",
       "stamped"
     ],
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/263926?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Boseiju%2C+Who+Endures&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Boseiju%2C+Who+Endures&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Boseiju%2C+Who+Endures&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
@@ -7400,7 +7680,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 106,
+    "edhrec_rank": 103,
     "foil": true,
     "keywords": [
       "Channel"
@@ -7472,10 +7752,10 @@
     },
     "prices": {
       "usd": null,
-      "usd_foil": "41.55",
+      "usd_foil": "43.55",
       "usd_etched": null,
       "eur": null,
-      "eur_foil": "42.49",
+      "eur_foil": "42.00",
       "tix": null
     },
     "promo": true,
@@ -7483,6 +7763,11 @@
       "prerelease",
       "datestamped"
     ],
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/263174?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Boseiju%2C+Who+Endures&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Boseiju%2C+Who+Endures&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Boseiju%2C+Who+Endures&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
@@ -7540,7 +7825,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 4148,
+    "edhrec_rank": 4272,
     "foil": true,
     "keywords": [
       "Afterlife"
@@ -7574,7 +7859,7 @@
     "nonfoil": true,
     "oracle_text": "During your turn, spells your opponents cast cost {1} more to cast and abilities your opponents activate cost {1} more to activate unless they're mana abilities.\nAfterlife 1 (When this creature dies, create a 1/1 white and black Spirit creature token with flying.)",
     "oversized": false,
-    "penny_rank": 1714,
+    "penny_rank": 1731,
     "power": "2",
     "reserved": false,
     "toughness": "1",
@@ -7609,11 +7894,11 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/8/4/848d4dae-1e51-446f-bad0-cdf852970486.jpg?1570827724"
     },
     "prices": {
-      "usd": "1.16",
-      "usd_foil": "2.62",
+      "usd": "1.25",
+      "usd_foil": "3.31",
       "usd_etched": null,
-      "eur": "0.77",
-      "eur_foil": "0.75",
+      "eur": "0.49",
+      "eur_foil": "1.50",
       "tix": null
     },
     "promo": true,
@@ -7622,6 +7907,11 @@
       "promopack",
       "stamped"
     ],
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/200218?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Tithe+Taker&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Tithe+Taker&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Tithe+Taker&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
@@ -7680,7 +7970,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 4148,
+    "edhrec_rank": 4272,
     "foil": true,
     "keywords": [
       "Afterlife"
@@ -7714,7 +8004,7 @@
     "nonfoil": false,
     "oracle_text": "During your turn, spells your opponents cast cost {1} more to cast and abilities your opponents activate cost {1} more to activate unless they're mana abilities.\nAfterlife 1 (When this creature dies, create a 1/1 white and black Spirit creature token with flying.)",
     "oversized": false,
-    "penny_rank": 1714,
+    "penny_rank": 1731,
     "power": "2",
     "reserved": false,
     "toughness": "1",
@@ -7749,10 +8039,10 @@
     },
     "prices": {
       "usd": null,
-      "usd_foil": "1.66",
+      "usd_foil": "1.70",
       "usd_etched": null,
       "eur": null,
-      "eur_foil": "1.39",
+      "eur_foil": "1.49",
       "tix": null
     },
     "promo": true,
@@ -7761,6 +8051,11 @@
       "prerelease",
       "datestamped"
     ],
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/183998?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Tithe+Taker&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Tithe+Taker&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Tithe+Taker&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
@@ -7868,10 +8163,15 @@
       "usd_foil": "2.42",
       "usd_etched": null,
       "eur": null,
-      "eur_foil": "2.52",
+      "eur_foil": "1.33",
       "tix": null
     },
     "promo": true,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/185154?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Plains&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Plains&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Plains&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
@@ -7983,10 +8283,15 @@
       "usd_foil": "3.58",
       "usd_etched": null,
       "eur": null,
-      "eur_foil": "3.00",
+      "eur_foil": "2.50",
       "tix": null
     },
     "promo": true,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/185155?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Plains&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Plains&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Plains&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
@@ -8140,13 +8445,18 @@
     "image_status": "highres_scan",
     "prices": {
       "usd": null,
-      "usd_foil": "61.72",
+      "usd_foil": "59.94",
       "usd_etched": null,
       "eur": null,
-      "eur_foil": "69.99",
+      "eur_foil": "70.00",
       "tix": null
     },
     "promo": true,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/200380?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Nightmare+Moon&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Nightmare+Moon&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "mythic",
     "related_uris": {
       "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Nightmare+Moon+%2F%2F+Princess+Luna&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
@@ -8186,7 +8496,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 108,
+    "edhrec_rank": 113,
     "foil": false,
     "keywords": [],
     "layout": "normal",
@@ -8218,7 +8528,7 @@
     "nonfoil": true,
     "oracle_text": "At the beginning of your draw step, you may draw two additional cards. If you do, choose two cards in your hand drawn this turn. For each of those cards, pay 4 life or put the card on top of your library.",
     "oversized": false,
-    "penny_rank": 82,
+    "penny_rank": 85,
     "reserved": false,
     "type_line": "Enchantment",
     "artist": "Harold McNeill",
@@ -8250,15 +8560,20 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/8/1/81917a2b-9bf6-4aa6-947d-36b0f45d6fe3.jpg?1562919020"
     },
     "prices": {
-      "usd": null,
+      "usd": "40.99",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "15.00",
+      "eur": "24.47",
       "eur_foil": null,
       "tix": null
     },
     "printed_name": "Bibliothèque sylvestre",
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/182169?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Sylvan+Library&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Sylvan+Library&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "uncommon",
     "related_uris": {
       "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Sylvan+Library&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
@@ -8319,7 +8634,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 4148,
+    "edhrec_rank": 4272,
     "foil": true,
     "keywords": [
       "Afterlife"
@@ -8353,7 +8668,7 @@
     "nonfoil": true,
     "oracle_text": "During your turn, spells your opponents cast cost {1} more to cast and abilities your opponents activate cost {1} more to activate unless they're mana abilities.\nAfterlife 1 (When this creature dies, create a 1/1 white and black Spirit creature token with flying.)",
     "oversized": false,
-    "penny_rank": 1714,
+    "penny_rank": 1731,
     "power": "2",
     "reserved": false,
     "toughness": "1",
@@ -8390,14 +8705,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/b/d/bd26b7b1-992d-4b8c-bc33-51aab5abdf98.jpg?1584830069"
     },
     "prices": {
-      "usd": "0.76",
-      "usd_foil": "1.80",
+      "usd": "0.66",
+      "usd_foil": "1.74",
       "usd_etched": null,
-      "eur": "0.31",
-      "eur_foil": "3.00",
+      "eur": "0.77",
+      "eur_foil": "1.50",
       "tix": "0.02"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/182205?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Tithe+Taker&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/71054?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=457171",
@@ -8444,7 +8764,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 15569,
+    "edhrec_rank": 15861,
     "foil": true,
     "keywords": [],
     "layout": "normal",
@@ -8476,7 +8796,7 @@
     "nonfoil": false,
     "oracle_text": "You may have Rhox assign its combat damage as though it weren't blocked.\n{2}{G}: Regenerate Rhox. (The next time this creature would be destroyed this turn, it isn't. Instead tap it, remove all damage from it, and remove it from combat.)",
     "oversized": false,
-    "penny_rank": 10699,
+    "penny_rank": 10764,
     "power": "5",
     "reserved": false,
     "toughness": "5",
@@ -8511,13 +8831,18 @@
     },
     "prices": {
       "usd": null,
-      "usd_foil": "0.81",
+      "usd_foil": "0.89",
       "usd_etched": null,
       "eur": null,
-      "eur_foil": "0.51",
+      "eur_foil": "0.30",
       "tix": null
     },
     "promo": true,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/21705?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Rhox&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Rhox&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Rhox&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
@@ -8598,7 +8923,7 @@
       }
     ],
     "color_identity": [],
-    "edhrec_rank": 2933,
+    "edhrec_rank": 2853,
     "foil": true,
     "keywords": [],
     "layout": "reversible_card",
@@ -8628,7 +8953,7 @@
     "name": "Doubling Cube // Doubling Cube",
     "nonfoil": true,
     "oversized": false,
-    "penny_rank": 11717,
+    "penny_rank": 11724,
     "reserved": false,
     "artist": "Volta Creation",
     "artist_ids": [
@@ -8650,14 +8975,19 @@
     "highres_image": true,
     "image_status": "highres_scan",
     "prices": {
-      "usd": "8.73",
-      "usd_foil": "9.25",
+      "usd": "11.94",
+      "usd_foil": "13.24",
       "usd_etched": null,
       "eur": null,
       "eur_foil": null,
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/456574?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Doubling+Cube+%2F%2F+Doubling+Cube&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Doubling+Cube+%2F%2F+Doubling+Cube&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Doubling+Cube+%2F%2F+Doubling+Cube&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
@@ -8863,11 +9193,11 @@
       },
       {
         "object": "related_card",
-        "id": "ae883514-2e5f-4ea3-bccc-3c475f70121a",
+        "id": "e6cc97d2-6ad7-45fc-8766-d7297f911057",
         "component": "combo_piece",
         "name": "Krenko, Mob Boss",
         "type_line": "Legendary Creature — Goblin Warrior",
-        "uri": "https://api.scryfall.com/cards/ae883514-2e5f-4ea3-bccc-3c475f70121a"
+        "uri": "https://api.scryfall.com/cards/e6cc97d2-6ad7-45fc-8766-d7297f911057"
       },
       {
         "object": "related_card",
@@ -9015,11 +9345,11 @@
       },
       {
         "object": "related_card",
-        "id": "27238e0e-c676-44f5-841c-6e4a3a3f6374",
+        "id": "41f4777d-ea0e-408c-961e-eef7b3ffe51d",
         "component": "combo_piece",
         "name": "Dragon Fodder",
         "type_line": "Sorcery",
-        "uri": "https://api.scryfall.com/cards/27238e0e-c676-44f5-841c-6e4a3a3f6374"
+        "uri": "https://api.scryfall.com/cards/41f4777d-ea0e-408c-961e-eef7b3ffe51d"
       },
       {
         "object": "related_card",
@@ -9190,14 +9520,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/d/9/d99cc0a4-4868-47f3-bd1d-f46b7cb74650.jpg?1681768986"
     },
     "prices": {
-      "usd": "1.44",
-      "usd_foil": "1.52",
+      "usd": "1.52",
+      "usd_foil": "1.62",
       "usd_etched": null,
       "eur": "0.74",
-      "eur_foil": "1.25",
+      "eur_foil": "1.24",
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/232589?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Goblin&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Goblin&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=509365",
@@ -9236,7 +9571,7 @@
     "color_identity": [
       "B"
     ],
-    "edhrec_rank": 147,
+    "edhrec_rank": 151,
     "foil": true,
     "keywords": [
       "Scry"
@@ -9270,7 +9605,7 @@
     "nonfoil": false,
     "oracle_text": "Sacrifice a creature: Scry 1. (Look at the top card of your library. You may put that card on the bottom of your library.)",
     "oversized": false,
-    "penny_rank": 786,
+    "penny_rank": 801,
     "power": "1",
     "reserved": false,
     "toughness": "1",
@@ -9316,6 +9651,11 @@
     "promo_types": [
       "serialized"
     ],
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/257331?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Viscera+Seer&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Viscera+Seer&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Viscera+Seer&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
@@ -9450,14 +9790,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/0/b/0b61d772-2d8b-4acf-9dd2-b2e8b03538c8.jpg?1610664131"
     },
     "prices": {
-      "usd": "5.47",
-      "usd_foil": "40.28",
+      "usd": "5.16",
+      "usd_foil": "13.31",
       "usd_etched": null,
-      "eur": "1.90",
-      "eur_foil": "19.99",
+      "eur": "2.94",
+      "eur_foil": "24.99",
       "tix": "0.02"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/12430?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Erayo%2C+Soratami+Ascendant&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/22176?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=87599",
@@ -9564,11 +9909,16 @@
       "usd": "0.22",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.18",
+      "eur": "0.19",
       "eur_foil": null,
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/288179?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Happy+Dead+Squirrel&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Happy+Dead+Squirrel&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "common",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=583545",
@@ -9614,7 +9964,7 @@
       "G",
       "R"
     ],
-    "edhrec_rank": 3345,
+    "edhrec_rank": 3464,
     "foil": true,
     "keywords": [
       "Indestructible"
@@ -9692,14 +10042,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/5/b/5b3c393c-3596-4bd9-a553-e0b03c2eb950.jpg?1581481087"
     },
     "prices": {
-      "usd": "3.79",
-      "usd_foil": "4.60",
+      "usd": "2.79",
+      "usd_foil": "4.07",
       "usd_etched": null,
-      "eur": "7.00",
-      "eur_foil": "7.99",
-      "tix": "0.35"
+      "eur": "5.93",
+      "eur_foil": "6.45",
+      "tix": "0.82"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/206458?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Klothys%2C+God+of+Destiny&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/79564?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "mythic",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=476471",
@@ -9748,7 +10103,7 @@
       "G",
       "R"
     ],
-    "edhrec_rank": 3345,
+    "edhrec_rank": 3464,
     "foil": true,
     "keywords": [
       "Indestructible"
@@ -9828,17 +10183,22 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/4/d/4d747889-04db-4e7a-ad4c-7549514b5112.jpg?1682720711"
     },
     "prices": {
-      "usd": "2.53",
-      "usd_foil": "4.53",
+      "usd": "1.72",
+      "usd_foil": "3.86",
       "usd_etched": null,
-      "eur": "5.50",
-      "eur_foil": "7.70",
+      "eur": "5.52",
+      "eur_foil": "6.99",
       "tix": null
     },
     "promo": false,
     "promo_types": [
       "boosterfun"
     ],
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/206459?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Klothys%2C+God+of+Destiny&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Klothys%2C+God+of+Destiny&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "mythic",
     "related_uris": {
       "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Klothys%2C+God+of+Destiny&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
@@ -9887,7 +10247,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 724,
+    "edhrec_rank": 713,
     "foil": true,
     "keywords": [
       "Trample"
@@ -9961,14 +10321,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/a/3/a391da36-0b40-46ea-b771-50d2b920207e.jpg?1581480808"
     },
     "prices": {
-      "usd": "17.71",
-      "usd_foil": "24.50",
+      "usd": "21.14",
+      "usd_foil": "21.14",
       "usd_etched": null,
-      "eur": "11.24",
-      "eur_foil": "11.00",
-      "tix": "0.40"
+      "eur": "11.02",
+      "eur_foil": "14.99",
+      "tix": "0.39"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/207021?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Nyxbloom+Ancient&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/79504?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "mythic",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=476441",
@@ -10014,7 +10379,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 724,
+    "edhrec_rank": 713,
     "foil": true,
     "keywords": [
       "Trample"
@@ -10088,17 +10453,22 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/c/8/c8a8e37b-0b97-4355-8e00-169a82c38ea0.jpg?1634466744"
     },
     "prices": {
-      "usd": "23.07",
-      "usd_foil": "70.31",
+      "usd": "21.76",
+      "usd_foil": "67.28",
       "usd_etched": null,
-      "eur": "18.00",
-      "eur_foil": "45.00",
+      "eur": "13.50",
+      "eur_foil": "59.99",
       "tix": null
     },
     "promo": false,
     "promo_types": [
       "boosterfun"
     ],
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/207060?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Nyxbloom+Ancient&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Nyxbloom+Ancient&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "mythic",
     "related_uris": {
       "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Nyxbloom+Ancient&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
@@ -10141,7 +10511,7 @@
       "G",
       "W"
     ],
-    "edhrec_rank": 554,
+    "edhrec_rank": 548,
     "foil": true,
     "keywords": [
       "Scry"
@@ -10175,7 +10545,7 @@
     "nonfoil": true,
     "oracle_text": "Temple of Plenty enters the battlefield tapped.\nWhen Temple of Plenty enters the battlefield, scry 1.\n{T}: Add {G} or {W}.",
     "oversized": false,
-    "penny_rank": 1066,
+    "penny_rank": 1081,
     "produced_mana": [
       "G",
       "W"
@@ -10214,14 +10584,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/6/e/6e6256ea-ccb5-4595-8278-44266f922e31.jpg?1581481279"
     },
     "prices": {
-      "usd": "0.27",
-      "usd_foil": "0.75",
+      "usd": "0.29",
+      "usd_foil": "0.60",
       "usd_etched": null,
-      "eur": "0.49",
-      "eur_foil": "0.25",
+      "eur": "0.20",
+      "eur_foil": "0.49",
       "tix": "0.02"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/206636?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Temple+of+Plenty&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/79620?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=476499",
@@ -10266,7 +10641,7 @@
       "G",
       "W"
     ],
-    "edhrec_rank": 554,
+    "edhrec_rank": 548,
     "foil": true,
     "keywords": [
       "Scry"
@@ -10300,7 +10675,7 @@
     "nonfoil": true,
     "oracle_text": "Temple of Plenty enters the battlefield tapped.\nWhen Temple of Plenty enters the battlefield, scry 1.\n{T}: Add {G} or {W}.",
     "oversized": false,
-    "penny_rank": 1066,
+    "penny_rank": 1081,
     "produced_mana": [
       "G",
       "W"
@@ -10342,17 +10717,22 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/6/1/61dc9a80-850c-4945-b84a-85381cc3ee85.jpg?1580351273"
     },
     "prices": {
-      "usd": "1.79",
-      "usd_foil": "10.41",
+      "usd": "1.60",
+      "usd_foil": "9.43",
       "usd_etched": null,
-      "eur": "1.80",
-      "eur_foil": "3.50",
+      "eur": "2.20",
+      "eur_foil": "6.49",
       "tix": null
     },
     "promo": false,
     "promo_types": [
       "boosterfun"
     ],
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/206637?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Temple+of+Plenty&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Temple+of+Plenty&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Temple+of+Plenty&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
@@ -10419,7 +10799,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 3006,
+    "edhrec_rank": 3068,
     "foil": true,
     "keywords": [
       "Enchant"
@@ -10453,7 +10833,7 @@
     "nonfoil": true,
     "oracle_text": "Enchant land\nWhenever enchanted land is tapped for mana, its controller adds an additional {G}.\n{4}{G}, Sacrifice Wolfwillow Haven: Create a 2/2 green Wolf creature token. Activate only during your turn.",
     "oversized": false,
-    "penny_rank": 2349,
+    "penny_rank": 2314,
     "produced_mana": [
       "G"
     ],
@@ -10492,13 +10872,18 @@
     },
     "prices": {
       "usd": "0.28",
-      "usd_foil": "0.64",
+      "usd_foil": "0.54",
       "usd_etched": null,
-      "eur": "0.16",
-      "eur_foil": "0.10",
+      "eur": "0.25",
+      "eur_foil": "0.76",
       "tix": "0.03"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/207066?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Wolfwillow+Haven&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/79534?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "uncommon",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=476456",
@@ -10561,7 +10946,7 @@
     "color_identity": [
       "G"
     ],
-    "edhrec_rank": 3006,
+    "edhrec_rank": 3068,
     "foil": true,
     "keywords": [
       "Enchant"
@@ -10595,7 +10980,7 @@
     "nonfoil": true,
     "oracle_text": "Enchant land\nWhenever enchanted land is tapped for mana, its controller adds an additional {G}.\n{4}{G}, Sacrifice Wolfwillow Haven: Create a 2/2 green Wolf creature token. Activate only during your turn.",
     "oversized": false,
-    "penny_rank": 2349,
+    "penny_rank": 2314,
     "produced_mana": [
       "G"
     ],
@@ -10636,17 +11021,22 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/c/f/cfc4be7b-a948-464d-8327-575ccb7dccf3.jpg?1586187338"
     },
     "prices": {
-      "usd": "1.13",
-      "usd_foil": "5.20",
+      "usd": "1.12",
+      "usd_foil": "5.14",
       "usd_etched": null,
-      "eur": "0.05",
-      "eur_foil": "1.70",
+      "eur": "0.24",
+      "eur_foil": "0.53",
       "tix": null
     },
     "promo": true,
     "promo_types": [
       "promopack"
     ],
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/208027?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Wolfwillow+Haven&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Wolfwillow+Haven&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "uncommon",
     "related_uris": {
       "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Wolfwillow+Haven&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
@@ -10796,14 +11186,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/8/9/8987644d-5a31-4a4e-9a8a-3d6260ed0fd6.jpg?1562488870"
     },
     "prices": {
-      "usd": "1.43",
-      "usd_foil": "53.49",
+      "usd": "1.21",
+      "usd_foil": "53.98",
       "usd_etched": null,
-      "eur": "1.37",
+      "eur": "1.00",
       "eur_foil": "39.00",
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/37950?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Who+%2F%2F+What+%2F%2F+When+%2F%2F+Where+%2F%2F+Why&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Who+%2F%2F+What+%2F%2F+When+%2F%2F+Where+%2F%2F+Why&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=74358",
@@ -10960,14 +11355,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/9/a/9a650610-20e2-4f16-b59c-2ea7779f6e47.jpg?1562927634"
     },
     "prices": {
-      "usd": "1.49",
+      "usd": "1.50",
       "usd_foil": "18.49",
       "usd_etched": null,
-      "eur": "2.46",
-      "eur_foil": "25.99",
+      "eur": "2.19",
+      "eur_foil": "20.00",
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/154419?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Very+Cryptic+Command&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Very+Cryptic+Command&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=439645",
@@ -11123,14 +11523,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/2/a/2a90b2b6-d96e-4c13-83be-849d2ec1d845.jpg?1562904026"
     },
     "prices": {
-      "usd": "0.90",
+      "usd": "0.96",
       "usd_foil": "7.31",
       "usd_etched": null,
-      "eur": "2.40",
+      "eur": "2.25",
       "eur_foil": "7.99",
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/152906?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Very+Cryptic+Command&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Very+Cryptic+Command&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=439438",
@@ -11294,14 +11699,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/2/d/2dfc9416-06d6-40af-8b3d-62371b3da7c5.jpg?1562904665"
     },
     "prices": {
-      "usd": "2.00",
-      "usd_foil": "6.21",
+      "usd": "1.82",
+      "usd_foil": "6.49",
       "usd_etched": null,
-      "eur": "2.00",
+      "eur": "2.75",
       "eur_foil": "9.00",
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/154420?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Very+Cryptic+Command&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Very+Cryptic+Command&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=439646",
@@ -11457,14 +11867,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/1/2/12272ce6-ab1f-4576-9e50-21d324263c44.jpg?1562898766"
     },
     "prices": {
-      "usd": "1.57",
+      "usd": "1.61",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "1.50",
+      "eur": "1.20",
       "eur_foil": "26.08",
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/154421?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Very+Cryptic+Command&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Very+Cryptic+Command&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=439647",
@@ -11622,14 +12037,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/d/8/d8e84dd2-01f9-4fad-8a24-cc86424d09a2.jpg?1562940811"
     },
     "prices": {
-      "usd": "3.23",
-      "usd_foil": "13.45",
+      "usd": "3.20",
+      "usd_foil": null,
       "usd_etched": null,
-      "eur": "1.49",
+      "eur": "2.50",
       "eur_foil": "8.89",
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/154422?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Very+Cryptic+Command&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Very+Cryptic+Command&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=439648",
@@ -11795,14 +12215,19 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/d/4/d41e6c51-d96a-436f-94c5-5d1e19c5e0d5.jpg?1562939866"
     },
     "prices": {
-      "usd": "1.50",
-      "usd_foil": null,
+      "usd": "1.49",
+      "usd_foil": "3.50",
       "usd_etched": null,
-      "eur": "1.95",
+      "eur": "1.45",
       "eur_foil": "8.49",
       "tix": null
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/154423?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Very+Cryptic+Command&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Very+Cryptic+Command&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=439649",
@@ -11845,7 +12270,7 @@
     "color_identity": [
       "U"
     ],
-    "edhrec_rank": 15293,
+    "edhrec_rank": 15505,
     "foil": true,
     "keywords": [],
     "layout": "normal",
@@ -11877,7 +12302,7 @@
     "nonfoil": true,
     "oracle_text": "Academy Elite enters the battlefield with X +1/+1 counters on it, where X is the number of instant and sorcery cards in all graveyards.\n{2}{U}, Remove a +1/+1 counter from Academy Elite: Draw a card, then discard a card.",
     "oversized": false,
-    "penny_rank": 3850,
+    "penny_rank": 3819,
     "power": "0",
     "reserved": false,
     "toughness": "0",
@@ -11920,6 +12345,11 @@
       "tix": "0.02"
     },
     "promo": false,
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/search/magic/product?productLineName=magic&q=Academy+Elite&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall&view=grid",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Academy+Elite&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/53185?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "rare",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=382835",
@@ -11964,7 +12394,7 @@
     "color_identity": [
       "W"
     ],
-    "edhrec_rank": 8753,
+    "edhrec_rank": 8921,
     "foil": false,
     "keywords": [
       "Flying",
@@ -11999,7 +12429,7 @@
     "nonfoil": true,
     "oracle_text": "Flying, vigilance",
     "oversized": false,
-    "penny_rank": 8873,
+    "penny_rank": 8706,
     "power": "4",
     "reserved": false,
     "toughness": "4",
@@ -12035,10 +12465,10 @@
       "border_crop": "https://cards.scryfall.io/border_crop/front/8/7/8752c1db-b924-4dda-8b71-4c254d0ef2de.jpg?1562923563"
     },
     "prices": {
-      "usd": "0.10",
+      "usd": "0.18",
       "usd_foil": null,
       "usd_etched": null,
-      "eur": "0.02",
+      "eur": "0.10",
       "eur_foil": null,
       "tix": "0.05"
     },
@@ -12046,6 +12476,11 @@
     "promo_types": [
       "starterdeck"
     ],
+    "purchase_uris": {
+      "tcgplayer": "https://www.tcgplayer.com/product/116791?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+      "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Serra+Angel&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+      "cardhoarder": "https://www.cardhoarder.com/cards/60518?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+    },
     "rarity": "uncommon",
     "related_uris": {
       "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=413369",
