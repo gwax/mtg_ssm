@@ -411,9 +411,7 @@ def test_merge_cmd_multiple(tmp_path: Path, oracle: Oracle) -> None:
         )
     )
 
-    args = ap.Namespace(
-        collection=coll_path, imports=[import_path1, import_path2], dialect={}
-    )
+    args = ap.Namespace(collection=coll_path, imports=[import_path1, import_path2], dialect={})
     ssm.merge_cmd(args, oracle)
 
     assert set(work_path.iterdir()) == {

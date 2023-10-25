@@ -112,12 +112,8 @@ def find_scryfall_id(card_row: Dict[str, str], oracle: Oracle) -> UUID:
     mvid = int(card_row.get("multiverseid") or -1)
     artist = card_row.get("artist") or None
     artist = PSUDONYM_TO_ARTIST.get(artist, artist)
-    print(
-        f"Searching => Set: {set_code}; Name: {name}; Number: {collector_number}; MVID: {mvid}"
-    )
-    snnma_keys: List[
-        Tuple[Optional[str], str, Optional[str], Optional[int], Optional[str]]
-    ] = []
+    print(f"Searching => Set: {set_code}; Name: {name}; Number: {collector_number}; MVID: {mvid}")
+    snnma_keys: List[Tuple[Optional[str], str, Optional[str], Optional[int], Optional[str]]] = []
     for set_ in set_codes:
         snnma_keys += [
             (set_, name, collector_number, None, None),

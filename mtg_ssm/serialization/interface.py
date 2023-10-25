@@ -24,9 +24,7 @@ class SerializationDialect(metaclass=abc.ABCMeta):
     """Abstract interface for mtg ssm serialization dialect."""
 
     _EXT_DIALECT_DOC: ClassVar[Set[Tuple[str, str, str]]] = set()
-    _EXT_DIALECT_TO_IMPL: ClassVar[
-        Dict[Tuple[str, str], Type["SerializationDialect"]]
-    ] = {}
+    _EXT_DIALECT_TO_IMPL: ClassVar[Dict[Tuple[str, str], Type["SerializationDialect"]]] = {}
 
     extension: ClassVar[Optional[str]] = None
     dialect: ClassVar[Optional[str]] = None
@@ -34,9 +32,7 @@ class SerializationDialect(metaclass=abc.ABCMeta):
     def __init_subclass__(cls: Type["SerializationDialect"]) -> None:
         super().__init_subclass__()
         if cls.extension is not None and cls.dialect is not None:
-            cls._EXT_DIALECT_DOC.add(
-                (cls.extension, cls.dialect, cls.__doc__ or cls.__name__)
-            )
+            cls._EXT_DIALECT_DOC.add((cls.extension, cls.dialect, cls.__doc__ or cls.__name__))
             cls._EXT_DIALECT_TO_IMPL[(cls.extension, cls.dialect)] = cls
 
     @abc.abstractmethod
@@ -52,9 +48,7 @@ class SerializationDialect(metaclass=abc.ABCMeta):
         cls: Type["SerializationDialect"],
     ) -> List[Tuple[str, Optional[str], Optional[str]]]:
         """List of (extension, dialect, description) of registered dialects."""
-        return sorted(
-            (ext, dial or "", doc or "") for ext, dial, doc in cls._EXT_DIALECT_DOC
-        )
+        return sorted((ext, dial or "", doc or "") for ext, dial, doc in cls._EXT_DIALECT_DOC)
 
     @classmethod
     def by_extension(

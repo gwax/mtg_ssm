@@ -86,9 +86,7 @@ def test_extract_counts(card_row: Dict[str, Any], expected: Dict[str, int]) -> N
         ),
     ],
 )
-def test_find_scryfall_id(
-    card_row: Dict[str, Any], expected: UUID, oracle: Oracle
-) -> None:
+def test_find_scryfall_id(card_row: Dict[str, Any], expected: UUID, oracle: Oracle) -> None:
     assert legacy.find_scryfall_id(card_row, oracle) == expected
 
 
@@ -103,7 +101,5 @@ def test_find_scryfall_id(
         ),
     ],
 )
-def test_coerce_row(
-    card_row: Dict[str, Any], expected: Dict[str, Any], oracle: Oracle
-) -> None:
+def test_coerce_row(card_row: Dict[str, Any], expected: Dict[str, Any], oracle: Oracle) -> None:
     assert legacy.coerce_row(card_row, oracle) == expected

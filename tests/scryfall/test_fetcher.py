@@ -12,9 +12,7 @@ from mtg_ssm.scryfall import fetcher
 from mtg_ssm.scryfall.models import ScryCard, ScryMigration, ScrySet
 from tests import gen_testdata
 
-BULK_CARDS_REGEX = (
-    r"https://data\.scryfall\.io/default-cards/default-cards-\d{14}\.json"
-)
+BULK_CARDS_REGEX = r"https://data\.scryfall\.io/default-cards/default-cards-\d{14}\.json"
 
 ENDPOINT_TO_FILE: Dict[Union[str, Pattern[str]], Path] = {
     fetcher.BULK_DATA_ENDPOINT: gen_testdata.TARGET_BULK_FILE,
@@ -47,9 +45,7 @@ def test_scryfetch() -> None:
     assert scrydata1 == scrydata2
     assert {s.code for s in scrydata1.sets} == gen_testdata.TEST_SETS_TO_CARDS.keys()
     assert {(c.set, c.name) for c in scrydata1.cards} == {
-        (key, card)
-        for key, value in gen_testdata.TEST_SETS_TO_CARDS.items()
-        for card in value
+        (key, card) for key, value in gen_testdata.TEST_SETS_TO_CARDS.items() for card in value
     }
 
 

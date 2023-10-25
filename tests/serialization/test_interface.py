@@ -42,9 +42,7 @@ def test_all_dialects() -> None:
 def test_extension_lookup(
     extension: str, dialect_mapping: Dict[str, str], dialect_name: str
 ) -> None:
-    serialization_class = interface.SerializationDialect.by_extension(
-        extension, dialect_mapping
-    )
+    serialization_class = interface.SerializationDialect.by_extension(extension, dialect_mapping)
     assert isinstance(serialization_class, type)
     assert issubclass(serialization_class, interface.SerializationDialect)
     assert serialization_class.__name__ == dialect_name

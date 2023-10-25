@@ -66,9 +66,7 @@ def scryfetch() -> ScryfallDataSet:
         sets_data += sets_list.data
 
     scrylistmigration_decoder = msgspec.json.Decoder(ScryList[ScryMigration])
-    migrations_list = scrylistmigration_decoder.decode(
-        _fetch_endpoint(MIGRATIONS_ENDPOINT)
-    )
+    migrations_list = scrylistmigration_decoder.decode(_fetch_endpoint(MIGRATIONS_ENDPOINT))
     migrations_data = migrations_list.data
     while migrations_list.has_more and migrations_list.next_page is not None:
         migrations_list = scrylistmigration_decoder.decode(
@@ -77,8 +75,6 @@ def scryfetch() -> ScryfallDataSet:
         migrations_data += migrations_list.data
 
     [cards_endpoint] = [bd.download_uri for bd in bulk_data if bd.type == BULK_TYPE]
-    cards_data = msgspec.json.decode(
-        _fetch_endpoint(cards_endpoint), type=List[ScryCard]
-    )
+    cards_data = msgspec.json.decode(_fetch_endpoint(cards_endpoint), type=List[ScryCard])
 
     return ScryfallDataSet(sets=sets_data, cards=cards_data, migrations=migrations_data)
