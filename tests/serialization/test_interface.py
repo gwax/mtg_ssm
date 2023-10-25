@@ -1,4 +1,4 @@
-"""Tests for mtg_ssm.serialization.interface.py"""
+"""Tests for mtg_ssm.serialization.interface.py."""
 
 from typing import Dict
 from unittest import mock
@@ -19,7 +19,7 @@ def test_all_dialects() -> None:
 
 
 @pytest.mark.parametrize(
-    "extension, dialect_mapping, dialect_name",
+    ("extension", "dialect_mapping", "dialect_name"),
     [
         pytest.param("csv", {}, "CsvFullDialect"),
         pytest.param("csv", {"csv": "terse"}, "CsvTerseDialect"),
@@ -29,10 +29,13 @@ def test_all_dialects() -> None:
             "invalid",
             {},
             mock.ANY,
-            marks=pytest.mark.xfail(raises=interface.UnknownDialect),
+            marks=pytest.mark.xfail(raises=interface.UnknownDialectError),
         ),
         pytest.param(
-            "", {}, mock.ANY, marks=pytest.mark.xfail(raises=interface.UnknownDialect)
+            "",
+            {},
+            mock.ANY,
+            marks=pytest.mark.xfail(raises=interface.UnknownDialectError),
         ),
     ],
 )

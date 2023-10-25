@@ -35,7 +35,8 @@ def test_exclude_token_layout(scryfall_data: bundles.ScryfallDataSet) -> None:
     set_codes = {s.code for s in scryfall_data.sets}
     card_names = {c.name for c in scryfall_data.cards}
 
-    assert "p03" in set_codes and "sld" in set_codes
+    assert "p03" in set_codes
+    assert "sld" in set_codes
     assert "Goblin" in card_names
 
     tokens_removed = bundles.filter_cards_and_sets(
@@ -43,7 +44,8 @@ def test_exclude_token_layout(scryfall_data: bundles.ScryfallDataSet) -> None:
     )
     set_codes2 = {s.code for s in tokens_removed.sets}
     card_names2 = {c.name for c in tokens_removed.cards}
-    assert "p03" not in set_codes2 and "sld" in set_codes2
+    assert "p03" not in set_codes2
+    assert "sld" in set_codes2
     assert "Goblin" not in card_names2
 
 

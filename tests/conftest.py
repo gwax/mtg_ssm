@@ -1,5 +1,4 @@
 """pytest test configuration file."""
-# pylint: disable=redefined-outer-name
 
 from pathlib import Path
 from typing import Dict, Generator, List
@@ -20,7 +19,7 @@ MIGRATIONS_DATA_FILE = TEST_DATA_DIR / "migrations.json"
 
 
 @pytest.fixture(autouse=True)
-def fetcher_disable_cache() -> Generator[None, None, None]:
+def _fetcher_disable_cache() -> Generator[None, None, None]:
     """Patch fetcher cache dirs for testing."""
     with fetcher.SESSION.cache_disabled():
         yield

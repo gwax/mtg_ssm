@@ -2,6 +2,8 @@
 
 from dataclasses import dataclass
 
+from typing_extensions import Self
+
 from mtg_ssm.containers import counts
 from mtg_ssm.containers.counts import ScryfallCardCount
 from mtg_ssm.containers.indexes import Oracle
@@ -22,7 +24,7 @@ class MagicCollection:
             counts=counts.merge_card_counts(self.counts, other.counts),
         )
 
-    def __iadd__(self, other: "MagicCollection") -> "MagicCollection":
+    def __iadd__(self, other: "MagicCollection") -> Self:
         if not isinstance(other, MagicCollection):
             return NotImplemented
         self.counts = counts.merge_card_counts(self.counts, other.counts)
@@ -36,7 +38,7 @@ class MagicCollection:
             counts=counts.diff_card_counts(self.counts, other.counts),
         )
 
-    def __isub__(self, other: "MagicCollection") -> "MagicCollection":
+    def __isub__(self, other: "MagicCollection") -> Self:
         if not isinstance(other, MagicCollection):
             return NotImplemented
         self.counts = counts.diff_card_counts(self.counts, other.counts)

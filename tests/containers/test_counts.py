@@ -1,5 +1,4 @@
-"""Tests for mtg_ssm.mtg.counts"""
-# pylint: disable=redefined-outer-name
+"""Tests for mtg_ssm.mtg.counts."""
 
 from typing import Any, Dict, List
 from uuid import UUID
@@ -20,7 +19,7 @@ def oracle(scryfall_data: ScryfallDataSet) -> Oracle:
 
 
 @pytest.mark.parametrize(
-    "in_card_counts, out_card_count",
+    ("in_card_counts", "out_card_count"),
     [
         pytest.param([], {}, id="no inputs"),
         pytest.param(
@@ -57,7 +56,7 @@ def test_merge_card_counts(
 
 
 @pytest.mark.parametrize(
-    "left, right, output",
+    ("left", "right", "output"),
     [
         pytest.param({}, {}, {}, id="no inputs"),
         pytest.param(
@@ -99,7 +98,7 @@ def test_diff_card_counts(
 
 
 @pytest.mark.parametrize(
-    "card_rows, output",
+    ("card_rows", "output"),
     [
         pytest.param([], {}, id="nothing"),
         pytest.param([{}], {}, id="empty"),

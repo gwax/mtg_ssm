@@ -102,9 +102,11 @@ PSUDONYM_TO_ARTIST: Dict[Optional[str], str] = {
 def find_scryfall_id(card_row: Dict[str, str], oracle: Oracle) -> UUID:
     """Heuristically determine the scryfall id for a given input row."""
     set_code = card_row.get("set", "")
-    set_codes = [set_code, set_code.lower()] + OTHER_SET_CODE_TO_SET_CODE.get(
-        set_code, []
-    )
+    set_codes = [
+        set_code,
+        set_code.lower(),
+        *OTHER_SET_CODE_TO_SET_CODE.get(set_code, []),
+    ]
     name = card_row.get("name", "")
     collector_number = card_row.get("number") or None
     mvid = int(card_row.get("multiverseid") or -1)
@@ -141,8 +143,10 @@ def find_scryfall_id(card_row: Dict[str, str], oracle: Oracle) -> UUID:
                 )
                 return scryfall_id
     if seen:
-        raise MultipleMatchError(f"Could not find scryfall card for row: {card_row}")
-    raise NoMatchError(f"Could not find scryfall card for row: {card_row}")
+        msg = f"Could not find scryfall card for row: {card_row}"
+        raise MultipleMatchError(msg)
+    msg = f"Could not find scryfall card for row: {card_row}"
+    raise NoMatchError(msg)
 
 
 def coerce_row(card_row: Dict[str, Any], oracle: Oracle) -> Dict[str, Any]:

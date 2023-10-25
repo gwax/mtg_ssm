@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Script to build mtgjson testdata."""
-# pylint: disable=protected-access
 
 import copy
 from pathlib import Path
@@ -79,12 +78,12 @@ TEST_SETS_TO_CARDS = {
 }
 
 
-def main() -> None:  # pylint: disable=too-many-locals,too-many-statements
+def main() -> None:  # noqa: PLR0915
     """Read scryfall data and write a subset for use as test data."""
     print("Fetching scryfall data")
     scrydata = fetcher.scryfetch()
     bulk_data_list = msgspec.json.decode(
-        fetcher._fetch_endpoint(fetcher.BULK_DATA_ENDPOINT),
+        fetcher._fetch_endpoint(fetcher.BULK_DATA_ENDPOINT),  # noqa: SLF001
         type=models.ScryList[models.ScryBulkData],
     )
     bulk_data = bulk_data_list.data

@@ -10,7 +10,7 @@ from mtg_ssm.scryfall.models import ScryCard
 
 
 @pytest.mark.parametrize(
-    "name, expected",
+    ("name", "expected"),
     [
         pytest.param("Forest", True),
         pytest.param("Snow-Covered Forest", False),
@@ -23,7 +23,7 @@ def test_is_strict_basic(name: str, expected: bool) -> None:
 
 
 @pytest.mark.parametrize(
-    "name, card_id, number, variant",
+    ("name", "card_id", "number", "variant"),
     [
         pytest.param("Thallid", UUID("4caaf31b-86a9-485b-8da7-d5b526ed1233"), 74, "a"),
         pytest.param(

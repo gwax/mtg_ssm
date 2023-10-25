@@ -1,5 +1,4 @@
 """Tests for mtg_ssm.containers.legacy."""
-# pylint: disable=redefined-outer-name
 
 from typing import Any, Dict
 from uuid import UUID
@@ -18,7 +17,7 @@ def oracle(scryfall_data: ScryfallDataSet) -> Oracle:
 
 
 @pytest.mark.parametrize(
-    "card_row, expected",
+    ("card_row", "expected"),
     [
         pytest.param({}, {}),
         pytest.param({"gar": "bage"}, {}),
@@ -36,7 +35,7 @@ def test_extract_counts(card_row: Dict[str, Any], expected: Dict[str, int]) -> N
 
 
 @pytest.mark.parametrize(
-    "card_row, expected",
+    ("card_row", "expected"),
     [
         pytest.param(
             {},
@@ -94,7 +93,7 @@ def test_find_scryfall_id(
 
 
 @pytest.mark.parametrize(
-    "card_row, expected",
+    ("card_row", "expected"),
     [
         pytest.param({}, {}),
         pytest.param({"set": "MMA", "name": "Thallid"}, {}),

@@ -1,19 +1,18 @@
 """Scryfall object models."""
+# ruff: noqa: A003
 
 import datetime as dt
 from decimal import Decimal
 from enum import Enum
-from typing import TYPE_CHECKING, Dict, Generic, List, Literal, Optional, TypeVar, Union
+from typing import Dict, Generic, List, Optional, TypeVar, Union
 from uuid import UUID
 
 from msgspec import Struct
-
-if TYPE_CHECKING:
-    from typing_extensions import TypeAlias
+from typing_extensions import TypeAlias
 
 
 class ScryColor(str, Enum):
-    """Enum for https://scryfall.com/docs/api/colors#color-arrays"""
+    """Enum for https://scryfall.com/docs/api/colors#color-arrays."""
 
     WHITE = "W"
     BLUE = "U"
@@ -25,7 +24,7 @@ class ScryColor(str, Enum):
 
 
 class ScrySetType(str, Enum):
-    """Enum for https://scryfall.com/docs/api/sets#set-types"""
+    """Enum for https://scryfall.com/docs/api/sets#set-types."""
 
     CORE = "core"
     EXPANSION = "expansion"
@@ -45,7 +44,7 @@ class ScrySetType(str, Enum):
     STARTER = "starter"
     BOX = "box"
     PROMO = "promo"
-    TOKEN = "token"
+    TOKEN = "token"  # noqa: S105
     MEMORABILIA = "memorabilia"
     ALCHEMY = "alchemy"
     ARSENAL = "arsenal"
@@ -53,7 +52,7 @@ class ScrySetType(str, Enum):
 
 
 class ScryCardLayout(str, Enum):
-    """Enum for https://scryfall.com/docs/api/layouts#layout"""
+    """Enum for https://scryfall.com/docs/api/layouts#layout."""
 
     NORMAL = "normal"
     SPLIT = "split"
@@ -68,8 +67,8 @@ class ScryCardLayout(str, Enum):
     PLANAR = "planar"
     SCHEME = "scheme"
     VANGUARD = "vanguard"
-    TOKEN = "token"
-    DOUBLE_FACED_TOKEN = "double_faced_token"
+    TOKEN = "token"  # noqa: S105
+    DOUBLE_FACED_TOKEN = "double_faced_token"  # noqa: S105
     EMBLEM = "emblem"
     AUGMENT = "augment"
     HOST = "host"
@@ -81,7 +80,7 @@ class ScryCardLayout(str, Enum):
 
 
 class ScryCardFrame(str, Enum):
-    """Enum for https://scryfall.com/docs/api/layouts#frames"""
+    """Enum for https://scryfall.com/docs/api/layouts#frames."""
 
     Y1993 = "1993"
     Y1997 = "1997"
@@ -91,7 +90,7 @@ class ScryCardFrame(str, Enum):
 
 
 class ScryFrameEffect(str, Enum):
-    """Enum for https://scryfall.com/docs/api/layouts#frame-effects"""
+    """Enum for https://scryfall.com/docs/api/layouts#frame-effects."""
 
     NONE = ""
     LEGENDARY = "legendary"
@@ -128,7 +127,7 @@ class ScryFrameEffect(str, Enum):
 
 
 class ScryBorderColor(str, Enum):
-    """Enum for card border_color"""
+    """Enum for card border_color."""
 
     BLACK = "black"
     BORDERLESS = "borderless"
@@ -138,7 +137,7 @@ class ScryBorderColor(str, Enum):
 
 
 class ScryFinish(str, Enum):
-    """Enum for card finishes"""
+    """Enum for card finishes."""
 
     FOIL = "foil"
     NONFOIL = "nonfoil"
@@ -147,7 +146,7 @@ class ScryFinish(str, Enum):
 
 
 class ScryImageStatus(str, Enum):
-    """Enum for card image_status"""
+    """Enum for card image_status."""
 
     MISSING = "missing"
     PLACEHOLDER = "placeholder"
@@ -156,7 +155,7 @@ class ScryImageStatus(str, Enum):
 
 
 class ScryGame(str, Enum):
-    """Enum for card games"""
+    """Enum for card games."""
 
     PAPER = "paper"
     ARENA = "arena"
@@ -166,7 +165,7 @@ class ScryGame(str, Enum):
 
 
 class ScryRarity(str, Enum):
-    """Enum for card rarity"""
+    """Enum for card rarity."""
 
     COMMON = "common"
     UNCOMMON = "uncommon"
@@ -177,7 +176,7 @@ class ScryRarity(str, Enum):
 
 
 class ScrySecurityStamp(str, Enum):
-    """Enum for card security_stamp"""
+    """Enum for card security_stamp."""
 
     OVAL = "oval"
     TRIANGLE = "triangle"
@@ -188,7 +187,7 @@ class ScrySecurityStamp(str, Enum):
 
 
 class ScryFormat(str, Enum):
-    """Enum for card legalities keys"""
+    """Enum for card legalities keys."""
 
     BRAWL = "brawl"
     COMMANDER = "commander"
@@ -215,7 +214,7 @@ class ScryFormat(str, Enum):
 
 
 class ScryLegality(str, Enum):
-    """Enum for card legalities values"""
+    """Enum for card legalities values."""
 
     LEGAL = "legal"
     NOT_LEGAL = "not_legal"
@@ -224,7 +223,7 @@ class ScryLegality(str, Enum):
 
 
 class ScryMigrationStrategy(str, Enum):
-    """Enum for migration strategy values"""
+    """Enum for migration strategy values."""
 
     MERGE = "merge"
     DELETE = "delete"
@@ -237,7 +236,7 @@ class ScrySet(
     kw_only=True,
     omit_defaults=True,
 ):
-    """Model for https://scryfall.com/docs/api/sets"""
+    """Model for https://scryfall.com/docs/api/sets."""
 
     id: UUID
     code: str
@@ -268,7 +267,7 @@ class ScryRelatedCard(
     kw_only=True,
     omit_defaults=True,
 ):
-    """Model for https://scryfall.com/docs/api/cards#related-card-objects"""
+    """Model for https://scryfall.com/docs/api/cards#related-card-objects."""
 
     id: UUID
     component: str
@@ -284,7 +283,7 @@ class ScryCardFace(
     kw_only=True,
     omit_defaults=True,
 ):
-    """Model for https://scryfall.com/docs/api/cards#card-face-objects"""
+    """Model for https://scryfall.com/docs/api/cards#card-face-objects."""
 
     artist: Optional[str] = None
     artist_id: Optional[UUID] = None
@@ -314,7 +313,7 @@ class CardPreviewBlock(Struct):
     """Model for card preview block."""
 
     source: str
-    source_uri: Union[str, Literal[""], str]
+    source_uri: str
     previewed_at: dt.date
 
 
@@ -325,7 +324,7 @@ class ScryCard(
     kw_only=True,
     omit_defaults=True,
 ):
-    """Model for https://scryfall.com/docs/api/cards"""
+    """Model for https://scryfall.com/docs/api/cards."""
 
     # Core Card Fields
     arena_id: Optional[int] = None
@@ -423,7 +422,7 @@ class ScryBulkData(
     kw_only=True,
     omit_defaults=True,
 ):
-    """Model for https://scryfall.com/docs/api/bulk-data"""
+    """Model for https://scryfall.com/docs/api/bulk-data."""
 
     id: UUID
     uri: str
@@ -444,7 +443,7 @@ class ScryMigration(
     kw_only=True,
     omit_defaults=True,
 ):
-    """Model for https://scryfall.com/docs/api/migrations"""
+    """Model for https://scryfall.com/docs/api/migrations."""
 
     id: UUID
     uri: str
@@ -455,7 +454,7 @@ class ScryMigration(
     note: Optional[str] = None
 
 
-ScryListable: "TypeAlias" = Union[
+ScryListable: TypeAlias = Union[
     ScryBulkData,
     ScryCard,
     ScryMigration,
@@ -473,7 +472,7 @@ class ScryList(
     kw_only=True,
     omit_defaults=True,
 ):
-    """Model for https://scryfall.com/docs/api/lists"""
+    """Model for https://scryfall.com/docs/api/lists."""
 
     data: List[_ScryListableT]
     has_more: bool

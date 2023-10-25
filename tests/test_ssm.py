@@ -1,5 +1,4 @@
 """Tests for mtg_ssm.manager module."""
-# pylint: disable=redefined-outer-name
 
 import argparse as ap
 import textwrap
@@ -18,7 +17,7 @@ from mtg_ssm.scryfall.models import ScryCardLayout, ScrySetType
 
 @pytest.fixture(scope="session")
 def oracle(scryfall_data: ScryfallDataSet) -> Oracle:
-    """Fixture for Oracle over only MMA and PMBS"""
+    """Fixture for Oracle over only MMA and PMBS."""
     accepted_sets = {"mma", "pmbs", "pdci"}
     scryfall_data2 = ScryfallDataSet(
         sets=[s for s in scryfall_data.sets if s.code in accepted_sets],
@@ -29,7 +28,7 @@ def oracle(scryfall_data: ScryfallDataSet) -> Oracle:
 
 
 @pytest.fixture(autouse=True)
-def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
+def _patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
     """Fixture to monkeypatch build_card_db for testing."""
 
     def mock_scryfetch() -> Oracle:
@@ -40,7 +39,7 @@ def patch_scryfetch(monkeypatch: MonkeyPatch, oracle: Oracle) -> None:
 
 
 @pytest.mark.parametrize(
-    "cmdline, expected",
+    ("cmdline", "expected"),
     [
         (
             "create testfilename",
