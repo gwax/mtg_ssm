@@ -7,6 +7,37 @@ on:
       - trunk
 
 jobs:
+  can-run:
+    strategy:
+      matrix:
+        python-version:
+          - "3.8"
+          - "3.9"
+          - "3.10"
+          - "3.11"
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+    runs-on: ${{ matrix.os }}
+    name: Can run on ${{ matrix.os }} - Python ${{ matrix.python-version }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "${{ matrix.python-version }}"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install project
+        run: |
+          pip install -U pip setuptools
+          pip install -e .
+
+      - name: Run mtg-ssm
+        run: mtg-ssm --help
+
   pytest:
     runs-on: ubuntu-latest
     strategy:
@@ -24,8 +55,7 @@ jobs:
         with:
           python-version: "${{ matrix.python-version }}"
           cache: pip
-          cache-dependency-path: |
-            pyproject.toml
+          cache-dependency-path: pyproject.toml
 
       - name: Install project
         run: |
