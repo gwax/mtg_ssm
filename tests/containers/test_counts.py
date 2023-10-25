@@ -148,12 +148,8 @@ def test_diff_card_counts(
                 {"scryfall_id": "0180d9a8-992c-4d55-8ac4-33a587786993", "nonfoil": "1"},
             ],
             {
-                UUID("9d26f171-5bb6-463c-8473-53b6cc27ed66"): {
-                    counts.CountType.FOIL: 1
-                },
-                UUID("0180d9a8-992c-4d55-8ac4-33a587786993"): {
-                    counts.CountType.NONFOIL: 1
-                },
+                UUID("9d26f171-5bb6-463c-8473-53b6cc27ed66"): {counts.CountType.FOIL: 1},
+                UUID("0180d9a8-992c-4d55-8ac4-33a587786993"): {counts.CountType.NONFOIL: 1},
             },
             id="multiple",
         ),

@@ -90,9 +90,7 @@ def test_rows_for_cards_verbose(oracle: Oracle) -> None:
 
 
 def test_rows_for_cards_terse(oracle: Oracle) -> None:
-    card_counts: counts.ScryfallCardCount = {
-        TEST_CARD_ID: {counts.CountType.NONFOIL: 3}
-    }
+    card_counts: counts.ScryfallCardCount = {TEST_CARD_ID: {counts.CountType.NONFOIL: 3}}
     collection = MagicCollection(oracle=oracle, counts=card_counts)
     rows = csv.rows_for_cards(collection, False)
     assert list(rows) == [
@@ -106,9 +104,7 @@ def test_rows_for_cards_terse(oracle: Oracle) -> None:
     ]
 
 
-def test_write_verbose(
-    snapshot: SnapshotAssertion, oracle: Oracle, tmp_path: Path
-) -> None:
+def test_write_verbose(snapshot: SnapshotAssertion, oracle: Oracle, tmp_path: Path) -> None:
     csv_path = tmp_path / "outfile.csv"
     card_counts: ScryfallCardCount = {
         TEST_CARD_ID: {counts.CountType.NONFOIL: 3, counts.CountType.FOIL: 7}
@@ -120,13 +116,9 @@ def test_write_verbose(
         assert csv_file.read() == snapshot
 
 
-def test_write_terse(
-    snapshot: SnapshotAssertion, oracle: Oracle, tmp_path: Path
-) -> None:
+def test_write_terse(snapshot: SnapshotAssertion, oracle: Oracle, tmp_path: Path) -> None:
     csv_path = tmp_path / "outfile.csv"
-    card_counts: counts.ScryfallCardCount = {
-        TEST_CARD_ID: {counts.CountType.NONFOIL: 3}
-    }
+    card_counts: counts.ScryfallCardCount = {TEST_CARD_ID: {counts.CountType.NONFOIL: 3}}
     collection = MagicCollection(oracle=oracle, counts=card_counts)
 
     serializer = csv.CsvTerseDialect()

@@ -26,12 +26,8 @@ def test_is_strict_basic(name: str, expected: bool) -> None:
     ("name", "card_id", "number", "variant"),
     [
         pytest.param("Thallid", UUID("4caaf31b-86a9-485b-8da7-d5b526ed1233"), 74, "a"),
-        pytest.param(
-            "Dark Ritual", UUID("ebb6664d-23ca-456e-9916-afcd6f26aa7f"), 98, None
-        ),
-        pytest.param(
-            "Stairs to Infinity", UUID("57f25ead-b3ec-4c40-972d-d750ed2f5319"), 1, "P"
-        ),
+        pytest.param("Dark Ritual", UUID("ebb6664d-23ca-456e-9916-afcd6f26aa7f"), 98, None),
+        pytest.param("Stairs to Infinity", UUID("57f25ead-b3ec-4c40-972d-d750ed2f5319"), 1, "P"),
         pytest.param(
             "Ertai, the Corrupted",
             UUID("66b950d9-8fef-4deb-b51b-26edb90abc56"),

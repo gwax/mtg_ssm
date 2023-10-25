@@ -56,9 +56,7 @@ def test_exclude_foreign_only(scryfall_data: bundles.ScryfallDataSet) -> None:
     assert "ren" in set_codes
     assert UUID("81917a2b-9bf6-4aa6-947d-36b0f45d6fe3") in card_ids
 
-    tokens_removed = bundles.filter_cards_and_sets(
-        scryfall_data, exclude_foreing_only=True
-    )
+    tokens_removed = bundles.filter_cards_and_sets(scryfall_data, exclude_foreing_only=True)
     set_codes2 = {s.code for s in tokens_removed.sets}
     card_ids2 = {c.id for c in tokens_removed.cards}
     assert "ren" not in set_codes2

@@ -44,9 +44,7 @@ def test_create_all_sets(snapshot: SnapshotAssertion, oracle: Oracle) -> None:
     book = openpyxl.Workbook()
     sheet = book.create_sheet()
     xlsx.create_all_sets(sheet, oracle.index)
-    assert [[cell.value for cell in row] for row in sheet.rows] == snapshot(
-        name=str(sheet.title)
-    )
+    assert [[cell.value for cell in row] for row in sheet.rows] == snapshot(name=str(sheet.title))
 
 
 def test_create_haverefs(oracle: Oracle) -> None:
@@ -86,9 +84,7 @@ def test_create_all_cards_sheet(snapshot: SnapshotAssertion, oracle: Oracle) -> 
     book = openpyxl.Workbook()
     sheet = book.create_sheet()
     xlsx.create_all_cards(sheet, oracle.index)
-    assert [[cell.value for cell in row] for row in sheet.rows] == snapshot(
-        name=str(sheet.title)
-    )
+    assert [[cell.value for cell in row] for row in sheet.rows] == snapshot(name=str(sheet.title))
 
 
 def test_create_set_sheet(snapshot: SnapshotAssertion, oracle: Oracle) -> None:
@@ -104,9 +100,7 @@ def test_create_set_sheet(snapshot: SnapshotAssertion, oracle: Oracle) -> None:
     book = openpyxl.Workbook()
     sheet = book.create_sheet()
     xlsx.create_set_sheet(sheet, collection, "ice")
-    assert [[cell.value for cell in row] for row in sheet.rows] == snapshot(
-        name=str(sheet.title)
-    )
+    assert [[cell.value for cell in row] for row in sheet.rows] == snapshot(name=str(sheet.title))
 
 
 def test_write(snapshot: SnapshotAssertion, oracle: Oracle, tmp_path: Path) -> None:

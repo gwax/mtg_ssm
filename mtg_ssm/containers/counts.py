@@ -66,9 +66,7 @@ def merge_card_counts(*card_counts_args: ScryfallCardCount) -> ScryfallCardCount
     return dict(merged_counts)
 
 
-def diff_card_counts(
-    left: ScryfallCardCount, right: ScryfallCardCount
-) -> ScryfallCardCount:
+def diff_card_counts(left: ScryfallCardCount, right: ScryfallCardCount) -> ScryfallCardCount:
     """Subtract right print counts from left print counts."""
     diffed_counts: ScryfallCardCount = collections.defaultdict(dict)
     for card_id in left.keys() | right.keys():

@@ -12,9 +12,7 @@ from mtg_ssm.containers.indexes import Oracle
 from mtg_ssm.scryfall.models import ScryCard
 from mtg_ssm.serialization import interface
 
-CSV_HEADER = ["set", "name", "collector_number", "scryfall_id"] + [
-    ct.value for ct in CountType
-]
+CSV_HEADER = ["set", "name", "collector_number", "scryfall_id"] + [ct.value for ct in CountType]
 
 
 def row_for_card(card: ScryCard, card_count: Mapping[CountType, int]) -> Dict[str, Any]:
@@ -28,9 +26,7 @@ def row_for_card(card: ScryCard, card_count: Mapping[CountType, int]) -> Dict[st
     }
 
 
-def rows_for_cards(
-    collection: MagicCollection, verbose: bool
-) -> Iterable[Dict[str, Any]]:
+def rows_for_cards(collection: MagicCollection, verbose: bool) -> Iterable[Dict[str, Any]]:
     """Yield csv rows from a collection."""
     for card_set in sorted(
         collection.oracle.index.setcode_to_set.values(),

@@ -138,9 +138,7 @@ def get_args(args: Optional[List[str]] = None) -> argparse.Namespace:
         help="Update cards in a collection spreadsheet, preserving counts",
     )
     update.set_defaults(func=update_cmd)
-    update.add_argument(
-        "collection", type=Path, help="Filename for the collection to update"
-    )
+    update.add_argument("collection", type=Path, help="Filename for the collection to update")
 
     merge = subparsers.add_parser(
         "merge",
@@ -148,9 +146,7 @@ def get_args(args: Optional[List[str]] = None) -> argparse.Namespace:
         help="Merge one or more collection spreadsheets into another. May also be used for format conversions.",
     )
     merge.set_defaults(func=merge_cmd)
-    merge.add_argument(
-        "collection", type=Path, help="Filename for the target collection"
-    )
+    merge.add_argument("collection", type=Path, help="Filename for the target collection")
     merge.add_argument(
         "imports",
         nargs="+",
@@ -174,9 +170,7 @@ def get_args(args: Optional[List[str]] = None) -> argparse.Namespace:
         type=Path,
         help="Filename for second collection to diff (negative counts)",
     )
-    diff.add_argument(
-        "output", type=Path, help="Filename for result collection of diff"
-    )
+    diff.add_argument("output", type=Path, help="Filename for result collection of diff")
 
     parsed_args = parser.parse_args(args=args)
     parsed_args.dialect = dict(parsed_args.dialect)

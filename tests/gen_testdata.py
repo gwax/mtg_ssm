@@ -166,16 +166,12 @@ def main() -> None:  # noqa: PLR0915
         warnings=None,
     )
     with TARGET_MIGRATIONS_FILE.open("wb") as migrations_file:
-        migrations_file.write(
-            msgspec.json.format(msgspec.json.encode(migrations_list), indent=2)
-        )
+        migrations_file.write(msgspec.json.format(msgspec.json.encode(migrations_list), indent=2))
         migrations_file.write(b"\n")
 
     print("Writing cards")
     with TARGET_CARDS_FILE.open("wb") as cards_file:
-        cards_file.write(
-            msgspec.json.format(msgspec.json.encode(accepted_cards), indent=2)
-        )
+        cards_file.write(msgspec.json.format(msgspec.json.encode(accepted_cards), indent=2))
         cards_file.write(b"\n")
 
     print("Writing bulk data")

@@ -95,9 +95,7 @@ def style_all_sets(sheet: Worksheet) -> None:
             cdim.number_format = number_format
 
 
-def create_haverefs(
-    index: ScryfallDataIndex, setcode: str, cards: Sequence[ScryCard]
-) -> str:
+def create_haverefs(index: ScryfallDataIndex, setcode: str, cards: Sequence[ScryCard]) -> str:
     """Create a reference to or sum of the have cell(s) for printings in a single set."""
     setcode = setcode.upper()
     rownums = sorted(index.id_to_setindex[card.id] + ROW_OFFSET for card in cards)
@@ -222,9 +220,7 @@ VALUE_TMPL = (
 ROW_OFFSET = 2
 
 
-def create_set_sheet(
-    sheet: Worksheet, collection: MagicCollection, setcode: str
-) -> None:
+def create_set_sheet(sheet: Worksheet, collection: MagicCollection, setcode: str) -> None:
     """Populate sheet with card information from a given set."""
     index = collection.oracle.index
 
