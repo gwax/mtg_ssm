@@ -49,3 +49,7 @@ generated-members=
 # A regular expression matching the name of dummy variables (i.e. expectedly
 # not used).
 dummy-variables-rgx=(_|_[a-z][a-z0-9_]{2,30})$
+
+[DESIGN]
+# Maximum number of arguments for function / method.
+max-args=7
