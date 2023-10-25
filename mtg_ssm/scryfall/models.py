@@ -3,11 +3,13 @@
 import datetime as dt
 from decimal import Decimal
 from enum import Enum
-from typing import Dict, Generic, List, Literal, Optional, TypeVar, Union
+from typing import TYPE_CHECKING, Dict, Generic, List, Literal, Optional, TypeVar, Union
 from uuid import UUID
 
 from msgspec import Struct
-from typing_extensions import TypeAlias
+
+if TYPE_CHECKING:
+    from typing_extensions import TypeAlias
 
 
 class ScryColor(str, Enum):
@@ -453,7 +455,7 @@ class ScryMigration(
     note: Optional[str] = None
 
 
-ScryListable: TypeAlias = Union[
+ScryListable: "TypeAlias" = Union[
     ScryBulkData,
     ScryCard,
     ScryMigration,
