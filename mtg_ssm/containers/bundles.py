@@ -20,7 +20,7 @@ class ScryfallDataSet(NamedTuple):
     migrations: List[ScryMigration]
 
 
-def filter_cards_and_sets(
+def filter_cards_and_sets(  # noqa: C901
     scryfall_data: ScryfallDataSet,
     *,
     exclude_set_types: Optional[Set[ScrySetType]] = None,
@@ -49,7 +49,8 @@ def filter_cards_and_sets(
 
     accepted_cards = []
     nonempty_setcodes = set()
-    for card in scryfall_data.cards:
+    for card_loop in scryfall_data.cards:
+        card = card_loop  # capture loop variable
         while card.set in remapped_setcodes:
             collector_number = card.collector_number
             if collector_number.isdigit():

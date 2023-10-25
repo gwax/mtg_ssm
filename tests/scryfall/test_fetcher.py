@@ -1,5 +1,4 @@
 """Tests for mtg_ssm.scryfall.fetcher."""
-# pylint: disable=protected-access
 
 import re
 from pathlib import Path
@@ -26,11 +25,11 @@ ENDPOINT_TO_FILE: Dict[Union[str, Pattern[str]], Path] = {
 }
 
 
-@pytest.fixture
-def scryurls(requests_mock: RequestsMock) -> None:
+@pytest.fixture()
+def _scryurls(requests_mock: RequestsMock) -> None:
     """Populate mock responses for scryfall urls."""
     for endpoint, filename in ENDPOINT_TO_FILE.items():
-        with open(filename, "rb") as endpoint_file:
+        with filename.open("rb") as endpoint_file:
             requests_mock.add(
                 "GET",
                 endpoint,
@@ -41,7 +40,7 @@ def scryurls(requests_mock: RequestsMock) -> None:
             )
 
 
-@pytest.mark.usefixtures("scryurls")
+@pytest.mark.usefixtures("_scryurls")
 def test_scryfetch() -> None:
     scrydata1 = fetcher.scryfetch()
     scrydata2 = fetcher.scryfetch()
@@ -54,7 +53,7 @@ def test_scryfetch() -> None:
     }
 
 
-@pytest.mark.usefixtures("scryurls")
+@pytest.mark.usefixtures("_scryurls")
 def test_data_fixtures(
     scryfall_data: ScryfallDataSet,
     sets_data: List[ScrySet],

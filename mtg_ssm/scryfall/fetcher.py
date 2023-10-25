@@ -28,7 +28,7 @@ CACHE_SERIALIZER = SerializerPipeline(
     is_binary=True,
 )
 SESSION = CachedSession(
-    os.path.join(CACHE_DIR, "requests_cache.sqlite"),
+    os.path.join(CACHE_DIR, "requests_cache.sqlite"),  # noqa: PTH118
     backend="sqlite",
     serializer=CACHE_SERIALIZER,
     cache_control=True,
@@ -51,7 +51,7 @@ def _fetch_endpoint(endpoint: str) -> bytes:
     return response.content
 
 
-def scryfetch() -> ScryfallDataSet:  # pylint: disable=too-many-locals
+def scryfetch() -> ScryfallDataSet:
     """Retrieve and deserialize Scryfall object data."""
     print("Reading data from scryfall")
     bulk_data = msgspec.json.decode(
@@ -81,7 +81,4 @@ def scryfetch() -> ScryfallDataSet:  # pylint: disable=too-many-locals
         _fetch_endpoint(cards_endpoint), type=List[ScryCard]
     )
 
-    scryfall_data = ScryfallDataSet(
-        sets=sets_data, cards=cards_data, migrations=migrations_data
-    )
-    return scryfall_data
+    return ScryfallDataSet(sets=sets_data, cards=cards_data, migrations=migrations_data)

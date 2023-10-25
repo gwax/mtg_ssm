@@ -33,7 +33,8 @@ def aggregate_card_counts(
 ) -> ScryfallCardCount:
     """Extract card counts from card rows."""
     card_counts: ScryfallCardCount = {}
-    for card_row in card_rows:
+    for card_row_loop in card_rows:
+        card_row = card_row_loop  # capture loop variable
         if "scryfall_id" not in card_row:
             card_row = legacy.coerce_row(card_row, oracle)
         if not card_row:
@@ -50,9 +51,8 @@ def aggregate_card_counts(
             while scryfall_id in oracle.index.migrate_old_id_to_new_id:
                 scryfall_id = oracle.index.migrate_old_id_to_new_id[scryfall_id]
             if scryfall_id not in oracle.index.id_to_card:
-                raise CardNotFoundError(
-                    f"Found counts for card={scryfall_id} not found scryfall data"
-                )
+                msg = f"Found counts for card={scryfall_id} not found scryfall data"
+                raise CardNotFoundError(msg)
             card_counts[scryfall_id] = counts
     return card_counts
 

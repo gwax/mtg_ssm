@@ -217,7 +217,7 @@ def get_serializer(
 
 def get_backup_path(path: Path) -> Path:
     """Given a filename, return a timestamped backup name for the file."""
-    now = dt.datetime.now()
+    now = dt.datetime.now(dt.timezone.utc).astimezone()
     return path.parent / f"{path.stem}.{now:%Y%m%d_%H%M%S}{path.suffix}"
 
 

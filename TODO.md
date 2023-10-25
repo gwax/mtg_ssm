@@ -8,3 +8,4 @@
 -   Update card_count for sets when processing bundle filters
 -   Can we read images from icon_svg_uri in sets, rasterize, and
     insert the set icons in the xlsx "All Sets" page?
+-   Can we switch to hatchling as our build system?

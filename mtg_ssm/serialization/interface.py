@@ -12,7 +12,7 @@ class Error(Exception):
     """Base error for serializers."""
 
 
-class UnknownDialect(Exception):
+class UnknownDialectError(Exception):
     """Raised when an (extension, dialect) pair is requested."""
 
 
@@ -67,6 +67,5 @@ class SerializationDialect(metaclass=abc.ABCMeta):
         try:
             return cls._EXT_DIALECT_TO_IMPL[(extension, dialect)]
         except KeyError as err:
-            raise UnknownDialect(
-                f'File extension: "{extension}" dialect: "{dialect}" not found in registry'
-            ) from err
+            msg = f'File extension: "{extension}" dialect: "{dialect}" not found in registry'
+            raise UnknownDialectError(msg) from err

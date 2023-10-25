@@ -1,5 +1,4 @@
 """Tests for mtg_ssm.serialization.csv."""
-# pylint: disable=redefined-outer-name
 
 import textwrap
 from pathlib import Path
@@ -33,14 +32,14 @@ def oracle(scryfall_data: ScryfallDataSet) -> Oracle:
 
 
 def test_header() -> None:
-    assert csv.CSV_HEADER == [
+    assert [
         "set",
         "name",
         "collector_number",
         "scryfall_id",
         "nonfoil",
         "foil",
-    ]
+    ] == csv.CSV_HEADER
 
 
 def test_row_for_card(id_to_card: Dict[UUID, ScryCard]) -> None:

@@ -1,5 +1,4 @@
 """Tests for mtg_ssm.serialization.xlsx."""
-# pylint: disable=redefined-outer-name
 
 from pathlib import Path
 from typing import Dict, List, Optional, Set, Tuple
@@ -58,7 +57,7 @@ def test_create_haverefs(oracle: Oracle) -> None:
 
 
 @pytest.mark.parametrize(
-    "name, exclude_sets, expected",
+    ("name", "exclude_sets", "expected"),
     [
         ("Forest", None, None),
         ("Rhox", None, "=IF('S00'!A2>0,\"S00:\"&'S00'!A2,\"\")"),
@@ -131,7 +130,7 @@ def test_write(snapshot: SnapshotAssertion, oracle: Oracle, tmp_path: Path) -> N
 
 
 @pytest.mark.parametrize(
-    "sheets_and_rows, skip_sheets, expected",
+    ("sheets_and_rows", "skip_sheets", "expected"),
     [
         pytest.param(
             [("MySheet", [["A", "B", "C"], ["1", "B", "=5+7"]])],

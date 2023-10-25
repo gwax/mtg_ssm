@@ -297,7 +297,7 @@ def rows_for_workbook(
 
 
 class XlsxDialect(interface.SerializationDialect):
-    """excel xlsx collection"""
+    """excel xlsx collection."""
 
     extension: ClassVar[str] = "xlsx"
     dialect: ClassVar[str] = "xlsx"

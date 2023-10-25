@@ -31,7 +31,7 @@ def row_for_card(card: ScryCard, card_count: Mapping[CountType, int]) -> Dict[st
 def rows_for_cards(
     collection: MagicCollection, verbose: bool
 ) -> Iterable[Dict[str, Any]]:
-    """Generator that yields csv rows from a collection."""
+    """Yield csv rows from a collection."""
     for card_set in sorted(
         collection.oracle.index.setcode_to_set.values(),
         key=lambda cset: (cset.released_at or dt.date.min, cset.code),
@@ -43,7 +43,7 @@ def rows_for_cards(
 
 
 class CsvFullDialect(interface.SerializationDialect):
-    """csv collection writing a row for every printing"""
+    """csv collection writing a row for every printing."""
 
     extension: ClassVar[str] = "csv"
     dialect: ClassVar[str] = "csv"
@@ -67,7 +67,7 @@ class CsvFullDialect(interface.SerializationDialect):
 
 
 class CsvTerseDialect(CsvFullDialect):
-    """csv collection writing only rows that have counts"""
+    """csv collection writing only rows that have counts."""
 
     dialect: ClassVar[str] = "terse"
 

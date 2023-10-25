@@ -8,21 +8,19 @@ repos:
         language: system
         require_serial: true
         types: [python]
-      - id: isort
-        name: Check import order
-        language: system
-        entry: isort
-        types: [python]
-      - id: pylint
-        name: Static analysis from pylint
-        language: system
-        entry: pylint
-        types: [python]
       - id: mypy
         name: Type checking from mypy
         language: system
         entry: mypy
         types: [python]
+      - id: ruff
+        name: ruff
+        description: "Run ruff on files"
+        entry: ruff check --force-exclude
+        language: system
+        types_or: [python, pyi]
+        args: [--fix, --exit-non-zero-on-fix]
+        require_serial: true
       - id: doc8-python
         name: Documentation checking from doc8 (Python)
         language: system
