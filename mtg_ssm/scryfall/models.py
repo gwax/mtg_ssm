@@ -124,6 +124,7 @@ class ScryFrameEffect(str, Enum):
     BORDERLESS = "borderless"
     THICK = "thick"
     GRAVESTONE = "gravestone"
+    VEHICLE = "vehicle"
 
 
 class ScryBorderColor(str, Enum):
