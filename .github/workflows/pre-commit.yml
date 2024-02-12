@@ -23,4 +23,4 @@ jobs:
           pip install -U pip setuptools wheel
           pip install -e .[lxml,dev]
 
-      - uses: pre-commit/action@v3.0.0
+      - uses: pre-commit/action@v3.0.1
