@@ -1,4 +1,5 @@
 """Scryfall object models."""
+
 # ruff: noqa: A003
 
 import datetime as dt

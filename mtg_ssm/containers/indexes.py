@@ -103,9 +103,9 @@ class ScryfallDataIndex:
                 migration.migration_strategy == ScryMigrationStrategy.MERGE
                 and migration.new_scryfall_id
             ):
-                self.migrate_old_id_to_new_id[
-                    migration.old_scryfall_id
-                ] = migration.new_scryfall_id
+                self.migrate_old_id_to_new_id[migration.old_scryfall_id] = (
+                    migration.new_scryfall_id
+                )
 
 
 class Oracle:

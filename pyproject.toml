@@ -54,6 +54,7 @@ dev = [
     "black",
     "coverage[toml]",
     "doc8",
+    "exceptiongroup",
     "freezegun",
     "lxml",
     "mypy",
