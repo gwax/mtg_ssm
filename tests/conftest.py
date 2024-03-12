@@ -1,5 +1,6 @@
 """pytest test configuration file."""
 
+import time
 from pathlib import Path
 from typing import Dict, Generator, List
 from uuid import UUID
@@ -16,6 +17,18 @@ TEST_DATA_DIR = Path(__file__).parent / "data"
 SETS_DATA_FILE = TEST_DATA_DIR / "sets.json"
 CARDS_DATA_FILE = TEST_DATA_DIR / "cards.json"
 MIGRATIONS_DATA_FILE = TEST_DATA_DIR / "migrations.json"
+
+
+@pytest.fixture(autouse=True)
+def _set_timezone(monkeypatch: pytest.MonkeyPatch) -> Generator[None, None, None]:
+    """Set timezone to UTC for testing."""
+    try:
+        with monkeypatch.context() as m:
+            m.setenv("TZ", "UTC")
+            time.tzset()
+            yield
+    finally:
+        time.tzset()
 
 
 @pytest.fixture(autouse=True)
