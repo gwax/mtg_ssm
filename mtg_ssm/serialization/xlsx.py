@@ -137,8 +137,8 @@ def get_references(
         set_to_haveref,
         key=lambda setcode: _card_set_sort_key(index.setcode_to_set[setcode]),
     ):
-        reference = 'IF({count}>0,"{setcode}:"&{count},"")'.format(
-            setcode=card_set.upper(), count=set_to_haveref[card_set]
+        reference = (
+            f'IF({set_to_haveref[card_set]}>0,"{card_set.upper()}:"&{set_to_haveref[card_set]},"")'
         )
         references.append(reference)
     if not references:
