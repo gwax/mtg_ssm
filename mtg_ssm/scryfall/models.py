@@ -118,6 +118,7 @@ class ScryFrameEffect(str, Enum):
     NYXBORN = "nyxborn"
     NYXTOUCHED = "nyxtouched"
     ORIGINPWDFC = "originpwdfc"
+    PROMO = "promo"
     SHATTEREDGLASS = "shatteredglass"
     SHOWCASE = "showcase"
     SNOW = "snow"
