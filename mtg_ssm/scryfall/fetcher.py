@@ -2,20 +2,13 @@
 
 import gzip
 import os
-from typing import List
 
 import appdirs
 import msgspec
 from requests_cache import CachedSession, SerializerPipeline, Stage, pickle_serializer
 
 from mtg_ssm.containers.bundles import ScryfallDataSet
-from mtg_ssm.scryfall.models import (
-    ScryBulkData,
-    ScryCard,
-    ScryList,
-    ScryMigration,
-    ScrySet,
-)
+from mtg_ssm.scryfall.models import ScryBulkData, ScryCard, ScryList, ScryMigration, ScrySet
 
 APP_AUTHOR = "gwax"
 APP_NAME = "mtg_ssm"
@@ -75,6 +68,6 @@ def scryfetch() -> ScryfallDataSet:
         migrations_data += migrations_list.data
 
     [cards_endpoint] = [bd.download_uri for bd in bulk_data if bd.type == BULK_TYPE]
-    cards_data = msgspec.json.decode(_fetch_endpoint(cards_endpoint), type=List[ScryCard])
+    cards_data = msgspec.json.decode(_fetch_endpoint(cards_endpoint), type=list[ScryCard])
 
     return ScryfallDataSet(sets=sets_data, cards=cards_data, migrations=migrations_data)

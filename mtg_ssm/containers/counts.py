@@ -2,7 +2,8 @@
 
 import collections
 import enum
-from typing import Any, Dict, Iterable, MutableMapping
+from collections.abc import Iterable, MutableMapping
+from typing import Any
 from uuid import UUID
 
 from mtg_ssm.containers import legacy
@@ -24,12 +25,12 @@ class CountType(str, enum.Enum):
     FOIL = "foil"
 
 
-ScryfallCardCount = Dict[UUID, MutableMapping[CountType, int]]
+ScryfallCardCount = dict[UUID, MutableMapping[CountType, int]]
 """Mapping from scryfall id to card printing type to count."""
 
 
 def aggregate_card_counts(
-    card_rows: Iterable[Dict[str, Any]], oracle: Oracle
+    card_rows: Iterable[dict[str, Any]], oracle: Oracle
 ) -> ScryfallCardCount:
     """Extract card counts from card rows."""
     card_counts: ScryfallCardCount = {}

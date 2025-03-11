@@ -2,7 +2,6 @@
 
 import textwrap
 from pathlib import Path
-from typing import Dict
 from uuid import UUID
 
 import pytest
@@ -42,7 +41,7 @@ def test_header() -> None:
     ]
 
 
-def test_row_for_card(id_to_card: Dict[UUID, ScryCard]) -> None:
+def test_row_for_card(id_to_card: dict[UUID, ScryCard]) -> None:
     card = id_to_card[TEST_CARD_ID]
     card_counts = {counts.CountType.NONFOIL: 3, counts.CountType.FOIL: 5}
     csv_row = csv_serializer.row_for_card(card, card_counts)

@@ -2,8 +2,9 @@
 
 import csv
 import datetime as dt
+from collections.abc import Iterable, Mapping
 from pathlib import Path
-from typing import Any, ClassVar, Dict, Iterable, Mapping
+from typing import Any, ClassVar, Optional
 
 from mtg_ssm.containers import counts
 from mtg_ssm.containers.collection import MagicCollection
@@ -15,7 +16,7 @@ from mtg_ssm.serialization import interface
 CSV_HEADER = ["set", "name", "collector_number", "scryfall_id"] + [ct.value for ct in CountType]
 
 
-def row_for_card(card: ScryCard, card_count: Mapping[CountType, int]) -> Dict[str, Any]:
+def row_for_card(card: ScryCard, card_count: Mapping[CountType, int]) -> dict[str, Any]:
     """Given a CardPrinting and counts, return a csv row."""
     return {
         "set": card.set.upper(),
@@ -26,7 +27,7 @@ def row_for_card(card: ScryCard, card_count: Mapping[CountType, int]) -> Dict[st
     }
 
 
-def rows_for_cards(collection: MagicCollection, verbose: bool) -> Iterable[Dict[str, Any]]:
+def rows_for_cards(collection: MagicCollection, verbose: bool) -> Iterable[dict[str, Any]]:
     """Yield csv rows from a collection."""
     for card_set in sorted(
         collection.oracle.index.setcode_to_set.values(),
@@ -41,8 +42,8 @@ def rows_for_cards(collection: MagicCollection, verbose: bool) -> Iterable[Dict[
 class CsvFullDialect(interface.SerializationDialect):
     """csv collection writing a row for every printing."""
 
-    extension: ClassVar[str] = "csv"
-    dialect: ClassVar[str] = "csv"
+    extension: ClassVar[Optional[str]] = "csv"
+    dialect: ClassVar[Optional[str]] = "csv"
 
     verbose: ClassVar[bool] = True
 
@@ -65,6 +66,6 @@ class CsvFullDialect(interface.SerializationDialect):
 class CsvTerseDialect(CsvFullDialect):
     """csv collection writing only rows that have counts."""
 
-    dialect: ClassVar[str] = "terse"
+    dialect: ClassVar[Optional[str]] = "terse"
 
     verbose: ClassVar[bool] = False

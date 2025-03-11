@@ -1,6 +1,6 @@
 """Tests for mtg_ssm.mtg.counts."""
 
-from typing import Any, Dict, List
+from typing import Any
 from uuid import UUID
 
 import pytest
@@ -50,7 +50,7 @@ def oracle(scryfall_data: ScryfallDataSet) -> Oracle:
     ],
 )
 def test_merge_card_counts(
-    in_card_counts: List[ScryfallCardCount], out_card_count: ScryfallCardCount
+    in_card_counts: list[ScryfallCardCount], out_card_count: ScryfallCardCount
 ) -> None:
     assert counts.merge_card_counts(*in_card_counts) == out_card_count
 
@@ -193,6 +193,6 @@ def test_diff_card_counts(
     ],
 )
 def test_aggregate_card_counts(
-    oracle: Oracle, card_rows: List[Dict[str, Any]], output: counts.ScryfallCardCount
+    oracle: Oracle, card_rows: list[dict[str, Any]], output: counts.ScryfallCardCount
 ) -> None:
     assert counts.aggregate_card_counts(card_rows, oracle) == output

@@ -1,6 +1,6 @@
 """Legacy record lookup capabilities for older file versions."""
 
-from typing import Any, Dict, List, Optional, Set, Tuple
+from typing import Any, Optional
 from uuid import UUID
 
 from mtg_ssm.containers.indexes import Oracle
@@ -19,13 +19,13 @@ class MultipleMatchError(Error):
     """Raised when multiple matching cards are found."""
 
 
-COUNT_TYPE_TO_OLD_COUNT_TYPES: Dict[str, Set[str]] = {
+COUNT_TYPE_TO_OLD_COUNT_TYPES: dict[str, set[str]] = {
     "nonfoil": {"nonfoil", "copies"},
     "foil": {"foil", "foils"},
 }
 
 
-def extract_counts(card_row: Dict[str, Any]) -> Dict[str, int]:
+def extract_counts(card_row: dict[str, Any]) -> dict[str, int]:
     """Convert old count type names to new count type names."""
     renamed_counts = {
         k: sum(int(card_row.get(t) or 0) for t in v)
@@ -93,13 +93,13 @@ OTHER_SET_CODE_TO_SET_CODE = {
     "PCA": ["opca"],
 }
 
-PSUDONYM_TO_ARTIST: Dict[Optional[str], str] = {
+PSUDONYM_TO_ARTIST: dict[Optional[str], str] = {
     "William Murai": "Willian Murai",
     "Dave Seeley": "David Seeley",
 }
 
 
-def find_scryfall_id(card_row: Dict[str, str], oracle: Oracle) -> UUID:
+def find_scryfall_id(card_row: dict[str, str], oracle: Oracle) -> UUID:
     """Heuristically determine the scryfall id for a given input row."""
     set_code = card_row.get("set", "")
     set_codes = [
@@ -113,7 +113,7 @@ def find_scryfall_id(card_row: Dict[str, str], oracle: Oracle) -> UUID:
     artist = card_row.get("artist") or None
     artist = PSUDONYM_TO_ARTIST.get(artist, artist)
     print(f"Searching => Set: {set_code}; Name: {name}; Number: {collector_number}; MVID: {mvid}")
-    snnma_keys: List[Tuple[Optional[str], str, Optional[str], Optional[int], Optional[str]]] = []
+    snnma_keys: list[tuple[Optional[str], str, Optional[str], Optional[int], Optional[str]]] = []
     for set_ in set_codes:
         snnma_keys += [
             (set_, name, collector_number, None, None),
@@ -145,7 +145,7 @@ def find_scryfall_id(card_row: Dict[str, str], oracle: Oracle) -> UUID:
     raise NoMatchError(msg)
 
 
-def coerce_row(card_row: Dict[str, Any], oracle: Oracle) -> Dict[str, Any]:
+def coerce_row(card_row: dict[str, Any], oracle: Oracle) -> dict[str, Any]:
     """Coerce an unknown older row into a current row.
 
     If this cannot be done precisely, a warning will be displayed.

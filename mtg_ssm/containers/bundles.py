@@ -1,30 +1,24 @@
 """Data bundle definitions."""
 
 import copy
-from typing import List, NamedTuple, Optional, Set
+from typing import NamedTuple, Optional
 
-from mtg_ssm.scryfall.models import (
-    ScryCard,
-    ScryCardLayout,
-    ScryMigration,
-    ScrySet,
-    ScrySetType,
-)
+from mtg_ssm.scryfall.models import ScryCard, ScryCardLayout, ScryMigration, ScrySet, ScrySetType
 
 
 class ScryfallDataSet(NamedTuple):
     """Bundle for storing Scryfall data."""
 
-    sets: List[ScrySet]
-    cards: List[ScryCard]
-    migrations: List[ScryMigration]
+    sets: list[ScrySet]
+    cards: list[ScryCard]
+    migrations: list[ScryMigration]
 
 
 def filter_cards_and_sets(  # noqa: C901
     scryfall_data: ScryfallDataSet,
     *,
-    exclude_set_types: Optional[Set[ScrySetType]] = None,
-    exclude_card_layouts: Optional[Set[ScryCardLayout]] = None,
+    exclude_set_types: Optional[set[ScrySetType]] = None,
+    exclude_card_layouts: Optional[set[ScryCardLayout]] = None,
     exclude_digital: bool = False,
     exclude_foreing_only: bool = False,
     merge_promos: bool = False,

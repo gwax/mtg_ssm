@@ -1,6 +1,5 @@
 """Tests for mtg_ssm.mtg.util."""
 
-from typing import Dict, Tuple
 from uuid import UUID
 
 import pytest
@@ -44,10 +43,10 @@ def test_is_strict_basic(name: str, expected: bool) -> None:
     ],
 )
 def test_collector_number_parts(
-    id_to_card: Dict[UUID, ScryCard],
+    id_to_card: dict[UUID, ScryCard],
     name: str,
     card_id: UUID,
-    number_parts: Tuple[str, int, str],
+    number_parts: tuple[str, int, str],
 ) -> None:
     card = id_to_card[card_id]
     assert card.name == name

@@ -1,6 +1,6 @@
 """Tests for mtg_ssm.containers.legacy."""
 
-from typing import Any, Dict
+from typing import Any
 from uuid import UUID
 
 import pytest
@@ -30,7 +30,7 @@ def oracle(scryfall_data: ScryfallDataSet) -> Oracle:
         ),
     ],
 )
-def test_extract_counts(card_row: Dict[str, Any], expected: Dict[str, int]) -> None:
+def test_extract_counts(card_row: dict[str, Any], expected: dict[str, int]) -> None:
     assert legacy.extract_counts(card_row) == expected
 
 
@@ -86,7 +86,7 @@ def test_extract_counts(card_row: Dict[str, Any], expected: Dict[str, int]) -> N
         ),
     ],
 )
-def test_find_scryfall_id(card_row: Dict[str, Any], expected: UUID, oracle: Oracle) -> None:
+def test_find_scryfall_id(card_row: dict[str, Any], expected: UUID, oracle: Oracle) -> None:
     assert legacy.find_scryfall_id(card_row, oracle) == expected
 
 
@@ -101,5 +101,5 @@ def test_find_scryfall_id(card_row: Dict[str, Any], expected: UUID, oracle: Orac
         ),
     ],
 )
-def test_coerce_row(card_row: Dict[str, Any], expected: Dict[str, Any], oracle: Oracle) -> None:
+def test_coerce_row(card_row: dict[str, Any], expected: dict[str, Any], oracle: Oracle) -> None:
     assert legacy.coerce_row(card_row, oracle) == expected

@@ -1,8 +1,8 @@
 """pytest test configuration file."""
 
 import time
+from collections.abc import Generator
 from pathlib import Path
-from typing import Dict, Generator, List
 from uuid import UUID
 
 import msgspec
@@ -46,14 +46,14 @@ def requests_mock() -> Generator[responses.RequestsMock, None, None]:
 
 
 @pytest.fixture(scope="session")
-def cards_data() -> List[ScryCard]:
+def cards_data() -> list[ScryCard]:
     """Fixture containing all test card data."""
     with CARDS_DATA_FILE.open("rb") as card_data_file:
-        return msgspec.json.decode(card_data_file.read(), type=List[ScryCard])
+        return msgspec.json.decode(card_data_file.read(), type=list[ScryCard])
 
 
 @pytest.fixture(scope="session")
-def sets_data() -> List[ScrySet]:
+def sets_data() -> list[ScrySet]:
     """Fixture containing all test set data."""
     with SETS_DATA_FILE.open("rb") as sets_data_file:
         sets_list = msgspec.json.decode(sets_data_file.read(), type=ScryList[ScrySet])
@@ -61,7 +61,7 @@ def sets_data() -> List[ScrySet]:
 
 
 @pytest.fixture(scope="session")
-def migrations_data() -> List[ScryMigration]:
+def migrations_data() -> list[ScryMigration]:
     """Fixture containing all test migrations data."""
     with MIGRATIONS_DATA_FILE.open("rb") as migrations_data_file:
         migrations_list = msgspec.json.decode(
@@ -71,16 +71,16 @@ def migrations_data() -> List[ScryMigration]:
 
 
 @pytest.fixture(scope="session")
-def id_to_card(cards_data: List[ScryCard]) -> Dict[UUID, ScryCard]:
+def id_to_card(cards_data: list[ScryCard]) -> dict[UUID, ScryCard]:
     """Fixture returning scryfall id to card object for all test card data."""
     return {card.id: card for card in cards_data}
 
 
 @pytest.fixture(scope="session")
 def scryfall_data(
-    cards_data: List[ScryCard],
-    sets_data: List[ScrySet],
-    migrations_data: List[ScryMigration],
+    cards_data: list[ScryCard],
+    sets_data: list[ScrySet],
+    migrations_data: list[ScryMigration],
 ) -> ScryfallDataSet:
     """Fixture containing all scryfall test data."""
     return ScryfallDataSet(sets=sets_data, cards=cards_data, migrations=migrations_data)

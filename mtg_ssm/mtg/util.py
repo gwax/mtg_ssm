@@ -2,15 +2,14 @@
 
 import functools
 import re
-from typing import Tuple
 
 STRICT_BASICS = frozenset({"Plains", "Island", "Swamp", "Mountain", "Forest"})
 
 COLLECTOR_NUMBER_RE = re.compile(r"(?P<prefix>.*-|\D+)?(?P<number>\d+)?(?P<suffix>\D.*)?")
 
 
-@functools.lru_cache(maxsize=None)
-def collector_number_parts(collector_number: str) -> Tuple[str, int, str]:
+@functools.cache
+def collector_number_parts(collector_number: str) -> tuple[str, int, str]:
     """Split a collector number into its parts."""
     match = COLLECTOR_NUMBER_RE.match(collector_number)
     if not match:

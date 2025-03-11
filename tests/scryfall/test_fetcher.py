@@ -2,7 +2,8 @@
 
 import re
 from pathlib import Path
-from typing import Dict, List, Pattern, Union
+from re import Pattern
+from typing import Union
 
 import pytest
 from responses import RequestsMock
@@ -14,7 +15,7 @@ from tests import gen_testdata
 
 BULK_CARDS_REGEX = r"https://data\.scryfall\.io/default-cards/default-cards-\d{14}\.json"
 
-ENDPOINT_TO_FILE: Dict[Union[str, Pattern[str]], Path] = {
+ENDPOINT_TO_FILE: dict[Union[str, Pattern[str]], Path] = {
     fetcher.BULK_DATA_ENDPOINT: gen_testdata.TARGET_BULK_FILE,
     fetcher.SETS_ENDPOINT: gen_testdata.TARGET_SETS_FILE1,
     gen_testdata.SETS_NEXTPAGE_URL: gen_testdata.TARGET_SETS_FILE2,
@@ -52,9 +53,9 @@ def test_scryfetch() -> None:
 @pytest.mark.usefixtures("_scryurls")
 def test_data_fixtures(
     scryfall_data: ScryfallDataSet,
-    sets_data: List[ScrySet],
-    cards_data: List[ScryCard],
-    migrations_data: List[ScryMigration],
+    sets_data: list[ScrySet],
+    cards_data: list[ScryCard],
+    migrations_data: list[ScryMigration],
 ) -> None:
     scrydata = fetcher.scryfetch()
     assert scrydata == scryfall_data

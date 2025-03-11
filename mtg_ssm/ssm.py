@@ -4,7 +4,7 @@
 import argparse
 import datetime as dt
 from pathlib import Path
-from typing import Dict, List, Optional, Set
+from typing import Optional
 
 import mtg_ssm
 import mtg_ssm.serialization.interface as ser_interface
@@ -24,7 +24,7 @@ def epilog() -> str:
     return dialect_docs
 
 
-def set_type_list(value: str) -> Set[ScrySetType]:
+def set_type_list(value: str) -> set[ScrySetType]:
     """Argparse type to convert a string to a set of Scryfall Set Types."""
     set_types = set()
     for set_str in value.split(","):
@@ -39,7 +39,7 @@ def set_type_list(value: str) -> Set[ScrySetType]:
     return set_types
 
 
-def card_layout_list(value: str) -> Set[ScryCardLayout]:
+def card_layout_list(value: str) -> set[ScryCardLayout]:
     """Argparse type to convert a string to a set of Scryfall Card Layouts."""
     card_layouts = set()
     for layout_str in value.split(","):
@@ -54,7 +54,7 @@ def card_layout_list(value: str) -> Set[ScryCardLayout]:
     return card_layouts
 
 
-def get_args(args: Optional[List[str]] = None) -> argparse.Namespace:
+def get_args(args: Optional[list[str]] = None) -> argparse.Namespace:
     """Parse and return application arguments."""
     parser = argparse.ArgumentParser(
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -179,8 +179,8 @@ def get_args(args: Optional[List[str]] = None) -> argparse.Namespace:
 
 def get_oracle(
     *,
-    exclude_set_types: Set[ScrySetType],
-    exclude_card_layouts: Set[ScryCardLayout],
+    exclude_set_types: set[ScrySetType],
+    exclude_card_layouts: set[ScryCardLayout],
     include_digital: bool,
     include_foreign_only: bool,
     separate_promos: bool,
@@ -199,7 +199,7 @@ def get_oracle(
 
 
 def get_serializer(
-    dialect_mapping: Dict[str, str], path: Path
+    dialect_mapping: dict[str, str], path: Path
 ) -> ser_interface.SerializationDialect:
     """Retrieve a serializer compatible with a given filename."""
     extension = path.suffix.lstrip(".")

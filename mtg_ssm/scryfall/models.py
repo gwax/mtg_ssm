@@ -5,7 +5,7 @@
 import datetime as dt
 from decimal import Decimal
 from enum import Enum
-from typing import Dict, Generic, List, Optional, TypeVar, Union
+from typing import Generic, Optional, TypeVar, Union
 from uuid import UUID
 
 from msgspec import Struct
@@ -299,12 +299,12 @@ class ScryCardFace(
     artist: Optional[str] = None
     artist_id: Optional[UUID] = None
     cmc: Optional[float] = None
-    color_indicator: Optional[List[ScryColor]] = None
-    colors: Optional[List[ScryColor]] = None
+    color_indicator: Optional[list[ScryColor]] = None
+    colors: Optional[list[ScryColor]] = None
     flavor_name: Optional[str] = None
     flavor_text: Optional[str] = None
     illustration_id: Optional[UUID] = None
-    image_uris: Optional[Dict[str, str]] = None
+    image_uris: Optional[dict[str, str]] = None
     layout: Optional[ScryCardLayout] = None
     loyalty: Optional[str] = None
     mana_cost: str
@@ -343,7 +343,7 @@ class ScryCard(
     lang: str
     mtgo_id: Optional[int] = None
     mtgo_foil_id: Optional[int] = None
-    multiverse_ids: Optional[List[int]] = None
+    multiverse_ids: Optional[list[int]] = None
     tcgplayer_id: Optional[int] = None
     tcgplayer_etched_id: Optional[int] = None
     cardmarket_id: Optional[int] = None
@@ -353,18 +353,18 @@ class ScryCard(
     scryfall_uri: str
     uri: str
     # Gameplay Fields
-    all_parts: Optional[List[ScryRelatedCard]] = None
-    card_faces: Optional[List[ScryCardFace]] = None
+    all_parts: Optional[list[ScryRelatedCard]] = None
+    card_faces: Optional[list[ScryCardFace]] = None
     cmc: Optional[float] = None
-    colors: Optional[List[ScryColor]] = None
-    color_identity: List[ScryColor]
-    color_indicator: Optional[List[ScryColor]] = None
+    colors: Optional[list[ScryColor]] = None
+    color_identity: list[ScryColor]
+    color_indicator: Optional[list[ScryColor]] = None
     edhrec_rank: Optional[int] = None
     foil: bool
     hand_modifier: Optional[str] = None
-    keywords: List[str]
+    keywords: list[str]
     layout: ScryCardLayout
-    legalities: Dict[ScryFormat, ScryLegality]
+    legalities: dict[ScryFormat, ScryLegality]
     life_modifier: Optional[str] = None
     loyalty: Optional[str] = None
     mana_cost: Optional[str] = None
@@ -374,40 +374,40 @@ class ScryCard(
     oversized: bool
     penny_rank: Optional[int] = None
     power: Optional[str] = None
-    produced_mana: Optional[List[str]] = None
+    produced_mana: Optional[list[str]] = None
     reserved: bool
     toughness: Optional[str] = None
     type_line: Optional[str] = None
     # Print Fields
     artist: Optional[str] = None
-    artist_ids: Optional[List[UUID]] = None
+    artist_ids: Optional[list[UUID]] = None
     booster: bool
     border_color: ScryBorderColor
     card_back_id: Optional[UUID] = None
     collector_number: str
     content_warning: Optional[bool] = None
     digital: bool
-    finishes: List[ScryFinish]
+    finishes: list[ScryFinish]
     flavor_name: Optional[str] = None
     flavor_text: Optional[str] = None
     frame_effect: Optional[ScryFrameEffect] = None
-    frame_effects: Optional[List[ScryFrameEffect]] = None
+    frame_effects: Optional[list[ScryFrameEffect]] = None
     frame: ScryCardFrame
     full_art: bool
-    games: List[ScryGame]
+    games: list[ScryGame]
     highres_image: bool
     illustration_id: Optional[UUID] = None
     image_status: ScryImageStatus
-    image_uris: Optional[Dict[str, str]] = None
-    prices: Optional[Dict[str, Optional[Decimal]]]  # TODO: enum keys=None
+    image_uris: Optional[dict[str, str]] = None
+    prices: Optional[dict[str, Optional[Decimal]]]  # TODO: enum keys=None
     printed_name: Optional[str] = None
     printed_text: Optional[str] = None
     printed_type_line: Optional[str] = None
     promo: bool
-    promo_types: Optional[List[str]] = None
-    purchase_uris: Optional[Dict[str, str]] = None
+    promo_types: Optional[list[str]] = None
+    purchase_uris: Optional[dict[str, str]] = None
     rarity: ScryRarity
-    related_uris: Optional[Dict[str, str]] = None
+    related_uris: Optional[dict[str, str]] = None
     released_at: dt.date
     reprint: bool
     scryfall_set_uri: str
@@ -485,8 +485,8 @@ class ScryList(
 ):
     """Model for https://scryfall.com/docs/api/lists."""
 
-    data: List[_ScryListableT]
+    data: list[_ScryListableT]
     has_more: bool
     next_page: Optional[str] = None
     total_cards: Optional[int] = None
-    warnings: Optional[List[str]] = None
+    warnings: Optional[list[str]] = None

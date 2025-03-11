@@ -1,6 +1,5 @@
 """Tests for mtg_ssm.serialization.interface.py."""
 
-from typing import Dict
 from unittest import mock
 
 import pytest
@@ -40,7 +39,7 @@ def test_all_dialects() -> None:
     ],
 )
 def test_extension_lookup(
-    extension: str, dialect_mapping: Dict[str, str], dialect_name: str
+    extension: str, dialect_mapping: dict[str, str], dialect_name: str
 ) -> None:
     serialization_class = interface.SerializationDialect.by_extension(extension, dialect_mapping)
     assert isinstance(serialization_class, type)

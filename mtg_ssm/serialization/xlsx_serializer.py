@@ -5,8 +5,9 @@ import datetime as dt
 import importlib.util
 import itertools
 import string
+from collections.abc import Iterable, Sequence
 from pathlib import Path
-from typing import Any, ClassVar, Dict, Iterable, List, Optional, Sequence, Set, Tuple
+from typing import Any, ClassVar, Optional
 
 import openpyxl
 from openpyxl.styles.numbers import FORMAT_CURRENCY_USD_SIMPLE
@@ -43,7 +44,7 @@ ALL_SETS_SHEET_TOTALS: Sequence[Optional[str]] = ["Total", None, None, None, Non
 ]
 
 
-def _card_set_sort_key(cset: ScrySet) -> Tuple[dt.date, str, int, str]:
+def _card_set_sort_key(cset: ScrySet) -> tuple[dt.date, str, int, str]:
     released_at = cset.released_at or dt.date.min
     return (
         released_at,
@@ -123,7 +124,7 @@ def create_haverefs(index: ScryfallDataIndex, setcode: str, cards: Sequence[Scry
 
 
 def get_references(
-    index: ScryfallDataIndex, card_name: str, exclude_sets: Optional[Set[str]] = None
+    index: ScryfallDataIndex, card_name: str, exclude_sets: Optional[set[str]] = None
 ) -> Optional[str]:
     """Get an equation for the references to a card."""
     if util.is_strict_basic(card_name):
@@ -132,7 +133,7 @@ def get_references(
     if exclude_sets is None:
         exclude_sets = set()
 
-    set_to_cards: Dict[str, List[ScryCard]] = collections.defaultdict(list)
+    set_to_cards: dict[str, list[ScryCard]] = collections.defaultdict(list)
     for other_card in index.name_to_cards[card_name]:
         if other_card.set not in exclude_sets:
             set_to_cards[other_card.set].append(other_card)
@@ -238,7 +239,7 @@ def create_set_sheet(sheet: Worksheet, collection: MagicCollection, setcode: str
 
     for card in index.setcode_to_cards[setcode]:
         rownum = ROW_OFFSET + index.id_to_setindex[card.id]
-        row: List[Optional[Any]] = [
+        row: list[Optional[Any]] = [
             HAVE_TMPL.format(rownum=rownum),
             VALUE_TMPL.format(rownum=rownum),
             card.name,
@@ -279,7 +280,7 @@ def style_set_sheet(sheet: Worksheet) -> None:
             cdim.number_format = number_format
 
 
-def rows_from_sheet(sheet: Worksheet) -> Iterable[Dict[str, str]]:
+def rows_from_sheet(sheet: Worksheet) -> Iterable[dict[str, str]]:
     """Read rows from an xlsx worksheet as dicts."""
     header_row, *rows = iter(sheet.rows)
     header = [cell.value for cell in header_row]
@@ -290,8 +291,8 @@ def rows_from_sheet(sheet: Worksheet) -> Iterable[Dict[str, str]]:
 
 
 def rows_for_workbook(
-    book: Workbook, *, skip_sheets: Optional[Set[str]]
-) -> Iterable[Dict[str, str]]:
+    book: Workbook, *, skip_sheets: Optional[set[str]]
+) -> Iterable[dict[str, str]]:
     """Read rows from an xlsx workbook as dicts."""
     if skip_sheets is None:
         skip_sheets = set()
