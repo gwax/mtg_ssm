@@ -2,7 +2,7 @@
 
 import abc
 from pathlib import Path
-from typing import ClassVar, Optional
+from typing import ClassVar
 
 from mtg_ssm.containers.collection import MagicCollection
 from mtg_ssm.containers.indexes import Oracle
@@ -26,8 +26,8 @@ class SerializationDialect(metaclass=abc.ABCMeta):
     _EXT_DIALECT_DOC: ClassVar[set[tuple[str, str, str]]] = set()
     _EXT_DIALECT_TO_IMPL: ClassVar[dict[tuple[str, str], type["SerializationDialect"]]] = {}
 
-    extension: ClassVar[Optional[str]] = None
-    dialect: ClassVar[Optional[str]] = None
+    extension: ClassVar[str | None] = None
+    dialect: ClassVar[str | None] = None
 
     def __init_subclass__(cls: type["SerializationDialect"]) -> None:
         super().__init_subclass__()
@@ -46,7 +46,7 @@ class SerializationDialect(metaclass=abc.ABCMeta):
     @classmethod
     def dialects(
         cls: type["SerializationDialect"],
-    ) -> list[tuple[str, Optional[str], Optional[str]]]:
+    ) -> list[tuple[str, str | None, str | None]]:
         """List of (extension, dialect, description) of registered dialects."""
         return sorted((ext, dial or "", doc or "") for ext, dial, doc in cls._EXT_DIALECT_DOC)
 

@@ -21,21 +21,13 @@ jobs:
           # setuptools_scm needs the git history
           fetch-depth: 0
 
-      - uses: actions/setup-python@v5
+      - uses: astral-sh/setup-uv@v7
         with:
-          python-version: "3.9"
-
-      - name: Install pypa/build
-        run: >-
-          pip install --user
-          build
+          enable-cache: true
+          python-version: "3.14"
 
       - name: Build a binary wheel and a source tarball
-        run: >-
-          python -m build
-          --sdist
-          --wheel
-          --outdir dist/
+        run: uv build --sdist --wheel --out-dir dist
 
       - name: Publish distribution 📦 to Test PyPI
         uses: pypa/gh-action-pypi-publish@release/v1.12

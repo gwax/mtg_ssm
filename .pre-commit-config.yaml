@@ -4,19 +4,19 @@ repos:
       - id: black
         name: black
         description: "Black: The uncompromising Python code formatter"
-        entry: black
+        entry: uv run --frozen black
         language: system
         require_serial: true
         types: [python]
       - id: mypy
         name: Type checking from mypy
         language: system
-        entry: mypy
+        entry: uv run --frozen mypy
         types: [python]
       - id: ruff
         name: ruff
         description: "Run ruff on files"
-        entry: ruff check --force-exclude
+        entry: uv run --frozen ruff check --force-exclude
         language: system
         types_or: [python, pyi]
         args: [--fix, --exit-non-zero-on-fix]
@@ -24,12 +24,12 @@ repos:
       - id: doc8-python
         name: Documentation checking from doc8 (Python)
         language: system
-        entry: doc8
+        entry: uv run --frozen doc8
         types: [python]
       - id: doc8-rst
         name: Documentation checking from doc8 (reStructuredText)
         language: system
-        entry: doc8
+        entry: uv run --frozen doc8
         types: [rst]
       - id: eclint
         name: EditorConfig file validation

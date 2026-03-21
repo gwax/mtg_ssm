@@ -241,15 +241,13 @@ def test_create_cmd(tmp_path: Path, oracle: Oracle) -> None:
     args = ap.Namespace(collection=coll_path, dialect={})
     ssm.create_cmd(args, oracle)
 
-    assert coll_path.read_text() == textwrap.dedent(
-        """\
+    assert coll_path.read_text() == textwrap.dedent("""\
         set,name,collector_number,scryfall_id,nonfoil,foil
         DCI,Tazeem,41,76e5383d-ac12-4abc-aa30-15e99ded2d6f,,
         DCI,Black Sun's Zenith,68,dd88131a-2811-4a1f-bb9a-c82e12c1493b,,
         PMBS,Hero of Bladehold,8★,8829efa0-498a-43ca-91aa-f9caeeafe298,,
         MMA,Thallid,167,69d20d28-76e9-4e6e-95c3-f88c51dfabfd,,
-        """
-    )
+        """)
 
 
 @freezegun.freeze_time("2015-06-28 01:02:03")
@@ -259,34 +257,26 @@ def test_update_cmd(tmp_path: Path, oracle: Oracle) -> None:
     coll_path = work_path / "collection.csv"
     expected_backup_path = work_path / "collection.20150628_010203.csv"
 
-    coll_path.write_text(
-        textwrap.dedent(
-            """\
+    coll_path.write_text(textwrap.dedent("""\
             scryfall_id,nonfoil,foil
             69d20d28-76e9-4e6e-95c3-f88c51dfabfd,4,9
-            """
-        )
-    )
+            """))
 
     args = ap.Namespace(collection=coll_path, dialect={})
     ssm.update_cmd(args, oracle)
 
     assert set(work_path.iterdir()) == {coll_path, expected_backup_path}
-    assert coll_path.read_text() == textwrap.dedent(
-        """\
+    assert coll_path.read_text() == textwrap.dedent("""\
         set,name,collector_number,scryfall_id,nonfoil,foil
         DCI,Tazeem,41,76e5383d-ac12-4abc-aa30-15e99ded2d6f,,
         DCI,Black Sun's Zenith,68,dd88131a-2811-4a1f-bb9a-c82e12c1493b,,
         PMBS,Hero of Bladehold,8★,8829efa0-498a-43ca-91aa-f9caeeafe298,,
         MMA,Thallid,167,69d20d28-76e9-4e6e-95c3-f88c51dfabfd,4,9
-        """
-    )
-    assert expected_backup_path.read_text() == textwrap.dedent(
-        """\
+        """)
+    assert expected_backup_path.read_text() == textwrap.dedent("""\
         scryfall_id,nonfoil,foil
         69d20d28-76e9-4e6e-95c3-f88c51dfabfd,4,9
-        """
-    )
+        """)
 
 
 def test_merge_cmd_new(tmp_path: Path, oracle: Oracle) -> None:
@@ -295,34 +285,26 @@ def test_merge_cmd_new(tmp_path: Path, oracle: Oracle) -> None:
     coll_path = work_path / "collection.csv"
     import_path = work_path / "import.csv"
 
-    import_path.write_text(
-        textwrap.dedent(
-            """\
+    import_path.write_text(textwrap.dedent("""\
             scryfall_id,nonfoil,foil
             69d20d28-76e9-4e6e-95c3-f88c51dfabfd,4,9
-            """
-        )
-    )
+            """))
 
     args = ap.Namespace(collection=coll_path, imports=[import_path], dialect={})
     ssm.merge_cmd(args, oracle)
 
     assert set(work_path.iterdir()) == {coll_path, import_path}
-    assert coll_path.read_text() == textwrap.dedent(
-        """\
+    assert coll_path.read_text() == textwrap.dedent("""\
         set,name,collector_number,scryfall_id,nonfoil,foil
         DCI,Tazeem,41,76e5383d-ac12-4abc-aa30-15e99ded2d6f,,
         DCI,Black Sun's Zenith,68,dd88131a-2811-4a1f-bb9a-c82e12c1493b,,
         PMBS,Hero of Bladehold,8★,8829efa0-498a-43ca-91aa-f9caeeafe298,,
         MMA,Thallid,167,69d20d28-76e9-4e6e-95c3-f88c51dfabfd,4,9
-        """
-    )
-    assert import_path.read_text() == textwrap.dedent(
-        """\
+        """)
+    assert import_path.read_text() == textwrap.dedent("""\
         scryfall_id,nonfoil,foil
         69d20d28-76e9-4e6e-95c3-f88c51dfabfd,4,9
-        """
-    )
+        """)
 
 
 @freezegun.freeze_time("2015-06-28 04:05:06")
@@ -333,48 +315,34 @@ def test_merge_cmd_existing(tmp_path: Path, oracle: Oracle) -> None:
     import_path = work_path / "import.csv"
     expected_backup_path = work_path / "collection.20150628_040506.csv"
 
-    coll_path.write_text(
-        textwrap.dedent(
-            """\
+    coll_path.write_text(textwrap.dedent("""\
             scryfall_id,nonfoil,foil
             69d20d28-76e9-4e6e-95c3-f88c51dfabfd,1,3
-            """
-        )
-    )
-    import_path.write_text(
-        textwrap.dedent(
-            """\
+            """))
+    import_path.write_text(textwrap.dedent("""\
             scryfall_id,nonfoil,foil
             69d20d28-76e9-4e6e-95c3-f88c51dfabfd,5,7
-            """
-        )
-    )
+            """))
 
     args = ap.Namespace(collection=coll_path, imports=[import_path], dialect={})
     ssm.merge_cmd(args, oracle)
 
     assert set(work_path.iterdir()) == {coll_path, import_path, expected_backup_path}
-    assert coll_path.read_text() == textwrap.dedent(
-        """\
+    assert coll_path.read_text() == textwrap.dedent("""\
         set,name,collector_number,scryfall_id,nonfoil,foil
         DCI,Tazeem,41,76e5383d-ac12-4abc-aa30-15e99ded2d6f,,
         DCI,Black Sun's Zenith,68,dd88131a-2811-4a1f-bb9a-c82e12c1493b,,
         PMBS,Hero of Bladehold,8★,8829efa0-498a-43ca-91aa-f9caeeafe298,,
         MMA,Thallid,167,69d20d28-76e9-4e6e-95c3-f88c51dfabfd,6,10
-        """
-    )
-    assert import_path.read_text() == textwrap.dedent(
-        """\
+        """)
+    assert import_path.read_text() == textwrap.dedent("""\
         scryfall_id,nonfoil,foil
         69d20d28-76e9-4e6e-95c3-f88c51dfabfd,5,7
-        """
-    )
-    assert expected_backup_path.read_text() == textwrap.dedent(
-        """\
+        """)
+    assert expected_backup_path.read_text() == textwrap.dedent("""\
         scryfall_id,nonfoil,foil
         69d20d28-76e9-4e6e-95c3-f88c51dfabfd,1,3
-        """
-    )
+        """)
 
 
 @freezegun.freeze_time("2015-06-28 08:09:10")
@@ -386,30 +354,18 @@ def test_merge_cmd_multiple(tmp_path: Path, oracle: Oracle) -> None:
     import_path2 = work_path / "import2.csv"
     expected_backup_path = work_path / "collection.20150628_080910.csv"
 
-    coll_path.write_text(
-        textwrap.dedent(
-            """\
+    coll_path.write_text(textwrap.dedent("""\
             scryfall_id,nonfoil,foil
             69d20d28-76e9-4e6e-95c3-f88c51dfabfd,1,3
-            """
-        )
-    )
-    import_path1.write_text(
-        textwrap.dedent(
-            """\
+            """))
+    import_path1.write_text(textwrap.dedent("""\
             scryfall_id,nonfoil,foil
             69d20d28-76e9-4e6e-95c3-f88c51dfabfd,5,7
-            """
-        )
-    )
-    import_path2.write_text(
-        textwrap.dedent(
-            """\
+            """))
+    import_path2.write_text(textwrap.dedent("""\
             scryfall_id,nonfoil,foil
             dd88131a-2811-4a1f-bb9a-c82e12c1493b,19,23
-            """
-        )
-    )
+            """))
 
     args = ap.Namespace(collection=coll_path, imports=[import_path1, import_path2], dialect={})
     ssm.merge_cmd(args, oracle)
@@ -420,33 +376,25 @@ def test_merge_cmd_multiple(tmp_path: Path, oracle: Oracle) -> None:
         import_path2,
         expected_backup_path,
     }
-    assert coll_path.read_text() == textwrap.dedent(
-        """\
+    assert coll_path.read_text() == textwrap.dedent("""\
         set,name,collector_number,scryfall_id,nonfoil,foil
         DCI,Tazeem,41,76e5383d-ac12-4abc-aa30-15e99ded2d6f,,
         DCI,Black Sun's Zenith,68,dd88131a-2811-4a1f-bb9a-c82e12c1493b,19,23
         PMBS,Hero of Bladehold,8★,8829efa0-498a-43ca-91aa-f9caeeafe298,,
         MMA,Thallid,167,69d20d28-76e9-4e6e-95c3-f88c51dfabfd,6,10
-        """
-    )
-    assert import_path1.read_text() == textwrap.dedent(
-        """\
+        """)
+    assert import_path1.read_text() == textwrap.dedent("""\
         scryfall_id,nonfoil,foil
         69d20d28-76e9-4e6e-95c3-f88c51dfabfd,5,7
-        """
-    )
-    assert import_path2.read_text() == textwrap.dedent(
-        """\
+        """)
+    assert import_path2.read_text() == textwrap.dedent("""\
         scryfall_id,nonfoil,foil
         dd88131a-2811-4a1f-bb9a-c82e12c1493b,19,23
-        """
-    )
-    assert expected_backup_path.read_text() == textwrap.dedent(
-        """\
+        """)
+    assert expected_backup_path.read_text() == textwrap.dedent("""\
         scryfall_id,nonfoil,foil
         69d20d28-76e9-4e6e-95c3-f88c51dfabfd,1,3
-        """
-    )
+        """)
 
 
 def test_diff_cmd(tmp_path: Path, oracle: Oracle) -> None:
@@ -456,33 +404,23 @@ def test_diff_cmd(tmp_path: Path, oracle: Oracle) -> None:
     right_path = work_path / "right.csv"
     out_path = work_path / "out.csv"
 
-    left_path.write_text(
-        textwrap.dedent(
-            """\
+    left_path.write_text(textwrap.dedent("""\
             scryfall_id,nonfoil,foil
             69d20d28-76e9-4e6e-95c3-f88c51dfabfd,8,
-            """
-        )
-    )
-    right_path.write_text(
-        textwrap.dedent(
-            """\
+            """))
+    right_path.write_text(textwrap.dedent("""\
             scryfall_id,nonfoil,foil
             dd88131a-2811-4a1f-bb9a-c82e12c1493b,4,
             69d20d28-76e9-4e6e-95c3-f88c51dfabfd,1,3
-            """
-        )
-    )
+            """))
 
     args = ap.Namespace(output=out_path, left=left_path, right=right_path, dialect={})
     ssm.diff_cmd(args, oracle)
     assert set(work_path.iterdir()) == {left_path, right_path, out_path}
-    assert out_path.read_text() == textwrap.dedent(
-        """\
+    assert out_path.read_text() == textwrap.dedent("""\
         set,name,collector_number,scryfall_id,nonfoil,foil
         DCI,Tazeem,41,76e5383d-ac12-4abc-aa30-15e99ded2d6f,,
         DCI,Black Sun's Zenith,68,dd88131a-2811-4a1f-bb9a-c82e12c1493b,-4,
         PMBS,Hero of Bladehold,8★,8829efa0-498a-43ca-91aa-f9caeeafe298,,
         MMA,Thallid,167,69d20d28-76e9-4e6e-95c3-f88c51dfabfd,7,-3
-        """
-    )
+        """)

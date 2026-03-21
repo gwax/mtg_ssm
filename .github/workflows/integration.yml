@@ -15,36 +15,34 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        extras:
-          - ""
-          - "[lxml]"
-    name: End-to-end tests
+        include:
+          - name: base
+            sync-args: ""
+          - name: lxml
+            sync-args: "--extra lxml"
+    name: End-to-end tests (${{ matrix.name }})
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - uses: astral-sh/setup-uv@v7
         with:
-          python-version: "3.13"
-          cache: pip
-          cache-dependency-path: |
-            pyproject.toml
+          enable-cache: true
+          python-version: "3.14"
 
-      - name: Install project
-        run: |
-          pip install -U pip setuptools wheel
-          pip install -e .${{ matrix.extras }}
+      - name: Sync runtime environment
+        run: uv sync --frozen --no-dev ${{ matrix.sync-args }}
 
       - name: Create csv
-        run: mtg-ssm create collection1.csv
+        run: uv run --frozen --no-dev mtg-ssm create collection1.csv
 
       - name: Update csv
-        run: mtg-ssm update collection1.csv
+        run: uv run --frozen --no-dev mtg-ssm update collection1.csv
 
       - name: Create xlsx
-        run: mtg-ssm create collection2.xlsx
+        run: uv run --frozen --no-dev mtg-ssm create collection2.xlsx
 
       - name: Update xlsx
-        run: mtg-ssm update collection2.xlsx
+        run: uv run --frozen --no-dev mtg-ssm update collection2.xlsx
 
       - name: Merge csv and xlsx
-        run: mtg-ssm merge collection3.xlsx collection1.csv collection2.xlsx
+        run: uv run --frozen --no-dev mtg-ssm merge collection3.xlsx collection1.csv collection2.xlsx

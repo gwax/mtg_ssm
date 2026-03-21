@@ -1,15 +1,12 @@
 """Scryfall object models."""
 
-# ruff: noqa: A003
-
 import datetime as dt
 from decimal import Decimal
 from enum import Enum
-from typing import Generic, Optional, TypeVar, Union
+from typing import Generic, TypeAlias, TypeVar
 from uuid import UUID
 
 from msgspec import Struct
-from typing_extensions import TypeAlias
 
 
 class ScryColor(str, Enum):
@@ -251,20 +248,20 @@ class ScrySet(
 
     id: UUID
     code: str
-    mtgo_code: Optional[str] = None
-    arena_code: Optional[str] = None
-    tcgplayer_id: Optional[int] = None
+    mtgo_code: str | None = None
+    arena_code: str | None = None
+    tcgplayer_id: int | None = None
     name: str
     set_type: ScrySetType
-    released_at: Optional[dt.date] = None
-    block_code: Optional[str] = None
-    block: Optional[str] = None
-    parent_set_code: Optional[str] = None
+    released_at: dt.date | None = None
+    block_code: str | None = None
+    block: str | None = None
+    parent_set_code: str | None = None
     card_count: int
-    printed_size: Optional[int] = None
+    printed_size: int | None = None
     digital: bool
     foil_only: bool
-    nonfoil_only: Optional[bool] = None
+    nonfoil_only: bool | None = None
     icon_svg_uri: str
     search_uri: str
     scryfall_uri: str
@@ -296,28 +293,28 @@ class ScryCardFace(
 ):
     """Model for https://scryfall.com/docs/api/cards#card-face-objects."""
 
-    artist: Optional[str] = None
-    artist_id: Optional[UUID] = None
-    cmc: Optional[float] = None
-    color_indicator: Optional[list[ScryColor]] = None
-    colors: Optional[list[ScryColor]] = None
-    flavor_name: Optional[str] = None
-    flavor_text: Optional[str] = None
-    illustration_id: Optional[UUID] = None
-    image_uris: Optional[dict[str, str]] = None
-    layout: Optional[ScryCardLayout] = None
-    loyalty: Optional[str] = None
+    artist: str | None = None
+    artist_id: UUID | None = None
+    cmc: float | None = None
+    color_indicator: list[ScryColor] | None = None
+    colors: list[ScryColor] | None = None
+    flavor_name: str | None = None
+    flavor_text: str | None = None
+    illustration_id: UUID | None = None
+    image_uris: dict[str, str] | None = None
+    layout: ScryCardLayout | None = None
+    loyalty: str | None = None
     mana_cost: str
     name: str
-    oracle_id: Optional[UUID] = None
-    oracle_text: Optional[str] = None
-    power: Optional[str] = None
-    printed_name: Optional[str] = None
-    printed_text: Optional[str] = None
-    printed_type_line: Optional[str] = None
-    toughness: Optional[str] = None
-    type_line: Optional[str] = None
-    watermark: Optional[str] = None
+    oracle_id: UUID | None = None
+    oracle_text: str | None = None
+    power: str | None = None
+    printed_name: str | None = None
+    printed_text: str | None = None
+    printed_type_line: str | None = None
+    toughness: str | None = None
+    type_line: str | None = None
+    watermark: str | None = None
 
 
 class CardPreviewBlock(Struct):
@@ -338,76 +335,76 @@ class ScryCard(
     """Model for https://scryfall.com/docs/api/cards."""
 
     # Core Card Fields
-    arena_id: Optional[int] = None
+    arena_id: int | None = None
     id: UUID
     lang: str
-    mtgo_id: Optional[int] = None
-    mtgo_foil_id: Optional[int] = None
-    multiverse_ids: Optional[list[int]] = None
-    tcgplayer_id: Optional[int] = None
-    tcgplayer_etched_id: Optional[int] = None
-    cardmarket_id: Optional[int] = None
-    oracle_id: Optional[UUID] = None
+    mtgo_id: int | None = None
+    mtgo_foil_id: int | None = None
+    multiverse_ids: list[int] | None = None
+    tcgplayer_id: int | None = None
+    tcgplayer_etched_id: int | None = None
+    cardmarket_id: int | None = None
+    oracle_id: UUID | None = None
     prints_search_uri: str
     rulings_uri: str
     scryfall_uri: str
     uri: str
     # Gameplay Fields
-    all_parts: Optional[list[ScryRelatedCard]] = None
-    card_faces: Optional[list[ScryCardFace]] = None
-    cmc: Optional[float] = None
-    colors: Optional[list[ScryColor]] = None
+    all_parts: list[ScryRelatedCard] | None = None
+    card_faces: list[ScryCardFace] | None = None
+    cmc: float | None = None
+    colors: list[ScryColor] | None = None
     color_identity: list[ScryColor]
-    color_indicator: Optional[list[ScryColor]] = None
-    edhrec_rank: Optional[int] = None
+    color_indicator: list[ScryColor] | None = None
+    edhrec_rank: int | None = None
     foil: bool
-    hand_modifier: Optional[str] = None
+    hand_modifier: str | None = None
     keywords: list[str]
     layout: ScryCardLayout
     legalities: dict[ScryFormat, ScryLegality]
-    life_modifier: Optional[str] = None
-    loyalty: Optional[str] = None
-    mana_cost: Optional[str] = None
+    life_modifier: str | None = None
+    loyalty: str | None = None
+    mana_cost: str | None = None
     name: str
     nonfoil: bool
-    oracle_text: Optional[str] = None
+    oracle_text: str | None = None
     oversized: bool
-    penny_rank: Optional[int] = None
-    power: Optional[str] = None
-    produced_mana: Optional[list[str]] = None
+    penny_rank: int | None = None
+    power: str | None = None
+    produced_mana: list[str] | None = None
     reserved: bool
-    toughness: Optional[str] = None
-    type_line: Optional[str] = None
+    toughness: str | None = None
+    type_line: str | None = None
     # Print Fields
-    artist: Optional[str] = None
-    artist_ids: Optional[list[UUID]] = None
+    artist: str | None = None
+    artist_ids: list[UUID] | None = None
     booster: bool
     border_color: ScryBorderColor
-    card_back_id: Optional[UUID] = None
+    card_back_id: UUID | None = None
     collector_number: str
-    content_warning: Optional[bool] = None
+    content_warning: bool | None = None
     digital: bool
     finishes: list[ScryFinish]
-    flavor_name: Optional[str] = None
-    flavor_text: Optional[str] = None
-    frame_effect: Optional[ScryFrameEffect] = None
-    frame_effects: Optional[list[ScryFrameEffect]] = None
+    flavor_name: str | None = None
+    flavor_text: str | None = None
+    frame_effect: ScryFrameEffect | None = None
+    frame_effects: list[ScryFrameEffect] | None = None
     frame: ScryCardFrame
     full_art: bool
     games: list[ScryGame]
     highres_image: bool
-    illustration_id: Optional[UUID] = None
+    illustration_id: UUID | None = None
     image_status: ScryImageStatus
-    image_uris: Optional[dict[str, str]] = None
-    prices: Optional[dict[str, Optional[Decimal]]]  # TODO: enum keys=None
-    printed_name: Optional[str] = None
-    printed_text: Optional[str] = None
-    printed_type_line: Optional[str] = None
+    image_uris: dict[str, str] | None = None
+    prices: dict[str, Decimal | None] | None  # TODO: enum keys=None
+    printed_name: str | None = None
+    printed_text: str | None = None
+    printed_type_line: str | None = None
     promo: bool
-    promo_types: Optional[list[str]] = None
-    purchase_uris: Optional[dict[str, str]] = None
+    promo_types: list[str] | None = None
+    purchase_uris: dict[str, str] | None = None
     rarity: ScryRarity
-    related_uris: Optional[dict[str, str]] = None
+    related_uris: dict[str, str] | None = None
     released_at: dt.date
     reprint: bool
     scryfall_set_uri: str
@@ -420,10 +417,10 @@ class ScryCard(
     story_spotlight: bool
     textless: bool
     variation: bool
-    variation_of: Optional[UUID] = None
-    security_stamp: Optional[ScrySecurityStamp] = None
-    watermark: Optional[str] = None
-    preview: Optional[CardPreviewBlock] = None
+    variation_of: UUID | None = None
+    security_stamp: ScrySecurityStamp | None = None
+    watermark: str | None = None
+    preview: CardPreviewBlock | None = None
 
 
 class ScryBulkData(
@@ -442,7 +439,7 @@ class ScryBulkData(
     description: str
     download_uri: str
     updated_at: dt.datetime
-    compressed_size: Optional[int] = None
+    compressed_size: int | None = None
     content_type: str
     content_encoding: str
 
@@ -461,16 +458,11 @@ class ScryMigration(
     performed_at: dt.date
     migration_strategy: ScryMigrationStrategy
     old_scryfall_id: UUID
-    new_scryfall_id: Optional[UUID] = None
-    note: Optional[str] = None
+    new_scryfall_id: UUID | None = None
+    note: str | None = None
 
 
-ScryListable: TypeAlias = Union[
-    ScryBulkData,
-    ScryCard,
-    ScryMigration,
-    ScrySet,
-]
+ScryListable: TypeAlias = ScryBulkData | ScryCard | ScryMigration | ScrySet
 
 _ScryListableT = TypeVar("_ScryListableT", bound=ScryListable)
 
@@ -487,6 +479,6 @@ class ScryList(
 
     data: list[_ScryListableT]
     has_more: bool
-    next_page: Optional[str] = None
-    total_cards: Optional[int] = None
-    warnings: Optional[list[str]] = None
+    next_page: str | None = None
+    total_cards: int | None = None
+    warnings: list[str] | None = None

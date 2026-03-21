@@ -1,7 +1,6 @@
 """Tests for mtg_ssm.serialization.xlsx."""
 
 from pathlib import Path
-from typing import Optional
 from uuid import UUID
 
 import openpyxl
@@ -74,7 +73,7 @@ def test_create_haverefs(oracle: Oracle) -> None:
     ],
 )
 def test_get_references(
-    oracle: Oracle, name: str, exclude_sets: Optional[set[str]], expected: str
+    oracle: Oracle, name: str, exclude_sets: set[str] | None, expected: str
 ) -> None:
     print_refs = xlsx_serializer.get_references(oracle.index, name, exclude_sets=exclude_sets)
     assert print_refs == expected
@@ -161,7 +160,7 @@ def test_write(snapshot: SnapshotAssertion, oracle: Oracle, tmp_path: Path) -> N
 )
 def test_rows_from_workbook(
     sheets_and_rows: list[tuple[str, list[list[str]]]],
-    skip_sheets: Optional[set[str]],
+    skip_sheets: set[str] | None,
     expected: list[dict[str, str]],
 ) -> None:
     workbook = openpyxl.Workbook()

@@ -4,7 +4,7 @@ import csv
 import datetime as dt
 from collections.abc import Iterable, Mapping
 from pathlib import Path
-from typing import Any, ClassVar, Optional
+from typing import Any, ClassVar
 
 from mtg_ssm.containers import counts
 from mtg_ssm.containers.collection import MagicCollection
@@ -42,8 +42,8 @@ def rows_for_cards(collection: MagicCollection, verbose: bool) -> Iterable[dict[
 class CsvFullDialect(interface.SerializationDialect):
     """csv collection writing a row for every printing."""
 
-    extension: ClassVar[Optional[str]] = "csv"
-    dialect: ClassVar[Optional[str]] = "csv"
+    extension: ClassVar[str | None] = "csv"
+    dialect: ClassVar[str | None] = "csv"
 
     verbose: ClassVar[bool] = True
 
@@ -66,6 +66,6 @@ class CsvFullDialect(interface.SerializationDialect):
 class CsvTerseDialect(CsvFullDialect):
     """csv collection writing only rows that have counts."""
 
-    dialect: ClassVar[Optional[str]] = "terse"
+    dialect: ClassVar[str | None] = "terse"
 
     verbose: ClassVar[bool] = False
