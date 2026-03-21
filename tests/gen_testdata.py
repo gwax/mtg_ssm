@@ -6,6 +6,7 @@ from pathlib import Path
 
 import msgspec
 
+from mtg_ssm.containers import bundles
 from mtg_ssm.scryfall import fetcher, models
 
 
@@ -125,8 +126,7 @@ def main() -> None:  # noqa: PLR0915
     )
 
     print("Adjusting sets")
-    for cset in accepted_sets:
-        cset.card_count = len([c for c in accepted_cards if c.set == cset.code])
+    accepted_sets = bundles.recount_sets(accepted_sets, accepted_cards)
 
     print("Writing sets")
     sets_list = models.ScryList(

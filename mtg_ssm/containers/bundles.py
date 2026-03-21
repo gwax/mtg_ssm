@@ -1,6 +1,7 @@
 """Data bundle definitions."""
 
 import copy
+from collections import Counter
 from typing import NamedTuple
 
 from mtg_ssm.scryfall.models import ScryCard, ScryCardLayout, ScryMigration, ScrySet, ScrySetType
@@ -12,6 +13,21 @@ class ScryfallDataSet(NamedTuple):
     sets: list[ScrySet]
     cards: list[ScryCard]
     migrations: list[ScryMigration]
+
+
+def recount_sets(sets: list[ScrySet], cards: list[ScryCard]) -> list[ScrySet]:
+    """Return sets with card counts updated to match the provided card list."""
+    set_code_to_count = Counter(card.set for card in cards)
+    recounted_sets = []
+    for set_ in sets:
+        card_count = set_code_to_count[set_.code]
+        if set_.card_count == card_count:
+            recounted_sets.append(set_)
+            continue
+        recounted_set = copy.copy(set_)
+        recounted_set.card_count = card_count
+        recounted_sets.append(recounted_set)
+    return recounted_sets
 
 
 def filter_cards_and_sets(  # noqa: C901
@@ -68,6 +84,7 @@ def filter_cards_and_sets(  # noqa: C901
         for s in scryfall_data.sets
         if s.code in accepted_setcodes and s.code in nonempty_setcodes
     ]
+    accepted_sets = recount_sets(accepted_sets, accepted_cards)
 
     return ScryfallDataSet(
         sets=accepted_sets,

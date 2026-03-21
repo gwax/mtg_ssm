@@ -31,9 +31,9 @@ classifiers = [
 ]
 
 dependencies = [
-    "appdirs~=1.4",
     "msgspec~=0.15",
     "openpyxl~=3.1",
+    "platformdirs~=4.0",
     "requests~=2.27",
     "requests-cache~=0.9.8",
     "typing_extensions~=4.8.0",
@@ -66,7 +66,6 @@ dev = [
     "responses",
     "ruff",
     "syrupy>=4.0",
-    "types-appdirs",
     "types-freezegun",
     "types-requests",
 ]

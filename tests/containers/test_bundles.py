@@ -1,5 +1,6 @@
 """Tests for mtg_ssm.containers.bundles."""
 
+from collections import Counter
 from uuid import UUID
 
 from mtg_ssm.containers import bundles
@@ -138,3 +139,29 @@ def test_default_exclusions_cover_recent_scryfall_categories(
         "Steel Seraph",
         "Skyclave Cleric // Skyclave Basilica",
     } <= card_names2
+
+
+def test_filtered_set_card_counts_match_remaining_cards(
+    scryfall_data: bundles.ScryfallDataSet,
+) -> None:
+    filtered = bundles.filter_cards_and_sets(
+        scryfall_data,
+        exclude_set_types={
+            ScrySetType.MEMORABILIA,
+            ScrySetType.MINIGAME,
+            ScrySetType.TOKEN,
+        },
+        exclude_card_layouts={
+            ScryCardLayout.ART_SERIES,
+            ScryCardLayout.DOUBLE_FACED_TOKEN,
+            ScryCardLayout.EMBLEM,
+            ScryCardLayout.TOKEN,
+        },
+        exclude_digital=True,
+        exclude_foreing_only=True,
+        merge_promos=True,
+    )
+    set_code_to_count = Counter(card.set for card in filtered.cards)
+    assert set_code_to_count
+    assert {set_.code for set_ in filtered.sets} == set(set_code_to_count)
+    assert all(set_.card_count == set_code_to_count[set_.code] for set_ in filtered.sets)

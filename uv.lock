@@ -712,9 +712,9 @@ wheels = [
 name = "mtg-ssm"
 source = { editable = "." }
 dependencies = [
-    { name = "appdirs" },
     { name = "msgspec" },
     { name = "openpyxl" },
+    { name = "platformdirs" },
     { name = "requests" },
     { name = "requests-cache" },
     { name = "typing-extensions" },
@@ -741,17 +741,16 @@ dev = [
     { name = "responses" },
     { name = "ruff" },
     { name = "syrupy" },
-    { name = "types-appdirs" },
     { name = "types-freezegun" },
     { name = "types-requests" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "appdirs", specifier = "~=1.4" },
     { name = "lxml", marker = "extra == 'lxml'", specifier = ">=3.7.2" },
     { name = "msgspec", specifier = "~=0.15" },
     { name = "openpyxl", specifier = "~=3.1" },
+    { name = "platformdirs", specifier = "~=4.0" },
     { name = "requests", specifier = "~=2.27" },
     { name = "requests-cache", specifier = "~=0.9.8" },
     { name = "typing-extensions", specifier = "~=4.8.0" },
@@ -774,7 +773,6 @@ dev = [
     { name = "responses" },
     { name = "ruff" },
     { name = "syrupy", specifier = ">=4.0" },
-    { name = "types-appdirs" },
     { name = "types-freezegun" },
     { name = "types-requests" },
 ]
@@ -1242,15 +1240,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/de/69/9aa0c6a505c2f80e519b43764f8b4ba93b5a0bbd2d9a9de6e2b24271b9a5/tomli-2.4.0-cp314-cp314t-win_amd64.whl", hash = "sha256:2add28aacc7425117ff6364fe9e06a183bb0251b03f986df0e78e974047571fd", size = 120504, upload-time = "2026-01-11T11:22:35.764Z" },
     { url = "https://files.pythonhosted.org/packages/b3/9f/f1668c281c58cfae01482f7114a4b88d345e4c140386241a1a24dcc9e7bc/tomli-2.4.0-cp314-cp314t-win_arm64.whl", hash = "sha256:2b1e3b80e1d5e52e40e9b924ec43d81570f0e7d09d11081b797bc4692765a3d4", size = 99561, upload-time = "2026-01-11T11:22:36.624Z" },
     { url = "https://files.pythonhosted.org/packages/23/d1/136eb2cb77520a31e1f64cbae9d33ec6df0d78bdf4160398e86eec8a8754/tomli-2.4.0-py3-none-any.whl", hash = "sha256:1f776e7d669ebceb01dee46484485f43a4048746235e683bcdffacdf1fb4785a", size = 14477, upload-time = "2026-01-11T11:22:37.446Z" },
-]
-
-[[package]]
-name = "types-appdirs"
-version = "1.4.3.5"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/fe/dc/600964f9ee98f4afdb69be74cd8e1ca566635a76ada9af0046e44a778fbb/types-appdirs-1.4.3.5.tar.gz", hash = "sha256:83268da64585361bfa291f8f506a209276212a0497bd37f0512a939b3d69ff14", size = 2866, upload-time = "2023-03-14T15:21:34.849Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/cf/07/41f5b9b11f11855eb67760ed680330e0ce9136a44b51c24dd52edb1c4eb1/types_appdirs-1.4.3.5-py3-none-any.whl", hash = "sha256:337c750e423c40911d389359b4edabe5bbc2cdd5cd0bd0518b71d2839646273b", size = 2667, upload-time = "2023-03-14T15:21:32.431Z" },
 ]
 
 [[package]]

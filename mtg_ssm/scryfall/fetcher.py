@@ -1,10 +1,10 @@
 """Scryfall data fetcher."""
 
 import gzip
-import os
+from pathlib import Path
 
-import appdirs
 import msgspec
+from platformdirs import user_cache_dir
 from requests_cache import CachedSession, SerializerPipeline, Stage, pickle_serializer
 
 from mtg_ssm.containers.bundles import ScryfallDataSet
@@ -12,7 +12,7 @@ from mtg_ssm.scryfall.models import ScryBulkData, ScryCard, ScryList, ScryMigrat
 
 APP_AUTHOR = "gwax"
 APP_NAME = "mtg_ssm"
-CACHE_DIR = appdirs.user_cache_dir(APP_NAME, APP_AUTHOR)
+CACHE_DIR = Path(user_cache_dir(APP_NAME, APP_AUTHOR))
 CACHE_SERIALIZER = SerializerPipeline(
     [
         pickle_serializer,
@@ -21,7 +21,7 @@ CACHE_SERIALIZER = SerializerPipeline(
     is_binary=True,
 )
 SESSION = CachedSession(
-    os.path.join(CACHE_DIR, "requests_cache.sqlite"),  # noqa: PTH118
+    str(CACHE_DIR / "requests_cache.sqlite"),
     backend="sqlite",
     serializer=CACHE_SERIALIZER,
     cache_control=True,
