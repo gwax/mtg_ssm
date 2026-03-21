@@ -41,19 +41,28 @@ Please also check out my other major Magic: the Gathering project,
 Installation
 ============
 
-mtg-ssm is available on PyPI so, if you have python (>=3.6) and pip
-installed on your system, you should be able to get mtg-ssm by entering
-the following into a terminal:
+mtg-ssm is available on PyPI so, if you have Python (>=3.10) and a
+package installer such as uv or pip installed on your system, you
+should be able to get mtg-ssm by entering one of the following into a
+terminal:
 
 .. code:: bash
 
-    pip3 install mtg_ssm
+    uv tool install mtg_ssm
+
+.. code:: bash
+
+    pip install mtg_ssm
 
 Updates can be performed by entering:
 
 .. code:: bash
 
-    pip3 install -U mtg_ssm
+    uv tool upgrade mtg-ssm
+
+.. code:: bash
+
+    pip install -U mtg_ssm
 
 You can verify installation from the terminal by running:
 
@@ -149,8 +158,26 @@ Contributions
 
 Pull requests are welcome and contributions are greatly appreciated. If you
 would like to contribute, please be sure that all tests and lint checks
-pass. Also consider running `python -m tests.gen_testdata` to ensure that
-everything is up to date and works.
+pass.
+
+Development uses `uv`. A typical local setup is:
+
+.. code:: bash
+
+    uv python install 3.14
+    uv sync --python 3.14 --extra lxml
+
+Common development commands:
+
+.. code:: bash
+
+    uv run --python 3.14 pre-commit run --all-files
+    uv run --python 3.14 pytest
+    uv run --python 3.14 python -m tests.gen_testdata
+
+The package metadata and lint/type-check targets stay on Python 3.10, so
+changes should remain compatible with that floor even when developed from
+a Python 3.14 environment.
 
 Issues can be reported via GitHub.
 
@@ -177,7 +204,9 @@ Changelog
 Development
 -----------
 
--   ...
+-   Switch project development and CI workflows to uv.
+-   Set Python 3.10 as the supported package floor.
+-   Use Python 3.14 for development workflows.
 
 2.7.0
 -----

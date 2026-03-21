@@ -129,14 +129,10 @@ def test_write_terse(snapshot: SnapshotAssertion, oracle: Oracle, tmp_path: Path
 def test_read(oracle: Oracle, tmp_path: Path) -> None:
     csv_path = tmp_path / "infile.csv"
     with csv_path.open("wt", encoding="utf-8") as csv_file:
-        csv_file.write(
-            textwrap.dedent(
-                """\
+        csv_file.write(textwrap.dedent("""\
                 set,name,collector_number,scryfall_id,nonfoil,foil
                 PHOP,Stairs to Infinity,P1,57f25ead-b3ec-4c40-972d-d750ed2f5319,3,7
-                """
-            )
-        )
+                """))
     serializer = csv_serializer.CsvFullDialect()
     collection = serializer.read(csv_path, oracle)
     assert collection.counts == {

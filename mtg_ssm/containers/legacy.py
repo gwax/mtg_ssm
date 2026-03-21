@@ -1,6 +1,6 @@
 """Legacy record lookup capabilities for older file versions."""
 
-from typing import Any, Optional
+from typing import Any
 from uuid import UUID
 
 from mtg_ssm.containers.indexes import Oracle
@@ -93,7 +93,7 @@ OTHER_SET_CODE_TO_SET_CODE = {
     "PCA": ["opca"],
 }
 
-PSUDONYM_TO_ARTIST: dict[Optional[str], str] = {
+PSUDONYM_TO_ARTIST: dict[str | None, str] = {
     "William Murai": "Willian Murai",
     "Dave Seeley": "David Seeley",
 }
@@ -113,7 +113,7 @@ def find_scryfall_id(card_row: dict[str, str], oracle: Oracle) -> UUID:
     artist = card_row.get("artist") or None
     artist = PSUDONYM_TO_ARTIST.get(artist, artist)
     print(f"Searching => Set: {set_code}; Name: {name}; Number: {collector_number}; MVID: {mvid}")
-    snnma_keys: list[tuple[Optional[str], str, Optional[str], Optional[int], Optional[str]]] = []
+    snnma_keys: list[tuple[str | None, str, str | None, int | None, str | None]] = []
     for set_ in set_codes:
         snnma_keys += [
             (set_, name, collector_number, None, None),

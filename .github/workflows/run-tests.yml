@@ -11,11 +11,11 @@ jobs:
     strategy:
       matrix:
         python-version:
-          - "3.9"
           - "3.10"
           - "3.11"
           - "3.12"
           - "3.13"
+          - "3.14"
         os:
           - ubuntu-latest
           - macos-latest
@@ -25,50 +25,44 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - uses: astral-sh/setup-uv@v7
         with:
+          enable-cache: true
           python-version: "${{ matrix.python-version }}"
-          cache: pip
-          cache-dependency-path: pyproject.toml
 
-      - name: Install project
-        run: |
-          pip install -U pip setuptools
-          pip install -e .
+      - name: Sync runtime environment
+        run: uv sync --frozen --no-dev
 
       - name: Run mtg-ssm
-        run: mtg-ssm --help
+        run: uv run --frozen --no-dev mtg-ssm --help
 
   pytest:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version:
-          - "3.9"
           - "3.10"
           - "3.11"
           - "3.12"
           - "3.13"
+          - "3.14"
     name: Python ${{ matrix.python-version }} pytest
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - uses: astral-sh/setup-uv@v7
         with:
+          enable-cache: true
           python-version: "${{ matrix.python-version }}"
-          cache: pip
-          cache-dependency-path: pyproject.toml
 
-      - name: Install project
-        run: |
-          pip install -U pip setuptools wheel
-          pip install -e .[lxml,dev]
+      - name: Sync test environment
+        run: uv sync --frozen --extra lxml
 
       - name: Execute pytest
-        run: pytest tests/
+        run: uv run --frozen pytest tests/
 
       - name: Convert coverage
-        run: coverage lcov
+        run: uv run --frozen coverage lcov
 
       - name: Coveralls Parallel
         uses: coverallsapp/github-action@v2.3.6
@@ -87,5 +81,4 @@ jobs:
         uses: coverallsapp/github-action@v2.3.6
         with:
           github-token: ${{ secrets.github_token }}
-          path-to-lcov: coverage.lcov
           parallel-finished: true

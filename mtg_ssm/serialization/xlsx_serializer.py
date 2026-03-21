@@ -7,7 +7,7 @@ import itertools
 import string
 from collections.abc import Iterable, Sequence
 from pathlib import Path
-from typing import Any, ClassVar, Optional
+from typing import Any, ClassVar
 
 import openpyxl
 from openpyxl.styles.numbers import FORMAT_CURRENCY_USD_SIMPLE
@@ -39,7 +39,7 @@ ALL_SETS_SHEET_HEADER: Sequence[str] = [
     "value",
 ]
 
-ALL_SETS_SHEET_TOTALS: Sequence[Optional[str]] = ["Total", None, None, None, None] + [
+ALL_SETS_SHEET_TOTALS: Sequence[str | None] = ["Total", None, None, None, None] + [
     f"=SUM({c}3:{c}65535)" for c in "FGHIJKLM"
 ]
 
@@ -124,8 +124,8 @@ def create_haverefs(index: ScryfallDataIndex, setcode: str, cards: Sequence[Scry
 
 
 def get_references(
-    index: ScryfallDataIndex, card_name: str, exclude_sets: Optional[set[str]] = None
-) -> Optional[str]:
+    index: ScryfallDataIndex, card_name: str, exclude_sets: set[str] | None = None
+) -> str | None:
     """Get an equation for the references to a card."""
     if util.is_strict_basic(card_name):
         return None  # Basics are so prolific that they overwhelm Excel
@@ -239,7 +239,7 @@ def create_set_sheet(sheet: Worksheet, collection: MagicCollection, setcode: str
 
     for card in index.setcode_to_cards[setcode]:
         rownum = ROW_OFFSET + index.id_to_setindex[card.id]
-        row: list[Optional[Any]] = [
+        row: list[Any | None] = [
             HAVE_TMPL.format(rownum=rownum),
             VALUE_TMPL.format(rownum=rownum),
             card.name,
@@ -287,12 +287,10 @@ def rows_from_sheet(sheet: Worksheet) -> Iterable[dict[str, str]]:
     for row in rows:
         values = [cell.value for cell in row]
         if any(v is not None for v in values):
-            yield dict(zip(header, values), set=str(sheet.title))
+            yield dict(zip(header, values, strict=False), set=str(sheet.title))
 
 
-def rows_for_workbook(
-    book: Workbook, *, skip_sheets: Optional[set[str]]
-) -> Iterable[dict[str, str]]:
+def rows_for_workbook(book: Workbook, *, skip_sheets: set[str] | None) -> Iterable[dict[str, str]]:
     """Read rows from an xlsx workbook as dicts."""
     if skip_sheets is None:
         skip_sheets = set()

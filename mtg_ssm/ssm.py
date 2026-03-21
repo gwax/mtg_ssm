@@ -4,7 +4,6 @@
 import argparse
 import datetime as dt
 from pathlib import Path
-from typing import Optional
 
 import mtg_ssm
 import mtg_ssm.serialization.interface as ser_interface
@@ -54,7 +53,7 @@ def card_layout_list(value: str) -> set[ScryCardLayout]:
     return card_layouts
 
 
-def get_args(args: Optional[list[str]] = None) -> argparse.Namespace:
+def get_args(args: list[str] | None = None) -> argparse.Namespace:
     """Parse and return application arguments."""
     parser = argparse.ArgumentParser(
         formatter_class=argparse.RawDescriptionHelpFormatter,

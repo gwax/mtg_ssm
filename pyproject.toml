@@ -7,14 +7,13 @@ name = "mtg_ssm"
 description = "A tool to manage Magic: the Gathering collection spreadsheets"
 readme = "README.rst"
 authors = [{ name = "George Leslie-Waksman", email = "waksman@gmail.com" }]
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 keywords = ["mtg", "magic", "collection", "tracking", "spreadsheet"]
-license = { text = "MIT" }
+license = "MIT"
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Environment :: Console",
     "Intended Audience :: End Users/Desktop",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: MacOS",
     "Operating System :: Microsoft :: Windows",
     "Operating System :: OS Independent",
@@ -23,11 +22,11 @@ classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Games/Entertainment",
 ]
 
@@ -50,28 +49,26 @@ mtg-ssm = "mtg_ssm.ssm:main"
 
 [project.optional-dependencies]
 lxml = ["lxml>=3.7.2"]
+
+[dependency-groups]
 dev = [
     "black",
     "coverage[toml]",
     "doc8",
     "exceptiongroup",
     "freezegun",
-    "lxml",
     "mypy",
     "openpyxl-stubs",
-    "pip",
+    "pre-commit",
     "Pygments",
     "pytest>=6.0",
     "pytest-cov",
     "responses",
     "ruff",
-    "setuptools>=45",
-    "setuptools-scm[toml]>=6.2",
     "syrupy>=4.0",
     "types-appdirs",
     "types-freezegun",
     "types-requests",
-    "wheel",
 ]
 
 [tool.setuptools]
@@ -93,7 +90,7 @@ addopts = "--cov mtg_ssm --cov-report term-missing"
 testpaths = ["tests"]
 
 [tool.mypy]
-python_version = "3.9"
+python_version = "3.10"
 
 follow_imports = "normal"
 disallow_untyped_defs = true
@@ -101,10 +98,10 @@ allow_untyped_globals = false
 
 [tool.black]
 line-length = 99
-target-version = ["py39"]
+target-version = ["py310"]
 
 [tool.ruff]
-target-version = "py39"
+target-version = "py310"
 line-length = 99
 
 [tool.ruff.lint]

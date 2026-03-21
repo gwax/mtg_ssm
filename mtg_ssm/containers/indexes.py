@@ -3,7 +3,6 @@
 import collections
 import string
 from collections.abc import Iterable
-from typing import Optional
 from uuid import UUID
 
 from mtg_ssm.containers.bundles import ScryfallDataSet
@@ -23,9 +22,9 @@ def set_card_sort_key(card: ScryCard) -> tuple[str, int, str]:
 
 def build_snnmas(
     card: ScryCard,
-) -> Iterable[tuple[Optional[str], str, Optional[str], Optional[int], Optional[str]]]:
+) -> Iterable[tuple[str | None, str, str | None, int | None, str | None]]:
     """Build set, name, number, multiverse id tuple keys."""
-    names_cnums: set[tuple[str, Optional[str]]] = {(card.name, card.collector_number)}
+    names_cnums: set[tuple[str, str | None]] = {(card.name, card.collector_number)}
     for i, card_face in enumerate(card.card_faces or ()):
         names_cnums |= {
             (card_face.name, card.collector_number),
@@ -33,11 +32,11 @@ def build_snnmas(
         }
     names_cnums |= {(n, None) for n, _ in names_cnums}
 
-    sets: set[Optional[str]] = {card.set, None}
+    sets: set[str | None] = {card.set, None}
 
-    mvids: set[Optional[int]] = {None} | set(card.multiverse_ids or ())
+    mvids: set[int | None] = {None} | set(card.multiverse_ids or ())
 
-    artists: set[Optional[str]] = {card.artist, None}
+    artists: set[str | None] = {card.artist, None}
 
     for name, number in names_cnums:
         for set_ in sets:
@@ -60,7 +59,7 @@ class ScryfallDataIndex:
         # TODO: convert to intersecting bitmap indexes
         # TODO: do we really need artist?
         self.snnma_to_id: dict[
-            tuple[Optional[str], str, Optional[str], Optional[int], Optional[str]],
+            tuple[str | None, str, str | None, int | None, str | None],
             set[UUID],
         ] = {}
 

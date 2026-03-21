@@ -3,10 +3,9 @@
 import re
 from pathlib import Path
 from re import Pattern
-from typing import Union
 
 import pytest
-from responses import RequestsMock
+from responses import RequestsMock, matchers
 
 from mtg_ssm.containers.bundles import ScryfallDataSet
 from mtg_ssm.scryfall import fetcher
@@ -15,7 +14,7 @@ from tests import gen_testdata
 
 BULK_CARDS_REGEX = r"https://data\.scryfall\.io/default-cards/default-cards-\d{14}\.json"
 
-ENDPOINT_TO_FILE: dict[Union[str, Pattern[str]], Path] = {
+ENDPOINT_TO_FILE: dict[str | Pattern[str], Path] = {
     fetcher.BULK_DATA_ENDPOINT: gen_testdata.TARGET_BULK_FILE,
     fetcher.SETS_ENDPOINT: gen_testdata.TARGET_SETS_FILE1,
     gen_testdata.SETS_NEXTPAGE_URL: gen_testdata.TARGET_SETS_FILE2,
@@ -29,13 +28,16 @@ def _scryurls(requests_mock: RequestsMock) -> None:
     """Populate mock responses for scryfall urls."""
     for endpoint, filename in ENDPOINT_TO_FILE.items():
         with filename.open("rb") as endpoint_file:
+            matcher_list = []
+            if isinstance(endpoint, str):
+                matcher_list.append(matchers.query_string_matcher(endpoint.partition("?")[2]))
             requests_mock.add(
                 "GET",
                 endpoint,
                 status=200,
                 content_type="application/json",
                 body=endpoint_file.read(),
-                match_querystring=True,
+                match=matcher_list,
             )
 
 
