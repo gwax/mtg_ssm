@@ -28,8 +28,10 @@ TARGET_MIGRATIONS_FILE = TEST_DATA_DIR / "migrations.json"
 SETS_NEXTPAGE_URL = "https://api.scryfall.com/sets?page=2"
 
 TEST_SETS_TO_CARDS = {
+    "altc": {"Fell Beast's Shriek // Fell Beast's Shriek"},
     "arc": {"Leonin Abunas"},
     "bok": {"Faithful Squire // Kaiso, Memory of Loyalty"},
+    "bro": {"Steel Seraph"},
     "chk": {"Bushi Tenderfoot // Kenzo the Hardhearted", "Boseiju, Who Shelters All"},
     "csp": {"Jötun Grunt"},
     "dci": {"Black Sun's Zenith", "Tazeem"},
@@ -41,6 +43,7 @@ TEST_SETS_TO_CARDS = {
     "khm": {"Cosmos Elixir", "A-Cosmos Elixir"},
     "lea": {"Air Elemental", "Dark Ritual", "Forest"},
     "mbs": {"Hero of Bladehold", "Black Sun's Zenith"},
+    "macr": {"Into the Story: Assassin Edition // Story Beats"},
     "mma": {"Thallid"},
     "neo": {"Boseiju, Who Endures"},
     "oarc": {"All in Good Time"},
@@ -72,10 +75,14 @@ TEST_SETS_TO_CARDS = {
         "Temple of Plenty",
         "Wolfwillow Haven",
     },
+    "tmc": {"Ninja Pizza"},
+    "tmma": {"Elspeth, Knight-Errant Emblem"},
     "unh": {"Who // What // When // Where // Why"},
     "ust": {"Very Cryptic Command"},
     "vma": {"Academy Elite"},
     "w16": {"Serra Angel"},
+    "yecl": {"Thoughtsteal Sprites"},
+    "znr": {"Skyclave Cleric // Skyclave Basilica"},
 }
 
 

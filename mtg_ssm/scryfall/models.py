@@ -26,6 +26,7 @@ class ScrySetType(str, Enum):
 
     CORE = "core"
     EXPANSION = "expansion"
+    ETERNAL = "eternal"
     MASTERS = "masters"
     MASTERPIECE = "masterpiece"
     FROM_THE_VAULT = "from_the_vault"
