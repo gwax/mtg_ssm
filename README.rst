@@ -204,6 +204,11 @@ Changelog
 Development
 -----------
 
+-   ...
+
+2.8.0
+-----
+
 -   Switch project development and CI workflows to uv.
 -   Set Python 3.10 as the supported package floor.
 -   Use Python 3.14 for development workflows.
