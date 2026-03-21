@@ -3,7 +3,7 @@
 from uuid import UUID
 
 from mtg_ssm.containers import bundles
-from mtg_ssm.scryfall.models import ScryCardLayout
+from mtg_ssm.scryfall.models import ScryCardLayout, ScrySetType
 
 
 def test_remove_digital(scryfall_data: bundles.ScryfallDataSet) -> None:
@@ -18,6 +18,9 @@ def test_remove_digital(scryfall_data: bundles.ScryfallDataSet) -> None:
     assert "Cosmos Elixir" in card_names
     assert "A-Cosmos Elixir" in card_names
 
+    assert "yecl" in set_codes
+    assert "Thoughtsteal Sprites" in card_names
+
     digital_removed = bundles.filter_cards_and_sets(scryfall_data, exclude_digital=True)
     set_codes2 = {s.code for s in digital_removed.sets}
     card_ids2 = {c.id for c in digital_removed.cards}
@@ -29,6 +32,9 @@ def test_remove_digital(scryfall_data: bundles.ScryfallDataSet) -> None:
     assert "khm" in set_codes2
     assert "Cosmos Elixir" in card_names2
     assert "A-Cosmos Elixir" not in card_names2
+
+    assert "yecl" not in set_codes2
+    assert "Thoughtsteal Sprites" not in card_names2
 
 
 def test_exclude_token_layout(scryfall_data: bundles.ScryfallDataSet) -> None:
@@ -84,3 +90,51 @@ def test_merge_promos(scryfall_data: bundles.ScryfallDataSet) -> None:
     assert (UUID("bd26b7b1-992d-4b8c-bc33-51aab5abdf98"), "rna") in card_ids_and_sets2
     # Separate promo set Plains that should not be interleaved
     assert (UUID("8004052e-cb88-4ca6-a563-5396f13f7c6d"), "prw2") in card_ids_and_sets2
+
+
+def test_default_exclusions_cover_recent_scryfall_categories(
+    scryfall_data: bundles.ScryfallDataSet,
+) -> None:
+    set_codes = {s.code for s in scryfall_data.sets}
+    card_names = {c.name for c in scryfall_data.cards}
+
+    assert {"altc", "macr", "tmc", "tmma", "bro", "znr"} <= set_codes
+    assert {
+        "Fell Beast's Shriek // Fell Beast's Shriek",
+        "Into the Story: Assassin Edition // Story Beats",
+        "Ninja Pizza",
+        "Elspeth, Knight-Errant Emblem",
+        "Steel Seraph",
+        "Skyclave Cleric // Skyclave Basilica",
+    } <= card_names
+
+    default_filtered = bundles.filter_cards_and_sets(
+        scryfall_data,
+        exclude_set_types={
+            ScrySetType.MEMORABILIA,
+            ScrySetType.MINIGAME,
+            ScrySetType.TOKEN,
+        },
+        exclude_card_layouts={
+            ScryCardLayout.ART_SERIES,
+            ScryCardLayout.DOUBLE_FACED_TOKEN,
+            ScryCardLayout.EMBLEM,
+            ScryCardLayout.TOKEN,
+        },
+    )
+    set_codes2 = {s.code for s in default_filtered.sets}
+    card_names2 = {c.name for c in default_filtered.cards}
+
+    assert "altc" not in set_codes2
+    assert "macr" not in set_codes2
+    assert "tmma" not in set_codes2
+    assert "Fell Beast's Shriek // Fell Beast's Shriek" not in card_names2
+    assert "Into the Story: Assassin Edition // Story Beats" not in card_names2
+    assert "Elspeth, Knight-Errant Emblem" not in card_names2
+
+    assert {"tmc", "bro", "znr"} <= set_codes2
+    assert {
+        "Ninja Pizza",
+        "Steel Seraph",
+        "Skyclave Cleric // Skyclave Basilica",
+    } <= card_names2
