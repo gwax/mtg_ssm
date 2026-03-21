@@ -30,11 +30,11 @@ jobs:
         run: uv build --sdist --wheel --out-dir dist
 
       - name: Publish distribution 📦 to Test PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1.12
+        uses: pypa/gh-action-pypi-publish@release/v1.13
         with:
           repository-url: https://test.pypi.org/legacy/
 
       - name: Publish distribution 📦 to PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1.12
+        uses: pypa/gh-action-pypi-publish@release/v1.13
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
