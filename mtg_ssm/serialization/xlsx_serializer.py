@@ -61,20 +61,25 @@ def create_all_sets(sheet: Worksheet, index: ScryfallDataIndex) -> None:
     sheet.append(ALL_SETS_SHEET_TOTALS)
     for card_set in sorted(index.setcode_to_set.values(), key=_card_set_sort_key):
         setcode = card_set.code.upper()
+        card_count = len(index.setcode_to_cards[card_set.code])
+        have_range = _setsheet_data_range(setcode, "have", card_count)
+        nonfoil_range = _setsheet_data_range(setcode, "nonfoil", card_count)
+        foil_range = _setsheet_data_range(setcode, "foil", card_count)
+        value_range = _setsheet_data_range(setcode, "value", card_count)
         row = [
             setcode,
             card_set.name,
             card_set.released_at,
             card_set.block,
             card_set.set_type.value,
-            len(index.setcode_to_cards[card_set.code]),
-            f"=SUM('{setcode}'!{_setsheet_col('have')}:{_setsheet_col('have')})",
-            f"=COUNTIF('{setcode}'!{_setsheet_col('have')}:{_setsheet_col('have')},\">0\")",
-            f"=COUNTIF('{setcode}'!{_setsheet_col('have')}:{_setsheet_col('have')},\">=4\")",
-            f"=SUMIF('{setcode}'!{_setsheet_col('have')}:{_setsheet_col('have')},\">4\")-4*COUNTIF('{setcode}'!{_setsheet_col('have')}:{_setsheet_col('have')},\">4\")",
-            f"=SUM('{setcode}'!{_setsheet_col('nonfoil')}:{_setsheet_col('nonfoil')})",
-            f"=SUM('{setcode}'!{_setsheet_col('foil')}:{_setsheet_col('foil')})",
-            f"=SUM('{setcode}'!{_setsheet_col('value')}:{_setsheet_col('value')})",
+            card_count,
+            f"=SUM({have_range})",
+            f'=COUNTIF({have_range},">0")',
+            f'=COUNTIF({have_range},">=4")',
+            f'=SUMIF({have_range},">4")-4*COUNTIF({have_range},">4")',
+            f"=SUM({nonfoil_range})",
+            f"=SUM({foil_range})",
+            f"=SUM({value_range})",
         ]
         sheet.append(row)
 
@@ -201,6 +206,14 @@ SET_SHEET_HEADER = (
 
 def _setsheet_col(column_header: str) -> str:
     return string.ascii_uppercase[SET_SHEET_HEADER.index(column_header)]
+
+
+def _setsheet_data_range(setcode: str, column_header: str, row_count: int) -> str:
+    """Create an absolute worksheet range spanning the populated card rows for a column."""
+    col = _setsheet_col(column_header)
+    first_row = ROW_OFFSET
+    last_row = ROW_OFFSET + row_count - 1
+    return f"'{setcode}'!{col}{first_row}:{col}{last_row}"
 
 
 COUNT_COLS = [_setsheet_col(ct) for ct in counts.CountType]
