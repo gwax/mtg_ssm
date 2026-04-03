@@ -13,7 +13,7 @@
       "digital": false,
       "foil_only": false,
       "nonfoil_only": true,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/dci.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/dci.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Aphop&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/phop",
       "uri": "https://api.scryfall.com/sets/ef3f6784-a6e8-41ff-8bed-72e0c7121298"
@@ -29,7 +29,7 @@
       "digital": false,
       "foil_only": false,
       "nonfoil_only": true,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/pbook.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/pbook.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Aphpr&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/phpr",
       "uri": "https://api.scryfall.com/sets/b32cc4a1-1e06-4bec-bab6-89b2691b57a4"
@@ -51,7 +51,7 @@
       "digital": false,
       "foil_only": false,
       "nonfoil_only": false,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/plc.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/plc.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Aplc&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/plc",
       "uri": "https://api.scryfall.com/sets/5a1b571c-73e9-4c14-b9d4-a62507d85789"
@@ -73,7 +73,7 @@
       "digital": false,
       "foil_only": false,
       "nonfoil_only": false,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/pls.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/pls.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Apls&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/pls",
       "uri": "https://api.scryfall.com/sets/82dc193b-bd5f-4883-a93f-a4155b467ee0"
@@ -90,7 +90,7 @@
       "digital": false,
       "foil_only": false,
       "nonfoil_only": false,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/planeswalker.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/planeswalker.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Aplst&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/plst",
       "uri": "https://api.scryfall.com/sets/67e47ba2-b019-4181-9005-fe9fc021de44"
@@ -109,7 +109,7 @@
       "digital": false,
       "foil_only": true,
       "nonfoil_only": false,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/mbs.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/mbs.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Apmbs&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/pmbs",
       "uri": "https://api.scryfall.com/sets/8a59d98a-4e13-4943-b06c-b35868e954ba"
@@ -126,7 +126,7 @@
       "digital": false,
       "foil_only": false,
       "nonfoil_only": false,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/neo.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/neo.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Apneo&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/pneo",
       "uri": "https://api.scryfall.com/sets/b3161020-d74f-48cc-bc9d-d7233e64e524"
@@ -145,7 +145,7 @@
       "digital": false,
       "foil_only": false,
       "nonfoil_only": false,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/rna.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/rna.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Aprna&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/prna",
       "uri": "https://api.scryfall.com/sets/503230ec-81e3-4f92-b847-ff435b1652e0"
@@ -164,7 +164,7 @@
       "digital": false,
       "foil_only": true,
       "nonfoil_only": false,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/rna.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/rna.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Aprw2&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/prw2",
       "uri": "https://api.scryfall.com/sets/ee3a8eb6-0583-492b-8be5-265795d38038"
@@ -181,7 +181,7 @@
       "digital": false,
       "foil_only": true,
       "nonfoil_only": false,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/ptg.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/ptg.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Aptg&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/ptg",
       "uri": "https://api.scryfall.com/sets/d264b61b-bfb3-4388-be42-e34a1eaa00c2"
@@ -198,7 +198,7 @@
       "digital": false,
       "foil_only": false,
       "nonfoil_only": true,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/ren.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/ren.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Aren&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/ren",
       "uri": "https://api.scryfall.com/sets/bec33d25-cf6f-460f-918d-29b3009686bb"
@@ -220,7 +220,7 @@
       "digital": false,
       "foil_only": false,
       "nonfoil_only": false,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/rna.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/rna.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Arna&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/rna",
       "uri": "https://api.scryfall.com/sets/97a7fd84-8d89-45a3-b48b-c951f6a3f9f1"
@@ -237,7 +237,7 @@
       "digital": false,
       "foil_only": false,
       "nonfoil_only": false,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/s00.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/s00.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3As00&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/s00",
       "uri": "https://api.scryfall.com/sets/1c105623-2564-40d7-a3aa-4134787fb127"
@@ -250,11 +250,11 @@
       "name": "Secret Lair Drop",
       "set_type": "box",
       "released_at": "2019-12-02",
-      "card_count": 3,
+      "card_count": 4,
       "digital": false,
       "foil_only": false,
       "nonfoil_only": false,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/star.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/star.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Asld&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/sld",
       "uri": "https://api.scryfall.com/sets/4d92a8a7-ccb0-437d-abdc-9d70fc5ed672"
@@ -276,7 +276,7 @@
       "digital": false,
       "foil_only": false,
       "nonfoil_only": false,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/sok.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/sok.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Asok&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/sok",
       "uri": "https://api.scryfall.com/sets/4db16ad3-2b95-442f-bb6b-e9aa7fe7f769"
@@ -293,7 +293,7 @@
       "digital": false,
       "foil_only": false,
       "nonfoil_only": true,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/unf.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/unf.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Asunf&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/sunf",
       "uri": "https://api.scryfall.com/sets/565e3302-2fed-487e-a0f7-7f8037d25030"
@@ -312,7 +312,7 @@
       "digital": false,
       "foil_only": false,
       "nonfoil_only": false,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/thb.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/thb.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Athb&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/thb",
       "uri": "https://api.scryfall.com/sets/5f23a78d-cda1-462a-8be3-a62b40c34913"
@@ -332,7 +332,7 @@
       "digital": false,
       "foil_only": false,
       "nonfoil_only": false,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/tmc.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/tmc.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Atmc&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/tmc",
       "uri": "https://api.scryfall.com/sets/178a07bb-cd54-4443-8b62-675e0c52cfe3"
@@ -349,7 +349,7 @@
       "digital": false,
       "foil_only": false,
       "nonfoil_only": true,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/mma.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/mma.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Atmma&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/tmma",
       "uri": "https://api.scryfall.com/sets/e03160f8-6045-4613-9869-f5f4fa12604d"
@@ -367,7 +367,7 @@
       "digital": false,
       "foil_only": false,
       "nonfoil_only": false,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/unh.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/unh.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Aunh&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/unh",
       "uri": "https://api.scryfall.com/sets/4c8bc76a-05a5-43db-aaf0-34deb347b871"
@@ -385,7 +385,7 @@
       "digital": false,
       "foil_only": false,
       "nonfoil_only": false,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/ust.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/ust.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Aust&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/ust",
       "uri": "https://api.scryfall.com/sets/83491685-880d-41dd-a4af-47d2b3b17c10"
@@ -404,7 +404,7 @@
       "digital": true,
       "foil_only": false,
       "nonfoil_only": false,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/vma.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/vma.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Avma&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/vma",
       "uri": "https://api.scryfall.com/sets/a944551a-73fa-41cd-9159-e8d0e4674403"
@@ -423,7 +423,7 @@
       "digital": false,
       "foil_only": false,
       "nonfoil_only": true,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/w16.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/w16.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Aw16&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/w16",
       "uri": "https://api.scryfall.com/sets/b3a0e4a1-5f2c-44e1-8558-61e6dcd88fda"
@@ -440,7 +440,7 @@
       "digital": true,
       "foil_only": false,
       "nonfoil_only": true,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/y25.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/y25.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Ayecl&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/yecl",
       "uri": "https://api.scryfall.com/sets/1898a31a-88cb-48ef-9d6b-f91822e509b7"
@@ -460,7 +460,7 @@
       "digital": false,
       "foil_only": false,
       "nonfoil_only": false,
-      "icon_svg_uri": "https://svgs.scryfall.io/sets/znr.svg?1773633600",
+      "icon_svg_uri": "https://svgs.scryfall.io/sets/znr.svg?1774843200",
       "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Aznr&unique=prints",
       "scryfall_uri": "https://scryfall.com/sets/znr",
       "uri": "https://api.scryfall.com/sets/f4e01fa7-b254-42dd-849f-69b58027a8c4"

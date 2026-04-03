@@ -127,6 +127,7 @@ class ScryFrameEffect(str, Enum):
     TEXTLESS = "textless"
     THICK = "thick"
     TOMBSTONE = "tombstone"
+    TRANSLUCENT = "translucent"
     UPSIDEDOWNDFC = "upsidedowndfc"
     VEHICLE = "vehicle"
     WAXINGANDWANINGMOONDFC = "waxingandwaningmoondfc"

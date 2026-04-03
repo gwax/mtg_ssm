@@ -206,6 +206,11 @@ Development
 
 -   ...
 
+2.8.1
+-----
+
+-   Scryfall schema fix.
+
 2.8.0
 -----
 

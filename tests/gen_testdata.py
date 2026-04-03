@@ -67,7 +67,7 @@ TEST_SETS_TO_CARDS = {
     "ren": {"Sylvan Library"},
     "rna": {"Tithe Taker"},
     "s00": {"Rhox"},
-    "sld": {"Goblin", "Viscera Seer", "Doubling Cube // Doubling Cube"},
+    "sld": {"Goblin", "Viscera Seer", "Doubling Cube // Doubling Cube", "Secrets of the Dead"},
     "sok": {"Erayo, Soratami Ascendant // Erayo's Essence"},
     "sunf": {"Happy Dead Squirrel"},
     "thb": {
