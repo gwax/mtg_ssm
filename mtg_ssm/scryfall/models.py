@@ -69,6 +69,7 @@ class ScryCardLayout(str, Enum):
     MUTATE = "mutate"
     NORMAL = "normal"
     PLANAR = "planar"
+    PREPARE = "prepare"
     PROTOTYPE = "prototype"
     REVERSIBLE_CARD = "reversible_card"
     SAGA = "saga"
@@ -122,6 +123,7 @@ class ScryFrameEffect(str, Enum):
     SHOWCASE = "showcase"
     SNOW = "snow"
     SPREE = "spree"
+    SURGEFOIL = "surgefoil"
     STAMPED = "stamped"
     SUNMOONDFC = "sunmoondfc"
     TEXTLESS = "textless"
@@ -220,6 +222,7 @@ class ScryFormat(str, Enum):
     STANDARD = "standard"
     STANDARDBRAWL = "standardbrawl"
     TIMELESS = "timeless"
+    TLR = "tlr"
     VINTAGE = "vintage"
 
 
