@@ -204,7 +204,8 @@ Changelog
 Development
 -----------
 
--   ...
+-   Fix Scryfall fetching with application request headers, JSON Lines bulk
+    downloads, and updated card layout and format values.
 
 2.8.1
 -----
