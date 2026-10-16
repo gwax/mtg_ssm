@@ -20,6 +20,16 @@
       "old_scryfall_id": "d361aded-4aa6-415b-bdd4-7f19b1102de4",
       "new_scryfall_id": "9052f5c7-ee3b-457d-97ca-ac6b4518997c",
       "note": "Actually a reverisble card"
+    },
+    {
+      "object": "migration",
+      "id": "aa81820e-2b61-43bc-b52d-40ad28e37188",
+      "uri": "https://api.scryfall.com/migrations/aa81820e-2b61-43bc-b52d-40ad28e37188",
+      "performed_at": "2026-09-23",
+      "migration_strategy": "merge",
+      "old_scryfall_id": "f7f1ce0b-6668-4d16-8fe0-07c65ce4bc82",
+      "new_scryfall_id": "6bf084fe-7762-49c5-974a-cdecc10666b3",
+      "note": "Rebalanced cards have been removed from Arena https://mtgarena-support.wizards.com/hc/en-us/articles/53820137910932-Patch-Notes-2026-63-0"
     }
   ],
   "has_more": false

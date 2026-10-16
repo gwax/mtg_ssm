@@ -41,7 +41,7 @@ TEST_SETS_TO_CARDS = {
     "hop": {"Akroma's Vengeance", "Dark Ritual"},
     "ice": {"Dark Ritual", "Forest", "Snow-Covered Forest"},
     "isd": {"Abattoir Ghoul", "Delver of Secrets // Insectile Aberration", "Forest"},
-    "khm": {"Cosmos Elixir", "A-Cosmos Elixir"},
+    "khm": {"Cosmos Elixir"},
     "lea": {"Air Elemental", "Dark Ritual", "Forest"},
     "mbs": {"Hero of Bladehold", "Black Sun's Zenith"},
     "macr": {"Into the Story: Assassin Edition // Story Beats"},
@@ -83,7 +83,7 @@ TEST_SETS_TO_CARDS = {
     "vma": {"Academy Elite"},
     "w16": {"Serra Angel"},
     "yecl": {"Thoughtsteal Sprites"},
-    "znr": {"Skyclave Cleric // Skyclave Basilica"},
+    "znr": {"Skyclave Cleric // Skyclave Basilica", "Needleverge Pathway // Pillarverge Pathway"},
 }
 
 
