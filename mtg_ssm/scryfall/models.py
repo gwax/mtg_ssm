@@ -62,6 +62,7 @@ class ScryCardLayout(str, Enum):
     DOUBLE_SIDED = "double_sided"
     EMBLEM = "emblem"
     FLIP = "flip"
+    FRONT_CARD = "front_card"
     HOST = "host"
     LEVELER = "leveler"
     MELD = "meld"
@@ -202,6 +203,7 @@ class ScryFormat(str, Enum):
     ALCHEMY = "alchemy"
     BRAWL = "brawl"
     COMMANDER = "commander"
+    COMPETITIVEBRAWL = "competitivebrawl"
     DUEL = "duel"
     EXPLORER = "explorer"
     FRONTIER = "frontier"
@@ -326,7 +328,7 @@ class CardPreviewBlock(Struct):
     """Model for card preview block."""
 
     source: str
-    source_uri: str
+    source_uri: str | None
     previewed_at: dt.date
 
 
@@ -442,11 +444,12 @@ class ScryBulkData(
     type: str
     name: str
     description: str
-    download_uri: str
+    download_uri: str | None = None
+    jsonl_download_uri: str | None = None
     updated_at: dt.datetime
     compressed_size: int | None = None
-    content_type: str
-    content_encoding: str
+    content_type: str | None = None
+    content_encoding: str | None = None
 
 
 class ScryMigration(
