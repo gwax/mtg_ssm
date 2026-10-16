@@ -8,6 +8,7 @@ from mtg_ssm.scryfall.models import ScryCardLayout, ScrySetType
 
 
 def test_remove_digital(scryfall_data: bundles.ScryfallDataSet) -> None:
+    digital_pathway_id = UUID("edc71870-656c-40f9-b2b0-f69a46bf8c51")
     set_codes = {s.code for s in scryfall_data.sets}
     card_ids = {c.id for c in scryfall_data.cards}
     card_names = {c.name for c in scryfall_data.cards}
@@ -17,7 +18,10 @@ def test_remove_digital(scryfall_data: bundles.ScryfallDataSet) -> None:
 
     assert "khm" in set_codes
     assert "Cosmos Elixir" in card_names
-    assert "A-Cosmos Elixir" in card_names
+
+    assert "znr" in set_codes
+    assert "Needleverge Pathway // Pillarverge Pathway" in card_names
+    assert digital_pathway_id in card_ids
 
     assert "yecl" in set_codes
     assert "Thoughtsteal Sprites" in card_names
@@ -32,7 +36,10 @@ def test_remove_digital(scryfall_data: bundles.ScryfallDataSet) -> None:
 
     assert "khm" in set_codes2
     assert "Cosmos Elixir" in card_names2
-    assert "A-Cosmos Elixir" not in card_names2
+
+    assert "znr" in set_codes2
+    assert "Needleverge Pathway // Pillarverge Pathway" in card_names2
+    assert digital_pathway_id not in card_ids2
 
     assert "yecl" not in set_codes2
     assert "Thoughtsteal Sprites" not in card_names2

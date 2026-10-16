@@ -85,6 +85,27 @@ def test_data_fixtures(
 
 
 @pytest.mark.usefixtures("_scryurls")
+def test_scryfetch_legacy_json(
+    requests_mock: RequestsMock, scryfall_data: ScryfallDataSet
+) -> None:
+    bulk = msgspec.json.decode(gen_testdata.TARGET_BULK_FILE.read_bytes())
+    download_uri = bulk["data"][0].pop("jsonl_download_uri").replace(".jsonl.gz", ".json")
+    bulk["data"][0]["download_uri"] = download_uri
+    bulk["data"][0]["content_type"] = "application/json"
+    bulk["data"][0]["content_encoding"] = "gzip"
+    requests_mock.replace("GET", fetcher.BULK_DATA_ENDPOINT, json=bulk)
+    requests_mock.remove("GET", re.compile(BULK_CARDS_REGEX))
+    requests_mock.add(
+        "GET",
+        download_uri,
+        body=gen_testdata.TARGET_CARDS_FILE.read_bytes(),
+        content_type="application/json",
+    )
+
+    assert fetcher.scryfetch() == scryfall_data
+
+
+@pytest.mark.usefixtures("_scryurls")
 @pytest.mark.parametrize("encoding", ["gzip-file", "gzip-http", "plain"])
 def test_scryfetch_jsonl(
     requests_mock: RequestsMock, scryfall_data: ScryfallDataSet, encoding: str
